@@ -1,0 +1,484 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0 none;
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #fff;
+}
+a {
+    text-decoration: none;   
+}
+#top_menu {
+    position: fixed;
+    width: 100%;
+    height: 40px;
+    background-color: #6b6b6b;
+    z-index: 100;
+    top: 0;
+}
+#top_menu > #logo {
+    position: relative;
+    float: left;
+    height: 100%;
+    width: 250px;
+}
+#top_menu > #logo > a {
+    position: relative;
+    float: left;
+    margin: 10px 0 0 25px;
+}
+#top_menu > #search {
+    position: relative;
+    float: left;
+    height: 100%;
+}
+#top_menu > #search > #search_box {
+    position: relative;
+    float: left;
+    margin-top: 8px;
+    background-color: #FCFCFC;
+    background-image: url("../images/search.png");
+    background-position: 382px 2px;
+    background-repeat: no-repeat;
+    border: 1px solid #7d7d7d;
+    height: 22px;
+    width: 400px;
+}
+#top_menu > #search > #search_box > input {
+    position: relative;
+    float: left;
+    border: 0;
+    font-size: 11px;
+    color: #4b4b4b;
+    height: 22px;
+    width: 352px;
+    padding: 0 13px;
+    background-color: #FCFCFC;
+}
+#top_menu > #top_menu_right {
+    position: relative;
+    float: right;
+    height: 100%;
+    margin-right: 25px;
+}
+#top_menu > #top_menu_right > #logout_containet {
+    position: relative;
+    float: right;
+    height: 100%;
+    margin-left: 13px;
+}
+#top_menu > #top_menu_right > #logout_containet > a {
+    position: relative;
+    float: left;
+    font-size: 12px;
+    color: #f2f2f2;
+    margin-top: 12px;
+}
+#top_menu > #top_menu_right > #person_foto_container {
+    position: relative;
+    float: right;
+    height: 100%;
+    margin-left: 13px;
+}
+#top_menu > #top_menu_right > #person_foto_container > #person_foto {
+    position: relative;
+    float: left;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #6b6b6b;
+    background-color: #efefef;
+    margin-top: 9px;
+    background-repeat: no-repeat;
+    background-position: bottom left;
+}
+#top_menu > #top_menu_right > #person_name {
+    position: relative;
+    float: right;
+    font-size: 12px;
+    margin-top: 12px;
+    color: #f2f2f2;
+}
+#top_menu > #top_menu_right > #person_name > a {
+    color: #f2f2f2;
+    font-weight: bold;
+}
+#main_menu {
+    position: fixed;
+    width: 100%;
+    height: 33px;
+    top: 40px;
+    background-color: #FCFCFC;
+    border-bottom: 1px solid #E7E7E7;
+    z-index: 100;
+}
+#main_menu > #select_mode_conteiner, #main_button > .left {
+    position: relative;
+    float: left;
+    height: 100%;
+    width: 250px;
+} 
+#main_menu > #select_mode_conteiner > #select_mode {
+    position: relative;
+    float: left;
+    margin: 10px 0 0 25px;
+    cursor: pointer;
+}
+#main_menu > #select_mode_conteiner > #select_mode > #select {
+    float: left;
+    font-size: 13px;
+    color: #eb3c00;
+}
+#main_menu > #select_mode_conteiner > #select_mode > img {
+    position: relative;
+    float: left;
+    margin: 7px 0 0 3px;
+}
+#main_menu > ul#main_menu_list {
+    position: relative;
+    float: left;
+    margin-top: 6px;
+    list-style-type: none;
+}
+#main_menu > ul#main_menu_list > li {
+    float: left;
+    margin-left: 15px;
+}
+#main_menu > ul#main_menu_list > li:first-child {
+    margin-left: 0;
+}
+#main_menu > ul#main_menu_list > li > a {
+    font-size: 13px;
+    color: #565656;
+    text-transform: uppercase;
+}
+#main_menu > ul#main_menu_list > li > a:hover {
+    color: #909090;
+}
+#main_menu > ul#main_menu_list > li.selected > a {
+    color: #eb3c00;
+}
+#shortcut_container {
+    position: relative;
+    float: right;
+    height: 100%;
+    margin-right: 25px;
+}
+#shortcut_container > a {
+    position: relative;
+    float: right;
+    margin: 7px 0 0 7px;
+}
+#shortcut_container > a > img.arrow {
+    position: relative;
+    float: right;
+    margin: 8px 0 0 3px;
+}
+#main_button {
+    position: fixed;
+    width: 100%;
+    height: 46px;
+    top: 74px;
+    z-index: 100;
+    background-color: #f7f7f7;
+    border-bottom: 1px solid #E7E7E7;
+}
+#main_button > .left {
+    position: relative;
+    float: left;
+    width: 250px;
+    height: 100%;
+}
+#main_button > .left > button#create {
+    position: relative;
+    float: left;
+    height: 28px;
+    font-size: 11px;
+    text-transform: uppercase;
+    color: #FCFCFC;
+    background-color: #4d90fe;
+    border: 1px solid #e2e2e2;
+    width: 115px;
+    margin: 9px 0 0 40px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+#main_button > .center {
+    position: relative;
+    float: left;
+    height: 100%;
+}
+#main_button > .center > button {
+    position: relative;
+    float: left;
+    height: 28px;
+    width: 59px;
+    background-color: #FAFAFA;
+    border: 1px solid #e2e2e2;
+    border-radius: 4px;
+    margin: 9px 10px 0 0;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+#main_button > .center > button.select {
+    background-image: url("../images/select.png");
+}
+#main_button > .center > button.refresh {
+    background-image: url("../images/refresh.png");
+}
+#main_button > .center > button.edit {
+    background-image: url("../images/edit.png");
+}
+#main_button > .center > button.remove {
+    background-image: url("../images/remove.png");
+}
+#main_button > .center > button.more {
+    background-image: url("../images/more.png");
+}
+#main_line {
+    position: fixed;
+    width: 100%;
+    height: 33px;
+    border-bottom: 1px solid #E7E7E7;
+    background-color: #FCFCFC;
+    z-index: 60;
+    left: 0;
+    top: 121px;
+}
+#left_menu {
+    position: fixed;
+    height: 100%;
+    width: 250px;
+    left: 0;
+    top: 0;
+    z-index: 50;
+    border-right: 1px solid #E7E7E7;
+    background-color: #FCFCFC;
+    margin-top: 155px;
+}
+#left_menu > #left_menu_container {
+    position: relative;
+    float: left;
+    width: 225px;
+    list-style-type: none;
+}
+#left_menu > #left_menu_container > li {
+    position: relative;
+    float: left;
+    padding-bottom: 8px;
+    min-height: 200px;
+}
+#left_menu > #left_menu_container > li > div.edit {
+    position: relative;
+    float: left;
+    width: 100%;
+    height: 26px;
+    background-color: #E7E7E7;
+}
+#left_menu > #left_menu_container > li > div.edit > button {
+    position: relative;
+    float: left;
+    padding: 1px 5px;
+    margin: 3px 0 0 8px;
+    font-size: 10px;
+    background-color: #F7F7F7;
+    border: 1px solid #C6C6C6;
+    border-radius: 3px;
+    cursor: pointer;
+    color: #565656;
+}
+#left_menu > #left_menu_container > li > div.edit > button:first-child {
+    margin-left: 25px;
+}
+#left_menu > #left_menu_container > li > a {
+    position: relative;
+    float: left;
+    width: 198px;
+    color: #3a3a3a;
+    font-size: 13px;
+    border: 1px solid #E7E7E7;
+    height: 18px;
+    border-width: 1px 0;
+    padding: 7px 0 7px 52px;
+    background-color: #F7F7F7;
+    font-weight: bold;
+    background-position: 25px 50%;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+#left_menu > #left_menu_container > li:first-child > a {
+    border-top: 0;
+}
+#left_menu > #left_menu_container > li > a.language {
+    background-image: url("../images/language.png");
+}
+#left_menu > #left_menu_container > li > a.group {
+    background-image: url("../images/group.png");
+}
+#left_menu > #left_menu_container > li > ul {
+    list-style-type: none;
+    margin-top: 11px;
+    float: left;
+}
+#left_menu > #left_menu_container > li > ul > li {
+    position: relative;
+    float: left;
+    height: 24px;
+    border-left: 5px solid transparent;
+    width: 220px;
+}
+#left_menu > #left_menu_container > li > ul > li.selected {
+    border-color: #eb3c00;
+}
+#left_menu > #left_menu_container > li > ul > li > a {
+    color: #3a3a3a;
+    padding-left: 35px;
+    font-size: 13px;
+}
+#left_menu > #left_menu_container > li > ul > li > a:hover {
+    color: #909090;
+}
+#left_menu > #left_menu_container > li > ul > li.selected > a {
+    color: #eb3c00;
+}
+#main {
+    position: relative;
+    margin-top: 155px;
+    margin-left: 250px;
+    overflow: visible;
+}
+#main > #main_container {
+    position: relative;
+    float: left;
+    min-width: 100%;
+    min-height: 100%; 
+    margin-bottom: 41px;
+}
+#main > #main_container > table {
+    position: relative;
+    float: left;
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: -1px;
+}
+#main > #main_container > table > thead > tr > th {
+    height: 32px;
+    text-align: left;
+    font-size: 13px;
+    font-weight: normal;
+    cursor: pointer;
+    background-color: #F7F7F7;
+    border: 1px solid #E7E7E7;
+    border-width: 0 1px 1px 0;
+    border-color: #EEEEEE #EEEEEE #E7E7E7 #EEEEEE;
+    padding-left: 10px;
+}
+#main > #main_container > table > thead > tr > th:last-child {
+    border-right: 0;
+}
+#main > #main_container > table > thead > tr > th > img.order {
+    margin-left: 5px;
+    padding-bottom: 2px;
+}
+#main > #main_container > table > tbody > tr {
+    border-bottom: 1px solid #f7f7f7;
+}
+#main > #main_container > table > tbody > tr > td {
+    text-align: left;
+    font-size: 13px;
+    color: #3a3a3a;
+    height: 32px;
+    border-right: 1px solid #f7f7f7;
+    padding-left: 10px;
+}
+#main > #main_container > table > tbody > tr > td:last-child {
+    border-right: 0;
+}
+#main > #main_container > table > tbody > tr > td > a {
+    color: #3a3a3a;
+}
+#main > #main_container > table > tbody > tr > td > img {
+    cursor: pointer;
+}
+#main > #main_container > table > tbody > tr:hover {
+    background-color: #FEF6E9;
+}
+#main > #main_container > table > thead > tr > th.select {
+    width: 46px;
+}
+#main > #main_container > table > tbody > tr > td.select {
+    text-align: center;
+    padding-right: 10px;
+}
+#main > #main_container > table > tbody > tr > td.select > input {
+    opacity: 0.5;
+}
+#main > #main_container > table > thead > tr > th.lp {
+    width: 50px;
+}
+#main > #main_container > table > thead > tr > th.width_big {
+    min-width: 220px;
+}
+#main > #main_container > table > thead > tr > th.width_medium {
+    min-width: 150px;
+}
+#main > #main_container > table > thead > tr > th.width_small {
+    min-width: 100px;
+}
+#footer {
+    position: fixed;
+    width: 100%;
+    height: 40px;
+    border-top: 1px solid #E7E7E7;
+    bottom: 0;
+    background-color: #FCFCFC;
+    z-index: 20;
+}
+#footer > #pagination {
+    position: relative;
+    float: right;
+    height: 100%;
+    margin: 10px 25px 0 0;
+}
+#footer > #pagination > div.pagination {
+    float: left;
+    font-size: 13px;
+    margin: 2px 10px 0 0;
+}
+#footer > #pagination > div.pagination > a {
+    color: #757575;
+    cursor: pointer;
+    float: left;
+    margin: 0 1px;
+    position: relative;
+}
+#footer > #pagination > div.pagination > div#str {
+    float: left;
+    position: relative;
+}
+#footer > #pagination > div.pagination > div#str > span {
+    cursor: pointer;
+    float: left;
+    margin: 0 3px;
+    color: #666666;
+}
+#footer > #pagination > div.pagination > div#str > span#str_selected {
+    font-weight: bold;
+    color: #3a3a3a;
+}
+#footer > #pagination > label {
+    color: #666666;
+    float: left;
+    font-size: 12px;
+    margin: 0 5px 0 8px;
+    padding-top: 3px;
+    position: relative;
+    width: auto;
+}
+#footer > #pagination > select {
+    position: relative;
+    float: right;
+    background-color: #FCFCFC;
+}

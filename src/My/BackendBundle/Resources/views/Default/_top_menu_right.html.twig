@@ -1,0 +1,7 @@
+<div id="logout_containet">
+	<a id="logout" href="{{ path('fos_user_security_logout') }}">Wyloguj</a>
+</div>
+<div id="person_foto_container">
+	<div id="person_foto" style="background-image: url('{{ asset("images/person_small.png") }}')"></div>
+</div>
+<div id="person_name">Witaj <a href="#">{{ app.user.username }}</a></div>

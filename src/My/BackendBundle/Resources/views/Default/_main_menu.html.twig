@@ -1,0 +1,21 @@
+<div id="select_mode_conteiner">
+	<div id="select_mode">
+		<div id="select">CMS</div>
+		<img src="{{ asset('images/arrow_down_orange.png') }}" alt="select" />
+	</div>
+</div>
+<ul id="main_menu_list">
+	{% include 'MyBackendBundle:Default:_main_menu_list.html.twig' %}
+</ul>
+<div id="shortcut_container">
+	<a href="#" id="shortcut_option">
+		<img src="{{ asset('images/gear_black.png') }}" alt="option" />
+		<img class="arrow" src="{{ asset('images/arrow_down_black.png') }}" alt="arrow" />
+	</a>
+	<a href="#" id="shortcut_show">
+		<img src="{{ asset('images/show_black.png') }}" alt="show" />
+	</a>
+	<a href="#" id="shortcut_attachment">
+		<img src="{{ asset('images/attachment_black.png') }}" alt="attachment" />
+	</a>
+</div>

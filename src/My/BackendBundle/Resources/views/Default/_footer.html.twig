@@ -1,0 +1,25 @@
+<div id="pagination">
+    <div class="pagination">
+        <a id="pagination_first"><img src="{{ asset('images/first.png') }}" alt="first" /></a>
+        <a id="pagination_previous"><img src="{{ asset('images/previous.png') }}" alt="previous" /></a>
+        
+        <div id="str">
+            <span id="str_selected">1</span>
+            <span>2</span>
+            <span>3</span>
+        </div>
+        
+        <a id="pagination_next"><img src="{{ asset('images/next.png') }}" alt="next" /></a>
+        <a id="pagination_last"><img src="{{ asset('images/last.png') }}" alt="last" /></a>
+    </div>
+
+    <label>ilość wierszy:</label>
+	<select class="number_of_lines">
+	<?php foreach($pageMaxArr as $key => $pageMax): ?>
+		<option value="10">10</option>
+	    <option value="20" selected="selected">20</option>
+	    <option value="50">50</option>
+	    <option value="100">100</option>
+	<?php endforeach; ?>
+	</select>
+</div>  

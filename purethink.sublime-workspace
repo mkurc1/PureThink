@@ -1,0 +1,1466 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"mar",
+				"margin-top"
+			],
+			[
+				"age",
+				"ageTemp"
+			],
+			[
+				"sr",
+				"script	Tag"
+			],
+			[
+				"al",
+				"alias2"
+			],
+			[
+				"ala",
+				"alias1"
+			],
+			[
+				"getInte",
+				"getInterestHelper"
+			],
+			[
+				"product",
+				"product_id"
+			],
+			[
+				"create",
+				"created_at"
+			],
+			[
+				"main_men",
+				"main_menu_list"
+			],
+			[
+				"par",
+				"padding-right"
+			],
+			[
+				"pad",
+				"padding-right"
+			],
+			[
+				"border-r",
+				"border-right"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"border",
+				"border"
+			],
+			[
+				"borde",
+				"border-top"
+			],
+			[
+				"ma",
+				"margin-top"
+			],
+			[
+				"ba",
+				"background-color"
+			],
+			[
+				"fon",
+				"font-style"
+			],
+			[
+				"bord",
+				"border-bottom"
+			],
+			[
+				"date",
+				"dateTo"
+			],
+			[
+				"fe",
+				"fetchOne"
+			],
+			[
+				"text",
+				"text-align"
+			],
+			[
+				"tex",
+				"text-align"
+			],
+			[
+				"pa",
+				"padding-bottom"
+			],
+			[
+				"bac",
+				"background-color"
+			],
+			[
+				"backgr",
+				"background-color"
+			],
+			[
+				"bor",
+				"border"
+			],
+			[
+				"f",
+				"float"
+			],
+			[
+				"maga",
+				"magazineMode"
+			],
+			[
+				"che",
+				"checkStetisctic"
+			],
+			[
+				"stat",
+				"statisticsMode"
+			],
+			[
+				"magaz",
+				"magazineCopy"
+			],
+			[
+				"clie",
+				"clientAddition"
+			],
+			[
+				"client",
+				"clientId"
+			],
+			[
+				"msg",
+				"msgToReturn"
+			],
+			[
+				"le",
+				"left"
+			],
+			[
+				"co",
+				"color"
+			],
+			[
+				"wdi",
+				"width"
+			],
+			[
+				"prod",
+				"productId"
+			],
+			[
+				"statis",
+				"statisticsMode"
+			],
+			[
+				"getPartial",
+				"getPartialToStatisticsList"
+			],
+			[
+				"sele",
+				"selected"
+			],
+			[
+				"add",
+				"addClass"
+			],
+			[
+				"inte",
+				"interest"
+			],
+			[
+				"crea",
+				"created_at"
+			],
+			[
+				"url",
+				"urlMoveToUsed"
+			],
+			[
+				"pro",
+				"productId"
+			],
+			[
+				"pr",
+				"productId"
+			],
+			[
+				"fo",
+				"font-size"
+			],
+			[
+				"bo",
+				"box-shadow"
+			],
+			[
+				"font-s",
+				"font-size"
+			],
+			[
+				"te",
+				"text-transform"
+			],
+			[
+				"c",
+				"column"
+			],
+			[
+				"ur",
+				"urlEdit"
+			],
+			[
+				"ca",
+				"categories"
+			],
+			[
+				"mod",
+				"magazineMode"
+			],
+			[
+				"Ma",
+				"MagazineCategory_1"
+			],
+			[
+				"Maga",
+				"MagazineType_1"
+			],
+			[
+				"a",
+				"append"
+			],
+			[
+				"plane",
+				"planer_zadania"
+			],
+			[
+				"com",
+				"company_id"
+			],
+			[
+				"comapny",
+				"company_id"
+			],
+			[
+				"number",
+				"numberOfTheDayInMonth"
+			],
+			[
+				"count",
+				"countProducts"
+			],
+			[
+				"pay",
+				"paymentId"
+			],
+			[
+				"mana",
+				"managePayment"
+			],
+			[
+				"manage",
+				"managePayment"
+			],
+			[
+				"li",
+				"line-height"
+			],
+			[
+				"m",
+				"margin-left"
+			],
+			[
+				"us",
+				"userId"
+			],
+			[
+				"to",
+				"toWhomId"
+			],
+			[
+				"user",
+				"userId"
+			],
+			[
+				"u",
+				"uzytkownicy"
+			],
+			[
+				"gs",
+				"gsManagementTeamPlugin"
+			],
+			[
+				"data",
+				"data_zakonczenia"
+			],
+			[
+				"las",
+				"lastMonth"
+			],
+			[
+				"pe",
+				"periodTo"
+			],
+			[
+				"per",
+				"periodFrom"
+			],
+			[
+				"creat",
+				"createManagementTeam"
+			],
+			[
+				"men",
+				"menuLeft"
+			],
+			[
+				"sinte",
+				"sinteticSelectEvent"
+			],
+			[
+				"act",
+				"active_day"
+			],
+			[
+				"addne",
+				"addNextRecurringTask"
+			],
+			[
+				"recu",
+				"recurringTasks"
+			],
+			[
+				"cre",
+				"created_at"
+			],
+			[
+				"wor",
+				"workingDays"
+			],
+			[
+				"day",
+				"Day"
+			],
+			[
+				"priorytet",
+				"priorytet_id"
+			],
+			[
+				"set",
+				"setDropBoxInformation"
+			],
+			[
+				"div",
+				"divToOpacity"
+			],
+			[
+				"type",
+				"type"
+			],
+			[
+				"sfcontr",
+				"sfcontrollera	Symfony2 / Controller / Controller class (annotated)"
+			],
+			[
+				"eb",
+				"ebookId"
+			],
+			[
+				"bore",
+				"border-radius"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"sa",
+				"saved"
+			],
+			[
+				"mou",
+				"Mountain"
+			],
+			[
+				"metho",
+				"methodName"
+			],
+			[
+				"typ_1",
+				"typ_13"
+			],
+			[
+				"Cmskom",
+				"CmsKomponentyTyp"
+			],
+			[
+				"on",
+				"onDelete"
+			],
+			[
+				"Doctrine",
+				"DoctrineFixturesBundle"
+			],
+			[
+				"print",
+				"print_r"
+			],
+			[
+				"me",
+				"menuLeft"
+			],
+			[
+				"listy",
+				"list-style-type"
+			],
+			[
+				"margi",
+				"margin"
+			],
+			[
+				"art",
+				"Artykuly_1"
+			],
+			[
+				"fore",
+				"foreign"
+			],
+			[
+				"CMSKom",
+				"CmsKomponentyTyp"
+			],
+			[
+				"padd",
+				"padding"
+			],
+			[
+				"nettas",
+				"nextTasksUrl"
+			],
+			[
+				"conte",
+				"contents"
+			],
+			[
+				"sl",
+				"slugs"
+			],
+			[
+				"str_rep",
+				"str_replace"
+			],
+			[
+				"ko",
+				"kolumny"
+			],
+			[
+				"liczba_",
+				"liczba_kolumn"
+			],
+			[
+				"liczba",
+				"liczba_kolumn"
+			],
+			[
+				"mess",
+				"message"
+			],
+			[
+				"klien",
+				"klient_o_id"
+			],
+			[
+				"fa",
+				"faktura_id"
+			],
+			[
+				"border-c",
+				"border-color"
+			],
+			[
+				"border-",
+				"border-width"
+			],
+			[
+				"tab",
+				"table-cell"
+			],
+			[
+				"marn",
+				"margin-left"
+			],
+			[
+				"wid",
+				"width"
+			],
+			[
+				"comp",
+				"companyId"
+			],
+			[
+				"sfg",
+				"SfGuardUserProfile"
+			],
+			[
+				"plan",
+				"planer_zadania"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/C/Users/Michał/Downloads/symfony2_polecenia.txt",
+			"settings":
+			{
+				"buffer_size": 1377,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/My/FrontendBundle/Controller/DefaultController.php",
+			"settings":
+			{
+				"buffer_size": 401,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/My/FrontendBundle/Resources/views/Default/index.html.twig",
+			"settings":
+			{
+				"buffer_size": 84,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/My/BackendBundle/Controller/DefaultController.php",
+			"settings":
+			{
+				"buffer_size": 400,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/My/BackendBundle/Resources/views/Default/index.html.twig",
+			"settings":
+			{
+				"buffer_size": 14039,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Resources/views/base.html.twig",
+			"settings":
+			{
+				"buffer_size": 387,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 81.0,
+		"selected_items":
+		[
+			[
+				"close",
+				"Project: Close"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"remov",
+				"Package Control: Remove Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"syntaxhtml",
+				"Set Syntax: HTML"
+			],
+			[
+				"clos",
+				"Project: Close"
+			],
+			[
+				"clos	",
+				"Project: Close"
+			],
+			[
+				"rem",
+				"Package Control: Remove Package"
+			],
+			[
+				"syntphp",
+				"Set Syntax: PHP"
+			],
+			[
+				"syntax tw",
+				"Set Syntax: HTML (Twig)"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"symfony",
+				"Snippet: Symfony2 / Controller / Controller class (annotated)"
+			],
+			[
+				"clo		",
+				"Project: Close"
+			],
+			[
+				"codei",
+				"SublimeCodeIntel: Reset"
+			],
+			[
+				"syntatwi",
+				"Set Syntax: HTML (Twig)"
+			],
+			[
+				"synttwi",
+				"Set Syntax: HTML (Twig)"
+			],
+			[
+				"synta	ht	",
+				"Set Syntax: HTML"
+			],
+			[
+				"proj",
+				"Project: Edit"
+			],
+			[
+				"proje",
+				"Project: Edit"
+			],
+			[
+				"syntaxht",
+				"Set Syntax: HTML"
+			],
+			[
+				"synthtm",
+				"Set Syntax: HTML"
+			],
+			[
+				"romove",
+				"Package Control: Remove Package"
+			],
+			[
+				"copy",
+				"File: Copy Path From Project"
+			],
+			[
+				"syntaxphp",
+				"Set Syntax: PHP"
+			],
+			[
+				"syntaxjs",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"syntaphp",
+				"Set Syntax: PHP"
+			],
+			[
+				"syntax php",
+				"Set Syntax: PHP"
+			],
+			[
+				"sppt",
+				"Snippet: html"
+			],
+			[
+				"syntax htm",
+				"Set Syntax: HTML"
+			],
+			[
+				"co",
+				"File: Copy Path From Project"
+			],
+			[
+				"java",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"syntaxp",
+				"Set Syntax: PHP"
+			],
+			[
+				"php",
+				"Set Syntax: PHP"
+			],
+			[
+				"javas",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"syntacss",
+				"Set Syntax: CSS"
+			],
+			[
+				"snip",
+				"Snippet: html"
+			],
+			[
+				"sythtm",
+				"Set Syntax: HTML"
+			],
+			[
+				"snipht",
+				"Snippet: html"
+			],
+			[
+				"snpi",
+				"Snippet: Lorem ipsum"
+			],
+			[
+				"syntht",
+				"Set Syntax: HTML"
+			],
+			[
+				"syntXht",
+				"Set Syntax: HTML"
+			],
+			[
+				"project",
+				"Project: Edit"
+			],
+			[
+				"style",
+				"File: Copy as Tag style"
+			],
+			[
+				"syntaXCss",
+				"Set Syntax: CSS"
+			],
+			[
+				"synTJavaS",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"html",
+				"Set Syntax: HTML"
+			],
+			[
+				"syXjas",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"syntahtl",
+				"Set Syntax: HTML (Tcl)"
+			],
+			[
+				"syntAX: htm",
+				"Set Syntax: HTML"
+			],
+			[
+				"snippe",
+				"Snippet: switch …"
+			],
+			[
+				"synta:p",
+				"Set Syntax: PHP"
+			],
+			[
+				"synT:php",
+				"Set Syntax: PHP"
+			],
+			[
+				"pacl",
+				"Package Control: Remove Package"
+			],
+			[
+				"lint",
+				"SublimeLinter: Extract Annotations"
+			],
+			[
+				"SytHtm",
+				"Set Syntax: HTML"
+			],
+			[
+				"css",
+				"Set Syntax: CSS"
+			],
+			[
+				"pac",
+				"Package Control: Remove Package"
+			],
+			[
+				"jqY",
+				"Snippet: jQuery(document).ready"
+			],
+			[
+				"jquery",
+				"Snippet: jQuery AJAX call"
+			],
+			[
+				"jquer",
+				"Snippet: jQuery on handler"
+			],
+			[
+				"synXhtml",
+				"Set Syntax: HTML"
+			],
+			[
+				"htm",
+				"HTML: Encode Special Characters"
+			],
+			[
+				"snipT",
+				"Snippet: if … else"
+			],
+			[
+				"sniT",
+				"Snippet: Lorem ipsum"
+			],
+			[
+				"jav",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"toggle",
+				"View: Toggle Side Bar"
+			],
+			[
+				"mark",
+				"Set Syntax: Markdown"
+			],
+			[
+				"syntaMa",
+				"Set Syntax: Markdown"
+			],
+			[
+				"syntaxJS",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"Snippet: ",
+				"Snippet: if"
+			],
+			[
+				"wra",
+				"Word Wrap: Toggle"
+			],
+			[
+				"wrap",
+				"Word Wrap: Toggle"
+			]
+		],
+		"width": 400.0
+	},
+	"console":
+	{
+		"height": 125.0,
+		"history":
+		[
+			"ls"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/wamp/www/zad-18/app/Resources/views/base.html.twig",
+		"/C/wamp/www/zad-18/app/Resources/views/layout.html.twig",
+		"/C/wamp/www/zad-18/web/css/style.css",
+		"/C/wamp/www/PureThink_web/index.html",
+		"/C/wamp/www/PureThink/app/config/routing.yml",
+		"/C/Windows/System32/drivers/etc/hosts",
+		"/C/wamp/www/PureThink/web/robots.txt",
+		"/C/wamp/www/PureThink/src/My/BackendBundle/Entity/Module.php",
+		"/C/wamp/www/zad-33/src/My/FrontendBundle/Resources/views/Aktor/index.html.twig",
+		"/C/wamp/www/zad-22/app/config/parameters.yml",
+		"/C/wamp/www/GetTime/config/databases.yml",
+		"/C/wamp/www/zad-10-02/app/config/parameters.yml",
+		"/C/wamp/www/szkoła/kolo/index.html",
+		"/C/Users/Michał/Downloads/Zarządzanie sieciami infomratycznymi",
+		"/C/Users/Michał/AppData/Local/Temp/_tc/symfony2-customized-v4/composer.json",
+		"/C/wamp/www/szkoła/color/index.html",
+		"/C/Users/Michał/Documents/kopia/GetSales/strony/GetSales_web/index.html",
+		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/modules/magazine/templates/_listPawnshop.php",
+		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/lib/model/doctrine/PluginMagazineTable.class.php",
+		"/C/wamp/www/szkoła/ileLat/index.html",
+		"/C/wamp/www/GetTime/web/gsPlanowaniePlugin/js/subProjectTabs.js",
+		"/C/wamp/www/GetTime/plugins/gsPlanowaniePlugin/lib/model/doctrine/PluginPodprojektTable.class.php",
+		"/C/wamp/www/GetTime/plugins/gsPlanowaniePlugin/modules/plany_zadanie/templates/_taskTabs.php",
+		"/C/wamp/www/GetTime/plugins/gsPlanowaniePlugin/modules/planer_podprojekty/templates/_tab.php",
+		"/C/wamp/www/GetTime/plugins/gsPlanowaniePlugin/lib/form/doctrine/PluginPodprojektForm.class.php",
+		"/C/wamp/www/GetTime/plugins/gsPlanowaniePlugin/modules/planer_podprojekty/actions/actions.class.php",
+		"/C/wamp/www/GetTime/plugins/gsPlanowaniePlugin/lib/model/doctrine/PluginPodprojekt.class.php",
+		"/C/wamp/www/GetTime/plugins/gsPlanowaniePlugin/modules/planer_podprojekty/templates/editSuccess.php",
+		"/C/wamp/www/GetTimeKopia/apps/frontend/config/filters.yml",
+		"/C/wamp/www/GetTimeKopia/apps/backend/config/filters.yml",
+		"/C/wamp/www/GetTime/plugins/gsCmsPlugin/config/doctrine/cms.yml",
+		"/C/wamp/www/PureThink/css/main.css",
+		"/C/wamp/www/PureThink/index.html",
+		"/C/Users/Michał/Documents/kopia/PureThink/database.xml",
+		"/C/wamp/www/GetTime/apps/backend/templates/_maxPerPageAjax.php",
+		"/C/wamp/www/GetTime/apps/backend/templates/_stronicowanieAjax.php",
+		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/lib/model/doctrine/PluginMagazineSaleTable.class.php",
+		"/C/wamp/www/GetTime/plugins/gsOfertaPlugin/lib/pdfOferta.class.php",
+		"/C/wamp/www/GetTime/plugins/gsPlanowaniePlugin/modules/planer_zadania/templates/_addTask.php",
+		"/C/wamp/www/GetTime/plugins/gsFakturaPlugin/lib/pdf.class.php",
+		"/C/wamp/www/GetTime/plugins/gsPlanowaniePlugin/lib/model/doctrine/PluginPlanerZadaniaTable.class.php",
+		"/C/wamp/www/GetTime/plugins/gsPlanowaniePlugin/modules/planer_zadania/actions/actions.class.php",
+		"/C/wamp/www/GetTime/web/gsPlanowaniePlugin/js/list.js",
+		"/C/wamp/www/GetTime/apps/backend/i18n/pl/messages.xml",
+		"/C/wamp/www/GetTime/plugins/gsPlanowaniePlugin/lib/pdfSchedule.class.php",
+		"/C/wamp/www/GetTime/plugins/gsFakturaPlugin/lib/teamInvoice.class.php",
+		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/lib/pdGenerator.class.php",
+		"/C/wamp/www/GetTime/plugins/gsPlanowaniePlugin/modules/planer_zadania/templates/_selectDatePlaner.php",
+		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/lib/pdfServiceAgreement.class.php",
+		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/lib/pdfConfirmationRepair.class.php",
+		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/lib/pdfSaleOrPurchaseAgreement.class.php",
+		"/C/wamp/www/GetTime/config/ProjectConfiguration.class.php",
+		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/modules/magazine/actions/actions.class.php",
+		"/C/wamp/www/GetTime/plugins/gsPlanowaniePlugin/config/routing.yml",
+		"/C/wamp/www/GetTime/web/gsPlanowaniePlugin/js/planer.js",
+		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/modules/magazine_history/templates/_listPawnshop.php",
+		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/modules/magazine_history/actions/actions.class.php",
+		"/C/wamp/www/GetTime/web/gsMagazinePlugin/js/magazine_right.js",
+		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/modules/magazine_menu_right/actions/actions.class.php",
+		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/modules/magazine/templates/_listStatisticsLent.php",
+		"/C/wamp/www/GetTime/data/fixtures/starter.yml",
+		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/lib/permissionMagazine.class.php",
+		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/modules/magazine_menu_tabbed/actions/components.class.php",
+		"/C/wamp/www/GetTime/plugins/gsPlanowaniePlugin/modules/planer_menu_tabbed/actions/components.class.php",
+		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/data/fixtures/magazine_permission.yml",
+		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/lib/statisticsTradingMagazine.class.php",
+		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/lib/selectMagazine.class.php",
+		"/C/wamp/www/GetTime/apps/backend/modules/default/actions/actions.class.php",
+		"/C/wamp/www/GetTime/plugins/gsTeamPlugin/modules/team_menu_tabbed/actions/components.class.php",
+		"/C/Users/Michał/Downloads/symfony_polecenia.txt",
+		"/C/wamp/www/GetTime/web/gsMagazinePlugin/js/magazine.js",
+		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/modules/magazine_menu_left/actions/actions.class.php",
+		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/modules/magazine_service/templates/_finishForm.php",
+		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/lib/form/doctrine/PluginMagazineSaleServiceForm.class.php",
+		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/config/doctrine/magazine.yml",
+		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/modules/magazine/templates/_listStatisticsTrading.php",
+		"/C/wamp/www/GetTime/plugins/gsCrmPlugin/modules/crm_szansa/templates/transakcjaSuccess.php",
+		"/C/wamp/www/GetTime/plugins/gsCrmPlugin/modules/crm_menu_left/templates/_systemCrm.php",
+		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/lib/form/doctrine/PluginMagazineSaleNewForm.class.php",
+		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/lib/form/doctrine/PluginMagazineSaleUsedForm.class.php",
+		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/lib/form/doctrine/PluginMagazineSalePawnshopFinishForm.class.php",
+		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/lib/form/doctrine/PluginMagazineSalePawnshopExtendForm.class.php",
+		"/C/Users/Michał/Downloads/marek/actions.class.php",
+		"/C/Users/Michał/AppData/Local/Microsoft/Windows/Temporary Internet Files/Content.Outlook/5ZPRL6LB/actions class.php",
+		"/C/Users/Michał/AppData/Local/Microsoft/Windows/Temporary Internet Files/Content.Outlook/5ZPRL6LB/recurringTasks class.php",
+		"/C/wamp/www/GetTime/web/backend.php",
+		"/C/wamp/www/GetTime/web/gsMagazinePlugin/js/magazine_filtr.js",
+		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/modules/magazine_menu_left/templates/_miniStatistics.php",
+		"/C/Users/Michał/Downloads/marek/recurringTasks.class.php",
+		"/C/wamp/www/GetTime/web/js/plugins/jquery.gs.accordion.menu.js",
+		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/modules/magazine_menu_left/templates/_statisticsState.php",
+		"/C/wamp/www/GetTimeKopia/apps/admin/config/filters.yml",
+		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/modules/magazine/templates/indexSuccess.php",
+		"/C/wamp/www/GetTime/apps/backend/templates/layout.php",
+		"/C/wamp/www/GetTime/web/gsMagazinePlugin/css/magazine.css",
+		"/C/wamp/www/GetTime/web/css/main.css",
+		"/C/wamp/www/GetSales/plugins/gsBiletPlugin/modules/bilet_raporty_zakup/templates/indexSuccess.php",
+		"/C/wamp/www/GetSales/plugins/gsBiletPlugin/modules/bilet_raporty_sprzedaz/templates/rabatSuccess.php",
+		"/C/wamp/www/GetSales/plugins/gsBiletPlugin/modules/bilet_raporty_sprzedaz/templates/indexSuccess.php",
+		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/modules/magazine/templates/_listNew.php",
+		"/C/wamp/www/GetTime/web/css/list.css",
+		"/C/wamp/www/GetTime/web/gsCmsPlugin/css/cms.css",
+		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/modules/magazine_menu_left/templates/_history.php",
+		"/C/Users/Michał/Desktop/wojtek.txt",
+		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/modules/magazine/config/view.yml",
+		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/config/routing.yml",
+		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/modules/magazine_service/actions/actions.class.php",
+		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/lib/form/doctrine/PluginMagazineServiceForm.class.php",
+		"/C/wamp/www/Adam/index.html",
+		"/C/Users/Michał/Documents/kopia/Neostrada/klucz.txt",
+		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/modules/magazine/templates/_listStatisticsSell.php",
+		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/modules/magazine_menu_top/templates/_topMenuStatistics.php",
+		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/modules/magazine/templates/_listStatisticsBuy.php",
+		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/modules/magazine_menu_left/templates/_statistics.php",
+		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/modules/magazine/templates/_listUsed.php",
+		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/modules/magazine/templates/_listService.php",
+		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/modules/magazine_menu_right/templates/_additionalInformation.php",
+		"/C/wamp/www/GetTime/plugins/gsCrmPlugin/config/doctrine/crm_klient_kons.yml",
+		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/modules/magazine_client/actions/actions.class.php",
+		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/lib/form/doctrine/PluginMagazineUsedForm.class.php",
+		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/lib/form/doctrine/PluginMagazinePawnshopMagazineForm.class.php",
+		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/lib/form/doctrine/PluginMagazinePawnshopForm.class.php",
+		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/modules/magazine_pawnshop/actions/actions.class.php",
+		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/lib/form/doctrine/PluginMagazineNewForm.class.php",
+		"/C/wamp/www/GetTime/web/backend_dev.php",
+		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/data/fixtures/data.yml",
+		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/lib/form/doctrine/PluginMagazineB2CAdditionForm.class.php",
+		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/lib/form/doctrine/PluginMagazineB2CForm.class.php"
+	],
+	"find":
+	{
+		"height": 36.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"src=\"",
+			"mg src",
+			"g src",
+			"images/arrow_down_orange.png",
+			"img src",
+			"javascripts",
+			"stylesheets",
+			"\"></",
+			"temp",
+			"val",
+			"getInterestHelper",
+			"tab_creator",
+			"createPodprojektTab",
+			"getInterestHelperDateOfLastPayment",
+			"alias1",
+			"alias",
+			"ms3",
+			"ms2",
+			"ms",
+			"ms3",
+			"password_2",
+			"user_3",
+			"user",
+			" last",
+			"last",
+			"<div class=\"more\"></div>",
+			"E7E7E7",
+			"m, #",
+			"#",
+			"E7E7E7",
+			"F7F7F7",
+			"6B6B6B",
+			"A8A8A8",
+			"6B6B6B",
+			"efefef",
+			"20",
+			"active",
+			"Priorytety",
+			"204",
+			"11",
+			"192",
+			"44",
+			"getPlanerTasks",
+			"schedule",
+			"sprzedawcas",
+			"schedule",
+			"createPdf",
+			"magazine",
+			"href",
+			"')",
+			")",
+			"print",
+			"li",
+			"changeSelectedDate",
+			"Lorem Ipsum dolom",
+			"efefef",
+			"F7F7F7",
+			"main_button",
+			"active",
+			"deactive",
+			"statisticsTrading",
+			"sfGuardUser_2",
+			"Planowanie",
+			"getStatisticsTradingService",
+			"is_repaired",
+			"showPaging",
+			"formatValue",
+			"getStatisticsTrading",
+			"0",
+			"getTradingStatistics",
+			"getDataToStatistics",
+			"getMiniStatistics",
+			"getMiniStatisticsForStatistics",
+			"sort",
+			"getDataToStatistics",
+			"getMiniStatistics",
+			"width_small",
+			"width_medium",
+			"classs",
+			"width_small",
+			"table",
+			"<td class=\"select\"></td>",
+			"Lorem Ipsum dolom",
+			"inner_container",
+			"more",
+			"edit",
+			"a id",
+			"div",
+			"setElementHeight",
+			"setElementHeightFirstTime",
+			"getOpenElements",
+			"setSpaceForElement",
+			"setElementHeight",
+			"Heigt",
+			"setElementHeigt",
+			"changeHeigtElements",
+			"setElementHeigt",
+			"getSpaceForElements",
+			"addDatePicker",
+			"        ",
+			"stronicowanie",
+			"paging",
+			"stronicowanie",
+			"paging",
+			"1",
+			"getSellingPriceSum",
+			"getPurchasePriceSum",
+			"$listy[2]",
+			"$listy[2])",
+			"getPrice",
+			"()) ",
+			"zł",
+			", 2, '.', ''",
+			"number_format",
+			"now",
+			"firstDay",
+			"setDefaultParameters",
+			"dateDay",
+			"addNameFiltr",
+			"checkStetisctic",
+			"first",
+			"addCodeFiltrAction",
+			"nameFiltr",
+			"search_box",
+			"addNameFiltr",
+			"addNameFiltrAction",
+			"NameFiltr",
+			"nameFiltr"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 4,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/C/Users/Michał/Downloads/symfony2_polecenia.txt",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1377,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1206,
+								1166
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 80.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/My/FrontendBundle/Controller/DefaultController.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 401,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								390,
+								390
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/My/FrontendBundle/Resources/views/Default/index.html.twig",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 84,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								33,
+								33
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Twig/Syntaxes/HTML (Twig).tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "src/My/BackendBundle/Controller/DefaultController.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 400,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								298,
+								298
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "src/My/BackendBundle/Resources/views/Default/index.html.twig",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 14039,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								740,
+								740
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Twig/Syntaxes/HTML (Twig).tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 184.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "app/Resources/views/base.html.twig",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 387,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								194,
+								205
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Twig/Syntaxes/HTML (Twig).tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.unsaved_changes":
+	{
+		"height": 100.0
+	},
+	"project": "purethink.sublime-project",
+	"replace":
+	{
+		"height": 66.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"team_front/a",
+				"plugins/gsTeamPlugin/modules/team_front/actions/actions.class.php"
+			],
+			[
+				"gsplanowanieplugn/congi/",
+				"plugins/gsPlanowaniePlugin/config/doctrine/planer.yml"
+			],
+			[
+				"basepl/model/do/",
+				"plugins/gsBasePlugin/lib/model/doctrine/PlugingsBaseArtykulTable.class.php"
+			],
+			[
+				"gett",
+				"gettime.sublime-project"
+			],
+			[
+				"install",
+				"lib/PHPExcel/Shared/PDF/fonts/freefont-20090104/INSTALL"
+			],
+			[
+				"menle.css",
+				"web/css/menu_left.css"
+			],
+			[
+				"plugins/gs",
+				"plugins/gsTeamPlugin/lib/manageSubscription.class.php"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 366.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
