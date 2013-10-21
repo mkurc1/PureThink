@@ -1,0 +1,10 @@
+<label>ilość wierszy:</label>
+
+<select class="number_of_lines">
+	<?php foreach($pageMaxArr as $key => $pageMax): ?>
+		<option value="10">10</option>
+	    <option value="20" selected="selected">20</option>
+	    <option value="50">50</option>
+	    <option value="100">100</option>
+	<?php endforeach; ?>
+</select>

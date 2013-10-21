@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modules>
+    <module>
+        <name>CMS</name>
+        <is_default>1</is_default>
+    </module>
+    <module>
+        <name>File</name>
+        <is_default>0</is_default>
+    </module>
+</modules>

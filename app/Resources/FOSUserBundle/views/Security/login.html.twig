@@ -5,34 +5,53 @@
 {% endblock title %}
 
 {% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}">
 {% endblock stylesheets %}
 
 {% block javascripts %}
 {% endblock javascripts %}
 
 {% block body %}
-	{% if error %}
-		<div>{{ error|trans({}, 'FOSUserBundle') }}</div>
-	{% endif %}
+	<div id="top_menu">
+    	<div id="logo">
+			<a href="{{ path('frontend') }}"><img src="{{ asset('images/logo_small.png') }}" alt="logo" /></a>
+		</div>
+	</div>
 
-	<form action="{{ path("fos_user_security_check") }}" method="post">
-		<input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+	<div id="login_container">
+		<div id="login">
+			{% if error %}
+				<div class="error_list">{{ error|trans({}, 'FOSUserBundle') }}</div>
+			{% endif %}
 
-		<label for="username">{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}</label>
-		<input type="text" id="username" name="_username" value="{{ last_username }}" />
+			<form action="{{ path("fos_user_security_check") }}" method="post">
+				<input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
 
-		<label for="password">{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}</label>
-		<input type="password" id="password" name="_password" />
+				<div id="username_container">
+					<label for="username">{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}</label>
+					<input type="text" id="username" name="_username" value="{{ last_username }}" />
+				</div>
 
-		<input type="checkbox" id="remember_me" name="_remember_me" value="on" />
-		<label for="remember_me">{{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}</label>
+				<div id="password_container">
+					<label for="password">{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}</label>
+					<input type="password" id="password" name="_password" />					
+				</div>
 
-		<input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}" />
-	</form>
+				<div id="remember_me_container">
+					<label for="remember_me">{{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}</label>
+					<input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+				</div>
 
-	{% for key, message in app.session.flashbag.all() %}
-	    <div class="{{ key }}">
-	    	{{ message|trans({}, 'FOSUserBundle') }}
-	    </div>
-	{% endfor %}
+				<div id="submit_container">
+					<input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}" />
+				</div>
+			</form>
+
+			{% for key, message in app.session.flashbag.all() %}
+			    <div class="{{ key }}">
+			    	{{ message|trans({}, 'FOSUserBundle') }}
+			    </div>
+			{% endfor %}
+		</div>
+	</div>
 {% endblock body %}

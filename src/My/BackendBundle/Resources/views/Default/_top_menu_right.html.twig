@@ -4,4 +4,4 @@
 <div id="person_foto_container">
 	<div id="person_foto" style="background-image: url('{{ asset("images/person_small.png") }}')"></div>
 </div>
-<div id="person_name">Witaj <a href="#">{{ app.user.username }}</a></div>
+<div id="person_name">Witaj <a href="#">{{ app.user.firstName ~ ' ' ~ app.user.lastName }}</a></div>

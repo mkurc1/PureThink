@@ -520,34 +520,10 @@
 	"buffers":
 	[
 		{
-			"file": "/C/Users/Michał/Downloads/symfony2_polecenia.txt",
+			"file": "src/My/BackendBundle/Entity/Translate.php",
 			"settings":
 			{
-				"buffer_size": 1377,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/My/FrontendBundle/Controller/DefaultController.php",
-			"settings":
-			{
-				"buffer_size": 401,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/My/FrontendBundle/Resources/views/Default/index.html.twig",
-			"settings":
-			{
-				"buffer_size": 84,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/My/BackendBundle/Controller/DefaultController.php",
-			"settings":
-			{
-				"buffer_size": 400,
+				"buffer_size": 2016,
 				"line_ending": "Unix"
 			}
 		},
@@ -555,15 +531,71 @@
 			"file": "src/My/BackendBundle/Resources/views/Default/index.html.twig",
 			"settings":
 			{
-				"buffer_size": 14039,
+				"buffer_size": 10961,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/Resources/views/base.html.twig",
+			"file": "web/css/main.css",
 			"settings":
 			{
-				"buffer_size": 387,
+				"buffer_size": 13498,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "web/js/main.js",
+			"settings":
+			{
+				"buffer_size": 307,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/My/BackendBundle/Controller/MenuController.php",
+			"settings":
+			{
+				"buffer_size": 983,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/My/BackendBundle/Entity/Menu.php",
+			"settings":
+			{
+				"buffer_size": 3966,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/My/BackendBundle/Repository/MenuRepository.php",
+			"settings":
+			{
+				"buffer_size": 662,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "web/js/mainMenu.js",
+			"settings":
+			{
+				"buffer_size": 495,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/My/BackendBundle/Entity/Language.php",
+			"settings":
+			{
+				"buffer_size": 3345,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/My/BackendBundle/Entity/Module.php",
+			"settings":
+			{
+				"buffer_size": 2281,
 				"line_ending": "Unix"
 			}
 		}
@@ -896,6 +928,82 @@
 	},
 	"file_history":
 	[
+		"/C/wamp/www/zad-19/src/My/FrontendBundle/Entity/MountainRepository.php",
+		"/C/wamp/www/PureThink/src/My/BackendBundle/Entity/Menu.php~",
+		"/C/wamp/www/PureThink/src/My/BackendBundle/Entity/Module.php~",
+		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/modules/magazine_menu_right/actions/actions.class.php",
+		"/C/wamp/www/PureThink/src/My/BackendBundle/Resources/views/Menu/_menu.html.twig",
+		"/C/wamp/www/zad-34-02/src/My/FrontendBundle/Controller/AktorController.php",
+		"/C/wamp/www/zad-19/src/My/FrontendBundle/Entity/Mountain.php",
+		"/C/wamp/www/PureThink/src/My/BackendBundle/DependencyInjection/Configuration.php",
+		"/C/wamp/www/PureThink/src/My/BackendBundle/Resources/config/services.xml",
+		"/C/wamp/www/PureThink/src/My/BackendBundle/MyBackendBundle.php",
+		"/C/wamp/www/PureThink/src/My/BackendBundle/Resources/views/Default/_main_menu.html.twig",
+		"/C/wamp/www/GetTime/web/gsMagazinePlugin/js/magazine.js",
+		"/C/wamp/www/PureThink/app/Resources/views/base.html.twig",
+		"/C/wamp/www/zad-12/app/Resources/views/base.html.twig",
+		"/C/wamp/www/PureThink/src/My/BackendBundle/Entity/Menu.php",
+		"/C/wamp/www/PureThink/src/My/BackendBundle/Resources/views/Default/_top_menu_right.html.twig",
+		"/C/wamp/www/DrawTargi3D/web/css/loguj.css",
+		"/C/wamp/www/PureThink/web/css/main.css",
+		"/C/wamp/www/zad-36-03/src/My/FrontendBundle/Resources/views/Kontynent/index.html.twig",
+		"/C/wamp/www/PureThink/src/My/FrontendBundle/Controller/DefaultController.php",
+		"/C/wamp/www/PureThink/src/My/BackendBundle/Entity/Module.php",
+		"/C/wamp/www/PureThink/data/languages.xml",
+		"/C/wamp/www/PureThink/data/menus.xml",
+		"/C/wamp/www/PureThink/data/modules.xml",
+		"/C/Users/Michał/Downloads/symfony2_polecenia.txt",
+		"/C/wamp/www/PureThink/data/users.xml",
+		"/C/wamp/www/PureThink/src/My/UserBundle/Entity/User.php",
+		"/C/wamp/www/PureThink/src/My/BackendBundle/DataFixtures/ORM/LoadData.php",
+		"/C/wamp/www/zad-29-01/src/My/FrontendBundle/Controller/DefaultController.php",
+		"/C/wamp/www/PureThink/createDatabase.bat",
+		"/C/wamp/www/zad-24/src/My/FrontendBundle/DataFixtures/ORM/LoadData.php",
+		"/C/wamp/www/zad-24/data/kolory.yml",
+		"/C/wamp/www/PureThink/cmd/loadDatabaseWithFixtures.bat",
+		"/C/wamp/www/PureThink/loadDatabaseWithFixtures.bat",
+		"/C/wamp/www/PureThink/data.bat",
+		"/C/Users/Michał/AppData/Local/Temp/_tc/drupal-7.23/misc/ajax.js",
+		"/C/Users/Michał/AppData/Local/Temp/_tc/drupal-7.23/INSTALL.mysql.txt",
+		"/C/wamp/www/zad-32/src/My/FrontendBundle/Entity/Panstwo.php",
+		"/C/wamp/www/zad-32/src/My/FrontendBundle/Entity/Kontynent.php",
+		"/C/wamp/www/PureThink/src/My/BackendBundle/Resources/views/Default/_top_menu.html.twig",
+		"/C/wamp/www/PureThink/src/My/BackendBundle/Controller/DefaultController.php",
+		"/C/wamp/www/PureThink/app/Resources/FOSUserBundle/views/Security/login.html.twig",
+		"/C/wamp/www/zad-36-03/src/My/FrontendBundle/Controller/KontynentController.php",
+		"/C/wamp/www/zad-36-03/src/My/FrontendBundle/Resources/views/Panstwo/edit.html.twig",
+		"/C/wamp/www/zad-36-03/src/My/FrontendBundle/Resources/views/Default/index.html.twig",
+		"/C/wamp/www/PureThink/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Controller/ChangePasswordController.php",
+		"/C/wamp/www/PureThink/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Model/User.php",
+		"/C/wamp/www/zad-40-02/src/My/BackendBundle/DataFixtures/ORM/LoadData.php",
+		"/C/wamp/www/PureThink/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/FOSUserEvents.php",
+		"/C/wamp/www/PureThink/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Security/UserProvider.php",
+		"/C/wamp/www/PureThink/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Document/User.php",
+		"/C/wamp/www/PureThink/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Doctrine/UserManager.php",
+		"/C/wamp/www/PureThink/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Controller/RegistrationController.php",
+		"/C/wamp/www/PureThink/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Event/UserEvent.php",
+		"/C/wamp/www/zad-40-02/data/kontynenty.xml",
+		"/C/wamp/www/PureThink/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Entity/User.php",
+		"/C/wamp/www/zad-34-03/data/novels.xml",
+		"/C/wamp/www/zad-36-03/data/kontynenty.xml",
+		"/C/wamp/www/zad-34-02/data/filmy.xml",
+		"/C/wamp/www/PureThink/src/My/BackendBundle/Resources/views/Default/index.html.twig",
+		"/C/wamp/www/PureThink/src/My/BackendBundle/Resources/views/Default/_footer.html.twig",
+		"/C/wamp/www/PureThink/src/My/BackendBundle/Resources/views/Default/_number_of_lines.html.twig",
+		"/C/wamp/www/PureThink/src/My/BackendBundle/Resources/views/Default/_pagination.html.twig",
+		"/C/wamp/www/PureThink/.gitignore",
+		"/C/wamp/www/PureThink/README.md",
+		"/C/wamp/www/PureThink/.travis.yml",
+		"/C/wamp/www/PureThink/src/My/BackendBundle/Resources/views/Default/_main_button.html.twig",
+		"/C/wamp/www/PureThink/src/My/BackendBundle/Resources/views/Default/_left_menu.html.twig",
+		"/C/wamp/www/PureThink/src/My/BackendBundle/Resources/views/Default/_main_menu_list.html.twig",
+		"/C/wamp/www/zad-34-03/src/My/FrontendBundle/Resources/views/Detective/index.html.twig",
+		"/C/wamp/www/PureThink/src/My/BackendBundle/Resources/views/Default/top_menu.html.twig",
+		"/C/wamp/www/zad-40-01/app/Resources/FOSUserBundle/views/Security/login.html.twig",
+		"/C/wamp/www/zad-40-01/app/Resources/views/base.html.twig",
+		"/C/wamp/www/PureThink/src/My/FrontendBundle/Resources/views/Default/index.html.twig",
+		"/C/wamp/www/zad-40-01/src/My/BackendBundle/Resources/views/Kontynent/index.html.twig",
+		"/C/wamp/www/zad-40-01/src/My/BackendBundle/Resources/views/Default/index.html.twig",
 		"/C/wamp/www/zad-18/app/Resources/views/base.html.twig",
 		"/C/wamp/www/zad-18/app/Resources/views/layout.html.twig",
 		"/C/wamp/www/zad-18/web/css/style.css",
@@ -903,7 +1011,6 @@
 		"/C/wamp/www/PureThink/app/config/routing.yml",
 		"/C/Windows/System32/drivers/etc/hosts",
 		"/C/wamp/www/PureThink/web/robots.txt",
-		"/C/wamp/www/PureThink/src/My/BackendBundle/Entity/Module.php",
 		"/C/wamp/www/zad-33/src/My/FrontendBundle/Resources/views/Aktor/index.html.twig",
 		"/C/wamp/www/zad-22/app/config/parameters.yml",
 		"/C/wamp/www/GetTime/config/databases.yml",
@@ -948,82 +1055,7 @@
 		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/lib/pdfConfirmationRepair.class.php",
 		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/lib/pdfSaleOrPurchaseAgreement.class.php",
 		"/C/wamp/www/GetTime/config/ProjectConfiguration.class.php",
-		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/modules/magazine/actions/actions.class.php",
-		"/C/wamp/www/GetTime/plugins/gsPlanowaniePlugin/config/routing.yml",
-		"/C/wamp/www/GetTime/web/gsPlanowaniePlugin/js/planer.js",
-		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/modules/magazine_history/templates/_listPawnshop.php",
-		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/modules/magazine_history/actions/actions.class.php",
-		"/C/wamp/www/GetTime/web/gsMagazinePlugin/js/magazine_right.js",
-		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/modules/magazine_menu_right/actions/actions.class.php",
-		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/modules/magazine/templates/_listStatisticsLent.php",
-		"/C/wamp/www/GetTime/data/fixtures/starter.yml",
-		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/lib/permissionMagazine.class.php",
-		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/modules/magazine_menu_tabbed/actions/components.class.php",
-		"/C/wamp/www/GetTime/plugins/gsPlanowaniePlugin/modules/planer_menu_tabbed/actions/components.class.php",
-		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/data/fixtures/magazine_permission.yml",
-		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/lib/statisticsTradingMagazine.class.php",
-		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/lib/selectMagazine.class.php",
-		"/C/wamp/www/GetTime/apps/backend/modules/default/actions/actions.class.php",
-		"/C/wamp/www/GetTime/plugins/gsTeamPlugin/modules/team_menu_tabbed/actions/components.class.php",
-		"/C/Users/Michał/Downloads/symfony_polecenia.txt",
-		"/C/wamp/www/GetTime/web/gsMagazinePlugin/js/magazine.js",
-		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/modules/magazine_menu_left/actions/actions.class.php",
-		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/modules/magazine_service/templates/_finishForm.php",
-		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/lib/form/doctrine/PluginMagazineSaleServiceForm.class.php",
-		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/config/doctrine/magazine.yml",
-		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/modules/magazine/templates/_listStatisticsTrading.php",
-		"/C/wamp/www/GetTime/plugins/gsCrmPlugin/modules/crm_szansa/templates/transakcjaSuccess.php",
-		"/C/wamp/www/GetTime/plugins/gsCrmPlugin/modules/crm_menu_left/templates/_systemCrm.php",
-		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/lib/form/doctrine/PluginMagazineSaleNewForm.class.php",
-		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/lib/form/doctrine/PluginMagazineSaleUsedForm.class.php",
-		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/lib/form/doctrine/PluginMagazineSalePawnshopFinishForm.class.php",
-		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/lib/form/doctrine/PluginMagazineSalePawnshopExtendForm.class.php",
-		"/C/Users/Michał/Downloads/marek/actions.class.php",
-		"/C/Users/Michał/AppData/Local/Microsoft/Windows/Temporary Internet Files/Content.Outlook/5ZPRL6LB/actions class.php",
-		"/C/Users/Michał/AppData/Local/Microsoft/Windows/Temporary Internet Files/Content.Outlook/5ZPRL6LB/recurringTasks class.php",
-		"/C/wamp/www/GetTime/web/backend.php",
-		"/C/wamp/www/GetTime/web/gsMagazinePlugin/js/magazine_filtr.js",
-		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/modules/magazine_menu_left/templates/_miniStatistics.php",
-		"/C/Users/Michał/Downloads/marek/recurringTasks.class.php",
-		"/C/wamp/www/GetTime/web/js/plugins/jquery.gs.accordion.menu.js",
-		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/modules/magazine_menu_left/templates/_statisticsState.php",
-		"/C/wamp/www/GetTimeKopia/apps/admin/config/filters.yml",
-		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/modules/magazine/templates/indexSuccess.php",
-		"/C/wamp/www/GetTime/apps/backend/templates/layout.php",
-		"/C/wamp/www/GetTime/web/gsMagazinePlugin/css/magazine.css",
-		"/C/wamp/www/GetTime/web/css/main.css",
-		"/C/wamp/www/GetSales/plugins/gsBiletPlugin/modules/bilet_raporty_zakup/templates/indexSuccess.php",
-		"/C/wamp/www/GetSales/plugins/gsBiletPlugin/modules/bilet_raporty_sprzedaz/templates/rabatSuccess.php",
-		"/C/wamp/www/GetSales/plugins/gsBiletPlugin/modules/bilet_raporty_sprzedaz/templates/indexSuccess.php",
-		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/modules/magazine/templates/_listNew.php",
-		"/C/wamp/www/GetTime/web/css/list.css",
-		"/C/wamp/www/GetTime/web/gsCmsPlugin/css/cms.css",
-		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/modules/magazine_menu_left/templates/_history.php",
-		"/C/Users/Michał/Desktop/wojtek.txt",
-		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/modules/magazine/config/view.yml",
-		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/config/routing.yml",
-		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/modules/magazine_service/actions/actions.class.php",
-		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/lib/form/doctrine/PluginMagazineServiceForm.class.php",
-		"/C/wamp/www/Adam/index.html",
-		"/C/Users/Michał/Documents/kopia/Neostrada/klucz.txt",
-		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/modules/magazine/templates/_listStatisticsSell.php",
-		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/modules/magazine_menu_top/templates/_topMenuStatistics.php",
-		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/modules/magazine/templates/_listStatisticsBuy.php",
-		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/modules/magazine_menu_left/templates/_statistics.php",
-		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/modules/magazine/templates/_listUsed.php",
-		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/modules/magazine/templates/_listService.php",
-		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/modules/magazine_menu_right/templates/_additionalInformation.php",
-		"/C/wamp/www/GetTime/plugins/gsCrmPlugin/config/doctrine/crm_klient_kons.yml",
-		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/modules/magazine_client/actions/actions.class.php",
-		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/lib/form/doctrine/PluginMagazineUsedForm.class.php",
-		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/lib/form/doctrine/PluginMagazinePawnshopMagazineForm.class.php",
-		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/lib/form/doctrine/PluginMagazinePawnshopForm.class.php",
-		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/modules/magazine_pawnshop/actions/actions.class.php",
-		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/lib/form/doctrine/PluginMagazineNewForm.class.php",
-		"/C/wamp/www/GetTime/web/backend_dev.php",
-		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/data/fixtures/data.yml",
-		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/lib/form/doctrine/PluginMagazineB2CAdditionForm.class.php",
-		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/lib/form/doctrine/PluginMagazineB2CForm.class.php"
+		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/modules/magazine/actions/actions.class.php"
 	],
 	"find":
 	{
@@ -1041,6 +1073,56 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"repositoryClass",
+			"entities",
+			"menus",
+			"data1",
+			"first_name",
+			"return $manager;",
+			"language",
+			"Language",
+			"language",
+			"EN",
+			"en",
+			"EN",
+			"is_default",
+			"is_public",
+			"alias",
+			"language",
+			"languages",
+			"Module",
+			"module",
+			"is_default",
+			"module",
+			"modules",
+			"User",
+			"user",
+			"User",
+			"username_canonical",
+			"username",
+			"user",
+			"users",
+			"menuId",
+			"MenuId",
+			"menuId",
+			"MenuId",
+			"menuId",
+			"passw",
+			"salt",
+			"Password",
+			"password",
+			"setpas",
+			"role",
+			"roles",
+			"enable",
+			"Username",
+			"Kontynent",
+			"email",
+			"name",
+			"nazwa",
+			"kontynent",
+			"kontynenty",
+			"left_menu_line",
 			"src=\"",
 			"mg src",
 			"g src",
@@ -1118,57 +1200,7 @@
 			"getDataToStatistics",
 			"getMiniStatistics",
 			"width_small",
-			"width_medium",
-			"classs",
-			"width_small",
-			"table",
-			"<td class=\"select\"></td>",
-			"Lorem Ipsum dolom",
-			"inner_container",
-			"more",
-			"edit",
-			"a id",
-			"div",
-			"setElementHeight",
-			"setElementHeightFirstTime",
-			"getOpenElements",
-			"setSpaceForElement",
-			"setElementHeight",
-			"Heigt",
-			"setElementHeigt",
-			"changeHeigtElements",
-			"setElementHeigt",
-			"getSpaceForElements",
-			"addDatePicker",
-			"        ",
-			"stronicowanie",
-			"paging",
-			"stronicowanie",
-			"paging",
-			"1",
-			"getSellingPriceSum",
-			"getPurchasePriceSum",
-			"$listy[2]",
-			"$listy[2])",
-			"getPrice",
-			"()) ",
-			"zł",
-			", 2, '.', ''",
-			"number_format",
-			"now",
-			"firstDay",
-			"setDefaultParameters",
-			"dateDay",
-			"addNameFiltr",
-			"checkStetisctic",
-			"first",
-			"addCodeFiltrAction",
-			"nameFiltr",
-			"search_box",
-			"addNameFiltr",
-			"addNameFiltrAction",
-			"NameFiltr",
-			"nameFiltr"
+			"width_medium"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1186,58 +1218,59 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 6,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "/C/Users/Michał/Downloads/symfony2_polecenia.txt",
+					"file": "src/My/BackendBundle/Entity/Translate.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1377,
+						"buffer_size": 2016,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1206,
-								1166
+								349,
+								349
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"tab_size": 2,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 80.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "src/My/FrontendBundle/Controller/DefaultController.php",
+					"file": "src/My/BackendBundle/Resources/views/Default/index.html.twig",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 401,
+						"buffer_size": 10961,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								390,
-								390
+								405,
+								405
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/PHP/PHP.tmLanguage"
+							"syntax": "Packages/Twig/Syntaxes/HTML (Twig).tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1247,24 +1280,53 @@
 				},
 				{
 					"buffer": 2,
-					"file": "src/My/FrontendBundle/Resources/views/Default/index.html.twig",
+					"file": "web/css/main.css",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 84,
+						"buffer_size": 13498,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								33,
-								33
+								261,
+								261
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Twig/Syntaxes/HTML (Twig).tmLanguage"
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1860.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "web/js/main.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 307,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								301,
+								301
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1273,20 +1335,20 @@
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "src/My/BackendBundle/Controller/DefaultController.php",
+					"buffer": 4,
+					"file": "src/My/BackendBundle/Controller/MenuController.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 400,
+						"buffer_size": 983,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								298,
-								298
+								548,
+								507
 							]
 						],
 						"settings":
@@ -1300,57 +1362,144 @@
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "src/My/BackendBundle/Resources/views/Default/index.html.twig",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 14039,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								740,
-								740
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Twig/Syntaxes/HTML (Twig).tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 184.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
 					"buffer": 5,
-					"file": "app/Resources/views/base.html.twig",
+					"file": "src/My/BackendBundle/Entity/Menu.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 387,
+						"buffer_size": 3966,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								194,
-								205
+								191,
+								191
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Twig/Syntaxes/HTML (Twig).tmLanguage",
+							"syntax": "Packages/PHP/PHP.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "src/My/BackendBundle/Repository/MenuRepository.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 662,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								346,
+								346
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "web/js/mainMenu.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 495,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								444,
+								448
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "src/My/BackendBundle/Entity/Language.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3345,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								907,
+								907
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 480.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "src/My/BackendBundle/Entity/Module.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2281,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								651,
+								556
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 260.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
