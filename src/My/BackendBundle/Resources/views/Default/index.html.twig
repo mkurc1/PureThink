@@ -12,6 +12,7 @@
 	<script src="{{ asset('js/plugins/jquery-2.0.3.min.js') }}"></script>
 	<script src="{{ asset('js/main.js') }}"></script>
 	<script src="{{ asset('js/mainMenu.js') }}"></script>
+	<script src="{{ asset('js/leftMenu.js') }}"></script>
 {% endblock javascripts %}
 
 {% block body %}
@@ -20,7 +21,7 @@
 	</div>
 
 	<div id="main_menu">
-		{% include 'MyBackendBundle:Default:_main_menu.html.twig' %}
+		{% include 'MyBackendBundle:Default:_main_menu.html.twig' with { 'modules': modules } %}
 	</div>
 
 	<div id="main_button">

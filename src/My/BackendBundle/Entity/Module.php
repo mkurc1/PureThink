@@ -136,4 +136,14 @@ class Module
     {
         return $this->menus;
     }
+
+    /**
+     * Get name
+     * 
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->getName();
+    }
 }

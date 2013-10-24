@@ -23,8 +23,8 @@ class MenuRepository extends EntityRepository
 		$qb = $this->createQueryBuilder('m')
 			->leftJoin('m.module', 'mod')
 			->where('mod.id = :module_id')
-			->orderBy('m.sequence')
-		    ->setParameter('module_id', $moduleId);
+		    ->setParameter('module_id', $moduleId)
+			->orderBy('m.sequence');
 
 		return $qb->getQuery()->getResult();
 	}

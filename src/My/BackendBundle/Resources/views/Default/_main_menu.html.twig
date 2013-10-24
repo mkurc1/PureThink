@@ -2,6 +2,11 @@
 	<div id="select_mode">
 		<div id="select">CMS</div>
 		<img src="{{ asset('images/arrow_down_orange.png') }}" alt="select" />
+		<ul id="select_container_list">
+			{% for module in modules %}
+				<li>{{ module }}</a></li>
+			{% endfor %}
+		</ul>
 	</div>
 </div>
 
