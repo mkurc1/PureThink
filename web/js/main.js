@@ -1,4 +1,10 @@
+//user setting
+var moduleId;
+var languageId;
+var rowsOnPageId;
+var userId;
 var menuId;
+
 var groupId;
 var order;
 var sequence;
@@ -11,9 +17,10 @@ var lastPage = 0;
 var beforePage = 0;
 var nextPage = 0;
 
-$(function(){
+$(function() {
     $.ajaxSetup({async: false});
 
     getUserSetting();
-    $('#main_menu_list').setMainMenu(moduleId);
+    $('#main_menu_list').setMainMenu(moduleId, menuId);
+    getRowsOnPage(rowsOnPageId);
 });

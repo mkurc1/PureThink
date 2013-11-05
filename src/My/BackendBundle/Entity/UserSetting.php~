@@ -42,6 +42,11 @@ class UserSetting
      */
     protected $module;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Menu", inversedBy="userSettings")
+     */
+    protected $menu;
+
 
     /**
      * Get id

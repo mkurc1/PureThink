@@ -58,9 +58,15 @@ class Menu
     protected $module;
 
     /**
+     * @ORM\OneToMany(targetEntity="UserSetting", mappedBy="menu")
+     */
+    protected $userSettings;
+
+
+    /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -76,14 +82,14 @@ class Menu
     public function setName($name)
     {
         $this->name = $name;
-    
+
         return $this;
     }
 
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -99,14 +105,14 @@ class Menu
     public function setLink($link)
     {
         $this->link = $link;
-    
+
         return $this;
     }
 
     /**
      * Get link
      *
-     * @return string 
+     * @return string
      */
     public function getLink()
     {
@@ -122,14 +128,14 @@ class Menu
     public function setSequence($sequence)
     {
         $this->sequence = $sequence;
-    
+
         return $this;
     }
 
     /**
      * Get sequence
      *
-     * @return integer 
+     * @return integer
      */
     public function getSequence()
     {
@@ -152,7 +158,7 @@ class Menu
     public function addMenu(\My\BackendBundle\Entity\Menu $menus)
     {
         $this->menus[] = $menus;
-    
+
         return $this;
     }
 
@@ -169,7 +175,7 @@ class Menu
     /**
      * Get menus
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getMenus()
     {
@@ -185,14 +191,14 @@ class Menu
     public function setMenu(\My\BackendBundle\Entity\Menu $menu = null)
     {
         $this->menu = $menu;
-    
+
         return $this;
     }
 
     /**
      * Get menu
      *
-     * @return \My\BackendBundle\Entity\Menu 
+     * @return \My\BackendBundle\Entity\Menu
      */
     public function getMenu()
     {
@@ -208,14 +214,14 @@ class Menu
     public function setModule(\My\BackendBundle\Entity\Module $module = null)
     {
         $this->module = $module;
-    
+
         return $this;
     }
 
     /**
      * Get module
      *
-     * @return \My\BackendBundle\Entity\Module 
+     * @return \My\BackendBundle\Entity\Module
      */
     public function getModule()
     {
@@ -224,7 +230,7 @@ class Menu
 
     /**
      * Get name
-     * 
+     *
      * @return string
      */
     public function __toString()

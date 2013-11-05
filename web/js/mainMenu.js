@@ -1,14 +1,15 @@
 var mainMenuUrl = '/app_dev.php/admin/menu';
 
 (function($) {
-    $.fn.setMainMenu = function(moduleId) {
+    $.fn.setMainMenu = function(moduleId, menuId) {
         var menu = $(this);
 
         $.ajax({
             type: "post",
             dataType: 'json',
             data: {
-                moduleId: moduleId
+                moduleId: moduleId,
+                menuId: menuId
             },
             url: mainMenuUrl,
             beforeSend: function() {

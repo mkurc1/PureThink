@@ -155,6 +155,7 @@ class LoadData implements FixtureInterface
 			$UserSetting->setLanguage($manager->getRepository('MyBackendBundle:Language')->find($userSetting->language_id));
 			$UserSetting->setModule($manager->getRepository('MyBackendBundle:Module')->find($userSetting->module_id));
 			$UserSetting->setRowsOnPage($manager->getRepository('MyBackendBundle:RowsOnPage')->find($userSetting->rows_on_page_id));
+			$UserSetting->setMenu($manager->getRepository('MyBackendBundle:Menu')->find($userSetting->menu_id));
 
 			$manager->persist($UserSetting);
 		}

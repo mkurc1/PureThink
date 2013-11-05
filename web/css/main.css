@@ -373,6 +373,9 @@ a {
     margin-left: 250px;
     overflow: visible;
 }
+#main.hide_menu {
+    margin-left: 0;
+}
 #main > #main_container {
     position: relative;
     float: left;
@@ -459,6 +462,23 @@ a {
     bottom: 0;
     background-color: #FCFCFC;
     z-index: 20;
+}
+#footer > #left_menu_toggle {
+    position: relative;
+    float: left;
+    left: 250px;
+    width: 40px;
+    height: 40px;
+    bottom: 0;
+    border-right: 1px solid #E7E7E7;
+    background-color: #F7F7F7;
+    cursor: pointer;
+}
+#footer > #left_menu_toggle:hover {
+    background-color: #E7E7E7;
+}
+#footer > #left_menu_toggle.hide_menu {
+    left: 0;
 }
 #footer > #pagination {
     position: relative;

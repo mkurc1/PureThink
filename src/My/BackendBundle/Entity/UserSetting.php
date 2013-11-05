@@ -42,6 +42,11 @@ class UserSetting
      */
     protected $module;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Menu", inversedBy="userSettings")
+     */
+    protected $menu;
+
 
     /**
      * Get id
@@ -143,5 +148,28 @@ class UserSetting
     public function getModule()
     {
         return $this->module;
+    }
+
+    /**
+     * Set menu
+     *
+     * @param \My\BackendBundle\Entity\Menu $menu
+     * @return UserSetting
+     */
+    public function setMenu(\My\BackendBundle\Entity\Menu $menu = null)
+    {
+        $this->menu = $menu;
+    
+        return $this;
+    }
+
+    /**
+     * Get menu
+     *
+     * @return \My\BackendBundle\Entity\Menu 
+     */
+    public function getMenu()
+    {
+        return $this->menu;
     }
 }

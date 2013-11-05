@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menus>
     <menu>
-        <name>Użytkownicy</name>
+        <name>Witryna</name>
         <link>#</link>
         <sequence>1</sequence>
         <module_id>1</module_id>
@@ -34,18 +34,6 @@
         <name>Szablony</name>
         <link>#</link>
         <sequence>6</sequence>
-        <module_id>1</module_id>
-    </menu>
-    <menu>
-        <name>Pliki</name>
-        <link>#</link>
-        <sequence>7</sequence>
-        <module_id>1</module_id>
-    </menu>
-    <menu>
-        <name>Pomoc</name>
-        <link>#</link>
-        <sequence>8</sequence>
         <module_id>1</module_id>
     </menu>
 </menus>
