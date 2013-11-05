@@ -29,8 +29,7 @@ class UserSettingController extends Controller
                 'userId' => $entity->getUser()->getId(),
                 'rowsOnPageId' => $entity->getRowsOnPage()->getId(),
                 'languageId' => $entity->getLanguage()->getId(),
-                'moduleId' => $entity->getModule()->getId(),
-                'menuId' => $entity->getMenu()->getId()
+                'moduleId' => $entity->getModule()->getId()
                 ),
             "response" => true
             );

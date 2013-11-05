@@ -15,7 +15,6 @@ function getUserSetting() {
                 rowsOnPageId = data.setting.rowsOnPageId;
                 moduleId = data.setting.moduleId;
                 languageId = data.setting.languageId;
-                menuId = data.setting.menuId;
             }
         }
     });

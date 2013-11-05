@@ -32,6 +32,11 @@ class User extends BaseUser
      */
     private $last_name;
 
+    /**
+     * @ORM\OneToMany(targetEntity="My\CMSBundle\Entity\CMSArticle", mappedBy="user")
+     */
+    protected $articles;
+
 
 	public function __construct()
 	{

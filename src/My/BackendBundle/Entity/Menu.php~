@@ -57,11 +57,6 @@ class Menu
      */
     protected $module;
 
-    /**
-     * @ORM\OneToMany(targetEntity="UserSetting", mappedBy="menu")
-     */
-    protected $userSettings;
-
 
     /**
      * Get id

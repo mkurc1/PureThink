@@ -11,6 +11,7 @@ function getRowsOnPage(rowsOnPageId) {
         beforeSend: function() {
         },
         complete: function() {
+            rowsOnPage = $("#pagination > .number_of_lines").val();
         },
         success: function(data) {
             if (data.response) {

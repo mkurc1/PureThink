@@ -2,37 +2,37 @@
 <menus>
     <menu>
         <name>Witryna</name>
-        <link>#</link>
+        <link>cmswebsite</link>
         <sequence>1</sequence>
         <module_id>1</module_id>
     </menu>
     <menu>
         <name>Menu</name>
-        <link>#</link>
+        <link>cmsarticle</link>
         <sequence>2</sequence>
         <module_id>1</module_id>
     </menu>
     <menu>
         <name>Artykuły</name>
-        <link>#</link>
+        <link>cmsarticle</link>
         <sequence>3</sequence>
         <module_id>1</module_id>
     </menu>
     <menu>
         <name>Komponenty</name>
-        <link>#</link>
+        <link>cmsarticle</link>
         <sequence>4</sequence>
         <module_id>1</module_id>
     </menu>
     <menu>
         <name>Rozszerzenia</name>
-        <link>#</link>
+        <link>cmsarticle</link>
         <sequence>5</sequence>
         <module_id>1</module_id>
     </menu>
     <menu>
         <name>Szablony</name>
-        <link>#</link>
+        <link>cmsarticle</link>
         <sequence>6</sequence>
         <module_id>1</module_id>
     </menu>

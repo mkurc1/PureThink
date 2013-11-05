@@ -1,12 +1,12 @@
 my_file:
     resource: "@MyFileBundle/Controller/"
     type:     annotation
-    prefix:   /
+    prefix:   /admin/file
 
 my_cms:
     resource: "@MyCMSBundle/Controller/"
     type:     annotation
-    prefix:   /
+    prefix:   /admin/cms
 
 my_backend:
     resource: "@MyBackendBundle/Controller/"

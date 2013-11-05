@@ -76,8 +76,8 @@ stof_doctrine_extensions:
         default:
             tree: false
             loggable: false
-            timestampable: false
-            sluggable: false
+            timestampable: true
+            sluggable: true
             translatable: false
 
 fos_user:

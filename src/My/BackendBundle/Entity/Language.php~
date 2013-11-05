@@ -38,13 +38,6 @@ class Language
     /**
      * @var boolean
      *
-     * @ORM\Column(name="is_public", type="boolean")
-     */
-    private $isPublic;
-
-    /**
-     * @var boolean
-     *
      * @ORM\Column(name="is_default", type="boolean")
      */
     private $isDefault;
@@ -114,29 +107,6 @@ class Language
     public function getAlias()
     {
         return $this->alias;
-    }
-
-    /**
-     * Set isPublic
-     *
-     * @param boolean $isPublic
-     * @return Language
-     */
-    public function setIsPublic($isPublic)
-    {
-        $this->isPublic = $isPublic;
-
-        return $this;
-    }
-
-    /**
-     * Get isPublic
-     *
-     * @return boolean
-     */
-    public function getIsPublic()
-    {
-        return $this->isPublic;
     }
 
     /**
@@ -212,7 +182,7 @@ class Language
     public function addUserSetting(\My\BackendBundle\Entity\UserSetting $userSettings)
     {
         $this->userSettings[] = $userSettings;
-    
+
         return $this;
     }
 
@@ -229,7 +199,7 @@ class Language
     /**
      * Get userSettings
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getUserSettings()
     {

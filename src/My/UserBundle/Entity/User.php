@@ -32,6 +32,11 @@ class User extends BaseUser
      */
     private $last_name;
 
+    /**
+     * @ORM\OneToMany(targetEntity="My\CMSBundle\Entity\CMSArticle", mappedBy="user")
+     */
+    protected $articles;
+
 
 	public function __construct()
 	{
@@ -92,5 +97,38 @@ class User extends BaseUser
     public function getLastName()
     {
         return $this->last_name;
+    }
+
+    /**
+     * Add articles
+     *
+     * @param \My\CMSBundle\Entity\CMSArticle $articles
+     * @return User
+     */
+    public function addArticle(\My\CMSBundle\Entity\CMSArticle $articles)
+    {
+        $this->articles[] = $articles;
+    
+        return $this;
+    }
+
+    /**
+     * Remove articles
+     *
+     * @param \My\CMSBundle\Entity\CMSArticle $articles
+     */
+    public function removeArticle(\My\CMSBundle\Entity\CMSArticle $articles)
+    {
+        $this->articles->removeElement($articles);
+    }
+
+    /**
+     * Get articles
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getArticles()
+    {
+        return $this->articles;
     }
 }

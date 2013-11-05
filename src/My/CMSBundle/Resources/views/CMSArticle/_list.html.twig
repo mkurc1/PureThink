@@ -1,0 +1,30 @@
+<table>
+    <thead>
+        <tr>
+            <th class="select"></th>
+            <th class="lp">ID</th>
+            <th class="name width_big">Nazwa</th>
+            <th class="width_small">Aktywne</th>
+            <th class="width_small">Data utworzenia</th>
+            <th class="width_small">Data modyfikacji</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for entity in entities %}
+        <tr>
+            <td class="select"><input type="checkbox" class="multi_check" /></td>
+            <td class="lp">{{ entity.id }}.</td>
+            <td class="width_big name"><a href="{{ path('cmsarticle_edit', { 'id': entity.id }) }}">{{ entity }}</a></td>
+            <td class="width_small">
+                {% if (entity.isPublic) %}
+                    <img class="active" src="{{ asset('images/active.png') }}" alt="active" />
+                {% else %}
+                    <img class="deactive" src="{{ asset('images/deactive.png') }}" alt="deactive" />
+                {% endif %}
+            </td>
+            <td class="width_small">{{ entity.createdAt|date('Y-m-d') }}</td>
+            <td class="width_small">{{ entity.updatedAt|date('Y-m-d') }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>

@@ -13,12 +13,12 @@ use Doctrine\ORM\EntityRepository;
 class MenuRepository extends EntityRepository
 {
 	/**
-	 * Get nenu
-	 * 
+	 * Get menu
+	 *
 	 * @param integer $moduleId
 	 * @return array
 	 */
-	public function getMenu($moduleId)
+	public function getMenus($moduleId)
 	{
 		$qb = $this->createQueryBuilder('m')
 			->leftJoin('m.module', 'mod')

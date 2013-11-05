@@ -57,11 +57,6 @@ class Menu
      */
     protected $module;
 
-    /**
-     * @ORM\OneToMany(targetEntity="UserSetting", mappedBy="menu")
-     */
-    protected $userSettings;
-
 
     /**
      * Get id
@@ -236,38 +231,5 @@ class Menu
     public function __toString()
     {
         return $this->getName();
-    }
-
-    /**
-     * Add userSettings
-     *
-     * @param \My\BackendBundle\Entity\UserSetting $userSettings
-     * @return Menu
-     */
-    public function addUserSetting(\My\BackendBundle\Entity\UserSetting $userSettings)
-    {
-        $this->userSettings[] = $userSettings;
-    
-        return $this;
-    }
-
-    /**
-     * Remove userSettings
-     *
-     * @param \My\BackendBundle\Entity\UserSetting $userSettings
-     */
-    public function removeUserSetting(\My\BackendBundle\Entity\UserSetting $userSettings)
-    {
-        $this->userSettings->removeElement($userSettings);
-    }
-
-    /**
-     * Get userSettings
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getUserSettings()
-    {
-        return $this->userSettings;
     }
 }

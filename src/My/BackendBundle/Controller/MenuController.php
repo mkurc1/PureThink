@@ -16,12 +16,11 @@ class MenuController extends Controller
     {
 		$request = $this->container->get('request');
 		$moduleId = (int)$request->get('moduleId');
-        $selectedMenuId = (int)$request->get('menuId');
 
 		$em = $this->getDoctrine()->getManager();
-		$entities = $em->getRepository('MyBackendBundle:Menu')->getMenu($moduleId);
+		$entities = $em->getRepository('MyBackendBundle:Menu')->getMenus($moduleId);
 
-		$menu = $this->renderView('MyBackendBundle:Menu:_menu.html.twig', array('entities' => $entities, 'selectedMenuId' => $selectedMenuId));
+		$menu = $this->renderView('MyBackendBundle:Menu:_menu.html.twig', array('entities' => $entities));
 
 		$response = array("menu" => $menu, "response" => true);
 
