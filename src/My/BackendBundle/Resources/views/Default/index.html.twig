@@ -11,6 +11,7 @@
 {% block javascripts %}
 	<script src="{{ asset('js/plugins/jquery-2.0.3.min.js') }}"></script>
 	<script src="{{ asset('js/main.js') }}"></script>
+	<script src="{{ asset('js/userSetting.js') }}"></script>
 	<script src="{{ asset('js/mainMenu.js') }}"></script>
 	<script src="{{ asset('js/leftMenu.js') }}"></script>
 {% endblock javascripts %}
@@ -29,13 +30,13 @@
 	</div>
 
 	<div id="main_line"></div>
-	
+
 	<div id="left_menu">
 		<ul id="left_menu_container">
 			{% include 'MyBackendBundle:Default:_left_menu.html.twig' %}
 		</ul>
 	</div>
-	
+
 	<div id="main">
 		<div id="main_container">
 			<table>

@@ -40,11 +40,16 @@ class Module
      */
     protected $menus;
 
+    /**
+     * @ORM\OneToMany(targetEntity="UserSetting", mappedBy="module")
+     */
+    protected $userSettings;
+
 
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -60,14 +65,14 @@ class Module
     public function setName($name)
     {
         $this->name = $name;
-    
+
         return $this;
     }
 
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -83,14 +88,14 @@ class Module
     public function setIsDefault($isDefault)
     {
         $this->isDefault = $isDefault;
-    
+
         return $this;
     }
 
     /**
      * Get isDefault
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getIsDefault()
     {
@@ -103,7 +108,7 @@ class Module
     {
         $this->menus = new \Doctrine\Common\Collections\ArrayCollection();
     }
-    
+
     /**
      * Add menus
      *
@@ -113,7 +118,7 @@ class Module
     public function addMenu(\My\BackendBundle\Entity\Menu $menus)
     {
         $this->menus[] = $menus;
-    
+
         return $this;
     }
 
@@ -130,7 +135,7 @@ class Module
     /**
      * Get menus
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getMenus()
     {
@@ -139,11 +144,44 @@ class Module
 
     /**
      * Get name
-     * 
+     *
      * @return string
      */
     public function __toString()
     {
         return $this->getName();
+    }
+
+    /**
+     * Add userSettings
+     *
+     * @param \My\BackendBundle\Entity\UserSetting $userSettings
+     * @return Module
+     */
+    public function addUserSetting(\My\BackendBundle\Entity\UserSetting $userSettings)
+    {
+        $this->userSettings[] = $userSettings;
+    
+        return $this;
+    }
+
+    /**
+     * Remove userSettings
+     *
+     * @param \My\BackendBundle\Entity\UserSetting $userSettings
+     */
+    public function removeUserSetting(\My\BackendBundle\Entity\UserSetting $userSettings)
+    {
+        $this->userSettings->removeElement($userSettings);
+    }
+
+    /**
+     * Get userSettings
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getUserSettings()
+    {
+        return $this->userSettings;
     }
 }

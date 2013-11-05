@@ -1,24 +1,25 @@
-/**
- * Get main menu
- * 
- * @param integer moduleId
- */
-function getMainMenu(moduleId) {
-    $.ajax({
-        type: "post",
-        dataType: 'json',
-        data: {
-            moduleId: moduleId
-        },
-        url: mainMenuUrl,
-        beforeSend: function() {
-        },
-        complete: function() {
-        },
-        success: function(data) {
-            if (data.response) {
-                $('#main_menu_list').empty().append(data.menu.toString());
+var mainMenuUrl = '/app_dev.php/admin/menu';
+
+(function($) {
+    $.fn.setMainMenu = function(moduleId) {
+        var menu = $(this);
+
+        $.ajax({
+            type: "post",
+            dataType: 'json',
+            data: {
+                moduleId: moduleId
+            },
+            url: mainMenuUrl,
+            beforeSend: function() {
+            },
+            complete: function() {
+            },
+            success: function(data) {
+                if (data.response) {
+                    menu.empty().append(data.menu.toString());
+                }
             }
-        }
-    });
-}
+        });
+    }
+})(jQuery);

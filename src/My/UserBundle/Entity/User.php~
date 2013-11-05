@@ -32,6 +32,7 @@ class User extends BaseUser
      */
     private $last_name;
 
+
 	public function __construct()
 	{
 		parent::__construct();
@@ -40,7 +41,7 @@ class User extends BaseUser
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -56,14 +57,14 @@ class User extends BaseUser
     public function setFirstName($firstName)
     {
         $this->first_name = $firstName;
-    
+
         return $this;
     }
 
     /**
      * Get first_name
      *
-     * @return string 
+     * @return string
      */
     public function getFirstName()
     {
@@ -79,14 +80,14 @@ class User extends BaseUser
     public function setLastName($lastName)
     {
         $this->last_name = $lastName;
-    
+
         return $this;
     }
 
     /**
      * Get last_name
      *
-     * @return string 
+     * @return string
      */
     public function getLastName()
     {

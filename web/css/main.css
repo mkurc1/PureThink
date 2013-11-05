@@ -8,7 +8,7 @@ body {
     background-color: #fff;
 }
 a {
-    text-decoration: none;   
+    text-decoration: none;
 }
 #top_menu {
     position: fixed;
@@ -118,7 +118,7 @@ a {
     float: left;
     height: 100%;
     width: 250px;
-} 
+}
 #main_menu > #select_mode_conteiner > #select_mode {
     position: relative;
     float: left;
@@ -377,7 +377,7 @@ a {
     position: relative;
     float: left;
     min-width: 100%;
-    min-height: 100%; 
+    min-height: 100%;
     margin-bottom: 41px;
 }
 #main > #main_container > table {
@@ -581,7 +581,7 @@ a {
 }
 #login_container > #login #_submit {
     position: relative;
-    background-color: #0870a5;  
+    background-color: #0870a5;
     border: 1px solid #232125;
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;

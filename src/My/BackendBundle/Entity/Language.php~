@@ -54,11 +54,16 @@ class Language
      */
     protected $translates;
 
+    /**
+     * @ORM\OneToMany(targetEntity="UserSetting", mappedBy="language")
+     */
+    protected $userSettings;
+
 
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -74,14 +79,14 @@ class Language
     public function setName($name)
     {
         $this->name = $name;
-    
+
         return $this;
     }
 
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -97,14 +102,14 @@ class Language
     public function setAlias($alias)
     {
         $this->alias = $alias;
-    
+
         return $this;
     }
 
     /**
      * Get alias
      *
-     * @return string 
+     * @return string
      */
     public function getAlias()
     {
@@ -120,14 +125,14 @@ class Language
     public function setIsPublic($isPublic)
     {
         $this->isPublic = $isPublic;
-    
+
         return $this;
     }
 
     /**
      * Get isPublic
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getIsPublic()
     {
@@ -143,19 +148,20 @@ class Language
     public function setIsDefault($isDefault)
     {
         $this->isDefault = $isDefault;
-    
+
         return $this;
     }
 
     /**
      * Get isDefault
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getIsDefault()
     {
         return $this->isDefault;
     }
+
     /**
      * Constructor
      */
@@ -163,7 +169,7 @@ class Language
     {
         $this->translates = new \Doctrine\Common\Collections\ArrayCollection();
     }
-    
+
     /**
      * Add translates
      *
@@ -173,7 +179,7 @@ class Language
     public function addTranslate(\My\BackendBundle\Entity\Translate $translates)
     {
         $this->translates[] = $translates;
-    
+
         return $this;
     }
 
@@ -190,10 +196,43 @@ class Language
     /**
      * Get translates
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getTranslates()
     {
         return $this->translates;
+    }
+
+    /**
+     * Add userSettings
+     *
+     * @param \My\BackendBundle\Entity\UserSetting $userSettings
+     * @return Language
+     */
+    public function addUserSetting(\My\BackendBundle\Entity\UserSetting $userSettings)
+    {
+        $this->userSettings[] = $userSettings;
+    
+        return $this;
+    }
+
+    /**
+     * Remove userSettings
+     *
+     * @param \My\BackendBundle\Entity\UserSetting $userSettings
+     */
+    public function removeUserSetting(\My\BackendBundle\Entity\UserSetting $userSettings)
+    {
+        $this->userSettings->removeElement($userSettings);
+    }
+
+    /**
+     * Get userSettings
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getUserSettings()
+    {
+        return $this->userSettings;
     }
 }
