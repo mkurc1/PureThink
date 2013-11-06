@@ -9,7 +9,7 @@ use Gedmo\Mapping\Driver\AbstractAnnotationDriver,
 /**
  * This is an annotation mapping driver for Blameable
  * behavioral extension. Used for extraction of extended
- * metadata from Annotations specificaly for Blameable
+ * metadata from Annotations specifically for Blameable
  * extension.
  *
  * @author David Buchmann <mail@davidbu.ch>
@@ -69,6 +69,9 @@ class Annotation extends AbstractAnnotationDriver
                 if ($blameable->on == 'change') {
                     if (!isset($blameable->field)) {
                         throw new InvalidMappingException("Missing parameters on property - {$field}, field must be set on [change] trigger in class - {$meta->name}");
+                    }
+                    if (is_array($blameable->field) && isset($blameable->value)) {
+                        throw new InvalidMappingException("Blameable extension does not support multiple value changeset detection yet.");
                     }
                     $field = array(
                         'field' => $field,

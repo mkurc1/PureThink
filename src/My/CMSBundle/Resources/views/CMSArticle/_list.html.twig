@@ -16,7 +16,7 @@
             <td class="lp">{{ entity.id }}.</td>
             <td class="width_big name"><a href="{{ path('cmsarticle_edit', { 'id': entity.id }) }}">{{ entity }}</a></td>
             <td class="width_small">
-                {% if (entity.isPublic) %}
+                {% if entity.isPublic %}
                     <img class="active" src="{{ asset('images/active.png') }}" alt="active" />
                 {% else %}
                     <img class="deactive" src="{{ asset('images/deactive.png') }}" alt="deactive" />

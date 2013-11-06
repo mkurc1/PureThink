@@ -9,7 +9,7 @@ use Gedmo\Mapping\Driver\File,
 /**
  * This is a yaml mapping driver for Sluggable
  * behavioral extension. Used for extraction of extended
- * metadata from yaml specificaly for Sluggable
+ * metadata from yaml specifically for Sluggable
  * extension.
  *
  * @author Gediminas Morkevicius <gediminas.morkevicius@gmail.com>
@@ -33,6 +33,7 @@ class Yaml extends File implements Driver
         'text',
         'integer',
         'int',
+        'datetime',
     );
 
     /**
@@ -66,7 +67,7 @@ class Yaml extends File implements Driver
                             throw new InvalidMappingException("Slug must contain at least one field for slug generation in class - {$meta->name}");
                         }
                         foreach ($slug['fields'] as $slugField) {
-                            if (!$meta->hasField($slugField) || $meta->isInheritedField($slugField)) {
+                            if (!$meta->hasField($slugField)) {
                                 throw new InvalidMappingException("Unable to find slug [{$slugField}] as mapped property in entity - {$meta->name}");
                             }
                             if (!$this->isValidField($meta, $slugField)) {
@@ -80,6 +81,9 @@ class Yaml extends File implements Driver
                         $config['slugs'][$field]['style'] = isset($slug['style']) ?
                             (string)$slug['style'] : 'default';
 
+                        $config['slugs'][$field]['dateFormat'] = isset($slug['dateFormat']) ?
+                            (bool)$slug['dateFormat'] : 'Y-m-d-H:i';
+
                         $config['slugs'][$field]['updatable'] = isset($slug['updatable']) ?
                             (bool)$slug['updatable'] : true;
 
@@ -91,6 +95,12 @@ class Yaml extends File implements Driver
 
                         $config['slugs'][$field]['separator'] = isset($slug['separator']) ?
                             (string)$slug['separator'] : '-';
+
+                        $config['slugs'][$field]['prefix'] = isset($slug['prefix']) ?
+                            (string)$slug['prefix'] : '';
+
+                        $config['slugs'][$field]['suffix'] = isset($slug['suffix']) ?
+                            (string)$slug['suffix'] : '';
 
                         if (!$meta->isMappedSuperclass && $meta->isIdentifier($field) && !$config['slugs'][$field]['unique']) {
                             throw new InvalidMappingException("Identifier field - [{$field}] slug must be unique in order to maintain primary key in class - {$meta->name}");

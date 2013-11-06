@@ -9,7 +9,7 @@ use Gedmo\Mapping\Driver\AbstractAnnotationDriver,
 /**
  * This is an annotation mapping driver for Timestampable
  * behavioral extension. Used for extraction of extended
- * metadata from Annotations specificaly for Timestampable
+ * metadata from Annotations specifically for Timestampable
  * extension.
  *
  * @author Gediminas Morkevicius <gediminas.morkevicius@gmail.com>
@@ -65,6 +65,9 @@ class Annotation extends AbstractAnnotationDriver
                 if ($timestampable->on == 'change') {
                     if (!isset($timestampable->field)) {
                         throw new InvalidMappingException("Missing parameters on property - {$field}, field must be set on [change] trigger in class - {$meta->name}");
+                    }
+                    if (is_array($timestampable->field) && isset($timestampable->value)) {
+                        throw new InvalidMappingException("Timestampable extension does not support multiple value changeset detection yet.");
                     }
                     $field = array(
                         'field' => $field,

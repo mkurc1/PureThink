@@ -49,6 +49,10 @@ class FrameworkBundle extends Bundle
         if ($this->container->getParameter('kernel.http_method_override')) {
             Request::enableHttpMethodParameterOverride();
         }
+
+        if ($trustedHosts = $this->container->getParameter('kernel.trusted_hosts')) {
+            Request::setTrustedHosts($trustedHosts);
+        }
     }
 
     public function build(ContainerBuilder $container)
@@ -61,7 +65,9 @@ class FrameworkBundle extends Bundle
 
         $container->addCompilerPass(new RoutingResolverPass());
         $container->addCompilerPass(new ProfilerPass());
-        $container->addCompilerPass(new RegisterListenersPass(), PassConfig::TYPE_AFTER_REMOVING);
+        // must be registered before removing private services as some might be listeners/subscribers
+        // but as late as possible to get resolved parameters
+        $container->addCompilerPass(new RegisterListenersPass(), PassConfig::TYPE_BEFORE_REMOVING);
         $container->addCompilerPass(new TemplatingPass());
         $container->addCompilerPass(new AddConstraintValidatorsPass());
         $container->addCompilerPass(new AddValidatorInitializersPass());

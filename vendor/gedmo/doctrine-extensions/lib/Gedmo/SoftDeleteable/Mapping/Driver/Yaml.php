@@ -10,7 +10,7 @@ use Gedmo\Mapping\Driver\File,
 /**
  * This is a yaml mapping driver for Timestampable
  * behavioral extension. Used for extraction of extended
- * metadata from yaml specificaly for Timestampable
+ * metadata from yaml specifically for Timestampable
  * extension.
  *
  * @author Gustavo Falco <comfortablynumb84@gmail.com>
@@ -46,6 +46,14 @@ class Yaml extends File implements Driver
                 Validator::validateField($meta, $fieldName);
 
                 $config['fieldName'] = $fieldName;
+
+                $config['timeAware'] = false;
+                if(isset($classMapping['soft_deleteable']['time_aware'])) {
+                    if (!is_bool($classMapping['soft_deleteable']['time_aware'])) {
+                        throw new InvalidMappingException("timeAware must be boolean. ".gettype($classMapping['soft_deleteable']['time_aware'])." provided.");
+                    }
+                    $config['timeAware'] = $classMapping['soft_deleteable']['time_aware'];
+                }
             }
         }
     }

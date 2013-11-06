@@ -8,7 +8,7 @@ use Gedmo\Mapping\Driver\Xml as BaseXml,
 /**
  * This is a xml mapping driver for Sluggable
  * behavioral extension. Used for extraction of extended
- * metadata from xml specificaly for Sluggable
+ * metadata from xml specifically for Sluggable
  * extension.
  *
  * @author Gediminas Morkevicius <gediminas.morkevicius@gmail.com>
@@ -28,6 +28,7 @@ class Xml extends BaseXml
         'text',
         'integer',
         'int',
+        'datetime',
     );
 
     /**
@@ -89,12 +90,18 @@ class Xml extends BaseXml
                             $this->_getAttribute($slug, 'style') : 'default',
                         'updatable' => $this->_isAttributeSet($slug, 'updatable') ?
                             $this->_getBooleanAttribute($slug, 'updatable') : true,
+                        'dateFormat' => $this->_isAttributeSet($slug, 'dateFormat') ?
+                            $this->_getAttribute($slug, 'dateFormat') : 'Y-m-d-H:i',
                         'unique' => $this->_isAttributeSet($slug, 'unique') ?
                             $this->_getBooleanAttribute($slug, 'unique') : true,
                         'unique_base' => $this->_isAttributeSet($slug, 'unique_base') ?
                             $this->_getAttribute($slug, 'unique_base') : null,
                         'separator' => $this->_isAttributeSet($slug, 'separator') ?
                             $this->_getAttribute($slug, 'separator') : '-',
+                        'prefix' => $this->_isAttributeSet($slug, 'prefix') ?
+                            $this->_getAttribute($slug, 'prefix') : '',
+                        'suffix' => $this->_isAttributeSet($slug, 'suffix') ?
+                            $this->_getAttribute($slug, 'suffix') : '',
                         'handlers' => $handlers,
                     );
                     if (!$meta->isMappedSuperclass && $meta->isIdentifier($field) && !$config['slugs'][$field]['unique']) {

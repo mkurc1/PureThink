@@ -11,6 +11,8 @@ use My\CMSBundle\Entity\CMSArticle;
 use My\CMSBundle\Form\CMSArticleType;
 use Symfony\Component\HttpFoundation\Response;
 
+use My\BackendBundle\Pagination\Pagination as Pagination;
+
 /**
  * CMSArticle controller.
  *
@@ -28,14 +30,26 @@ class CMSArticleController extends Controller
     public function listAction()
     {
         $request = $this->container->get('request');
+        $rowsOnPage = (int)$request->get('rowsOnPage', 10);
 
         $em = $this->getDoctrine()->getManager();
 
         $entities = $em->getRepository('MyCMSBundle:CMSArticle')->getArticles();
 
-        $list = $this->renderView('MyCMSBundle:CMSArticle:_list.html.twig', array('entities' => $entities));
+        $paginator  = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $entities,
+            $this->get('request')->query->get('page', 1),
+            $rowsOnPage
+        );
 
-        $response = array("list" => $list, "response" => true);
+        $list = $this->renderView('MyCMSBundle:CMSArticle:_list.html.twig', array('entities' => $pagination));
+
+        $response = array(
+            "list" => $list,
+            "pagination" => Pagination::helper($pagination),
+            "response" => true
+            );
 
         return new Response(json_encode($response));
     }

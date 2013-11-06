@@ -11,9 +11,7 @@
 
 namespace Symfony\Bridge\ProxyManager\LazyProxy\Tests\Instantiator;
 
-use ProxyManager\Configuration;
 use Symfony\Bridge\ProxyManager\LazyProxy\PhpDumper\ProxyDumper;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\DependencyInjection\Definition;
 
 /**
@@ -76,7 +74,7 @@ class ProxyDumperTest extends \PHPUnit_Framework_TestCase
             '%wif ($lazyLoad) {%w$container = $this;%wreturn $this->services[\'foo\'] = new '
             . 'SymfonyBridgeProxyManagerLazyProxyTestsInstantiatorProxyDumperTest_%s(%wfunction '
             . '(&$wrappedInstance, \ProxyManager\Proxy\LazyLoadingInterface $proxy) use ($container) {'
-            . '%w$proxy->setProxyInitializer(null);%w$wrappedInstance = $container->getFooService(false);'
+            . '%w$wrappedInstance = $container->getFooService(false);%w$proxy->setProxyInitializer(null);'
             . '%wreturn true;%w}%w);%w}%w',
             $code
         );

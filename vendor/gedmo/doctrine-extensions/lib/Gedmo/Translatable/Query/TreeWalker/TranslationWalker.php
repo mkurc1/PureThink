@@ -19,7 +19,7 @@ use Doctrine\ORM\Query\AST\Join;
  *
  * Behind the scenes, during the object hydration it forces
  * custom hydrator in order to interact with TranslatableListener
- * and skip postLoad event which would couse automatic retranslation
+ * and skip postLoad event which would cause automatic retranslation
  * of the fields.
  *
  * @author Gediminas Morkevicius <gediminas.morkevicius@gmail.com>
@@ -291,8 +291,7 @@ class TranslationWalker extends SqlWalker
             $transMeta = $em->getClassMetadata($transClass);
             $transTable = $transMeta->getQuotedTableName($this->platform);
             foreach ($config['fields'] as $field) {
-                $compTableName = $meta->getQuotedTableName($this->platform);
-                $compTblAlias = $this->getSQLTableAlias($compTableName, $dqlAlias);
+                $compTblAlias = $this->walkIdentificationVariable($dqlAlias, $field);
                 $tblAlias = $this->getSQLTableAlias('trans'.$compTblAlias.$field);
                 $sql = " {$joinStrategy} JOIN ".$transTable.' '.$tblAlias;
                 $sql .= ' ON '.$tblAlias.'.'.$transMeta->getQuotedColumnName('locale', $this->platform)

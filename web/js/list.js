@@ -22,6 +22,7 @@ function setList() {
         type: "post",
         dataType: 'json',
         data: {
+            rowsOnPage: rowsOnPage
         },
         url: listUrl,
         beforeSend: function() {

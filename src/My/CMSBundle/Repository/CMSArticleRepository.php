@@ -20,6 +20,6 @@ class CMSArticleRepository extends EntityRepository
 		 //    ->setParameter('module_id', $moduleId)
 			// ->orderBy('m.sequence');
 
-		return $qb->getQuery()->getResult();
+		return $qb->getQuery();
 	}
 }

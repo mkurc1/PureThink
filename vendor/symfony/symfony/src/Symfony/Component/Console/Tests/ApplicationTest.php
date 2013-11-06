@@ -63,7 +63,7 @@ class ApplicationTest extends \PHPUnit_Framework_TestCase
     {
         $application = new Application('foo', 'bar');
         $this->assertEquals('foo', $application->getName(), '__construct() takes the application name as its first argument');
-        $this->assertEquals('bar', $application->getVersion(), '__construct() takes the application version as its first argument');
+        $this->assertEquals('bar', $application->getVersion(), '__construct() takes the application version as its second argument');
         $this->assertEquals(array('help', 'list'), array_keys($application->all()), '__construct() registered the help and list commands by default');
     }
 
@@ -454,6 +454,9 @@ class ApplicationTest extends \PHPUnit_Framework_TestCase
         $tester = new ApplicationTester($application);
         $tester->run(array('command' => 'foo3:bar'), array('decorated' => false));
         $this->assertStringEqualsFile(self::$fixturesPath.'/application_renderexception3.txt', $tester->getDisplay(true), '->renderException() renders a pretty exceptions with previous exceptions');
+
+        $tester->run(array('command' => 'foo3:bar'), array('decorated' => true));
+        $this->assertStringEqualsFile(self::$fixturesPath.'/application_renderexception3decorated.txt', $tester->getDisplay(true), '->renderException() renders a pretty exceptions with previous exceptions');
 
         $application = $this->getMock('Symfony\Component\Console\Application', array('getTerminalWidth'));
         $application->setAutoExit(false);

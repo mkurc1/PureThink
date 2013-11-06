@@ -318,4 +318,27 @@ class CMSArticle
     {
         return $this->getName();
     }
+
+    /**
+     * Set user
+     *
+     * @param \My\UserBundle\Entity\User $user
+     * @return CMSArticle
+     */
+    public function setUser(\My\UserBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+    
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \My\UserBundle\Entity\User 
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
 }

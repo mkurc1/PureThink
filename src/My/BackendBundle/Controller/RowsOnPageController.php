@@ -12,7 +12,7 @@ class RowsOnPageController extends Controller
     /**
      * @Route("/rows_on_page")
      */
-    public function menuAction()
+    public function getRowsOnPageAction()
     {
         $request = $this->container->get('request');
         $rowsOnPageId = (int)$request->get('rowsOnPageId');

@@ -5,15 +5,27 @@ which should store the slug
 
 Features:
 
-- Automatic predifined field transformation into slug
+- Automatic predefined field transformation into slug
 - ORM and ODM support using same listener
-- Slugs can be unique and styled
+- Slugs can be unique and styled, even with prefixes and/or suffixes
 - Can be nested with other behaviors
 - Annotation, Yaml and Xml mapping support for extensions
-- Multiple slugs, diferent slugs can link to same fields
+- Multiple slugs, different slugs can link to same fields
 
 [blog_reference]: http://gediminasm.org/article/sluggable-behavior-extension-for-doctrine-2 "Sluggable extension for Doctrine 2 makes automatic record field transformations into url friendly names"
 [blog_test]: http://gediminasm.org/test "Test extensions on this blog"
+
+Update **2013-10-26**
+
+- Datetime support with default dateFormat Y-m-d-H:i
+
+Update **2013-08-23**
+
+- Added 'prefix' and 'suffix' configuration parameter #812
+
+Update **2013-08-19**
+
+- allow empty slug #807 regenerate slug only if set to `null`
 
 Update **2013-03-10**
 
@@ -30,7 +42,7 @@ Update **2012-02-26**
 
 Update **2011-09-11**
 
-- Refactored sluggable for doctrine2.2 by specifieng slug fields directly in slug annotation
+- Refactored sluggable for doctrine2.2 by specifying slug fields directly in slug annotation
 - Slug handler functionality, possibility to create custom ones or use built-in
 tree path handler or linked slug through single valued association
 - Updated documentation mapping examples for 2.1.x version or higher
@@ -322,6 +334,8 @@ echo $article->getSlug();
 - **unique** (optional, default=true) - **true** if slug should be unique and if identical it will be prefixed, **false** - otherwise
 - **unique_base** (optional, default=null) - used in conjunction with **unique**. The name of the entity property that should be used as a key when doing a uniqueness check.
 - **separator** (optional, default="-") - separator which will separate words in slug
+- **prefix** (optional, default="") - prefix which will be added to the generated slug
+- **suffix** (optional, default="") - suffix which will be added to the generated slug
 - **style** (optional, default="default") - **"default"** all letters will be lowercase, **"camel"** - first word letter will be uppercase
 - **handlers** (optional, default=[]) - list of slug handlers, like tree path slug, or customized, for example see bellow
 
@@ -391,7 +405,7 @@ class Article
 {
     // ...
     /**
-     * @Gedmo\Slug(fields={"title"}, style="camel", separator="_", updatable=false, unique=false)
+     * @Gedmo\Slug(fields={"title", "created"}, style="camel", separator="_", updatable=false, unique=false, dateFormat="d/m/Y H-i-s")
      * @Doctrine\ORM\Mapping\Column(length=128, unique=true)
      */
     private $slug;
@@ -399,10 +413,20 @@ class Article
 
     // ...
     /**
+     * @Doctrine\ORM\Mapping\Column(type="datetime", name="created_at")
+     */
+    private $createdAt;
+
+    // ...
+    /**
      * @Doctrine\ORM\Mapping\Column(length=128)
      */
     private $title;
     // ...
+    public function __construct()
+    {
+      $this->createdAt = new \DateTime;
+    }
 }
 ```
 
@@ -447,13 +471,14 @@ $sluggableListener->setTransliterator($callable);
 
 ### Regenerating slug
 
-In case if you want the slug to regenerate itself based on sluggable fields.
-Set the slug to **null** or empty string.
+In case if you want the slug to regenerate itself based on sluggable fields, set the slug to **null**.
+
+*Note: in previous versions empty strings would also cause the slug to be regenerated. This behaviour was changed in v2.3.8.*
 
 ``` php
 <?php
 $entity = $em->find('Entity\Something', $id);
-$entity->setSlug('');
+$entity->setSlug(null);
 
 $em->flush();
 ```
@@ -466,7 +491,7 @@ Sluggable will ensure uniqueness of the slug.
 ``` php
 <?php
 $entity = new SomeEntity;
-$entity->setSluggableField('won't be taken into account');
+$entity->setSluggableField('won\'t be taken into account');
 $entity->setSlug('the required slug, set manually');
 
 $em->persist($entity);
@@ -539,7 +564,7 @@ class Article
     private $uniqueTitle;
 
     /**
-     * @Gedmo\Slug(fields={"uniqueTitle"})
+     * @Gedmo\Slug(fields={"uniqueTitle"}, prefix="some-prefix-")
      * @ORM\Column(type="string", length=128, unique=true)
      */
     private $uniqueSlug;

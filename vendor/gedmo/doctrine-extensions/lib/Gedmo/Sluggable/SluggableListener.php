@@ -11,7 +11,7 @@ use Doctrine\Common\Persistence\ObjectManager;
  * The SluggableListener handles the generation of slugs
  * for documents and entities.
  *
- * This behavior can inpact the performance of your application
+ * This behavior can impact the performance of your application
  * since it does some additional calculations on persisted objects.
  *
  * @author Gediminas Morkevicius <gediminas.morkevicius@gmail.com>
@@ -277,14 +277,16 @@ class SluggableListener extends MappedEventSubscriber
             // must fetch the old slug from changeset, since $object holds the new version
             $oldSlug = isset($changeSet[$slugField]) ? $changeSet[$slugField][0] : $slug;
             $needToChangeSlug = false;
-            // if slug is null or set to empty, regenerate it, or needs an update
-            if (empty($slug) || $slug === '__id__' || !isset($changeSet[$slugField])) {
+            // if slug is null, regenerate it, or needs an update
+            if (null === $slug || $slug === '__id__' || !isset($changeSet[$slugField])) {
                 $slug = '';
                 foreach ($options['fields'] as $sluggableField) {
                     if (isset($changeSet[$sluggableField]) || isset($changeSet[$slugField])) {
                         $needToChangeSlug = true;
                     }
-                    $slug .= $meta->getReflectionProperty($sluggableField)->getValue($object) . ' ';
+                    $value = $meta->getReflectionProperty($sluggableField)->getValue($object);
+                    $slug .= ($value instanceof \DateTime) ? $value->format($options['dateFormat']) : $value;
+                    $slug .= ' ';
                 }
             } else {
                 // slug was set manually
@@ -299,10 +301,6 @@ class SluggableListener extends MappedEventSubscriber
             // if slug is changed, do further processing
             if ($needToChangeSlug) {
                 $mapping = $meta->getFieldMapping($slugField);
-                if (!strlen(trim($slug)) && (!isset($mapping['nullable']) || !$mapping['nullable'])) {
-                    throw new \Gedmo\Exception\UnexpectedValueException("Unable to find any non empty sluggable fields for slug [{$slugField}] , make sure they have something at least.");
-                }
-
                 // notify slug handlers --> postSlugBuild
                 $urlized = false;
                 if ($hasHandlers) {
@@ -324,7 +322,7 @@ class SluggableListener extends MappedEventSubscriber
                 if(!$urlized){
                     $slug = call_user_func($this->urlizer, $slug, $options['separator']);
                 }
-                // stylize the slug
+                // Step 3: stylize the slug
                 switch ($options['style']) {
                     case 'camel':
                         $slug = preg_replace_callback('/^[a-z]|' . $options['separator'] . '[a-z]/smi', function ($m) {
@@ -358,11 +356,14 @@ class SluggableListener extends MappedEventSubscriber
                     $slug = substr($slug, 0, $mapping['length']);
                 }
 
+                // add suffix/prefix
+                $slug = $options['prefix'] . $slug . $options['suffix'];
+
                 if (isset($mapping['nullable']) && $mapping['nullable'] && !$slug) {
                     $slug = null;
                 }
                 // make unique slug if requested
-                if ($options['unique'] && !is_null($slug)) {
+                if ($options['unique'] && null !== $slug) {
                     $this->exponent = 0;
                     $slug = $this->makeUniqueSlug($ea, $object, $slug, false, $options);
                 }

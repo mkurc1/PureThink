@@ -5,6 +5,7 @@ namespace Gedmo\SoftDeleteable\Filter\ODM;
 use Doctrine\ODM\MongoDB\Query\Filter\BsonFilter;
 use Doctrine\ODM\MongoDB\Mapping\ClassMetaData;
 use Gedmo\SoftDeleteable\SoftDeleteableListener;
+use Gedmo\Exception\RuntimeException;
 
 class SoftDeleteableFilter extends BsonFilter
 {
@@ -35,8 +36,17 @@ class SoftDeleteableFilter extends BsonFilter
 
         $column = $targetEntity->fieldMappings[$config['fieldName']];
 
+        if (isset($config['timeAware']) && $config['timeAware']) {
+            return array(
+                '$or' => array(
+                    array($column['fieldName'] => NULL),
+                    array($column['fieldName'] => array('$gt' => new \DateTime('now'))),
+                ),
+            );
+        }
+
         return array(
-          $column['fieldName'] => NULL
+            $column['fieldName'] => NULL
         );
     }
 

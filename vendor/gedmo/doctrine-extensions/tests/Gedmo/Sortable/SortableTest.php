@@ -122,6 +122,10 @@ class SortableTest extends BaseTestCaseORM
         $this->assertEquals('Node4', $nodes[2]->getName());
         $this->assertEquals('Node2', $nodes[3]->getName());
         $this->assertEquals('Node5', $nodes[4]->getName());
+
+        for ($i = 0; $i < count($nodes); $i++) {
+            $this->assertSame($i, $nodes[$i]->getPosition());
+        }
     }
 
     /**
@@ -156,6 +160,7 @@ class SortableTest extends BaseTestCaseORM
         $node2->setPosition(1);
         $this->em->persist($node2);
         $this->em->flush();
+        $this->em->clear(); // to reload from database
 
         $repo = $this->em->getRepository(self::NODE);
         $nodes = $repo->getBySortableGroups(array('path' => '/'));
@@ -165,6 +170,10 @@ class SortableTest extends BaseTestCaseORM
         $this->assertEquals('Node2', $nodes[2]->getName());
         $this->assertEquals('Node3', $nodes[3]->getName());
         $this->assertEquals('Node5', $nodes[4]->getName());
+
+        for ($i = 0; $i < count($nodes); $i++) {
+            $this->assertSame($i, $nodes[$i]->getPosition());
+        }
     }
 
     /**
@@ -272,6 +281,33 @@ class SortableTest extends BaseTestCaseORM
 
         $this->assertEquals("Item2_2", $items[1]->getName());
         $this->assertEquals("Category2", $items[1]->getCategory()->getName());
+    }
+
+    /**
+     * @test
+     */
+    public function shouldGroupByNewAssociation()
+    {
+        $category1 = new Category();
+        $category1->setName("Category1");
+
+        $item1 = new Item();
+        $item1->setName("Item1");
+        $item1->setPosition(0);
+        $item1->setCategory($category1);
+        $this->em->persist($item1);
+        $this->em->persist($category1);
+        $this->em->flush();
+
+        $repo = $this->em->getRepository(self::CATEGORY);
+        $category1 = $repo->findOneByName('Category1');
+
+        $repo = $this->em->getRepository(self::ITEM);
+
+        $items = $repo->getBySortableGroups(array('category' => $category1));
+
+        $this->assertEquals("Item1", $items[0]->getName());
+        $this->assertEquals("Category1", $items[0]->getCategory()->getName());
     }
 
     /**
@@ -445,6 +481,65 @@ class SortableTest extends BaseTestCaseORM
         $this->em->detach($node1);
         $node1 = $this->em->find(self::NODE, $this->nodeId);
         $this->assertEquals(5, $node1->getPosition());
+    }
+
+    /**
+     * @test
+     */
+    function testIncrementPositionOfLastObjectByOne()
+    {
+        $node0 = $this->em->find(self::NODE, $this->nodeId);
+
+        $nodes = array($node0);
+
+        for ($i = 2; $i <= 5; $i++) {
+            $node = new Node();
+            $node->setName("Node".$i);
+            $node->setPath("/");
+            $this->em->persist($node);
+            $nodes[] = $node;
+        }
+        $this->em->flush();
+
+        $this->assertEquals(4, $nodes[4]->getPosition());
+
+        $node4NewPosition = $nodes[4]->getPosition();
+        $node4NewPosition++;
+
+        $nodes[4]->setPosition($node4NewPosition);
+
+        $this->em->persist($nodes[4]);
+        $this->em->flush();
+
+        $this->assertEquals(4, $nodes[4]->getPosition());
+    }
+
+    /**
+     * @test
+     */
+    function testSetOutOfBoundsHighPosition()
+    {
+        $node0 = $this->em->find(self::NODE, $this->nodeId);
+
+        $nodes = array($node0);
+
+        for ($i = 2; $i <= 5; $i++) {
+            $node = new Node();
+            $node->setName("Node".$i);
+            $node->setPath("/");
+            $this->em->persist($node);
+            $nodes[] = $node;
+        }
+        $this->em->flush();
+
+        $this->assertEquals(4, $nodes[4]->getPosition());
+
+        $nodes[4]->setPosition(100);
+
+        $this->em->persist($nodes[4]);
+        $this->em->flush();
+
+        $this->assertEquals(4, $nodes[4]->getPosition());
     }
 
     protected function getUsedEntityFixtures()

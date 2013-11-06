@@ -12,7 +12,7 @@ class UserSettingController extends Controller
     /**
      * @Route("/user/setting")
      */
-    public function menuAction()
+    public function getUserSettingAction()
     {
         $request = $this->container->get('request');
 
@@ -31,6 +31,35 @@ class UserSettingController extends Controller
                 'languageId' => $entity->getLanguage()->getId(),
                 'moduleId' => $entity->getModule()->getId()
                 ),
+            "response" => true
+            );
+
+        return new Response(json_encode($response));
+    }
+
+    /**
+     * @Route("/user/setting/set_rows_on_page")
+     */
+    public function setRowsOnPage()
+    {
+        $request = $this->container->get('request');
+        $rowsOnPage = (int)$request->get('rowsOnPage');
+
+        $em = $this->getDoctrine()->getManager();
+
+        $RowsOnPage = $em->getRepository('MyBackendBundle:RowsOnPage')
+            ->findOneByAmount($rowsOnPage);
+
+        $UserSetting = $em->getRepository('MyBackendBundle:UserSetting')
+            ->findOneByUser($this->getUser());
+
+        $UserSetting->setRowsOnPage($RowsOnPage);
+
+        $em->persist($UserSetting);
+        $em->flush();
+
+        $response = array(
+            "row_id" => $RowsOnPage->getId(),
             "response" => true
             );
 

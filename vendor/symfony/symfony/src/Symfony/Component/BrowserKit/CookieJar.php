@@ -59,7 +59,7 @@ class CookieJar
         }
 
         // avoid relying on this behavior that is mainly here for BC reasons
-        foreach ($this->cookieJar as $domain => $cookies) {
+        foreach ($this->cookieJar as $cookies) {
             if (isset($cookies[$path][$name])) {
                 return $cookies[$path][$name];
             }
@@ -195,8 +195,8 @@ class CookieJar
         $cookies = array();
         foreach ($this->cookieJar as $domain => $pathCookies) {
             if ($domain) {
-                $domain = ltrim($domain, '.');
-                if ($domain != substr($parts['host'], -strlen($domain))) {
+                $domain = '.'.ltrim($domain, '.');
+                if ($domain != substr('.'.$parts['host'], -strlen($domain))) {
                     continue;
                 }
             }

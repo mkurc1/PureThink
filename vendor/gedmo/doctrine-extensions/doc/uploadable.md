@@ -50,7 +50,8 @@ on how to setup and use the extensions in most optimized way.
     * **pathMethod** - Similar to option "path", but this time it represents the name of a method on the entity that
     will return the path to which the files represented by this entity will be moved. This is useful in several cases.
     For example, you can set specific paths for specific entities, or you can get the path from other sources (like a
-    framework configuration) instead of hardcoding it in the entity. Default: ""
+    framework configuration) instead of hardcoding it in the entity. Default: "". As first argument this method takes
+    default path, so you can return path relative to default.
     * **callback** - This option allows you to set a method name. If this option is set, the method will be called after
     the file is moved. Default value: "". As first argument, this method can receive an array with information about the uploaded file, which
     includes the following keys:
@@ -63,7 +64,7 @@ on how to setup and use the extensions in most optimized way.
     * **filenameGenerator**: This option allows you to set a filename generator for the file. There are two already included
     by the extension: **SHA1**, which generates a sha1 filename for the file, and **ALPHANUMERIC**, which "normalizes"
     the filename, leaving only alphanumeric characters in the filename, and replacing anything else with a "-". You can
-    even create your own FileGenerator class (implementing the FileGeneratorInterface) and set this option with the
+    even create your own FilenameGenerator class (implementing the Gedmo\Uploadable\FilenameGenerator\FilenameGeneratorInterface) and set this option with the
     fully qualified class name. The other option available is "NONE" which, as you may guess, means no generation for the
     filename will occur. Default: "NONE".
     * **maxSize**: This option allows you to set a maximum size for the file in bytes. If file size exceeds the value
