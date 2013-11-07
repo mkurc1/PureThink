@@ -22,6 +22,8 @@ var nextPage = 0;
 $(function() {
     $.ajaxSetup({async: false});
 
+    $('#left_menu_container').accordionMenu();
+
     getUserSetting();
     $('#main_menu_list').setMainMenu(moduleId);
     getRowsOnPage(rowsOnPageId);
