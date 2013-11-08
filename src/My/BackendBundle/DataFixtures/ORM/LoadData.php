@@ -9,6 +9,7 @@ use My\BackendBundle\Entity\Language;
 use My\BackendBundle\Entity\Menu;
 use My\BackendBundle\Entity\RowsOnPage;
 use My\BackendBundle\Entity\UserSetting;
+use My\BackendBundle\Entity\Series;
 
 class LoadData implements FixtureInterface
 {
@@ -24,6 +25,7 @@ class LoadData implements FixtureInterface
 		$manager = $this->addMenus($manager);
 		$manager = $this->addRowsOnPage($manager);
 		$manager = $this->addUserSettings($manager);
+		$manager = $this->addSeries($manager);
 	}
 
 	/**
@@ -125,6 +127,26 @@ class LoadData implements FixtureInterface
 			$UserSetting->setRowsOnPage($manager->getRepository('MyBackendBundle:RowsOnPage')->find($userSetting->rows_on_page_id));
 
 			$manager->persist($UserSetting);
+		}
+
+		$manager->flush();
+		return $manager;
+	}
+
+	/**
+	 * Add series fixtures
+	 *
+	 * @param ObjectManager $manager
+	 */
+	private function addSeries(ObjectManager $manager)
+	{
+		$xml = simplexml_load_file('src/My/BackendBundle/data/series.xml');
+		foreach ($xml->serie as $series) {
+			$Series = new Series();
+			$Series->setName($series->name);
+			$Series->setMenu($manager->getRepository('MyBackendBundle:Menu')->find($series->menu_id));
+
+			$manager->persist($Series);
 		}
 
 		$manager->flush();

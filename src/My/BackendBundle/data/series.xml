@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<series>
+    <serie>
+        <name>Lorem Ipsum dolom_1</name>
+        <menu_id>3</menu_id>
+    </serie>
+    <serie>
+        <name>Lorem Ipsum dolom_2</name>
+        <menu_id>3</menu_id>
+    </serie>
+    <serie>
+        <name>Lorem Ipsum dolom_3</name>
+        <menu_id>3</menu_id>
+    </serie>
+</series>

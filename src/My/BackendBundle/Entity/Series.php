@@ -28,11 +28,21 @@ class Series
      */
     private $name;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Menu", inversedBy="series")
+     */
+    protected $menu;
+
+    /**
+     * @ORM\OneToMany(targetEntity="My\CMSBundle\Entity\CMSArticle", mappedBy="series")
+     */
+    protected $cmsArticles;
+
 
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -48,17 +58,80 @@ class Series
     public function setName($name)
     {
         $this->name = $name;
-    
+
         return $this;
     }
 
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * Set menu
+     *
+     * @param \My\BackendBundle\Entity\Menu $menu
+     * @return Series
+     */
+    public function setMenu(\My\BackendBundle\Entity\Menu $menu = null)
+    {
+        $this->menu = $menu;
+
+        return $this;
+    }
+
+    /**
+     * Get menu
+     *
+     * @return \My\BackendBundle\Entity\Menu
+     */
+    public function getMenu()
+    {
+        return $this->menu;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->cmsArticles = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add cmsArticles
+     *
+     * @param \My\CMSBundle\Entity\CMSArticle $cmsArticles
+     * @return Series
+     */
+    public function addCmsArticle(\My\CMSBundle\Entity\CMSArticle $cmsArticles)
+    {
+        $this->cmsArticles[] = $cmsArticles;
+
+        return $this;
+    }
+
+    /**
+     * Remove cmsArticles
+     *
+     * @param \My\CMSBundle\Entity\CMSArticle $cmsArticles
+     */
+    public function removeCmsArticle(\My\CMSBundle\Entity\CMSArticle $cmsArticles)
+    {
+        $this->cmsArticles->removeElement($cmsArticles);
+    }
+
+    /**
+     * Get cmsArticles
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCmsArticles()
+    {
+        return $this->cmsArticles;
     }
 }

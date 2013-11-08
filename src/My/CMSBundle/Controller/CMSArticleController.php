@@ -31,15 +31,18 @@ class CMSArticleController extends Controller
     {
         $request = $this->container->get('request');
         $rowsOnPage = (int)$request->get('rowsOnPage', 10);
+        $page = (int)$request->get('page', 1);
+        $order = $request->get('order', 'a.name');
+        $sequence = $request->get('sequence', 'ASC');
 
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('MyCMSBundle:CMSArticle')->getArticles();
+        $entities = $em->getRepository('MyCMSBundle:CMSArticle')->getArticles($order, $sequence);
 
         $paginator  = $this->get('knp_paginator');
         $pagination = $paginator->paginate(
             $entities,
-            $this->get('request')->query->get('page', 1),
+            $page,
             $rowsOnPage
         );
 

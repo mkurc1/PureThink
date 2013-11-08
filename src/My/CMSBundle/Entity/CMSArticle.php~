@@ -91,6 +91,11 @@ class CMSArticle
      */
     protected $user;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="My\BackendBundle\Entity\Series", inversedBy="cmsArticles")
+     */
+    protected $series;
+
 
     /**
      * Get id
@@ -328,17 +333,40 @@ class CMSArticle
     public function setUser(\My\UserBundle\Entity\User $user = null)
     {
         $this->user = $user;
-    
+
         return $this;
     }
 
     /**
      * Get user
      *
-     * @return \My\UserBundle\Entity\User 
+     * @return \My\UserBundle\Entity\User
      */
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * Set series
+     *
+     * @param \My\BackendBundle\Entity\Series $series
+     * @return CMSArticle
+     */
+    public function setSeries(\My\BackendBundle\Entity\Series $series = null)
+    {
+        $this->series = $series;
+    
+        return $this;
+    }
+
+    /**
+     * Get series
+     *
+     * @return \My\BackendBundle\Entity\Series 
+     */
+    public function getSeries()
+    {
+        return $this->series;
     }
 }

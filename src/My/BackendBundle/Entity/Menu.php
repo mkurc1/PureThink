@@ -57,6 +57,11 @@ class Menu
      */
     protected $module;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Series", mappedBy="menu")
+     */
+    protected $series;
+
 
     /**
      * Get id
@@ -231,5 +236,38 @@ class Menu
     public function __toString()
     {
         return $this->getName();
+    }
+
+    /**
+     * Add series
+     *
+     * @param \My\BackendBundle\Entity\Series $series
+     * @return Menu
+     */
+    public function addSerie(\My\BackendBundle\Entity\Series $series)
+    {
+        $this->series[] = $series;
+    
+        return $this;
+    }
+
+    /**
+     * Remove series
+     *
+     * @param \My\BackendBundle\Entity\Series $series
+     */
+    public function removeSerie(\My\BackendBundle\Entity\Series $series)
+    {
+        $this->series->removeElement($series);
+    }
+
+    /**
+     * Get series
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getSeries()
+    {
+        return $this->series;
     }
 }

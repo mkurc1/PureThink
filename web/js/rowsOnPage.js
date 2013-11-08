@@ -11,13 +11,13 @@ function getRowsOnPage(rowsOnPageId) {
         type: "post",
         dataType: 'json',
         data: {
-            rowsOnPageId: rowsOnPageId
+            rowsOnPageId: UserSetting.rowsOnPageId
         },
         url: rowsOnPageUrl,
         beforeSend: function() {
         },
         complete: function() {
-            rowsOnPage = $("#pagination > .number_of_lines").val();
+            ListPagination.rowsOnPage = $("#pagination > .number_of_lines").val();
             setActionOnChangeRowsOnPage();
         },
         success: function(data) {
@@ -33,7 +33,8 @@ function getRowsOnPage(rowsOnPageId) {
  */
 function setActionOnChangeRowsOnPage() {
     $("#pagination > .number_of_lines").change(function() {
-        rowsOnPage = $(this).val();
+        ListPagination.rowsOnPage = $(this).val();
+        ListPagination.page = 1;
         setRowsOnPage();
         refreshList();
     });
@@ -47,7 +48,7 @@ function setRowsOnPage() {
         type: "post",
         dataType: 'json',
         data: {
-            rowsOnPage: rowsOnPage
+            rowsOnPage: pagination.rowsOnPage
         },
         url: setRowsOnPageUrl,
         beforeSend: function() {
@@ -56,7 +57,7 @@ function setRowsOnPage() {
         },
         success: function(data) {
             if (data.response) {
-                rowsOnPageId = data.row_id;
+                UserSetting.rowsOnPageId = data.row_id;
             }
         }
     });

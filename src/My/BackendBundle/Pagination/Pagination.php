@@ -22,7 +22,7 @@ class Pagination
             "previous" => (isset($paginationData['previous']) ? $paginationData['previous'] : $paginationData['current']),
             "next" => (isset($paginationData['next']) ? $paginationData['next'] : $paginationData['current']),
             "first_page" => 1,
-            "last_page" => $paginationData['lastItemNumber']
+            "last_page" => $paginationData['last']
             );
     }
 }

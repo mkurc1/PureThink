@@ -36,10 +36,16 @@
             setElementHeight();
         });
 
+        /**
+         * Hide all
+         */
         function hideAll() {
             menu.find('> li > div.hideMenu').hide();
         }
 
+        /**
+         * Get open elements
+         */
         function getOpenElements() {
             $.each(menu.find('> li'), function(index, val) {
                 $(this).find('.submenu_left').removeClass('hideMenu');
@@ -52,23 +58,38 @@
             changeHeightElements();
         }
 
+        /**
+         * Change height elements
+         */
         function changeHeightElements() {
             setSpaceForElement();
             setElementHeight();
         }
 
+        /**
+         * Set open element count
+         */
         function setOpenElementCount() {
             openElementCount = menu.find('> li > div:visible').length;
         }
 
+        /**
+         * Increment open element count
+         */
         function incrementOpenElementCount() {
             openElementCount++;
         }
 
+        /**
+         * Decrement open element count
+         */
         function decrementOpenElementCount() {
             openElementCount--;
         }
 
+        /**
+         * Get space for elements
+         */
         function getSpaceForElements() {
             var windowHeight = $(window).height();
             var menuMarginTop = menu.offset().top;
@@ -80,6 +101,9 @@
             spaceForElements = menuMaxHeight - (menuElementCount * menuElementCloseHeight) - (menuElementCount * openElementPadding) - 1;
         }
 
+        /**
+         * Set space for element
+         */
         function setSpaceForElement() {
             if (openElementCount == 0)
                 spaceForElement = spaceForElements;
@@ -87,6 +111,9 @@
                 spaceForElement = parseInt(spaceForElements / openElementCount);
         }
 
+        /**
+         * Set element height
+         */
         function setElementHeight() {
             menu.find('> li > div.showMenu').animate({
                 height: spaceForElement,
@@ -100,10 +127,20 @@
             });
         }
 
+        /**
+         * Set menu hide class
+         */
         function setMenuHideClass() {
             menu.find('> li > div.submenu_left').addClass('hideMenu');
         }
 
+        /**
+         * Get integer part
+         *
+         * @param string value
+         * @param string removeValue
+         * @return intger
+         */
         function getIntegerPart(value, removeValue) {
             if (value)
                 return parseInt(value.split(removeValue)[0]);

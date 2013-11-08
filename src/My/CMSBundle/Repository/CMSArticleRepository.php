@@ -12,9 +12,20 @@ use Doctrine\ORM\EntityRepository;
  */
 class CMSArticleRepository extends EntityRepository
 {
-	public function getArticles()
+    /**
+     * Get articles
+     *
+     * @param string $order
+     * @param string $sequence
+     * @return array
+     */
+	public function getArticles($order, $sequence)
 	{
-		$qb = $this->createQueryBuilder('a');
+		$qb = $this->createQueryBuilder('a')
+            ->orderBy($order, $sequence);
+            // ->orderBy(':order', ':sequence')
+            // ->setParameter('order', $order)
+            // ->setParameter('sequence', $sequence);
 			// ->leftJoin('a.language', 'l')
 			// ->where('mod.id = :module_id')
 		 //    ->setParameter('module_id', $moduleId)

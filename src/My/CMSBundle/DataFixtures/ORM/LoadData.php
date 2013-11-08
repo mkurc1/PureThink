@@ -83,6 +83,7 @@ class LoadData implements FixtureInterface
 				$CMSArticle->setContent($cmsArticle->content);
 				$CMSArticle->setLanguage($manager->getRepository('MyCMSBundle:CMSLanguage')->find($cmsArticle->language_id));
 				$CMSArticle->setUser($manager->getRepository('MyUserBundle:User')->find($cmsArticle->user_id));
+				$CMSArticle->setSeries($manager->getRepository('MyBackendBundle:Series')->find($cmsArticle->series_id));
 
 				$manager->persist($CMSArticle);
 			}
