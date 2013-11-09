@@ -14,6 +14,21 @@ function Pagination(rowsOnPage) {
     this.previousPage = 0;
     this.nextPage = 0;
     this.rowsOnPage = rowsOnPage;
+    this.setPage = setPage;
+
+    /**
+     * Set page
+     *
+     * @param integer str
+     */
+    function setPage(str) {
+        this.page = str;
+
+        $('#str span').removeAttr('id');
+        $('#str span').eq(str - 1).attr('id', 'str_selected');
+
+        refreshList();
+    }
 }
 
 ListPagination = new Pagination(10);
@@ -30,22 +45,22 @@ $(function() {
 
     $('#pagination_first').click(function() {
         if (ListPagination.page != 1)
-            setPage(ListPagination.firstPage);
+            ListPagination.setPage(ListPagination.firstPage);
     });
 
     $('#pagination_last').click(function() {
         if (ListPagination.page != ListPagination.lastPage)
-            setPage(ListPagination.lastPage);
+            ListPagination.setPage(ListPagination.lastPage);
     });
 
     $('#pagination_previous').click(function() {
         if ((ListPagination.page != ListPagination.previousPage) && (ListPagination.previousPage > 0))
-            setPage(ListPagination.previousPage);
+            ListPagination.setPage(ListPagination.previousPage);
     });
 
     $('#pagination_next').click(function() {
         if ((ListPagination.page != ListPagination.nextPage) && (ListPagination.nextPage <= ListPagination.lastPage))
-            setPage(ListPagination.nextPage);
+            ListPagination.setPage(ListPagination.nextPage);
     });
 });
 
@@ -58,20 +73,6 @@ function setDefaultParameters() {
     filtr = '';
     groupId = '';
     ListPagination.page = 1;
-}
-
-/**
- * Set page
- *
- * @param integer str
- */
-function setPage(str) {
-    ListPagination.page = str;
-
-    $('#str span').removeAttr('id');
-    $('#str span').eq(str - 1).attr('id', 'str_selected');
-
-    refreshList();
 }
 
 /**

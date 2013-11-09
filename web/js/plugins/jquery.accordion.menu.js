@@ -98,7 +98,7 @@
             var openElementPadding = getIntegerPart(menu.find('> li > div > ul').css('padding-top'), 'px');
             openElementPadding += getIntegerPart(menu.find('> li > div > ul').css('padding-bottom'), 'px');
             var menuElementCloseHeight = menu.find('> li > a').outerHeight(true);
-            spaceForElements = menuMaxHeight - (menuElementCount * menuElementCloseHeight) - (menuElementCount * openElementPadding) - 1;
+            spaceForElements = menuMaxHeight - (menuElementCount * menuElementCloseHeight) - (menuElementCount * openElementPadding) - 41;
         }
 
         /**
