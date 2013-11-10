@@ -285,7 +285,7 @@ a {
 #left_menu > #left_menu_container {
     position: relative;
     float: left;
-    width: 225px;
+    width: 100%;
     list-style-type: none;
 }
 #left_menu > #left_menu_container > li {
@@ -349,12 +349,23 @@ a {
     width: 100%;
     border-bottom: 1px solid #E7E7E7;
 }
+#left_menu > #left_menu_container > li > div.submenu_left > ul {
+    position: relative;
+    float: left;
+    overflow-x: auto;
+}
 #left_menu > #left_menu_container > li > div.submenu_left > ul > li {
     position: relative;
     float: left;
     height: 24px;
     border-left: 5px solid transparent;
     width: 220px;
+}
+#left_menu > #left_menu_container > li > div.submenu_left > ul > li:first-child {
+    margin-top: 5px;
+}
+#left_menu > #left_menu_container > li > div.submenu_left > ul > li:last-child {
+    margin-bottom: 5px;
 }
 #left_menu > #left_menu_container > li > div.submenu_left > ul > li.selected {
     border-color: #eb3c00;

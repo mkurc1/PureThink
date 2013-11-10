@@ -14,21 +14,6 @@ function Pagination(rowsOnPage) {
     this.previousPage = 0;
     this.nextPage = 0;
     this.rowsOnPage = rowsOnPage;
-    this.setPage = setPage;
-
-    /**
-     * Set page
-     *
-     * @param integer str
-     */
-    function setPage(str) {
-        this.page = str;
-
-        $('#str span').removeAttr('id');
-        $('#str span').eq(str - 1).attr('id', 'str_selected');
-
-        refreshList();
-    }
 }
 
 ListPagination = new Pagination(10);
@@ -45,22 +30,22 @@ $(function() {
 
     $('#pagination_first').click(function() {
         if (ListPagination.page != 1)
-            ListPagination.setPage(ListPagination.firstPage);
+            setPage(ListPagination.firstPage);
     });
 
     $('#pagination_last').click(function() {
         if (ListPagination.page != ListPagination.lastPage)
-            ListPagination.setPage(ListPagination.lastPage);
+            setPage(ListPagination.lastPage);
     });
 
     $('#pagination_previous').click(function() {
         if ((ListPagination.page != ListPagination.previousPage) && (ListPagination.previousPage > 0))
-            ListPagination.setPage(ListPagination.previousPage);
+            setPage(ListPagination.previousPage);
     });
 
     $('#pagination_next').click(function() {
         if ((ListPagination.page != ListPagination.nextPage) && (ListPagination.nextPage <= ListPagination.lastPage))
-            ListPagination.setPage(ListPagination.nextPage);
+            setPage(ListPagination.nextPage);
     });
 });
 
@@ -94,6 +79,20 @@ function refreshList() {
  */
 function emptyList() {
     $('#main_container').empty();
+}
+
+/**
+ * Set page
+ *
+ * @param integer str
+ */
+function setPage(str) {
+    ListPagination.page = str;
+
+    $('#str span').removeAttr('id');
+    $('#str span').eq(str - 1).attr('id', 'str_selected');
+
+    refreshList();
 }
 
 /**

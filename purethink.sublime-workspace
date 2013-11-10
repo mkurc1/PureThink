@@ -1113,6 +1113,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"setPage",
 			"setActionOnChangePage",
 			"paging",
 			"setPage",
@@ -1239,8 +1240,7 @@
 			"return $manager;",
 			"language",
 			"Language",
-			"language",
-			"EN"
+			"language"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1508,8 +1508,8 @@
 						"selection":
 						[
 							[
-								2082,
-								2082
+								160,
+								160
 							]
 						],
 						"settings":
@@ -1608,7 +1608,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1064.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
