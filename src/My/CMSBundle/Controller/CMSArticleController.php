@@ -34,10 +34,11 @@ class CMSArticleController extends Controller
         $page = (int)$request->get('page', 1);
         $order = $request->get('order', 'a.name');
         $sequence = $request->get('sequence', 'ASC');
+        $filtr = $request->get('filtr');
 
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('MyCMSBundle:CMSArticle')->getArticles($order, $sequence);
+        $entities = $em->getRepository('MyCMSBundle:CMSArticle')->getArticles($order, $sequence, $filtr);
 
         $paginator  = $this->get('knp_paginator');
         $pagination = $paginator->paginate(

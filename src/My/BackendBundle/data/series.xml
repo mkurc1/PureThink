@@ -3,13 +3,16 @@
     <serie>
         <name>Lorem Ipsum dolom_1</name>
         <menu_id>3</menu_id>
+        <module_id>2</module_id>
     </serie>
     <serie>
         <name>Lorem Ipsum dolom_2</name>
         <menu_id>3</menu_id>
+        <module_id>2</module_id>
     </serie>
     <serie>
         <name>Lorem Ipsum dolom_3</name>
         <menu_id>3</menu_id>
+        <module_id>2</module_id>
     </serie>
 </series>

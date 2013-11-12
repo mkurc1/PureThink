@@ -17,15 +17,15 @@ class CMSArticleRepository extends EntityRepository
      *
      * @param string $order
      * @param string $sequence
+     * @param string $filtr
      * @return array
      */
-	public function getArticles($order, $sequence)
+	public function getArticles($order, $sequence, $filtr)
 	{
 		$qb = $this->createQueryBuilder('a')
+            ->where('a.name LIKE :filtr')
+            ->setParameter('filtr', '%'.$filtr.'%')
             ->orderBy($order, $sequence);
-            // ->orderBy(':order', ':sequence')
-            // ->setParameter('order', $order)
-            // ->setParameter('sequence', $sequence);
 			// ->leftJoin('a.language', 'l')
 			// ->where('mod.id = :module_id')
 		 //    ->setParameter('module_id', $moduleId)

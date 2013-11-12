@@ -390,6 +390,28 @@ a {
     z-index: 100;
     background-color: #FCFCFC;
 }
+#left_menu > #author > span {
+    position: relative;
+    float: left;
+    font-size: 11px;
+    margin-top: 13px;
+    margin-left: 25px;
+    color: #6B6B6B;
+}
+#left_menu > #author > span:last-child {
+    margin-left: 5px;
+    height: 14px;
+    border-left: 1px solid #E7E7E7;
+    padding-left: 5px;
+}
+#left_menu > #author > span > a {
+    font-size: 11px;
+    height: 14px;
+    color: #6B6B6B;
+}
+#left_menu > #author > span > a:hover {
+    color: #3A3A3A;
+}
 #main {
     position: relative;
     margin-top: 155px;
@@ -502,6 +524,27 @@ a {
 }
 #footer > #left_menu_toggle.hide_menu {
     left: 0;
+}
+#footer > #pagination_count {
+    position: relative;
+    float: left;
+    margin: 12px 0 0 273px;
+    font-size: 12px;
+    color: #666666;
+    list-style-position: inside;
+}
+#footer > #pagination_count.hide_menu {
+    margin-left: 23px;
+}
+#footer > #pagination_count > li {
+    position: relative;
+    float: left;
+    margin-right: 6px;
+}
+#footer > #pagination_count > li:first-child,
+#footer > #pagination_count > li:nth-child(2) {
+    list-style-type: none;
+    margin-right: 0;
 }
 #footer > #pagination {
     position: relative;

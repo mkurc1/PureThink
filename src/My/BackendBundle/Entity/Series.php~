@@ -38,6 +38,11 @@ class Series
      */
     protected $cmsArticles;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Module", inversedBy="series")
+     */
+    protected $module;
+
 
     /**
      * Get id
@@ -93,5 +98,45 @@ class Series
     public function getMenu()
     {
         return $this->menu;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->cmsArticles = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add cmsArticles
+     *
+     * @param \My\CMSBundle\Entity\CMSArticle $cmsArticles
+     * @return Series
+     */
+    public function addCmsArticle(\My\CMSBundle\Entity\CMSArticle $cmsArticles)
+    {
+        $this->cmsArticles[] = $cmsArticles;
+
+        return $this;
+    }
+
+    /**
+     * Remove cmsArticles
+     *
+     * @param \My\CMSBundle\Entity\CMSArticle $cmsArticles
+     */
+    public function removeCmsArticle(\My\CMSBundle\Entity\CMSArticle $cmsArticles)
+    {
+        $this->cmsArticles->removeElement($cmsArticles);
+    }
+
+    /**
+     * Get cmsArticles
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCmsArticles()
+    {
+        return $this->cmsArticles;
     }
 }

@@ -1,4 +1,14 @@
-var listUrl;
+/**
+ * Object List Cunstructor
+ */
+function List() {
+    this.groupId;
+    this.laguageId;
+    this.order;
+    this.sequence;
+    this.filtr;
+    this.url;
+}
 
 /**
  * Object Pagination Constructior
@@ -13,20 +23,22 @@ function Pagination(rowsOnPage) {
     this.lastPage = 0;
     this.previousPage = 0;
     this.nextPage = 0;
+    this.totalCount = 0;
     this.rowsOnPage = rowsOnPage;
 }
 
 ListPagination = new Pagination(10);
-
-var groupId;
-var order;
-var sequence;
-var filtr;
+List = new List();
 
 $(function() {
     setDefaultParameters();
 
-    refreshList();
+    refreshList(true);
+
+    $('#search_box > input').keyup(function() {
+        List.filtr = $(this).val();
+        refreshList();
+    });
 
     $('#pagination_first').click(function() {
         if (ListPagination.page != 1)
@@ -50,28 +62,55 @@ $(function() {
 });
 
 /**
+ * Empty filtr
+ */
+function emptyFiltr() {
+    $('#search_box > input').val('');
+}
+
+/**
+ * Show pagination
+ */
+function showPagination() {
+    if (ListPagination.firstPage != ListPagination.lastPage) {
+        $('#pagination > .pagination').show();
+    }
+    else {
+        $('#pagination > .pagination').hide();
+    }
+}
+
+/**
  * Set Default parameters
  */
 function setDefaultParameters() {
-    order = 'a.name';
-    sequence = 'ASC';
-    filtr = '';
-    groupId = '';
+    List.order = 'a.name';
+    List.sequence = 'ASC';
+    List.filtr = '';
+    List.groupId = '';
+    List.languageId = '';
     ListPagination.page = 1;
+
+    emptyFiltr();
 }
 
 /**
  * Set list URL
  */
 function setListUrl() {
-    listUrl = $('#main_menu_list > li.selected > a').attr('href');
+    List.url = $('#main_menu_list > li.selected > a').attr('href');
 }
 
 /**
  * Refresh list
+ *
+ * @param boolean withLeftMenu
  */
-function refreshList() {
+function refreshList(withLeftMenu) {
     getList();
+
+    if (withLeftMenu)
+        getLeftMenu();
 }
 
 /**
@@ -92,7 +131,7 @@ function setPage(str) {
     $('#str span').removeAttr('id');
     $('#str span').eq(str - 1).attr('id', 'str_selected');
 
-    refreshList();
+    refreshList(false);
 }
 
 /**
@@ -122,7 +161,7 @@ function setActionOnChangePage() {
         $('#str span').removeAttr('id');
         $(this).attr('id', 'str_selected');
 
-        refreshList();
+        refreshList(false);
     });
 }
 
@@ -136,14 +175,18 @@ function getList() {
         data: {
             rowsOnPage: ListPagination.rowsOnPage,
             page: ListPagination.page,
-            order: order,
-            sequence: sequence
+            order: List.order,
+            sequence: List.sequence,
+            filtr: List.filtr
         },
-        url: listUrl,
+        url: List.url,
         beforeSend: function() {
             emptyList();
         },
         complete: function() {
+            arrowOrder();
+            setActionOnChangeOrder();
+            showPagination();
         },
         success: function(data) {
             if (data.response) {
@@ -154,12 +197,9 @@ function getList() {
                 ListPagination.previousPage = data.pagination.previous;
                 ListPagination.nextPage = data.pagination.next;
                 ListPagination.lastPage = data.pagination.last_page;
-
-                arrowOrder();
+                ListPagination.totalCount = data.pagination.total_count;
 
                 paging(data.pagination.pages);
-
-                setActionOnChangeOrder();
             }
         }
     });
@@ -169,7 +209,7 @@ function getList() {
  * set arrow order
  */
 function arrowOrder() {
-    $('th[column*="' + order + '"]').append('<img class="order" src="/images/arrow_'+sequence.toLowerCase()+'.png" />');
+    $('th[column*="' + List.order + '"]').append('<img class="order" src="/images/arrow_'+List.sequence.toLowerCase()+'.png" />');
 }
 
 /**
@@ -180,15 +220,15 @@ function setActionOnChangeOrder() {
         var column = $(this).attr('column')
 
         if (typeof(column) !== "undefined") {
-            if (order != column)
-                order = column;
+            if (List.order != column)
+                List.order = column;
             else
-            if (sequence == "ASC")
-                sequence = "DESC";
+            if (List.sequence == "ASC")
+                List.sequence = "DESC";
             else
-                sequence = "ASC";
+                List.sequence = "ASC";
 
-            refreshList();
+            refreshList(false);
         }
     });
 }

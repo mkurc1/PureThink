@@ -53,7 +53,7 @@ function setActionOnClickMenu() {
         if ($(this).attr('menu_id') != menuId) {
             setMenuId();
             setListUrl();
-            refreshList();
+            refreshList(true);
         }
 
         return false;

@@ -21,8 +21,9 @@ class Pagination
             "pages" => $paginationData['pagesInRange'],
             "previous" => (isset($paginationData['previous']) ? $paginationData['previous'] : $paginationData['current']),
             "next" => (isset($paginationData['next']) ? $paginationData['next'] : $paginationData['current']),
-            "first_page" => 1,
-            "last_page" => $paginationData['last']
+            "first_page" => $paginationData['first'],
+            "last_page" => ($paginationData['last'] != 0) ? $paginationData['last'] : 1,
+            "total_count" => $paginationData['totalCount']
             );
     }
 }
