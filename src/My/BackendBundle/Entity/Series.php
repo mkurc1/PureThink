@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Series
  *
  * @ORM\Table()
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="My\BackendBundle\Repository\SeriesRepository")
  */
 class Series
 {
@@ -149,14 +149,14 @@ class Series
     public function setModule(\My\BackendBundle\Entity\Module $module = null)
     {
         $this->module = $module;
-    
+
         return $this;
     }
 
     /**
      * Get module
      *
-     * @return \My\BackendBundle\Entity\Module 
+     * @return \My\BackendBundle\Entity\Module
      */
     public function getModule()
     {

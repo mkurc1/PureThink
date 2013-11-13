@@ -35,10 +35,12 @@ class CMSArticleController extends Controller
         $order = $request->get('order', 'a.name');
         $sequence = $request->get('sequence', 'ASC');
         $filtr = $request->get('filtr');
+        $languageId = $request->get('languageId');
+        $groupId = $request->get('groupId');
 
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('MyCMSBundle:CMSArticle')->getArticles($order, $sequence, $filtr);
+        $entities = $em->getRepository('MyCMSBundle:CMSArticle')->getArticles($order, $sequence, $filtr, $languageId, $groupId);
 
         $paginator  = $this->get('knp_paginator');
         $pagination = $paginator->paginate(

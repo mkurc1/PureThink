@@ -1,0 +1,16 @@
+<li class="editable">
+	<a class="language">Języki</a>
+	<div class="submenu_left">
+		<div class="edit">
+			<button class="new">Nowy</button>
+			<button class="edit">Edytuj</button>
+			<button class="remove">Usuń</button>
+		</div>
+		<ul>
+			<li class="selected"><a language_id="0">Wszystkie</a></li>
+			{% for entity in entities %}
+				<li><a language_id="{{ entity.id }}">{{ entity.name }}</a></li>
+			{% endfor %}
+		</ul>
+	</div>
+</li>

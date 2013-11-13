@@ -33,11 +33,36 @@ function getLeftMenu() {
         },
         complete: function() {
             $('#left_menu_container').accordionMenu();
+            setActionsOnLeftMenu()
         },
         success: function(data) {
             if (data.response) {
                 $('#left_menu_container').empty().append(data.menu.toString());
             }
         }
+    });
+}
+
+/**
+ * Set actions on left menu
+ */
+function setActionsOnLeftMenu() {
+    $('#left_menu_container > li > div > ul > li > a').click(function() {
+        if (!$(this).parent().hasClass('selected')) {
+            $(this).parent().parent().find('> li').removeClass('selected');
+            $(this).parent().addClass('selected');
+
+            if ($(this).attr('group_id')) {
+                List.groupId = $(this).attr('group_id');
+            }
+
+            if ($(this).attr('language_id')) {
+                List.languageId = $(this).attr('language_id');
+            }
+
+            refreshList();
+        }
+
+        return false;
     });
 }

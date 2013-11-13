@@ -18,18 +18,29 @@ class CMSArticleRepository extends EntityRepository
      * @param string $order
      * @param string $sequence
      * @param string $filtr
+     * @param string $languageId
+     * @param string $groupId
      * @return array
      */
-	public function getArticles($order, $sequence, $filtr)
+	public function getArticles($order, $sequence, $filtr, $languageId, $groupId)
 	{
 		$qb = $this->createQueryBuilder('a')
+            ->leftJoin('a.language', 'l')
+            ->leftJoin('a.series', 's')
             ->where('a.name LIKE :filtr')
-            ->setParameter('filtr', '%'.$filtr.'%')
-            ->orderBy($order, $sequence);
-			// ->leftJoin('a.language', 'l')
-			// ->where('mod.id = :module_id')
-		 //    ->setParameter('module_id', $moduleId)
-			// ->orderBy('m.sequence');
+            ->setParameter('filtr', '%'.$filtr.'%');
+
+        if ($languageId) {
+            $qb->andWhere('l.id = :languageId')
+                ->setParameter('languageId', $languageId);
+        }
+
+        if ($groupId) {
+            $qb->andWhere('s.id = :groupId')
+                ->setParameter('groupId', $groupId);
+        }
+
+        $qb->orderBy($order, $sequence);
 
 		return $qb->getQuery();
 	}

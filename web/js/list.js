@@ -87,8 +87,8 @@ function setDefaultParameters() {
     List.order = 'a.name';
     List.sequence = 'ASC';
     List.filtr = '';
-    List.groupId = '';
-    List.languageId = '';
+    List.groupId = 0;
+    List.languageId = 0;
     ListPagination.page = 1;
 
     emptyFiltr();
@@ -177,7 +177,9 @@ function getList() {
             page: ListPagination.page,
             order: List.order,
             sequence: List.sequence,
-            filtr: List.filtr
+            filtr: List.filtr,
+            languageId: List.languageId,
+            groupId: List.groupId
         },
         url: List.url,
         beforeSend: function() {

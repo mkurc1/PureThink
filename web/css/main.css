@@ -374,6 +374,7 @@ a {
     color: #3a3a3a;
     padding-left: 35px;
     font-size: 13px;
+    cursor: pointer;
 }
 #left_menu > #left_menu_container > li > div.submenu_left > ul > li > a:hover {
     color: #909090;
@@ -517,6 +518,9 @@ a {
     bottom: 0;
     border-right: 1px solid #E7E7E7;
     background-color: #F7F7F7;
+    background-image: url("../images/arrow_left_big.png");
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
     cursor: pointer;
 }
 #footer > #left_menu_toggle:hover {
@@ -524,6 +528,7 @@ a {
 }
 #footer > #left_menu_toggle.hide_menu {
     left: 0;
+    background-image: url("../images/arrow_right_big.png");
 }
 #footer > #pagination_count {
     position: relative;
@@ -689,4 +694,19 @@ a {
     margin: 34px 0 0 200px;
     color: #DD4B39;
     font-size: 12px;
+}
+#loading {
+    position: fixed;
+    z-index: 2000;
+    width: 40px;
+    height: 40px;
+    left: 0;
+    bottom: 0;
+    background-color: #fff;
+    background-image: url("../images/loading.gif");
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    border: 1px solid #E7E7E7;
+    border-width: 1px 1px 0 0;
+    display: none;
 }

@@ -1,0 +1,16 @@
+<li class="editable">
+	<a class="group">Grupy</a>
+		<div class="submenu_left">
+		<div class="edit">
+			<button class="new">Nowy</button>
+			<button class="edit">Edytuj</button>
+			<button class="remove">Usuń</button>
+		</div>
+		<ul>
+			<li class="selected"><a group_id="0">Wszystkie</a></li>
+			{% for entity in entities %}
+				<li><a group_id="{{ entity.id }}">{{ entity.name }}</a></li>
+			{% endfor %}
+		</ul>
+	</div>
+</li>

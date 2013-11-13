@@ -16,14 +16,39 @@ class LeftMenuController extends Controller
     {
         $request = $this->container->get('request');
         $moduleId = (int)$request->get('moduleId');
+        $menuId = (int)$request->get('menuId');
 
-        $em = $this->getDoctrine()->getManager();
-        $entities = $em->getRepository('MyBackendBundle:Menu')->getMenus($moduleId);
+        $menu = '';
+        $menus = array();
 
-        $menu = $this->renderView('MyBackendBundle:LeftMenu:_menu.html.twig', array('entities' => $entities));
+        switch ($moduleId) {
+            case 1:
+                $CMSLeftMenuController = $this->get('my_cms_left_menu');
+                $menus = $CMSLeftMenuController->menu($menuId);
+                break;
+        }
+
+        foreach ($menus as $value) {
+            $menu .= $value;
+        }
+
+        $menu .= $this->getGroups($menuId);
 
         $response = array("menu" => $menu, "response" => true);
 
         return new Response(json_encode($response));
+    }
+
+    /**
+     * Get groups
+     *
+     * @param integer $menuId
+     * @return array
+     */
+    Private function getGroups($menuId)
+    {
+        $entities = $this->getDoctrine()->getRepository('MyBackendBundle:Series')->getGroupsByMenuId($menuId);
+
+        return $this->renderView("MyBackendBundle:LeftMenu:_groups.html.twig", array('entities' => $entities));
     }
 }
