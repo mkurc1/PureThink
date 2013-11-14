@@ -48,7 +48,7 @@ function setRowsOnPage() {
         type: "post",
         dataType: 'json',
         data: {
-            rowsOnPage: pagination.rowsOnPage
+            rowsOnPage: ListPagination.rowsOnPage
         },
         url: setRowsOnPageUrl,
         beforeSend: function() {
