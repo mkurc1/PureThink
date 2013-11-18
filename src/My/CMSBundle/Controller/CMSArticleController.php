@@ -49,7 +49,7 @@ class CMSArticleController extends Controller
             $rowsOnPage
         );
 
-        $list = $this->renderView('MyCMSBundle:CMSArticle:_list.html.twig', array('entities' => $pagination));
+        $list = $this->renderView('MyCMSBundle:CMSArticle:_list.html.twig', array('entities' => $pagination, 'page' => $page, 'rowsOnPage' => $rowsOnPage));
 
         $response = array(
             "list" => $list,

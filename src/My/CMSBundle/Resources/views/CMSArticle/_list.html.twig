@@ -2,7 +2,7 @@
     <thead>
         <tr>
             <th class="select"></th>
-            <th column="a.id" class="lp">ID</th>
+            <th class="lp">Lp.</th>
             <th column="a.name" class="name width_big">Nazwa</th>
             <th column="a.isPublic" class="width_small">Aktywne</th>
             <th column="a.createdAt" class="width_small">Data utworzenia</th>
@@ -10,10 +10,16 @@
         </tr>
     </thead>
     <tbody>
+    {% if page > 1 %}
+        {% set i = ((page-1)*rowsOnPage) %}
+    {% else %}
+        {% set i = 0 %}
+    {% endif %}
     {% for entity in entities %}
+    {% set i = i+1 %}
         <tr>
             <td class="select"><input type="checkbox" class="multi_check" /></td>
-            <td class="lp">{{ entity.id }}.</td>
+            <td class="lp">{{ i }}.</td>
             <td class="width_big name"><a href="{{ path('cmsarticle_edit', { 'id': entity.id }) }}">{{ entity }}</a></td>
             <td class="width_small">
                 {% if entity.isPublic %}

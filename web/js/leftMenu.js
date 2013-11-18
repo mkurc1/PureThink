@@ -34,12 +34,19 @@ function getLeftMenu() {
         complete: function() {
             $('#left_menu_container').accordionMenu();
             setActionsOnLeftMenu()
+            setDynamicMenu();
         },
         success: function(data) {
             if (data.response) {
                 $('#left_menu_container').empty().append(data.menu.toString());
             }
         }
+    });
+}
+
+function setDynamicMenu() {
+    $('#left_menu_container > li.editable').each(function() {
+        $(this).dynamicMenu();
     });
 }
 
