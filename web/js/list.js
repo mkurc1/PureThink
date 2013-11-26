@@ -62,6 +62,20 @@ $(function() {
 });
 
 /**
+ * Show loading
+ */
+function showLoading() {
+    $('#main_container').append('<div class="loading"></div>');
+}
+
+/**
+ * Remove loading
+ */
+function removeLoading() {
+    $('.loading').remove();
+}
+
+/**
  * Empty filtr
  */
 function emptyFiltr() {
@@ -184,11 +198,13 @@ function getList() {
         url: List.url,
         beforeSend: function() {
             emptyList();
+            showLoading();
         },
         complete: function() {
             arrowOrder();
             setActionOnChangeOrder();
             showPagination();
+            removeLoading();
         },
         success: function(data) {
             if (data.response) {

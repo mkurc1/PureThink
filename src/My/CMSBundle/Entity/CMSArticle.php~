@@ -83,16 +83,19 @@ class CMSArticle
 
     /**
      * @ORM\ManyToOne(targetEntity="CMSLanguage", inversedBy="cmsArticles")
+     * @ORM\JoinColumn(name="language_id", referencedColumnName="id", onDelete="CASCADE")
      */
     protected $language;
 
     /**
      * @ORM\ManyToOne(targetEntity="My\UserBundle\Entity\User", inversedBy="cmsArticles")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id", onDelete="CASCADE")
      */
     protected $user;
 
     /**
      * @ORM\ManyToOne(targetEntity="My\BackendBundle\Entity\Series", inversedBy="cmsArticles")
+     * @ORM\JoinColumn(name="series_id", referencedColumnName="id", onDelete="CASCADE")
      */
     protected $series;
 
@@ -356,14 +359,14 @@ class CMSArticle
     public function setSeries(\My\BackendBundle\Entity\Series $series = null)
     {
         $this->series = $series;
-    
+
         return $this;
     }
 
     /**
      * Get series
      *
-     * @return \My\BackendBundle\Entity\Series 
+     * @return \My\BackendBundle\Entity\Series
      */
     public function getSeries()
     {

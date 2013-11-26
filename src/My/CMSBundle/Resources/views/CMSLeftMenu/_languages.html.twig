@@ -1,4 +1,4 @@
-<li class="editable">
+<li class="editable language">
 	<a class="language">Języki</a>
 	<div class="submenu_left">
 		<div class="edit">
@@ -7,9 +7,9 @@
 			<button class="remove disable">Usuń</button>
 		</div>
 		<ul>
-			<li class="selected"><a language_id="0">Wszystkie</a></li>
+			<li class="selected"><a list_id="0">Wszystkie</a></li>
 			{% for entity in entities %}
-				<li><a language_id="{{ entity.id }}">{{ entity.name }}</a></li>
+				<li><a list_id="{{ entity.id }}">{{ entity.name }}</a></li>
 			{% endfor %}
 		</ul>
 	</div>

@@ -46,7 +46,10 @@ function getLeftMenu() {
 
 function setDynamicMenu() {
     $('#left_menu_container > li.editable').each(function() {
-        $(this).dynamicMenu();
+        $(this).dynamicMenu({
+            moduleId: UserSetting.moduleId,
+            menuId: menuId
+        });
     });
 }
 
@@ -59,12 +62,12 @@ function setActionsOnLeftMenu() {
             $(this).parent().parent().find('> li').removeClass('selected');
             $(this).parent().addClass('selected');
 
-            if ($(this).attr('group_id')) {
-                List.groupId = $(this).attr('group_id');
+            if ($(this).parent().parent().parent().parent().hasClass('group')) {
+                List.groupId = $(this).attr('list_id');
             }
 
-            if ($(this).attr('language_id')) {
-                List.languageId = $(this).attr('language_id');
+            if ($(this).parent().parent().parent().parent().hasClass('language')) {
+                List.languageId = $(this).attr('list_id');
             }
 
             refreshList();

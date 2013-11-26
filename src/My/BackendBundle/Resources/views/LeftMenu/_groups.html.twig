@@ -1,15 +1,15 @@
-<li class="editable">
+<li class="editable group">
 	<a class="group">Grupy</a>
 		<div class="submenu_left">
 		<div class="edit">
-			<button class="new">Nowy</button>
-			<button class="edit disable">Edytuj</button>
-			<button class="remove disable">Usuń</button>
+			<button url="{{ path('group_new') }}" class="new">Nowy</button>
+			<button url="{{ path('group_edit') }}" class="edit disable">Edytuj</button>
+			<button url="{{ path('group_remove') }}" class="remove disable">Usuń</button>
 		</div>
 		<ul>
-			<li class="selected"><a group_id="0">Wszystkie</a></li>
+			<li class="selected"><a list_id="0">Wszystkie</a></li>
 			{% for entity in entities %}
-				<li><a group_id="{{ entity.id }}">{{ entity.name }}</a></li>
+				<li><a list_id="{{ entity.id }}">{{ entity.name }}</a></li>
 			{% endfor %}
 		</ul>
 	</div>
