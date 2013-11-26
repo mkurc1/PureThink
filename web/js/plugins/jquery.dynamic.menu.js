@@ -69,7 +69,22 @@
 
         menu.find('> div > .edit > .edit').on('click', function() {
             if (!$(this).hasClass('disable')) {
-                alert(listId);
+                removeInput();
+
+                var selectedItem = menu.find('> div > ul > li > a[list_id="'+listId+'"]');
+                var name = selectedItem.text();
+                var input = '<input class="edit" type="text" value="'+name+'" />';
+
+                selectedItem.parent().append(input);
+                selectedItem.hide();
+
+                menu.find('> div > ul .edit').focus();
+
+                menu.find('> div > ul .edit').keypress(function(event) {
+                    if ((event.which == 13) && ($(this).val() != '')) {
+                        edit($(this).val());
+                    }
+                });
             }
         });
 
@@ -77,8 +92,10 @@
          * Remove input
          */
         function removeInput() {
-            menu.find('> div > ul > .new').remove();
-            menu.find('> div > ul > .edit').remove();
+            menu.find('> div > ul .new').remove();
+            menu.find('> div > ul .edit').remove();
+
+            menu.find('> div > ul > li > a[list_id="'+listId+'"]').show();
         }
 
         /**
@@ -99,12 +116,42 @@
                 beforeSend: function() {
                 },
                 complete: function() {
+                    setActionsOnLeftMenu();
+                    sortList();
                 },
                 success: function(data) {
                     if (data.response) {
                         removeInput();
                         var newPosition = "<li><a list_id="+data.id+">"+name+"</a></li>";
                         menu.find('> div > ul').append(newPosition);
+                    }
+                }
+            });
+        }
+
+        /**
+         * Edit
+         *
+         * @param string name
+         */
+        function edit(name) {
+            $.ajax({
+                type: "post",
+                dataType: 'json',
+                data: {
+                    name: name,
+                    id: listId
+                },
+                url: editUrl,
+                beforeSend: function() {
+                },
+                complete: function() {
+                    sortList();
+                },
+                success: function(data) {
+                    if (data.response) {
+                        removeInput();
+                        menu.find('> div > ul > li > a[list_id="'+listId+'"]').text(name);
                     }
                 }
             });
@@ -157,6 +204,35 @@
             newUrl = menu.find('.edit > .new').attr('url');
             editUrl = menu.find('.edit > .edit').attr('url');
             removeUrl = menu.find('.edit > .remove').attr('url');
+        }
+
+        /**
+         * Sort list
+         */
+        function sortList() {
+            menu.find('> div > ul > li > a[list_id!="0"]').parent().sort(ascSort).appendTo(menu.find('> div > ul'));
+        }
+
+        /**
+         * Accending sort
+         *
+         * @param  object a
+         * @param  object b
+         * @return boolean
+         */
+        function ascSort(a, b) {
+            return ($(b).text().toLowerCase()) < ($(a).text().toLowerCase()) ? 1 : -1;
+        }
+
+        /**
+         * Decending sort
+         *
+         * @param  object a
+         * @param  object b
+         * @return boolean
+         */
+        function decSort(a, b) {
+            return ($(b).text().toLowerCase()) > ($(a).text().toLowerCase()) ? 1 : -1;
         }
     }
 })(jQuery);

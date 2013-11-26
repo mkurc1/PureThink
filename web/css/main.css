@@ -386,7 +386,8 @@ a {
 #left_menu > #left_menu_container > li > div.submenu_left > ul > li.selected > a {
     color: #eb3c00;
 }
-#left_menu > #left_menu_container > li > div.submenu_left > ul > input.new {
+#left_menu > #left_menu_container > li > div.submenu_left > ul input.new,
+#left_menu > #left_menu_container > li > div.submenu_left > ul input.edit {
     position: relative;
     float: left;
     border: 1px solid #E7E7E7;
@@ -397,6 +398,9 @@ a {
     height: 13px;
     padding: 2px 5px;
     color: #3A3A3A;
+}
+#left_menu > #left_menu_container > li > div.submenu_left > ul input.edit {
+    margin: 0 0 5px 35px;
 }
 #left_menu > #author {
     position: absolute;

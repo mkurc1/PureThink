@@ -57,7 +57,7 @@ function setDynamicMenu() {
  * Set actions on left menu
  */
 function setActionsOnLeftMenu() {
-    $('#left_menu_container > li > div > ul > li > a').click(function() {
+    $('#left_menu_container > li > div > ul > li').on('click', 'a', function() {
         if (!$(this).parent().hasClass('selected')) {
             $(this).parent().parent().find('> li').removeClass('selected');
             $(this).parent().addClass('selected');
