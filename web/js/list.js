@@ -318,7 +318,11 @@ function deleteFromList() {
         },
         success: function(data) {
             if (data.response) {
+                notify('success', data.message);
                 refreshList(false);
+            }
+            else {
+                notify('fail', data.message);
             }
         }
     });

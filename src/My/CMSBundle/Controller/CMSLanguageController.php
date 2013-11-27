@@ -26,12 +26,21 @@ class CMSLanguageController extends Controller
         $entity->setIsPublic(false);
 
         $em->persist($entity);
-        $em->flush();
 
-        $response = array(
-            "response" => true,
-            "id" => $entity->getId()
-            );
+        try {
+            $em->flush();
+
+            $response = array(
+                "response" => true,
+                "id" => $entity->getId(),
+                "message" => "Dodanie języka zakończyło się powodzeniem"
+                );
+        } catch (\Exception $e) {
+            $response = array(
+                "response" => false,
+                "message" => "Dodanie języka zakończyło się niepowodzeniem"
+                );
+        }
 
         return new Response(json_encode($response));
     }
@@ -52,9 +61,20 @@ class CMSLanguageController extends Controller
         $entity->setName($name);
 
         $em->persist($entity);
-        $em->flush();
 
-        $response = array("response" => true);
+        try {
+            $em->flush();
+
+            $response = array(
+                "response" => true,
+                "message" => "Edycja języka zakończyła się powodzeniem"
+                );
+        } catch (\Exception $e) {
+            $response = array(
+                "response" => false,
+                "message" => "Edycja języka zakończyła się niepowodzeniem"
+                );
+        }
 
         return new Response(json_encode($response));
     }
@@ -76,9 +96,20 @@ class CMSLanguageController extends Controller
         }
 
         $em->remove($entity);
-        $em->flush();
 
-        $response = array("response" => true);
+        try {
+            $em->flush();
+
+            $response = array(
+                "response" => true,
+                "message" => "Usuwanie języka zakończyło się powodzeniem"
+                );
+        } catch (\Exception $e) {
+            $response = array(
+                "response" => false,
+                "message" => "Usuwanie języka zakończyło się niepowodzeniem"
+                );
+        }
 
         return new Response(json_encode($response));
     }

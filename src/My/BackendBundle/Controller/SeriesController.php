@@ -29,12 +29,21 @@ class SeriesController extends Controller
         $entity->setModule($em->getRepository('MyBackendBundle:Module')->find($moduleId));
 
         $em->persist($entity);
-        $em->flush();
 
-        $response = array(
-            "response" => true,
-            "id" => $entity->getId()
-            );
+        try {
+            $em->flush();
+
+            $response = array(
+                "response" => true,
+                "id" => $entity->getId(),
+                "message" => "Dodanie grupy zakończyło się powodzeniem"
+                );
+        } catch (\Exception $e) {
+            $response = array(
+                "response" => false,
+                "message" => "Dodanie grupy zakończyło się niepowodzeniem"
+                );
+        }
 
         return new Response(json_encode($response));
     }
@@ -55,9 +64,20 @@ class SeriesController extends Controller
         $entity->setName($name);
 
         $em->persist($entity);
-        $em->flush();
 
-        $response = array("response" => true);
+        try {
+            $em->flush();
+
+            $response = array(
+                "response" => true,
+                "message" => "Edycja grupy zakończyła się powodzeniem"
+                );
+        } catch (\Exception $e) {
+            $response = array(
+                "response" => false,
+                "message" => "Edycja grupy zakończyła się niepowodzeniem"
+                );
+        }
 
         return new Response(json_encode($response));
     }
@@ -79,9 +99,20 @@ class SeriesController extends Controller
         }
 
         $em->remove($entity);
-        $em->flush();
 
-        $response = array("response" => true);
+        try {
+            $em->flush();
+
+            $response = array(
+                "response" => true,
+                "message" => "Usuwanie grupy zakończyło się powodzeniem"
+                );
+        } catch (\Exception $e) {
+            $response = array(
+                "response" => false,
+                "message" => "Usuwanie grupy zakończyło się niepowodzeniem"
+                );
+        }
 
         return new Response(json_encode($response));
     }

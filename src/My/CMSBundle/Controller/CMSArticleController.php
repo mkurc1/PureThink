@@ -187,11 +187,33 @@ class CMSArticleController extends Controller
             $em->remove($entity);
         }
 
-        $em->flush();
+        try {
+            $em->flush();
 
-        $response = array(
-            "response" => true
-            );
+            if (count($arrayId) > 1) {
+                $message = 'Usuwanie artykułów zakończyło się powodzeniem';
+            }
+            else {
+                $message = 'Usuwanie artykułu zakończyło się powodzeniem';
+            }
+
+            $response = array(
+                "response" => true,
+                "message" => $message
+                );
+        } catch (\Exception $e) {
+            if (count($arrayId) > 1) {
+                $message = 'Usuwanie artykułów zakończyło się niepowodzeniem';
+            }
+            else {
+                $message = 'Usuwanie artykułu zakończyło się niepowodzeniem';
+            }
+
+            $response = array(
+                "response" => false,
+                "message" => $message
+                );
+        }
 
         return new Response(json_encode($response));
     }

@@ -124,6 +124,10 @@
                         removeInput();
                         var newPosition = "<li><a list_id="+data.id+">"+name+"</a></li>";
                         menu.find('> div > ul').append(newPosition);
+                        notify('success', data.message);
+                    }
+                    else {
+                        notify('fail', data.message);
                     }
                 }
             });
@@ -152,6 +156,10 @@
                     if (data.response) {
                         removeInput();
                         menu.find('> div > ul > li > a[list_id="'+listId+'"]').text(name);
+                        notify('success', data.message);
+                    }
+                    else {
+                        notify('fail', data.message);
                     }
                 }
             });
@@ -178,6 +186,10 @@
                     if (data.response) {
                         menu.find('> div > ul > li > a[list_id="'+id+'"]').parent().remove();
                         menu.find('> div > ul > li > a[list_id="0"]').click();
+                        notify('success', data.message);
+                    }
+                    else {
+                        notify('fail', data.message);
                     }
                 }
             });
