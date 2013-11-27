@@ -5,11 +5,18 @@
 {% endblock title %}
 
 {% block stylesheets %}
+	{{ parent() }}
     <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/top_menu.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/main_menu.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/left_menu.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/main_list.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/main_button.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/footer.css') }}">
 {% endblock stylesheets %}
 
 {% block javascripts %}
-	<script src="{{ asset('js/plugins/jquery-2.0.3.min.js') }}"></script>
+	{{ parent() }}
 	<script src="{{ asset('js/plugins/jquery.accordion.menu.js') }}"></script>
 	<script src="{{ asset('js/plugins/jquery.dynamic.menu.js') }}"></script>
 	<script src="{{ asset('js/userSetting.js') }}"></script>

@@ -17,6 +17,8 @@ class CMSArticleType extends AbstractType
             ->add('isPublic')
             ->add('content')
             ->add('user')
+            ->add('language')
+            ->add('series')
         ;
     }
 

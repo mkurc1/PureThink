@@ -30,6 +30,7 @@ class CMSArticleController extends Controller
     public function listAction()
     {
         $request = $this->container->get('request');
+
         $rowsOnPage = (int)$request->get('rowsOnPage', 10);
         $page = (int)$request->get('page', 1);
         $order = $request->get('order', 'a.name');
@@ -59,6 +60,7 @@ class CMSArticleController extends Controller
 
         return new Response(json_encode($response));
     }
+
     /**
      * Creates a new CMSArticle entity.
      *
@@ -132,7 +134,7 @@ class CMSArticleController extends Controller
     /**
      * Edits an existing CMSArticle entity.
      *
-     * @Route("/{id}", name="cmsarticle_update")
+     * @Route("/{id}/update", name="cmsarticle_update")
      * @Method("POST")
      * @Template("MyCMSBundle:CMSArticle:edit.html.twig")
      */
@@ -164,41 +166,33 @@ class CMSArticleController extends Controller
     /**
      * Deletes a CMSArticle entity.
      *
-     * @Route("/{id}", name="cmsarticle_delete")
-     * @Method("DELETE")
+     * @Route("/delete", name="cmsarticle_delete")
+     * @Method("POST")
      */
-    public function deleteAction(Request $request, $id)
+    public function deleteAction()
     {
-        $form = $this->createDeleteForm($id);
-        $form->bind($request);
+        $request = $this->container->get('request');
 
-        if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('MyCMSBundle:CMSArticle')->find($id);
+        $arrayId = $request->get('arrayId');
+
+        $em = $this->getDoctrine()->getManager();
+
+        foreach ($arrayId as $id) {
+            $entity = $em->getRepository('MyCMSBundle:CMSArticle')->find((int)$id);
 
             if (!$entity) {
                 throw $this->createNotFoundException('Unable to find CMSArticle entity.');
             }
 
             $em->remove($entity);
-            $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('cmsarticle'));
-    }
+        $em->flush();
 
-    /**
-     * Creates a form to delete a CMSArticle entity by id.
-     *
-     * @param mixed $id The entity id
-     *
-     * @return \Symfony\Component\Form\Form The form
-     */
-    private function createDeleteForm($id)
-    {
-        return $this->createFormBuilder(array('id' => $id))
-            ->add('id', 'hidden')
-            ->getForm()
-        ;
+        $response = array(
+            "response" => true
+            );
+
+        return new Response(json_encode($response));
     }
 }

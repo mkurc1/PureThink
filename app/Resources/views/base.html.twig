@@ -4,8 +4,12 @@
         <meta charset="UTF-8" />
         <title>{% block title %}PureThink{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        {% block javascripts %}
+            <script src="{{ asset('js/plugins/jquery-2.0.3.min.js') }}"></script>
+        {% endblock %}
+        {% block icon %}
+            <link rel="icon" type="image/x-icon" href="{{ asset('purethink.ico') }}" />
+        {% endblock %}
     </head>
     <body>
         {% block body %}{% endblock %}

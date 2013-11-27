@@ -1,0 +1,95 @@
+#main_menu {
+    position: fixed;
+    width: 100%;
+    height: 33px;
+    top: 40px;
+    background-color: #FCFCFC;
+    border-bottom: 1px solid #E7E7E7;
+    z-index: 1000;
+}
+#main_menu > #select_mode_conteiner, #main_button > .left {
+    position: relative;
+    float: left;
+    height: 100%;
+    width: 250px;
+}
+#main_menu > #select_mode_conteiner > #select_mode {
+    position: relative;
+    float: left;
+    margin: 10px 0 0 25px;
+    cursor: pointer;
+}
+#main_menu > #select_mode_conteiner > #select_mode > #select {
+    float: left;
+    font-size: 13px;
+    color: #eb3c00;
+}
+#main_menu > #select_mode_conteiner > #select_mode > img {
+    position: relative;
+    float: left;
+    margin: 7px 0 0 3px;
+}
+#main_menu > #select_mode_conteiner > #select_mode > ul#select_container_list {
+    display: none;
+    position: fixed;
+    background-color: #ffffff;
+    border: 1px solid #6B6B6B;
+    border-radius: 3px;
+    list-style-type: none;
+    top: 66px;
+    padding: 2px 5px 3px 7px;
+}
+#main_menu > #select_mode_conteiner > #select_mode > ul#select_container_list > li {
+    position: relative;
+    float: left;
+    width: 100%;
+    font-size: 13px;
+    cursor: pointer;
+    color: #6B6B6B;
+}
+#main_menu > #select_mode_conteiner > #select_mode > ul#select_container_list > li:hover {
+    color: #3A3A3A;
+}
+#main_menu > #select_mode_conteiner > #select_mode:hover > ul#select_container_list {
+    display: block;
+}
+#main_menu > ul#main_menu_list {
+    position: relative;
+    float: left;
+    margin-top: 6px;
+    list-style-type: none;
+}
+#main_menu > ul#main_menu_list > li {
+    float: left;
+    margin-left: 15px;
+}
+#main_menu > ul#main_menu_list > li:first-child {
+    margin-left: 0;
+}
+#main_menu > ul#main_menu_list > li > a {
+    font-size: 13px;
+    color: #565656;
+    text-transform: uppercase;
+}
+#main_menu > ul#main_menu_list > li > a:hover {
+    color: #909090;
+}
+#main_menu > ul#main_menu_list > li.selected > a {
+    color: #eb3c00;
+}
+#shortcut_container {
+    position: relative;
+    float: right;
+    height: 100%;
+    margin-right: 25px;
+}
+#shortcut_container > a {
+    position: relative;
+    float: right;
+    margin: 7px 0 0 7px;
+}
+#shortcut_container > a > img.arrow {
+    position: relative;
+    float: right;
+    margin: 8px 0 0 3px;
+}

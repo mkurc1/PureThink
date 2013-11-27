@@ -31,6 +31,8 @@ function editMode(url) {
     .success(function() {
         $('#main_container').hide();
         $('#edit_container').show();
+
+        hidePagination();
         submitAction();
     })
 }

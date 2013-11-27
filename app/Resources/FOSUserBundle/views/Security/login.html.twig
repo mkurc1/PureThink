@@ -5,10 +5,14 @@
 {% endblock title %}
 
 {% block stylesheets %}
+	{{ parent() }}
     <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/top_menu.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/login.css') }}">
 {% endblock stylesheets %}
 
 {% block javascripts %}
+	{{ parent() }}
 {% endblock javascripts %}
 
 {% block body %}
@@ -34,7 +38,7 @@
 
 				<div id="password_container">
 					<label for="password">{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}</label>
-					<input type="password" id="password" name="_password" />					
+					<input type="password" id="password" name="_password" />
 				</div>
 
 				<div id="remember_me_container">

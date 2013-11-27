@@ -1,12 +1,12 @@
 {% extends "::base.html.twig" %}
 
 {% block stylesheets %}
+    {{ parent() }}
     <link rel="stylesheet" type="text/css" href="{{ asset('bundles/cms/frontend/fresh_style/css/main.css') }}">
 {% endblock stylesheets %}
 
 {% block javascripts %}
-    <script src="{{ asset('js/plugins/jquery-2.0.3.min.js') }}"></script>
-
+    {{ parent() }}
     <script src="{{ asset('bundles/cms/frontend/fresh_style/js/jquery.slides.min.js') }}"></script>
     <script src="{{ asset('bundles/cms/frontend/fresh_style/js/main.js') }}"></script>
 {% endblock javascripts %}

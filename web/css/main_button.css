@@ -1,0 +1,62 @@
+#main_button {
+    position: fixed;
+    width: 100%;
+    height: 46px;
+    top: 74px;
+    z-index: 100;
+    background-color: #f7f7f7;
+    border-bottom: 1px solid #E7E7E7;
+}
+#main_button > .left {
+    position: relative;
+    float: left;
+    width: 250px;
+    height: 100%;
+}
+#main_button > .left > button#create {
+    position: relative;
+    float: left;
+    height: 28px;
+    font-size: 11px;
+    text-transform: uppercase;
+    color: #FCFCFC;
+    background-color: #4d90fe;
+    border: 1px solid #e2e2e2;
+    width: 115px;
+    margin: 9px 0 0 40px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+#main_button > .center {
+    position: relative;
+    float: left;
+    height: 100%;
+}
+#main_button > .center > button {
+    position: relative;
+    float: left;
+    height: 28px;
+    width: 59px;
+    background-color: #FAFAFA;
+    border: 1px solid #e2e2e2;
+    border-radius: 4px;
+    margin: 9px 10px 0 0;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+#main_button > .center > button.select {
+    background-image: url("../images/select.png");
+}
+#main_button > .center > button.refresh {
+    background-image: url("../images/refresh.png");
+}
+#main_button > .center > button.edit {
+    background-image: url("../images/edit.png");
+}
+#main_button > .center > button.remove {
+    background-image: url("../images/remove.png");
+}
+#main_button > .center > button.more {
+    background-image: url("../images/more.png");
+}
