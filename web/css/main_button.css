@@ -27,6 +27,9 @@
     border-radius: 4px;
     cursor: pointer;
 }
+#main_button > .left > button#create:hover {
+    background-color: #3480FE;
+}
 #main_button > .center {
     position: relative;
     float: left;
@@ -44,6 +47,15 @@
     cursor: pointer;
     background-repeat: no-repeat;
     background-position: 50% 50%;
+}
+#main_button > .center > button:hover {
+    background-color: #F5F5F5;
+}
+#main_button > .center > button.disable {
+    opacity: 0.6;
+}
+#main_button > .center > button.disable:hover {
+    background-color: #FAFAFA;
 }
 #main_button > .center > button.select {
     background-image: url("../images/select.png");

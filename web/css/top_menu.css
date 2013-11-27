@@ -25,13 +25,14 @@
 #top_menu > #search > #search_box {
     position: relative;
     float: left;
-    margin-top: 8px;
+    margin-top: 7px;
     background-color: #FCFCFC;
     background-image: url("../images/search.png");
-    background-position: 382px 2px;
+    background-position: 382px 3px;
     background-repeat: no-repeat;
     border: 1px solid #7d7d7d;
-    height: 22px;
+    border-radius: 4px;
+    height: 24px;
     width: 400px;
 }
 #top_menu > #search > #search_box > input {
@@ -40,10 +41,11 @@
     border: 0;
     font-size: 11px;
     color: #4b4b4b;
-    height: 22px;
+    height: 24px;
     width: 352px;
     padding: 0 13px;
     background-color: #FCFCFC;
+    border-radius: 4px;
 }
 #top_menu > #top_menu_right {
     position: relative;

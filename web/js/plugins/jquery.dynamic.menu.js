@@ -42,7 +42,7 @@
 
             listId = $(this).attr('list_id');
 
-            enableButton();
+            toggleButton();
         });
 
         menu.find('> div > .edit > .remove').on('click', function() {
@@ -184,9 +184,9 @@
         }
 
         /**
-         * Enable / Disable button
+         * Toggle button
          */
-        function enableButton() {
+        function toggleButton() {
             if (listId != 0) {
                 menu.find('> div > .edit > .edit').removeClass('disable');
                 menu.find('> div > .edit > .remove').removeClass('disable');

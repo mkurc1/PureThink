@@ -91,25 +91,6 @@ $(function() {
         if ((ListPagination.page != ListPagination.nextPage) && (ListPagination.nextPage <= ListPagination.lastPage))
             setPage(ListPagination.nextPage);
     });
-
-    $('#main_button > div > .refresh').click(function() {
-        refreshList(true);
-    });
-
-    $('#main_button > div > #create').click(function() {
-        editMode(List.url+'new');
-    });
-
-    $('#main_button > div > .edit').click(function() {
-        var listId = List.select[0];
-        var editUrl = $('#main_container > table > tbody tr[list_id="'+listId+'"]').find('.editMode').attr('href');
-
-        editMode(editUrl);
-    });
-
-    $('#main_button > div > .remove').click(function() {
-        deleteFromList();
-    });
 });
 
 /**
@@ -125,6 +106,8 @@ function checkboxChangeAction() {
         else {
             List.removeFromSelect(selectId);
         }
+
+        toggleMainButton();
     });
 }
 
@@ -297,6 +280,7 @@ function getList() {
             togglePagination();
             editModeAjax();
             checkboxChangeAction();
+            toggleMainButton();
             removeLoading();
         },
         success: function(data) {

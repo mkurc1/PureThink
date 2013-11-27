@@ -38,12 +38,17 @@
     cursor: pointer;
     color: #565656;
 }
+#left_menu > #left_menu_container > li > div.submenu_left > div.edit > button:hover {
+    background-color: #EEEEEE;
+}
 #left_menu > #left_menu_container > li > div.submenu_left > div.edit > button:first-child {
     margin-left: 25px;
 }
 #left_menu > #left_menu_container > li > div.submenu_left > div.edit > button.disable {
-    background-color: #DEDEDE;
-    color: #6B6B6B;
+    opacity: 0.6;
+}
+#left_menu > #left_menu_container > li > div.submenu_left > div.edit > button.disable:hover {
+    background-color: #F7F7F7;
 }
 #left_menu > #left_menu_container > li > a {
     position: relative;
