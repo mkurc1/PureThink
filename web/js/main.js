@@ -8,6 +8,8 @@ var menuId;
 $(function() {
     $.ajaxSetup({async: false});
 
+    hideEditContainer();
+
     UserSetting = new Setting();
     UserSetting.getUserSetting();
 

@@ -2,9 +2,9 @@
 	<a class="language">Języki</a>
 	<div class="submenu_left">
 		<div class="edit">
-			<button class="new">Nowy</button>
-			<button class="edit disable">Edytuj</button>
-			<button class="remove disable">Usuń</button>
+			<button url="{{ path('cms_language_new') }}" class="new">Nowy</button>
+			<button url="{{ path('cms_language_edit') }}" class="edit disable">Edytuj</button>
+			<button url="{{ path('cms_language_remove') }}" class="remove disable">Usuń</button>
 		</div>
 		<ul>
 			<li class="selected"><a list_id="0">Wszystkie</a></li>

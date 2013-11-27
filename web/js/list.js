@@ -180,6 +180,14 @@ function setActionOnChangePage() {
 }
 
 /**
+ * Set list mode
+ */
+function listMode() {
+    $('#main_container').show();
+    $('#edit_container').empty().hide();
+}
+
+/**
  * Get list
  */
 function getList() {
@@ -197,6 +205,7 @@ function getList() {
         },
         url: List.url,
         beforeSend: function() {
+            listMode();
             emptyList();
             showLoading();
         },
@@ -204,6 +213,7 @@ function getList() {
             arrowOrder();
             setActionOnChangeOrder();
             showPagination();
+            editModeAjax();
             removeLoading();
         },
         success: function(data) {

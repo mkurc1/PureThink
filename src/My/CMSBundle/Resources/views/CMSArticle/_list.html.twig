@@ -20,7 +20,7 @@
         <tr>
             <td class="select"><input type="checkbox" class="multi_check" /></td>
             <td class="lp">{{ i }}.</td>
-            <td class="width_big name"><a href="{{ path('cmsarticle_edit', { 'id': entity.id }) }}">{{ entity }}</a></td>
+            <td class="width_big name"><a class="editMode" href="{{ path('cmsarticle_edit', { 'id': entity.id }) }}">{{ entity }}</a></td>
             <td class="width_small">
                 {% if entity.isPublic %}
                     <img class="active" src="{{ asset('images/active.png') }}" alt="active" />

@@ -90,7 +90,7 @@ class CMSArticleController extends Controller
      * Displays a form to create a new CMSArticle entity.
      *
      * @Route("/new", name="cmsarticle_new")
-     * @Method("GET")
+     * @Method("POST")
      * @Template()
      */
     public function newAction()
@@ -108,7 +108,7 @@ class CMSArticleController extends Controller
      * Displays a form to edit an existing CMSArticle entity.
      *
      * @Route("/{id}/edit", name="cmsarticle_edit")
-     * @Method("GET")
+     * @Method("POST")
      * @Template()
      */
     public function editAction($id)
@@ -122,12 +122,10 @@ class CMSArticleController extends Controller
         }
 
         $editForm = $this->createForm(new CMSArticleType(), $entity);
-        $deleteForm = $this->createDeleteForm($id);
 
         return array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
+            'entity' => $entity,
+            'form'   => $editForm->createView()
         );
     }
 
@@ -135,7 +133,7 @@ class CMSArticleController extends Controller
      * Edits an existing CMSArticle entity.
      *
      * @Route("/{id}", name="cmsarticle_update")
-     * @Method("PUT")
+     * @Method("POST")
      * @Template("MyCMSBundle:CMSArticle:edit.html.twig")
      */
     public function updateAction(Request $request, $id)
@@ -148,7 +146,6 @@ class CMSArticleController extends Controller
             throw $this->createNotFoundException('Unable to find CMSArticle entity.');
         }
 
-        $deleteForm = $this->createDeleteForm($id);
         $editForm = $this->createForm(new CMSArticleType(), $entity);
         $editForm->bind($request);
 
@@ -156,13 +153,12 @@ class CMSArticleController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('cmsarticle_edit', array('id' => $id)));
+            return new Response(json_encode(0));
         }
 
         return array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
+            'entity' => $entity,
+            'form'   => $editForm->createView()
         );
     }
     /**

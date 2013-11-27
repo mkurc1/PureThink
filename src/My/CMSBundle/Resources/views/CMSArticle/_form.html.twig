@@ -1,0 +1,41 @@
+{{ form_widget(form._token) }}
+
+<div class="container">
+    <div class="dane_element_big">
+        {{ form_label(form.name) }}
+        {{ form_errors(form.name) }}
+        {{ form_widget(form.name) }}
+    </div>
+
+    <div class="dane_element_big">
+        {{ form_label(form.description) }}
+        {{ form_errors(form.description) }}
+        {{ form_widget(form.description) }}
+    </div>
+
+    <div class="dane_element_big">
+        {{ form_label(form.keywords) }}
+        {{ form_errors(form.keywords) }}
+        {{ form_widget(form.keywords) }}
+    </div>
+
+    <div class="dane_element_big">
+        {{ form_label(form.isPublic) }}
+        {{ form_errors(form.isPublic) }}
+        {{ form_widget(form.isPublic) }}
+    </div>
+
+    <div class="dane_element_big">
+        {{ form_label(form.content) }}
+        {{ form_errors(form.content) }}
+        {{ form_widget(form.content) }}
+    </div>
+
+    <div class="dane_element_big">
+        {{ form_label(form.user) }}
+        {{ form_errors(form.user) }}
+        {{ form_widget(form.user) }}
+    </div>
+</div>
+
+<button type="submit">Edit</button>
