@@ -14,7 +14,7 @@ class CMSArticleType extends AbstractType
             ->add('name', 'text', array('label' => 'Nazwa artykułu'))
             ->add('description', 'textarea', array('label' => 'Opis'))
             ->add('keywords', 'textarea', array('label' => 'Słowa kluczowe'))
-            ->add('content', 'textarea', array('label' => 'Treść'))
+            ->add('content', 'ckeditor', array('label' => 'Treść'))
             ->add('language', 'entity', array(
                 'label' => 'Język',
                 'class' => 'MyCMSBundle:CMSLanguage',

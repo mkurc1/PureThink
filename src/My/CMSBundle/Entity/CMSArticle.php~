@@ -77,7 +77,7 @@ class CMSArticle
     /**
      * @var string
      *
-     * @ORM\Column(name="content", type="string")
+     * @ORM\Column(name="content", type="text")
      */
     private $content;
 

@@ -24,7 +24,8 @@
         "gedmo/doctrine-extensions": "dev-master",
         "stof/doctrine-extensions-bundle": "dev-master",
         "friendsofsymfony/user-bundle": "dev-master",
-        "knplabs/knp-paginator-bundle": "dev-master"
+        "knplabs/knp-paginator-bundle": "dev-master",
+        "egeloen/ckeditor-bundle": "2.*"
     },
     "scripts": {
         "post-install-cmd": [

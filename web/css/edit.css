@@ -4,6 +4,11 @@
     margin: 15px 0 15px 35px;
     width: 760px;
 }
+#main > #edit_container > .container .cke {
+    position: relative;
+    float: left;
+    width: 100%;
+}
 #main > #edit_container > .container .margin_right_off {
     margin-right: 0;
 }

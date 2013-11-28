@@ -21,6 +21,7 @@ return array(
     'Monolog' => array($vendorDir . '/monolog/monolog/src'),
     'Knp\\Component' => array($vendorDir . '/knplabs/knp-components/src'),
     'Knp\\Bundle\\PaginatorBundle' => array($vendorDir . '/knplabs/knp-paginator-bundle'),
+    'Ivory\\CKEditorBundle' => array($vendorDir . '/egeloen/ckeditor-bundle'),
     'Incenteev\\ParameterHandler' => array($vendorDir . '/incenteev/composer-parameter-handler'),
     'Gedmo\\' => array($vendorDir . '/gedmo/doctrine-extensions/lib'),
     'FOS\\UserBundle' => array($vendorDir . '/friendsofsymfony/user-bundle'),

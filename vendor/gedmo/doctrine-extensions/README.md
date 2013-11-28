@@ -1,6 +1,6 @@
 # Doctrine2 behavioral extensions
 
-**Version 2.3.7**
+**Version 2.3.8**
 
 [![Build Status](https://secure.travis-ci.org/l3pp4rd/DoctrineExtensions.png?branch=master)](http://travis-ci.org/l3pp4rd/DoctrineExtensions)
 
@@ -8,13 +8,14 @@
 
 ### Latest updates
 
-**2013-03-10**
+**2013-11-09**
 
-- **Sluggable** added 'unique_base' configuration parameter
-
-**2013-03-05**
-
-- A new extension - **References**, which links Entities in Documents and visa versa, [read more about it](https://github.com/l3pp4rd/DoctrineExtensions/blob/master/doc/references.md). It was contributed by @jwage, @avalanche123, @jmikola and @bobthecow, thanks
+- **Loggable** handle cloned objects #876
+- **Sluggable** tree handler slug prefix and suffix #892
+- **Sortable** association group handling #887, #874
+- **SoftDeleteable** odm mongodb filter support for **timeAware** option #877
+- **Sluggable** support for datetime field formatting into slug #795
+- **Sluggable** urlizer regex update to ensure consistency #848
 
 ### Summary and features
 
@@ -46,7 +47,7 @@ So root node now looks like this:
 **Note:** Use 2.1.x tag in order to use extensions based on Doctrine2.1.x versions. Currently
 master branch is based on 2.2.x versions and may not work with 2.1.x
 
-```
+```xml
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
                  xmlns:gedmo="http://gediminasm.org/schemas/orm/doctrine-extensions-mapping">
 ...
@@ -85,24 +86,22 @@ PHPUnit 3.6 or newer is required.
 To setup and run tests follow these steps:
 
 - go to the root directory of extensions
-- download composer: **wget https://getcomposer.org/composer.phar**
-- install dev libraries: **php composer.phar install --dev**
-- run: **phpunit -c tests**
+- download composer: `wget https://getcomposer.org/composer.phar`
+- install dev libraries: `php composer.phar install`
+- run: `phpunit -c tests`
 - optional - run mongodb service if targeting mongo tests
-
-<a name="example-demo"></a>
 
 ### Running the example:
 
 To setup and run example follow these steps:
 
 - go to the root directory of extensions
-- download composer: **wget https://getcomposer.org/composer.phar**
-- install dev libraries: **php composer.phar install --dev**
-- edit **example/em.php** and configure your database on top of the file
-- run: **./example/bin/console** or **php example/bin/console** for console commands
-- run: **./example/bin/console orm:schema-tool:create** to create schema
-- run: **php example/run.php** to run example
+- download composer: `wget https://getcomposer.org/composer.phar`
+- install dev libraries: `php composer.phar install`
+- edit `example/em.php` and configure your database on top of the file
+- run: `./example/bin/console` or `php example/bin/console` for console commands
+- run: `./example/bin/console orm:schema-tool:create` to create schema
+- run: `php example/run.php` to run example
 
 ### Contributors:
 

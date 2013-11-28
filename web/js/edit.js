@@ -9,7 +9,7 @@ function hideEditContainer() {
  * Edit mode - AJAX
  */
 function editModeAjax() {
-    $('.editMode').click(function(){
+    $('.editMode').click(function() {
         editMode($(this).attr('href'));
 
         return false;
@@ -22,7 +22,7 @@ function editModeAjax() {
  * @param string url
  */
 function editMode(url) {
-    $.post(url, function(data){
+    $.post(url, function(data) {
         $('#edit_container').html(data);
     })
     .error(function() {
@@ -38,27 +38,54 @@ function editMode(url) {
 }
 
 function submitAction() {
-    $('#edit_container > .container > form').submit(function(){
-        var request = $.ajax({
-            url: $(this).attr('action'),
-            type: "POST",
+    $('#edit_container > .container > form').submit(function() {
+        for (instance in CKEDITOR.instances)
+        {
+            CKEDITOR.instances[instance].updateElement();
+        }
+
+        $.ajax({
+            type: "post",
+            dataType: 'html',
             data: $(this).serialize(),
-            dataType: "html"
+            url: $(this).attr('action'),
+            beforeSend: function() {
+            },
+            complete: function() {
+            },
+            success: function(data) {
+                if (data.response) {
+                    if (data != "0") {
+                        $('#edit_container').html(data);
+                    }
+                    else {
+                        listMode();
+                        refreshList(false);
+                    }
+                }
+            }
         });
 
-        request.done(function(msg) {
-            if (msg != "0") {
-                $('#edit_container').html(msg);
-            }
-            else {
-                listMode();
-                refreshList(false);
-            }
-        });
+        // var request = $.ajax({
+        //     url: $(this).attr('action'),
+        //     type: "POST",
+        //     data: $(this).serialize(),
+        //     dataType: "html"
+        // });
 
-        request.fail(function(jqXHR, textStatus) {
-            alert("Request failed: " + textStatus);
-        });
+        // request.done(function(msg) {
+        //     if (msg != "0") {
+        //         $('#edit_container').html(msg);
+        //     }
+        //     else {
+        //         listMode();
+        //         refreshList(false);
+        //     }
+        // });
+
+        // request.fail(function(jqXHR, textStatus) {
+        //     alert("Request failed: " + textStatus);
+        // });
 
         return false;
     });

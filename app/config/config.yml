@@ -84,3 +84,11 @@ fos_user:
     db_driver: orm
     firewall_name: main
     user_class: My\UserBundle\Entity\User
+
+ivory_ck_editor:
+    default_config: cke_config
+    configs:
+        cke_config:
+            toolbar: standard
+            uiColor: "#E7E7E7"
+            height: "400px"
