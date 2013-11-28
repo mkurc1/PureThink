@@ -77,25 +77,25 @@ class CMSArticle
     /**
      * @var string
      *
-     * @ORM\Column(name="content", type="text")
+     * @ORM\Column(name="content", type="text", nullable=true)
      */
     private $content;
 
     /**
      * @ORM\ManyToOne(targetEntity="CMSLanguage", inversedBy="cmsArticles")
-     * @ORM\JoinColumn(name="language_id", referencedColumnName="id", onDelete="CASCADE")
+     * @ORM\JoinColumn(name="language_id", referencedColumnName="id", onDelete="CASCADE", nullable=false)
      */
     protected $language;
 
     /**
      * @ORM\ManyToOne(targetEntity="My\UserBundle\Entity\User", inversedBy="cmsArticles")
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="id", onDelete="CASCADE")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id", onDelete="CASCADE", nullable=false)
      */
     protected $user;
 
     /**
      * @ORM\ManyToOne(targetEntity="My\BackendBundle\Entity\Series", inversedBy="cmsArticles")
-     * @ORM\JoinColumn(name="series_id", referencedColumnName="id", onDelete="CASCADE")
+     * @ORM\JoinColumn(name="series_id", referencedColumnName="id", onDelete="CASCADE", nullable=false)
      */
     protected $series;
 

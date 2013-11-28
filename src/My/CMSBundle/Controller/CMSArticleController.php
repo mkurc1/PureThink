@@ -64,13 +64,15 @@ class CMSArticleController extends Controller
     /**
      * Creates a new CMSArticle entity.
      *
-     * @Route("/", name="cmsarticle_create")
+     * @Route("/create", name="cmsarticle_create")
      * @Method("POST")
      * @Template("MyCMSBundle:CMSArticle:new.html.twig")
      */
     public function createAction(Request $request)
     {
-        $entity  = new CMSArticle();
+        $entity = new CMSArticle();
+        $entity->setUser($this->getUser());
+
         $form = $this->createForm(new CMSArticleType(), $entity);
         $form->bind($request);
 
@@ -79,13 +81,21 @@ class CMSArticleController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('cmsarticle_show', array('id' => $entity->getId())));
+            $response = array(
+                "response" => true,
+                "message" => 'Dodawanie artykułu zakończyło się powodzeniem'
+                );
+        }
+        else {
+            $view = $this->renderView('MyCMSBundle:CMSArticle:_new.html.twig', array('entity' => $entity, 'form' => $form->createView()));
+
+            $response = array(
+                "response" => false,
+                "view" => $view
+                );
         }
 
-        return array(
-            'entity' => $entity,
-            'form'   => $form->createView(),
-        );
+        return new Response(json_encode($response));
     }
 
     /**
@@ -93,18 +103,20 @@ class CMSArticleController extends Controller
      *
      * @Route("/new", name="cmsarticle_new")
      * @Method("POST")
-     * @Template()
      */
     public function newAction()
     {
         $entity = new CMSArticle();
-        $entity->setUser($this->getUser());
         $form   = $this->createForm(new CMSArticleType(), $entity);
 
-        return array(
-            'entity' => $entity,
-            'form'   => $form->createView(),
-        );
+        $view = $this->renderView('MyCMSBundle:CMSArticle:_new.html.twig', array('entity' => $entity, 'form' => $form->createView()));
+
+        $response = array(
+                "response" => true,
+                "view" => $view
+                );
+
+        return new Response(json_encode($response));
     }
 
     /**
@@ -112,7 +124,6 @@ class CMSArticleController extends Controller
      *
      * @Route("/{id}/edit", name="cmsarticle_edit")
      * @Method("POST")
-     * @Template()
      */
     public function editAction($id)
     {
@@ -126,10 +137,14 @@ class CMSArticleController extends Controller
 
         $editForm = $this->createForm(new CMSArticleType(), $entity);
 
-        return array(
-            'entity' => $entity,
-            'form'   => $editForm->createView()
-        );
+        $view = $this->renderView('MyCMSBundle:CMSArticle:_edit.html.twig', array('entity' => $entity, 'form' => $editForm->createView()));
+
+        $response = array(
+            "response" => true,
+            "view" => $view
+            );
+
+        return new Response(json_encode($response));
     }
 
     /**
@@ -160,14 +175,17 @@ class CMSArticleController extends Controller
                 "response" => true,
                 "message" => 'Edycja artykułu zakończyła się powodzeniem'
                 );
+        }
+        else {
+            $view = $this->renderView('MyCMSBundle:CMSArticle:_edit.html.twig', array('entity' => $entity, 'form' => $editForm->createView()));
 
-            return new Response(json_encode($response));
+            $response = array(
+                "response" => false,
+                "view" => $view
+                );
         }
 
-        return array(
-            'entity' => $entity,
-            'form'   => $editForm->createView()
-        );
+        return new Response(json_encode($response));
     }
     /**
      * Deletes a CMSArticle entity.

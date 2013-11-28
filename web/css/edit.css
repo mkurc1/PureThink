@@ -92,18 +92,40 @@
     position: relative;
     float: left;
     width: 100%;
-    margin: 11px 0 1px 0;
+    margin: 11px 0 2px 0;
 }
 /* select *********************************************************************/
 #main > #edit_container > .container .chosen-container-single .chosen-single {
-    height: 27px !important;
-    line-height: 18px !important;
+    height: 27px;
+    line-height: 18px;
     margin-top: -2px;
 }
 #main > #edit_container > .container .chosen-container-single .chosen-single div {
-    top: 2px !important;
+    top: 2px;
 }
 #main > #edit_container > .container .chosen-single span {
-    margin-top: 4px !important;
+    margin-top: 4px;
+}
+#main > #edit_container > .container .chosen-single abbr {
+    margin-top: 2px;
+}
+/******************************************************************************/
+
+/* validation *****************************************************************/
+#main > #edit_container > .container .dane_element > ul,
+#main > #edit_container > .container .dane_element_big > ul,
+#main > #edit_container > .container .dane_element_small > ul,
+#main > #edit_container > .container .dane_element_medium > ul {
+    float: left;
+    list-style-type: none;
+    margin-top: 2px;
+}
+#main > #edit_container > .container .dane_element > ul > li,
+#main > #edit_container > .container .dane_element_big > ul > li,
+#main > #edit_container > .container .dane_element_small > ul > li,
+#main > #edit_container > .container .dane_element_medium > ul > li {
+    color: #DD4B39;
+    float: left;
+    font-size: 11px;
 }
 /******************************************************************************/

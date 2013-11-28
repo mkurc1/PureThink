@@ -22,20 +22,34 @@ function editModeAjax() {
  * @param string url
  */
 function editMode(url) {
-    $.post(url, function(data) {
-        $('#edit_container').html(data);
-    })
-    .error(function() {
-        alert('Wystąpił błąd!');
-    })
-    .success(function() {
-        $('#main_container').hide();
-        $('#edit_container').show();
+    $.ajax({
+        type: "post",
+        dataType: 'json',
+        url: url,
+        beforeSend: function() {
+        },
+        complete: function() {
+            $('#main_container').hide();
+            $('#edit_container').show();
 
-        hidePagination();
-        beautifySelects();
-        submitAction();
-    })
+            hidePagination();
+            html5validateOff();
+            beautifySelects();
+            submitAction();
+        },
+        success: function(data) {
+            if (data.response) {
+                $('#edit_container').html(data.view.toString());
+            }
+        }
+    });
+}
+
+/**
+ * HTML5 validate set off
+ */
+function html5validateOff() {
+    $('#edit_container > .container > form').attr('novalidate', 'novalidate');
 }
 
 /**
@@ -62,7 +76,12 @@ function submitAction() {
             url: $(this).attr('action'),
             beforeSend: function() {
             },
-            complete: function() {
+            complete: function(data) {
+                if (!data.response) {
+                    html5validateOff();
+                    beautifySelects();
+                    submitAction();
+                }
             },
             success: function(data) {
                 if (data.response) {
@@ -71,7 +90,7 @@ function submitAction() {
                     refreshList(false);
                 }
                 else {
-                    $('#edit_container').html(data);
+                    $('#edit_container').html(data.view);
                 }
             }
         });
