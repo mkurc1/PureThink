@@ -38,7 +38,7 @@ function editMode(url) {
 }
 
 function submitAction() {
-    $('#edit_container > form').submit(function(){
+    $('#edit_container > .container > form').submit(function(){
         var request = $.ajax({
             url: $(this).attr('action'),
             type: "POST",

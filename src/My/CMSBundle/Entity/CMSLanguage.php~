@@ -133,7 +133,7 @@ class CMSLanguage
     {
         $this->articles = new \Doctrine\Common\Collections\ArrayCollection();
     }
-    
+
     /**
      * Add articles
      *
@@ -143,7 +143,7 @@ class CMSLanguage
     public function addArticle(\My\CMSBundle\Entity\CMSArticle $articles)
     {
         $this->articles[] = $articles;
-    
+
         return $this;
     }
 
@@ -160,10 +160,20 @@ class CMSLanguage
     /**
      * Get articles
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getArticles()
     {
         return $this->articles;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->getName();
     }
 }

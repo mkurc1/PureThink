@@ -98,6 +98,7 @@ class CMSArticleController extends Controller
     public function newAction()
     {
         $entity = new CMSArticle();
+        $entity->setUser($this->getUser());
         $form   = $this->createForm(new CMSArticleType(), $entity);
 
         return array(

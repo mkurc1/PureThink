@@ -1,0 +1,91 @@
+#main > #edit_container > .container {
+    position: relative;
+    float: left;
+    margin: 15px 0 15px 35px;
+    width: 760px;
+}
+#main > #edit_container > .container .margin_right_off {
+    margin-right: 0;
+}
+.dane_element_big {
+    position: relative;
+    float: left;
+    margin: 0 26px 11px 0;
+    width: 739px;
+}
+.dane_element_small {
+    position: relative;
+    float: left;
+    width: 109px;
+    margin-right: 17px;
+}
+.dane_element_medium {
+    position: relative;
+    float: left;
+    width: 235px;
+    margin-right: 17px;
+}
+.dane_element {
+    position: relative;
+    float: left;
+    margin: 0 17px 0 0;
+    width: 487px;
+    padding: 0;
+}
+.dane_element > input[type='text'], .dane_element_big > input[type='text'], .dane_element_small > input[type='text'],
+.dane_element_medium > input[type='text'] {
+    position: relative;
+    float: left;
+    width: 475px;
+    height: 27px;
+    padding: 0 5px;
+    border: 1px solid #999999;
+    background-color: #fff;
+    color: #000;
+}
+#main > #edit_container > .container textarea {
+    position: relative;
+    float: left;
+    width: 475px;
+    height: 80px;
+    border: 1px solid #999999;
+    resize: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    padding: 5px;
+}
+.dane_element > input[type='text'],
+#main > #edit_container > .container .dane_element textarea {
+    width: 475px;
+}
+.dane_element_big > input[type='text'],
+#main > #edit_container > .container .dane_element_big textarea {
+    width: 727px;
+}
+.dane_element_small > input[type='text'],
+#main > #edit_container > .container .dane_element_small textarea {
+    width: 97px;
+}
+.dane_element_medium > input[type='text'],
+#main > #edit_container > .container .dane_element_medium textarea {
+    width: 223px;
+}
+.dane_element_small > select {
+    width: 109px;
+}
+.dane_element_medium > select {
+    width: 235px;
+}
+.dane_element > select {
+    width: 487px;
+}
+.dane_element label, .dane_element_big > label, .dane_element_small > label,
+.dane_element_medium > label {
+    font-size: 12px;
+    color: #3d3d3d;
+    float: left;
+    position: relative;
+    float: left;
+    width: 100%;
+    margin: 11px 0 1px 0;
+}

@@ -11,14 +11,22 @@ class CMSArticleType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name')
-            ->add('description')
-            ->add('keywords')
-            ->add('isPublic')
-            ->add('content')
-            ->add('user')
-            ->add('language')
-            ->add('series')
+            ->add('name', 'text', array('label' => 'Nazwa artykułu'))
+            ->add('description', 'textarea', array('label' => 'Opis'))
+            ->add('keywords', 'textarea', array('label' => 'Słowa kluczowe'))
+            ->add('content', 'textarea', array('label' => 'Treść'))
+            ->add('language', 'entity', array(
+                'label' => 'Język',
+                'class' => 'MyCMSBundle:CMSLanguage',
+                'empty_value' => 'Wybierz'
+                )
+            )
+            ->add('series', 'entity', array(
+                'label' => 'Grupa',
+                'class' => 'MyBackendBundle:Series',
+                'empty_value' => 'Wybierz'
+                )
+            )
         ;
     }
 

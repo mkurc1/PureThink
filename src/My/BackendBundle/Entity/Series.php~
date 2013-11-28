@@ -162,4 +162,14 @@ class Series
     {
         return $this->module;
     }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->getName();
+    }
 }

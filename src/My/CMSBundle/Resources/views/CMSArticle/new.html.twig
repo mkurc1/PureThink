@@ -1,3 +1,5 @@
-<form action="{{ path('cmsarticle_create') }}" method="post" {{ form_enctype(form) }}>
-    {% include 'MyCMSBundle:CMSArticle:_form.html.twig' with { 'form': form } %}
-</form>
+<div class="container">
+    <form action="{{ path('cmsarticle_create') }}" method="post" {{ form_enctype(form) }}>
+        {% include 'MyCMSBundle:CMSArticle:_form.html.twig' with { 'form': form } %}
+    </form>
+</div>

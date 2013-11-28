@@ -5,7 +5,7 @@
 }
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #fff;
+    background-color: #FCFCFC;
 }
 a {
     text-decoration: none;
@@ -28,6 +28,14 @@ a {
 }
 #main.hide_menu {
     margin-left: 0;
+}
+#main > #main_container,
+#main > #edit_container {
+    position: relative;
+    float: left;
+    min-width: 100%;
+    min-height: 100%;
+    margin-bottom: 41px;
 }
 .loading {
     position: relative;
