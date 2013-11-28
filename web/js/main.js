@@ -18,6 +18,15 @@ $(function() {
 });
 
 /**
+ * Set beautify selects
+ */
+function beautifySelects() {
+    $('.sintetic-select').chosen({
+        allow_single_deselect: true
+    });
+}
+
+/**
  * Is ID exitst
  *
  * @param string id

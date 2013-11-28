@@ -156,7 +156,12 @@ class CMSArticleController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return new Response(json_encode(0));
+            $response = array(
+                "response" => true,
+                "message" => 'Edycja artykułu zakończyła się powodzeniem'
+                );
+
+            return new Response(json_encode($response));
         }
 
         return array(

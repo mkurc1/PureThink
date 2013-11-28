@@ -44,7 +44,7 @@
     width: 475px;
     height: 27px;
     padding: 0 5px;
-    border: 1px solid #999999;
+    border: 1px solid #6B6B6B;
     background-color: #fff;
     color: #000;
 }
@@ -53,7 +53,7 @@
     float: left;
     width: 475px;
     height: 80px;
-    border: 1px solid #999999;
+    border: 1px solid #6B6B6B;
     resize: none;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 13px;
@@ -94,3 +94,16 @@
     width: 100%;
     margin: 11px 0 1px 0;
 }
+/* select *********************************************************************/
+#main > #edit_container > .container .chosen-container-single .chosen-single {
+    height: 27px !important;
+    line-height: 18px !important;
+    margin-top: -2px;
+}
+#main > #edit_container > .container .chosen-container-single .chosen-single div {
+    top: 2px !important;
+}
+#main > #edit_container > .container .chosen-single span {
+    margin-top: 4px !important;
+}
+/******************************************************************************/

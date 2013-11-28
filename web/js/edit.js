@@ -33,20 +33,31 @@ function editMode(url) {
         $('#edit_container').show();
 
         hidePagination();
+        beautifySelects();
         submitAction();
     })
 }
 
+/**
+ * CKEdit update element
+ */
+function ckeditUpdateElement() {
+    for (instance in CKEDITOR.instances)
+    {
+        CKEDITOR.instances[instance].updateElement();
+    }
+}
+
+/**
+ * Submit action
+ */
 function submitAction() {
     $('#edit_container > .container > form').submit(function() {
-        for (instance in CKEDITOR.instances)
-        {
-            CKEDITOR.instances[instance].updateElement();
-        }
+        ckeditUpdateElement();
 
         $.ajax({
             type: "post",
-            dataType: 'html',
+            dataType: 'json',
             data: $(this).serialize(),
             url: $(this).attr('action'),
             beforeSend: function() {
@@ -55,37 +66,15 @@ function submitAction() {
             },
             success: function(data) {
                 if (data.response) {
-                    if (data != "0") {
-                        $('#edit_container').html(data);
-                    }
-                    else {
-                        listMode();
-                        refreshList(false);
-                    }
+                    notify('success', data.message);
+                    listMode();
+                    refreshList(false);
+                }
+                else {
+                    $('#edit_container').html(data);
                 }
             }
         });
-
-        // var request = $.ajax({
-        //     url: $(this).attr('action'),
-        //     type: "POST",
-        //     data: $(this).serialize(),
-        //     dataType: "html"
-        // });
-
-        // request.done(function(msg) {
-        //     if (msg != "0") {
-        //         $('#edit_container').html(msg);
-        //     }
-        //     else {
-        //         listMode();
-        //         refreshList(false);
-        //     }
-        // });
-
-        // request.fail(function(jqXHR, textStatus) {
-        //     alert("Request failed: " + textStatus);
-        // });
 
         return false;
     });

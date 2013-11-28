@@ -6,6 +6,7 @@
 
 {% block stylesheets %}
 	{{ parent() }}
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/plugins/chosen.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/edit.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/top_menu.css') }}">
@@ -21,6 +22,7 @@
 	{{ parent() }}
 	<script src="{{ asset('js/plugins/jquery.accordion.menu.js') }}"></script>
 	<script src="{{ asset('js/plugins/jquery.dynamic.menu.js') }}"></script>
+    <script src="{{ asset('js/plugins/chosen.jquery.js') }}"></script>
 	<script src="{{ asset('js/userSetting.js') }}"></script>
 	<script src="{{ asset('js/edit.js') }}"></script>
 	<script src="{{ asset('js/notify.js') }}"></script>

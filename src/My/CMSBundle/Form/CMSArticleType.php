@@ -18,13 +18,19 @@ class CMSArticleType extends AbstractType
             ->add('language', 'entity', array(
                 'label' => 'Język',
                 'class' => 'MyCMSBundle:CMSLanguage',
-                'empty_value' => 'Wybierz'
+                'empty_value' => 'Wybierz',
+                'attr' => array(
+                    'class' => 'sintetic-select'
+                    )
                 )
             )
             ->add('series', 'entity', array(
                 'label' => 'Grupa',
                 'class' => 'MyBackendBundle:Series',
-                'empty_value' => 'Wybierz'
+                'empty_value' => 'Wybierz',
+                'attr' => array(
+                    'class' => 'sintetic-select'
+                    )
                 )
             )
         ;
