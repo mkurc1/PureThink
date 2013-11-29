@@ -68,8 +68,17 @@ $(function() {
     refreshList(true);
 
     $('#search_box > input').keyup(function() {
-        List.filtr = $(this).val();
-        refreshList();
+        var search = this;
+        if (search.timer) {
+            clearTimeout(search.timer);
+        }
+
+        search.timer = setTimeout(function() {
+            search.timer = null;
+
+            List.filtr = search.value;
+            refreshList();
+        }, 800);
     });
 
     $('#pagination_first').click(function() {
