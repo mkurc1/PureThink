@@ -38,11 +38,6 @@ class Series
      */
     protected $cmsArticles;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="Module", inversedBy="series")
-     */
-    protected $module;
-
 
     /**
      * Get id
@@ -138,29 +133,6 @@ class Series
     public function getCmsArticles()
     {
         return $this->cmsArticles;
-    }
-
-    /**
-     * Set module
-     *
-     * @param \My\BackendBundle\Entity\Module $module
-     * @return Series
-     */
-    public function setModule(\My\BackendBundle\Entity\Module $module = null)
-    {
-        $this->module = $module;
-
-        return $this;
-    }
-
-    /**
-     * Get module
-     *
-     * @return \My\BackendBundle\Entity\Module
-     */
-    public function getModule()
-    {
-        return $this->module;
     }
 
     /**

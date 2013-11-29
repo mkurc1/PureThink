@@ -145,7 +145,6 @@ class LoadData implements FixtureInterface
 			$Series = new Series();
 			$Series->setName($series->name);
 			$Series->setMenu($manager->getRepository('MyBackendBundle:Menu')->find($series->menu_id));
-			$Series->setModule($manager->getRepository('MyBackendBundle:Module')->find($series->module_id));
 
 			$manager->persist($Series);
 		}

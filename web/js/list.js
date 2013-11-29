@@ -107,7 +107,7 @@ function checkboxChangeAction() {
             List.removeFromSelect(selectId);
         }
 
-        toggleMainButton();
+        toggleListMainButton();
     });
 }
 
@@ -186,6 +186,8 @@ function setListUrl() {
  */
 function refreshList(withLeftMenu) {
     List.emptySelect();
+    createListButtons();
+
     getList();
 
     if (withLeftMenu)
@@ -280,7 +282,7 @@ function getList() {
             togglePagination();
             editModeAjax();
             checkboxChangeAction();
-            toggleMainButton();
+            toggleListMainButton();
             removeLoading();
         },
         success: function(data) {

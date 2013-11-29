@@ -90,5 +90,6 @@ ivory_ck_editor:
     configs:
         cke_config:
             toolbar: standard
+            skin: moonocolor
             uiColor: "#E7E7E7"
             height: "400px"

@@ -36,14 +36,7 @@
         var menuId = data.menuId;
 
         getUrl();
-
-        menu.find('> div > ul > li > a').on('click', function() {
-            removeInput();
-
-            listId = $(this).attr('list_id');
-
-            toggleButton();
-        });
+        addActionOnClick();
 
         menu.find('> div > .edit > .remove').on('click', function() {
             if (!$(this).hasClass('disable')) {
@@ -89,6 +82,19 @@
         });
 
         /**
+         * Add action on click
+         */
+        function addActionOnClick() {
+            menu.find('> div > ul > li > a').on('click', function() {
+                removeInput();
+
+                listId = $(this).attr('list_id');
+
+                toggleButton();
+            });
+        }
+
+        /**
          * Remove input
          */
         function removeInput() {
@@ -117,6 +123,7 @@
                 },
                 complete: function() {
                     setActionsOnLeftMenu();
+                    addActionOnClick();
                     sortList();
                 },
                 success: function(data) {

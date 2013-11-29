@@ -83,6 +83,7 @@ class CMSArticleController extends Controller
 
             $response = array(
                 "response" => true,
+                "id" => $entity->getId(),
                 "message" => 'Dodawanie artykułu zakończyło się powodzeniem'
                 );
         }
@@ -173,6 +174,7 @@ class CMSArticleController extends Controller
 
             $response = array(
                 "response" => true,
+                "id" => $entity->getId(),
                 "message" => 'Edycja artykułu zakończyła się powodzeniem'
                 );
         }

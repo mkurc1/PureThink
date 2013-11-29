@@ -17,7 +17,6 @@ class SeriesController extends Controller
     {
         $request = $this->container->get('request');
 
-        $moduleId = (int)$request->get('moduleId');
         $menuId = (int)$request->get('menuId');
         $name = $request->get('name');
 
@@ -26,7 +25,6 @@ class SeriesController extends Controller
         $entity = new Series();
         $entity->setName($name);
         $entity->setMenu($em->getRepository('MyBackendBundle:Menu')->find($menuId));
-        $entity->setModule($em->getRepository('MyBackendBundle:Module')->find($moduleId));
 
         $em->persist($entity);
 

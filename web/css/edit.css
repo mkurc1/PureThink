@@ -44,7 +44,7 @@
     width: 475px;
     height: 27px;
     padding: 0 5px;
-    border: 1px solid #6B6B6B;
+    border: 1px solid #AAAAAA;
     background-color: #fff;
     color: #000;
 }
@@ -53,7 +53,7 @@
     float: left;
     width: 475px;
     height: 80px;
-    border: 1px solid #6B6B6B;
+    border: 1px solid #AAAAAA;
     resize: none;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 13px;

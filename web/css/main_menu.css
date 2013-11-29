@@ -32,12 +32,13 @@
 #main_menu > #select_mode_conteiner > #select_mode > ul#select_container_list {
     display: none;
     position: fixed;
-    background-color: #ffffff;
-    border: 1px solid #6B6B6B;
+    background-color: #FCFCFC;
+    border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 3px;
     list-style-type: none;
     top: 66px;
     padding: 2px 5px 3px 7px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 #main_menu > #select_mode_conteiner > #select_mode > ul#select_container_list > li {
     position: relative;

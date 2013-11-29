@@ -47,6 +47,9 @@
     background-color: #878787;
     cursor: pointer;
 }
+#notify_container > .notify > .close:hover {
+    background-color: #828282;
+}
 #notify_container > .notify > span {
     position: relative;
     float: left;

@@ -45,11 +45,6 @@ class Module
      */
     protected $userSettings;
 
-    /**
-     * @ORM\OneToMany(targetEntity="Series", mappedBy="module")
-     */
-    protected $series;
-
 
     /**
      * Get id
@@ -188,38 +183,5 @@ class Module
     public function getUserSettings()
     {
         return $this->userSettings;
-    }
-
-    /**
-     * Add series
-     *
-     * @param \My\BackendBundle\Entity\Series $series
-     * @return Module
-     */
-    public function addSerie(\My\BackendBundle\Entity\Series $series)
-    {
-        $this->series[] = $series;
-    
-        return $this;
-    }
-
-    /**
-     * Remove series
-     *
-     * @param \My\BackendBundle\Entity\Series $series
-     */
-    public function removeSerie(\My\BackendBundle\Entity\Series $series)
-    {
-        $this->series->removeElement($series);
-    }
-
-    /**
-     * Get series
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getSeries()
-    {
-        return $this->series;
     }
 }

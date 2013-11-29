@@ -6,6 +6,13 @@ function hideEditContainer() {
 }
 
 /**
+ * Empty edit container
+ */
+function emptyEditContainer() {
+    $('#edit_container').empty();
+}
+
+/**
  * Edit mode - AJAX
  */
 function editModeAjax() {
@@ -27,6 +34,7 @@ function editMode(url) {
         dataType: 'json',
         url: url,
         beforeSend: function() {
+            emptyEditContainer();
         },
         complete: function() {
             $('#main_container').hide();
@@ -36,6 +44,7 @@ function editMode(url) {
             html5validateOff();
             beautifySelects();
             submitAction();
+            createEditButtons();
         },
         success: function(data) {
             if (data.response) {

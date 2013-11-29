@@ -29,7 +29,7 @@
 #left_menu > #left_menu_container > li > div.submenu_left > div.edit > button {
     position: relative;
     float: left;
-    padding: 1px 5px;
+    padding: 0 5px;
     margin: 3px 0 0 8px;
     font-size: 10px;
     background-color: #F7F7F7;
@@ -37,9 +37,20 @@
     border-radius: 3px;
     cursor: pointer;
     color: #565656;
+    height: 19px;
+    background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(20%, #ffffff), color-stop(50%, #f6f6f6), color-stop(52%, #eeeeee), color-stop(100%, #f4f4f4));
+    background: -webkit-linear-gradient(top, #ffffff 20%, #f6f6f6 50%, #eeeeee 52%, #f4f4f4 100%);
+    background: -moz-linear-gradient(top, #ffffff 20%, #f6f6f6 50%, #eeeeee 52%, #f4f4f4 100%);
+    background: -o-linear-gradient(top, #ffffff 20%, #f6f6f6 50%, #eeeeee 52%, #f4f4f4 100%);
+    background: linear-gradient(top, #ffffff 20%, #f6f6f6 50%, #eeeeee 52%, #f4f4f4 100%);
 }
 #left_menu > #left_menu_container > li > div.submenu_left > div.edit > button:hover {
     background-color: #EEEEEE;
+    background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(20%, #ffffff), color-stop(50%, #f6f6f6), color-stop(52%, #eeeeee), color-stop(100%, #f4f4f4));
+    background: -webkit-linear-gradient(top, #f6f6f6 20%, #eeeeee 50%, #eeeeee 52%, #f4f4f4 100%);
+    background: -moz-linear-gradient(top, #f6f6f6 20%, #eeeeee 50%, #eeeeee 52%, #f4f4f4 100%);
+    background: -o-linear-gradient(top, #f6f6f6 20%, #eeeeee 50%, #eeeeee 52%, #f4f4f4 100%);
+    background: linear-gradient(top, #f6f6f6 20%, #eeeeee 50%, #eeeeee 52%, #f4f4f4 100%);
 }
 #left_menu > #left_menu_container > li > div.submenu_left > div.edit > button:first-child {
     margin-left: 25px;
@@ -49,6 +60,11 @@
 }
 #left_menu > #left_menu_container > li > div.submenu_left > div.edit > button.disable:hover {
     background-color: #F7F7F7;
+    background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(20%, #ffffff), color-stop(50%, #f6f6f6), color-stop(52%, #eeeeee), color-stop(100%, #f4f4f4));
+    background: -webkit-linear-gradient(top, #ffffff 20%, #f6f6f6 50%, #eeeeee 52%, #f4f4f4 100%);
+    background: -moz-linear-gradient(top, #ffffff 20%, #f6f6f6 50%, #eeeeee 52%, #f4f4f4 100%);
+    background: -o-linear-gradient(top, #ffffff 20%, #f6f6f6 50%, #eeeeee 52%, #f4f4f4 100%);
+    background: linear-gradient(top, #ffffff 20%, #f6f6f6 50%, #eeeeee 52%, #f4f4f4 100%);
 }
 #left_menu > #left_menu_container > li > a {
     position: relative;
