@@ -82,9 +82,10 @@ function html5validateOff() {
  * CKEdit update element
  */
 function ckeditUpdateElement() {
-    for (instance in CKEDITOR.instances)
-    {
-        CKEDITOR.instances[instance].updateElement();
+    if ($('#edit_container > .container > form').find('div.cke').length > 0) {
+        for (instance in CKEDITOR.instances) {
+            CKEDITOR.instances[instance].updateElement();
+        }
     }
 }
 
