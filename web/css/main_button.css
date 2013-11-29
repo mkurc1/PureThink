@@ -45,47 +45,69 @@
     float: left;
     height: 100%;
 }
-#main_button > .center > button {
+#main_button > .center > .button_container {
     position: relative;
     float: left;
-    height: 28px;
-    width: 59px;
+    height: 26px;
+    margin: 9px 10px 0 0;
     background-color: #FAFAFA;
     border: 1px solid #e2e2e2;
     border-radius: 4px;
-    margin: 9px 10px 0 0;
+    background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(20%, #f6f6f6), color-stop(50%, #EFF1F5), color-stop(52%, #EDEFF3), color-stop(100%, #eeeeee));
+    background: -webkit-linear-gradient(top, #f6f6f6 20%, #EFF1F5 50%, #EDEFF3 52%, #eeeeee 100%);
+    background: -moz-linear-gradient(top, #f6f6f6 20%, #EFF1F5 50%, #EDEFF3 52%, #eeeeee 100%);
+    background: -o-linear-gradient(top, #f6f6f6 20%, #EFF1F5 50%, #EDEFF3 52%, #eeeeee 100%);
+    background: linear-gradient(top, #f6f6f6 20%, #EFF1F5 50%, #EDEFF3 52%, #eeeeee 100%);
+}
+#main_button > .center > .button_container > button {
+    position: relative;
+    float: left;
+    height: 26px;
+    width: 59px;
+    border: 0;
+    background-color: transparent;
     cursor: pointer;
     background-repeat: no-repeat;
     background-position: 50% 50%;
 }
-#main_button > .center > button:hover {
+#main_button > .center > .button_container:hover {
     background-color: #F5F5F5;
+    background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(20%, #EFF1F5), color-stop(50%, #EDEFF3), color-stop(52%, #EDEFF3), color-stop(100%, #eeeeee));
+    background: -webkit-linear-gradient(top, #EFF1F5 20%, #EDEFF3 50%, #EDEFF3 52%, #eeeeee 100%);
+    background: -moz-linear-gradient(top, #EFF1F5 20%, #EDEFF3 50%, #EDEFF3 52%, #eeeeee 100%);
+    background: -o-linear-gradient(top, #EFF1F5 20%, #EDEFF3 50%, #EDEFF3 52%, #eeeeee 100%);
+    background: linear-gradient(top, #EFF1F5 20%, #EDEFF3 50%, #EDEFF3 52%, #eeeeee 100%);
 }
-#main_button > .center > button.disable {
+#main_button > .center > .button_container.disable {
     opacity: 0.6;
 }
-#main_button > .center > button.disable:hover {
+#main_button > .center > .button_container.disable:hover {
     background-color: #FAFAFA;
+    background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(20%, #f6f6f6), color-stop(50%, #EFF1F5), color-stop(52%, #EDEFF3), color-stop(100%, #eeeeee));
+    background: -webkit-linear-gradient(top, #f6f6f6 20%, #EFF1F5 50%, #EDEFF3 52%, #eeeeee 100%);
+    background: -moz-linear-gradient(top, #f6f6f6 20%, #EFF1F5 50%, #EDEFF3 52%, #eeeeee 100%);
+    background: -o-linear-gradient(top, #f6f6f6 20%, #EFF1F5 50%, #EDEFF3 52%, #eeeeee 100%);
+    background: linear-gradient(top, #f6f6f6 20%, #EFF1F5 50%, #EDEFF3 52%, #eeeeee 100%);
 }
-#main_button > .center > button.select {
+#main_button > .center > .button_container > button.select {
     background-image: url("../images/select.png");
 }
-#main_button > .center > button.refresh {
+#main_button > .center > .button_container > button.refresh {
     background-image: url("../images/refresh.png");
 }
-#main_button > .center > button.edit {
+#main_button > .center > .button_container > button.edit {
     background-image: url("../images/edit.png");
 }
-#main_button > .center > button.remove,
-#main_button > .center > button.cancel {
+#main_button > .center > .button_container > button.remove,
+#main_button > .center > .button_container > button.cancel {
     background-image: url("../images/remove.png");
 }
-#main_button > .center > button.more {
+#main_button > .center > .button_container > button.more {
     background-image: url("../images/more.png");
 }
-#main_button > .center > button.save {
+#main_button > .center > .button_container > button.save {
     background-image: url("../images/save.png");
 }
-#main_button > .center > button.apply {
+#main_button > .center > .button_container > button.apply {
     background-image: url("../images/apply.png");
 }
