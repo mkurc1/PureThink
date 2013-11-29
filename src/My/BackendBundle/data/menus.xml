@@ -2,7 +2,7 @@
 <menus>
     <menu>
         <name>Witryna</name>
-        <link>cmswebsite</link>
+        <link>cmswebsite_edit</link>
         <sequence>1</sequence>
         <module_id>1</module_id>
     </menu>

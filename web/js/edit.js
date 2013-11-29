@@ -1,4 +1,22 @@
 /**
+ * Object Edit Cunstructor
+ */
+function Edit() {
+    this.url;
+}
+
+var Edit = new Edit();
+
+/**
+ * Set edit URL
+ *
+ * @param string url
+ */
+function setEditUrl(url) {
+    Edit.url = url;
+}
+
+/**
  * Hide edit container
  */
 function hideEditContainer() {
@@ -17,7 +35,8 @@ function emptyEditContainer() {
  */
 function editModeAjax() {
     $('.editMode').click(function() {
-        editMode($(this).attr('href'));
+        setEditUrl($(this).attr('href'));
+        editMode();
 
         return false;
     });
@@ -25,14 +44,12 @@ function editModeAjax() {
 
 /**
  * Set edit mode
- *
- * @param string url
  */
-function editMode(url) {
+function editMode() {
     $.ajax({
         type: "post",
         dataType: 'json',
-        url: url,
+        url: Edit.url,
         beforeSend: function() {
             emptyEditContainer();
         },

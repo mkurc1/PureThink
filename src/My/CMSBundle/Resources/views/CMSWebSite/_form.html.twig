@@ -1,0 +1,19 @@
+{{ form_widget(form._token) }}
+
+<div class="dane_element_big">
+    {{ form_label(form.name) }}
+    {{ form_widget(form.name) }}
+    {{ form_errors(form.name) }}
+</div>
+
+<div class="dane_element_big">
+    {{ form_label(form.description) }}
+    {{ form_widget(form.description) }}
+    {{ form_errors(form.description) }}
+</div>
+
+<div class="dane_element_big">
+    {{ form_label(form.keywords) }}
+    {{ form_widget(form.keywords) }}
+    {{ form_errors(form.keywords) }}
+</div>

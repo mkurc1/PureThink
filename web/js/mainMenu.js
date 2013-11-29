@@ -14,7 +14,6 @@ var mainMenuUrl = '/app_dev.php/admin/menu';
             beforeSend: function() {
             },
             complete: function() {
-                selectFirstMenu();
                 setActionOnClickMenu();
             },
             success: function(data) {
@@ -32,7 +31,51 @@ var mainMenuUrl = '/app_dev.php/admin/menu';
 function selectFirstMenu() {
     $('#main_menu_list > li').eq(2).addClass('selected');
     setMenuId();
-    setListUrl();
+    startMode();
+}
+
+/**
+ * Start mode
+ */
+function startMode() {
+    var url = getMainMenuUrl();
+
+    if (isEditMode(url)) {
+        setEditUrl(url);
+        editMode();
+    }
+    else {
+        setListUrl(url);
+        setDefaultParameters();
+        refreshList(true);
+    }
+}
+
+/**
+ * Get main menu URL
+ *
+ * @return string
+ */
+function getMainMenuUrl() {
+    return $('#main_menu_list > li.selected > a').attr('href');
+}
+
+/**
+ * Get mode by menu URL
+ *
+ * @param string url
+ * @return boolean
+ */
+function isEditMode(url) {
+    var pathArray = url.split('/');
+    var temp = pathArray[pathArray.length-2];
+
+    if (temp == 'edit') {
+        return true;
+    }
+    else {
+        return false;
+    }
 }
 
 /**
@@ -52,8 +95,7 @@ function setActionOnClickMenu() {
 
         if ($(this).attr('menu_id') != menuId) {
             setMenuId();
-            setListUrl();
-            refreshList(true);
+            startMode();
         }
 
         return false;

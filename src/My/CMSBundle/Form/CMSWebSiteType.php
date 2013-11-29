@@ -11,10 +11,9 @@ class CMSWebSiteType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name')
-            ->add('description')
-            ->add('keywords')
-            ->add('language')
+            ->add('name', 'text', array('label' => 'Nazwa witryny'))
+            ->add('description', 'textarea', array('label' => 'Opis'))
+            ->add('keywords', 'textarea', array('label' => 'Słowa kluczowe'))
         ;
     }
 

@@ -1,6 +1,7 @@
 $(function() {
     $('#main_button > div > #create').click(function() {
-        editMode(List.url+'new');
+        setEditUrl(List.url+'new');
+        editMode();
     });
 });
 
@@ -17,7 +18,8 @@ function setActionOnListMainButtons() {
             var listId = List.select[0];
             var editUrl = $('#main_container > table > tbody tr[list_id="'+listId+'"]').find('.editMode').attr('href');
 
-            editMode(editUrl);
+            setEditUrl(editUrl);
+            editMode();
         }
     });
 

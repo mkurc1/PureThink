@@ -17,6 +17,10 @@ $(function() {
     getRowsOnPage(UserSetting.rowsOnPageId);
 });
 
+$(window).load(function() {
+    selectFirstMenu();
+});
+
 /**
  * Set beautify selects
  */

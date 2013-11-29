@@ -63,10 +63,6 @@ ListPagination = new Pagination(10);
 List = new List();
 
 $(function() {
-    setDefaultParameters();
-
-    refreshList(true);
-
     $('#search_box > input').keyup(function() {
         var search = this;
         if (search.timer) {
@@ -183,9 +179,11 @@ function setDefaultParameters() {
 
 /**
  * Set list URL
+ *
+ * @param string url
  */
-function setListUrl() {
-    List.url = $('#main_menu_list > li.selected > a').attr('href');
+function setListUrl(url) {
+    List.url = url;
 }
 
 /**
