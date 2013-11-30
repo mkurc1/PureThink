@@ -2,6 +2,7 @@
 
 namespace My\BackendBundle\Controller;
 
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -13,10 +14,8 @@ class SeriesController extends Controller
     /**
      * @Route("/group/add", name="group_new")
      */
-    public function addGroupAction()
+    public function addGroupAction(Request $request)
     {
-        $request = $this->container->get('request');
-
         $menuId = (int)$request->get('menuId');
         $name = $request->get('name');
 
@@ -49,10 +48,8 @@ class SeriesController extends Controller
     /**
      * @Route("/group/edit", name="group_edit")
      */
-    public function editGroupAction()
+    public function editGroupAction(Request $request)
     {
-        $request = $this->container->get('request');
-
         $id = (int)$request->get('id');
         $name = $request->get('name');
 
@@ -83,10 +80,8 @@ class SeriesController extends Controller
     /**
      * @Route("/group/remove", name="group_remove")
      */
-    public function removeGroupAction()
+    public function removeGroupAction(Request $request)
     {
-        $request = $this->container->get('request');
-
         $id = (int)$request->get('id');
 
         $em = $this->getDoctrine()->getManager();

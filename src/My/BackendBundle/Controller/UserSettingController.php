@@ -2,6 +2,7 @@
 
 namespace My\BackendBundle\Controller;
 
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -12,10 +13,8 @@ class UserSettingController extends Controller
     /**
      * @Route("/user/setting")
      */
-    public function getUserSettingAction()
+    public function getUserSettingAction(Request $request)
     {
-        $request = $this->container->get('request');
-
         $em = $this->getDoctrine()->getManager();
         $entity = $em->getRepository('MyBackendBundle:UserSetting')
             ->findOneBy(array('user' => $this->getUser()));
@@ -40,9 +39,8 @@ class UserSettingController extends Controller
     /**
      * @Route("/user/setting/set_rows_on_page")
      */
-    public function setRowsOnPage()
+    public function setRowsOnPage(Request $request)
     {
-        $request = $this->container->get('request');
         $rowsOnPage = (int)$request->get('rowsOnPage');
 
         $em = $this->getDoctrine()->getManager();

@@ -2,6 +2,7 @@
 
 namespace My\BackendBundle\Controller;
 
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -12,9 +13,8 @@ class RowsOnPageController extends Controller
     /**
      * @Route("/rows_on_page")
      */
-    public function getRowsOnPageAction()
+    public function getRowsOnPageAction(Request $request)
     {
-        $request = $this->container->get('request');
         $rowsOnPageId = (int)$request->get('rowsOnPageId');
 
         $em = $this->getDoctrine()->getManager();

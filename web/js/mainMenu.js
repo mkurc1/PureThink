@@ -46,7 +46,6 @@ function startMode() {
     }
     else {
         setListUrl(url);
-        setDefaultParameters();
         refreshList(true);
     }
 }

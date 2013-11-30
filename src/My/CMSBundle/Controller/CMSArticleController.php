@@ -27,10 +27,8 @@ class CMSArticleController extends Controller
      * @Route("/", name="cmsarticle")
      * @Method("POST")
      */
-    public function listAction()
+    public function listAction(Request $request)
     {
-        $request = $this->container->get('request');
-
         $rowsOnPage = (int)$request->get('rowsOnPage', 10);
         $page = (int)$request->get('page', 1);
         $order = $request->get('order', 'a.name');
@@ -66,7 +64,6 @@ class CMSArticleController extends Controller
      *
      * @Route("/create", name="cmsarticle_create")
      * @Method("POST")
-     * @Template("MyCMSBundle:CMSArticle:new.html.twig")
      */
     public function createAction(Request $request)
     {
@@ -153,7 +150,6 @@ class CMSArticleController extends Controller
      *
      * @Route("/{id}/update", name="cmsarticle_update")
      * @Method("POST")
-     * @Template("MyCMSBundle:CMSArticle:edit.html.twig")
      */
     public function updateAction(Request $request, $id)
     {
@@ -195,10 +191,8 @@ class CMSArticleController extends Controller
      * @Route("/delete", name="cmsarticle_delete")
      * @Method("POST")
      */
-    public function deleteAction()
+    public function deleteAction(Request $request)
     {
-        $request = $this->container->get('request');
-
         $arrayId = $request->get('arrayId');
 
         $em = $this->getDoctrine()->getManager();

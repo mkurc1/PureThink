@@ -2,6 +2,7 @@
 
 namespace My\BackendBundle\Controller;
 
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -12,9 +13,8 @@ class MenuController extends Controller
     /**
      * @Route("/menu")
      */
-    public function menuAction()
+    public function menuAction(Request $request)
     {
-		$request = $this->container->get('request');
 		$moduleId = (int)$request->get('moduleId');
 
 		$em = $this->getDoctrine()->getManager();

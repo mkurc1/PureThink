@@ -2,6 +2,7 @@
 
 namespace My\CMSBundle\Controller;
 
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -13,10 +14,8 @@ class CMSLanguageController extends Controller
     /**
      * @Route("/language/add", name="cms_language_new")
      */
-    public function addLanguageAction()
+    public function addLanguageAction(Request $request)
     {
-        $request = $this->container->get('request');
-
         $name = $request->get('name');
 
         $em = $this->getDoctrine()->getManager();
@@ -48,10 +47,8 @@ class CMSLanguageController extends Controller
     /**
      * @Route("/language/edit", name="cms_language_edit")
      */
-    public function editLanguageAction()
+    public function editLanguageAction(Request $request)
     {
-        $request = $this->container->get('request');
-
         $id = (int)$request->get('id');
         $name = $request->get('name');
 
@@ -82,10 +79,8 @@ class CMSLanguageController extends Controller
     /**
      * @Route("/language/remove", name="cms_language_remove")
      */
-    public function removeGroupAction()
+    public function removeGroupAction(Request $request)
     {
-        $request = $this->container->get('request');
-
         $id = (int)$request->get('id');
 
         $em = $this->getDoctrine()->getManager();

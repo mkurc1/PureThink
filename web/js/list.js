@@ -195,10 +195,12 @@ function refreshList(withLeftMenu) {
     List.emptySelect();
     createListButtons();
 
-    getList();
-
-    if (withLeftMenu)
+    if (withLeftMenu) {
+        setDefaultParameters();
         getLeftMenu();
+    }
+
+    getList();
 }
 
 /**
