@@ -53,3 +53,11 @@ Array.prototype.clear = function()
 {
     this.length = 0;
 };
+
+(function($) {
+    $.fn.setCursorToTextEnd = function() {
+        $initialVal = this.val();
+        this.val($initialVal + ' ');
+        this.val($initialVal);
+    };
+})(jQuery);

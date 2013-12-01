@@ -72,6 +72,7 @@
                 selectedItem.hide();
 
                 menu.find('> div > ul .edit').focus();
+                menu.find('> div > ul .edit').setCursorToTextEnd();
 
                 menu.find('> div > ul .edit').keypress(function(event) {
                     if ((event.which == 13) && ($(this).val() != '')) {

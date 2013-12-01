@@ -42,6 +42,7 @@ function startMode() {
 
     if (isEditMode(url)) {
         setEditUrl(url);
+        getLeftMenu();
         editMode();
     }
     else {
