@@ -23,16 +23,21 @@ class CMSWebSiteController extends Controller
      *
      * @Route("/edit/", name="cmswebsite_edit")
      * @Method("POST")
-     * @Template()
      */
-    public function editAction()
+    public function editAction(Request $request)
     {
+        $languageId = (int)$request->get('languageId');
+
+        if ($languageId == 0) {
+            $languageId = $this->getDefaultLanguageId();
+        }
+
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('MyCMSBundle:CMSWebSite')->find(1);
-
-        if (!$entity) {
-            throw $this->createNotFoundException('Unable to find CMSWebSite entity.');
+        try {
+            $entity = $em->getRepository('MyCMSBundle:CMSWebSite')->getWebSite($languageId);
+        } catch (\Exception $e) {
+            $entity = $this->createWebSite($languageId);
         }
 
         $editForm = $this->createForm(new CMSWebSiteType(), $entity);
@@ -45,6 +50,37 @@ class CMSWebSiteController extends Controller
             );
 
         return new Response(json_encode($response));
+    }
+
+    /**
+     * Create web site
+     *
+     * @param integer $languageId
+     * @return CMSWebSite
+     */
+    private function createWebSite($languageId) {
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = new CMSWebSite();
+        $entity->setLanguage($em->getRepository('MyCMSBundle:CMSLanguage')->find($languageId));
+
+        $em->persist($entity);
+        $em->flush();
+
+        return $entity;
+    }
+
+    /**
+     * Get default language ID
+     *
+     * @return integer
+     */
+    private function getDefaultLanguageId() {
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('MyCMSBundle:CMSLanguage')->getFirstLanguage();
+
+        return $entity->getId();
     }
 
     /**

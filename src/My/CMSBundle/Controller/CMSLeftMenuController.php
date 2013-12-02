@@ -51,7 +51,7 @@ class CMSLeftMenuController extends Controller
      */
     Private function getLanguages()
     {
-        $entities = $this->em->getRepository('MyCMSBundle:CMSLanguage')->findAll();
+        $entities = $this->em->getRepository('MyCMSBundle:CMSLanguage')->getLanguages();
 
         return $this->templateEngine->render("MyCMSBundle:CMSLeftMenu:_languages.html.twig", array('entities' => $entities));
     }

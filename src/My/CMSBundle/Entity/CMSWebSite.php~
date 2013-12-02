@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * CMSWebSite
  *
  * @ORM\Table()
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="My\CMSBundle\Repository\CMSWebSiteRepository")
  */
 class CMSWebSite
 {
@@ -24,27 +24,27 @@ class CMSWebSite
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=255)
+     * @ORM\Column(name="name", type="string", length=255, nullable=true)
      */
     private $name;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="string", length=255)
+     * @ORM\Column(name="description", type="string", length=255, nullable=true)
      */
     private $description;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="keywords", type="string", length=255)
+     * @ORM\Column(name="keywords", type="string", length=255, nullable=true)
      */
     private $keywords;
 
     /**
      * @ORM\OneToOne(targetEntity="CMSLanguage")
-     * @ORM\JoinColumn(name="language_id", referencedColumnName="id", nullable=false)
+     * @ORM\JoinColumn(name="language_id", referencedColumnName="id", onDelete="CASCADE", nullable=false)
      */
     private $language;
 
@@ -137,14 +137,14 @@ class CMSWebSite
     public function setLanguage(\My\CMSBundle\Entity\CMSLanguage $language)
     {
         $this->language = $language;
-    
+
         return $this;
     }
 
     /**
      * Get language
      *
-     * @return \My\CMSBundle\Entity\CMSLanguage 
+     * @return \My\CMSBundle\Entity\CMSLanguage
      */
     public function getLanguage()
     {

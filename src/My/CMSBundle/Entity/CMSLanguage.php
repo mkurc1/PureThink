@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * CMSLanguage
  *
  * @ORM\Table()
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="My\CMSBundle\Repository\CMSLanguageRepository")
  */
 class CMSLanguage
 {

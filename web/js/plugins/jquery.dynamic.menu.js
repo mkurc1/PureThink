@@ -35,8 +35,16 @@
          */
         var menuId = data.menuId;
 
+        /**
+         * @type boolean
+         */
+        var editMode = data.editMode;
+
         getUrl();
+        addSelectAll();
+        selectFirstElement();
         addActionOnClick();
+        setActionsOnLeftMenu();
 
         menu.find('> div > .edit > .remove').on('click', function() {
             if (!$(this).hasClass('disable')) {
@@ -81,6 +89,27 @@
                 });
             }
         });
+
+        /**
+         * Add select all
+         */
+        function addSelectAll() {
+            if (!editMode) {
+                var all = '<li><a list_id="0">Wszystkie</a></li>';
+
+                menu.find('> div > ul').prepend(all);
+            }
+        }
+
+        function selectFirstElement() {
+            var firstElement = menu.find('> div > ul > li').eq(0);
+
+            firstElement.addClass('selected');
+
+            listId = firstElement.children('a').attr('list_id');
+
+            toggleButton();
+        }
 
         /**
          * Add action on click
@@ -193,7 +222,7 @@
                 success: function(data) {
                     if (data.response) {
                         menu.find('> div > ul > li > a[list_id="'+id+'"]').parent().remove();
-                        menu.find('> div > ul > li > a[list_id="0"]').click();
+                        menu.find('> div > ul > li').eq(0).find('> a').click();
                         notify('success', data.message);
                     }
                     else {

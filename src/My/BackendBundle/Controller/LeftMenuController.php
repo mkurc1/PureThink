@@ -17,6 +17,7 @@ class LeftMenuController extends Controller
     {
         $moduleId = (int)$request->get('moduleId');
         $menuId = (int)$request->get('menuId');
+        $editMode = ($request->get('editMode') == 'true') ? true : false;
 
         $menu = '';
         $menus = array();
@@ -32,7 +33,9 @@ class LeftMenuController extends Controller
             $menu .= $value;
         }
 
-        $menu .= $this->getGroups($menuId);
+        if (!$editMode) {
+            $menu .= $this->getGroups($menuId);
+        }
 
         $response = array("menu" => $menu, "response" => true);
 

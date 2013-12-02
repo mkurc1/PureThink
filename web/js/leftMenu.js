@@ -20,21 +20,22 @@ $(function() {
 /**
  * Get left menu
  */
-function getLeftMenu() {
+function getLeftMenu(editMode) {
     $.ajax({
         type: "post",
         dataType: 'json',
         data: {
             moduleId: UserSetting.moduleId,
-            menuId: menuId
+            menuId: menuId,
+            editMode: editMode
         },
         url: leftMenuUrl,
         beforeSend: function() {
         },
         complete: function() {
             $('#left_menu_container').accordionMenu();
-            setActionsOnLeftMenu()
-            setDynamicMenu();
+            setActionsOnLeftMenu();
+            setDynamicMenu(editMode);
         },
         success: function(data) {
             if (data.response) {
@@ -44,11 +45,17 @@ function getLeftMenu() {
     });
 }
 
-function setDynamicMenu() {
+/**
+ * Set dynamic menu
+ *
+ * @param boolean editMode
+ */
+function setDynamicMenu(editMode) {
     $('#left_menu_container > li.editable').each(function() {
         $(this).dynamicMenu({
             moduleId: UserSetting.moduleId,
-            menuId: menuId
+            menuId: menuId,
+            editMode: editMode
         });
     });
 }
@@ -59,6 +66,8 @@ function setDynamicMenu() {
 function setActionsOnLeftMenu() {
     $('#left_menu_container > li > div > ul > li').on('click', 'a', function() {
         if (!$(this).parent().hasClass('selected')) {
+            var url = getMainMenuUrl();
+
             $(this).parent().parent().find('> li').removeClass('selected');
             $(this).parent().addClass('selected');
 
@@ -67,10 +76,21 @@ function setActionsOnLeftMenu() {
             }
 
             if ($(this).parent().parent().parent().parent().hasClass('language')) {
-                List.languageId = $(this).attr('list_id');
+                if (isEditMode(url)) {
+                    Edit.languageId = $(this).attr('list_id');
+                }
+                else {
+                    List.languageId = $(this).attr('list_id');
+                }
+
             }
 
-            refreshList();
+            if (isEditMode(url)) {
+                editMode();
+            }
+            else {
+                refreshList();
+            }
         }
 
         return false;

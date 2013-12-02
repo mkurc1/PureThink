@@ -3,7 +3,7 @@
  */
 function List() {
     this.groupId;
-    this.laguageId;
+    this.languageId;
     this.order;
     this.sequence;
     this.filtr;
@@ -197,7 +197,7 @@ function refreshList(withLeftMenu) {
 
     if (withLeftMenu) {
         setDefaultParameters();
-        getLeftMenu();
+        getLeftMenu(false);
     }
 
     getList();

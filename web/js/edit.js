@@ -3,9 +3,17 @@
  */
 function Edit() {
     this.url;
+    this.languageId;
 }
 
 var Edit = new Edit();
+
+/**
+ * Set default parameters on edit
+ */
+function setDefaultParametersOnEdit() {
+    Edit.languageId = 0;
+}
 
 /**
  * Set edit URL
@@ -50,6 +58,9 @@ function editMode() {
         type: "post",
         dataType: 'json',
         url: Edit.url,
+        data: {
+            languageId: Edit.languageId
+        },
         beforeSend: function() {
             emptyEditContainer();
         },

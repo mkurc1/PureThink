@@ -29,7 +29,7 @@ var mainMenuUrl = '/app_dev.php/admin/menu';
  * Select first menu
  */
 function selectFirstMenu() {
-    $('#main_menu_list > li').eq(2).addClass('selected');
+    $('#main_menu_list > li').eq(0).addClass('selected');
     setMenuId();
     startMode();
 }
@@ -42,7 +42,8 @@ function startMode() {
 
     if (isEditMode(url)) {
         setEditUrl(url);
-        getLeftMenu();
+        getLeftMenu(true);
+        setDefaultParametersOnEdit();
         editMode();
     }
     else {

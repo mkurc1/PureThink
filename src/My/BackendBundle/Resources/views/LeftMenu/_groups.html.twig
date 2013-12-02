@@ -3,11 +3,10 @@
 		<div class="submenu_left">
 		<div class="edit">
 			<button url="{{ path('group_new') }}" class="new">Nowy</button>
-			<button url="{{ path('group_edit') }}" class="edit disable">Edytuj</button>
-			<button url="{{ path('group_remove') }}" class="remove disable">Usuń</button>
+			<button url="{{ path('group_edit') }}" class="edit">Edytuj</button>
+			<button url="{{ path('group_remove') }}" class="remove">Usuń</button>
 		</div>
 		<ul>
-			<li class="selected"><a list_id="0">Wszystkie</a></li>
 			{% for entity in entities %}
 				<li><a list_id="{{ entity.id }}">{{ entity.name }}</a></li>
 			{% endfor %}
