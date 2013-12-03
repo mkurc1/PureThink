@@ -1,17 +1,20 @@
 // Object
-var UserSetting;
+var UserSetting = new Setting();
 // Object
-var Pagination;
+var Pagination = new Pagination(10);
+// Object
+var List = new List();
+// Object
+var Edit = new Edit();
 
 var menuId;
 
 $(function() {
     $.ajaxSetup({async: false});
 
-    hideEditContainer();
-
-    UserSetting = new Setting();
     UserSetting.getUserSetting();
+
+    Pagination.addActions();
 
     $('#main_menu_list').setMainMenu(UserSetting.moduleId);
     getRowsOnPage(UserSetting.rowsOnPageId);
@@ -29,35 +32,3 @@ function beautifySelects() {
         allow_single_deselect: true
     });
 }
-
-/**
- * Is ID exitst
- *
- * @param string id
- * @return boolean
- */
-function isIdExitst(id) {
-    var element = document.getElementById(id);
-    if (typeof (element) != undefined && typeof (element) != null && typeof (element) != 'undefined') {
-        return false;
-    }
-    else {
-        return true;
-    }
-}
-
-/**
- * Array clear function
- */
-Array.prototype.clear = function()
-{
-    this.length = 0;
-};
-
-(function($) {
-    $.fn.setCursorToTextEnd = function() {
-        $initialVal = this.val();
-        this.val($initialVal + ' ');
-        this.val($initialVal);
-    };
-})(jQuery);

@@ -1,7 +1,7 @@
 $(function() {
-    $('#main_button > div > #create').click(function() {
-        setEditUrl(List.url+'new');
-        editMode();
+    $('#main_button > div').on('click', '#create', function() {
+        Edit.url = List.url+'new';
+        Edit.getEdit();
     });
 });
 
@@ -9,23 +9,23 @@ $(function() {
  * Set action on list main buttons
  */
 function setActionOnListMainButtons() {
-    $('#main_button > div > div > .refresh').click(function() {
-        refreshList(true);
+    $('#main_button > div > div').on('click', '.refresh', function() {
+        List.refresh(true);
     });
 
-    $('#main_button > div > div > .edit').click(function() {
+    $('#main_button > div > div').on('click', '.edit', function() {
         if (!$(this).parent().hasClass('disable')) {
             var listId = List.select[0];
             var editUrl = $('#main_container > table > tbody tr[list_id="'+listId+'"]').find('.editMode').attr('href');
 
-            setEditUrl(editUrl);
-            editMode();
+            Edit.url = editUrl;
+            Edit.getEdit();
         }
     });
 
-    $('#main_button > div > div > .remove').click(function() {
+    $('#main_button > div > div').on('click', '.remove', function() {
         if (!$(this).parent().hasClass('disable')) {
-            deleteFromList();
+            List.removeElements();
         }
     });
 }
@@ -34,26 +34,49 @@ function setActionOnListMainButtons() {
  * Set action on edit main buttons
  */
 function setActionOnEditMainButtons() {
-    $('#main_button > div > div > .cancel').click(function() {
-        createListButtons();
-        toggleListMainButton();
-        Pagination.togglePagination();
-        listMode();
+    $('#main_button > div > div').on('click', '.cancel', function() {
+        if (isEditMode(getMainMenuUrl())) {
+            Edit.getEdit();
+        }
+        else {
+            createListButtons();
+            toggleListMainButton();
+            Pagination.togglePagination();
+            List.setMode();
+        }
     });
 
-    $('#main_button > div > div > .apply').click(function() {
+    $('#main_button > div > div').on('click', '.apply', function() {
+        Edit.isApplyOption = true;
 
-    });
-
-    $('#main_button > div > div > .save').click(function() {
         $('#edit_container > .container > form').submit();
+    });
+
+    $('#main_button > div > div').on('click', '.save', function() {
+        if (!$(this).parent().hasClass('disable')) {
+            Edit.isApplyOption = false;
+
+            $('#edit_container > .container > form').submit();
+        }
     });
 }
 
 /**
- * Toggle lsit main button
+ * Toggle list main button
  */
 function toggleListMainButton() {
+    if (isEditMode(getMainMenuUrl())) {
+        toggleListMainButtonForEditMode();
+    }
+    else {
+        toggleListMainButtonForListMode();
+    }
+}
+
+/**
+ * Toggle list main button for list mode
+ */
+function toggleListMainButtonForListMode() {
     switch(List.select.length) {
         case 0:
             disableMainButtonEdit();
@@ -68,6 +91,13 @@ function toggleListMainButton() {
             enableMainButtonRemove();
             break;
     }
+}
+
+/**
+ * Toggle list main button for edit mode
+ */
+function toggleListMainButtonForEditMode() {
+    disableMainButtonSave();
 }
 
 /**
@@ -148,4 +178,11 @@ function enableMainButtonRemove() {
  */
 function disableMainButtonRemove() {
     $('#main_button > div > div > .remove').parent().addClass('disable');
+}
+
+/**
+ * Disable main button save
+ */
+function disableMainButtonSave() {
+    $('#main_button > div > div > .save').parent().addClass('disable');
 }

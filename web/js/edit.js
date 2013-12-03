@@ -4,135 +4,139 @@
 function Edit() {
     this.url;
     this.languageId;
-}
+    this.isApplyOption;
 
-var Edit = new Edit();
+    this.setDefaultParameters = setDefaultParameters;
+    this.html5validateOff = html5validateOff;
+    this.emptyEditContainer = emptyEditContainer;
+    this.getEdit = getEdit;
+    this.submitAction = submitAction;
+    this.ckeditUpdateElement = ckeditUpdateElement;
+    this.setEditAction = setEditAction;
 
-/**
- * Set default parameters on edit
- */
-function setDefaultParametersOnEdit() {
-    Edit.languageId = 0;
-}
-
-/**
- * Set edit URL
- *
- * @param string url
- */
-function setEditUrl(url) {
-    Edit.url = url;
-}
-
-/**
- * Hide edit container
- */
-function hideEditContainer() {
-    $('#edit_container').hide();
-}
-
-/**
- * Empty edit container
- */
-function emptyEditContainer() {
-    $('#edit_container').empty();
-}
-
-/**
- * Edit mode - AJAX
- */
-function editModeAjax() {
-    $('.editMode').click(function() {
-        setEditUrl($(this).attr('href'));
-        editMode();
-
-        return false;
-    });
-}
-
-/**
- * Set edit mode
- */
-function editMode() {
-    $.ajax({
-        type: "post",
-        dataType: 'json',
-        url: Edit.url,
-        data: {
-            languageId: Edit.languageId
-        },
-        beforeSend: function() {
-            emptyEditContainer();
-        },
-        complete: function() {
-            $('#main_container').hide();
-            $('#edit_container').show();
-
-            Pagination.hidePagination();
-            html5validateOff();
-            beautifySelects();
-            submitAction();
-            createEditButtons();
-        },
-        success: function(data) {
-            if (data.response) {
-                $('#edit_container').html(data.view.toString());
-            }
-        }
-    });
-}
-
-/**
- * HTML5 validate set off
- */
-function html5validateOff() {
-    $('#edit_container > .container > form').attr('novalidate', 'novalidate');
-}
-
-/**
- * CKEdit update element
- */
-function ckeditUpdateElement() {
-    if ($('#edit_container > .container > form').find('div.cke').length > 0) {
-        for (instance in CKEDITOR.instances) {
-            CKEDITOR.instances[instance].updateElement();
-        }
+    /**
+     * Set default parameters
+     */
+    function setDefaultParameters() {
+        this.languageId = 0;
+        this.isApplyOption = false;
     }
-}
 
-/**
- * Submit action
- */
-function submitAction() {
-    $('#edit_container > .container > form').submit(function() {
-        ckeditUpdateElement();
+    /**
+     * HTML5 validate set off
+     */
+    function html5validateOff() {
+        $('#edit_container > .container > form').attr('novalidate', 'novalidate');
+    }
+
+    /**
+     * Empty edit container
+     */
+    function emptyEditContainer() {
+        $('#edit_container').empty();
+    }
+
+    /**
+     * Get edit
+     */
+    function getEdit() {
+        var edit = this;
 
         $.ajax({
             type: "post",
             dataType: 'json',
-            data: $(this).serialize(),
-            url: $(this).attr('action'),
-            beforeSend: function() {
+            url: edit.url,
+            data: {
+                languageId: edit.languageId
             },
-            complete: function(data) {
-                if (!data.response) {
-                    html5validateOff();
-                    beautifySelects();
+            beforeSend: function() {
+                edit.emptyEditContainer();
+            },
+            complete: function() {
+                $('#main_container').hide();
+                $('#edit_container').show();
+
+                Pagination.hidePagination();
+                edit.html5validateOff();
+                beautifySelects();
+                if (!Edit.isApplyOption) {
                     submitAction();
                 }
+                createEditButtons();
+                toggleListMainButton();
             },
             success: function(data) {
                 if (data.response) {
-                    notify('success', data.message);
-                    listMode();
-                    refreshList(false);
-                }
-                else {
-                    $('#edit_container').html(data.view);
+                    $('#edit_container').html(data.view.toString());
                 }
             }
         });
+    }
 
-        return false;
-    });
+    /**
+     * Submit action
+     */
+    function submitAction() {
+        $('#edit_container > .container').on('submit', 'form', function() {
+            Edit.ckeditUpdateElement();
+
+            $.ajax({
+                type: "post",
+                dataType: 'json',
+                data: $(this).serialize(),
+                url: $(this).attr('action'),
+                beforeSend: function() {
+                },
+                complete: function(data) {
+                    if (!data.response) {
+                        Edit.html5validateOff();
+                        beautifySelects();
+                        Edit.submitAction();
+                    }
+                },
+                success: function(data) {
+                    if (data.response) {
+                        notify('success', data.message);
+
+                        if (Edit.isApplyOption) {
+                            Edit.getEdit();
+                        }
+                        else {
+                            List.refresh(false);
+                        }
+                    }
+                    else {
+                        $('#edit_container').html(data.view);
+                    }
+                }
+            });
+
+            return false;
+        });
+    }
+
+    /**
+     * CKEdit update element
+     */
+    function ckeditUpdateElement() {
+        if ($('#edit_container > .container > form').find('div.cke').length > 0) {
+            for (instance in CKEDITOR.instances) {
+                CKEDITOR.instances[instance].updateElement();
+            }
+        }
+    }
+
+    /**
+     * Set edit action
+     */
+    function setEditAction() {
+        var edit = this;
+
+        $('.editMode').click(function() {
+            edit.url = $(this).attr('href');
+            edit.getEdit();
+
+            return false;
+        });
+    }
 }

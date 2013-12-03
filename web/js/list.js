@@ -9,9 +9,21 @@ function List() {
     this.filtr;
     this.url;
     this.select = new Array();
+
     this.addToSelect = addToSelect;
     this.removeFromSelect = removeFromSelect;
     this.emptySelect = emptySelect;
+    this.emptyList = emptyList;
+    this.arrowOrder = arrowOrder;
+    this.setActionOnChangeOrder = setActionOnChangeOrder;
+    this.checkboxChangeAction = checkboxChangeAction;
+    this.getList = getList;
+    this.showLoading = showLoading;
+    this.removeLoading = removeLoading;
+    this.setMode = setMode;
+    this.removeElements = removeElements;
+    this.setDefaultParameters = setDefaultParameters;
+    this.refresh = refresh;
 
     /**
      * Add to select
@@ -40,224 +52,197 @@ function List() {
     function emptySelect() {
         this.select.clear();
     }
-}
 
-Pagination = new Pagination(10);
-
-List = new List();
-
-$(function() {
-    Pagination.addActions();
-
-    $('#search_box > input').keyup(function() {
-        var search = this;
-        if (search.timer) {
-            clearTimeout(search.timer);
-        }
-
-        search.timer = setTimeout(function() {
-            search.timer = null;
-
-            List.filtr = search.value;
-            refreshList();
-        }, 800);
-    });
-});
-
-/**
- * Checkbox change action
- */
-function checkboxChangeAction() {
-    $('tr > td.select > input.multi_check').click(function() {
-        var selectId = $(this).parent().parent().attr('list_id');
-
-        if ($(this).is(':checked')) {
-            List.addToSelect(selectId);
-        }
-        else {
-            List.removeFromSelect(selectId);
-        }
-
-        toggleListMainButton();
-    });
-}
-
-/**
- * Show loading
- */
-function showLoading() {
-    $('#main_container').append('<div class="loading"></div>');
-}
-
-/**
- * Remove loading
- */
-function removeLoading() {
-    $('.loading').remove();
-}
-
-/**
- * Empty filtr
- */
-function emptyFiltr() {
-    $('#search_box > input').val('');
-}
-
-/**
- * Set Default parameters
- */
-function setDefaultParameters() {
-    List.order = 'a.name';
-    List.sequence = 'ASC';
-    List.filtr = '';
-    List.groupId = 0;
-    List.languageId = 0;
-    Pagination.page = 1;
-
-    emptyFiltr();
-}
-
-/**
- * Set list URL
- *
- * @param string url
- */
-function setListUrl(url) {
-    List.url = url;
-}
-
-/**
- * Refresh list
- *
- * @param boolean withLeftMenu
- */
-function refreshList(withLeftMenu) {
-    List.emptySelect();
-    createListButtons();
-
-    if (withLeftMenu) {
-        setDefaultParameters();
-        getLeftMenu(false);
+    /**
+     * Empty list
+     */
+    function emptyList() {
+        $('#main_container').empty();
     }
 
-    getList();
-}
+    /**
+     * set arrow order
+     */
+    function arrowOrder() {
+        var imageContainer = '<img class="order" src="/images/arrow_'+this.sequence.toLowerCase()+'.png" />';
 
-/**
- * Empty list
- */
-function emptyList() {
-    $('#main_container').empty();
-}
+        $('#main_container > table th[column*="' + this.order + '"]').append(imageContainer);
+    }
 
-/**
- * Set list mode
- */
-function listMode() {
-    $('#main_container').show();
-    $('#edit_container').empty().hide();
-}
+    /**
+     * Set action on change order
+     */
+    function setActionOnChangeOrder() {
+        var list = this;
 
-/**
- * Get list
- */
-function getList() {
-    $.ajax({
-        type: "post",
-        dataType: 'json',
-        data: {
-            rowsOnPage: Pagination.rowsOnPage,
-            page: Pagination.page,
-            order: List.order,
-            sequence: List.sequence,
-            filtr: List.filtr,
-            languageId: List.languageId,
-            groupId: List.groupId
-        },
-        url: List.url,
-        beforeSend: function() {
-            listMode();
-            emptyList();
-            showLoading();
-        },
-        complete: function() {
-            arrowOrder();
-            setActionOnChangeOrder();
-            Pagination.togglePagination();
-            editModeAjax();
-            checkboxChangeAction();
-            toggleListMainButton();
-            removeLoading();
-        },
-        success: function(data) {
-            if (data.response) {
-                emptyList();
-                $('#main_container').append(data.list.toString());
+        $('#main_container > table th').click(function() {
+            var column = $(this).attr('column')
 
-                Pagination.firstPage = data.pagination.first_page;
-                Pagination.previousPage = data.pagination.previous;
-                Pagination.nextPage = data.pagination.next;
-                Pagination.lastPage = data.pagination.last_page;
-                Pagination.totalCount = data.pagination.total_count;
+            if (typeof(column) !== "undefined") {
+                if (list.order != column) {
+                    list.order = column;
+                }
+                else {
+                    if (list.sequence == "ASC") {
+                        list.sequence = "DESC";
+                    }
+                    else {
+                        list.sequence = "ASC";
+                    }
+                }
 
-                Pagination.paging(data.pagination.pages);
+                list.refresh(false);
             }
-        }
-    });
-}
+        });
+    }
 
-/**
- * Delete from list
- */
-function deleteFromList() {
-    $.ajax({
-        type: "post",
-        dataType: 'json',
-        data: {
-            arrayId: List.select
-        },
-        url: List.url+'delete',
-        beforeSend: function() {
-        },
-        complete: function() {
+    /**
+     * Checkbox change action
+     */
+    function checkboxChangeAction() {
+        var list = this;
 
-        },
-        success: function(data) {
-            if (data.response) {
-                notify('success', data.message);
-                refreshList(false);
+        $('#main_container > table tr > td.select > input.multi_check').click(function() {
+            var selectId = $(this).parent().parent().attr('list_id');
+
+            if ($(this).is(':checked')) {
+                list.addToSelect(selectId);
             }
             else {
-                notify('fail', data.message);
+                list.removeFromSelect(selectId);
             }
+
+            toggleListMainButton();
+        });
+    }
+
+    /**
+     * Get list
+     */
+    function getList() {
+        var list = this;
+
+        $.ajax({
+            type: "post",
+            dataType: 'json',
+            data: {
+                rowsOnPage: Pagination.rowsOnPage,
+                page: Pagination.page,
+                order: list.order,
+                sequence: list.sequence,
+                filtr: list.filtr,
+                languageId: list.languageId,
+                groupId: list.groupId
+            },
+            url: list.url,
+            beforeSend: function() {
+                list.setMode();
+                list.emptyList();
+                list.showLoading();
+            },
+            complete: function() {
+                list.arrowOrder();
+                list.setActionOnChangeOrder();
+                Pagination.togglePagination();
+                Edit.setEditAction();
+                list.checkboxChangeAction();
+                toggleListMainButton();
+                list.removeLoading();
+            },
+            success: function(data) {
+                if (data.response) {
+                    $('#main_container').append(data.list.toString());
+
+                    Pagination.firstPage = data.pagination.first_page;
+                    Pagination.previousPage = data.pagination.previous;
+                    Pagination.nextPage = data.pagination.next;
+                    Pagination.lastPage = data.pagination.last_page;
+
+                    Pagination.paging(data.pagination.pages);
+                }
+            }
+        });
+    }
+
+    /**
+     * Show loading
+     */
+    function showLoading() {
+        $('#main_container').append('<div class="loading"></div>');
+    }
+
+    /**
+     * Remove loading
+     */
+    function removeLoading() {
+        $('.loading').remove();
+    }
+
+    /**
+     * Set mode
+     */
+    function setMode() {
+        $('#main_container').show();
+        $('#edit_container').empty().hide();
+    }
+
+    /**
+     * Remove elements
+     */
+    function removeElements() {
+        var list = this;
+
+        $.ajax({
+            type: "post",
+            dataType: 'json',
+            data: {
+                arrayId: list.select
+            },
+            url: list.url+'delete',
+            beforeSend: function() {
+            },
+            complete: function() {
+            },
+            success: function(data) {
+                if (data.response) {
+                    notify('success', data.message);
+                    list.refresh(false);
+                }
+                else {
+                    notify('fail', data.message);
+                }
+            }
+        });
+    }
+
+    /**
+     * Set Default parameters
+     */
+    function setDefaultParameters() {
+        this.order = 'a.name';
+        this.sequence = 'ASC';
+        this.filtr = '';
+        this.groupId = 0;
+        this.languageId = 0;
+        Pagination.page = 1;
+
+        emptyFilter();
+    }
+
+    /**
+     * Refresh list
+     *
+     * @param boolean withLeftMenu
+     */
+    function refresh(withLeftMenu) {
+        this.emptySelect();
+        createListButtons();
+
+        if (withLeftMenu) {
+            this.setDefaultParameters();
+            getLeftMenu(false);
         }
-    });
-}
 
-/**
- * set arrow order
- */
-function arrowOrder() {
-    $('th[column*="' + List.order + '"]').append('<img class="order" src="/images/arrow_'+List.sequence.toLowerCase()+'.png" />');
-}
-
-/**
- * Set action on change order
- */
-function setActionOnChangeOrder() {
-    $('th').click(function() {
-        var column = $(this).attr('column')
-
-        if (typeof(column) !== "undefined") {
-            if (List.order != column)
-                List.order = column;
-            else
-            if (List.sequence == "ASC")
-                List.sequence = "DESC";
-            else
-                List.sequence = "ASC";
-
-            refreshList(false);
-        }
-    });
+        this.getList();
+    }
 }

@@ -41,14 +41,14 @@ function startMode() {
     var url = getMainMenuUrl();
 
     if (isEditMode(url)) {
-        setEditUrl(url);
+        Edit.url = url;
         getLeftMenu(true);
-        setDefaultParametersOnEdit();
-        editMode();
+        Edit.setDefaultParameters();
+        Edit.getEdit();
     }
     else {
-        setListUrl(url);
-        refreshList(true);
+        List.url = url;
+        List.refresh(true);
     }
 }
 

@@ -82,14 +82,13 @@ function setActionsOnLeftMenu() {
                 else {
                     List.languageId = $(this).attr('list_id');
                 }
-
             }
 
             if (isEditMode(url)) {
-                editMode();
+                Edit.getEdit();
             }
             else {
-                refreshList();
+                List.refresh();
             }
         }
 

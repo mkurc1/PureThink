@@ -11,7 +11,6 @@ function Pagination(rowsOnPage) {
     this.lastPage = 0;
     this.previousPage = 0;
     this.nextPage = 0;
-    this.totalCount = 0;
     this.rowsOnPage = rowsOnPage;
 
     this.setPage = setPage;
@@ -38,7 +37,7 @@ function Pagination(rowsOnPage) {
         $('#str span').removeAttr('id');
         $('#str span').eq(page - 1).attr('id', 'str_selected');
 
-        refreshList(false);
+        List.refresh(false);
     }
 
     /**

@@ -36,7 +36,7 @@ function setActionOnChangeRowsOnPage() {
         Pagination.rowsOnPage = $(this).val();
         Pagination.page = 1;
         setRowsOnPage();
-        refreshList();
+        List.refresh();
     });
 }
 
