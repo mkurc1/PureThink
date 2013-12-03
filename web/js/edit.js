@@ -68,7 +68,7 @@ function editMode() {
             $('#main_container').hide();
             $('#edit_container').show();
 
-            hidePagination();
+            Pagination.hidePagination();
             html5validateOff();
             beautifySelects();
             submitAction();

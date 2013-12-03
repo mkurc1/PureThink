@@ -17,7 +17,7 @@ function getRowsOnPage(rowsOnPageId) {
         beforeSend: function() {
         },
         complete: function() {
-            ListPagination.rowsOnPage = $("#pagination > .number_of_lines").val();
+            Pagination.rowsOnPage = $("#pagination > .number_of_lines").val();
             setActionOnChangeRowsOnPage();
         },
         success: function(data) {
@@ -33,8 +33,8 @@ function getRowsOnPage(rowsOnPageId) {
  */
 function setActionOnChangeRowsOnPage() {
     $("#pagination > .number_of_lines").change(function() {
-        ListPagination.rowsOnPage = $(this).val();
-        ListPagination.page = 1;
+        Pagination.rowsOnPage = $(this).val();
+        Pagination.page = 1;
         setRowsOnPage();
         refreshList();
     });
@@ -48,7 +48,7 @@ function setRowsOnPage() {
         type: "post",
         dataType: 'json',
         data: {
-            rowsOnPage: ListPagination.rowsOnPage
+            rowsOnPage: Pagination.rowsOnPage
         },
         url: setRowsOnPageUrl,
         beforeSend: function() {

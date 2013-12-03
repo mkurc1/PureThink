@@ -1,7 +1,7 @@
 // Object
 var UserSetting;
 // Object
-var ListPagination;
+var Pagination;
 
 var menuId;
 

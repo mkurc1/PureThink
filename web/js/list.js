@@ -42,27 +42,13 @@ function List() {
     }
 }
 
-/**
- * Object Pagination Constructior
- *
- * @param integer rowsOnPage
- */
-function Pagination(rowsOnPage) {
-    this.page = 1;
-    this.start = 0;
-    this.end = 0;
-    this.firstPage = 0;
-    this.lastPage = 0;
-    this.previousPage = 0;
-    this.nextPage = 0;
-    this.totalCount = 0;
-    this.rowsOnPage = rowsOnPage;
-}
+Pagination = new Pagination(10);
 
-ListPagination = new Pagination(10);
 List = new List();
 
 $(function() {
+    Pagination.addActions();
+
     $('#search_box > input').keyup(function() {
         var search = this;
         if (search.timer) {
@@ -75,26 +61,6 @@ $(function() {
             List.filtr = search.value;
             refreshList();
         }, 800);
-    });
-
-    $('#pagination_first').click(function() {
-        if (ListPagination.page != 1)
-            setPage(ListPagination.firstPage);
-    });
-
-    $('#pagination_last').click(function() {
-        if (ListPagination.page != ListPagination.lastPage)
-            setPage(ListPagination.lastPage);
-    });
-
-    $('#pagination_previous').click(function() {
-        if ((ListPagination.page != ListPagination.previousPage) && (ListPagination.previousPage > 0))
-            setPage(ListPagination.previousPage);
-    });
-
-    $('#pagination_next').click(function() {
-        if ((ListPagination.page != ListPagination.nextPage) && (ListPagination.nextPage <= ListPagination.lastPage))
-            setPage(ListPagination.nextPage);
     });
 });
 
@@ -138,32 +104,6 @@ function emptyFiltr() {
 }
 
 /**
- * Toggle pagination
- */
-function togglePagination() {
-    if (ListPagination.firstPage != ListPagination.lastPage) {
-        showPagination();
-    }
-    else {
-        hidePagination();
-    }
-}
-
-/**
- * Show pagination
- */
-function showPagination() {
-    $('#pagination > .pagination').show();
-}
-
-/**
- * Hide pagination
- */
-function hidePagination() {
-    $('#pagination > .pagination').hide();
-}
-
-/**
  * Set Default parameters
  */
 function setDefaultParameters() {
@@ -172,7 +112,7 @@ function setDefaultParameters() {
     List.filtr = '';
     List.groupId = 0;
     List.languageId = 0;
-    ListPagination.page = 1;
+    Pagination.page = 1;
 
     emptyFiltr();
 }
@@ -211,51 +151,6 @@ function emptyList() {
 }
 
 /**
- * Set page
- *
- * @param integer str
- */
-function setPage(str) {
-    ListPagination.page = str;
-
-    $('#str span').removeAttr('id');
-    $('#str span').eq(str - 1).attr('id', 'str_selected');
-
-    refreshList(false);
-}
-
-/**
- * Paging
- *
- * @param array pages
- */
-function paging(pages) {
-    $('#str span').remove();
-
-    for(i = 0; i < pages.length; i++) {
-        if(pages[i] == ListPagination.page)
-            $('#str').append('<span id="str_selected">' + pages[i] + '</span>');
-        else
-            $('#str').append('<span>' + pages[i] + '</span>');
-    }
-
-    setActionOnChangePage();
-}
-
-/**
- * Set action on change page
- */
-function setActionOnChangePage() {
-    $('#str span').click(function() {
-        ListPagination.page = $(this).text();
-        $('#str span').removeAttr('id');
-        $(this).attr('id', 'str_selected');
-
-        refreshList(false);
-    });
-}
-
-/**
  * Set list mode
  */
 function listMode() {
@@ -271,8 +166,8 @@ function getList() {
         type: "post",
         dataType: 'json',
         data: {
-            rowsOnPage: ListPagination.rowsOnPage,
-            page: ListPagination.page,
+            rowsOnPage: Pagination.rowsOnPage,
+            page: Pagination.page,
             order: List.order,
             sequence: List.sequence,
             filtr: List.filtr,
@@ -288,7 +183,7 @@ function getList() {
         complete: function() {
             arrowOrder();
             setActionOnChangeOrder();
-            togglePagination();
+            Pagination.togglePagination();
             editModeAjax();
             checkboxChangeAction();
             toggleListMainButton();
@@ -299,13 +194,13 @@ function getList() {
                 emptyList();
                 $('#main_container').append(data.list.toString());
 
-                ListPagination.firstPage = data.pagination.first_page;
-                ListPagination.previousPage = data.pagination.previous;
-                ListPagination.nextPage = data.pagination.next;
-                ListPagination.lastPage = data.pagination.last_page;
-                ListPagination.totalCount = data.pagination.total_count;
+                Pagination.firstPage = data.pagination.first_page;
+                Pagination.previousPage = data.pagination.previous;
+                Pagination.nextPage = data.pagination.next;
+                Pagination.lastPage = data.pagination.last_page;
+                Pagination.totalCount = data.pagination.total_count;
 
-                paging(data.pagination.pages);
+                Pagination.paging(data.pagination.pages);
             }
         }
     });
