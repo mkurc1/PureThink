@@ -37,7 +37,7 @@ function setActionOnEditMainButtons() {
     $('#main_button > div > div > .cancel').click(function() {
         createListButtons();
         toggleListMainButton();
-        togglePagination();
+        Pagination.togglePagination();
         listMode();
     });
 
