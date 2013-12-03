@@ -120,11 +120,6 @@
                 queue: false
             }, 1000);
 
-            menu.find('> li > div.showMenu > ul').animate({
-                height: spaceForElement-26,
-                queue: false
-            }, 1000);
-
             menu.find('> li > div.hideMenu').animate({
                 height: 0
             }, 1000, function() {

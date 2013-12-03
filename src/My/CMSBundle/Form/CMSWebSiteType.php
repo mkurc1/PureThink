@@ -5,13 +5,20 @@ namespace My\CMSBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
 class CMSWebSiteType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name', 'text', array('label' => 'Nazwa witryny'))
+            ->add('name', 'text', array(
+                'label' => 'Nazwa witryny',
+                'constraints' => array(
+                    new NotBlank()
+                    )
+                )
+            )
             ->add('description', 'textarea', array('label' => 'Opis'))
             ->add('keywords', 'textarea', array('label' => 'Słowa kluczowe'))
         ;

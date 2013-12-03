@@ -87,8 +87,7 @@ class CMSWebSiteController extends Controller
      * Edits an existing CMSWebSite entity.
      *
      * @Route("/{id}/update", name="cmswebsite_update")
-     * @Method("PUT")
-     * @Template("MyCMSBundle:CMSWebSite:edit.html.twig")
+     * @Method("POST")
      */
     public function updateAction(Request $request, $id)
     {
@@ -107,12 +106,21 @@ class CMSWebSiteController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('cmswebsite_edit', array('id' => $id)));
+            $response = array(
+                "response" => true,
+                "id" => $entity->getId(),
+                "message" => 'Edycja witryny zakończyła się powodzeniem'
+                );
+        }
+        else {
+            $view = $this->renderView('MyCMSBundle:CMSWebSite:_edit.html.twig', array('entity' => $entity, 'form' => $editForm->createView()));
+
+            $response = array(
+                "response" => false,
+                "view" => $view
+                );
         }
 
-        return array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView()
-        );
+        return new Response(json_encode($response));
     }
 }

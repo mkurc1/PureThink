@@ -93,6 +93,8 @@ function Edit() {
                         beautifySelects();
                         Edit.submitAction();
                     }
+
+                    Edit.isApplyOption = false;
                 },
                 success: function(data) {
                     if (data.response) {

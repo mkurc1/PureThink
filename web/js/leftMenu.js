@@ -85,6 +85,7 @@ function setActionsOnLeftMenu() {
             }
 
             if (isEditMode(url)) {
+                Edit.isApplyOption = false;
                 Edit.getEdit();
             }
             else {
