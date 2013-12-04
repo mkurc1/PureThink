@@ -46,7 +46,7 @@
     cursor: pointer;
 }
 #main > #main_container > table > tbody > tr:hover {
-    background-color: #FEF5C7;
+    background-color: #FEF3C2;
 }
 #main > #main_container > table > thead > tr > th.select {
     width: 46px;

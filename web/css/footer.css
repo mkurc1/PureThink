@@ -58,7 +58,7 @@
 #footer > #pagination > div.pagination {
     float: left;
     font-size: 13px;
-    margin: 2px 10px 0 0;
+    margin: 3px 10px 0 0;
 }
 #footer > #pagination > div.pagination > a {
     color: #757575;
@@ -93,5 +93,20 @@
 #footer > #pagination > select {
     position: relative;
     float: right;
+    width: 50px;
     background-color: #FCFCFC;
+}
+#footer > #pagination .chosen-container-single .chosen-single {
+    height: 18px;
+    line-height: 11px;
+    margin-top: -2px;
+    padding-left: 3px;
+}
+#footer > #pagination .chosen-single span {
+    margin-top: 4px;
+    text-align: center;
+    font-size: 11px;
+}
+#footer > #pagination .chosen-single > div > b {
+    background-position: 0 0;
 }

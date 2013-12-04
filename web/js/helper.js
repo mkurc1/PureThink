@@ -21,6 +21,12 @@ function beautifySelects() {
     $('.sintetic-select').chosen({
         allow_single_deselect: true
     });
+
+    $('.sintetic-select_top').chosen({
+        allow_single_deselect: true,
+        top: true,
+        disable_search: true
+    });
 }
 
 /**

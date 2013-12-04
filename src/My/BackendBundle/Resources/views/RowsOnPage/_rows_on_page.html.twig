@@ -1,6 +1,6 @@
 <label>ilość wierszy:</label>
 
-<select class="number_of_lines ">
+<select class="number_of_lines sintetic-select_top">
     {% for entity in entities %}
         <option value="{{ entity.amount }}" {{ entity.id == rowsOnPageId ? 'selected="selected"' : '' }}>{{ entity.amount }}</option>
     {% endfor %}

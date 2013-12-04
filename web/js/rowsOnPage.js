@@ -19,6 +19,7 @@ function getRowsOnPage(rowsOnPageId) {
         complete: function() {
             Pagination.rowsOnPage = $("#pagination > .number_of_lines").val();
             setActionOnChangeRowsOnPage();
+            beautifySelects();
         },
         success: function(data) {
             if (data.response) {
