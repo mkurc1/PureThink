@@ -185,6 +185,7 @@ class CMSArticleController extends Controller
 
         return new Response(json_encode($response));
     }
+
     /**
      * Deletes a CMSArticle entity.
      *
@@ -232,6 +233,50 @@ class CMSArticleController extends Controller
             $response = array(
                 "response" => false,
                 "message" => $message
+                );
+        }
+
+        return new Response(json_encode($response));
+    }
+
+    /**
+     * Change state a CMSArticle entity.
+     *
+     * @Route("/state", name="cmsarticle_state")
+     * @Method("POST")
+     */
+    public function stateAction(Request $request)
+    {
+        $id = (int)$request->get('id');
+
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('MyCMSBundle:CMSArticle')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find CMSArticle entity.');
+        }
+
+        if ($entity->getIsPublic()) {
+            $entity->setIsPublic(false);
+        }
+        else {
+            $entity->setIsPublic(true);
+        }
+
+        $em->persist($entity);
+
+        try {
+            $em->flush();
+
+            $response = array(
+                "response" => true,
+                "message" => 'Zmiana stanu artykułu zakończyła się powodzeniem'
+                );
+        } catch (\Exception $e) {
+            $response = array(
+                "response" => false,
+                "message" => 'Zmiana stanu artykułu zakończyła się niepowodzeniem'
                 );
         }
 

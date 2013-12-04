@@ -5,10 +5,15 @@
 			<button url="{{ path('cms_language_new') }}" class="new">Nowy</button>
 			<button url="{{ path('cms_language_edit') }}" class="edit">Edytuj</button>
 			<button url="{{ path('cms_language_remove') }}" class="remove">Usuń</button>
+			<button url="{{ path('cms_language_state') }}" class="state">Stan</button>
 		</div>
 		<ul>
 			{% for entity in entities %}
-				<li><a list_id="{{ entity.id }}">{{ entity.name }}</a></li>
+				<li>
+					<a list_id="{{ entity.id }}">{{ entity.name }}</a>
+					<span class="alias">{{ entity.alias }}</span>
+					<div class="state {{ entity.isPublic ? 'active' : 'deactive' }}"></div>
+				</li>
 			{% endfor %}
 		</ul>
 	</div>

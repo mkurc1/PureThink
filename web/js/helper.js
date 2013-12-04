@@ -15,6 +15,15 @@ function isIdExitst(id) {
 }
 
 /**
+ * Set beautify selects
+ */
+function beautifySelects() {
+    $('.sintetic-select').chosen({
+        allow_single_deselect: true
+    });
+}
+
+/**
  * Array clear function
  */
 Array.prototype.clear = function()

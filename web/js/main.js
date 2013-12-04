@@ -23,12 +23,3 @@ $(function() {
 $(window).load(function() {
     selectFirstMenu();
 });
-
-/**
- * Set beautify selects
- */
-function beautifySelects() {
-    $('.sintetic-select').chosen({
-        allow_single_deselect: true
-    });
-}

@@ -16,7 +16,9 @@ function List() {
     this.emptyList = emptyList;
     this.arrowOrder = arrowOrder;
     this.setActionOnChangeOrder = setActionOnChangeOrder;
+    this.setActionOnChangeState = setActionOnChangeState;
     this.checkboxChangeAction = checkboxChangeAction;
+    this.changeState = changeState;
     this.getList = getList;
     this.showLoading = showLoading;
     this.removeLoading = removeLoading;
@@ -97,6 +99,50 @@ function List() {
     }
 
     /**
+     * Set action on change state
+     */
+    function setActionOnChangeState() {
+        var list = this;
+
+        $('#main_container > table tr td.state > img').click(function() {
+            var selectId = $(this).parent().parent().attr('list_id');
+
+            list.changeState(selectId);
+        });
+    }
+
+    /**
+     * Change state
+     *
+     * @param integer id
+     */
+    function changeState(id) {
+        var list = this;
+
+        $.ajax({
+            type: "post",
+            dataType: 'json',
+            data: {
+                id: id
+            },
+            url: list.url+'state',
+            beforeSend: function() {
+            },
+            complete: function() {
+            },
+            success: function(data) {
+                if (data.response) {
+                    notify('success', data.message);
+                    list.refresh(false);
+                }
+                else {
+                    notify('fail', data.message);
+                }
+            }
+        });
+    }
+
+    /**
      * Checkbox change action
      */
     function checkboxChangeAction() {
@@ -143,6 +189,7 @@ function List() {
             complete: function() {
                 list.arrowOrder();
                 list.setActionOnChangeOrder();
+                list.setActionOnChangeState();
                 Pagination.togglePagination();
                 Edit.setEditAction();
                 list.checkboxChangeAction();

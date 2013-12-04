@@ -21,6 +21,11 @@
         var removeUrl;
 
         /**
+         * @type string
+         */
+        var stateUrl;
+
+        /**
          * @type integer
          */
         var listId;
@@ -44,6 +49,7 @@
         addSelectAll();
         selectFirstElement();
         addActionOnClick();
+        addActionOnClickChangeState();
         setActionsOnLeftMenu();
 
         menu.find('> div > .edit > .remove').on('click', function() {
@@ -57,12 +63,29 @@
                 removeInput();
 
                 var input = '<input class="new" type="text" placeholder="nazwa" />';
+
+                if (menu.hasClass('language')) {
+                    var inputAlias = '<input class="alias" type="text" placeholder="alias" />';
+                    menu.find('> div > ul').prepend(inputAlias);
+
+                    menu.find('> div > ul > input.alias').keypress(function(event) {
+                        if ((event.which == 13) && ($(this).val() != '')) {
+                            add(menu.find('> div > ul > .new').val(), $(this).val());
+                        }
+                    });
+                }
+
                 menu.find('> div > ul').prepend(input);
 
                 menu.find('> div > ul > .new').focus();
                 menu.find('> div > ul > .new').keypress(function(event) {
                     if ((event.which == 13) && ($(this).val() != '')) {
-                        add($(this).val());
+                        if (menu.hasClass('language')) {
+                            menu.find('> div > ul > input.alias').focus();
+                        }
+                        else {
+                            add($(this).val(), '');
+                        }
                     }
                 });
             }
@@ -77,6 +100,22 @@
                 var input = '<input class="edit" type="text" value="'+name+'" />';
 
                 selectedItem.parent().append(input);
+
+                if (menu.hasClass('language')) {
+                    var alias = selectedItem.parent().find('> span').text();
+                    var inputAlias = '<input class="alias alias_edit_margin" type="text" value="'+alias+'" />';
+                    selectedItem.parent().append(inputAlias);
+
+                    selectedItem.parent().find('> span').hide();
+                    selectedItem.parent().find('> div').hide();
+
+                    menu.find('> div > ul input.alias').keypress(function(event) {
+                        if ((event.which == 13) && ($(this).val() != '')) {
+                            edit(menu.find('> div > ul .edit').val(), $(this).val());
+                        }
+                    });
+                }
+
                 selectedItem.hide();
 
                 menu.find('> div > ul .edit').focus();
@@ -84,7 +123,13 @@
 
                 menu.find('> div > ul .edit').keypress(function(event) {
                     if ((event.which == 13) && ($(this).val() != '')) {
-                        edit($(this).val());
+                        if (menu.hasClass('language')) {
+                            menu.find('> div > ul input.alias').focus();
+                            menu.find('> div > ul input.alias').setCursorToTextEnd();
+                        }
+                        else {
+                            edit($(this).val(), '');
+                        }
                     }
                 });
             }
@@ -125,26 +170,47 @@
         }
 
         /**
+         * Add action on click change State
+         */
+        function addActionOnClickChangeState() {
+            menu.find('> div > ul > li > div.state').on('click', function() {
+                removeInput();
+
+                var listId = $(this).parent().find('> a').attr('list_id');
+
+                state(listId);
+            });
+        }
+
+        /**
          * Remove input
          */
         function removeInput() {
             menu.find('> div > ul .new').remove();
             menu.find('> div > ul .edit').remove();
+            menu.find('> div > ul input.alias').remove();
 
             menu.find('> div > ul > li > a[list_id="'+listId+'"]').show();
+
+            if (menu.hasClass('language')) {
+                menu.find('> div > ul > li > a[list_id="'+listId+'"]').parent().find('> span').attr('style', '');
+                menu.find('> div > ul > li > a[list_id="'+listId+'"]').parent().find('> div').attr('style', '');
+            }
         }
 
         /**
          * Add
          *
          * @param string name
+         * @param string alias
          */
-        function add(name) {
+        function add(name, alias) {
             $.ajax({
                 type: "post",
                 dataType: 'json',
                 data: {
                     name: name,
+                    alias: alias,
                     moduleId: moduleId,
                     menuId: menuId
                 },
@@ -154,6 +220,7 @@
                 complete: function() {
                     setActionsOnLeftMenu();
                     addActionOnClick();
+                    addActionOnClickChangeState();
                     sortList();
                 },
                 success: function(data) {
@@ -161,6 +228,13 @@
                         removeInput();
                         var newPosition = "<li><a list_id="+data.id+">"+name+"</a></li>";
                         menu.find('> div > ul').append(newPosition);
+
+                        if (menu.hasClass('language')) {
+                            var newAlias = '<span class="alias">'+alias+'</span>';
+                            var newState = '<div class="state deactive"></div>';
+                            menu.find('> div > ul > li > a[list_id="'+data.id+'"]').parent().append(newAlias+newState);
+                        }
+
                         notify('success', data.message);
                     }
                     else {
@@ -174,13 +248,15 @@
          * Edit
          *
          * @param string name
+         * @param string alias
          */
-        function edit(name) {
+        function edit(name, alias) {
             $.ajax({
                 type: "post",
                 dataType: 'json',
                 data: {
                     name: name,
+                    alias: alias,
                     id: listId
                 },
                 url: editUrl,
@@ -193,6 +269,11 @@
                     if (data.response) {
                         removeInput();
                         menu.find('> div > ul > li > a[list_id="'+listId+'"]').text(name);
+
+                        if (menu.hasClass('language')) {
+                            menu.find('> div > ul > li > a[list_id="'+listId+'"]').parent().find('> span').text(alias);
+                        }
+
                         notify('success', data.message);
                     }
                     else {
@@ -233,6 +314,42 @@
         }
 
         /**
+         * Change state
+         *
+         * @param integer id
+         */
+        function state(id) {
+            var changeObject = menu.find('> div > ul > li > a[list_id="'+id+'"]').parent().find('div.state');
+
+            $.ajax({
+                type: "post",
+                dataType: 'json',
+                data: {
+                    id: id
+                },
+                url: stateUrl,
+                beforeSend: function() {
+                },
+                complete: function() {
+                },
+                success: function(data) {
+                    if (data.response) {
+                        if (changeObject.hasClass('active')) {
+                            changeObject.removeClass('active').addClass('deactive');
+                        }
+                        else {
+                            changeObject.removeClass('deactive').addClass('active');
+                        }
+                        notify('success', data.message);
+                    }
+                    else {
+                        notify('fail', data.message);
+                    }
+                }
+            });
+        }
+
+        /**
          * Toggle button
          */
         function toggleButton() {
@@ -253,6 +370,7 @@
             newUrl = menu.find('.edit > .new').attr('url');
             editUrl = menu.find('.edit > .edit').attr('url');
             removeUrl = menu.find('.edit > .remove').attr('url');
+            stateUrl = menu.find('.edit > .state').attr('url');
         }
 
         /**

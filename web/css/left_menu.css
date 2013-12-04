@@ -66,6 +66,9 @@
     background: -o-linear-gradient(top, #ffffff 20%, #f6f6f6 50%, #eeeeee 52%, #f4f4f4 100%);
     background: linear-gradient(top, #ffffff 20%, #f6f6f6 50%, #eeeeee 52%, #f4f4f4 100%);
 }
+#left_menu > #left_menu_container > li > div.submenu_left > div.edit > button.state {
+    display: none;
+}
 #left_menu > #left_menu_container > li > a {
     position: relative;
     float: left;
@@ -122,9 +125,42 @@
 #left_menu > #left_menu_container > li > div.submenu_left > ul > li.selected {
     border-color: #eb3c00;
 }
+#left_menu > #left_menu_container > li > div.submenu_left > ul > li > div.state {
+    position: relative;
+    float: right;
+    border-radius: 5px;
+    width: 10px;
+    height: 10px;
+    cursor: pointer;
+    margin: 7px 0 0 10px;
+    display: none;
+}
+#left_menu > #left_menu_container > li > div.submenu_left > ul > li > span.alias {
+    position: relative;
+    float: left;
+    font-size: 13px;
+    margin: 4px 0 0 15px;
+    color: #626262;
+    display: none;
+}
+#left_menu > #left_menu_container > li > div.submenu_left > ul > li:hover > span.alias {
+    display: block;
+}
+#left_menu > #left_menu_container > li > div.submenu_left > ul > li > div.state.active {
+    background-color: #ADDB11;
+}
+#left_menu > #left_menu_container > li > div.submenu_left > ul > li > div.state.deactive {
+    background-color: #EB3C00;
+}
+#left_menu > #left_menu_container > li > div.submenu_left > ul > li:hover > div.state {
+    display: block;
+}
 #left_menu > #left_menu_container > li > div.submenu_left > ul > li > a {
+    position: relative;
+    float: left;
     color: #3a3a3a;
     padding-left: 35px;
+    margin-top: 4px;
     font-size: 13px;
     cursor: pointer;
 }
@@ -135,7 +171,8 @@
     color: #eb3c00;
 }
 #left_menu > #left_menu_container > li > div.submenu_left > ul input.new,
-#left_menu > #left_menu_container > li > div.submenu_left > ul input.edit {
+#left_menu > #left_menu_container > li > div.submenu_left > ul input.edit,
+#left_menu > #left_menu_container > li > div.submenu_left > ul input.alias {
     position: relative;
     float: left;
     border: 1px solid #E7E7E7;
@@ -149,6 +186,13 @@
 }
 #left_menu > #left_menu_container > li > div.submenu_left > ul input.edit {
     margin: 0 0 5px 35px;
+}
+#left_menu > #left_menu_container > li > div.submenu_left > ul input.alias {
+    width: 24px;
+    margin-left: 5px;
+}
+#left_menu > #left_menu_container > li > div.submenu_left > ul input.alias.alias_edit_margin {
+    margin: 0 0 5px 5px;
 }
 #left_menu > #author {
     position: absolute;

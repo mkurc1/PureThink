@@ -1,7 +1,9 @@
 $(function() {
     $('#main_button > div').on('click', '#create', function() {
-        Edit.url = List.url+'new';
-        Edit.getEdit();
+        if (!$(this).parent().hasClass('disable')) {
+            Edit.url = List.url+'new';
+            Edit.getEdit();
+        }
     });
 });
 
@@ -77,6 +79,8 @@ function toggleListMainButton() {
  * Toggle list main button for list mode
  */
 function toggleListMainButtonForListMode() {
+    enableMainButtonCreate();
+
     switch(List.select.length) {
         case 0:
             disableMainButtonEdit();
@@ -98,6 +102,7 @@ function toggleListMainButtonForListMode() {
  */
 function toggleListMainButtonForEditMode() {
     disableMainButtonSave();
+    disableMainButtonCreate();
 }
 
 /**
@@ -185,4 +190,18 @@ function disableMainButtonRemove() {
  */
 function disableMainButtonSave() {
     $('#main_button > div > div > .save').parent().addClass('disable');
+}
+
+/**
+ * Disable main button create
+ */
+function disableMainButtonCreate() {
+    $('#main_button > div > #create').parent().addClass('disable');
+}
+
+/**
+ * Enable main button create
+ */
+function enableMainButtonCreate() {
+    $('#main_button > div > #create').parent().removeClass('disable');
 }

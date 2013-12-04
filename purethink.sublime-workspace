@@ -520,74 +520,26 @@
 	"buffers":
 	[
 		{
-			"file": "web/js/list.js",
+			"file": "src/My/CMSBundle/Resources/views/CMSLeftMenu/_languages.html.twig",
 			"settings":
 			{
-				"buffer_size": 4092,
+				"buffer_size": 581,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "web/js/listManage.js",
+			"file": "web/css/left_menu.css",
 			"settings":
 			{
-				"buffer_size": 1381,
+				"buffer_size": 6769,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "web/js/main.js",
+			"file": "web/js/plugins/jquery.dynamic.menu.js",
 			"settings":
 			{
-				"buffer_size": 617,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "web/js/filter.js",
-			"settings":
-			{
-				"buffer_size": 434,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "web/js/edit.js",
-			"settings":
-			{
-				"buffer_size": 2787,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "web/js/mainButton.js",
-			"settings":
-			{
-				"buffer_size": 3490,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "web/js/mainMenu.js",
-			"settings":
-			{
-				"buffer_size": 2013,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "web/js/rowsOnPage.js",
-			"settings":
-			{
-				"buffer_size": 1515,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/My/BackendBundle/Resources/views/Default/index.html.twig",
-			"settings":
-			{
-				"buffer_size": 2811,
+				"buffer_size": 8395,
 				"line_ending": "Unix"
 			}
 		}
@@ -1009,23 +961,36 @@
 	},
 	"file_history":
 	[
-		"/C/Users/Michał/Downloads/Stardock/key.txt",
-		"/C/wamp/www/PureThink/web/js/pagination.js",
-		"/C/wamp/www/PureThink/web/js/helper.js",
-		"/C/wamp/www/PureThink/web/js/main.js",
+		"/C/wamp/www/PureThink/src/My/CMSBundle/Resources/views/CMSArticle/_list.html.twig",
+		"/C/wamp/www/PureThink/web/js/list.js",
+		"/C/wamp/www/PureThink/src/My/CMSBundle/Controller/CMSArticleController.php",
+		"/C/wamp/www/PureThink/web/js/mainButton.js",
+		"/C/wamp/www/PureThink/web/css/main_button.css",
+		"/C/wamp/www/PureThink/src/My/CMSBundle/Resources/views/CMSArticle/_form.html.twig",
+		"/C/wamp/www/PureThink/src/My/CMSBundle/Form/CMSArticleType.php",
 		"/C/wamp/www/PureThink/web/js/edit.js",
+		"/C/wamp/www/PureThink/src/My/CMSBundle/Form/CMSWebSiteType.php",
+		"/C/wamp/www/PureThink/src/My/CMSBundle/Controller/CMSWebSiteController.php",
+		"/C/wamp/www/PureThink/web/js/leftMenu.js",
+		"/C/wamp/www/PureThink/web/js/plugins/jquery.accordion.menu.js",
+		"/C/wamp/www/PureThink/src/My/BackendBundle/Resources/views/Default/_footer.html.twig",
+		"/C/wamp/www/PureThink/web/js/mainMenu.js",
+		"/C/wamp/www/PureThink/web/js/pagination.js",
+		"/C/wamp/www/PureThink/web/js/main.js",
+		"/C/wamp/www/PureThink/src/My/BackendBundle/Resources/views/Default/index.html.twig",
+		"/C/wamp/www/PureThink/web/js/rowsOnPage.js",
+		"/C/wamp/www/PureThink/web/js/listManage.js",
+		"/C/wamp/www/PureThink/web/js/filter.js",
+		"/C/Users/Michał/Downloads/Stardock/key.txt",
+		"/C/wamp/www/PureThink/web/js/helper.js",
 		"/C/wamp/www/PureThink/src/My/CMSBundle/Entity/CMSWebSite.php",
 		"/C/wamp/www/PureThink/src/My/CMSBundle/Repository/CMSLanguageRepository.php",
 		"/C/wamp/www/PureThink/src/My/CMSBundle/Repository/CMSWebSiteRepository.php",
 		"/C/wamp/www/PureThink/src/My/CMSBundle/Entity/CMSArticle.php",
-		"/C/wamp/www/PureThink/src/My/CMSBundle/Controller/CMSWebSiteController.php",
-		"/C/wamp/www/PureThink/web/js/mainMenu.js",
-		"/C/wamp/www/PureThink/web/js/list.js",
 		"/C/wamp/www/PureThink/web/js/plugins/jquery.dynamic.menu.js",
 		"/C/Users/Michał/Downloads/wsusoffline/iso/wsusoffline-w61-x64-hashes.txt",
 		"/C/Users/Michał/Downloads/Symfony/symfony2_polecenia.txt",
 		"/C/Users/Michał/Downloads/Symfony/symfony_polecenia.txt",
-		"/C/wamp/www/PureThink/web/js/leftMenu.js",
 		"/C/wamp/www/PureThink/src/My/BackendBundle/Resources/views/LeftMenu/_groups.html.twig",
 		"/C/wamp/www/PureThink/src/My/BackendBundle/Controller/SeriesController.php",
 		"/C/wamp/www/PureThink/src/My/CMSBundle/data/cmsWebSites.xml",
@@ -1039,30 +1004,23 @@
 		"/C/wamp/www/PureThink/src/My/BackendBundle/Controller/RowsOnPageController.php",
 		"/C/wamp/www/PureThink/src/My/BackendBundle/Controller/UserSettingController.php",
 		"/C/wamp/www/PureThink/src/My/CMSBundle/Controller/CMSLanguageController.php",
-		"/C/wamp/www/PureThink/src/My/CMSBundle/Resources/views/CMSArticle/_list.html.twig",
 		"/C/wamp/www/GetTime/web/js/plugins/jquery.ui.nestedSortable.js",
 		"/C/wamp/www/GetTime/web/js/plugins/jquery.validate.js",
 		"/C/wamp/www/GetTime/web/js/plugins/jquery.mousewheel.js",
 		"/C/wamp/www/GetTime/web/js/plugins/jquery.gs-bubble.js",
 		"/C/wamp/www/GetTime/web/js/plugins/jquery.qtip.js",
 		"/C/wamp/www/PureThink/web/css/main_list.css",
-		"/C/wamp/www/PureThink/web/js/plugins/jquery.accordion.menu.js",
 		"/C/Users/Michał/AppData/Roaming/Sublime Text 3/Packages/User/SublimeCodeIntel.sublime-settings",
 		"/C/Users/Michał/AppData/Roaming/Sublime Text 3/Packages/SublimeCodeIntel/SublimeCodeIntel.sublime-settings",
 		"/C/Users/Michał/AppData/Roaming/Sublime Text 3/Packages/SublimeCodeIntel-development/SublimeCodeIntel.sublime-settings",
 		"/C/wamp/www/GetTime/web/js/plugins/jquery.gs.dynamic.menu.js",
-		"/C/wamp/www/PureThink/src/My/CMSBundle/Controller/CMSArticleController.php",
 		"/C/Users/Michał/.sublime/history/C/wamp/www/PureThink/web/js/2013-12-01_22.34.02.main.js",
 		"/C/Users/Michał/.sublime/history/C/wamp/www/PureThink/web/js/2013-11-27_11.45.29.main.js",
 		"/C/wamp/www/GetTime/web/gsFakturaPlugin/js/dodaj_fakture.js",
-		"/C/wamp/www/PureThink/web/js/mainButton.js",
-		"/C/wamp/www/PureThink/src/My/BackendBundle/Resources/views/Default/index.html.twig",
 		"/C/wamp/www/PureThink/src/My/BackendBundle/data/menus.xml",
 		"/C/wamp/www/PureThink/web/css/edit.css",
-		"/C/wamp/www/PureThink/src/My/CMSBundle/Resources/views/CMSArticle/_form.html.twig",
 		"/C/wamp/www/PureThink/src/My/CMSBundle/Resources/views/CMSWebSite/_form.html.twig",
 		"/C/wamp/www/PureThink/src/My/CMSBundle/Resources/views/CMSWebSite/_edit.html.twig",
-		"/C/wamp/www/PureThink/src/My/CMSBundle/Form/CMSWebSiteType.php",
 		"/C/wamp/www/PureThink/src/My/CMSBundle/Resources/views/CMSWebSite/show.html.twig",
 		"/C/wamp/www/PureThink/src/My/CMSBundle/Resources/views/CMSWebSite/new.html.twig",
 		"/C/wamp/www/PureThink/src/My/CMSBundle/Resources/views/CMSWebSite/index.html.twig",
@@ -1074,10 +1032,8 @@
 		"/C/wamp/www/PureThink/vendor/egeloen/ckeditor-bundle/Ivory/CKEditorBundle/Form/Type/CKEditorType.php",
 		"/C/wamp/www/PureThink/web/css/footer.css",
 		"/C/wamp/www/PureThink/web/css/left_menu.css",
-		"/C/wamp/www/PureThink/web/css/main_button.css",
 		"/C/wamp/www/PureThink/web/css/main_menu.css",
 		"/C/wamp/www/PureThink/web/css/top_menu.css",
-		"/C/wamp/www/PureThink/web/js/rowsOnPage.js",
 		"/C/wamp/www/PureThink/src/My/BackendBundle/Resources/views/Default/_top_menu_right.html.twig",
 		"/C/wamp/www/PureThink/web/js/plugins/chosen.jquery.js",
 		"/C/wamp/www/PureThink/web/bundles/ivoryckeditor/ckeditor.js",
@@ -1090,7 +1046,6 @@
 		"/C/wamp/www/PureThink/src/My/BackendBundle/Entity/Module.php",
 		"/C/wamp/www/PureThink/src/My/BackendBundle/data/series.xml",
 		"/C/wamp/www/PureThink/src/My/BackendBundle/DataFixtures/ORM/LoadData.php",
-		"/C/wamp/www/PureThink/src/My/CMSBundle/Form/CMSArticleType.php",
 		"/C/wamp/www/PureThink/web/css/notify.css",
 		"/C/wamp/www/Adam/index.html",
 		"/C/wamp/www/GetTime/web/gsCmsPlugin/css/cms.css",
@@ -1133,10 +1088,7 @@
 		"/C/Users/Michał/AppData/Roaming/Sublime Text 3/Packages/BracketHighlighter/bh_core.sublime-settings",
 		"/C/Users/Michał/.sublime/history/C/wamp/www/PureThink/src/My/BackendBundle/Entity/2013-11-27_00.55.42.Language.php",
 		"/C/Users/Michał/.sublime/history/C/wamp/www/PureThink/src/My/BackendBundle/Entity/2013-11-27_00.55.43.Language.php",
-		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/modules/magazine_new/templates/_form.php",
-		"/C/wamp/www/PureThink/src/My/BackendBundle/Resources/views/Default/_list_refresh.html.twig",
-		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/modules/magazine/templates/refreshSuccess.php",
-		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/modules/magazine_new/actions/actions.class.php"
+		"/C/wamp/www/GetTime/plugins/gsMagazinePlugin/modules/magazine_new/templates/_form.php"
 	],
 	"find":
 	{
@@ -1154,6 +1106,56 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"addActionOnClick",
+			"disableMainButtonCreate",
+			"checkboxChangeAction",
+			"setActionOnChangeState",
+			"setActionOnChangeActive",
+			"toggleListMainButton",
+			"setActionOnListMainButtons",
+			"},\n",
+			"toggleListMainButton",
+			"getEdit",
+			"setActionOnListMainButtons",
+			"addMainButtons",
+			"createEditButtons",
+			"setDefaultParameters",
+			"editModeAjax",
+			"Edit",
+			"hideEditContainer",
+			"edit",
+			"ckeditUpdateElement",
+			"editModeAjax",
+			"hideEditContainer",
+			"refreshl",
+			"refres",
+			"getEdit",
+			"Edit",
+			"getEdit",
+			"Edit",
+			"ckeditUpdateElement",
+			"emptyEditContainer",
+			"hideEditContainer",
+			"emptyEditContainer",
+			"html5validateOff",
+			"setEditUrl",
+			"setDefaultParametersOnEdit",
+			"editMode",
+			"pagination",
+			"refres",
+			"setMode",
+			"refresh",
+			"List",
+			"setDefaultParameters",
+			"setMode",
+			"List",
+			"setMode",
+			"setDefaultParameters",
+			"deleteFromList",
+			"listmo",
+			"listMode",
+			"Pagination",
+			"listMode",
 			"removeLoading",
 			"showLoading",
 			"List",
@@ -1231,57 +1233,7 @@
 			"<th",
 			"th",
 			"            <th column=\"a.updatedAt\" class=\"width_small\">Data modyfikacji</th>\n        </tr>\n",
-			"    <th column=\"a.updatedAt\" class=\"width_small\">Data modyfikacji</th>\n",
-			"th",
-			"menu.find('> div > ul .edit')",
-			"input",
-			"menu.find('> div > ul .edit')",
-			"()\n",
-			"menu.find('> div > ul .edit')",
-			"refreshList",
-			"setDefaultParameters",
-			"editMode",
-			"EditMode",
-			"editMode",
-			"name",
-			" > input[type='text']",
-			"dane_element_big",
-			"editMode",
-			"setDefaultParameters",
-			"refreshList",
-			"setDefaultParameters",
-			"setListUrl",
-			",",
-			"Scayt",
-			"SpellChecker",
-			"self",
-			"EFF1F5",
-			"f6f6f6",
-			"F2F4F7",
-			"f4f4f4",
-			"eeeeee",
-			"F2F4F7",
-			"eeeeee",
-			"f4f4f4",
-			"eeeeee",
-			"f6f6f6",
-			"ffffff",
-			"f6f6f6",
-			"f4f4f4",
-			"disable",
-			"div",
-			"button_nontainer",
-			".center > ",
-			"f7f7f7",
-			"logout_containet",
-			"top",
-			"dropdo",
-			"search",
-			"layout",
-			"FCFCFC",
-			"518ded",
-			"3b82f5",
-			"4d90fe"
+			"    <th column=\"a.updatedAt\" class=\"width_small\">Data modyfikacji</th>\n"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1299,24 +1251,24 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "web/js/list.js",
+					"file": "src/My/CMSBundle/Resources/views/CMSLeftMenu/_languages.html.twig",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4092,
+						"buffer_size": 581,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								142,
-								142
+								521,
+								521
 							]
 						],
 						"settings":
@@ -1330,46 +1282,46 @@
 							],
 							"bh_regions":
 							[
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
 								"bh_tag",
 								"bh_tag_center",
 								"bh_tag_open",
 								"bh_tag_close",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
 								"bh_single_quote",
 								"bh_single_quote_center",
 								"bh_single_quote_open",
 								"bh_single_quote_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
 								"bh_angle",
 								"bh_angle_center",
 								"bh_angle_open",
 								"bh_angle_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
 								"bh_unmatched",
 								"bh_unmatched_center",
 								"bh_unmatched_open",
 								"bh_unmatched_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close"
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close"
 							],
 							"csslint_options":
 							{
@@ -1454,9 +1406,8 @@
 								"Ruby on Rails": "ruby"
 							},
 							"sublimelinter_wrap_find": true,
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/Twig/Syntaxes/HTML (Twig).tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1466,19 +1417,19 @@
 				},
 				{
 					"buffer": 1,
-					"file": "web/js/listManage.js",
+					"file": "web/css/left_menu.css",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1381,
+						"buffer_size": 6769,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								198,
-								0
+								5436,
+								5436
 							]
 						],
 						"settings":
@@ -1492,46 +1443,46 @@
 							],
 							"bh_regions":
 							[
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
 								"bh_square",
 								"bh_square_center",
 								"bh_square_open",
 								"bh_square_close",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
 								"bh_tag",
 								"bh_tag_center",
 								"bh_tag_open",
 								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
 								"bh_default",
 								"bh_default_center",
 								"bh_default_open",
-								"bh_default_close"
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close"
 							],
 							"csslint_options":
 							{
@@ -1616,29 +1567,31 @@
 								"Ruby on Rails": "ruby"
 							},
 							"sublimelinter_wrap_find": true,
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 2402.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "web/js/main.js",
+					"file": "web/js/plugins/jquery.dynamic.menu.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 617,
+						"buffer_size": 8395,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								474,
-								474
+								6443,
+								6443
 							]
 						],
 						"settings":
@@ -1652,46 +1605,46 @@
 							],
 							"bh_regions":
 							[
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
 								"bh_square",
 								"bh_square_center",
 								"bh_square_open",
 								"bh_square_close",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
 								"bh_tag",
 								"bh_tag_center",
 								"bh_tag_open",
 								"bh_tag_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
 								"bh_default",
 								"bh_default_center",
 								"bh_default_open",
-								"bh_default_close"
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close"
 							],
 							"csslint_options":
 							{
@@ -1781,977 +1734,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "web/js/filter.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 434,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								344,
-								344
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"annotations":
-							[
-								"TODO",
-								"README",
-								"FIXME"
-							],
-							"bh_regions":
-							[
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close"
-							],
-							"csslint_options":
-							{
-								"adjoining-classes": "warning",
-								"box-model": true,
-								"box-sizing": "warning",
-								"compatible-vendor-prefixes": "warning",
-								"display-property-grouping": true,
-								"duplicate-background-images": "warning",
-								"duplicate-properties": true,
-								"empty-rules": true,
-								"errors": true,
-								"fallback-colors": "warning",
-								"floats": "warning",
-								"font-faces": "warning",
-								"font-sizes": "warning",
-								"gradients": "warning",
-								"ids": "warning",
-								"import": "warning",
-								"important": "warning",
-								"known-properties": true,
-								"outline-none": "warning",
-								"overqualified-elements": "warning",
-								"qualified-headings": "warning",
-								"regex-selectors": "warning",
-								"rules-count": "warning",
-								"shorthand": "warning",
-								"star-property-hack": "warning",
-								"text-indent": "warning",
-								"underscore-property-hack": "warning",
-								"unique-headings": "warning",
-								"universal-selector": "warning",
-								"vendor-prefix": true,
-								"zero-units": "warning"
-							},
-							"gjslint_ignore":
-							[
-								110
-							],
-							"gjslint_options":
-							[
-							],
-							"javascript_linter": "jshint",
-							"jshint_options":
-							{
-								"browser": true,
-								"evil": true,
-								"regexdash": true,
-								"sub": true,
-								"trailing": true,
-								"wsh": true
-							},
-							"pep8": true,
-							"pep8_ignore":
-							[
-								"E501"
-							],
-							"perl_linter": "perlcritic",
-							"pyflakes_ignore":
-							[
-							],
-							"pyflakes_ignore_import_*": true,
-							"sublimelinter": true,
-							"sublimelinter_delay": 2,
-							"sublimelinter_disable":
-							[
-							],
-							"sublimelinter_executable_map":
-							{
-							},
-							"sublimelinter_fill_outlines": false,
-							"sublimelinter_gutter_marks": true,
-							"sublimelinter_gutter_marks_theme": "simple",
-							"sublimelinter_mark_style": "none",
-							"sublimelinter_notes": false,
-							"sublimelinter_objj_check_ascii": false,
-							"sublimelinter_popup_errors_on_save": false,
-							"sublimelinter_syntax_map":
-							{
-								"C++": "c",
-								"Python Django": "python",
-								"Ruby on Rails": "ruby"
-							},
-							"sublimelinter_wrap_find": true,
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "web/js/edit.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2787,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								90,
-								90
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"annotations":
-							[
-								"TODO",
-								"README",
-								"FIXME"
-							],
-							"bh_regions":
-							[
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close"
-							],
-							"csslint_options":
-							{
-								"adjoining-classes": "warning",
-								"box-model": true,
-								"box-sizing": "warning",
-								"compatible-vendor-prefixes": "warning",
-								"display-property-grouping": true,
-								"duplicate-background-images": "warning",
-								"duplicate-properties": true,
-								"empty-rules": true,
-								"errors": true,
-								"fallback-colors": "warning",
-								"floats": "warning",
-								"font-faces": "warning",
-								"font-sizes": "warning",
-								"gradients": "warning",
-								"ids": "warning",
-								"import": "warning",
-								"important": "warning",
-								"known-properties": true,
-								"outline-none": "warning",
-								"overqualified-elements": "warning",
-								"qualified-headings": "warning",
-								"regex-selectors": "warning",
-								"rules-count": "warning",
-								"shorthand": "warning",
-								"star-property-hack": "warning",
-								"text-indent": "warning",
-								"underscore-property-hack": "warning",
-								"unique-headings": "warning",
-								"universal-selector": "warning",
-								"vendor-prefix": true,
-								"zero-units": "warning"
-							},
-							"gjslint_ignore":
-							[
-								110
-							],
-							"gjslint_options":
-							[
-							],
-							"javascript_linter": "jshint",
-							"jshint_options":
-							{
-								"browser": true,
-								"evil": true,
-								"regexdash": true,
-								"sub": true,
-								"trailing": true,
-								"wsh": true
-							},
-							"pep8": true,
-							"pep8_ignore":
-							[
-								"E501"
-							],
-							"perl_linter": "perlcritic",
-							"pyflakes_ignore":
-							[
-							],
-							"pyflakes_ignore_import_*": true,
-							"sublimelinter": true,
-							"sublimelinter_delay": 2,
-							"sublimelinter_disable":
-							[
-							],
-							"sublimelinter_executable_map":
-							{
-							},
-							"sublimelinter_fill_outlines": false,
-							"sublimelinter_gutter_marks": true,
-							"sublimelinter_gutter_marks_theme": "simple",
-							"sublimelinter_mark_style": "none",
-							"sublimelinter_notes": false,
-							"sublimelinter_objj_check_ascii": false,
-							"sublimelinter_popup_errors_on_save": false,
-							"sublimelinter_syntax_map":
-							{
-								"C++": "c",
-								"Python Django": "python",
-								"Ruby on Rails": "ruby"
-							},
-							"sublimelinter_wrap_find": true,
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "web/js/mainButton.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3490,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1069,
-								1069
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"annotations":
-							[
-								"TODO",
-								"README",
-								"FIXME"
-							],
-							"bh_regions":
-							[
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close"
-							],
-							"csslint_options":
-							{
-								"adjoining-classes": "warning",
-								"box-model": true,
-								"box-sizing": "warning",
-								"compatible-vendor-prefixes": "warning",
-								"display-property-grouping": true,
-								"duplicate-background-images": "warning",
-								"duplicate-properties": true,
-								"empty-rules": true,
-								"errors": true,
-								"fallback-colors": "warning",
-								"floats": "warning",
-								"font-faces": "warning",
-								"font-sizes": "warning",
-								"gradients": "warning",
-								"ids": "warning",
-								"import": "warning",
-								"important": "warning",
-								"known-properties": true,
-								"outline-none": "warning",
-								"overqualified-elements": "warning",
-								"qualified-headings": "warning",
-								"regex-selectors": "warning",
-								"rules-count": "warning",
-								"shorthand": "warning",
-								"star-property-hack": "warning",
-								"text-indent": "warning",
-								"underscore-property-hack": "warning",
-								"unique-headings": "warning",
-								"universal-selector": "warning",
-								"vendor-prefix": true,
-								"zero-units": "warning"
-							},
-							"gjslint_ignore":
-							[
-								110
-							],
-							"gjslint_options":
-							[
-							],
-							"javascript_linter": "jshint",
-							"jshint_options":
-							{
-								"browser": true,
-								"evil": true,
-								"regexdash": true,
-								"sub": true,
-								"trailing": true,
-								"wsh": true
-							},
-							"pep8": true,
-							"pep8_ignore":
-							[
-								"E501"
-							],
-							"perl_linter": "perlcritic",
-							"pyflakes_ignore":
-							[
-							],
-							"pyflakes_ignore_import_*": true,
-							"sublimelinter": true,
-							"sublimelinter_delay": 2,
-							"sublimelinter_disable":
-							[
-							],
-							"sublimelinter_executable_map":
-							{
-							},
-							"sublimelinter_fill_outlines": false,
-							"sublimelinter_gutter_marks": true,
-							"sublimelinter_gutter_marks_theme": "simple",
-							"sublimelinter_mark_style": "none",
-							"sublimelinter_notes": false,
-							"sublimelinter_objj_check_ascii": false,
-							"sublimelinter_popup_errors_on_save": false,
-							"sublimelinter_syntax_map":
-							{
-								"C++": "c",
-								"Python Django": "python",
-								"Ruby on Rails": "ruby"
-							},
-							"sublimelinter_wrap_find": true,
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 2135.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "web/js/mainMenu.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2013,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								959,
-								959
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"annotations":
-							[
-								"TODO",
-								"README",
-								"FIXME"
-							],
-							"bh_regions":
-							[
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close"
-							],
-							"csslint_options":
-							{
-								"adjoining-classes": "warning",
-								"box-model": true,
-								"box-sizing": "warning",
-								"compatible-vendor-prefixes": "warning",
-								"display-property-grouping": true,
-								"duplicate-background-images": "warning",
-								"duplicate-properties": true,
-								"empty-rules": true,
-								"errors": true,
-								"fallback-colors": "warning",
-								"floats": "warning",
-								"font-faces": "warning",
-								"font-sizes": "warning",
-								"gradients": "warning",
-								"ids": "warning",
-								"import": "warning",
-								"important": "warning",
-								"known-properties": true,
-								"outline-none": "warning",
-								"overqualified-elements": "warning",
-								"qualified-headings": "warning",
-								"regex-selectors": "warning",
-								"rules-count": "warning",
-								"shorthand": "warning",
-								"star-property-hack": "warning",
-								"text-indent": "warning",
-								"underscore-property-hack": "warning",
-								"unique-headings": "warning",
-								"universal-selector": "warning",
-								"vendor-prefix": true,
-								"zero-units": "warning"
-							},
-							"gjslint_ignore":
-							[
-								110
-							],
-							"gjslint_options":
-							[
-							],
-							"javascript_linter": "jshint",
-							"jshint_options":
-							{
-								"browser": true,
-								"evil": true,
-								"regexdash": true,
-								"sub": true,
-								"trailing": true,
-								"wsh": true
-							},
-							"pep8": true,
-							"pep8_ignore":
-							[
-								"E501"
-							],
-							"perl_linter": "perlcritic",
-							"pyflakes_ignore":
-							[
-							],
-							"pyflakes_ignore_import_*": true,
-							"sublimelinter": true,
-							"sublimelinter_delay": 2,
-							"sublimelinter_disable":
-							[
-							],
-							"sublimelinter_executable_map":
-							{
-							},
-							"sublimelinter_fill_outlines": false,
-							"sublimelinter_gutter_marks": true,
-							"sublimelinter_gutter_marks_theme": "simple",
-							"sublimelinter_mark_style": "none",
-							"sublimelinter_notes": false,
-							"sublimelinter_objj_check_ascii": false,
-							"sublimelinter_popup_errors_on_save": false,
-							"sublimelinter_syntax_map":
-							{
-								"C++": "c",
-								"Python Django": "python",
-								"Ruby on Rails": "ruby"
-							},
-							"sublimelinter_wrap_find": true,
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 573.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "web/js/rowsOnPage.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1515,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								398,
-								398
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"annotations":
-							[
-								"TODO",
-								"README",
-								"FIXME"
-							],
-							"bh_regions":
-							[
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close"
-							],
-							"csslint_options":
-							{
-								"adjoining-classes": "warning",
-								"box-model": true,
-								"box-sizing": "warning",
-								"compatible-vendor-prefixes": "warning",
-								"display-property-grouping": true,
-								"duplicate-background-images": "warning",
-								"duplicate-properties": true,
-								"empty-rules": true,
-								"errors": true,
-								"fallback-colors": "warning",
-								"floats": "warning",
-								"font-faces": "warning",
-								"font-sizes": "warning",
-								"gradients": "warning",
-								"ids": "warning",
-								"import": "warning",
-								"important": "warning",
-								"known-properties": true,
-								"outline-none": "warning",
-								"overqualified-elements": "warning",
-								"qualified-headings": "warning",
-								"regex-selectors": "warning",
-								"rules-count": "warning",
-								"shorthand": "warning",
-								"star-property-hack": "warning",
-								"text-indent": "warning",
-								"underscore-property-hack": "warning",
-								"unique-headings": "warning",
-								"universal-selector": "warning",
-								"vendor-prefix": true,
-								"zero-units": "warning"
-							},
-							"gjslint_ignore":
-							[
-								110
-							],
-							"gjslint_options":
-							[
-							],
-							"javascript_linter": "jshint",
-							"jshint_options":
-							{
-								"browser": true,
-								"evil": true,
-								"regexdash": true,
-								"sub": true,
-								"trailing": true,
-								"wsh": true
-							},
-							"pep8": true,
-							"pep8_ignore":
-							[
-								"E501"
-							],
-							"perl_linter": "perlcritic",
-							"pyflakes_ignore":
-							[
-							],
-							"pyflakes_ignore_import_*": true,
-							"sublimelinter": true,
-							"sublimelinter_delay": 2,
-							"sublimelinter_disable":
-							[
-							],
-							"sublimelinter_executable_map":
-							{
-							},
-							"sublimelinter_fill_outlines": false,
-							"sublimelinter_gutter_marks": true,
-							"sublimelinter_gutter_marks_theme": "simple",
-							"sublimelinter_mark_style": "none",
-							"sublimelinter_notes": false,
-							"sublimelinter_objj_check_ascii": false,
-							"sublimelinter_popup_errors_on_save": false,
-							"sublimelinter_syntax_map":
-							{
-								"C++": "c",
-								"Python Django": "python",
-								"Ruby on Rails": "ruby"
-							},
-							"sublimelinter_wrap_find": true,
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "src/My/BackendBundle/Resources/views/Default/index.html.twig",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2811,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								300,
-								300
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"annotations":
-							[
-								"TODO",
-								"README",
-								"FIXME"
-							],
-							"bh_regions":
-							[
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close"
-							],
-							"csslint_options":
-							{
-								"adjoining-classes": "warning",
-								"box-model": true,
-								"box-sizing": "warning",
-								"compatible-vendor-prefixes": "warning",
-								"display-property-grouping": true,
-								"duplicate-background-images": "warning",
-								"duplicate-properties": true,
-								"empty-rules": true,
-								"errors": true,
-								"fallback-colors": "warning",
-								"floats": "warning",
-								"font-faces": "warning",
-								"font-sizes": "warning",
-								"gradients": "warning",
-								"ids": "warning",
-								"import": "warning",
-								"important": "warning",
-								"known-properties": true,
-								"outline-none": "warning",
-								"overqualified-elements": "warning",
-								"qualified-headings": "warning",
-								"regex-selectors": "warning",
-								"rules-count": "warning",
-								"shorthand": "warning",
-								"star-property-hack": "warning",
-								"text-indent": "warning",
-								"underscore-property-hack": "warning",
-								"unique-headings": "warning",
-								"universal-selector": "warning",
-								"vendor-prefix": true,
-								"zero-units": "warning"
-							},
-							"gjslint_ignore":
-							[
-								110
-							],
-							"gjslint_options":
-							[
-							],
-							"javascript_linter": "jshint",
-							"jshint_options":
-							{
-								"browser": true,
-								"evil": true,
-								"regexdash": true,
-								"sub": true,
-								"trailing": true,
-								"wsh": true
-							},
-							"pep8": true,
-							"pep8_ignore":
-							[
-								"E501"
-							],
-							"perl_linter": "perlcritic",
-							"pyflakes_ignore":
-							[
-							],
-							"pyflakes_ignore_import_*": true,
-							"sublimelinter": true,
-							"sublimelinter_delay": 2,
-							"sublimelinter_disable":
-							[
-							],
-							"sublimelinter_executable_map":
-							{
-							},
-							"sublimelinter_fill_outlines": false,
-							"sublimelinter_gutter_marks": true,
-							"sublimelinter_gutter_marks_theme": "simple",
-							"sublimelinter_mark_style": "none",
-							"sublimelinter_notes": false,
-							"sublimelinter_objj_check_ascii": false,
-							"sublimelinter_popup_errors_on_save": false,
-							"sublimelinter_syntax_map":
-							{
-								"C++": "c",
-								"Python Django": "python",
-								"Ruby on Rails": "ruby"
-							},
-							"sublimelinter_wrap_find": true,
-							"syntax": "Packages/Twig/Syntaxes/HTML (Twig).tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 95.0,
+						"translation.y": 4022.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
