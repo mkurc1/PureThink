@@ -8,7 +8,7 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\NotNull;
 
-class CMSArticleType extends AbstractType
+class CMSMenuType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -18,15 +18,40 @@ class CMSArticleType extends AbstractType
     {
         $builder
             ->add('name', 'text', array(
-                'label' => 'Nazwa artykułu',
+                'label' => 'Nazwa menu',
                 'constraints' => array(
                     new NotBlank()
                     )
                 )
             )
-            ->add('description', 'textarea', array('label' => 'Opis'))
-            ->add('keywords', 'textarea', array('label' => 'Słowa kluczowe'))
-            ->add('content', 'ckeditor', array('label' => 'Treść'))
+            ->add('article', 'entity', array(
+                'label' => 'Wybierz artykuł',
+                'class' => 'MyCMSBundle:CMSArticle',
+                'empty_value' => '',
+                'attr' => array(
+                    'class' => 'sintetic-select'
+                    ),
+                'constraints' => array(
+                    new NotNull()
+                    )
+                )
+            )
+            ->add('sequence', 'text', array(
+                'label' => 'Kolejność',
+                'constraints' => array(
+                    new NotBlank()
+                    )
+                )
+            )
+            ->add('menu', 'entity', array(
+                'label' => 'Wybierz menu',
+                'class' => 'MyCMSBundle:CMSMenu',
+                'empty_value' => '',
+                'attr' => array(
+                    'class' => 'sintetic-select'
+                    )
+                )
+            )
             ->add('language', 'entity', array(
                 'label' => 'Język',
                 'class' => 'MyCMSBundle:CMSLanguage',
@@ -60,7 +85,7 @@ class CMSArticleType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'My\CMSBundle\Entity\CMSArticle'
+            'data_class' => 'My\CMSBundle\Entity\CMSMenu'
         ));
     }
 
@@ -69,6 +94,6 @@ class CMSArticleType extends AbstractType
      */
     public function getName()
     {
-        return 'my_cmsbundle_cmsarticletype';
+        return 'my_cmsbundle_cmsmenu';
     }
 }

@@ -38,6 +38,11 @@ class Series
      */
     protected $cmsArticles;
 
+    /**
+     * @ORM\OneToMany(targetEntity="My\CMSBundle\Entity\CMSMenu", mappedBy="series")
+     */
+    protected $cmsMenus;
+
 
     /**
      * Get id
@@ -143,5 +148,38 @@ class Series
     public function __toString()
     {
         return $this->getName();
+    }
+
+    /**
+     * Add cmsMenus
+     *
+     * @param \My\CMSBundle\Entity\CMSMenu $cmsMenus
+     * @return Series
+     */
+    public function addCmsMenu(\My\CMSBundle\Entity\CMSMenu $cmsMenus)
+    {
+        $this->cmsMenus[] = $cmsMenus;
+    
+        return $this;
+    }
+
+    /**
+     * Remove cmsMenus
+     *
+     * @param \My\CMSBundle\Entity\CMSMenu $cmsMenus
+     */
+    public function removeCmsMenu(\My\CMSBundle\Entity\CMSMenu $cmsMenus)
+    {
+        $this->cmsMenus->removeElement($cmsMenus);
+    }
+
+    /**
+     * Get cmsMenus
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCmsMenus()
+    {
+        return $this->cmsMenus;
     }
 }

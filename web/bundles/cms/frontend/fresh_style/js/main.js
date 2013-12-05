@@ -1,25 +1,25 @@
-//uruchom i ustaw baner
+//start and set baner
 $(function(){
 
-	$('#baner > .container').slidesjs({
+  	$('#baner > .container').slidesjs({
         width: 1000,
         height: 296,
         play: {
-          auto: true,
-          interval: 8000,
-          swap: true
+            auto: true,
+            interval: 8000,
+            swap: true
         },
         navigation: {
-          effect: "fade"
+            effect: "slide"
         },
         pagination: {
-          effect: "fade"
+            effect: "slide"
         },
         effect: {
-          fade: {
-            speed: 400
-          }
+            slide: {
+                speed: 500
+            }
         }
-      });
+    });
 
 });

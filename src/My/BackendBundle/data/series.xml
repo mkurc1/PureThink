@@ -12,4 +12,8 @@
         <name>Lorem Ipsum dolom_3</name>
         <menu_id>3</menu_id>
     </serie>
+    <serie>
+        <name>Main</name>
+        <menu_id>2</menu_id>
+    </serie>
 </series>

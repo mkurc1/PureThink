@@ -1,4 +1,6 @@
 <div class="container">
+    <h2>Dodaj artykuł</h2>
+
     <form action="{{ path('cmsarticle_create') }}" method="post" {{ form_enctype(form) }}>
         {% include 'MyCMSBundle:CMSArticle:_form.html.twig' with { 'form': form } %}
     </form>

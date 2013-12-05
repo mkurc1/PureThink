@@ -8,7 +8,7 @@
     </menu>
     <menu>
         <name>Menu</name>
-        <link>cmsarticle</link>
+        <link>cmsmenu</link>
         <sequence>2</sequence>
         <module_id>1</module_id>
     </menu>

@@ -1,0 +1,7 @@
+<div class="container">
+    <h2>Dodaj menu</h2>
+
+    <form action="{{ path('cmsmenu_create') }}" method="post" {{ form_enctype(form) }}>
+        {% include 'MyCMSBundle:CMSMenu:_form.html.twig' with { 'form': form } %}
+    </form>
+</div>

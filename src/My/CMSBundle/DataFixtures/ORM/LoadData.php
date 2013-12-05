@@ -7,6 +7,7 @@ use Doctrine\Common\Persistence\ObjectManager;
 use My\CMSBundle\Entity\CMSLanguage;
 use My\CMSBundle\Entity\CMSWebSite;
 use My\CMSBundle\Entity\CMSArticle;
+use My\CMSBundle\Entity\CMSMenu;
 
 class LoadData implements FixtureInterface
 {
@@ -20,6 +21,7 @@ class LoadData implements FixtureInterface
 		$manager = $this->addCMSLanguage($manager);
 		$manager = $this->addCMSWebSite($manager);
 		$manager = $this->addCMSArticle($manager);
+		$manager = $this->addCMSMenu($manager);
 	}
 
 	/**
@@ -87,6 +89,30 @@ class LoadData implements FixtureInterface
 
 				$manager->persist($CMSArticle);
 			}
+		}
+
+		$manager->flush();
+		return $manager;
+	}
+
+	/**
+	 * Add CMS menu fixtures
+	 *
+	 * @param ObjectManager $manager
+	 */
+	private function addCMSMenu(ObjectManager $manager)
+	{
+		$xml = simplexml_load_file('src/My/CMSBundle/data/cmsMenus.xml');
+		foreach ($xml->cmsMenu as $cmsMenu) {
+			$CMSMenu = new CMSMenu();
+			$CMSMenu->setName($cmsMenu->name);
+			$CMSMenu->setSequence($cmsMenu->sequence);
+			$CMSMenu->setIsPublic($cmsMenu->is_public);
+			$CMSMenu->setLanguage($manager->getRepository('MyCMSBundle:CMSLanguage')->find($cmsMenu->language_id));
+			$CMSMenu->setSeries($manager->getRepository('MyBackendBundle:Series')->find($cmsMenu->series_id));
+			$CMSMenu->setArticle($manager->getRepository('MyCMSBundle:CMSArticle')->find($cmsMenu->article_id));
+
+			$manager->persist($CMSMenu);
 		}
 
 		$manager->flush();

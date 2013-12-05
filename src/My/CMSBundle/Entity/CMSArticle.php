@@ -99,6 +99,11 @@ class CMSArticle
      */
     protected $series;
 
+    /**
+     * @ORM\OneToMany(targetEntity="CMSMenu", mappedBy="article")
+     */
+    protected $menus;
+
 
     /**
      * Get id
@@ -371,5 +376,45 @@ class CMSArticle
     public function getSeries()
     {
         return $this->series;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->menus = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    /**
+     * Add menus
+     *
+     * @param \My\CMSBundle\Entity\CMSMenu $menus
+     * @return CMSArticle
+     */
+    public function addMenu(\My\CMSBundle\Entity\CMSMenu $menus)
+    {
+        $this->menus[] = $menus;
+    
+        return $this;
+    }
+
+    /**
+     * Remove menus
+     *
+     * @param \My\CMSBundle\Entity\CMSMenu $menus
+     */
+    public function removeMenu(\My\CMSBundle\Entity\CMSMenu $menus)
+    {
+        $this->menus->removeElement($menus);
+    }
+
+    /**
+     * Get menus
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getMenus()
+    {
+        return $this->menus;
     }
 }

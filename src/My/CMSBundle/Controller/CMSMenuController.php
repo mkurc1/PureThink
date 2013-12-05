@@ -7,23 +7,23 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use My\CMSBundle\Entity\CMSArticle;
-use My\CMSBundle\Form\CMSArticleType;
+use My\CMSBundle\Entity\CMSMenu;
+use My\CMSBundle\Form\CMSMenuType;
 use Symfony\Component\HttpFoundation\Response;
 
 use My\BackendBundle\Pagination\Pagination as Pagination;
 
 /**
- * CMSArticle controller.
+ * CMSMenu controller.
  *
- * @Route("/article")
+ * @Route("/menu")
  */
-class CMSArticleController extends Controller
+class CMSMenuController extends Controller
 {
     /**
-     * Lists all CMSArticle entities.
+     * Lists all CMSMenu entities.
      *
-     * @Route("/", name="cmsarticle")
+     * @Route("/", name="cmsmenu")
      * @Method("POST")
      */
     public function listAction(Request $request)
@@ -38,7 +38,7 @@ class CMSArticleController extends Controller
 
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('MyCMSBundle:CMSArticle')->getArticles($order, $sequence, $filtr, $languageId, $groupId);
+        $entities = $em->getRepository('MyCMSBundle:CMSMenu')->getMenus($order, $sequence, $filtr, $languageId, $groupId);
 
         $paginator  = $this->get('knp_paginator');
         $pagination = $paginator->paginate(
@@ -47,7 +47,7 @@ class CMSArticleController extends Controller
             $rowsOnPage
         );
 
-        $list = $this->renderView('MyCMSBundle:CMSArticle:_list.html.twig', array('entities' => $pagination, 'page' => $page, 'rowsOnPage' => $rowsOnPage));
+        $list = $this->renderView('MyCMSBundle:CMSMenu:_list.html.twig', array('entities' => $pagination, 'page' => $page, 'rowsOnPage' => $rowsOnPage));
 
         $response = array(
             "list" => $list,
@@ -59,17 +59,16 @@ class CMSArticleController extends Controller
     }
 
     /**
-     * Creates a new CMSArticle entity.
+     * Creates a new CMSMenu entity.
      *
-     * @Route("/create", name="cmsarticle_create")
+     * @Route("/create", name="cmsmenu_create")
      * @Method("POST")
      */
     public function createAction(Request $request)
     {
-        $entity = new CMSArticle();
-        $entity->setUser($this->getUser());
+        $entity = new CMSMenu();
 
-        $form = $this->createForm(new CMSArticleType(), $entity);
+        $form = $this->createForm(new CMSMenuType(), $entity);
         $form->bind($request);
 
         if ($form->isValid()) {
@@ -80,11 +79,11 @@ class CMSArticleController extends Controller
             $response = array(
                 "response" => true,
                 "id" => $entity->getId(),
-                "message" => 'Dodawanie artykułu zakończyło się powodzeniem'
+                "message" => 'Dodawanie menu zakończyło się powodzeniem'
                 );
         }
         else {
-            $view = $this->renderView('MyCMSBundle:CMSArticle:_new.html.twig', array('entity' => $entity, 'form' => $form->createView()));
+            $view = $this->renderView('MyCMSBundle:CMSMenu:_new.html.twig', array('entity' => $entity, 'form' => $form->createView()));
 
             $response = array(
                 "response" => false,
@@ -96,17 +95,17 @@ class CMSArticleController extends Controller
     }
 
     /**
-     * Displays a form to create a new CMSArticle entity.
+     * Displays a form to create a new CMSMenu entity.
      *
-     * @Route("/new", name="cmsarticle_new")
+     * @Route("/new", name="cmsmenu_new")
      * @Method("POST")
      */
     public function newAction()
     {
-        $entity = new CMSArticle();
-        $form   = $this->createForm(new CMSArticleType(), $entity);
+        $entity = new CMSMenu();
+        $form   = $this->createForm(new CMSMenuType(), $entity);
 
-        $view = $this->renderView('MyCMSBundle:CMSArticle:_new.html.twig', array('entity' => $entity, 'form' => $form->createView()));
+        $view = $this->renderView('MyCMSBundle:CMSMenu:_new.html.twig', array('entity' => $entity, 'form' => $form->createView()));
 
         $response = array(
                 "response" => true,
@@ -117,24 +116,24 @@ class CMSArticleController extends Controller
     }
 
     /**
-     * Displays a form to edit an existing CMSArticle entity.
+     * Displays a form to edit an existing CMSMenu entity.
      *
-     * @Route("/{id}/edit", name="cmsarticle_edit")
+     * @Route("/{id}/edit", name="cmsmenu_edit")
      * @Method("POST")
      */
     public function editAction($id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('MyCMSBundle:CMSArticle')->find($id);
+        $entity = $em->getRepository('MyCMSBundle:CMSMenu')->find($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find CMSArticle entity.');
         }
 
-        $editForm = $this->createForm(new CMSArticleType(), $entity);
+        $editForm = $this->createForm(new CMSMenuType(), $entity);
 
-        $view = $this->renderView('MyCMSBundle:CMSArticle:_edit.html.twig', array('entity' => $entity, 'form' => $editForm->createView()));
+        $view = $this->renderView('MyCMSBundle:CMSMenu:_edit.html.twig', array('entity' => $entity, 'form' => $editForm->createView()));
 
         $response = array(
             "response" => true,
@@ -145,22 +144,22 @@ class CMSArticleController extends Controller
     }
 
     /**
-     * Edits an existing CMSArticle entity.
+     * Edits an existing CMSMenu entity.
      *
-     * @Route("/{id}/update", name="cmsarticle_update")
+     * @Route("/{id}/update", name="cmsmenu_update")
      * @Method("POST")
      */
     public function updateAction(Request $request, $id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('MyCMSBundle:CMSArticle')->find($id);
+        $entity = $em->getRepository('MyCMSBundle:CMSMenu')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find CMSArticle entity.');
+            throw $this->createNotFoundException('Unable to find CMSMenu entity.');
         }
 
-        $editForm = $this->createForm(new CMSArticleType(), $entity);
+        $editForm = $this->createForm(new CMSMenuType(), $entity);
         $editForm->bind($request);
 
         if ($editForm->isValid()) {
@@ -170,11 +169,11 @@ class CMSArticleController extends Controller
             $response = array(
                 "response" => true,
                 "id" => $entity->getId(),
-                "message" => 'Edycja artykułu zakończyła się powodzeniem'
+                "message" => 'Edycja menu zakończyła się powodzeniem'
                 );
         }
         else {
-            $view = $this->renderView('MyCMSBundle:CMSArticle:_edit.html.twig', array('entity' => $entity, 'form' => $editForm->createView()));
+            $view = $this->renderView('MyCMSBundle:CMSMenu:_edit.html.twig', array('entity' => $entity, 'form' => $editForm->createView()));
 
             $response = array(
                 "response" => false,
@@ -186,9 +185,9 @@ class CMSArticleController extends Controller
     }
 
     /**
-     * Deletes a CMSArticle entity.
+     * Deletes a CMSMenu entity.
      *
-     * @Route("/delete", name="cmsarticle_delete")
+     * @Route("/delete", name="cmsmenu_delete")
      * @Method("POST")
      */
     public function deleteAction(Request $request)
@@ -198,10 +197,10 @@ class CMSArticleController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         foreach ($arrayId as $id) {
-            $entity = $em->getRepository('MyCMSBundle:CMSArticle')->find((int)$id);
+            $entity = $em->getRepository('MyCMSBundle:CMSMenu')->find((int)$id);
 
             if (!$entity) {
-                throw $this->createNotFoundException('Unable to find CMSArticle entity.');
+                throw $this->createNotFoundException('Unable to find CMSMenu entity.');
             }
 
             $em->remove($entity);
@@ -210,28 +209,14 @@ class CMSArticleController extends Controller
         try {
             $em->flush();
 
-            if (count($arrayId) > 1) {
-                $message = 'Usuwanie artykułów zakończyło się powodzeniem';
-            }
-            else {
-                $message = 'Usuwanie artykułu zakończyło się powodzeniem';
-            }
-
             $response = array(
                 "response" => true,
-                "message" => $message
+                "message" => 'Usuwanie menu zakończyło się powodzeniem'
                 );
         } catch (\Exception $e) {
-            if (count($arrayId) > 1) {
-                $message = 'Usuwanie artykułów zakończyło się niepowodzeniem';
-            }
-            else {
-                $message = 'Usuwanie artykułu zakończyło się niepowodzeniem';
-            }
-
             $response = array(
                 "response" => false,
-                "message" => $message
+                "message" => 'Usuwanie menu zakończyło się niepowodzeniem'
                 );
         }
 
@@ -239,9 +224,9 @@ class CMSArticleController extends Controller
     }
 
     /**
-     * Change state a CMSArticle entity.
+     * Change state a CMSMenu entity.
      *
-     * @Route("/state", name="cmsarticle_state")
+     * @Route("/state", name="cmsmenu_state")
      * @Method("POST")
      */
     public function stateAction(Request $request)
@@ -250,10 +235,10 @@ class CMSArticleController extends Controller
 
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('MyCMSBundle:CMSArticle')->find($id);
+        $entity = $em->getRepository('MyCMSBundle:CMSMenu')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find CMSArticle entity.');
+            throw $this->createNotFoundException('Unable to find CMSMenu entity.');
         }
 
         if ($entity->getIsPublic()) {
@@ -270,12 +255,12 @@ class CMSArticleController extends Controller
 
             $response = array(
                 "response" => true,
-                "message" => 'Zmiana stanu artykułu zakończyła się powodzeniem'
+                "message" => 'Zmiana stanu menu zakończyło się powodzeniem'
                 );
         } catch (\Exception $e) {
             $response = array(
                 "response" => false,
-                "message" => 'Zmiana stanu artykułu zakończyła się niepowodzeniem'
+                "message" => 'Zmiana stanu menu zakończyło się niepowodzeniem'
                 );
         }
 

@@ -99,6 +99,11 @@ class CMSArticle
      */
     protected $series;
 
+    /**
+     * @ORM\OneToMany(targetEntity="CMSMenu", mappedBy="article")
+     */
+    protected $menus;
+
 
     /**
      * Get id

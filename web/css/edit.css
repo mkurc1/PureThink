@@ -4,6 +4,15 @@
     margin: 15px 0 15px 35px;
     width: 760px;
 }
+#main > #edit_container > .container > h2 {
+    position: relative;
+    float: left;
+    width: 100%;
+    margin-bottom: 10px;
+    color: #565656;
+    font-weight: normal;
+    font-size: 20px;
+}
 #main > #edit_container > .container .cke {
     position: relative;
     float: left;

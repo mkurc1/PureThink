@@ -1,4 +1,6 @@
 <div class="container">
+    <h2>Edycja witryny</h2>
+
     <form action="{{ path('cmswebsite_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(form) }}>
         <input type="hidden" name="_method" value="POST" />
         {% include 'MyCMSBundle:CMSWebSite:_form.html.twig' with { 'form': form } %}

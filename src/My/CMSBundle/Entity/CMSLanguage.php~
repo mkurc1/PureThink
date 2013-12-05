@@ -47,6 +47,11 @@ class CMSLanguage
      */
     protected $articles;
 
+    /**
+     * @ORM\OneToMany(targetEntity="CMSMenu", mappedBy="language")
+     */
+    protected $menus;
+
 
     /**
      * Get id
@@ -175,5 +180,38 @@ class CMSLanguage
     public function __toString()
     {
         return $this->getName();
+    }
+
+    /**
+     * Add menus
+     *
+     * @param \My\CMSBundle\Entity\CMSMenu $menus
+     * @return CMSLanguage
+     */
+    public function addMenu(\My\CMSBundle\Entity\CMSMenu $menus)
+    {
+        $this->menus[] = $menus;
+    
+        return $this;
+    }
+
+    /**
+     * Remove menus
+     *
+     * @param \My\CMSBundle\Entity\CMSMenu $menus
+     */
+    public function removeMenu(\My\CMSBundle\Entity\CMSMenu $menus)
+    {
+        $this->menus->removeElement($menus);
+    }
+
+    /**
+     * Get menus
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getMenus()
+    {
+        return $this->menus;
     }
 }
