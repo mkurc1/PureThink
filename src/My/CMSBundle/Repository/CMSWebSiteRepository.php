@@ -28,4 +28,21 @@ class CMSWebSiteRepository extends EntityRepository
 
         return $qb->getQuery()->getSingleResult();
     }
+
+    /**
+     * Get meta
+     *
+     * @param string $locale
+     * @return object
+     */
+    public function getMeta($locale)
+    {
+        $qb = $this->createQueryBuilder('a')
+            ->leftJoin('a.language', 'l')
+            ->where('l.alias = :locale')
+            ->setParameter('locale', $locale)
+            ->setMaxResults(1);
+
+        return $qb->getQuery()->getSingleResult();
+    }
 }

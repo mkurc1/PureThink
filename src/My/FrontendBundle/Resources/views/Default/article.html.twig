@@ -1,0 +1,70 @@
+{% extends "::base.html.twig" %}
+
+{% block keywords %}
+    {{ article.keywords }}
+{% endblock keywords %}
+
+{% block description %}
+    {{ article.description }}
+{% endblock description %}
+
+{% block title %}
+     {{ article.name }}
+{% endblock title %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/cms/frontend/fresh_style/css/main.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/cms/frontend/fresh_style/css/article.css') }}">
+{% endblock stylesheets %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('bundles/cms/frontend/fresh_style/js/jquery.slides.min.js') }}"></script>
+    <script src="{{ asset('bundles/cms/frontend/fresh_style/js/main.js') }}"></script>
+{% endblock javascripts %}
+
+{% block body %}
+    <div id="top">
+        <div class="container">
+            <div id="logo">
+                <a href="{{ path('localized_frontend', {'locale': locale}) }}">
+                    <img src="{{ asset('bundles/cms/frontend/fresh_style/images/logo.png') }}" alt="logo" />
+                </a>
+            </div>
+
+            {% include 'MyFrontendBundle:Default:_language.html.twig' with { 'languages': languages, 'locale': locale } %}
+        </div>
+    </div>
+
+    <div id="main_menu">
+        <div class="container">
+            {% include 'MyFrontendBundle:Default:_menu.html.twig' with { 'menus': menus, 'locale': locale, 'home': true } %}
+        </div>
+    </div>
+
+    <div id="article">
+        <div class="container">
+            <h2>{{ article.name }}</h2>
+
+            {{ article.content|raw }}
+        </div>
+    </div>
+
+    <div id="footer">
+        <div class="container">
+            <div class="left">
+                <ul id="bottom_menu">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Lorem Ipsum</a></li>
+                    <li><a href="#">Lorem Ipsum</a></li>
+                    <li><a href="#">Lorem Ipsum</a></li>
+                    <li><a href="{{ path('fos_user_security_login') }}">Login</a></li>
+                </ul>
+            </div>
+            <div class="right">
+                <span>All righgts reserved 2013.</span>
+            </div>
+        </div>
+    </div>
+{% endblock body %}

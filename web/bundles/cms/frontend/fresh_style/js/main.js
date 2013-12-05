@@ -1,6 +1,8 @@
 //start and set baner
 $(function(){
 
+    $('#main_menu ul li.has_submenu > a').removeAttr('href');
+
   	$('#baner > .container').slidesjs({
         width: 1000,
         height: 296,

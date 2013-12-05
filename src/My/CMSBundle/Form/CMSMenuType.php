@@ -36,7 +36,7 @@ class CMSMenuType extends AbstractType
                     )
                 )
             )
-            ->add('sequence', 'text', array(
+            ->add('sequence', 'number', array(
                 'label' => 'Kolejność',
                 'constraints' => array(
                     new NotBlank()

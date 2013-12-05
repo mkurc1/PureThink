@@ -2,11 +2,16 @@
 <html>
     <head>
         <meta charset="UTF-8" />
+        <meta name="Keywords" content="{% block keywords %}{% endblock %}" />
+        <meta name="Description" content="{% block description %}{% endblock %}" />
         <title>{% block title %}PureThink{% endblock %}</title>
+
         {% block stylesheets %}{% endblock %}
+
         {% block javascripts %}
             <script src="{{ asset('js/plugins/jquery-2.0.3.min.js') }}"></script>
         {% endblock %}
+
         {% block icon %}
             <link rel="icon" type="image/x-icon" href="{{ asset('purethink.ico') }}" />
         {% endblock %}

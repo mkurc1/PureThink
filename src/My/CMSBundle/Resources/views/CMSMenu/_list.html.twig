@@ -5,6 +5,8 @@
             <th class="lp">Lp.</th>
             <th column="a.name" class="name width_big">Nazwa</th>
             <th column="a.isPublic" class="width_small">Aktywne</th>
+            <th column="a.sequence" class="width_small">Kolejność</th>
+            <th column="art.name" class="width_small">Artykuł</th>
         </tr>
     </thead>
     <tbody>
@@ -26,6 +28,8 @@
                     <img class="deactive" src="{{ asset('images/deactive.png') }}" alt="deactive" />
                 {% endif %}
             </td>
+            <td class="width_small">{{ entity.sequence }}</td>
+            <td class="width_small">{{ entity.article.name }}</td>
         </tr>
     {% endfor %}
     </tbody>

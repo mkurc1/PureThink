@@ -27,6 +27,7 @@ class CMSMenuRepository extends EntityRepository
 		$qb = $this->createQueryBuilder('a')
             ->leftJoin('a.language', 'l')
             ->leftJoin('a.series', 's')
+            ->leftJoin('a.article', 'art')
             ->where('a.name LIKE :filtr')
             ->setParameter('filtr', '%'.$filtr.'%');
 
@@ -44,4 +45,22 @@ class CMSMenuRepository extends EntityRepository
 
 		return $qb->getQuery();
 	}
+
+    /**
+     * Get public menus
+     *
+     * @param string $locale
+     * @return object
+     */
+    public function getPublicMenus($locale)
+    {
+        $qb = $this->createQueryBuilder('a')
+            ->leftJoin('a.language', 'l')
+            ->where('a.isPublic = true')
+            ->andWhere('l.alias = :locale')
+            ->setParameter('locale', $locale)
+            ->orderBy('a.sequence');
+
+        return $qb->getQuery()->getResult();
+    }
 }

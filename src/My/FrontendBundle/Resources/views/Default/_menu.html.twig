@@ -1,0 +1,15 @@
+<ul>
+    {% if home %}
+        <li class="selected">
+            <a href="{{ path('localized_frontend', {'locale': locale}) }}">Home</a>
+        </li>
+    {% endif %}
+    {% for menu in menus %}
+        <li class="{{ menu.menus|length > 0 ? 'has_submenu' : '' }}">
+            <a href="{{ path('article', {'locale': locale, 'slug': menu.slug}) }}">{{ menu }}</a>
+            {% if menu.menus|length > 0 %}
+                {% include 'MyFrontendBundle:Default:_menu.html.twig' with { 'menus': menu.menus, 'locale': locale, 'home': false } %}
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>

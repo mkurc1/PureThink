@@ -1,5 +1,29 @@
 {% extends "::base.html.twig" %}
 
+{% block keywords %}
+    {% if meta %}
+        {{ meta.keywords }}
+    {% else %}
+        {{ parent() }}
+    {% endif %}
+{% endblock keywords %}
+
+{% block description %}
+    {% if meta %}
+        {{ meta.description }}
+    {% else %}
+        {{ parent() }}
+    {% endif %}
+{% endblock description %}
+
+{% block title %}
+    {% if meta %}
+        {{ meta.name }}
+    {% else %}
+        {{ parent() }}
+    {% endif %}
+{% endblock title %}
+
 {% block stylesheets %}
     {{ parent() }}
     <link rel="stylesheet" type="text/css" href="{{ asset('bundles/cms/frontend/fresh_style/css/main.css') }}">
@@ -15,37 +39,18 @@
     <div id="top">
         <div class="container">
             <div id="logo">
-                <a href="{{ path('frontend') }}">
+                <a href="{{ path('localized_frontend', {'locale': locale}) }}">
                     <img src="{{ asset('bundles/cms/frontend/fresh_style/images/logo.png') }}" alt="logo" />
                 </a>
             </div>
-            <ul id="language">
-                <li class="selected"><a href="#">PL</a></li>
-                <li><a href="#">EN</a></li>
-                <li><a href="#">CZ</a></li>
-            </ul>
+
+            {% include 'MyFrontendBundle:Default:_language.html.twig' with { 'languages': languages, 'locale': locale } %}
         </div>
     </div>
 
     <div id="main_menu">
         <div class="container">
-            <ul>
-                <li class="selected"><a href="#">Home</a></li>
-                <li><a href="#">Lorem Ipsum</a></li>
-                <li class="has_submenu">
-                    <a href="#">Lorem Ipsum</a>
-                    <ul>
-                        <li><a href="#">Lorem Ipsum Dolom</a></li>
-                        <li><a href="#">Lorem Ipsum Dolom</a></li>
-                        <li><a href="#">Lorem Ipsum Dolom</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">Lorem Ipsum</a></li>
-                <li><a href="#">Lorem Ipsum</a></li>
-                <li><a href="#">Lorem Ipsum</a></li>
-                <li><a href="#">Lorem Ipsum</a></li>
-                <li><a href="#">Lorem Ipsum</a></li>
-            </ul>
+            {% include 'MyFrontendBundle:Default:_menu.html.twig' with { 'menus': menus, 'locale': locale, 'home': true } %}
         </div>
     </div>
 

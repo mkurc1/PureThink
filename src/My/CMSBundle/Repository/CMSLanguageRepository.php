@@ -38,4 +38,18 @@ class CMSLanguageRepository extends EntityRepository
 
         return $qb->getQuery()->getSingleResult();
     }
+
+    /**
+     * Get public languages
+     *
+     * @return array
+     */
+    public function getPublicLanguages()
+    {
+        $qb = $this->createQueryBuilder('a')
+            ->where('a.isPublic = true')
+            ->orderBy('a.name');
+
+        return $qb->getQuery()->getResult();
+    }
 }
