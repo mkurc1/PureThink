@@ -43,6 +43,11 @@ class Series
      */
     protected $cmsMenus;
 
+    /**
+     * @ORM\OneToMany(targetEntity="My\FileBundle\Entity\File", mappedBy="series")
+     */
+    protected $files;
+
 
     /**
      * Get id
@@ -159,7 +164,7 @@ class Series
     public function addCmsMenu(\My\CMSBundle\Entity\CMSMenu $cmsMenus)
     {
         $this->cmsMenus[] = $cmsMenus;
-    
+
         return $this;
     }
 
@@ -176,10 +181,43 @@ class Series
     /**
      * Get cmsMenus
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getCmsMenus()
     {
         return $this->cmsMenus;
+    }
+
+    /**
+     * Add files
+     *
+     * @param \My\FileBundle\Entity\File $files
+     * @return Series
+     */
+    public function addFile(\My\FileBundle\Entity\File $files)
+    {
+        $this->files[] = $files;
+    
+        return $this;
+    }
+
+    /**
+     * Remove files
+     *
+     * @param \My\FileBundle\Entity\File $files
+     */
+    public function removeFile(\My\FileBundle\Entity\File $files)
+    {
+        $this->files->removeElement($files);
+    }
+
+    /**
+     * Get files
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getFiles()
+    {
+        return $this->files;
     }
 }

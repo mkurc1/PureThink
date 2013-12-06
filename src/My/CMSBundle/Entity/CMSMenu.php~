@@ -9,7 +9,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  * CMSMenu
  *
  * @ORM\Table()
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="My\CMSBundle\Repository\CMSMenuRepository")
  */
 class CMSMenu
 {
@@ -299,5 +299,28 @@ class CMSMenu
     public function getSeries()
     {
         return $this->series;
+    }
+
+    /**
+     * Set article
+     *
+     * @param \My\CMSBundle\Entity\CMSArticle $article
+     * @return CMSMenu
+     */
+    public function setArticle(\My\CMSBundle\Entity\CMSArticle $article)
+    {
+        $this->article = $article;
+
+        return $this;
+    }
+
+    /**
+     * Get article
+     *
+     * @return \My\CMSBundle\Entity\CMSArticle
+     */
+    public function getArticle()
+    {
+        return $this->article;
     }
 }
