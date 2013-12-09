@@ -39,7 +39,7 @@ class UserSettingController extends Controller
     /**
      * @Route("/user/setting/set_rows_on_page")
      */
-    public function setRowsOnPage(Request $request)
+    public function setRowsOnPageAction(Request $request)
     {
         $rowsOnPage = (int)$request->get('rowsOnPage');
 
@@ -58,6 +58,34 @@ class UserSettingController extends Controller
 
         $response = array(
             "row_id" => $RowsOnPage->getId(),
+            "response" => true
+            );
+
+        return new Response(json_encode($response));
+    }
+
+    /**
+     * @Route("/user/setting/set")
+     */
+    public function setUserSettingAction(Request $request)
+    {
+        $rowsOnPageId = (int)$request->get('rowsOnPageId');
+        $moduleId = (int)$request->get('moduleId');
+        $languageId = (int)$request->get('languageId');
+
+        $em = $this->getDoctrine()->getManager();
+
+        $UserSetting = $em->getRepository('MyBackendBundle:UserSetting')
+            ->findOneByUser($this->getUser());
+
+        $UserSetting->setRowsOnPage($em->getRepository('MyBackendBundle:RowsOnPage')->find($rowsOnPageId));
+        $UserSetting->setModule($em->getRepository('MyBackendBundle:Module')->find($moduleId));
+        $UserSetting->setLanguage($em->getRepository('MyBackendBundle:Language')->find($languageId));
+
+        $em->persist($UserSetting);
+        $em->flush();
+
+        $response = array(
             "response" => true
             );
 

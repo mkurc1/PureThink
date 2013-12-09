@@ -36,4 +36,10 @@
         <sequence>6</sequence>
         <module_id>1</module_id>
     </menu>
+    <menu>
+        <name>Pliki</name>
+        <link>cmsarticle</link>
+        <sequence>1</sequence>
+        <module_id>2</module_id>
+    </menu>
 </menus>

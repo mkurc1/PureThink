@@ -10,6 +10,7 @@ function Setting(url) {
     this.languageId = 0;
     this.url = '/app_dev.php/admin/user/setting';
     this.getUserSetting = getUserSetting;
+    this.setUserSetting = setUserSetting;
 
     /**
      * Get user setting
@@ -24,6 +25,7 @@ function Setting(url) {
             beforeSend: function() {
             },
             complete: function() {
+                Module.init();
             },
             success: function(data) {
                 if (data.response) {
@@ -32,6 +34,30 @@ function Setting(url) {
                     setting.moduleId = data.setting.moduleId;
                     setting.languageId = data.setting.languageId;
                 }
+            }
+        });
+    }
+
+    /**
+     * Set user setting
+     */
+    function setUserSetting() {
+        var setting = this;
+
+        $.ajax({
+            type: "post",
+            dataType: 'json',
+            data: {
+                rowsOnPageId: setting.rowsOnPageId,
+                moduleId: setting.moduleId,
+                languageId: setting.languageId
+            },
+            url: this.url+'/set',
+            beforeSend: function() {
+            },
+            complete: function() {
+            },
+            success: function() {
             }
         });
     }

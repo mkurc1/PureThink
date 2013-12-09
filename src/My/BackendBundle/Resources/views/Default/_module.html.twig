@@ -1,0 +1,11 @@
+<div id="select_mode_conteiner">
+    <div id="select_mode">
+        <div id="select"></div>
+        <img src="{{ asset('images/arrow_down_orange.png') }}" alt="select" />
+        <ul id="select_container_list">
+            {% for module in modules %}
+                <li module_id="{{ module.id }}">{{ module }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>

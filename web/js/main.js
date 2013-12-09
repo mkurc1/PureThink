@@ -6,6 +6,8 @@ var Pagination = new Pagination(10);
 var List = new List();
 // Object
 var Edit = new Edit();
+// Object
+var Module = new Module();
 
 var menuId;
 
