@@ -9,7 +9,7 @@ $(function() {
             search.timer = null;
 
             List.filtr = search.value;
-            refreshList();
+            List.refresh();
         }, 800);
     });
 });

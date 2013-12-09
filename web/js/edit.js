@@ -13,6 +13,7 @@ function Edit() {
     this.submitAction = submitAction;
     this.ckeditUpdateElement = ckeditUpdateElement;
     this.setEditAction = setEditAction;
+    this.setFocusOnFirstInput = setFocusOnFirstInput;
 
     /**
      * Set default parameters
@@ -34,6 +35,15 @@ function Edit() {
      */
     function emptyEditContainer() {
         $('#edit_container').empty();
+    }
+
+    /**
+     * Set focus on first visible input
+     */
+    function setFocusOnFirstInput() {
+        var input = $('#edit_container form :input:visible:first');
+        input.focus();
+        input.setCursorToTextEnd();
     }
 
     /**
@@ -64,6 +74,7 @@ function Edit() {
                 }
                 createEditButtons();
                 toggleListMainButton();
+                edit.setFocusOnFirstInput();
             },
             success: function(data) {
                 if (data.response) {

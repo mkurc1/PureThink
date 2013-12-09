@@ -15,7 +15,7 @@ class DefaultController extends Controller
     public function indexAction()
     {
     	$em = $this->getDoctrine()->getManager();
-		$modules = $em->getRepository('MyBackendBundle:Module')->findAll();
+        $modules = $em->getRepository('MyBackendBundle:Module')->findAll();
 
         return array('modules' => $modules);
     }
