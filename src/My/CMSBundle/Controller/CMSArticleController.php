@@ -66,10 +66,13 @@ class CMSArticleController extends Controller
      */
     public function createAction(Request $request)
     {
+        $menuId = (int)$request->get('menuId');
+
         $entity = new CMSArticle();
         $entity->setUser($this->getUser());
 
-        $form = $this->createForm(new CMSArticleType(), $entity);
+        $form   = $this->createForm(new CMSArticleType(), $entity, array('attr' => array(
+            'menuId' => $menuId)));
         $form->bind($request);
 
         if ($form->isValid()) {
@@ -101,10 +104,13 @@ class CMSArticleController extends Controller
      * @Route("/new", name="cmsarticle_new")
      * @Method("POST")
      */
-    public function newAction()
+    public function newAction(Request $request)
     {
+        $menuId = (int)$request->get('menuId');
+
         $entity = new CMSArticle();
-        $form   = $this->createForm(new CMSArticleType(), $entity);
+        $form = $this->createForm(new CMSArticleType(), $entity, array('attr' => array(
+            'menuId' => $menuId)));
 
         $view = $this->renderView('MyCMSBundle:CMSArticle:_new.html.twig', array('entity' => $entity, 'form' => $form->createView()));
 
@@ -122,8 +128,10 @@ class CMSArticleController extends Controller
      * @Route("/{id}/edit", name="cmsarticle_edit")
      * @Method("POST")
      */
-    public function editAction($id)
+    public function editAction(Request $request, $id)
     {
+        $menuId = (int)$request->get('menuId');
+
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('MyCMSBundle:CMSArticle')->find($id);
@@ -132,7 +140,8 @@ class CMSArticleController extends Controller
             throw $this->createNotFoundException('Unable to find CMSArticle entity.');
         }
 
-        $editForm = $this->createForm(new CMSArticleType(), $entity);
+        $editForm = $this->createForm(new CMSArticleType(), $entity, array('attr' => array(
+            'menuId' => $menuId)));
 
         $view = $this->renderView('MyCMSBundle:CMSArticle:_edit.html.twig', array('entity' => $entity, 'form' => $editForm->createView()));
 
@@ -152,6 +161,8 @@ class CMSArticleController extends Controller
      */
     public function updateAction(Request $request, $id)
     {
+        $menuId = (int)$request->get('menuId');
+
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('MyCMSBundle:CMSArticle')->find($id);
@@ -160,7 +171,8 @@ class CMSArticleController extends Controller
             throw $this->createNotFoundException('Unable to find CMSArticle entity.');
         }
 
-        $editForm = $this->createForm(new CMSArticleType(), $entity);
+        $editForm = $this->createForm(new CMSArticleType(), $entity, array('attr' => array(
+            'menuId' => $menuId)));
         $editForm->bind($request);
 
         if ($editForm->isValid()) {

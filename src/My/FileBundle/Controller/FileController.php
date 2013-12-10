@@ -65,10 +65,13 @@ class FileController extends Controller
      */
     public function createAction(Request $request)
     {
+        $menuId = (int)$request->get('menuId');
+
         $entity = new File();
         $entity->setUser($this->getUser());
 
-        $form = $this->createForm(new FileType(), $entity);
+        $form = $this->createForm(new FileType(), $entity, array('attr' => array(
+            'menuId' => $menuId)));
         $form->bind($request);
 
         if ($form->isValid()) {
@@ -100,10 +103,13 @@ class FileController extends Controller
      * @Route("/new", name="file_new")
      * @Method("POST")
      */
-    public function newAction()
+    public function newAction(Request $request)
     {
+        $menuId = (int)$request->get('menuId');
+
         $entity = new File();
-        $form   = $this->createForm(new FileType(), $entity);
+        $form = $this->createForm(new FileType(), $entity, array('attr' => array(
+            'menuId' => $menuId)));
 
         $view = $this->renderView('MyFileBundle:File:_new.html.twig', array('entity' => $entity, 'form' => $form->createView()));
 
@@ -121,8 +127,10 @@ class FileController extends Controller
      * @Route("/{id}/edit", name="file_edit")
      * @Method("POST")
      */
-    public function editAction($id)
+    public function editAction(Request $request, $id)
     {
+        $menuId = (int)$request->get('menuId');
+
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('MyFileBundle:File')->find($id);
@@ -131,7 +139,8 @@ class FileController extends Controller
             throw $this->createNotFoundException('Unable to find File entity.');
         }
 
-        $editForm = $this->createForm(new FileType(), $entity);
+        $editForm = $this->createForm(new FileType(), $entity, array('attr' => array(
+            'menuId' => $menuId)));
 
         $view = $this->renderView('MyFileBundle:File:_edit.html.twig', array('entity' => $entity, 'form' => $editForm->createView()));
 
@@ -151,6 +160,8 @@ class FileController extends Controller
      */
     public function updateAction(Request $request, $id)
     {
+        $menuId = (int)$request->get('menuId');
+
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('MyFileBundle:File')->find($id);
@@ -159,7 +170,8 @@ class FileController extends Controller
             throw $this->createNotFoundException('Unable to find File entity.');
         }
 
-        $editForm = $this->createForm(new FileType(), $entity);
+        $editForm = $this->createForm(new FileType(), $entity, array('attr' => array(
+            'menuId' => $menuId)));
         $editForm->bind($request);
 
         if ($editForm->isValid()) {

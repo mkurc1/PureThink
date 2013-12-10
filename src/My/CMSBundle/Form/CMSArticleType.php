@@ -42,6 +42,9 @@ class CMSArticleType extends AbstractType
             ->add('series', 'entity', array(
                 'label' => 'Grupa',
                 'class' => 'MyBackendBundle:Series',
+                'query_builder' => function (\Doctrine\ORM\EntityRepository $er) use ($options) {
+                    return $er->getGroupsByMenuIdNoExecute($options['attr']['menuId']);
+                },
                 'empty_value' => '',
                 'attr' => array(
                     'class' => 'sintetic-select'

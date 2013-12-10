@@ -76,7 +76,8 @@ function Edit() {
             dataType: 'json',
             url: edit.url,
             data: {
-                languageId: edit.languageId
+                languageId: edit.languageId,
+                menuId: menuId
             },
             beforeSend: function() {
                 edit.emptyEditContainer();
@@ -110,6 +111,9 @@ function Edit() {
             $(this).ajaxForm({
                 type: "post",
                 dataType: 'json',
+                data: {
+                    menuId: menuId
+                },
                 beforeSerialize: function() {
                     Edit.ckeditUpdateElement();
                 },

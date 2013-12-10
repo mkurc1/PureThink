@@ -66,9 +66,12 @@ class CMSMenuController extends Controller
      */
     public function createAction(Request $request)
     {
+        $menuId = (int)$request->get('menuId');
+
         $entity = new CMSMenu();
 
-        $form = $this->createForm(new CMSMenuType(), $entity);
+        $form = $this->createForm(new CMSMenuType(), $entity, array('attr' => array(
+            'menuId' => $menuId)));
         $form->bind($request);
 
         if ($form->isValid()) {
@@ -100,10 +103,13 @@ class CMSMenuController extends Controller
      * @Route("/new", name="cmsmenu_new")
      * @Method("POST")
      */
-    public function newAction()
+    public function newAction(Request $request)
     {
+        $menuId = (int)$request->get('menuId');
+
         $entity = new CMSMenu();
-        $form   = $this->createForm(new CMSMenuType(), $entity);
+        $form = $this->createForm(new CMSMenuType(), $entity, array('attr' => array(
+            'menuId' => $menuId)));
 
         $view = $this->renderView('MyCMSBundle:CMSMenu:_new.html.twig', array('entity' => $entity, 'form' => $form->createView()));
 
@@ -121,8 +127,10 @@ class CMSMenuController extends Controller
      * @Route("/{id}/edit", name="cmsmenu_edit")
      * @Method("POST")
      */
-    public function editAction($id)
+    public function editAction(Request $request, $id)
     {
+        $menuId = (int)$request->get('menuId');
+
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('MyCMSBundle:CMSMenu')->find($id);
@@ -131,7 +139,8 @@ class CMSMenuController extends Controller
             throw $this->createNotFoundException('Unable to find CMSArticle entity.');
         }
 
-        $editForm = $this->createForm(new CMSMenuType(), $entity);
+        $editForm = $this->createForm(new CMSMenuType(), $entity, array('attr' => array(
+            'menuId' => $menuId)));
 
         $view = $this->renderView('MyCMSBundle:CMSMenu:_edit.html.twig', array('entity' => $entity, 'form' => $editForm->createView()));
 
@@ -151,6 +160,8 @@ class CMSMenuController extends Controller
      */
     public function updateAction(Request $request, $id)
     {
+        $menuId = (int)$request->get('menuId');
+
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('MyCMSBundle:CMSMenu')->find($id);
@@ -159,7 +170,8 @@ class CMSMenuController extends Controller
             throw $this->createNotFoundException('Unable to find CMSMenu entity.');
         }
 
-        $editForm = $this->createForm(new CMSMenuType(), $entity);
+        $editForm = $this->createForm(new CMSMenuType(), $entity, array('attr' => array(
+            'menuId' => $menuId)));
         $editForm->bind($request);
 
         if ($editForm->isValid()) {
