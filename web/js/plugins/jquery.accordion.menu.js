@@ -92,13 +92,13 @@
          */
         function getSpaceForElements() {
             var windowHeight = $(window).height();
-            var menuMarginTop = menu.offset().top;
-            var menuMaxHeight = windowHeight - menuMarginTop;
+            var menuMarginTop = menu.offset().top-$(window).scrollTop();
+            var menuMaxHeight = windowHeight-menuMarginTop;
             var menuElementCount = menu.find('> li').length;
             var openElementPadding = getIntegerPart(menu.find('> li > div > ul').css('padding-top'), 'px');
             openElementPadding += getIntegerPart(menu.find('> li > div > ul').css('padding-bottom'), 'px');
             var menuElementCloseHeight = menu.find('> li > a').outerHeight(true);
-            spaceForElements = menuMaxHeight - (menuElementCount * menuElementCloseHeight) - (menuElementCount * openElementPadding) - 41;
+            spaceForElements = menuMaxHeight - (menuElementCount*menuElementCloseHeight) - (menuElementCount*openElementPadding) - 41;
         }
 
         /**
@@ -143,7 +143,7 @@
          */
         function getIntegerPart(value, removeValue) {
             if (value)
-                return parseInt(value.split(removeValue)[0]);
+                return parseInt(value.replace(removeValue, ''));
             else
                 return 0;
         }
