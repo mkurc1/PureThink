@@ -38,7 +38,7 @@
     </menu>
     <menu>
         <name>Pliki</name>
-        <link>cmsarticle</link>
+        <link>file</link>
         <sequence>1</sequence>
         <module_id>2</module_id>
     </menu>

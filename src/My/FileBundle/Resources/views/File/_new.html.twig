@@ -1,0 +1,7 @@
+<div class="container">
+    <h2>Dodaj plik</h2>
+
+    <form action="{{ path('file_create') }}" method="post" {{ form_enctype(form) }}>
+        {% include 'MyFileBundle:File:_form.html.twig' with { 'form': form } %}
+    </form>
+</div>

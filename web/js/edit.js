@@ -69,9 +69,7 @@ function Edit() {
                 Pagination.hidePagination();
                 edit.html5validateOff();
                 beautifySelects();
-                if (!Edit.isApplyOption) {
-                    submitAction();
-                }
+                submitAction();
                 createEditButtons();
                 toggleListMainButton();
                 edit.setFocusOnFirstInput();
@@ -89,23 +87,11 @@ function Edit() {
      */
     function submitAction() {
         $('#edit_container > .container').on('submit', 'form', function() {
-            Edit.ckeditUpdateElement();
-
-            $.ajax({
+            $(this).ajaxForm({
                 type: "post",
                 dataType: 'json',
-                data: $(this).serialize(),
-                url: $(this).attr('action'),
-                beforeSend: function() {
-                },
-                complete: function(data) {
-                    if (!data.response) {
-                        Edit.html5validateOff();
-                        beautifySelects();
-                        Edit.submitAction();
-                    }
-
-                    Edit.isApplyOption = false;
+                beforeSerialize: function() {
+                    Edit.ckeditUpdateElement();
                 },
                 success: function(data) {
                     if (data.response) {
@@ -120,7 +106,12 @@ function Edit() {
                     }
                     else {
                         $('#edit_container').html(data.view);
+                        Edit.html5validateOff();
+                        beautifySelects();
+                        Edit.submitAction();
                     }
+
+                    Edit.isApplyOption = false;
                 }
             });
 

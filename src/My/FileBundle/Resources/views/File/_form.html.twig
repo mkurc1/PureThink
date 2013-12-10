@@ -1,0 +1,19 @@
+{{ form_widget(form._token) }}
+
+<div class="dane_element">
+    {{ form_label(form.name) }}
+    {{ form_widget(form.name) }}
+    {{ form_errors(form.name) }}
+</div>
+
+<div class="dane_element">
+    {{ form_label(form.series) }}
+    {{ form_widget(form.series) }}
+    {{ form_errors(form.series) }}
+</div>
+
+<div class="dane_element">
+    {{ form_label(form.file) }}
+    {{ form_widget(form.file) }}
+    {{ form_errors(form.file) }}
+</div>

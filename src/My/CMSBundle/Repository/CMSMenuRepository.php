@@ -57,6 +57,7 @@ class CMSMenuRepository extends EntityRepository
         $qb = $this->createQueryBuilder('a')
             ->leftJoin('a.language', 'l')
             ->where('a.isPublic = true')
+            ->andWhere('a.menu is NULL')
             ->andWhere('l.alias = :locale')
             ->setParameter('locale', $locale)
             ->orderBy('a.sequence');
