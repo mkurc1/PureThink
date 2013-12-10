@@ -14,6 +14,7 @@ function Edit() {
     this.ckeditUpdateElement = ckeditUpdateElement;
     this.setEditAction = setEditAction;
     this.setFocusOnFirstInput = setFocusOnFirstInput;
+    this.setActionOnUploadFileButtons = setActionOnUploadFileButtons;
 
     /**
      * Set default parameters
@@ -47,6 +48,24 @@ function Edit() {
     }
 
     /**
+     * Set action on upload file buttons
+     */
+    function setActionOnUploadFileButtons() {
+        $('#edit_container > .container').on('click', 'button.browse', function() {
+            var button = $(this);
+
+            var upload = $(this).parent().find('input[type="file"]');
+            upload.click();
+
+            upload.change(function() {
+                button.parent().find('div.input_file').text($(this).val());
+            });
+
+            return false;
+        });
+    }
+
+    /**
      * Get edit
      */
     function getEdit() {
@@ -72,6 +91,7 @@ function Edit() {
                 submitAction();
                 createEditButtons();
                 toggleListMainButton();
+                edit.setActionOnUploadFileButtons();
                 edit.setFocusOnFirstInput();
             },
             success: function(data) {

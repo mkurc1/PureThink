@@ -36,7 +36,13 @@ class FileType extends AbstractType
                     )
                 )
             )
-            ->add('file')
+            ->add('file', 'file', array(
+                'label' => 'Wybierz plik',
+                'attr' => array(
+                    'class' => 'hide'
+                    )
+                )
+            )
         ;
     }
 

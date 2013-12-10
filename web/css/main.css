@@ -10,6 +10,11 @@ body {
 a {
     text-decoration: none;
 }
+.hide {
+    position: absolute;
+    left: 0;
+    top: -9999px;
+}
 #main_line {
     position: fixed;
     width: 100%;

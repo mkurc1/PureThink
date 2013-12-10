@@ -33,14 +33,6 @@ class File
     private $name;
 
     /**
-     * @var string
-     *
-     * @Gedmo\Slug(fields={"name"})
-     * @ORM\Column(length=255, unique=true)
-     */
-    private $slug;
-
-    /**
      * @var datetime
      *
      * @Gedmo\Timestampable(on="create")
@@ -79,6 +71,9 @@ class File
      */
     private $file;
 
+    /**
+     * @var string
+     */
     private $temp;
 
     /**
@@ -135,29 +130,6 @@ class File
     public function getSize()
     {
         return $this->size;
-    }
-
-    /**
-     * Set slug
-     *
-     * @param string $slug
-     * @return File
-     */
-    public function setSlug($slug)
-    {
-        $this->slug = $slug;
-
-        return $this;
-    }
-
-    /**
-     * Get slug
-     *
-     * @return string
-     */
-    public function getSlug()
-    {
-        return $this->slug;
     }
 
     /**
@@ -347,8 +319,7 @@ class File
     public function preUpload()
     {
         if (null !== $this->getFile()) {
-
-            $filename = $this->getSlug();
+            $filename = sha1(uniqid(mt_rand(), true));
             $this->path = $filename.'.'.$this->getFile()->guessExtension();
             $this->size = $this->getFile()->getClientSize();
         }

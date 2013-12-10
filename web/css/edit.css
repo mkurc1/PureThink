@@ -47,7 +47,8 @@
     padding: 0;
 }
 .dane_element > input[type='text'], .dane_element_big > input[type='text'], .dane_element_small > input[type='text'],
-.dane_element_medium > input[type='text'] {
+.dane_element_medium > input[type='text'], .dane_element > div.input_file, .dane_element_big > div.input_file,
+.dane_element_small > div.input_file, .dane_element_medium > div.input_file {
     position: relative;
     float: left;
     width: 475px;
@@ -56,6 +57,41 @@
     border: 1px solid #AAAAAA;
     background-color: #fff;
     color: #000;
+    font-size: 13px;
+}
+.dane_element > div.input_file, .dane_element_big > div.input_file,
+.dane_element_small > div.input_file, .dane_element_medium > div.input_file {
+    padding: 5px;
+    height: 17px;
+}
+.dane_element > div.input_file {
+    width: 375px;
+}
+.dane_element > button, .dane_element_big > button,
+.dane_element_small > button, .dane_element_medium > button {
+    position: relative;
+    float: right;
+    height: 29px;
+    border: 1px solid #6BC23E;
+    background-color: #9CEB85;
+    background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(20%, #84CC5E), color-stop(50%, #6AC03D), color-stop(52%, #6BC23E), color-stop(100%, #5CB85C));
+    background: -webkit-linear-gradient(top, #84CC5E 20%, #6AC03D 50%, #6BC23E 52%, #5CB85C 100%);
+    background: -moz-linear-gradient(top, #84CC5E 20%, #6AC03D 50%, #6BC23E 52%, #5CB85C 100%);
+    background: -o-linear-gradient(top, #84CC5E 20%, #6AC03D 50%, #6BC23E 52%, #5CB85C 100%);
+    background: linear-gradient(top, #84CC5E 20%, #6AC03D 50%, #6BC23E 52%, #5CB85C 100%);
+    border-radius: 4px;
+    width: 85px;
+    color: #fff;
+    font-size: 12px;
+    cursor: pointer;
+}
+.dane_element > button:hover, .dane_element_big > button:hover,
+.dane_element_small > button:hover, .dane_element_medium > button:hover {
+    background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(20%, #6AC03D), color-stop(50%, #6BC23E), color-stop(52%, #6BC23E), color-stop(100%, #5CB85C));
+    background: -webkit-linear-gradient(top, #6AC03D 20%, #6BC23E 50%, #6BC23E 52%, #5CB85C 100%);
+    background: -moz-linear-gradient(top, #6AC03D 20%, #6BC23E 50%, #6BC23E 52%, #5CB85C 100%);
+    background: -o-linear-gradient(top, #6AC03D 20%, #6BC23E 50%, #6BC23E 52%, #5CB85C 100%);
+    background: linear-gradient(top, #6AC03D 20%, #6BC23E 50%, #6BC23E 52%, #5CB85C 100%);
 }
 #main > #edit_container > .container textarea {
     position: relative;
