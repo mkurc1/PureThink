@@ -48,6 +48,7 @@ function startMode() {
     }
     else {
         List.url = url;
+        List.sublistId = 0;
         List.refresh(true);
     }
 }

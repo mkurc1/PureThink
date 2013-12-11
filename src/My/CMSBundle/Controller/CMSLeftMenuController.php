@@ -40,19 +40,27 @@ class CMSLeftMenuController extends Controller
     Public function menu($menuId)
     {
         return array(
-            "language" => $this->getLanguages()
+            "language" => $this->getLanguages($menuId)
             );
     }
 
     /**
      * Get languages
      *
+     * @param integer $menuId
      * @return array
      */
-    Private function getLanguages()
+    Private function getLanguages($menuId)
     {
-        $entities = $this->em->getRepository('MyCMSBundle:CMSLanguage')->getLanguages();
+        $languageLeftMeneActiveInMainMenu = array(1, 2, 3, 4);
 
-        return $this->templateEngine->render("MyCMSBundle:CMSLeftMenu:_languages.html.twig", array('entities' => $entities));
+        if (in_array($menuId, $languageLeftMeneActiveInMainMenu)) {
+            $entities = $this->em->getRepository('MyCMSBundle:CMSLanguage')->getLanguages();
+
+            return $this->templateEngine->render("MyCMSBundle:CMSLeftMenu:_languages.html.twig", array('entities' => $entities));
+        }
+        else {
+            return false;
+        }
     }
 }

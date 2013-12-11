@@ -1,0 +1,8 @@
+<div class="container">
+    <h2>Edycja rozszerzenia</h2>
+
+    <form action="{{ path('cmscomponent_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(form) }}>
+        <input type="hidden" name="_method" value="POST" />
+        {% include 'MyCMSBundle:CMSComponent:_form.html.twig' with { 'form': form } %}
+    </form>
+</div>

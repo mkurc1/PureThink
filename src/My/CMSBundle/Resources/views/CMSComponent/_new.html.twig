@@ -1,0 +1,7 @@
+<div class="container">
+    <h2>Dodaj rozszerzenie</h2>
+
+    <form action="{{ path('cmscomponent_create') }}" method="post" {{ form_enctype(form) }}>
+        {% include 'MyCMSBundle:CMSComponent:_form.html.twig' with { 'form': form } %}
+    </form>
+</div>

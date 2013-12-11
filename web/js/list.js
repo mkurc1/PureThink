@@ -4,6 +4,7 @@
 function List() {
     this.groupId;
     this.languageId;
+    this.sublistId;
     this.order;
     this.sequence;
     this.filtr;
@@ -26,6 +27,7 @@ function List() {
     this.removeElements = removeElements;
     this.setDefaultParameters = setDefaultParameters;
     this.refresh = refresh;
+    this.setActionOnSublistClick = setActionOnSublistClick;
 
     /**
      * Add to select
@@ -163,6 +165,21 @@ function List() {
     }
 
     /**
+     * Set action on sublist click
+     */
+    function setActionOnSublistClick() {
+        var list = this;
+
+        $('.sublist').click(function() {
+            list.url = $(this).attr('href');
+            list.sublistId = $(this).attr('sublist_id');
+            List.refresh(true);
+
+            return false;
+        });
+    }
+
+    /**
      * Get list
      */
     function getList() {
@@ -178,7 +195,8 @@ function List() {
                 sequence: list.sequence,
                 filtr: list.filtr,
                 languageId: list.languageId,
-                groupId: list.groupId
+                groupId: list.groupId,
+                sublistId: list.sublistId
             },
             url: list.url,
             beforeSend: function() {
@@ -190,6 +208,7 @@ function List() {
                 list.arrowOrder();
                 list.setActionOnChangeOrder();
                 list.setActionOnChangeState();
+                list.setActionOnSublistClick();
                 Pagination.togglePagination();
                 Edit.setEditAction();
                 list.checkboxChangeAction();

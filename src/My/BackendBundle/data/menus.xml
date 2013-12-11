@@ -26,7 +26,7 @@
     </menu>
     <menu>
         <name>Rozszerzenia</name>
-        <link>cmsarticle</link>
+        <link>cmscomponent</link>
         <sequence>5</sequence>
         <module_id>1</module_id>
     </menu>

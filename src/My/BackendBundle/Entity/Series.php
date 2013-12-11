@@ -48,6 +48,11 @@ class Series
      */
     protected $files;
 
+    /**
+     * @ORM\OneToMany(targetEntity="My\CMSBundle\Entity\CMSComponent", mappedBy="series")
+     */
+    protected $cmsComponents;
+
 
     /**
      * Get id
@@ -197,7 +202,7 @@ class Series
     public function addFile(\My\FileBundle\Entity\File $files)
     {
         $this->files[] = $files;
-    
+
         return $this;
     }
 
@@ -214,10 +219,43 @@ class Series
     /**
      * Get files
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getFiles()
     {
         return $this->files;
+    }
+
+    /**
+     * Add cmsComponents
+     *
+     * @param \My\CMSBundle\Entity\CMSComponent $cmsComponents
+     * @return Series
+     */
+    public function addCmsComponent(\My\CMSBundle\Entity\CMSComponent $cmsComponents)
+    {
+        $this->cmsComponents[] = $cmsComponents;
+    
+        return $this;
+    }
+
+    /**
+     * Remove cmsComponents
+     *
+     * @param \My\CMSBundle\Entity\CMSComponent $cmsComponents
+     */
+    public function removeCmsComponent(\My\CMSBundle\Entity\CMSComponent $cmsComponents)
+    {
+        $this->cmsComponents->removeElement($cmsComponents);
+    }
+
+    /**
+     * Get cmsComponents
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCmsComponents()
+    {
+        return $this->cmsComponents;
     }
 }
