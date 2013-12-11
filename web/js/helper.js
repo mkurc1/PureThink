@@ -30,6 +30,18 @@ function beautifySelects() {
 }
 
 /**
+ * Get URL Parameter
+ *
+ * @param string name
+ * @return string
+ */
+function getURLParameter(name) {
+    return decodeURI(
+        (RegExp(name + '=' + '(.+?)(&|$)').exec(location.search)||[,null])[1]
+        );
+}
+
+/**
  * Array clear function
  */
 Array.prototype.clear = function()

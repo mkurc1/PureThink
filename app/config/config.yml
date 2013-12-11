@@ -93,6 +93,9 @@ ivory_ck_editor:
             skin: moonocolor
             uiColor: "#E7E7E7"
             height: "400px"
+            filebrowserImageBrowseRoute: "file_browse"
+            filebrowserWindowWidth  : 800
+            filebrowserWindowHeight : 500
     toolbars:
         configs:
             cke_toolbar : ['@clipboard', '@editing', '@links', '@insert', '@tools', '@document', '/', '@basicstyles', '@paragraph', '@styles', '@colors']
