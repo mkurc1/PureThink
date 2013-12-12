@@ -61,6 +61,11 @@ class CMSComponent
      */
     protected $cmsJSs;
 
+    /**
+     * @ORM\OneToMany(targetEntity="CMSComponentHasColumn", mappedBy="cmsComponent")
+     */
+    protected $cmsComponentHasColumns;
+
 
     /**
      * Get id
@@ -246,5 +251,38 @@ class CMSComponent
     public function getCmsJSs()
     {
         return $this->cmsJSs;
+    }
+
+    /**
+     * Add cmsComponentHasColumns
+     *
+     * @param \My\CMSBundle\Entity\CMSComponentHasColumn $cmsComponentHasColumns
+     * @return CMSComponent
+     */
+    public function addCmsComponentHasColumn(\My\CMSBundle\Entity\CMSComponentHasColumn $cmsComponentHasColumns)
+    {
+        $this->cmsComponentHasColumns[] = $cmsComponentHasColumns;
+    
+        return $this;
+    }
+
+    /**
+     * Remove cmsComponentHasColumns
+     *
+     * @param \My\CMSBundle\Entity\CMSComponentHasColumn $cmsComponentHasColumns
+     */
+    public function removeCmsComponentHasColumn(\My\CMSBundle\Entity\CMSComponentHasColumn $cmsComponentHasColumns)
+    {
+        $this->cmsComponentHasColumns->removeElement($cmsComponentHasColumns);
+    }
+
+    /**
+     * Get cmsComponentHasColumns
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCmsComponentHasColumns()
+    {
+        return $this->cmsComponentHasColumns;
     }
 }

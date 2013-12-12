@@ -228,27 +228,4 @@ class CMSComponentHasColumn
     {
         return $this->component;
     }
-
-    /**
-     * Set columnType
-     *
-     * @param \My\BackendBundle\Entity\ColumnType $columnType
-     * @return CMSComponentHasColumn
-     */
-    public function setColumnType(\My\BackendBundle\Entity\ColumnType $columnType)
-    {
-        $this->columnType = $columnType;
-    
-        return $this;
-    }
-
-    /**
-     * Get columnType
-     *
-     * @return \My\BackendBundle\Entity\ColumnType 
-     */
-    public function getColumnType()
-    {
-        return $this->columnType;
-    }
 }
