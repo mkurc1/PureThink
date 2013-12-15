@@ -9,32 +9,55 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use My\CMSBundle\Entity\CMSComponentHasColumn;
 use My\CMSBundle\Form\CMSComponentHasColumnType;
+use Symfony\Component\HttpFoundation\Response;
+
+use My\BackendBundle\Pagination\Pagination as Pagination;
 
 /**
  * CMSComponentHasColumn controller.
  *
- * @Route("/cmscomponenthascolumn")
+ * @Route("/extension/column")
  */
 class CMSComponentHasColumnController extends Controller
 {
-
     /**
      * Lists all CMSComponentHasColumn entities.
      *
      * @Route("/", name="cmscomponenthascolumn")
-     * @Method("GET")
-     * @Template()
+     * @Method("POST")
      */
-    public function indexAction()
+    public function listAction(Request $request)
     {
+        $rowsOnPage = (int)$request->get('rowsOnPage', 10);
+        $page = (int)$request->get('page', 1);
+        $order = $request->get('order', 'a.name');
+        $sequence = $request->get('sequence', 'ASC');
+        $filtr = $request->get('filtr');
+        $groupId = $request->get('groupId');
+        $sublistId = (int)$request->get('sublistId');
+
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('MyCMSBundle:CMSComponentHasColumn')->findAll();
+        $entities = $em->getRepository('MyCMSBundle:CMSComponentHasColumn')->getColumns($order, $sequence, $filtr, $groupId);
 
-        return array(
-            'entities' => $entities,
+        $paginator  = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $entities,
+            $page,
+            $rowsOnPage
         );
+
+        $list = $this->renderView('MyCMSBundle:CMSComponentHasColumn:_list.html.twig', array('entities' => $pagination, 'page' => $page, 'rowsOnPage' => $rowsOnPage));
+
+        $response = array(
+            "list" => $list,
+            "pagination" => Pagination::helper($pagination),
+            "response" => true
+            );
+
+        return new Response(json_encode($response));
     }
+
     /**
      * Creates a new CMSComponentHasColumn entity.
      *

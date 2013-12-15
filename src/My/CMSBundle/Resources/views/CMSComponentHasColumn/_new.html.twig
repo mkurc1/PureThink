@@ -1,0 +1,7 @@
+<div class="container">
+    <h2>Dodaj kolumne rozszerzenia</h2>
+
+    <form action="{{ path('cmscomponenthascolumn_create') }}" method="post" {{ form_enctype(form) }}>
+        {% include 'MyCMSBundle:CMSComponentHasColumn:_form.html.twig' with { 'form': form } %}
+    </form>
+</div>

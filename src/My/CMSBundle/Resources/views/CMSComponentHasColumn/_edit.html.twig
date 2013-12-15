@@ -1,0 +1,8 @@
+<div class="container">
+    <h2>Edycja kolumne rozszerzenia</h2>
+
+    <form action="{{ path('cmscomponenthascolumn_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(form) }}>
+        <input type="hidden" name="_method" value="POST" />
+        {% include 'MyCMSBundle:CMSComponentHasColumn:_form.html.twig' with { 'form': form } %}
+    </form>
+</div>

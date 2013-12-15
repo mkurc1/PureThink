@@ -9,7 +9,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  * CMSComponentHasColumn
  *
  * @ORM\Table()
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="My\CMSBundle\Repository\CMSComponentHasColumnRepository")
  */
 class CMSComponentHasColumn
 {
@@ -238,14 +238,14 @@ class CMSComponentHasColumn
     public function setColumnType(\My\BackendBundle\Entity\ColumnType $columnType)
     {
         $this->columnType = $columnType;
-    
+
         return $this;
     }
 
     /**
      * Get columnType
      *
-     * @return \My\BackendBundle\Entity\ColumnType 
+     * @return \My\BackendBundle\Entity\ColumnType
      */
     public function getColumnType()
     {

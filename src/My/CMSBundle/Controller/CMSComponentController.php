@@ -16,7 +16,7 @@ use My\BackendBundle\Pagination\Pagination as Pagination;
 /**
  * CMSComponent controller.
  *
- * @Route("/component")
+ * @Route("/extension")
  */
 class CMSComponentController extends Controller
 {
