@@ -29,13 +29,6 @@ class CMSCSS
     private $path;
 
     /**
-     * @var boolean
-     *
-     * @ORM\Column(name="is_frontend", type="boolean")
-     */
-    private $isFrontend;
-
-    /**
      * @ORM\ManyToOne(targetEntity="CMSComponent", inversedBy="cmsCSSs")
      * @ORM\JoinColumn(name="component_id", referencedColumnName="id", onDelete="CASCADE", nullable=true)
      */
@@ -76,29 +69,6 @@ class CMSCSS
     }
 
     /**
-     * Set isFrontend
-     *
-     * @param boolean $isFrontend
-     * @return CMSCSS
-     */
-    public function setIsFrontend($isFrontend)
-    {
-        $this->isFrontend = $isFrontend;
-
-        return $this;
-    }
-
-    /**
-     * Get isFrontend
-     *
-     * @return boolean
-     */
-    public function getIsFrontend()
-    {
-        return $this->isFrontend;
-    }
-
-    /**
      * Set component
      *
      * @param \My\CMSBundle\Entity\CMSComponent $component
@@ -107,14 +77,14 @@ class CMSCSS
     public function setComponent(\My\CMSBundle\Entity\CMSComponent $component = null)
     {
         $this->component = $component;
-    
+
         return $this;
     }
 
     /**
      * Get component
      *
-     * @return \My\CMSBundle\Entity\CMSComponent 
+     * @return \My\CMSBundle\Entity\CMSComponent
      */
     public function getComponent()
     {

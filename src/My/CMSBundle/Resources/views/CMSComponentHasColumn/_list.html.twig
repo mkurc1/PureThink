@@ -3,7 +3,8 @@
         <tr>
             <th class="select"></th>
             <th class="lp">Lp.</th>
-            <th column="a.name" class="name width_big">Nazwa</th>
+            <th column="a.name" class="name width_small">Nazwa</th>
+            <th column="ct.name" class="width_big">Typ</th>
         </tr>
     </thead>
     <tbody>
@@ -17,7 +18,8 @@
         <tr list_id="{{ entity.id }}">
             <td class="select"><input type="checkbox" class="multi_check" /></td>
             <td class="lp">{{ i }}.</td>
-            <td class="width_big name"><a class="sublist" href="{ path('cmscomponenthascolumn_edit', { 'id': entity.id }) }}">{{ entity }}">{{ entity }}</a></td>
+            <td class="width_small name"><a class="editMode" href="{{ path('cmscomponenthascolumn_edit', { 'id': entity.id }) }}">{{ entity }}</a></td>
+            <td class="width_big">{{ entity.columnType.name }}</td>
         </tr>
     {% endfor %}
     </tbody>

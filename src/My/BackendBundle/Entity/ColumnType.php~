@@ -76,4 +76,45 @@ class ColumnType
     {
         return $this->getName();
     }
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->cmsComponentHasColumns = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add cmsComponentHasColumns
+     *
+     * @param \My\CMSBundle\Entity\CMSComponentHasColumn $cmsComponentHasColumns
+     * @return ColumnType
+     */
+    public function addCmsComponentHasColumn(\My\CMSBundle\Entity\CMSComponentHasColumn $cmsComponentHasColumns)
+    {
+        $this->cmsComponentHasColumns[] = $cmsComponentHasColumns;
+
+        return $this;
+    }
+
+    /**
+     * Remove cmsComponentHasColumns
+     *
+     * @param \My\CMSBundle\Entity\CMSComponentHasColumn $cmsComponentHasColumns
+     */
+    public function removeCmsComponentHasColumn(\My\CMSBundle\Entity\CMSComponentHasColumn $cmsComponentHasColumns)
+    {
+        $this->cmsComponentHasColumns->removeElement($cmsComponentHasColumns);
+    }
+
+    /**
+     * Get cmsComponentHasColumns
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCmsComponentHasColumns()
+    {
+        return $this->cmsComponentHasColumns;
+    }
 }

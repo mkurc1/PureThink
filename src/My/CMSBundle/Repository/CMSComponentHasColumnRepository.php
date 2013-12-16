@@ -23,6 +23,9 @@ class CMSComponentHasColumnRepository extends EntityRepository
 	public function getColumns($order, $sequence, $filtr)
 	{
 		$qb = $this->createQueryBuilder('a')
+            ->select('a')
+            ->addSelect('ct')
+            ->leftJoin('a.columnType', 'ct')
             ->where('a.name LIKE :filtr')
             ->setParameter('filtr', '%'.$filtr.'%');
 

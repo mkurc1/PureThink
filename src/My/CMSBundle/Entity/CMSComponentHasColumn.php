@@ -47,14 +47,14 @@ class CMSComponentHasColumn
     /**
      * @var string
      *
-     * @ORM\Column(name="class", type="string", length=255)
+     * @ORM\Column(name="class", type="string", length=255, nullable=true)
      */
     private $class;
 
     /**
      * @var boolean
      *
-     * @ORM\Column(name="is_required", type="boolean")
+     * @ORM\Column(name="is_required", type="boolean", nullable=true)
      */
     private $isRequired;
 

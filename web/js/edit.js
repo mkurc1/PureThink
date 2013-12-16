@@ -112,7 +112,8 @@ function Edit() {
                 type: "post",
                 dataType: 'json',
                 data: {
-                    menuId: menuId
+                    menuId: menuId,
+                    sublistId: List.sublistId
                 },
                 beforeSerialize: function() {
                     Edit.ckeditUpdateElement();

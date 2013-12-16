@@ -61,100 +61,71 @@ class CMSComponentHasColumnController extends Controller
     /**
      * Creates a new CMSComponentHasColumn entity.
      *
-     * @Route("/", name="cmscomponenthascolumn_create")
+     * @Route("/create", name="cmscomponenthascolumn_create")
      * @Method("POST")
-     * @Template("MyCMSBundle:CMSComponentHasColumn:new.html.twig")
      */
     public function createAction(Request $request)
     {
+        $sublistId = (int)$request->get('sublistId');
+        $em = $this->getDoctrine()->getManager();
+
         $entity = new CMSComponentHasColumn();
-        $form = $this->createCreateForm($entity);
-        $form->handleRequest($request);
+        $entity->setComponent($em->getRepository('MyCMSBundle:CMSComponent')->find($sublistId));
+
+        $form = $this->createForm(new CMSComponentHasColumnType(), $entity);
+        $form->bind($request);
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('cmscomponenthascolumn_show', array('id' => $entity->getId())));
+            $response = array(
+                "response" => true,
+                "id" => $entity->getId(),
+                "message" => 'Dodawanie rozszerzenia zakończyło się powodzeniem'
+                );
+        }
+        else {
+            $view = $this->renderView('MyCMSBundle:CMSComponentHasColumn:_new.html.twig', array('entity' => $entity, 'form' => $form->createView()));
+
+            $response = array(
+                "response" => false,
+                "view" => $view
+                );
         }
 
-        return array(
-            'entity' => $entity,
-            'form'   => $form->createView(),
-        );
-    }
-
-    /**
-    * Creates a form to create a CMSComponentHasColumn entity.
-    *
-    * @param CMSComponentHasColumn $entity The entity
-    *
-    * @return \Symfony\Component\Form\Form The form
-    */
-    private function createCreateForm(CMSComponentHasColumn $entity)
-    {
-        $form = $this->createForm(new CMSComponentHasColumnType(), $entity, array(
-            'action' => $this->generateUrl('cmscomponenthascolumn_create'),
-            'method' => 'POST',
-        ));
-
-        $form->add('submit', 'submit', array('label' => 'Create'));
-
-        return $form;
+        return new Response(json_encode($response));
     }
 
     /**
      * Displays a form to create a new CMSComponentHasColumn entity.
      *
      * @Route("/new", name="cmscomponenthascolumn_new")
-     * @Method("GET")
-     * @Template()
+     * @Method("POST")
      */
-    public function newAction()
+    public function newAction(Request $request)
     {
         $entity = new CMSComponentHasColumn();
-        $form   = $this->createCreateForm($entity);
+        $form = $this->createForm(new CMSComponentHasColumnType(), $entity);
 
-        return array(
-            'entity' => $entity,
-            'form'   => $form->createView(),
-        );
-    }
+        $view = $this->renderView('MyCMSBundle:CMSComponentHasColumn:_new.html.twig', array('entity' => $entity, 'form' => $form->createView()));
 
-    /**
-     * Finds and displays a CMSComponentHasColumn entity.
-     *
-     * @Route("/{id}", name="cmscomponenthascolumn_show")
-     * @Method("GET")
-     * @Template()
-     */
-    public function showAction($id)
-    {
-        $em = $this->getDoctrine()->getManager();
+        $response = array(
+                "response" => true,
+                "view" => $view
+                );
 
-        $entity = $em->getRepository('MyCMSBundle:CMSComponentHasColumn')->find($id);
-
-        if (!$entity) {
-            throw $this->createNotFoundException('Unable to find CMSComponentHasColumn entity.');
-        }
-
-        $deleteForm = $this->createDeleteForm($id);
-
-        return array(
-            'entity'      => $entity,
-            'delete_form' => $deleteForm->createView(),
-        );
+        return new Response(json_encode($response));
     }
 
     /**
      * Displays a form to edit an existing CMSComponentHasColumn entity.
      *
      * @Route("/{id}/edit", name="cmscomponenthascolumn_edit")
-     * @Method("GET")
-     * @Template()
+     * @Method("POST")
      */
-    public function editAction($id)
+    public function editAction(Request $request, $id)
     {
         $em = $this->getDoctrine()->getManager();
 
@@ -164,40 +135,23 @@ class CMSComponentHasColumnController extends Controller
             throw $this->createNotFoundException('Unable to find CMSComponentHasColumn entity.');
         }
 
-        $editForm = $this->createEditForm($entity);
-        $deleteForm = $this->createDeleteForm($id);
+        $editForm = $this->createForm(new CMSComponentHasColumnType(), $entity);
 
-        return array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
-        );
+        $view = $this->renderView('MyCMSBundle:CMSComponentHasColumn:_edit.html.twig', array('entity' => $entity, 'form' => $editForm->createView()));
+
+        $response = array(
+            "response" => true,
+            "view" => $view
+            );
+
+        return new Response(json_encode($response));
     }
 
-    /**
-    * Creates a form to edit a CMSComponentHasColumn entity.
-    *
-    * @param CMSComponentHasColumn $entity The entity
-    *
-    * @return \Symfony\Component\Form\Form The form
-    */
-    private function createEditForm(CMSComponentHasColumn $entity)
-    {
-        $form = $this->createForm(new CMSComponentHasColumnType(), $entity, array(
-            'action' => $this->generateUrl('cmscomponenthascolumn_update', array('id' => $entity->getId())),
-            'method' => 'PUT',
-        ));
-
-        $form->add('submit', 'submit', array('label' => 'Update'));
-
-        return $form;
-    }
     /**
      * Edits an existing CMSComponentHasColumn entity.
      *
-     * @Route("/{id}", name="cmscomponenthascolumn_update")
-     * @Method("PUT")
-     * @Template("MyCMSBundle:CMSComponentHasColumn:edit.html.twig")
+     * @Route("/{id}/update", name="cmscomponenthascolumn_update")
+     * @Method("POST")
      */
     public function updateAction(Request $request, $id)
     {
@@ -209,62 +163,81 @@ class CMSComponentHasColumnController extends Controller
             throw $this->createNotFoundException('Unable to find CMSComponentHasColumn entity.');
         }
 
-        $deleteForm = $this->createDeleteForm($id);
-        $editForm = $this->createEditForm($entity);
-        $editForm->handleRequest($request);
+        $editForm = $this->createForm(new CMSComponentHasColumnType(), $entity);
+        $editForm->bind($request);
 
         if ($editForm->isValid()) {
+            $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('cmscomponenthascolumn_edit', array('id' => $id)));
+            $response = array(
+                "response" => true,
+                "id" => $entity->getId(),
+                "message" => 'Edycja rozszerzenia zakończyła się powodzeniem'
+                );
+        }
+        else {
+            $view = $this->renderView('MyCMSBundle:CMSComponentHasColumn:_edit.html.twig', array('entity' => $entity, 'form' => $editForm->createView()));
+
+            $response = array(
+                "response" => false,
+                "view" => $view
+                );
         }
 
-        return array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
-        );
+        return new Response(json_encode($response));
     }
+
     /**
      * Deletes a CMSComponentHasColumn entity.
      *
-     * @Route("/{id}", name="cmscomponenthascolumn_delete")
-     * @Method("DELETE")
+     * @Route("/delete", name="cmscomponenthascolumn_delete")
+     * @Method("POST")
      */
-    public function deleteAction(Request $request, $id)
+    public function deleteAction(Request $request)
     {
-        $form = $this->createDeleteForm($id);
-        $form->handleRequest($request);
+        $arrayId = $request->get('arrayId');
 
-        if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('MyCMSBundle:CMSComponentHasColumn')->find($id);
+        $em = $this->getDoctrine()->getManager();
+
+        foreach ($arrayId as $id) {
+            $entity = $em->getRepository('MyCMSBundle:CMSComponentHasColumn')->find((int)$id);
 
             if (!$entity) {
                 throw $this->createNotFoundException('Unable to find CMSComponentHasColumn entity.');
             }
 
             $em->remove($entity);
-            $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('cmscomponenthascolumn'));
-    }
+        try {
+            $em->flush();
 
-    /**
-     * Creates a form to delete a CMSComponentHasColumn entity by id.
-     *
-     * @param mixed $id The entity id
-     *
-     * @return \Symfony\Component\Form\Form The form
-     */
-    private function createDeleteForm($id)
-    {
-        return $this->createFormBuilder()
-            ->setAction($this->generateUrl('cmscomponenthascolumn_delete', array('id' => $id)))
-            ->setMethod('DELETE')
-            ->add('submit', 'submit', array('label' => 'Delete'))
-            ->getForm()
-        ;
+            if (count($arrayId) > 1) {
+                $message = 'Usuwanie rozszerzeń zakończyło się powodzeniem';
+            }
+            else {
+                $message = 'Usuwanie rozszerzenia zakończyło się powodzeniem';
+            }
+
+            $response = array(
+                "response" => true,
+                "message" => $message
+                );
+        } catch (\Exception $e) {
+            if (count($arrayId) > 1) {
+                $message = 'Usuwanie rozszerzeń zakończyło się niepowodzeniem';
+            }
+            else {
+                $message = 'Usuwanie rozszerzenia zakończyło się niepowodzeniem';
+            }
+
+            $response = array(
+                "response" => false,
+                "message" => $message
+                );
+        }
+
+        return new Response(json_encode($response));
     }
 }
