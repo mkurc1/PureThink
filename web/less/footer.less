@@ -1,3 +1,8 @@
+//
+// Footer
+// --------------------------------------------------
+//
+
 #footer {
     position: fixed;
     width: 100%;
@@ -6,111 +11,130 @@
     bottom: 0;
     background-color: #FCFCFC;
     z-index: 20;
-}
-#footer > #left_menu_toggle {
-    position: relative;
-    float: left;
-    left: 250px;
-    width: 40px;
-    height: 40px;
-    bottom: 0;
-    border-right: 1px solid #E7E7E7;
-    background-color: #F7F7F7;
-    background-image: url("/../images/arrow_left_big.png");
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    cursor: pointer;
-}
-#footer > #left_menu_toggle:hover {
-    background-color: #E7E7E7;
-}
-#footer > #left_menu_toggle.hide_menu {
-    left: 0;
-    background-image: url("/../images/arrow_right_big.png");
-}
-#footer > #pagination_count {
-    position: relative;
-    float: left;
-    margin: 12px 0 0 273px;
-    font-size: 12px;
-    color: #666666;
-    list-style-position: inside;
-}
-#footer > #pagination_count.hide_menu {
-    margin-left: 23px;
-}
-#footer > #pagination_count > li {
-    position: relative;
-    float: left;
-    margin-right: 6px;
-}
-#footer > #pagination_count > li:first-child,
-#footer > #pagination_count > li:nth-child(2) {
-    list-style-type: none;
-    margin-right: 0;
-}
-#footer > #pagination {
-    position: relative;
-    float: right;
-    height: 100%;
-    margin: 10px 25px 0 0;
-}
-#footer > #pagination > div.pagination {
-    float: left;
-    font-size: 13px;
-    margin: 3px 10px 0 0;
-}
-#footer > #pagination > div.pagination > a {
-    color: #757575;
-    cursor: pointer;
-    float: left;
-    margin: 0 1px;
-    position: relative;
-}
-#footer > #pagination > div.pagination > a > i {
-    font-size: 15px;
-    color: #808080;
-}
-#footer > #pagination > div.pagination > div#str {
-    float: left;
-    position: relative;
-}
-#footer > #pagination > div.pagination > div#str > span {
-    cursor: pointer;
-    float: left;
-    margin: 0 3px;
-    color: #666666;
-}
-#footer > #pagination > div.pagination > div#str > span#str_selected {
-    font-weight: bold;
-    color: #3a3a3a;
-}
-#footer > #pagination > label {
-    color: #666666;
-    float: left;
-    font-size: 12px;
-    margin: 0 5px 0 8px;
-    padding-top: 3px;
-    position: relative;
-    width: auto;
-}
-#footer > #pagination > select {
-    position: relative;
-    float: right;
-    width: 50px;
-    background-color: #FCFCFC;
-}
-#footer > #pagination .chosen-container-single .chosen-single {
-    height: 18px;
-    line-height: 11px;
-    margin-top: -2px;
-    padding-left: 3px;
-}
-#footer > #pagination .chosen-single span {
-    margin-top: 4px;
-    text-align: center;
-    font-size: 11px;
-}
-#footer > #pagination .chosen-single > div > b {
-    background-position: 0 0;
+
+    > #left_menu_toggle {
+        position: relative;
+        float: left;
+        left: 250px;
+        width: 40px;
+        height: 40px;
+        bottom: 0;
+        border-right: 1px solid #E7E7E7;
+        background-color: #F7F7F7;
+        background-image: url("/../images/arrow_left_big.png");
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #E7E7E7;
+        }
+
+        &.hide_menu {
+            left: 0;
+            background-image: url("/../images/arrow_right_big.png");
+        }
+    }
+
+    > #pagination_count {
+        position: relative;
+        float: left;
+        margin: 12px 0 0 273px;
+        font-size: 12px;
+        color: #666666;
+        list-style-position: inside;
+
+        &.hide_menu {
+            margin-left: 23px;
+        }
+
+        > li {
+            position: relative;
+            float: left;
+            margin-right: 6px;
+
+            &:first-child,
+            &:nth-child(2) {
+                list-style-type: none;
+                margin-right: 0;
+            }
+        }
+    }
+
+    > #pagination {
+        position: relative;
+        float: right;
+        height: 100%;
+        margin: 10px 25px 0 0;
+
+        > div.pagination {
+            float: left;
+            font-size: 13px;
+            margin: 3px 10px 0 0;
+
+            > a {
+                color: #757575;
+                cursor: pointer;
+                float: left;
+                margin: 0 1px;
+                position: relative;
+
+                > i {
+                    font-size: 15px;
+                    color: #808080;
+                }
+            }
+
+            > div#str {
+                float: left;
+                position: relative;
+
+                > span {
+                    cursor: pointer;
+                    float: left;
+                    margin: 0 3px;
+                    color: #666666;
+
+                    &#str_selected {
+                        font-weight: bold;
+                        color: #3a3a3a;
+                    }
+                }
+            }
+        }
+
+        > label {
+            color: #666666;
+            float: left;
+            font-size: 12px;
+            margin: 0 5px 0 8px;
+            padding-top: 3px;
+            position: relative;
+            width: auto;
+        }
+
+        > select {
+            position: relative;
+            float: right;
+            width: 50px;
+            background-color: #FCFCFC;
+        }
+
+        .chosen-container-single .chosen-single {
+            height: 18px;
+            line-height: 11px;
+            margin-top: -2px;
+            padding-left: 3px;
+
+            span {
+                margin-top: 4px;
+                text-align: center;
+                font-size: 11px;
+            }
+
+            > div > b {
+                background-position: 0 0;
+            }
+        }
+    }
 }

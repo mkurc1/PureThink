@@ -1,3 +1,7 @@
+//
+// Main menu
+// --------------------------------------------------
+
 #main_menu {
     position: fixed;
     width: 100%;
@@ -6,116 +10,136 @@
     background-color: #FCFCFC;
     border-bottom: 1px solid #E7E7E7;
     z-index: 1000;
+
+    > #select_mode_conteiner {
+        position: relative;
+        float: left;
+        height: 100%;
+        width: 250px;
+
+        > #select_mode {
+            position: relative;
+            float: left;
+            margin: 10px 0 0 25px;
+            height: 22px;
+            cursor: pointer;
+
+            > #select {
+                float: left;
+                font-size: 13px;
+                color: #eb3c00;
+            }
+
+            > img {
+                position: relative;
+                float: left;
+                margin: 7px 0 0 3px;
+            }
+
+            > ul#select_container_list {
+                display: none;
+                position: fixed;
+                background-color: #FCFCFC;
+                border: 1px solid rgba(0, 0, 0, 0.2);
+                border-radius: 3px;
+                list-style-type: none;
+                top: 69px;
+                padding: 5px 7px 6px 10px;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+
+                &:before {
+                    border-bottom: 7px solid rgba(0, 0, 0, 0.2);
+                    border-left: 7px solid rgba(0, 0, 0, 0);
+                    border-right: 7px solid rgba(0, 0, 0, 0);
+                    display: inline-block;
+                    position: absolute;
+                    top: -7px;
+                    left: 9px;
+                    content: "";
+                }
+
+                &:after {
+                    border-bottom: 6px solid #FCFCFC;
+                    border-left: 6px solid rgba(0, 0, 0, 0);
+                    border-right: 6px solid rgba(0, 0, 0, 0);
+                    display: inline-block;
+                    position: absolute;
+                    top: -6px;
+                    left: 10px;
+                    content: "";
+                }
+
+                > li {
+                    position: relative;
+                    float: left;
+                    width: 100%;
+                    font-size: 13px;
+                    cursor: pointer;
+                    color: #757575;
+
+                    &:hover {
+                        color: #3A3A3A;
+                    }
+                }
+            }
+
+            &:hover > ul#select_container_list {
+                display: block;
+            }
+        }
+    }
+
+    > ul#main_menu_list {
+        position: relative;
+        float: left;
+        margin-top: 6px;
+        list-style-type: none;
+
+        > li {
+            float: left;
+            margin-left: 15px;
+
+            &:first-child {
+                margin-left: 0;
+            }
+
+            > a {
+                font-size: 13px;
+                color: #565656;
+                text-transform: uppercase;
+
+                &:hover {
+                    color: #909090;
+                }
+            }
+
+            &.selected > a {
+                color: #eb3c00;
+            }
+        }
+    }
 }
-#main_menu > #select_mode_conteiner, #main_button > .left {
-    position: relative;
-    float: left;
-    height: 100%;
-    width: 250px;
-}
-#main_menu > #select_mode_conteiner > #select_mode {
-    position: relative;
-    float: left;
-    margin: 10px 0 0 25px;
-    height: 22px;
-    cursor: pointer;
-}
-#main_menu > #select_mode_conteiner > #select_mode > #select {
-    float: left;
-    font-size: 13px;
-    color: #eb3c00;
-}
-#main_menu > #select_mode_conteiner > #select_mode > img {
-    position: relative;
-    float: left;
-    margin: 7px 0 0 3px;
-}
-#main_menu > #select_mode_conteiner > #select_mode > ul#select_container_list {
-    display: none;
-    position: fixed;
-    background-color: #FCFCFC;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    border-radius: 3px;
-    list-style-type: none;
-    top: 69px;
-    padding: 5px 7px 6px 10px;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-}
-#main_menu > #select_mode_conteiner > #select_mode > ul#select_container_list:before {
-    border-bottom: 7px solid rgba(0, 0, 0, 0.2);
-    border-left: 7px solid rgba(0, 0, 0, 0);
-    border-right: 7px solid rgba(0, 0, 0, 0);
-    display: inline-block;
-    position: absolute;
-    top: -7px;
-    left: 9px;
-    content: "";
-}
-#main_menu > #select_mode_conteiner > #select_mode > ul#select_container_list:after {
-    border-bottom: 6px solid #FCFCFC;
-    border-left: 6px solid rgba(0, 0, 0, 0);
-    border-right: 6px solid rgba(0, 0, 0, 0);
-    display: inline-block;
-    position: absolute;
-    top: -6px;
-    left: 10px;
-    content: "";
-}
-#main_menu > #select_mode_conteiner > #select_mode > ul#select_container_list > li {
-    position: relative;
-    float: left;
-    width: 100%;
-    font-size: 13px;
-    cursor: pointer;
-    color: #757575;
-}
-#main_menu > #select_mode_conteiner > #select_mode > ul#select_container_list > li:hover {
-    color: #3A3A3A;
-}
-#main_menu > #select_mode_conteiner > #select_mode:hover > ul#select_container_list {
-    display: block;
-}
-#main_menu > ul#main_menu_list {
-    position: relative;
-    float: left;
-    margin-top: 6px;
-    list-style-type: none;
-}
-#main_menu > ul#main_menu_list > li {
-    float: left;
-    margin-left: 15px;
-}
-#main_menu > ul#main_menu_list > li:first-child {
-    margin-left: 0;
-}
-#main_menu > ul#main_menu_list > li > a {
-    font-size: 13px;
-    color: #565656;
-    text-transform: uppercase;
-}
-#main_menu > ul#main_menu_list > li > a:hover {
-    color: #909090;
-}
-#main_menu > ul#main_menu_list > li.selected > a {
-    color: #eb3c00;
-}
+
 #shortcut_container {
     position: relative;
     float: right;
     height: 100%;
     margin-right: 25px;
-}
-#shortcut_container > a {
-    position: relative;
-    float: right;
-    margin: 7px 0 0 7px;
-}
-#shortcut_container > a > img.arrow {
-    position: relative;
-    float: right;
-    margin: 8px 0 0 3px;
-}
-#shortcut_container > a > i {
-    font-size: 16px;
-    color: #777777;
+
+    > a {
+        position: relative;
+        float: right;
+        margin: 7px 0 0 7px;
+
+        > img.arrow {
+            position: relative;
+            float: right;
+            margin: 8px 0 0 3px;
+        }
+
+        > i {
+            font-size: 16px;
+            color: #777777;
+        }
+    }
 }

@@ -1,3 +1,7 @@
+//
+// Left menu
+// --------------------------------------------------
+
 #left_menu {
     position: fixed;
     height: 100%;
@@ -8,193 +12,214 @@
     border-right: 1px solid #E7E7E7;
     background-color: #FCFCFC;
     margin-top: 155px;
+
+    > #left_menu_container {
+        position: relative;
+        float: left;
+        width: 100%;
+        list-style-type: none;
+
+        > li {
+            position: relative;
+            float: left;
+
+            > div.submenu_left {
+                position: relative;
+                float: left;
+                width: 100%;
+                border-bottom: 1px solid #E7E7E7;
+
+                > div.edit {
+                    position: relative;
+                    float: left;
+                    width: 100%;
+                    height: 26px;
+                    background-color: #E7E7E7;
+
+                    > button {
+                        position: relative;
+                        float: left;
+                        padding: 0 5px;
+                        margin: 3px 0 0 8px;
+                        font-size: 10px;
+                        background-color: #F7F7F7;
+                        border: 1px solid #C6C6C6;
+                        border-radius: 3px;
+                        cursor: pointer;
+                        color: #565656;
+                        height: 19px;
+                        .left_menu_button_gradient;
+
+                        &:hover {
+                            background-color: #EEEEEE;
+                            .left_menu_button_hover_gradient;
+                        }
+
+                        &:first-child {
+                            margin-left: 25px;
+                        }
+
+                        &.disable {
+                            opacity: 0.6;
+
+                            &:hover {
+                                background-color: #F7F7F7;
+                                .left_menu_button_gradient;
+                            }
+                        }
+
+                        &.state {
+                            display: none;
+                        }
+                    }
+                }
+
+                > ul {
+                    position: relative;
+                    float: left;
+                    overflow-x: auto;
+                    list-style-type: none;
+
+                    > li {
+                        position: relative;
+                        float: left;
+                        height: 24px;
+                        border-left: 5px solid transparent;
+                        width: 220px;
+
+                        &:first-child {
+                            margin-top: 5px;
+                        }
+
+                        &:last-child {
+                            margin-bottom: 5px;
+                        }
+
+                        &.selected {
+                            border-color: #eb3c00;
+                        }
+
+                        > div.state {
+                            position: relative;
+                            float: right;
+                            border-radius: 5px;
+                            width: 10px;
+                            height: 10px;
+                            cursor: pointer;
+                            margin: 7px 0 0 10px;
+                            display: none;
+
+                            &.active {
+                                background-color: #ADDB11;
+                            }
+
+                            &.deactive {
+                                background-color: #EB3C00;
+                            }
+                        }
+
+                        > span.alias {
+                            position: relative;
+                            float: left;
+                            font-size: 13px;
+                            margin: 4px 0 0 10px;
+                            color: #757575;
+                            display: none;
+                        }
+
+                        &:hover {
+                            > span.alias {
+                                display: block;
+                            }
+
+                            > div.state {
+                                display: block;
+                            }
+                        }
+
+                        > a {
+                            position: relative;
+                            float: left;
+                            color: #3a3a3a;
+                            padding-left: 35px;
+                            margin-top: 4px;
+                            font-size: 13px;
+                            cursor: pointer;
+
+                            &:hover {
+                                color: #909090;
+                            }
+                        }
+
+                        &.selected > a {
+                            color: #eb3c00;
+                        }
+                    }
+
+                    input {
+                        &.new,
+                        &.edit,
+                        &.alias {
+                            position: relative;
+                            float: left;
+                            border: 1px solid #E7E7E7;
+                            border-radius: 3px;
+                            margin: 5px 0 5px 40px;
+                            width: 120px;
+                            font-size: 11px;
+                            height: 13px;
+                            padding: 2px 5px;
+                            color: #3A3A3A;
+                        }
+
+                        &.edit {
+                            margin: 0 0 5px 35px;
+                        }
+
+                        &.alias {
+                            width: 24px;
+                            margin-left: 5px;
+
+                            &.alias_edit_margin {
+                                margin: 0 0 5px 5px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            > a {
+                position: relative;
+                float: left;
+                width: 198px;
+                color: #3a3a3a;
+                font-size: 13px;
+                border-bottom: 1px solid #E7E7E7;
+                height: 18px;
+                padding: 7px 0 7px 52px;
+                background-color: #F7F7F7;
+                font-weight: bold;
+                background-position: 25px 50%;
+                background-repeat: no-repeat;
+                cursor: pointer;
+
+                &.language {
+                    background-image: url("/../images/language.png");
+                }
+
+                &.group {
+                    background-image: url("/../images/group.png");
+                }
+            }
+
+            &:first-child > a {
+                border-top: 0;
+            }
+        }
+    }
 }
-#left_menu > #left_menu_container {
-    position: relative;
-    float: left;
-    width: 100%;
-    list-style-type: none;
-}
-#left_menu > #left_menu_container > li {
-    position: relative;
-    float: left;
-}
-#left_menu > #left_menu_container > li > div.submenu_left > div.edit {
-    position: relative;
-    float: left;
-    width: 100%;
-    height: 26px;
-    background-color: #E7E7E7;
-}
-#left_menu > #left_menu_container > li > div.submenu_left > div.edit > button {
-    position: relative;
-    float: left;
-    padding: 0 5px;
-    margin: 3px 0 0 8px;
-    font-size: 10px;
-    background-color: #F7F7F7;
-    border: 1px solid #C6C6C6;
-    border-radius: 3px;
-    cursor: pointer;
-    color: #565656;
-    height: 19px;
-    background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(20%, #ffffff), color-stop(50%, #f6f6f6), color-stop(52%, #eeeeee), color-stop(100%, #f4f4f4));
-    background: -webkit-linear-gradient(top, #ffffff 20%, #f6f6f6 50%, #eeeeee 52%, #f4f4f4 100%);
-    background: -moz-linear-gradient(top, #ffffff 20%, #f6f6f6 50%, #eeeeee 52%, #f4f4f4 100%);
-    background: -o-linear-gradient(top, #ffffff 20%, #f6f6f6 50%, #eeeeee 52%, #f4f4f4 100%);
-    background: linear-gradient(top, #ffffff 20%, #f6f6f6 50%, #eeeeee 52%, #f4f4f4 100%);
-}
-#left_menu > #left_menu_container > li > div.submenu_left > div.edit > button:hover {
-    background-color: #EEEEEE;
-    background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(20%, #ffffff), color-stop(50%, #f6f6f6), color-stop(52%, #eeeeee), color-stop(100%, #f4f4f4));
-    background: -webkit-linear-gradient(top, #f6f6f6 20%, #eeeeee 50%, #eeeeee 52%, #f4f4f4 100%);
-    background: -moz-linear-gradient(top, #f6f6f6 20%, #eeeeee 50%, #eeeeee 52%, #f4f4f4 100%);
-    background: -o-linear-gradient(top, #f6f6f6 20%, #eeeeee 50%, #eeeeee 52%, #f4f4f4 100%);
-    background: linear-gradient(top, #f6f6f6 20%, #eeeeee 50%, #eeeeee 52%, #f4f4f4 100%);
-}
-#left_menu > #left_menu_container > li > div.submenu_left > div.edit > button:first-child {
-    margin-left: 25px;
-}
-#left_menu > #left_menu_container > li > div.submenu_left > div.edit > button.disable {
-    opacity: 0.6;
-}
-#left_menu > #left_menu_container > li > div.submenu_left > div.edit > button.disable:hover {
-    background-color: #F7F7F7;
-    background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(20%, #ffffff), color-stop(50%, #f6f6f6), color-stop(52%, #eeeeee), color-stop(100%, #f4f4f4));
-    background: -webkit-linear-gradient(top, #ffffff 20%, #f6f6f6 50%, #eeeeee 52%, #f4f4f4 100%);
-    background: -moz-linear-gradient(top, #ffffff 20%, #f6f6f6 50%, #eeeeee 52%, #f4f4f4 100%);
-    background: -o-linear-gradient(top, #ffffff 20%, #f6f6f6 50%, #eeeeee 52%, #f4f4f4 100%);
-    background: linear-gradient(top, #ffffff 20%, #f6f6f6 50%, #eeeeee 52%, #f4f4f4 100%);
-}
-#left_menu > #left_menu_container > li > div.submenu_left > div.edit > button.state {
-    display: none;
-}
-#left_menu > #left_menu_container > li > a {
-    position: relative;
-    float: left;
-    width: 198px;
-    color: #3a3a3a;
-    font-size: 13px;
-    border-bottom: 1px solid #E7E7E7;
-    height: 18px;
-    padding: 7px 0 7px 52px;
-    background-color: #F7F7F7;
-    font-weight: bold;
-    background-position: 25px 50%;
-    background-repeat: no-repeat;
-    cursor: pointer;
-}
-#left_menu > #left_menu_container > li:first-child > a {
-    border-top: 0;
-}
-#left_menu > #left_menu_container > li > a.language {
-    background-image: url("/../images/language.png");
-}
-#left_menu > #left_menu_container > li > a.group {
-    background-image: url("/../images/group.png");
-}
-#left_menu > #left_menu_container > li > ul {
-    list-style-type: none;
-    margin-top: 11px;
-    float: left;
-}
-#left_menu > #left_menu_container > li > div.submenu_left {
-    position: relative;
-    float: left;
-    width: 100%;
-    border-bottom: 1px solid #E7E7E7;
-}
-#left_menu > #left_menu_container > li > div.submenu_left > ul {
-    position: relative;
-    float: left;
-    overflow-x: auto;
-}
-#left_menu > #left_menu_container > li > div.submenu_left > ul > li {
-    position: relative;
-    float: left;
-    height: 24px;
-    border-left: 5px solid transparent;
-    width: 220px;
-}
-#left_menu > #left_menu_container > li > div.submenu_left > ul > li:first-child {
-    margin-top: 5px;
-}
-#left_menu > #left_menu_container > li > div.submenu_left > ul > li:last-child {
-    margin-bottom: 5px;
-}
-#left_menu > #left_menu_container > li > div.submenu_left > ul > li.selected {
-    border-color: #eb3c00;
-}
-#left_menu > #left_menu_container > li > div.submenu_left > ul > li > div.state {
-    position: relative;
-    float: right;
-    border-radius: 5px;
-    width: 10px;
-    height: 10px;
-    cursor: pointer;
-    margin: 7px 0 0 10px;
-    display: none;
-}
-#left_menu > #left_menu_container > li > div.submenu_left > ul > li > span.alias {
-    position: relative;
-    float: left;
-    font-size: 13px;
-    margin: 4px 0 0 10px;
-    color: #757575;
-    display: none;
-}
-#left_menu > #left_menu_container > li > div.submenu_left > ul > li:hover > span.alias {
-    display: block;
-}
-#left_menu > #left_menu_container > li > div.submenu_left > ul > li > div.state.active {
-    background-color: #ADDB11;
-}
-#left_menu > #left_menu_container > li > div.submenu_left > ul > li > div.state.deactive {
-    background-color: #EB3C00;
-}
-#left_menu > #left_menu_container > li > div.submenu_left > ul > li:hover > div.state {
-    display: block;
-}
-#left_menu > #left_menu_container > li > div.submenu_left > ul > li > a {
-    position: relative;
-    float: left;
-    color: #3a3a3a;
-    padding-left: 35px;
-    margin-top: 4px;
-    font-size: 13px;
-    cursor: pointer;
-}
-#left_menu > #left_menu_container > li > div.submenu_left > ul > li > a:hover {
-    color: #909090;
-}
-#left_menu > #left_menu_container > li > div.submenu_left > ul > li.selected > a {
-    color: #eb3c00;
-}
-#left_menu > #left_menu_container > li > div.submenu_left > ul input.new,
-#left_menu > #left_menu_container > li > div.submenu_left > ul input.edit,
-#left_menu > #left_menu_container > li > div.submenu_left > ul input.alias {
-    position: relative;
-    float: left;
-    border: 1px solid #E7E7E7;
-    border-radius: 3px;
-    margin: 5px 0 5px 40px;
-    width: 120px;
-    font-size: 11px;
-    height: 13px;
-    padding: 2px 5px;
-    color: #3A3A3A;
-}
-#left_menu > #left_menu_container > li > div.submenu_left > ul input.edit {
-    margin: 0 0 5px 35px;
-}
-#left_menu > #left_menu_container > li > div.submenu_left > ul input.alias {
-    width: 24px;
-    margin-left: 5px;
-}
-#left_menu > #left_menu_container > li > div.submenu_left > ul input.alias.alias_edit_margin {
-    margin: 0 0 5px 5px;
-}
-#left_menu > #author {
+
+#author {
     position: absolute;
     width: 100%;
     height: 40px;
@@ -202,26 +227,30 @@
     bottom: 155px;
     z-index: 100;
     background-color: #FCFCFC;
-}
-#left_menu > #author > span {
-    position: relative;
-    float: left;
-    font-size: 11px;
-    margin-top: 13px;
-    margin-left: 25px;
-    color: #6B6B6B;
-}
-#left_menu > #author > span:last-child {
-    margin-left: 5px;
-    height: 14px;
-    border-left: 1px solid #E7E7E7;
-    padding-left: 5px;
-}
-#left_menu > #author > span > a {
-    font-size: 11px;
-    height: 14px;
-    color: #6B6B6B;
-}
-#left_menu > #author > span > a:hover {
-    color: #3A3A3A;
+
+    > span {
+        position: relative;
+        float: left;
+        font-size: 11px;
+        margin-top: 13px;
+        margin-left: 25px;
+        color: #6B6B6B;
+
+        &:last-child {
+            margin-left: 5px;
+            height: 14px;
+            border-left: 1px solid #E7E7E7;
+            padding-left: 5px;
+        }
+
+        > a {
+            font-size: 11px;
+            height: 14px;
+            color: #6B6B6B;
+
+            &:hover {
+                color: #3A3A3A;
+            }
+        }
+    }
 }
