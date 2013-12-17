@@ -1,0 +1,27 @@
+{{ form_widget(form._token) }}
+
+<div class="dane_element">
+    {{ form_label(form.name) }}
+    {{ form_widget(form.name) }}
+    {{ form_errors(form.name) }}
+</div>
+
+<div class="dane_element">
+    {{ form_label(form.component) }}
+    {{ form_widget(form.component) }}
+    {{ form_errors(form.component) }}
+</div>
+
+<div class="dane_element">
+    <div class="dane_element_medium">
+        {{ form_label(form.series) }}
+        {{ form_widget(form.series) }}
+        {{ form_errors(form.series) }}
+    </div>
+
+    <div class="dane_element_medium margin_right_off">
+        {{ form_label(form.language) }}
+        {{ form_widget(form.language) }}
+        {{ form_errors(form.language) }}
+    </div>
+</div>

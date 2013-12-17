@@ -9,6 +9,9 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use My\CMSBundle\Entity\CMSComponentOnPage;
 use My\CMSBundle\Form\CMSComponentOnPageType;
+use Symfony\Component\HttpFoundation\Response;
+
+use My\BackendBundle\Pagination\Pagination as Pagination;
 
 /**
  * CMSComponentOnPage controller.
@@ -17,122 +20,117 @@ use My\CMSBundle\Form\CMSComponentOnPageType;
  */
 class CMSComponentOnPageController extends Controller
 {
-
     /**
      * Lists all CMSComponentOnPage entities.
      *
      * @Route("/", name="cmscomponentonpage")
-     * @Method("GET")
-     * @Template()
+     * @Method("POST")
      */
-    public function indexAction()
+    public function listAction(Request $request)
     {
+        $rowsOnPage = (int)$request->get('rowsOnPage', 10);
+        $page = (int)$request->get('page', 1);
+        $order = $request->get('order', 'a.name');
+        $sequence = $request->get('sequence', 'ASC');
+        $filtr = $request->get('filtr');
+        $languageId = $request->get('languageId');
+        $groupId = $request->get('groupId');
+
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('MyCMSBundle:CMSComponentOnPage')->findAll();
+        $entities = $em->getRepository('MyCMSBundle:CMSComponentOnPage')->getComponents($order, $sequence, $filtr, $languageId, $groupId);
 
-        return array(
-            'entities' => $entities,
+        $paginator  = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $entities,
+            $page,
+            $rowsOnPage
         );
+
+        $list = $this->renderView('MyCMSBundle:CMSComponentOnPage:_list.html.twig', array('entities' => $pagination, 'page' => $page, 'rowsOnPage' => $rowsOnPage));
+
+        $response = array(
+            "list" => $list,
+            "pagination" => Pagination::helper($pagination),
+            "response" => true
+            );
+
+        return new Response(json_encode($response));
     }
+
     /**
-     * Creates a new CMSComponentOnPage entity.
+     * Creates new CMSComponentOnPage entity.
      *
-     * @Route("/", name="cmscomponentonpage_create")
+     * @Route("/create", name="cmscomponentonpage_create")
      * @Method("POST")
-     * @Template("MyCMSBundle:CMSComponentOnPage:new.html.twig")
      */
     public function createAction(Request $request)
     {
-        $entity = new CMSComponentOnPage();
-        $form = $this->createCreateForm($entity);
-        $form->handleRequest($request);
+        $menuId = (int)$request->get('menuId');
+
+        $entity = new CMSComponentOnPage;
+
+        $form = $this->createForm(new CMSComponentOnPageType(), $entity, array('attr' => array(
+            'menuId' => $menuId)));
+        $form->bind($request);
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('cmscomponentonpage_show', array('id' => $entity->getId())));
+            $response = array(
+                "response" => true,
+                "id" => $entity->getId(),
+                "message" => 'Dodawanie komponentu zakończyło się powodzeniem'
+                );
+        }
+        else {
+            $view = $this->renderView('MyCMSBundle:CMSComponentOnPage:_new.html.twig', array('entity' => $entity, 'form' => $form->createView()));
+
+            $response = array(
+                "response" => false,
+                "view" => $view
+                );
         }
 
-        return array(
-            'entity' => $entity,
-            'form'   => $form->createView(),
-        );
-    }
-
-    /**
-    * Creates a form to create a CMSComponentOnPage entity.
-    *
-    * @param CMSComponentOnPage $entity The entity
-    *
-    * @return \Symfony\Component\Form\Form The form
-    */
-    private function createCreateForm(CMSComponentOnPage $entity)
-    {
-        $form = $this->createForm(new CMSComponentOnPageType(), $entity, array(
-            'action' => $this->generateUrl('cmscomponentonpage_create'),
-            'method' => 'POST',
-        ));
-
-        $form->add('submit', 'submit', array('label' => 'Create'));
-
-        return $form;
+        return new Response(json_encode($response));
     }
 
     /**
      * Displays a form to create a new CMSComponentOnPage entity.
      *
      * @Route("/new", name="cmscomponentonpage_new")
-     * @Method("GET")
-     * @Template()
+     * @Method("POST")
      */
-    public function newAction()
+    public function newAction(Request $request)
     {
+        $menuId = (int)$request->get('menuId');
+
         $entity = new CMSComponentOnPage();
-        $form   = $this->createCreateForm($entity);
+        $form = $this->createForm(new CMSComponentOnPageType(), $entity, array('attr' => array(
+            'menuId' => $menuId)));
 
-        return array(
-            'entity' => $entity,
-            'form'   => $form->createView(),
-        );
-    }
+        $view = $this->renderView('MyCMSBundle:CMSComponentOnPage:_new.html.twig', array('entity' => $entity, 'form' => $form->createView()));
 
-    /**
-     * Finds and displays a CMSComponentOnPage entity.
-     *
-     * @Route("/{id}", name="cmscomponentonpage_show")
-     * @Method("GET")
-     * @Template()
-     */
-    public function showAction($id)
-    {
-        $em = $this->getDoctrine()->getManager();
+        $response = array(
+                "response" => true,
+                "view" => $view
+                );
 
-        $entity = $em->getRepository('MyCMSBundle:CMSComponentOnPage')->find($id);
-
-        if (!$entity) {
-            throw $this->createNotFoundException('Unable to find CMSComponentOnPage entity.');
-        }
-
-        $deleteForm = $this->createDeleteForm($id);
-
-        return array(
-            'entity'      => $entity,
-            'delete_form' => $deleteForm->createView(),
-        );
+        return new Response(json_encode($response));
     }
 
     /**
      * Displays a form to edit an existing CMSComponentOnPage entity.
      *
      * @Route("/{id}/edit", name="cmscomponentonpage_edit")
-     * @Method("GET")
-     * @Template()
+     * @Method("POST")
      */
-    public function editAction($id)
+    public function editAction(Request $request, $id)
     {
+        $menuId = (int)$request->get('menuId');
+
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('MyCMSBundle:CMSComponentOnPage')->find($id);
@@ -141,43 +139,29 @@ class CMSComponentOnPageController extends Controller
             throw $this->createNotFoundException('Unable to find CMSComponentOnPage entity.');
         }
 
-        $editForm = $this->createEditForm($entity);
-        $deleteForm = $this->createDeleteForm($id);
+        $editForm = $this->createForm(new CMSComponentOnPageType(), $entity, array('attr' => array(
+            'menuId' => $menuId)));
 
-        return array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
-        );
+        $view = $this->renderView('MyCMSBundle:CMSComponentOnPage:_edit.html.twig', array('entity' => $entity, 'form' => $editForm->createView()));
+
+        $response = array(
+            "response" => true,
+            "view" => $view
+            );
+
+        return new Response(json_encode($response));
     }
 
-    /**
-    * Creates a form to edit a CMSComponentOnPage entity.
-    *
-    * @param CMSComponentOnPage $entity The entity
-    *
-    * @return \Symfony\Component\Form\Form The form
-    */
-    private function createEditForm(CMSComponentOnPage $entity)
-    {
-        $form = $this->createForm(new CMSComponentOnPageType(), $entity, array(
-            'action' => $this->generateUrl('cmscomponentonpage_update', array('id' => $entity->getId())),
-            'method' => 'PUT',
-        ));
-
-        $form->add('submit', 'submit', array('label' => 'Update'));
-
-        return $form;
-    }
     /**
      * Edits an existing CMSComponentOnPage entity.
      *
-     * @Route("/{id}", name="cmscomponentonpage_update")
-     * @Method("PUT")
-     * @Template("MyCMSBundle:CMSComponentOnPage:edit.html.twig")
+     * @Route("/{id}/update", name="cmscomponentonpage_update")
+     * @Method("POST")
      */
     public function updateAction(Request $request, $id)
     {
+        $menuId = (int)$request->get('menuId');
+
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('MyCMSBundle:CMSComponentOnPage')->find($id);
@@ -186,62 +170,126 @@ class CMSComponentOnPageController extends Controller
             throw $this->createNotFoundException('Unable to find CMSComponentOnPage entity.');
         }
 
-        $deleteForm = $this->createDeleteForm($id);
-        $editForm = $this->createEditForm($entity);
-        $editForm->handleRequest($request);
+        $editForm = $this->createForm(new CMSComponentOnPageType(), $entity, array('attr' => array(
+            'menuId' => $menuId)));
+        $editForm->bind($request);
 
         if ($editForm->isValid()) {
+            $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('cmscomponentonpage_edit', array('id' => $id)));
+            $response = array(
+                "response" => true,
+                "id" => $entity->getId(),
+                "message" => 'Edycja komponentu zakończyła się powodzeniem'
+                );
+        }
+        else {
+            $view = $this->renderView('MyCMSBundle:CMSComponentOnPage:_edit.html.twig', array('entity' => $entity, 'form' => $editForm->createView()));
+
+            $response = array(
+                "response" => false,
+                "view" => $view
+                );
         }
 
-        return array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
-        );
+        return new Response(json_encode($response));
     }
+
     /**
      * Deletes a CMSComponentOnPage entity.
      *
-     * @Route("/{id}", name="cmscomponentonpage_delete")
-     * @Method("DELETE")
+     * @Route("/delete", name="cmscomponentonpage_delete")
+     * @Method("POST")
      */
-    public function deleteAction(Request $request, $id)
+    public function deleteAction(Request $request)
     {
-        $form = $this->createDeleteForm($id);
-        $form->handleRequest($request);
+        $arrayId = $request->get('arrayId');
 
-        if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('MyCMSBundle:CMSComponentOnPage')->find($id);
+        $em = $this->getDoctrine()->getManager();
+
+        foreach ($arrayId as $id) {
+            $entity = $em->getRepository('MyCMSBundle:CMSComponentOnPage')->find((int)$id);
 
             if (!$entity) {
                 throw $this->createNotFoundException('Unable to find CMSComponentOnPage entity.');
             }
 
             $em->remove($entity);
-            $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('cmscomponentonpage'));
+        try {
+            $em->flush();
+
+            if (count($arrayId) > 1) {
+                $message = 'Usuwanie komponentów zakończyło się powodzeniem';
+            }
+            else {
+                $message = 'Usuwanie komponentu zakończyło się powodzeniem';
+            }
+
+            $response = array(
+                "response" => true,
+                "message" => $message
+                );
+        } catch (\Exception $e) {
+            if (count($arrayId) > 1) {
+                $message = 'Usuwanie komponentów zakończyło się niepowodzeniem';
+            }
+            else {
+                $message = 'Usuwanie komponentu zakończyło się niepowodzeniem';
+            }
+
+            $response = array(
+                "response" => false,
+                "message" => $message
+                );
+        }
+
+        return new Response(json_encode($response));
     }
 
     /**
-     * Creates a form to delete a CMSComponentOnPage entity by id.
+     * Change state a CMSComponentOnPage entity.
      *
-     * @param mixed $id The entity id
-     *
-     * @return \Symfony\Component\Form\Form The form
+     * @Route("/state", name="cmscomponentonpage_state")
+     * @Method("POST")
      */
-    private function createDeleteForm($id)
+    public function stateAction(Request $request)
     {
-        return $this->createFormBuilder()
-            ->setAction($this->generateUrl('cmscomponentonpage_delete', array('id' => $id)))
-            ->setMethod('DELETE')
-            ->add('submit', 'submit', array('label' => 'Delete'))
-            ->getForm()
-        ;
+        $id = (int)$request->get('id');
+
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('MyCMSBundle:CMSComponentOnPage')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find CMSComponentOnPage entity.');
+        }
+
+        if ($entity->getIsEnable()) {
+            $entity->setIsEnable(false);
+        }
+        else {
+            $entity->setIsEnable(true);
+        }
+
+        $em->persist($entity);
+
+        try {
+            $em->flush();
+
+            $response = array(
+                "response" => true,
+                "message" => 'Zmiana stanu komponentu zakończyła się powodzeniem'
+                );
+        } catch (\Exception $e) {
+            $response = array(
+                "response" => false,
+                "message" => 'Zmiana stanu komponentu zakończyła się niepowodzeniem'
+                );
+        }
+
+        return new Response(json_encode($response));
     }
 }

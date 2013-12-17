@@ -18,7 +18,16 @@ function setActionOnListMainButtons() {
     $('#main_button > div > div').on('click', '.edit', function() {
         if (!$(this).parent().hasClass('disable')) {
             var listId = List.select[0];
-            var editUrl = $('#main_container > table > tbody tr[list_id="'+listId+'"]').find('.editMode').attr('href');
+
+            var editObject = $('#main_container > table > tbody tr[list_id="'+listId+'"]');
+            var editUrl;
+
+            if (editObject.find('.editMode').length > 0) {
+                editUrl = editObject.find('.editMode').attr('href');
+            }
+            else {
+                editUrl = List.url+listId+'/edit';
+            }
 
             Edit.url = editUrl;
             Edit.getEdit();

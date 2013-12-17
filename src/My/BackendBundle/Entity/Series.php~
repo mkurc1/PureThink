@@ -53,6 +53,11 @@ class Series
      */
     protected $cmsComponents;
 
+    /**
+     * @ORM\OneToMany(targetEntity="My\CMSBundle\Entity\CMSComponentOnPage", mappedBy="series")
+     */
+    protected $cmsComponentOnPages;
+
 
     /**
      * Get id
@@ -235,7 +240,7 @@ class Series
     public function addCmsComponent(\My\CMSBundle\Entity\CMSComponent $cmsComponents)
     {
         $this->cmsComponents[] = $cmsComponents;
-    
+
         return $this;
     }
 
@@ -252,10 +257,43 @@ class Series
     /**
      * Get cmsComponents
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getCmsComponents()
     {
         return $this->cmsComponents;
+    }
+
+    /**
+     * Add cmsComponentOnPages
+     *
+     * @param \My\CMSBundle\Entity\CMSComponentOnPage $cmsComponentOnPages
+     * @return Series
+     */
+    public function addCmsComponentOnPage(\My\CMSBundle\Entity\CMSComponentOnPage $cmsComponentOnPages)
+    {
+        $this->cmsComponentOnPages[] = $cmsComponentOnPages;
+    
+        return $this;
+    }
+
+    /**
+     * Remove cmsComponentOnPages
+     *
+     * @param \My\CMSBundle\Entity\CMSComponentOnPage $cmsComponentOnPages
+     */
+    public function removeCmsComponentOnPage(\My\CMSBundle\Entity\CMSComponentOnPage $cmsComponentOnPages)
+    {
+        $this->cmsComponentOnPages->removeElement($cmsComponentOnPages);
+    }
+
+    /**
+     * Get cmsComponentOnPages
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCmsComponentOnPages()
+    {
+        return $this->cmsComponentOnPages;
     }
 }

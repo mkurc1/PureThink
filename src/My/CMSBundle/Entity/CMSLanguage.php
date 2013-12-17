@@ -52,6 +52,11 @@ class CMSLanguage
      */
     protected $menus;
 
+    /**
+     * @ORM\OneToMany(targetEntity="CMSComponentOnPage", mappedBy="language")
+     */
+    protected $cmsComponentOnPages;
+
 
     /**
      * Get id
@@ -191,7 +196,7 @@ class CMSLanguage
     public function addMenu(\My\CMSBundle\Entity\CMSMenu $menus)
     {
         $this->menus[] = $menus;
-    
+
         return $this;
     }
 
@@ -208,10 +213,43 @@ class CMSLanguage
     /**
      * Get menus
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getMenus()
     {
         return $this->menus;
+    }
+
+    /**
+     * Add cmsComponentOnPages
+     *
+     * @param \My\CMSBundle\Entity\CMSComponentOnPage $cmsComponentOnPages
+     * @return CMSLanguage
+     */
+    public function addCmsComponentOnPage(\My\CMSBundle\Entity\CMSComponentOnPage $cmsComponentOnPages)
+    {
+        $this->cmsComponentOnPages[] = $cmsComponentOnPages;
+    
+        return $this;
+    }
+
+    /**
+     * Remove cmsComponentOnPages
+     *
+     * @param \My\CMSBundle\Entity\CMSComponentOnPage $cmsComponentOnPages
+     */
+    public function removeCmsComponentOnPage(\My\CMSBundle\Entity\CMSComponentOnPage $cmsComponentOnPages)
+    {
+        $this->cmsComponentOnPages->removeElement($cmsComponentOnPages);
+    }
+
+    /**
+     * Get cmsComponentOnPages
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCmsComponentOnPages()
+    {
+        return $this->cmsComponentOnPages;
     }
 }
