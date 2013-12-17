@@ -105,23 +105,25 @@
          * Set space for element
          */
         function setSpaceForElement() {
-            if (openElementCount == 0)
+            if (openElementCount === 0) {
                 spaceForElement = spaceForElements;
-            else
-                spaceForElement = parseInt(spaceForElements / openElementCount);
+            }
+            else {
+                spaceForElement = Number(spaceForElements / openElementCount);
+            }
         }
 
         /**
          * Set element height
          */
         function setElementHeight() {
-            menu.find('> li > div.showMenu').animate({
+            menu.find('> li > div.showMenu').stop().animate({
                 height: spaceForElement,
                 queue: false
             }, 1000);
 
-            menu.find('> li > div.hideMenu').animate({
-                height: 0
+            menu.find('> li > div.hideMenu').stop().animate({
+                height: 0,
             }, 1000, function() {
                 menu.find('> li > div.hideMenu').hide();
             });
@@ -143,9 +145,9 @@
          */
         function getIntegerPart(value, removeValue) {
             if (value)
-                return parseInt(value.replace(removeValue, ''));
+                return Number(value.replace(removeValue, ''));
             else
                 return 0;
         }
-    }
+    };
 })(jQuery);
