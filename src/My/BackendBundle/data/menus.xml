@@ -20,7 +20,7 @@
     </menu>
     <menu>
         <name>Komponenty</name>
-        <link>cmsarticle</link>
+        <link>cmscomponentonpage</link>
         <sequence>4</sequence>
         <module_id>1</module_id>
     </menu>

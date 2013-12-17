@@ -25,6 +25,9 @@
         <name>Datetime</name>
     </columnType>
     <columnType>
-        <name>Select</name>
+        <name>Article</name>
+    </columnType>
+    <columnType>
+        <name>File</name>
     </columnType>
 </columnTypes>

@@ -83,7 +83,7 @@ class CMSComponentHasColumnController extends Controller
             $response = array(
                 "response" => true,
                 "id" => $entity->getId(),
-                "message" => 'Dodawanie rozszerzenia zakończyło się powodzeniem'
+                "message" => 'Dodawanie kolumny zakończyło się powodzeniem'
                 );
         }
         else {
@@ -173,7 +173,7 @@ class CMSComponentHasColumnController extends Controller
             $response = array(
                 "response" => true,
                 "id" => $entity->getId(),
-                "message" => 'Edycja rozszerzenia zakończyła się powodzeniem'
+                "message" => 'Edycja kolumny zakończyła się powodzeniem'
                 );
         }
         else {
@@ -214,10 +214,10 @@ class CMSComponentHasColumnController extends Controller
             $em->flush();
 
             if (count($arrayId) > 1) {
-                $message = 'Usuwanie rozszerzeń zakończyło się powodzeniem';
+                $message = 'Usuwanie kolumn zakończyło się powodzeniem';
             }
             else {
-                $message = 'Usuwanie rozszerzenia zakończyło się powodzeniem';
+                $message = 'Usuwanie kolumny zakończyło się powodzeniem';
             }
 
             $response = array(
@@ -226,10 +226,10 @@ class CMSComponentHasColumnController extends Controller
                 );
         } catch (\Exception $e) {
             if (count($arrayId) > 1) {
-                $message = 'Usuwanie rozszerzeń zakończyło się niepowodzeniem';
+                $message = 'Usuwanie kolumn zakończyło się niepowodzeniem';
             }
             else {
-                $message = 'Usuwanie rozszerzenia zakończyło się niepowodzeniem';
+                $message = 'Usuwanie kolumny zakończyło się niepowodzeniem';
             }
 
             $response = array(

@@ -3,7 +3,6 @@
 namespace My\CMSBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * CMSComponentHasColumn
@@ -28,14 +27,6 @@ class CMSComponentHasColumn
      * @ORM\Column(name="name", type="string", length=255)
      */
     private $name;
-
-    /**
-     * @var string
-     *
-     * @Gedmo\Slug(fields={"name"})
-     * @ORM\Column(length=255, unique=true)
-     */
-    private $slug;
 
     /**
      * @var string
@@ -181,29 +172,6 @@ class CMSComponentHasColumn
     public function getIsRequired()
     {
         return $this->isRequired;
-    }
-
-    /**
-     * Set slug
-     *
-     * @param string $slug
-     * @return CMSComponentHasColumn
-     */
-    public function setSlug($slug)
-    {
-        $this->slug = $slug;
-
-        return $this;
-    }
-
-    /**
-     * Get slug
-     *
-     * @return string
-     */
-    public function getSlug()
-    {
-        return $this->slug;
     }
 
     /**
