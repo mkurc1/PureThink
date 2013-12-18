@@ -1,5 +1,3 @@
-var mainMenuUrl = '/app_dev.php/admin/menu';
-
 (function($) {
     $.fn.setMainMenu = function(moduleId) {
         var menu = $(this);
@@ -10,7 +8,7 @@ var mainMenuUrl = '/app_dev.php/admin/menu';
             data: {
                 moduleId: moduleId
             },
-            url: mainMenuUrl,
+            url: links.mainMenu,
             beforeSend: function() {
             },
             complete: function() {
@@ -22,7 +20,7 @@ var mainMenuUrl = '/app_dev.php/admin/menu';
                 }
             }
         });
-    }
+    };
 })(jQuery);
 
 /**

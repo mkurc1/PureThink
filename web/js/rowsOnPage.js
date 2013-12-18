@@ -1,6 +1,3 @@
-var rowsOnPageUrl = '/app_dev.php/admin/rows_on_page';
-var setRowsOnPageUrl = '/app_dev.php/admin/user/setting/set_rows_on_page';
-
 /**
  * Get rows on page
  *
@@ -13,7 +10,7 @@ function getRowsOnPage(rowsOnPageId) {
         data: {
             rowsOnPageId: UserSetting.rowsOnPageId
         },
-        url: rowsOnPageUrl,
+        url: links.rowsOnPage,
         beforeSend: function() {
         },
         complete: function() {
@@ -51,7 +48,7 @@ function setRowsOnPage() {
         data: {
             rowsOnPage: Pagination.rowsOnPage
         },
-        url: setRowsOnPageUrl,
+        url: links.setRowsOnPage,
         beforeSend: function() {
         },
         complete: function() {

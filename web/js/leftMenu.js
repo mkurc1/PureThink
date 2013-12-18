@@ -1,5 +1,3 @@
-var leftMenuUrl = '/app_dev.php/admin/left_menu';
-
 $(function() {
     $('#left_menu_toggle').click(function() {
         if ($('#left_menu').is(':visible')) {
@@ -29,7 +27,7 @@ function getLeftMenu(editMode) {
             menuId: menuId,
             editMode: editMode
         },
-        url: leftMenuUrl,
+        url: links.lefMenu,
         beforeSend: function() {
         },
         complete: function() {

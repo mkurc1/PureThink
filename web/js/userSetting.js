@@ -1,14 +1,12 @@
 /**
  * Object Setting Constructior
- *
- * @param string url
  */
-function Setting(url) {
+function Setting() {
     this.userId = 0;
     this.rowsOnPageId = 0;
     this.moduleId = 0;
     this.languageId = 0;
-    this.url = '/app_dev.php/admin/user/setting';
+    this.url = links.userSetting;
     this.getUserSetting = getUserSetting;
     this.setUserSetting = setUserSetting;
 
