@@ -113,6 +113,16 @@ class CMSComponentOnPage
     }
 
     /**
+     * Get name
+     *
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->getName();
+    }
+
+    /**
      * Set isEnable
      *
      * @param boolean $isEnable
