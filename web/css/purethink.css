@@ -906,13 +906,13 @@ a {
 }
 #main_menu > #select_mode_conteiner > #select_mode > ul#select_container_list {
   display: none;
-  position: fixed;
+  position: absolute;
   background-color: #FCFCFC;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 3px;
   list-style-type: none;
-  top: 69px;
-  padding: 5px 7px 6px 10px;
+  top: 21px;
+  padding: 8px 0 9px 0;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 #main_menu > #select_mode_conteiner > #select_mode > ul#select_container_list:before {
@@ -938,13 +938,19 @@ a {
 #main_menu > #select_mode_conteiner > #select_mode > ul#select_container_list > li {
   position: relative;
   float: left;
-  width: 100%;
   font-size: 13px;
   cursor: pointer;
-  color: #757575;
+  padding: 1px 7px 1px 10px;
+  color: #4E4E4E;
+  min-width: 100px;
 }
-#main_menu > #select_mode_conteiner > #select_mode > ul#select_container_list > li:hover {
-  color: #3A3A3A;
+#main_menu > #select_mode_conteiner > #select_mode > ul#select_container_list > li.header {
+  color: #999999;
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+#main_menu > #select_mode_conteiner > #select_mode > ul#select_container_list > li.module:hover {
+  background-color: #F5F5F5;
 }
 #main_menu > #select_mode_conteiner > #select_mode:hover > ul#select_container_list {
   display: block;

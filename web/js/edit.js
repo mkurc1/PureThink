@@ -151,9 +151,9 @@ function Edit() {
      */
     function ckeditUpdateElement() {
         if ($('#edit_container > .container > form').find('div.cke').length > 0) {
-            for (instance in CKEDITOR.instances) {
-                CKEDITOR.instances[instance].updateElement();
-            }
+            $.each(CKEDITOR.instances, function(index, val) {
+                CKEDITOR.instances[index].updateElement();
+            });
         }
     }
 

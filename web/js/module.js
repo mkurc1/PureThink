@@ -28,7 +28,7 @@ function Module() {
     function setActionOnChangeModule() {
         var module = this;
 
-        $('#select_mode > #select_container_list > li').click(function() {
+        $('#select_mode > #select_container_list > li.module').click(function() {
             var moduleId = $(this).attr('module_id');
 
             if (UserSetting.moduleId != moduleId) {

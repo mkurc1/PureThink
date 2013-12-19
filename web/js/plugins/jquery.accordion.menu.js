@@ -13,18 +13,18 @@
         getOpenElements();
 
         $(this).find('> li > a').click(function() {
-            var menuClick = $(this);
+            var menuClick = $(this).parent().find('.submenu_left');
 
-             if (menuClick.parent().find('.submenu_left').hasClass('hideMenu')) {
-                menuClick.parent().find('.submenu_left').show();
-                menuClick.parent().find('.submenu_left').removeClass('hideMenu');
-                menuClick.parent().find('.submenu_left').addClass('showMenu');
+             if (menuClick.hasClass('hideMenu')) {
+                menuClick.removeClass('hideMenu');
+                menuClick.addClass('showMenu');
+                menuClick.show();
                 incrementOpenElementCount();
                 changeHeightElements();
             }
             else {
-                menuClick.parent().find('.submenu_left').removeClass('showMenu');
-                menuClick.parent().find('.submenu_left').addClass('hideMenu');
+                menuClick.removeClass('showMenu');
+                menuClick.addClass('hideMenu');
                 decrementOpenElementCount();
                 changeHeightElements();
             }
@@ -48,10 +48,11 @@
          */
         function getOpenElements() {
             $.each(menu.find('> li'), function(index, val) {
-                $(this).find('.submenu_left').removeClass('hideMenu');
-                $(this).find('.submenu_left').addClass('showMenu');
-                $(this).find('.submenu_left').show();
-                $(this).css('background-color', '#f8f9fa');
+                $(val).find('.submenu_left')
+                    .removeClass('hideMenu')
+                    .addClass('showMenu')
+                    .show();
+
                 incrementOpenElementCount();
             });
 

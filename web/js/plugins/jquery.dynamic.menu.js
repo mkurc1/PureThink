@@ -69,7 +69,7 @@
                     menu.find('> div > ul').prepend(inputAlias);
 
                     menu.find('> div > ul > input.alias').keypress(function(event) {
-                        if ((event.which === 13) && ($(this).val() != '')) {
+                        if ((event.which === 13) && ($(this).val() !== '')) {
                             add(menu.find('> div > ul > .new').val(), $(this).val());
                         }
                     });
@@ -79,7 +79,7 @@
 
                 menu.find('> div > ul > .new').focus();
                 menu.find('> div > ul > .new').keypress(function(event) {
-                    if ((event.which === 13) && ($(this).val() != '')) {
+                    if ((event.which === 13) && ($(this).val() !== '')) {
                         if (menu.hasClass('language')) {
                             menu.find('> div > ul > input.alias').focus();
                         }
@@ -110,7 +110,7 @@
                     selectedItem.parent().find('> div').hide();
 
                     menu.find('> div > ul input.alias').keypress(function(event) {
-                        if ((event.which === 13) && ($(this).val() != '')) {
+                        if ((event.which === 13) && ($(this).val() !== '')) {
                             edit(menu.find('> div > ul .edit').val(), $(this).val());
                         }
                     });
@@ -122,7 +122,7 @@
                 menu.find('> div > ul .edit').setCursorToTextEnd();
 
                 menu.find('> div > ul .edit').keypress(function(event) {
-                    if ((event.which === 13) && ($(this).val() != '')) {
+                    if ((event.which === 13) && ($(this).val() !== '')) {
                         if (menu.hasClass('language')) {
                             menu.find('> div > ul input.alias').focus();
                             menu.find('> div > ul input.alias').setCursorToTextEnd();
@@ -353,7 +353,7 @@
          * Toggle button
          */
         function toggleButton() {
-            if (listId !== 0) {
+            if (Number(listId) !== 0) {
                 menu.find('> div > .edit > .edit').removeClass('disable');
                 menu.find('> div > .edit > .remove').removeClass('disable');
             }

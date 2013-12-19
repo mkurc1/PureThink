@@ -80,7 +80,7 @@ function List() {
         var list = this;
 
         $('#main_container > table th').click(function() {
-            var column = $(this).attr('column')
+            var column = $(this).attr('column');
 
             if (typeof(column) !== "undefined") {
                 if (list.order != column) {

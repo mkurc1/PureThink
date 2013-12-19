@@ -3,8 +3,9 @@
         <div id="select"></div>
         <img src="{{ asset('images/arrow_down_orange.png') }}" alt="select" />
         <ul id="select_container_list">
+            <li class="header">Wybierz moduł</li>
             {% for module in modules %}
-                <li module_id="{{ module.id }}">{{ module }}</a></li>
+                <li class="module" module_id="{{ module.id }}">{{ module }}</a></li>
             {% endfor %}
         </ul>
     </div>
