@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * CMSLanguage
  *
- * @ORM\Table()
+ * @ORM\Table(name="cms_language")
  * @ORM\Entity(repositoryClass="My\CMSBundle\Repository\CMSLanguageRepository")
  */
 class CMSLanguage
@@ -229,7 +229,7 @@ class CMSLanguage
     public function addCmsComponentOnPage(\My\CMSBundle\Entity\CMSComponentOnPage $cmsComponentOnPages)
     {
         $this->cmsComponentOnPages[] = $cmsComponentOnPages;
-    
+
         return $this;
     }
 
@@ -246,7 +246,7 @@ class CMSLanguage
     /**
      * Get cmsComponentOnPages
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getCmsComponentOnPages()
     {

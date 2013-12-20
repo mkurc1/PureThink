@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * ColumnType
  *
- * @ORM\Table()
+ * @ORM\Table(name="column_type")
  * @ORM\Entity
  */
 class ColumnType

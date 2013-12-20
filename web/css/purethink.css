@@ -191,7 +191,7 @@
   position: fixed;
   width: 100%;
   height: 40px;
-  border-top: 1px solid #E7E7E7;
+  border-top: 1px solid #e7e7e7;
   bottom: 0;
   background-color: #FCFCFC;
   z-index: 20;
@@ -203,7 +203,7 @@
   width: 40px;
   height: 40px;
   bottom: 0;
-  border-right: 1px solid #E7E7E7;
+  border-right: 1px solid #e7e7e7;
   background-color: #F7F7F7;
   background-image: url("/../images/arrow_left_big.png");
   background-position: 50% 50%;
@@ -211,7 +211,7 @@
   cursor: pointer;
 }
 #footer > #left_menu_toggle:hover {
-  background-color: #E7E7E7;
+  background-color: #e7e7e7;
 }
 #footer > #left_menu_toggle.hide_menu {
   left: 0;
@@ -408,7 +408,7 @@
   left: 0;
   top: 0;
   z-index: 50;
-  border-right: 1px solid #E7E7E7;
+  border-right: 1px solid #e7e7e7;
   background-color: #FCFCFC;
   margin-top: 155px;
 }
@@ -426,26 +426,27 @@
   position: relative;
   float: left;
   width: 100%;
-  border-bottom: 1px solid #E7E7E7;
+  border-bottom: 1px solid #e7e7e7;
 }
 #left_menu > #left_menu_container > li > div.submenu_left > div.edit {
   position: relative;
   float: left;
   width: 100%;
   height: 26px;
-  background-color: #E7E7E7;
+  background-color: #E5E5E5;
 }
 #left_menu > #left_menu_container > li > div.submenu_left > div.edit > button {
   position: relative;
   float: left;
   padding: 0 5px;
   margin: 3px 0 0 8px;
-  font-size: 10px;
+  font-size: 9px;
+  font-weight: bold;
   background-color: #F7F7F7;
   border: 1px solid #C6C6C6;
   border-radius: 3px;
   cursor: pointer;
-  color: #565656;
+  color: #797979;
   height: 19px;
   background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(20%, #ffffff), color-stop(50%, #f6f6f6), color-stop(52%, #eeeeee), color-stop(100%, #f4f4f4));
   background: -webkit-linear-gradient(top, #ffffff 20%, #f6f6f6 50%, #eeeeee 52%, #f4f4f4 100%);
@@ -550,7 +551,7 @@
 #left_menu > #left_menu_container > li > div.submenu_left > ul input.alias {
   position: relative;
   float: left;
-  border: 1px solid #E7E7E7;
+  border: 1px solid #e7e7e7;
   border-radius: 3px;
   margin: 5px 0 5px 40px;
   width: 120px;
@@ -575,7 +576,7 @@
   width: 198px;
   color: #3a3a3a;
   font-size: 13px;
-  border-bottom: 1px solid #E7E7E7;
+  border-bottom: 1px solid #e7e7e7;
   height: 18px;
   padding: 7px 0 7px 52px;
   background-color: #F7F7F7;
@@ -597,7 +598,7 @@
   position: absolute;
   width: 100%;
   height: 40px;
-  border-top: 1px solid #E7E7E7;
+  border-top: 1px solid #e7e7e7;
   bottom: 155px;
   z-index: 100;
   background-color: #FCFCFC;
@@ -613,7 +614,7 @@
 #author > span:last-child {
   margin-left: 5px;
   height: 14px;
-  border-left: 1px solid #E7E7E7;
+  border-left: 1px solid #e7e7e7;
   padding-left: 5px;
 }
 #author > span > a {
@@ -645,7 +646,7 @@ a {
   position: fixed;
   width: 100%;
   height: 33px;
-  border-bottom: 1px solid #E7E7E7;
+  border-bottom: 1px solid #e7e7e7;
   background-color: #FCFCFC;
   z-index: 60;
   left: 0;
@@ -691,9 +692,9 @@ a {
   color: #3A3A3A;
   cursor: pointer;
   background-color: #F7F7F7;
-  border: 1px solid #E7E7E7;
+  border: 1px solid #e7e7e7;
   border-width: 0 1px 1px 0;
-  border-color: #EEEEEE #EEEEEE #E7E7E7 #EEEEEE;
+  border-color: #eeeeee #eeeeee #e7e7e7 #eeeeee;
   padding-left: 10px;
 }
 #main > #main_container > table > thead > tr > th:last-child {
@@ -755,7 +756,7 @@ a {
   top: 74px;
   z-index: 100;
   background-color: #f7f7f7;
-  border-bottom: 1px solid #E7E7E7;
+  border-bottom: 1px solid #e7e7e7;
 }
 #main_button > .left {
   position: relative;
@@ -878,7 +879,7 @@ a {
   height: 33px;
   top: 40px;
   background-color: #FCFCFC;
-  border-bottom: 1px solid #E7E7E7;
+  border-bottom: 1px solid #e7e7e7;
   z-index: 1000;
 }
 #main_menu > #select_mode_conteiner {
@@ -950,7 +951,7 @@ a {
   margin-bottom: 4px;
 }
 #main_menu > #select_mode_conteiner > #select_mode > ul#select_container_list > li.module:hover {
-  background-color: #F5F5F5;
+  background-color: #E8E8E8;
 }
 #main_menu > #select_mode_conteiner > #select_mode:hover > ul#select_container_list {
   display: block;
@@ -1011,7 +1012,7 @@ a {
   float: right;
   width: 300px;
   height: 50px;
-  background-color: #7A7A7A;
+  background-color: #555555;
   border: 1px solid #707070;
   border-width: 1px 0 1px 1px;
   opacity: 0.9;
@@ -1045,7 +1046,7 @@ a {
   padding: 6px 0 8px;
   border: 1px solid #707070;
   border-width: 0 0 1px 1px;
-  background-color: #878787;
+  background-color: #7A7A7A;
   cursor: pointer;
 }
 #notify_container > .notify > .close:hover {

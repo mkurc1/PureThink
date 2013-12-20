@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * CMSComponentHasColumn
  *
- * @ORM\Table()
+ * @ORM\Table(name="cms_component_has_column")
  * @ORM\Entity(repositoryClass="My\CMSBundle\Repository\CMSComponentHasColumnRepository")
  */
 class CMSComponentHasColumn
@@ -60,6 +60,11 @@ class CMSComponentHasColumn
      * @ORM\JoinColumn(name="type_id", referencedColumnName="id", onDelete="CASCADE", nullable=false)
      */
     protected $columnType;
+
+    /**
+     * @ORM\OneToMany(targetEntity="CMSComponentOnPageHasValue", mappedBy="cmsComponentHasColumns")
+     */
+    protected $cmsComponentOnPagesHasValues;
 
 
     /**
@@ -218,5 +223,45 @@ class CMSComponentHasColumn
     public function getColumnType()
     {
         return $this->columnType;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->cmsComponentOnPagesHasValues = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add cmsComponentOnPagesHasValues
+     *
+     * @param \My\CMSBundle\Entity\CMSComponentOnPageHasValue $cmsComponentOnPagesHasValues
+     * @return CMSComponentHasColumn
+     */
+    public function addCmsComponentOnPagesHasValue(\My\CMSBundle\Entity\CMSComponentOnPageHasValue $cmsComponentOnPagesHasValues)
+    {
+        $this->cmsComponentOnPagesHasValues[] = $cmsComponentOnPagesHasValues;
+
+        return $this;
+    }
+
+    /**
+     * Remove cmsComponentOnPagesHasValues
+     *
+     * @param \My\CMSBundle\Entity\CMSComponentOnPageHasValue $cmsComponentOnPagesHasValues
+     */
+    public function removeCmsComponentOnPagesHasValue(\My\CMSBundle\Entity\CMSComponentOnPageHasValue $cmsComponentOnPagesHasValues)
+    {
+        $this->cmsComponentOnPagesHasValues->removeElement($cmsComponentOnPagesHasValues);
+    }
+
+    /**
+     * Get cmsComponentOnPagesHasValues
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCmsComponentOnPagesHasValues()
+    {
+        return $this->cmsComponentOnPagesHasValues;
     }
 }

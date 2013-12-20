@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Series
  *
- * @ORM\Table()
+ * @ORM\Table(name="series")
  * @ORM\Entity(repositoryClass="My\BackendBundle\Repository\SeriesRepository")
  */
 class Series
@@ -273,7 +273,7 @@ class Series
     public function addCmsComponentOnPage(\My\CMSBundle\Entity\CMSComponentOnPage $cmsComponentOnPages)
     {
         $this->cmsComponentOnPages[] = $cmsComponentOnPages;
-    
+
         return $this;
     }
 
@@ -290,7 +290,7 @@ class Series
     /**
      * Get cmsComponentOnPages
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getCmsComponentOnPages()
     {

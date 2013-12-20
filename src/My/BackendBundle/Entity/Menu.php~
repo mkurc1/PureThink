@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * My\BackendBundle\Entity\Menu
  *
- * @ORM\Table()
+ * @ORM\Table(name="menu")
  * @ORM\Entity(repositoryClass="My\BackendBundle\Repository\MenuRepository")
  */
 class Menu
@@ -247,7 +247,7 @@ class Menu
     public function addSerie(\My\BackendBundle\Entity\Series $series)
     {
         $this->series[] = $series;
-    
+
         return $this;
     }
 
@@ -264,7 +264,7 @@ class Menu
     /**
      * Get series
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getSeries()
     {

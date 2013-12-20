@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * CMSJS
  *
- * @ORM\Table()
+ * @ORM\Table(name="cms_js")
  * @ORM\Entity
  */
 class CMSJS

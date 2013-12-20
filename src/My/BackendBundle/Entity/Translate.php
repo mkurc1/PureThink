@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Translate
  *
- * @ORM\Table()
+ * @ORM\Table(name="translate")
  * @ORM\Entity
  */
 class Translate
@@ -44,7 +44,7 @@ class Translate
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -60,14 +60,14 @@ class Translate
     public function setName($name)
     {
         $this->name = $name;
-    
+
         return $this;
     }
 
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -83,14 +83,14 @@ class Translate
     public function setTranslateName($translateName)
     {
         $this->translateName = $translateName;
-    
+
         return $this;
     }
 
     /**
      * Get translateName
      *
-     * @return string 
+     * @return string
      */
     public function getTranslateName()
     {
@@ -106,14 +106,14 @@ class Translate
     public function setLanguage(\My\BackendBundle\Entity\Language $language = null)
     {
         $this->language = $language;
-    
+
         return $this;
     }
 
     /**
      * Get language
      *
-     * @return \My\BackendBundle\Entity\Language 
+     * @return \My\BackendBundle\Entity\Language
      */
     public function getLanguage()
     {

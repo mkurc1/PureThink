@@ -8,7 +8,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
 /**
  * CMSComponentOnPage
  *
- * @ORM\Table()
+ * @ORM\Table(name="cms_component_on_page")
  * @ORM\Entity(repositoryClass="My\CMSBundle\Repository\CMSComponentOnPageRepository")
  */
 class CMSComponentOnPage
@@ -77,6 +77,11 @@ class CMSComponentOnPage
      * @ORM\JoinColumn(name="component_id", referencedColumnName="id", onDelete="CASCADE", nullable=false)
      */
     protected $component;
+
+    /**
+     * @ORM\OneToMany(targetEntity="CMSComponentOnPageHasValue", mappedBy="cmsComponentOnPages")
+     */
+    protected $cmsComponentOnPagesHasValues;
 
 
     /**
@@ -281,5 +286,45 @@ class CMSComponentOnPage
     public function getComponent()
     {
         return $this->component;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->cmsComponentOnPagesHasValues = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add cmsComponentOnPagesHasValues
+     *
+     * @param \My\CMSBundle\Entity\CMSComponentOnPageHasValue $cmsComponentOnPagesHasValues
+     * @return CMSComponentOnPage
+     */
+    public function addCmsComponentOnPagesHasValue(\My\CMSBundle\Entity\CMSComponentOnPageHasValue $cmsComponentOnPagesHasValues)
+    {
+        $this->cmsComponentOnPagesHasValues[] = $cmsComponentOnPagesHasValues;
+
+        return $this;
+    }
+
+    /**
+     * Remove cmsComponentOnPagesHasValues
+     *
+     * @param \My\CMSBundle\Entity\CMSComponentOnPageHasValue $cmsComponentOnPagesHasValues
+     */
+    public function removeCmsComponentOnPagesHasValue(\My\CMSBundle\Entity\CMSComponentOnPageHasValue $cmsComponentOnPagesHasValues)
+    {
+        $this->cmsComponentOnPagesHasValues->removeElement($cmsComponentOnPagesHasValues);
+    }
+
+    /**
+     * Get cmsComponentOnPagesHasValues
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCmsComponentOnPagesHasValues()
+    {
+        return $this->cmsComponentOnPagesHasValues;
     }
 }

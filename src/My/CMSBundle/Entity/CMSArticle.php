@@ -8,7 +8,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
 /**
  * CMSArticle
  *
- * @ORM\Table()
+ * @ORM\Table(name="cms_article")
  * @ORM\Entity(repositoryClass="My\CMSBundle\Repository\CMSArticleRepository")
  */
 class CMSArticle
@@ -384,7 +384,7 @@ class CMSArticle
     {
         $this->menus = new \Doctrine\Common\Collections\ArrayCollection();
     }
-    
+
     /**
      * Add menus
      *
@@ -394,7 +394,7 @@ class CMSArticle
     public function addMenu(\My\CMSBundle\Entity\CMSMenu $menus)
     {
         $this->menus[] = $menus;
-    
+
         return $this;
     }
 
@@ -411,7 +411,7 @@ class CMSArticle
     /**
      * Get menus
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getMenus()
     {

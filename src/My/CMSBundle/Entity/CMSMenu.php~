@@ -8,7 +8,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
 /**
  * CMSMenu
  *
- * @ORM\Table()
+ * @ORM\Table(name="cms_menu")
  * @ORM\Entity(repositoryClass="My\CMSBundle\Repository\CMSMenuRepository")
  */
 class CMSMenu

@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * CMSWebSite
  *
- * @ORM\Table()
+ * @ORM\Table(name="cms_website")
  * @ORM\Entity(repositoryClass="My\CMSBundle\Repository\CMSWebSiteRepository")
  */
 class CMSWebSite

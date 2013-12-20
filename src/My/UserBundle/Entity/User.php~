@@ -6,8 +6,8 @@ use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity
  * @ORM\Table(name="fos_user")
+ * @ORM\Entity
  */
 class User extends BaseUser
 {
@@ -146,7 +146,7 @@ class User extends BaseUser
     public function addFile(\My\FileBundle\Entity\File $files)
     {
         $this->files[] = $files;
-    
+
         return $this;
     }
 
@@ -163,7 +163,7 @@ class User extends BaseUser
     /**
      * Get files
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getFiles()
     {

@@ -8,7 +8,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
 /**
  * CMSComponent
  *
- * @ORM\Table()
+ * @ORM\Table(name="cms_component")
  * @ORM\Entity(repositoryClass="My\CMSBundle\Repository\CMSComponentRepository")
  */
 class CMSComponent
@@ -300,7 +300,7 @@ class CMSComponent
     public function addCmsComponentOnPage(\My\CMSBundle\Entity\CMSComponentOnPage $cmsComponentOnPages)
     {
         $this->cmsComponentOnPages[] = $cmsComponentOnPages;
-    
+
         return $this;
     }
 
@@ -317,7 +317,7 @@ class CMSComponent
     /**
      * Get cmsComponentOnPages
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getCmsComponentOnPages()
     {

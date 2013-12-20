@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 /**
  * File
  *
- * @ORM\Table()
+ * @ORM\Table(name="file")
  * @ORM\Entity(repositoryClass="My\FileBundle\Repository\FileRepository")
  * @ORM\HasLifecycleCallbacks
  */

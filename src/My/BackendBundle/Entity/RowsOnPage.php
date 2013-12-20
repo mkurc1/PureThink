@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * RowsOnPage
  *
- * @ORM\Table()
+ * @ORM\Table(name="rows_on_page")
  * @ORM\Entity
  */
 class RowsOnPage
@@ -96,7 +96,7 @@ class RowsOnPage
     {
         return $this->isDefault;
     }
-    
+
     /**
      * Constructor
      */

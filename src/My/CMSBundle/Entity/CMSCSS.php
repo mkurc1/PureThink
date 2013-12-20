@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * CMSCSS
  *
- * @ORM\Table()
+ * @ORM\Table(name="cms_css")
  * @ORM\Entity
  */
 class CMSCSS

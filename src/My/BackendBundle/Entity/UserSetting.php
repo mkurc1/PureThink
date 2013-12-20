@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * UserSetting
  *
- * @ORM\Table()
+ * @ORM\Table(name="user_setting")
  * @ORM\Entity
  */
 class UserSetting
