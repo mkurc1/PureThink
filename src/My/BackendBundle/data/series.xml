@@ -16,4 +16,12 @@
         <name>Main</name>
         <menu_id>2</menu_id>
     </serie>
+    <serie>
+        <name>Frontend</name>
+        <menu_id>4</menu_id>
+    </serie>
+    <serie>
+        <name>Frontend</name>
+        <menu_id>5</menu_id>
+    </serie>
 </series>

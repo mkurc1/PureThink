@@ -294,8 +294,9 @@ class CMSComponentOnPage
     public function __construct()
     {
         $this->componentOnPagesHasElements = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->isEnable = false;
     }
-    
+
     /**
      * Add componentOnPagesHasElements
      *
@@ -305,7 +306,7 @@ class CMSComponentOnPage
     public function addComponentOnPagesHasElement(\My\CMSBundle\Entity\CMSComponentOnPageHasElement $componentOnPagesHasElements)
     {
         $this->componentOnPagesHasElements[] = $componentOnPagesHasElements;
-    
+
         return $this;
     }
 
@@ -322,7 +323,7 @@ class CMSComponentOnPage
     /**
      * Get componentOnPagesHasElements
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getComponentOnPagesHasElements()
     {

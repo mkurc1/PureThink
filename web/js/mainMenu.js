@@ -93,11 +93,9 @@ function setActionOnClickMenu() {
         $('#main_menu_list > li').removeClass('selected');
         $(this).parent().addClass('selected');
 
-        if ($(this).attr('menu_id') != menuId) {
-            setMenuId();
-            startMode();
-        }
+        setMenuId();
+        startMode();
 
         return false;
-    })
+    });
 }

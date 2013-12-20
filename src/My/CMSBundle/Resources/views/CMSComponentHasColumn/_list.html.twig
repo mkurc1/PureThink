@@ -4,6 +4,7 @@
             <th class="select"></th>
             <th class="lp">Lp.</th>
             <th column="a.name" class="name width_small">Nazwa</th>
+            <th column="a.isMainField" class="width_small">Domyślne</th>
             <th column="ct.name" class="width_big">Typ</th>
         </tr>
     </thead>
@@ -19,6 +20,13 @@
             <td class="select"><input type="checkbox" class="multi_check" /></td>
             <td class="lp">{{ i }}.</td>
             <td class="width_small name"><a class="editMode" href="{{ path('cmscomponenthascolumn_edit', { 'id': entity.id }) }}">{{ entity }}</a></td>
+            <td class="width_small state">
+                {% if entity.isMainField %}
+                    <img class="active" src="{{ asset('images/active.png') }}" alt="active" />
+                {% else %}
+                    <img class="deactive" src="{{ asset('images/deactive.png') }}" alt="deactive" />
+                {% endif %}
+            </td>
             <td class="width_big">{{ entity.columnType.name }}</td>
         </tr>
     {% endfor %}

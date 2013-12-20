@@ -1,0 +1,7 @@
+<div class="container">
+    <h2>Dodaj element</h2>
+
+    <form action="{{ path('cmscomponenthaselement_create') }}" method="post" {{ form_enctype(form) }}>
+        {% include 'MyCMSBundle:CMSComponentHasElement:_form.html.twig' with { 'form': form } %}
+    </form>
+</div>

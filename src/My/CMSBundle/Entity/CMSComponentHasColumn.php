@@ -3,6 +3,7 @@
 namespace My\CMSBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * CMSComponentHasColumn
@@ -31,6 +32,14 @@ class CMSComponentHasColumn
     /**
      * @var string
      *
+     * @Gedmo\Slug(fields={"name"})
+     * @ORM\Column(length=255, unique=true)
+     */
+    private $slug;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="column_label", type="string", length=255)
      */
     private $columnLabel;
@@ -48,6 +57,13 @@ class CMSComponentHasColumn
      * @ORM\Column(name="is_required", type="boolean", nullable=true)
      */
     private $isRequired;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="is_main_field", type="boolean", nullable=true)
+     */
+    private $isMainField;
 
     /**
      * @ORM\ManyToOne(targetEntity="CMSComponent", inversedBy="cmsComponentHasColumns")
@@ -230,6 +246,7 @@ class CMSComponentHasColumn
     public function __construct()
     {
         $this->cmsComponentOnPagesHasValues = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->isMainField = false;
     }
 
     /**
@@ -263,5 +280,51 @@ class CMSComponentHasColumn
     public function getCmsComponentOnPagesHasValues()
     {
         return $this->cmsComponentOnPagesHasValues;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     * @return CMSComponentHasColumn
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
+     * Set isMainField
+     *
+     * @param boolean $isMainField
+     * @return CMSComponentHasColumn
+     */
+    public function setIsMainField($isMainField)
+    {
+        $this->isMainField = $isMainField;
+
+        return $this;
+    }
+
+    /**
+     * Get isMainField
+     *
+     * @return boolean
+     */
+    public function getIsMainField()
+    {
+        return $this->isMainField;
     }
 }

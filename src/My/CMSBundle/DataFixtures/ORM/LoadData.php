@@ -8,6 +8,7 @@ use My\CMSBundle\Entity\CMSLanguage;
 use My\CMSBundle\Entity\CMSWebSite;
 use My\CMSBundle\Entity\CMSArticle;
 use My\CMSBundle\Entity\CMSMenu;
+use My\CMSBundle\Entity\CMSComponent;
 
 class LoadData implements FixtureInterface
 {
@@ -22,6 +23,7 @@ class LoadData implements FixtureInterface
 		$manager = $this->addCMSWebSite($manager);
 		$manager = $this->addCMSArticle($manager);
 		$manager = $this->addCMSMenu($manager);
+		$manager = $this->addCMSComponent($manager);
 	}
 
 	/**
@@ -113,6 +115,26 @@ class LoadData implements FixtureInterface
 			$CMSMenu->setArticle($manager->getRepository('MyCMSBundle:CMSArticle')->find($cmsMenu->article_id));
 
 			$manager->persist($CMSMenu);
+		}
+
+		$manager->flush();
+		return $manager;
+	}
+
+	/**
+	 * Add CMS component fixtures
+	 *
+	 * @param ObjectManager $manager
+	 */
+	private function addCMSComponent(ObjectManager $manager)
+	{
+		$xml = simplexml_load_file('src/My/CMSBundle/data/cmsComponents.xml');
+		foreach ($xml->cmsComponent as $cmsComponent) {
+			$CMSComponent = new CMSComponent();
+			$CMSComponent->setName($cmsComponent->name);
+			$CMSComponent->setSeries($manager->getRepository('MyBackendBundle:Series')->find($cmsComponent->series_id));
+
+			$manager->persist($CMSComponent);
 		}
 
 		$manager->flush();

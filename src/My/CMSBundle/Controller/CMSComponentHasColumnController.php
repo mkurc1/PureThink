@@ -33,12 +33,11 @@ class CMSComponentHasColumnController extends Controller
         $order = $request->get('order', 'a.name');
         $sequence = $request->get('sequence', 'ASC');
         $filtr = $request->get('filtr');
-        $groupId = $request->get('groupId');
         $sublistId = (int)$request->get('sublistId');
 
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('MyCMSBundle:CMSComponentHasColumn')->getColumns($order, $sequence, $filtr, $groupId);
+        $entities = $em->getRepository('MyCMSBundle:CMSComponentHasColumn')->getColumns($order, $sequence, $filtr, $sublistId);
 
         $paginator  = $this->get('knp_paginator');
         $pagination = $paginator->paginate(
@@ -235,6 +234,55 @@ class CMSComponentHasColumnController extends Controller
             $response = array(
                 "response" => false,
                 "message" => $message
+                );
+        }
+
+        return new Response(json_encode($response));
+    }
+
+    /**
+     * Change state a CMSComponentHasColumn entity.
+     *
+     * @Route("/state", name="cmscomponenthascolumn_state")
+     * @Method("POST")
+     */
+    public function stateAction(Request $request)
+    {
+        $id = (int)$request->get('id');
+
+        $em = $this->getDoctrine()->getManager();
+
+        $selectedElement = $em->getRepository('MyCMSBundle:CMSComponentHasColumn')->find($id);
+
+        if (!$selectedElement) {
+            throw $this->createNotFoundException('Unable to find CMSComponentHasColumn entity.');
+        }
+
+        $entities = $em->getRepository('MyCMSBundle:CMSComponentHasColumn')
+            ->findByComponent($selectedElement->getComponent());
+
+        foreach ($entities as $entity) {
+            if ($entity == $selectedElement) {
+                $entity->setIsMainField(true);
+            }
+            else {
+                $entity->setIsMainField(false);
+            }
+
+            $em->persist($entity);
+        }
+
+        try {
+            $em->flush();
+
+            $response = array(
+                "response" => true,
+                "message" => 'Zmiana domyślnej kolumny zakończyła się powodzeniem'
+                );
+        } catch (\Exception $e) {
+            $response = array(
+                "response" => false,
+                "message" => 'Zmiana domyślnej kolumny zakończyła się niepowodzeniem'
                 );
         }
 

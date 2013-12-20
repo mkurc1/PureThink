@@ -18,15 +18,19 @@ class CMSComponentHasColumnRepository extends EntityRepository
      * @param string $order
      * @param string $sequence
      * @param string $filtr
+     * @param integer $componentId
      * @return array
      */
-	public function getColumns($order, $sequence, $filtr)
+	public function getColumns($order, $sequence, $filtr, $componentId)
 	{
 		$qb = $this->createQueryBuilder('a')
             ->select('a')
             ->addSelect('ct')
+            ->leftJoin('a.component', 'c')
             ->leftJoin('a.columnType', 'ct')
-            ->where('a.name LIKE :filtr')
+            ->where('c.id = :componentId')
+            ->setParameter('componentId', $componentId)
+            ->andWhere('a.name LIKE :filtr')
             ->setParameter('filtr', '%'.$filtr.'%');
 
         $qb->orderBy($order, $sequence);

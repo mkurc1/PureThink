@@ -24,116 +24,107 @@ class CMSComponentOnPageHasElementController extends Controller
      * Lists all CMSComponentOnPageHasElement entities.
      *
      * @Route("/", name="cmscomponentonpagehaselement")
-     * @Method("GET")
-     * @Template()
+     * @Method("POST")
      */
-    public function indexAction()
+    public function listAction(Request $request)
     {
+        $rowsOnPage = (int)$request->get('rowsOnPage', 10);
+        $page = (int)$request->get('page', 1);
+        $order = $request->get('order', 'a.name');
+        $sequence = $request->get('sequence', 'ASC');
+        $filtr = $request->get('filtr');
+        $sublistId = (int)$request->get('sublistId');
+
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('MyCMSBundle:CMSComponentOnPageHasElement')->findAll();
+        $entities = $em->getRepository('MyCMSBundle:CMSComponentOnPageHasElement')->getElements($order, $sequence, $filtr);
 
-        return array(
-            'entities' => $entities,
+        $paginator  = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $entities,
+            $page,
+            $rowsOnPage
         );
+
+        $list = $this->renderView('MyCMSBundle:CMSComponentOnPageHasElement:_list.html.twig', array('entities' => $pagination, 'page' => $page, 'rowsOnPage' => $rowsOnPage));
+
+        $response = array(
+            "list" => $list,
+            "pagination" => Pagination::helper($pagination),
+            "response" => true
+            );
+
+        return new Response(json_encode($response));
     }
+
     /**
      * Creates a new CMSComponentOnPageHasElement entity.
      *
-     * @Route("/", name="cmscomponentonpagehaselement_create")
+     * @Route("/create", name="cmscomponentonpagehaselement_create")
      * @Method("POST")
-     * @Template("MyCMSBundle:CMSComponentOnPageHasElement:new.html.twig")
      */
     public function createAction(Request $request)
     {
+        $sublistId = (int)$request->get('sublistId');
+        $em = $this->getDoctrine()->getManager();
+
         $entity = new CMSComponentOnPageHasElement();
-        $form = $this->createCreateForm($entity);
-        $form->handleRequest($request);
+        $entity->setComponentOnPage($em->getRepository('MyCMSBundle:CMSComponentOnPage')->find($sublistId));
+
+        $form = $this->createForm(new CMSComponentOnPageHasElementType(), $entity);
+        $form->bind($request);
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('cmscomponentonpagehaselement_show', array('id' => $entity->getId())));
+            $response = array(
+                "response" => true,
+                "id" => $entity->getId(),
+                "message" => 'Dodawanie kolumny zakończyło się powodzeniem'
+                );
+        }
+        else {
+            $view = $this->renderView('MyCMSBundle:CMSComponentOnPageHasElement:_new.html.twig', array('entity' => $entity, 'form' => $form->createView()));
+
+            $response = array(
+                "response" => false,
+                "view" => $view
+                );
         }
 
-        return array(
-            'entity' => $entity,
-            'form'   => $form->createView(),
-        );
-    }
-
-    /**
-    * Creates a form to create a CMSComponentOnPageHasElement entity.
-    *
-    * @param CMSComponentOnPageHasElement $entity The entity
-    *
-    * @return \Symfony\Component\Form\Form The form
-    */
-    private function createCreateForm(CMSComponentOnPageHasElement $entity)
-    {
-        $form = $this->createForm(new CMSComponentOnPageHasElementType(), $entity, array(
-            'action' => $this->generateUrl('cmscomponentonpagehaselement_create'),
-            'method' => 'POST',
-        ));
-
-        $form->add('submit', 'submit', array('label' => 'Create'));
-
-        return $form;
+        return new Response(json_encode($response));
     }
 
     /**
      * Displays a form to create a new CMSComponentOnPageHasElement entity.
      *
      * @Route("/new", name="cmscomponentonpagehaselement_new")
-     * @Method("GET")
-     * @Template()
+     * @Method("POST")
      */
-    public function newAction()
+    public function newAction(Request $request)
     {
         $entity = new CMSComponentOnPageHasElement();
-        $form   = $this->createCreateForm($entity);
+        $form = $this->createForm(new CMSComponentOnPageHasElementType(), $entity);
 
-        return array(
-            'entity' => $entity,
-            'form'   => $form->createView(),
-        );
-    }
+        $view = $this->renderView('MyCMSBundle:CMSComponentOnPageHasElement:_new.html.twig', array('entity' => $entity, 'form' => $form->createView()));
 
-    /**
-     * Finds and displays a CMSComponentOnPageHasElement entity.
-     *
-     * @Route("/{id}", name="cmscomponentonpagehaselement_show")
-     * @Method("GET")
-     * @Template()
-     */
-    public function showAction($id)
-    {
-        $em = $this->getDoctrine()->getManager();
+        $response = array(
+                "response" => true,
+                "view" => $view
+                );
 
-        $entity = $em->getRepository('MyCMSBundle:CMSComponentOnPageHasElement')->find($id);
-
-        if (!$entity) {
-            throw $this->createNotFoundException('Unable to find CMSComponentOnPageHasElement entity.');
-        }
-
-        $deleteForm = $this->createDeleteForm($id);
-
-        return array(
-            'entity'      => $entity,
-            'delete_form' => $deleteForm->createView(),
-        );
+        return new Response(json_encode($response));
     }
 
     /**
      * Displays a form to edit an existing CMSComponentOnPageHasElement entity.
      *
      * @Route("/{id}/edit", name="cmscomponentonpagehaselement_edit")
-     * @Method("GET")
-     * @Template()
+     * @Method("POST")
      */
-    public function editAction($id)
+    public function editAction(Request $request, $id)
     {
         $em = $this->getDoctrine()->getManager();
 
@@ -143,40 +134,23 @@ class CMSComponentOnPageHasElementController extends Controller
             throw $this->createNotFoundException('Unable to find CMSComponentOnPageHasElement entity.');
         }
 
-        $editForm = $this->createEditForm($entity);
-        $deleteForm = $this->createDeleteForm($id);
+        $editForm = $this->createForm(new CMSComponentOnPageHasElementType(), $entity);
 
-        return array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
-        );
+        $view = $this->renderView('MyCMSBundle:CMSComponentOnPageHasElement:_edit.html.twig', array('entity' => $entity, 'form' => $editForm->createView()));
+
+        $response = array(
+            "response" => true,
+            "view" => $view
+            );
+
+        return new Response(json_encode($response));
     }
 
-    /**
-    * Creates a form to edit a CMSComponentOnPageHasElement entity.
-    *
-    * @param CMSComponentOnPageHasElement $entity The entity
-    *
-    * @return \Symfony\Component\Form\Form The form
-    */
-    private function createEditForm(CMSComponentOnPageHasElement $entity)
-    {
-        $form = $this->createForm(new CMSComponentOnPageHasElementType(), $entity, array(
-            'action' => $this->generateUrl('cmscomponentonpagehaselement_update', array('id' => $entity->getId())),
-            'method' => 'PUT',
-        ));
-
-        $form->add('submit', 'submit', array('label' => 'Update'));
-
-        return $form;
-    }
     /**
      * Edits an existing CMSComponentOnPageHasElement entity.
      *
-     * @Route("/{id}", name="cmscomponentonpagehaselement_update")
-     * @Method("PUT")
-     * @Template("MyCMSBundle:CMSComponentOnPageHasElement:edit.html.twig")
+     * @Route("/{id}/update", name="cmscomponentonpagehaselement_update")
+     * @Method("POST")
      */
     public function updateAction(Request $request, $id)
     {
@@ -188,62 +162,81 @@ class CMSComponentOnPageHasElementController extends Controller
             throw $this->createNotFoundException('Unable to find CMSComponentOnPageHasElement entity.');
         }
 
-        $deleteForm = $this->createDeleteForm($id);
-        $editForm = $this->createEditForm($entity);
-        $editForm->handleRequest($request);
+        $editForm = $this->createForm(new CMSComponentOnPageHasElementType(), $entity);
+        $editForm->bind($request);
 
         if ($editForm->isValid()) {
+            $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('cmscomponentonpagehaselement_edit', array('id' => $id)));
+            $response = array(
+                "response" => true,
+                "id" => $entity->getId(),
+                "message" => 'Edycja kolumny zakończyła się powodzeniem'
+                );
+        }
+        else {
+            $view = $this->renderView('MyCMSBundle:CMSComponentOnPageHasElement:_edit.html.twig', array('entity' => $entity, 'form' => $editForm->createView()));
+
+            $response = array(
+                "response" => false,
+                "view" => $view
+                );
         }
 
-        return array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
-        );
+        return new Response(json_encode($response));
     }
+
     /**
      * Deletes a CMSComponentOnPageHasElement entity.
      *
-     * @Route("/{id}", name="cmscomponentonpagehaselement_delete")
-     * @Method("DELETE")
+     * @Route("/delete", name="cmscomponentonpagehaselement_delete")
+     * @Method("POST")
      */
-    public function deleteAction(Request $request, $id)
+    public function deleteAction(Request $request)
     {
-        $form = $this->createDeleteForm($id);
-        $form->handleRequest($request);
+        $arrayId = $request->get('arrayId');
 
-        if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('MyCMSBundle:CMSComponentOnPageHasElement')->find($id);
+        $em = $this->getDoctrine()->getManager();
+
+        foreach ($arrayId as $id) {
+            $entity = $em->getRepository('MyCMSBundle:CMSComponentOnPageHasElement')->find((int)$id);
 
             if (!$entity) {
                 throw $this->createNotFoundException('Unable to find CMSComponentOnPageHasElement entity.');
             }
 
             $em->remove($entity);
-            $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('cmscomponentonpagehaselement'));
-    }
+        try {
+            $em->flush();
 
-    /**
-     * Creates a form to delete a CMSComponentOnPageHasElement entity by id.
-     *
-     * @param mixed $id The entity id
-     *
-     * @return \Symfony\Component\Form\Form The form
-     */
-    private function createDeleteForm($id)
-    {
-        return $this->createFormBuilder()
-            ->setAction($this->generateUrl('cmscomponentonpagehaselement_delete', array('id' => $id)))
-            ->setMethod('DELETE')
-            ->add('submit', 'submit', array('label' => 'Delete'))
-            ->getForm()
-        ;
+            if (count($arrayId) > 1) {
+                $message = 'Usuwanie kolumn zakończyło się powodzeniem';
+            }
+            else {
+                $message = 'Usuwanie kolumny zakończyło się powodzeniem';
+            }
+
+            $response = array(
+                "response" => true,
+                "message" => $message
+                );
+        } catch (\Exception $e) {
+            if (count($arrayId) > 1) {
+                $message = 'Usuwanie kolumn zakończyło się niepowodzeniem';
+            }
+            else {
+                $message = 'Usuwanie kolumny zakończyło się niepowodzeniem';
+            }
+
+            $response = array(
+                "response" => false,
+                "message" => $message
+                );
+        }
+
+        return new Response(json_encode($response));
     }
 }
