@@ -79,9 +79,9 @@ class CMSComponentOnPage
     protected $component;
 
     /**
-     * @ORM\OneToMany(targetEntity="CMSComponentOnPageHasValue", mappedBy="cmsComponentOnPages")
+     * @ORM\OneToMany(targetEntity="CMSComponentOnPageHasElement", mappedBy="cmsComponentOnPages")
      */
-    protected $cmsComponentOnPagesHasValues;
+    protected $componentOnPagesHasElements;
 
 
     /**
@@ -287,44 +287,45 @@ class CMSComponentOnPage
     {
         return $this->component;
     }
+
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->cmsComponentOnPagesHasValues = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->componentOnPagesHasElements = new \Doctrine\Common\Collections\ArrayCollection();
     }
-
+    
     /**
-     * Add cmsComponentOnPagesHasValues
+     * Add componentOnPagesHasElements
      *
-     * @param \My\CMSBundle\Entity\CMSComponentOnPageHasValue $cmsComponentOnPagesHasValues
+     * @param \My\CMSBundle\Entity\CMSComponentOnPageHasElement $componentOnPagesHasElements
      * @return CMSComponentOnPage
      */
-    public function addCmsComponentOnPagesHasValue(\My\CMSBundle\Entity\CMSComponentOnPageHasValue $cmsComponentOnPagesHasValues)
+    public function addComponentOnPagesHasElement(\My\CMSBundle\Entity\CMSComponentOnPageHasElement $componentOnPagesHasElements)
     {
-        $this->cmsComponentOnPagesHasValues[] = $cmsComponentOnPagesHasValues;
-
+        $this->componentOnPagesHasElements[] = $componentOnPagesHasElements;
+    
         return $this;
     }
 
     /**
-     * Remove cmsComponentOnPagesHasValues
+     * Remove componentOnPagesHasElements
      *
-     * @param \My\CMSBundle\Entity\CMSComponentOnPageHasValue $cmsComponentOnPagesHasValues
+     * @param \My\CMSBundle\Entity\CMSComponentOnPageHasElement $componentOnPagesHasElements
      */
-    public function removeCmsComponentOnPagesHasValue(\My\CMSBundle\Entity\CMSComponentOnPageHasValue $cmsComponentOnPagesHasValues)
+    public function removeComponentOnPagesHasElement(\My\CMSBundle\Entity\CMSComponentOnPageHasElement $componentOnPagesHasElements)
     {
-        $this->cmsComponentOnPagesHasValues->removeElement($cmsComponentOnPagesHasValues);
+        $this->componentOnPagesHasElements->removeElement($componentOnPagesHasElements);
     }
 
     /**
-     * Get cmsComponentOnPagesHasValues
+     * Get componentOnPagesHasElements
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getCmsComponentOnPagesHasValues()
+    public function getComponentOnPagesHasElements()
     {
-        return $this->cmsComponentOnPagesHasValues;
+        return $this->componentOnPagesHasElements;
     }
 }

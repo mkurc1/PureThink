@@ -3,7 +3,6 @@
 namespace My\CMSBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * CMSComponentOnPageHasValue
@@ -23,32 +22,23 @@ class CMSComponentOnPageHasValue
     private $id;
 
     /**
-     * @var datetime
+     * @var string
      *
-     * @Gedmo\Timestampable(on="create")
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(name="content", type="text", nullable=true)
      */
-    private $createdAt;
+    private $content;
 
     /**
-     * @var datetime
-     *
-     * @Gedmo\Timestampable(on="update")
-     * @ORM\Column(type="datetime")
+     * @ORM\ManyToOne(targetEntity="CMSComponentOnPageHasElement", inversedBy="cmsComponentOnPageHasValue")
+     * @ORM\JoinColumn(name="component_on_page_has_element_id", referencedColumnName="id", onDelete="CASCADE", nullable=false)
      */
-    private $updatedAt;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="CMSComponentOnPage", inversedBy="cmsComponentOnPageHasValue")
-     * @ORM\JoinColumn(name="component_on_page_id", referencedColumnName="id", onDelete="CASCADE", nullable=false)
-     */
-    protected $componentOnPage;
+    protected $componentOnPageHasElement;
 
     /**
      * @ORM\ManyToOne(targetEntity="CMSComponentHasColumn", inversedBy="cmsComponentOnPageHasValue")
-     * @ORM\JoinColumn(name="component_has_column_id", referencedColumnName="id", onDelete="CASCADE", nullable=false)
+     * @ORM\JoinColumn(name="component_on_page_has_column_id", referencedColumnName="id", onDelete="CASCADE", nullable=false)
      */
-    protected $componentHasColumn;
+    protected $componentOnPageHasColumn;
 
 
     /**
@@ -61,95 +51,73 @@ class CMSComponentOnPageHasValue
         return $this->id;
     }
 
+
     /**
-     * Set createdAt
+     * Set content
      *
-     * @param \DateTime $createdAt
+     * @param string $content
      * @return CMSComponentOnPageHasValue
      */
-    public function setCreatedAt($createdAt)
+    public function setContent($content)
     {
-        $this->createdAt = $createdAt;
-
+        $this->content = $content;
+    
         return $this;
     }
 
     /**
-     * Get createdAt
+     * Get content
      *
-     * @return \DateTime
+     * @return string 
      */
-    public function getCreatedAt()
+    public function getContent()
     {
-        return $this->createdAt;
+        return $this->content;
     }
 
     /**
-     * Set updatedAt
+     * Set componentOnPageHasElement
      *
-     * @param \DateTime $updatedAt
+     * @param \My\CMSBundle\Entity\CMSComponentOnPageHasElement $componentOnPageHasElement
      * @return CMSComponentOnPageHasValue
      */
-    public function setUpdatedAt($updatedAt)
+    public function setComponentOnPageHasElement(\My\CMSBundle\Entity\CMSComponentOnPageHasElement $componentOnPageHasElement)
     {
-        $this->updatedAt = $updatedAt;
-
+        $this->componentOnPageHasElement = $componentOnPageHasElement;
+    
         return $this;
     }
 
     /**
-     * Get updatedAt
+     * Get componentOnPageHasElement
      *
-     * @return \DateTime
+     * @return \My\CMSBundle\Entity\CMSComponentOnPageHasElement 
      */
-    public function getUpdatedAt()
+    public function getComponentOnPageHasElement()
     {
-        return $this->updatedAt;
+        return $this->componentOnPageHasElement;
     }
 
     /**
-     * Set componentOnPage
+     * Set componentOnPageHasColumn
      *
-     * @param \My\CMSBundle\Entity\CMSComponentOnPage $componentOnPage
+     * @param \My\CMSBundle\Entity\CMSComponentHasColumn $componentOnPageHasColumn
      * @return CMSComponentOnPageHasValue
      */
-    public function setComponentOnPage(\My\CMSBundle\Entity\CMSComponentOnPage $componentOnPage)
+    public function setComponentOnPageHasColumn(\My\CMSBundle\Entity\CMSComponentHasColumn $componentOnPageHasColumn)
     {
-        $this->componentOnPage = $componentOnPage;
-
+        $this->componentOnPageHasColumn = $componentOnPageHasColumn;
+    
         return $this;
     }
 
     /**
-     * Get componentOnPage
+     * Get componentOnPageHasColumn
      *
-     * @return \My\CMSBundle\Entity\CMSComponentOnPage
+     * @return \My\CMSBundle\Entity\CMSComponentHasColumn 
      */
-    public function getComponentOnPage()
+    public function getComponentOnPageHasColumn()
     {
-        return $this->componentOnPage;
-    }
-
-    /**
-     * Set componentHasColumn
-     *
-     * @param \My\CMSBundle\Entity\CMSComponentHasColumn $componentHasColumn
-     * @return CMSComponentOnPageHasValue
-     */
-    public function setComponentHasColumn(\My\CMSBundle\Entity\CMSComponentHasColumn $componentHasColumn)
-    {
-        $this->componentHasColumn = $componentHasColumn;
-
-        return $this;
-    }
-
-    /**
-     * Get componentHasColumn
-     *
-     * @return \My\CMSBundle\Entity\CMSComponentHasColumn
-     */
-    public function getComponentHasColumn()
-    {
-        return $this->componentHasColumn;
+        return $this->componentOnPageHasColumn;
     }
 }
