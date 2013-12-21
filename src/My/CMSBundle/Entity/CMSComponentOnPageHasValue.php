@@ -29,13 +29,13 @@ class CMSComponentOnPageHasValue
     private $content;
 
     /**
-     * @ORM\ManyToOne(targetEntity="CMSComponentOnPageHasElement", inversedBy="cmsComponentOnPageHasValue")
+     * @ORM\ManyToOne(targetEntity="CMSComponentOnPageHasElement", inversedBy="cmsComponentOnPageHasValues")
      * @ORM\JoinColumn(name="component_on_page_has_element_id", referencedColumnName="id", onDelete="CASCADE", nullable=false)
      */
     protected $componentOnPageHasElement;
 
     /**
-     * @ORM\ManyToOne(targetEntity="CMSComponentHasColumn", inversedBy="cmsComponentOnPageHasValue")
+     * @ORM\ManyToOne(targetEntity="CMSComponentHasColumn", inversedBy="cmsComponentOnPageHasValues")
      * @ORM\JoinColumn(name="component_on_page_has_column_id", referencedColumnName="id", onDelete="CASCADE", nullable=false)
      */
     protected $componentOnPageHasColumn;
@@ -61,19 +61,20 @@ class CMSComponentOnPageHasValue
     public function setContent($content)
     {
         $this->content = $content;
-    
+
         return $this;
     }
 
     /**
      * Get content
      *
-     * @return string 
+     * @return string
      */
     public function getContent()
     {
         return $this->content;
     }
+
 
     /**
      * Set componentOnPageHasElement

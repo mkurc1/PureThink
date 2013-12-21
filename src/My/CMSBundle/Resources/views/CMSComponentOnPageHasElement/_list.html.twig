@@ -17,7 +17,7 @@
         <tr list_id="{{ entity.id }}">
             <td class="select"><input type="checkbox" class="multi_check" /></td>
             <td class="lp">{{ i }}.</td>
-            <td class="width_small name"><a class="editMode" href="{{ path('cmscomponenthaselement_edit', { 'id': entity.id }) }}">{{ entity.name }}</a></td>
+            <td class="width_small name"><a class="editMode" href="{{ path('cmscomponentonpagehaselement_edit', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
         </tr>
     {% endfor %}
     </tbody>

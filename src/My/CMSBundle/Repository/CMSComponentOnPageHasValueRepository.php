@@ -12,5 +12,25 @@ use Doctrine\ORM\EntityRepository;
  */
 class CMSComponentOnPageHasValueRepository extends EntityRepository
 {
+    /**
+     * Get elements
+     *
+     * @param string $order
+     * @param string $sequence
+     * @param string $filtr
+     * @param integer $componentId
+     * @return array
+     */
+    public function getElements($order, $sequence, $filtr, $componentId)
+    {
+        $qb = $this->createQueryBuilder('a')
+            ->leftJoin('a.componentOnPageHasElement', 'cophe')
+            ->leftJoin('a.componentOnPageHasColumn', 'cophc');
+            // ->where('a.name LIKE :filtr')
+            // ->setParameter('filtr', '%'.$filtr.'%');
 
+        // $qb->orderBy($order, $sequence);
+
+        return $qb->getQuery();
+    }
 }

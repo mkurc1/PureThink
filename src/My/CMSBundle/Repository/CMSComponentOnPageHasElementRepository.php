@@ -12,24 +12,5 @@ use Doctrine\ORM\EntityRepository;
  */
 class CMSComponentOnPageHasElementRepository extends EntityRepository
 {
-    /**
-     * Get elements
-     *
-     * @param string $order
-     * @param string $sequence
-     * @param string $filtr
-     * @return array
-     */
-    public function getElements($order, $sequence, $filtr)
-    {
-        $qb = $this->createQueryBuilder('a')
-            ->select('a')
-            ->addSelect('ct')
-            ->where('a.name LIKE :filtr')
-            ->setParameter('filtr', '%'.$filtr.'%');
 
-        $qb->orderBy($order, $sequence);
-
-        return $qb->getQuery();
-    }
 }

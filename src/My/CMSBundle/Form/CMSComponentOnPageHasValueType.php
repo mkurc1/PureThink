@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class CMSComponentOnPageHasElementType extends AbstractType
+class CMSComponentOnPageHasValueType extends AbstractType
 {
         /**
      * @param FormBuilderInterface $builder
@@ -15,16 +15,19 @@ class CMSComponentOnPageHasElementType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('content')
+            ->add('componentOnPageHasElement')
+            ->add('componentOnPageHasColumn')
         ;
     }
-
+    
     /**
      * @param OptionsResolverInterface $resolver
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'My\CMSBundle\Entity\CMSComponentOnPageHasElement'
+            'data_class' => 'My\CMSBundle\Entity\CMSComponentOnPageHasValue'
         ));
     }
 
@@ -33,6 +36,6 @@ class CMSComponentOnPageHasElementType extends AbstractType
      */
     public function getName()
     {
-        return 'my_cmsbundle_cmscomponentonpagehaselement';
+        return 'my_cmsbundle_cmscomponentonpagehasvalue';
     }
 }

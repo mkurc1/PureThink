@@ -246,6 +246,7 @@ class CMSComponentHasColumn
     public function __construct()
     {
         $this->cmsComponentOnPagesHasValues = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->isMainField = false;
     }
 
     /**
@@ -302,5 +303,28 @@ class CMSComponentHasColumn
     public function getSlug()
     {
         return $this->slug;
+    }
+
+    /**
+     * Set isMainField
+     *
+     * @param boolean $isMainField
+     * @return CMSComponentHasColumn
+     */
+    public function setIsMainField($isMainField)
+    {
+        $this->isMainField = $isMainField;
+
+        return $this;
+    }
+
+    /**
+     * Get isMainField
+     *
+     * @return boolean
+     */
+    public function getIsMainField()
+    {
+        return $this->isMainField;
     }
 }
