@@ -270,4 +270,48 @@ class CMSComponentOnPageHasElementController extends Controller
 
         return new Response(json_encode($response));
     }
+
+    /**
+     * Change state a CMSComponentOnPageHasElement entity.
+     *
+     * @Route("/state", name="cmsarticle_state")
+     * @Method("POST")
+     */
+    public function stateAction(Request $request)
+    {
+        $id = (int)$request->get('id');
+
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('MyCMSBundle:CMSComponentOnPageHasElement')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find CMSComponentOnPageHasElement entity.');
+        }
+
+        if ($entity->getIsEnable()) {
+            $entity->setIsEnable(false);
+        }
+        else {
+            $entity->setIsEnable(true);
+        }
+
+        $em->persist($entity);
+
+        try {
+            $em->flush();
+
+            $response = array(
+                "response" => true,
+                "message" => 'Zmiana stanu zakończyła się powodzeniem'
+                );
+        } catch (\Exception $e) {
+            $response = array(
+                "response" => false,
+                "message" => 'Zmiana stanu zakończyła się niepowodzeniem'
+                );
+        }
+
+        return new Response(json_encode($response));
+    }
 }

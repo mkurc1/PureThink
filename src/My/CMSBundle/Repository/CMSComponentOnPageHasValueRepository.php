@@ -25,7 +25,7 @@ class CMSComponentOnPageHasValueRepository extends EntityRepository
     {
         $qb = $this->createQueryBuilder('a')
             ->select('a, a.content')
-            ->addSelect('cophe.id, cophe.createdAt, cophe.updatedAt')
+            ->addSelect('cophe.id, cophe.createdAt, cophe.updatedAt, cophe.isEnable')
             ->leftJoin('a.componentOnPageHasElement', 'cophe')
             ->leftJoin('a.componentHasColumn', 'chc')
             ->where('chc.isMainField = true')
