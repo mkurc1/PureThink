@@ -77,7 +77,8 @@ function Edit() {
             url: edit.url,
             data: {
                 languageId: edit.languageId,
-                menuId: menuId
+                menuId: menuId,
+                sublistId: List.sublistId
             },
             beforeSend: function() {
                 edit.emptyEditContainer();

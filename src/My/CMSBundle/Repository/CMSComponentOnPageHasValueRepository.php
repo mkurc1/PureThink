@@ -24,12 +24,17 @@ class CMSComponentOnPageHasValueRepository extends EntityRepository
     public function getElements($order, $sequence, $filtr, $componentId)
     {
         $qb = $this->createQueryBuilder('a')
+            ->select('a, a.content')
+            ->addSelect('cophe.id, cophe.createdAt, cophe.updatedAt')
             ->leftJoin('a.componentOnPageHasElement', 'cophe')
-            ->leftJoin('a.componentOnPageHasColumn', 'cophc');
-            // ->where('a.name LIKE :filtr')
-            // ->setParameter('filtr', '%'.$filtr.'%');
+            ->leftJoin('a.componentHasColumn', 'chc')
+            ->where('chc.isMainField = true')
+            ->andWhere('a.content LIKE :filtr')
+            ->setParameter('filtr', '%'.$filtr.'%');
 
         // $qb->orderBy($order, $sequence);
+
+        $qb->groupBy('a.componentOnPageHasElement');
 
         return $qb->getQuery();
     }

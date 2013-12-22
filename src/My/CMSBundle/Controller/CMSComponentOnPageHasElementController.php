@@ -8,6 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use My\CMSBundle\Entity\CMSComponentOnPageHasElement;
+use My\CMSBundle\Entity\CMSComponentOnPageHasValue;
 use My\CMSBundle\Form\CMSComponentOnPageHasElementType;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -51,7 +52,7 @@ class CMSComponentOnPageHasElementController extends Controller
         $response = array(
             "list" => $list,
             "pagination" => Pagination::helper($pagination),
-            "response" => true
+            "response" => true,
             );
 
         return new Response(json_encode($response));
@@ -70,6 +71,7 @@ class CMSComponentOnPageHasElementController extends Controller
 
         $entity = new CMSComponentOnPageHasElement();
         $entity->setComponentOnPage($em->getRepository('MyCMSBundle:CMSComponentOnPage')->find($sublistId));
+        $entity = $this->getColumns($entity, $sublistId);
 
         $form = $this->createForm(new CMSComponentOnPageHasElementType(), $entity);
         $form->bind($request);
@@ -105,7 +107,11 @@ class CMSComponentOnPageHasElementController extends Controller
      */
     public function newAction(Request $request)
     {
+        $sublistId = (int)$request->get('sublistId');
+
         $entity = new CMSComponentOnPageHasElement();
+        $entity = $this->getColumns($entity, $sublistId);
+
         $form = $this->createForm(new CMSComponentOnPageHasElementType(), $entity);
 
         $view = $this->renderView('MyCMSBundle:CMSComponentOnPageHasElement:_new.html.twig', array('entity' => $entity, 'form' => $form->createView()));
@@ -116,6 +122,31 @@ class CMSComponentOnPageHasElementController extends Controller
                 );
 
         return new Response(json_encode($response));
+    }
+
+    /**
+     * Get columns
+     *
+     * @param CMSComponentOnPageHasElement $entity
+     * @param integer $CMSComponentOnPageId
+     * @return CMSComponentOnPageHasElement
+     */
+    public function getColumns(CMSComponentOnPageHasElement $entity, $CMSComponentOnPageId)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $CMSComponentOnPage = $em->getRepository('MyCMSBundle:CMSComponentOnPage')->find($CMSComponentOnPageId);
+        $columns = $em->getRepository('MyCMSBundle:CMSComponentHasColumn')
+            ->findByComponent($CMSComponentOnPage->getComponent());
+
+        foreach ($columns as $column) {
+            $CMSComponentOnPageHasValue = new CMSComponentOnPageHasValue();
+            $CMSComponentOnPageHasValue->setComponentOnPageHasElement($entity);
+            $CMSComponentOnPageHasValue->setComponentHasColumn($column);
+            $entity->addComponentOnPagesHasValue($CMSComponentOnPageHasValue);
+        }
+
+        return $entity;
     }
 
     /**

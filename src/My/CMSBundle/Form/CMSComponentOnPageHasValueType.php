@@ -16,11 +16,11 @@ class CMSComponentOnPageHasValueType extends AbstractType
     {
         $builder
             ->add('content')
-            ->add('componentOnPageHasElement')
-            ->add('componentOnPageHasColumn')
+            // ->add('componentOnPageHasElement')
+            // ->add('componentOnPageHasColumn')
         ;
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */

@@ -45,7 +45,7 @@ class CMSComponentOnPageHasElement
     protected $componentOnPage;
 
     /**
-     * @ORM\OneToMany(targetEntity="CMSComponentOnPageHasValue", mappedBy="cmsComponentOnPageHasElement")
+     * @ORM\OneToMany(targetEntity="CMSComponentOnPageHasValue", mappedBy="cmsComponentOnPageHasElement", cascade={"all"})
      */
     protected $componentOnPagesHasValues;
 

@@ -8,14 +8,16 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class CMSComponentOnPageHasElementType extends AbstractType
 {
-        /**
+    /**
      * @param FormBuilderInterface $builder
      * @param array $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder
-        ;
+        $builder->add('componentOnPagesHasValues', 'collection', array(
+            'type' => new CMSComponentOnPageHasValueType()
+            )
+        );
     }
 
     /**

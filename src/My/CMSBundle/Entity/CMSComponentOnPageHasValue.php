@@ -36,9 +36,9 @@ class CMSComponentOnPageHasValue
 
     /**
      * @ORM\ManyToOne(targetEntity="CMSComponentHasColumn", inversedBy="cmsComponentOnPageHasValues")
-     * @ORM\JoinColumn(name="component_on_page_has_column_id", referencedColumnName="id", onDelete="CASCADE", nullable=false)
+     * @ORM\JoinColumn(name="component_has_column_id", referencedColumnName="id", onDelete="CASCADE", nullable=false)
      */
-    protected $componentOnPageHasColumn;
+    protected $componentHasColumn;
 
 
     /**
@@ -100,25 +100,25 @@ class CMSComponentOnPageHasValue
     }
 
     /**
-     * Set componentOnPageHasColumn
+     * Set componentHasColumn
      *
-     * @param \My\CMSBundle\Entity\CMSComponentHasColumn $componentOnPageHasColumn
+     * @param \My\CMSBundle\Entity\CMSComponentHasColumn $componentHasColumn
      * @return CMSComponentOnPageHasValue
      */
-    public function setComponentOnPageHasColumn(\My\CMSBundle\Entity\CMSComponentHasColumn $componentOnPageHasColumn)
+    public function setComponentHasColumn(\My\CMSBundle\Entity\CMSComponentHasColumn $componentHasColumn)
     {
-        $this->componentOnPageHasColumn = $componentOnPageHasColumn;
+        $this->componentHasColumn = $componentHasColumn;
     
         return $this;
     }
 
     /**
-     * Get componentOnPageHasColumn
+     * Get componentHasColumn
      *
      * @return \My\CMSBundle\Entity\CMSComponentHasColumn 
      */
-    public function getComponentOnPageHasColumn()
+    public function getComponentHasColumn()
     {
-        return $this->componentOnPageHasColumn;
+        return $this->componentHasColumn;
     }
 }
