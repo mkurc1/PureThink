@@ -9,6 +9,7 @@ use My\CMSBundle\Entity\CMSWebSite;
 use My\CMSBundle\Entity\CMSArticle;
 use My\CMSBundle\Entity\CMSMenu;
 use My\CMSBundle\Entity\CMSComponent;
+use My\CMSBundle\Entity\CMSComponentHasColumn;
 
 class LoadData implements FixtureInterface
 {
@@ -24,6 +25,7 @@ class LoadData implements FixtureInterface
 		$manager = $this->addCMSArticle($manager);
 		$manager = $this->addCMSMenu($manager);
 		$manager = $this->addCMSComponent($manager);
+		$manager = $this->addCMSComponentHasColumn($manager);
 	}
 
 	/**
@@ -135,6 +137,31 @@ class LoadData implements FixtureInterface
 			$CMSComponent->setSeries($manager->getRepository('MyBackendBundle:Series')->find($cmsComponent->series_id));
 
 			$manager->persist($CMSComponent);
+		}
+
+		$manager->flush();
+		return $manager;
+	}
+
+	/**
+	 * Add CMS component has column fixtures
+	 *
+	 * @param ObjectManager $manager
+	 */
+	private function addCMSComponentHasColumn(ObjectManager $manager)
+	{
+		$xml = simplexml_load_file('src/My/CMSBundle/data/cmsComponentHasColumns.xml');
+		foreach ($xml->cmsComponentHasColumn as $cmsComponentHasColumn) {
+			$CMSComponentHasColumn = new CMSComponentHasColumn();
+			$CMSComponentHasColumn->setName($cmsComponentHasColumn->name);
+			$CMSComponentHasColumn->setColumnLabel($cmsComponentHasColumn->column_label);
+			$CMSComponentHasColumn->setClass($cmsComponentHasColumn->class);
+			$CMSComponentHasColumn->setIsRequired($cmsComponentHasColumn->is_required);
+			$CMSComponentHasColumn->setIsMainField($cmsComponentHasColumn->is_main_field);
+			$CMSComponentHasColumn->setComponent($manager->getRepository('MyCMSBundle:CMSComponent')->find($cmsComponentHasColumn->component_id));
+			$CMSComponentHasColumn->setColumnType($manager->getRepository('MyBackendBundle:ColumnType')->find($cmsComponentHasColumn->type_id));
+
+			$manager->persist($CMSComponentHasColumn);
 		}
 
 		$manager->flush();

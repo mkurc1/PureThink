@@ -75,4 +75,50 @@ class CMSComponentOnPageHasValue
         return $this->content;
     }
 
+
+    /**
+     * Set componentOnPageHasElement
+     *
+     * @param \My\CMSBundle\Entity\CMSComponentOnPageHasElement $componentOnPageHasElement
+     * @return CMSComponentOnPageHasValue
+     */
+    public function setComponentOnPageHasElement(\My\CMSBundle\Entity\CMSComponentOnPageHasElement $componentOnPageHasElement)
+    {
+        $this->componentOnPageHasElement = $componentOnPageHasElement;
+    
+        return $this;
+    }
+
+    /**
+     * Get componentOnPageHasElement
+     *
+     * @return \My\CMSBundle\Entity\CMSComponentOnPageHasElement 
+     */
+    public function getComponentOnPageHasElement()
+    {
+        return $this->componentOnPageHasElement;
+    }
+
+    /**
+     * Set componentHasColumn
+     *
+     * @param \My\CMSBundle\Entity\CMSComponentHasColumn $componentHasColumn
+     * @return CMSComponentOnPageHasValue
+     */
+    public function setComponentHasColumn(\My\CMSBundle\Entity\CMSComponentHasColumn $componentHasColumn)
+    {
+        $this->componentHasColumn = $componentHasColumn;
+    
+        return $this;
+    }
+
+    /**
+     * Get componentHasColumn
+     *
+     * @return \My\CMSBundle\Entity\CMSComponentHasColumn 
+     */
+    public function getComponentHasColumn()
+    {
+        return $this->componentHasColumn;
+    }
 }

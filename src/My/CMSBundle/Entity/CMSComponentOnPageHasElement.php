@@ -39,6 +39,13 @@ class CMSComponentOnPageHasElement
     private $updatedAt;
 
     /**
+     * @var boolean
+     *
+     * @ORM\Column(name="is_enable", type="boolean", nullable=true)
+     */
+    private $isEnable;
+
+    /**
      * @ORM\ManyToOne(targetEntity="CMSComponentOnPage", inversedBy="cmsComponentOnPageHasElements")
      * @ORM\JoinColumn(name="component_on_page_id", referencedColumnName="id", onDelete="CASCADE", nullable=false)
      */
@@ -169,6 +176,30 @@ class CMSComponentOnPageHasElement
     public function __construct()
     {
         $this->componentOnPagesHasValues = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->isEnable = false;
     }
 
+
+    /**
+     * Set isEnable
+     *
+     * @param boolean $isEnable
+     * @return CMSComponentOnPageHasElement
+     */
+    public function setIsEnable($isEnable)
+    {
+        $this->isEnable = $isEnable;
+    
+        return $this;
+    }
+
+    /**
+     * Get isEnable
+     *
+     * @return boolean 
+     */
+    public function getIsEnable()
+    {
+        return $this->isEnable;
+    }
 }

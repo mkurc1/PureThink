@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cmsComponentHasColumns>
+    <cmsComponentHasColumn>
+        <component_id>2</component_id>
+        <type_id>1</type_id>
+        <name>Nazwa</name>
+        <column_label>Nazwa banera</column_label>
+        <class></class>
+        <is_required>1</is_required>
+        <is_main_field>1</is_main_field>
+    </cmsComponentHasColumn>
+    <cmsComponentHasColumn>
+        <component_id>2</component_id>
+        <type_id>1</type_id>
+        <name>Adres</name>
+        <column_label>Adres docelowy</column_label>
+        <class></class>
+        <is_required>1</is_required>
+        <is_main_field>0</is_main_field>
+    </cmsComponentHasColumn>
+    <cmsComponentHasColumn>
+        <component_id>2</component_id>
+        <type_id>10</type_id>
+        <name>Fotografia</name>
+        <column_label>Wybierz fotografię</column_label>
+        <class></class>
+        <is_required>1</is_required>
+        <is_main_field>0</is_main_field>
+    </cmsComponentHasColumn>
+</cmsComponentHasColumns>
