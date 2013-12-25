@@ -1,6 +1,6 @@
 {{ form_widget(form._token) }}
 
-{% for value in form.componentOnPagesHasValues %}
+{% for value in form.componentOnPageHasValues %}
     <div class="dane_element">
         {{ form_label(value.content) }}
         {{ form_widget(value.content) }}

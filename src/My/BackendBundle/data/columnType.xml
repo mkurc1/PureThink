@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <columnTypes>
     <columnType>
-        <name>String</name>
+        <name>Text</name>
     </columnType>
     <columnType>
-        <name>Text</name>
+        <name>Textarea</name>
     </columnType>
     <columnType>
         <name>Integer</name>

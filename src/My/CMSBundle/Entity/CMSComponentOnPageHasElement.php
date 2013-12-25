@@ -54,7 +54,7 @@ class CMSComponentOnPageHasElement
     /**
      * @ORM\OneToMany(targetEntity="CMSComponentOnPageHasValue", mappedBy="cmsComponentOnPageHasElement", cascade={"all"})
      */
-    protected $componentOnPagesHasValues;
+    protected $componentOnPageHasValues;
 
 
     /**
@@ -138,36 +138,36 @@ class CMSComponentOnPageHasElement
     }
 
     /**
-     * Add componentOnPagesHasValues
+     * Add componentOnPageHasValues
      *
-     * @param \My\CMSBundle\Entity\CMSComponentOnPageHasValue $componentOnPagesHasValues
+     * @param \My\CMSBundle\Entity\CMSComponentOnPageHasValue $componentOnPageHasValues
      * @return CMSComponentOnPageHasElement
      */
-    public function addComponentOnPagesHasValue(\My\CMSBundle\Entity\CMSComponentOnPageHasValue $componentOnPagesHasValues)
+    public function addComponentOnPageHasValue(\My\CMSBundle\Entity\CMSComponentOnPageHasValue $componentOnPageHasValues)
     {
-        $this->componentOnPagesHasValues[] = $componentOnPagesHasValues;
+        $this->componentOnPageHasValues[] = $componentOnPageHasValues;
 
         return $this;
     }
 
     /**
-     * Remove componentOnPagesHasValues
+     * Remove componentOnPageHasValues
      *
-     * @param \My\CMSBundle\Entity\CMSComponentOnPageHasValue $componentOnPagesHasValues
+     * @param \My\CMSBundle\Entity\CMSComponentOnPageHasValue $componentOnPageHasValues
      */
-    public function removeComponentOnPagesHasValue(\My\CMSBundle\Entity\CMSComponentOnPageHasValue $componentOnPagesHasValues)
+    public function removeComponentOnPageHasValue(\My\CMSBundle\Entity\CMSComponentOnPageHasValue $componentOnPageHasValues)
     {
-        $this->componentOnPagesHasValues->removeElement($componentOnPagesHasValues);
+        $this->componentOnPageHasValues->removeElement($componentOnPageHasValues);
     }
 
     /**
-     * Get componentOnPagesHasValues
+     * Get componentOnPageHasValues
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getComponentOnPagesHasValues()
+    public function getComponentOnPageHasValues()
     {
-        return $this->componentOnPagesHasValues;
+        return $this->componentOnPageHasValues;
     }
 
     /**
@@ -175,7 +175,7 @@ class CMSComponentOnPageHasElement
      */
     public function __construct()
     {
-        $this->componentOnPagesHasValues = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->componentOnPageHasValues = new \Doctrine\Common\Collections\ArrayCollection();
         $this->isEnable = false;
     }
 
@@ -189,14 +189,14 @@ class CMSComponentOnPageHasElement
     public function setIsEnable($isEnable)
     {
         $this->isEnable = $isEnable;
-    
+
         return $this;
     }
 
     /**
      * Get isEnable
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getIsEnable()
     {

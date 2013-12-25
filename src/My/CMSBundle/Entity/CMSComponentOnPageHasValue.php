@@ -60,7 +60,10 @@ class CMSComponentOnPageHasValue
      */
     public function setContent($content)
     {
-        $this->content = $content;
+        if (is_object($content))
+            $this->content = $content->getId();
+        else
+            $this->content = $content;
 
         return $this;
     }
@@ -85,14 +88,14 @@ class CMSComponentOnPageHasValue
     public function setComponentOnPageHasElement(\My\CMSBundle\Entity\CMSComponentOnPageHasElement $componentOnPageHasElement)
     {
         $this->componentOnPageHasElement = $componentOnPageHasElement;
-    
+
         return $this;
     }
 
     /**
      * Get componentOnPageHasElement
      *
-     * @return \My\CMSBundle\Entity\CMSComponentOnPageHasElement 
+     * @return \My\CMSBundle\Entity\CMSComponentOnPageHasElement
      */
     public function getComponentOnPageHasElement()
     {
@@ -108,14 +111,14 @@ class CMSComponentOnPageHasValue
     public function setComponentHasColumn(\My\CMSBundle\Entity\CMSComponentHasColumn $componentHasColumn)
     {
         $this->componentHasColumn = $componentHasColumn;
-    
+
         return $this;
     }
 
     /**
      * Get componentHasColumn
      *
-     * @return \My\CMSBundle\Entity\CMSComponentHasColumn 
+     * @return \My\CMSBundle\Entity\CMSComponentHasColumn
      */
     public function getComponentHasColumn()
     {

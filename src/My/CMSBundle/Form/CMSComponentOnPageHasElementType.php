@@ -14,7 +14,7 @@ class CMSComponentOnPageHasElementType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('componentOnPagesHasValues', 'collection', array(
+        $builder->add('componentOnPageHasValues', 'collection', array(
             'type' => new CMSComponentOnPageHasValueType()
             )
         );

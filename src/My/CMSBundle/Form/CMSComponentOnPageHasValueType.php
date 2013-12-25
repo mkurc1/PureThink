@@ -8,17 +8,60 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class CMSComponentOnPageHasValueType extends AbstractType
 {
-        /**
+    private $column = null;
+
+    public function __construct($column = null)
+    {
+        $this->column = $column;
+    }
+
+    /**
      * @param FormBuilderInterface $builder
      * @param array $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder
-            ->add('content')
-            // ->add('componentOnPageHasElement')
-            // ->add('componentOnPageHasColumn')
-        ;
+        $type = $options['attr']['type'];
+        $class = null;
+
+        switch ($type) {
+            case 'Article':
+                $type = 'entity';
+                $class = 'MyCMSBundle:CMSArticle';
+                break;
+            case 'File':
+                $type = 'entity';
+                $class = 'MyFileBundle:File';
+                break;
+            default:
+                $type = strtolower($type);
+                break;
+        }
+
+        if ($type == 'entity') {
+            $builder->add('content', $type, array(
+                'label' => $options['attr']['label'],
+                'class' => $class,
+                'empty_value' => '',
+                'attr' => array(
+                    'class' => $options['attr']['class']
+                    ),
+                )
+            );
+        }
+        else {
+            $builder->add('content', $type, array(
+                'label' => $options['attr']['label'],
+                'attr' => array(
+                    'class' => $options['attr']['class']
+                    ),
+                )
+            );
+        }
+
+        if (!is_null($this->column)) {
+            $builder->setData($this->column);
+        }
     }
 
     /**

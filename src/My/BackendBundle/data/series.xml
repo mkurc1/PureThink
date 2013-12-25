@@ -24,4 +24,8 @@
         <name>Frontend</name>
         <menu_id>5</menu_id>
     </serie>
+    <serie>
+        <name>Baner</name>
+        <menu_id>7</menu_id>
+    </serie>
 </series>
