@@ -28,9 +28,15 @@ class CMSComponentOnPageHasValueRepository extends EntityRepository
             ->addSelect('cophe.id, cophe.createdAt, cophe.updatedAt, cophe.isEnable')
             ->leftJoin('a.componentOnPageHasElement', 'cophe')
             ->leftJoin('a.componentHasColumn', 'chc')
+            ->leftJoin('cophe.componentOnPage', 'cop')
             ->where('chc.isMainField = true')
             ->andWhere('a.content LIKE :filtr')
             ->setParameter('filtr', '%'.$filtr.'%');
+
+        if ($componentId) {
+            $qb->andWhere('cop.id = :componentId')
+                ->setParameter('componentId', $componentId);
+        }
 
         $qb->orderBy($order, $sequence);
 

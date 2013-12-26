@@ -30,12 +30,14 @@ class DefaultController extends Controller
         $meta = $this->getMeta($locale);
         $languages = $this->getLanguages();
         $menus = $this->getMenus($locale);
+        $components = $this->getComponents($locale);
 
         return array(
             'locale' => $locale,
             'meta' => $meta,
             'languages' => $languages,
-            'menus' => $menus
+            'menus' => $menus,
+            'components' => $components
             );
     }
 
@@ -86,6 +88,27 @@ class DefaultController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         return $em->getRepository('MyCMSBundle:CMSMenu')->getPublicMenus($locale);
+    }
+
+    /**
+     * Get components
+     *
+     * @param string $locale
+     * @return array
+     */
+    private function getComponents($locale)
+    {
+        $components = array();
+
+        $em = $this->getDoctrine()->getManager();
+
+        $enties = $em->getRepository('MyCMSBundle:CMSComponentOnPage')->findAll();
+
+        foreach ($enties as $key => $entity) {
+            $components[$entity->getSlug()] = $entity;
+        }
+
+        return $components;
     }
 
     /**

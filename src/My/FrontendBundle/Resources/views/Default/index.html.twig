@@ -54,19 +54,7 @@
         </div>
     </div>
 
-    <div id="baner">
-        <div class="container">
-            <a href="#">
-                <img src="{{ asset('bundles/cms/frontend/fresh_style/images/baner_1.png') }}" alt="" />
-            </a>
-            <a href="#">
-                <img src="{{ asset('bundles/cms/frontend/fresh_style/images/baner_1.png') }}" alt="" />
-            </a>
-            <a href="#">
-                <img src="{{ asset('bundles/cms/frontend/fresh_style/images/baner_1.png') }}" alt="" />
-            </a>
-        </div>
-    </div>
+    {% include 'MyFrontendBundle:Default:_baner.html.twig' with { 'baners': components['baner'], 'locale': locale } %}
 
     <div id="news">
         <div class="container">
