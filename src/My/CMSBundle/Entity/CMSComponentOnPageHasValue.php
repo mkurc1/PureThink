@@ -51,7 +51,6 @@ class CMSComponentOnPageHasValue
         return $this->id;
     }
 
-
     /**
      * Set content
      *
@@ -60,10 +59,12 @@ class CMSComponentOnPageHasValue
      */
     public function setContent($content)
     {
-        if (is_object($content))
+        if (is_object($content)) {
             $this->content = $content->getId();
-        else
+        }
+        else {
             $this->content = $content;
+        }
 
         return $this;
     }
@@ -123,5 +124,15 @@ class CMSComponentOnPageHasValue
     public function getComponentHasColumn()
     {
         return $this->componentHasColumn;
+    }
+
+    /**
+     * Get content
+     *
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->getContent();
     }
 }

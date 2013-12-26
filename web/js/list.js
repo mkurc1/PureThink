@@ -225,6 +225,10 @@ function List() {
                     Pagination.lastPage = data.pagination.last_page;
 
                     Pagination.paging(data.pagination.pages);
+
+                    if (data.order) {
+                        list.order = data.order;
+                    }
                 }
             }
         });

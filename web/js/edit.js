@@ -15,6 +15,7 @@ function Edit() {
     this.setEditAction = setEditAction;
     this.setFocusOnFirstInput = setFocusOnFirstInput;
     this.setActionOnUploadFileButtons = setActionOnUploadFileButtons;
+    this.defaultSelectValue = defaultSelectValue;
 
     /**
      * Set default parameters
@@ -51,7 +52,7 @@ function Edit() {
      * Set action on upload file buttons
      */
     function setActionOnUploadFileButtons() {
-        $('#edit_container > .container').on('click', 'button.browse', function() {
+        $('#edit_container > .container').on('click', 'button.browse, div.input_file', function() {
             var button = $(this);
 
             var upload = $(this).parent().find('input[type="file"]');
@@ -89,6 +90,7 @@ function Edit() {
 
                 Pagination.hidePagination();
                 edit.html5validateOff();
+                edit.defaultSelectValue();
                 beautifySelects();
                 submitAction();
                 createEditButtons();
@@ -133,8 +135,10 @@ function Edit() {
                     else {
                         $('#edit_container').html(data.view);
                         Edit.html5validateOff();
+                        edit.defaultSelectValue();
                         beautifySelects();
                         Edit.submitAction();
+                        Edit.setActionOnUploadFileButtons();
                     }
 
                     Edit.isApplyOption = false;
@@ -169,6 +173,20 @@ function Edit() {
             edit.getEdit();
 
             return false;
+        });
+    }
+
+    /**
+     * Default select value
+     */
+    function defaultSelectValue() {
+        $.each($('#edit_container > .container > form select'), function(index, val) {
+            if ($(val).attr('selected_id')) {
+                var selected = $(val).attr('selected_id');
+
+                $(val).find('option[selected="selected"]').removeAttr('selected');
+                $(val).find('option[value="'+selected+'"]').attr('selected', 'selected');
+            }
         });
     }
 }

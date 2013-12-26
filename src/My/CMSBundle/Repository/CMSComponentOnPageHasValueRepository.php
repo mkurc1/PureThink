@@ -32,10 +32,31 @@ class CMSComponentOnPageHasValueRepository extends EntityRepository
             ->andWhere('a.content LIKE :filtr')
             ->setParameter('filtr', '%'.$filtr.'%');
 
-        // $qb->orderBy($order, $sequence);
+        $qb->orderBy($order, $sequence);
 
         $qb->groupBy('a.componentOnPageHasElement');
 
         return $qb->getQuery();
+    }
+
+    /**
+     * Get content
+     *
+     * @param integer $elementId
+     * @param integer $typeId
+     * @return object
+     */
+    public function getContent($elementId, $typeId)
+    {
+        $qb = $this->createQueryBuilder('a')
+            ->leftJoin('a.componentOnPageHasElement', 'cophe')
+            ->leftJoin('a.componentHasColumn', 'chc')
+            ->where('cophe.id = :elementId')
+            ->setParameter('elementId', $elementId)
+            ->andWhere('chc.id = :typeId')
+            ->setParameter('typeId', $typeId)
+            ->setMaxResults(1);
+
+        return $qb->getQuery()->getSingleResult();
     }
 }

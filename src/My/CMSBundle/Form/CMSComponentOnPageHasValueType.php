@@ -44,8 +44,9 @@ class CMSComponentOnPageHasValueType extends AbstractType
                 'class' => $class,
                 'empty_value' => '',
                 'attr' => array(
-                    'class' => $options['attr']['class']
-                    ),
+                    'class' => $options['attr']['class'],
+                    'selected_id' => $this->column->getContent()
+                    )
                 )
             );
         }
