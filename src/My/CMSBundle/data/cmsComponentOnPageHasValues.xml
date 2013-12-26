@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cmsComponentOnPageHasValues>
+    <cmsComponentOnPageHasValue>
+        <content>Baner 1</content>
+        <component_on_page_has_element_id>1</component_on_page_has_element_id>
+        <component_has_column_id>1</component_has_column_id>
+    </cmsComponentOnPageHasValue>
+    <cmsComponentOnPageHasValue>
+        <content>1</content>
+        <component_on_page_has_element_id>1</component_on_page_has_element_id>
+        <component_has_column_id>2</component_has_column_id>
+    </cmsComponentOnPageHasValue>
+    <cmsComponentOnPageHasValue>
+        <content>1</content>
+        <component_on_page_has_element_id>1</component_on_page_has_element_id>
+        <component_has_column_id>3</component_has_column_id>
+    </cmsComponentOnPageHasValue>
+    <cmsComponentOnPageHasValue>
+        <content>Baner 2</content>
+        <component_on_page_has_element_id>2</component_on_page_has_element_id>
+        <component_has_column_id>1</component_has_column_id>
+    </cmsComponentOnPageHasValue>
+    <cmsComponentOnPageHasValue>
+        <content>5</content>
+        <component_on_page_has_element_id>2</component_on_page_has_element_id>
+        <component_has_column_id>2</component_has_column_id>
+    </cmsComponentOnPageHasValue>
+    <cmsComponentOnPageHasValue>
+        <content>2</content>
+        <component_on_page_has_element_id>2</component_on_page_has_element_id>
+        <component_has_column_id>3</component_has_column_id>
+    </cmsComponentOnPageHasValue>
+    <cmsComponentOnPageHasValue>
+        <content>Baner 3</content>
+        <component_on_page_has_element_id>3</component_on_page_has_element_id>
+        <component_has_column_id>1</component_has_column_id>
+    </cmsComponentOnPageHasValue>
+    <cmsComponentOnPageHasValue>
+        <content>9</content>
+        <component_on_page_has_element_id>3</component_on_page_has_element_id>
+        <component_has_column_id>2</component_has_column_id>
+    </cmsComponentOnPageHasValue>
+    <cmsComponentOnPageHasValue>
+        <content>3</content>
+        <component_on_page_has_element_id>3</component_on_page_has_element_id>
+        <component_has_column_id>3</component_has_column_id>
+    </cmsComponentOnPageHasValue>
+</cmsComponentOnPageHasValues>

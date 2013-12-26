@@ -10,6 +10,9 @@ use My\CMSBundle\Entity\CMSArticle;
 use My\CMSBundle\Entity\CMSMenu;
 use My\CMSBundle\Entity\CMSComponent;
 use My\CMSBundle\Entity\CMSComponentHasColumn;
+use My\CMSBundle\Entity\CMSComponentOnPage;
+use My\CMSBundle\Entity\CMSComponentOnPageHasElement;
+use My\CMSBundle\Entity\CMSComponentOnPageHasValue;
 
 class LoadData implements FixtureInterface
 {
@@ -26,6 +29,9 @@ class LoadData implements FixtureInterface
 		$manager = $this->addCMSMenu($manager);
 		$manager = $this->addCMSComponent($manager);
 		$manager = $this->addCMSComponentHasColumn($manager);
+		$manager = $this->addCMSComponentOnPage($manager);
+		$manager = $this->addCMSComponentOnPageHasElement($manager);
+		$manager = $this->addCMSComponentOnPageHasValue($manager);
 	}
 
 	/**
@@ -162,6 +168,70 @@ class LoadData implements FixtureInterface
 			$CMSComponentHasColumn->setColumnType($manager->getRepository('MyBackendBundle:ColumnType')->find($cmsComponentHasColumn->type_id));
 
 			$manager->persist($CMSComponentHasColumn);
+		}
+
+		$manager->flush();
+		return $manager;
+	}
+
+	/**
+	 * Add CMS component on page fixtures
+	 *
+	 * @param ObjectManager $manager
+	 */
+	private function addCMSComponentOnPage(ObjectManager $manager)
+	{
+		$xml = simplexml_load_file('src/My/CMSBundle/data/cmsComponentOnPages.xml');
+		foreach ($xml->cmsComponentOnPage as $cmsComponentOnPage) {
+			$CMSComponentOnPage = new CMSComponentOnPage();
+			$CMSComponentOnPage->setName($cmsComponentOnPage->name);
+			$CMSComponentOnPage->setIsEnable($cmsComponentOnPage->is_enable);
+			$CMSComponentOnPage->setComponent($manager->getRepository('MyCMSBundle:CMSComponent')->find($cmsComponentOnPage->component_id));
+			$CMSComponentOnPage->setLanguage($manager->getRepository('MyCMSBundle:CMSLanguage')->find($cmsComponentOnPage->language_id));
+			$CMSComponentOnPage->setSeries($manager->getRepository('MyBackendBundle:Series')->find($cmsComponentOnPage->series_id));
+
+			$manager->persist($CMSComponentOnPage);
+		}
+
+		$manager->flush();
+		return $manager;
+	}
+
+	/**
+	 * Add CMS component on page has element fixtures
+	 *
+	 * @param ObjectManager $manager
+	 */
+	private function addCMSComponentOnPageHasElement(ObjectManager $manager)
+	{
+		$xml = simplexml_load_file('src/My/CMSBundle/data/cmsComponentOnPageHasElements.xml');
+		foreach ($xml->cmsComponentOnPageHasElement as $cmsComponentOnPageHasElement) {
+			$CMSComponentOnPageHasElement = new CMSComponentOnPageHasElement();
+			$CMSComponentOnPageHasElement->setIsEnable($cmsComponentOnPageHasElement->is_enable);
+			$CMSComponentOnPageHasElement->setComponentOnPage($manager->getRepository('MyCMSBundle:CMSComponentOnPage')->find($cmsComponentOnPageHasElement->component_on_page_id));
+
+			$manager->persist($CMSComponentOnPageHasElement);
+		}
+
+		$manager->flush();
+		return $manager;
+	}
+
+	/**
+	 * Add CMS component on page has value fixtures
+	 *
+	 * @param ObjectManager $manager
+	 */
+	private function addCMSComponentOnPageHasValue(ObjectManager $manager)
+	{
+		$xml = simplexml_load_file('src/My/CMSBundle/data/cmsComponentOnPageHasValues.xml');
+		foreach ($xml->cmsComponentOnPageHasValue as $cmsComponentOnPageHasValue) {
+			$CMSComponentOnPageHasValue = new CMSComponentOnPageHasValue();
+			$CMSComponentOnPageHasValue->setContent((string)$cmsComponentOnPageHasValue->content);
+			$CMSComponentOnPageHasValue->setComponentOnPageHasElement($manager->getRepository('MyCMSBundle:CMSComponentOnPageHasElement')->find($cmsComponentOnPageHasValue->component_on_page_has_element_id));
+			$CMSComponentOnPageHasValue->setComponentHasColumn($manager->getRepository('MyCMSBundle:CMSComponentHasColumn')->find($cmsComponentOnPageHasValue->component_has_column_id));
+
+			$manager->persist($CMSComponentOnPageHasValue);
 		}
 
 		$manager->flush();

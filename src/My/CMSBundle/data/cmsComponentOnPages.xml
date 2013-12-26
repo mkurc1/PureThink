@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cmsComponentOnPages>
+    <cmsComponentOnPage>
+        <name>Baner</name>
+        <language_id>2</language_id>
+        <component_id>2</component_id>
+        <series_id>5</series_id>
+        <is_enable>1</is_enable>
+    </cmsComponentOnPage>
+</cmsComponentOnPages>

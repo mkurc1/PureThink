@@ -22,8 +22,8 @@ class AppKernel extends Kernel
             new My\UserBundle\MyUserBundle(),
             new My\FrontendBundle\MyFrontendBundle(),
             new My\BackendBundle\MyBackendBundle(),
-            new My\CMSBundle\MyCMSBundle(),
             new My\FileBundle\MyFileBundle(),
+            new My\CMSBundle\MyCMSBundle(),
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
             new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
         );
