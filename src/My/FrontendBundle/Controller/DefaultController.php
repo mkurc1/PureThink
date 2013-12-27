@@ -83,10 +83,10 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/{locale}/{slug}", name="article")
+     * @Route("/{locale}/{slug}/{slug2}", name="article")
      * @Template()
      */
-    public function articleAction(Request $request, $locale, $slug)
+    public function articleAction(Request $request, $locale, $slug, $slug2 = false)
     {
         if ($this->checkAvilableLocales($locale)) {
             $request->setLocale($locale);
@@ -98,7 +98,12 @@ class DefaultController extends Controller
         $languages = $this->getLanguages();
         $menus = $this->getMenus($locale);
 
-        $article = $this->getArticle($slug);
+        if ($slug2) {
+            $article = $this->getArticle($slug2);
+        }
+        else {
+            $article = $this->getArticle($slug);
+        }
 
         return array(
             'locale' => $locale,
@@ -118,9 +123,7 @@ class DefaultController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $menu = $em->getRepository('MyCMSBundle:CMSMenu')->findOneBySlug($slug);
-
-        return $menu->getArticle();
+        return $em->getRepository('MyCMSBundle:CMSArticle')->findOneBySlug($slug);
     }
 
     /**

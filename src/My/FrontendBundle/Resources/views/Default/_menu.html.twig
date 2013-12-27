@@ -6,9 +6,17 @@
     {% endif %}
     {% for menu in menus %}
         <li class="{{ menu.menus|length > 0 ? 'has_submenu' : '' }}">
-            <a href="{{ path('article', {'locale': locale, 'slug': menu.slug}) }}">{{ menu }}</a>
+            {% set slug = menu.article.slug  %}
+            {% set slug2 = (slug2 is defined) ? slug2 : false %}
+
+            {% if (slug2) %}
+                {% set temp = slug %}
+                {% set slug = slug2 %}
+                {% set slug2 = temp %}
+            {% endif %}
+            <a href="{{ path('article', {'locale': locale, 'slug': slug, 'slug2': slug2}) }}">{{ menu }}</a>
             {% if menu.menus|length > 0 %}
-                {% include 'MyFrontendBundle:Default:_menu.html.twig' with { 'menus': menu.menus, 'locale': locale, 'home': false } %}
+                {% include 'MyFrontendBundle:Default:_menu.html.twig' with { 'menus': menu.menus, 'locale': locale, 'home': false, 'slug2': menu.slug } %}
             {% endif %}
         </li>
     {% endfor %}

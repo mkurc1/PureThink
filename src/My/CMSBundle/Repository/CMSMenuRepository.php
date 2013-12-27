@@ -57,6 +57,7 @@ class CMSMenuRepository extends EntityRepository
         $qb = $this->createQueryBuilder('a')
             ->leftJoin('a.language', 'l')
             ->leftJoin('a.series', 's')
+            ->leftJoin('a.article', 'art')
             ->where('a.isPublic = true')
             ->andWhere('a.menu is NULL')
             ->andWhere('l.alias = :locale')
