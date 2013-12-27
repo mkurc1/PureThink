@@ -333,7 +333,7 @@ class CMSComponentOnPageHasElementController extends Controller
     /**
      * Change state a CMSComponentOnPageHasElement entity.
      *
-     * @Route("/state", name="cmsarticle_state")
+     * @Route("/state", name="cmscomponentonpagehaselement_state")
      * @Method("POST")
      */
     public function stateAction(Request $request)
