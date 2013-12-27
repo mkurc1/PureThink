@@ -19,6 +19,9 @@ class FileType extends AbstractType
         $builder
             ->add('name', 'text', array(
                 'label' => 'Nazwa pliku',
+                'attr' => array(
+                    'class' => 'name'
+                    ),
                 'constraints' => array(
                     new NotBlank()
                     )

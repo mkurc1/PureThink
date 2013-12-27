@@ -19,6 +19,9 @@ class CMSComponentType extends AbstractType
         $builder
             ->add('name', 'text', array(
                 'label' => 'Nazwa rozszerzenia',
+                'attr' => array(
+                    'class' => 'name'
+                    ),
                 'constraints' => array(
                     new NotBlank()
                     )

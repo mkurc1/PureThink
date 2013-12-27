@@ -11,6 +11,8 @@
 
 {% block javascripts %}
 	{{ parent() }}
+	<script src="{{ asset('js/helper.js') }}"></script>
+	<script src="{{ asset('js/login.js') }}"></script>
 {% endblock javascripts %}
 
 {% block body %}
@@ -29,19 +31,12 @@
 			<form action="{{ path("fos_user_security_check") }}" method="post">
 				<input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
 
-				<div id="username_container">
-					<label for="username">{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}</label>
-					<input type="text" id="username" name="_username" value="{{ last_username }}" />
-				</div>
-
-				<div id="password_container">
-					<label for="password">{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}</label>
-					<input type="password" id="password" name="_password" />
-				</div>
+				<input type="text" id="username" name="_username" placeholder="Login ID" value="{{ last_username }}" />
+				<input type="password" id="password" name="_password" placeholder="Password" />
 
 				<div id="remember_me_container">
-					<label for="remember_me">{{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}</label>
 					<input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+					<label for="remember_me">{{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}</label>
 				</div>
 
 				<div id="submit_container">

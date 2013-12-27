@@ -10,40 +10,27 @@
 
     > #login {
         position: relative;
-        margin: 130px auto 0 auto;
-        width: 588px;
-        height: 278px;
-        background: #fff;
+        margin: 0 auto;
+        width: 420px;
+        background: #F8F8F8;
         border: 1px solid #d3d3d3;
-        -moz-box-shadow: 0 0 10px #e4e4e4;
-        -webkit-box-shadow: 0 0 10px #e4e4e4;
-        box-shadow: 0 0 10px #e4e4e4;
-        -webkit-border-radius: 2px;
-        -moz-border-radius: 2px;
-        border-radius: 2px;
+        -moz-box-shadow: 0 0 20px #e4e4e4;
+        -webkit-box-shadow: 0 0 20px #e4e4e4;
+        box-shadow: 0 0 20px #e4e4e4;
+        border-radius: 4px;
+        padding: 20px 0 15px 0;
 
-        #username_container,
-        #password_container,
         #remember_me_container {
             position: relative;
             float: left;
-            width: 100%;
-        }
-
-        #username_container {
-            margin: 56px 0 22px 0;
-        }
-
-        #remember_me_container {
-            margin-top: 15px;
+            width: 380px;
+            margin: 0 0 10px 20px;
         }
 
         label {
             float: left;
-            margin: 10px 0 0 60px;
-            width: 140px;
-            font-size: 12px;
-            font-weight: bold;
+            margin-left: 10px;
+            font-size: 11px;
             color: #070707;
         }
 
@@ -52,21 +39,26 @@
             position: relative;
             float: left;
             height: 28px;
-            width: 286px;
-            border: 1px solid #c6c6c6;
+            width: 358px;
+            border: 1px solid @main-field-border-color;
             font-size: 16px;
             color: #070707;
             padding: 2px 10px;
-            -webkit-border-radius: 2px;
-            -moz-border-radius: 2px;
-            border-radius: 2px;
+            border-radius: 3px;
+            margin: 0 0 10px 20px;
+        }
+
+        input[type="text"] {
+            background-color: @main-field-color;
+            -moz-box-shadow: 0 0 10px #E5E5E5;
+            -webkit-box-shadow: 0 0 10px #E5E5E5;
+            box-shadow: 0 0 10px #E5E5E5;
         }
 
         input[type="checkbox"] {
             position: relative;
             float: left;
-            margin-top: 10px;
-            opacity: .5;
+            opacity: .7;
         }
 
         input:focus {
@@ -79,34 +71,35 @@
         #submit_container {
             position: relative;
             margin: 0 auto;
-            width: 173px;
-            height: 31px;
+            width: 102px;
+            height: 27px;
+            clear: both;
         }
 
         #_submit {
             position: relative;
-            background-color: #0870a5;
-            border: 1px solid #232125;
+            .edit_container_button_gradient;
+            border: 1px solid #84CC5E;
             -webkit-border-radius: 2px;
             -moz-border-radius: 2px;
             border-radius: 2px;
-            height: 29px;
-            width: 171px;
+            height: 25px;
+            width: 100px;
             padding: 0 0 2px 0;
             text-align: center;
             cursor: pointer;
             color: #fff;
-            margin-top: 26px;
-            font-size: 14px;
+            font-size: 12px;
 
             &:hover {
-                background: #A2A1A1;
+                .edit_container_button_hover_gradient;
             }
         }
 
         .error_list {
-            position: absolute;
-            margin: 34px 0 0 200px;
+            position: relative;
+            float: left;
+            margin: 0 0 2px 20px;
             color: #DD4B39;
             font-size: 12px;
         }

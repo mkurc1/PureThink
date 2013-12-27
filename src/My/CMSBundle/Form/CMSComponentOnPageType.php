@@ -19,6 +19,9 @@ class CMSComponentOnPageType extends AbstractType
         $builder
             ->add('name', 'text', array(
                 'label' => 'Nazwa komponentu',
+                'attr' => array(
+                    'class' => 'name'
+                    ),
                 'constraints' => array(
                     new NotBlank()
                     )

@@ -14,6 +14,9 @@ class CMSWebSiteType extends AbstractType
         $builder
             ->add('name', 'text', array(
                 'label' => 'Nazwa witryny',
+                'attr' => array(
+                    'class' => 'name'
+                    ),
                 'constraints' => array(
                     new NotBlank()
                     )

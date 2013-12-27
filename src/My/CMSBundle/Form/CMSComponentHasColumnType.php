@@ -19,6 +19,9 @@ class CMSComponentHasColumnType extends AbstractType
         $builder
             ->add('name', 'text', array(
                 'label' => 'Nazwa kolumny',
+                'attr' => array(
+                    'class' => 'name'
+                    ),
                 'constraints' => array(
                     new NotBlank()
                     )

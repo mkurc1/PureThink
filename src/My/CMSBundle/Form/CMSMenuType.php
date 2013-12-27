@@ -19,6 +19,9 @@ class CMSMenuType extends AbstractType
         $builder
             ->add('name', 'text', array(
                 'label' => 'Nazwa menu',
+                'attr' => array(
+                    'class' => 'name'
+                    ),
                 'constraints' => array(
                     new NotBlank()
                     )

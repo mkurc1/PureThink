@@ -19,6 +19,9 @@ class CMSArticleType extends AbstractType
         $builder
             ->add('name', 'text', array(
                 'label' => 'Nazwa artykułu',
+                'attr' => array(
+                    'class' => 'name'
+                    ),
                 'constraints' => array(
                     new NotBlank()
                     )

@@ -1,6 +1,8 @@
-<div class="container">
+<div class="header">
     <h2>Edycja pliku</h2>
+</div>
 
+<div class="container">
     <form action="{{ path('file_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(form) }}>
         <input type="hidden" name="_method" value="POST" />
         {% include 'MyFileBundle:File:_form.html.twig' with { 'form': form } %}
