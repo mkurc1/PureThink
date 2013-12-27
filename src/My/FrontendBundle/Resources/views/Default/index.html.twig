@@ -54,7 +54,9 @@
         </div>
     </div>
 
-    {% include 'MyFrontendBundle:Default:_baner.html.twig' with { 'baners': components['baner'], 'locale': locale } %}
+    {% if components['baner'] is defined %}
+        {% include 'MyFrontendBundle:Default:_baner.html.twig' with { 'baners': components['baner'], 'locale': locale } %}
+    {% endif %}
 
     <div id="news">
         <div class="container">

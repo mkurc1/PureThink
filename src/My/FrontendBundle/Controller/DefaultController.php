@@ -102,10 +102,9 @@ class DefaultController extends Controller
 
         $em = $this->getDoctrine()->getManager();
 
-        $enties = $em->getRepository('MyCMSBundle:CMSComponentOnPage')->findAll();
-
+        $enties = $em->getRepository('MyCMSBundle:CMSComponentOnPageHasValue')->getComponents($locale);
         foreach ($enties as $key => $entity) {
-            $components[$entity->getSlug()] = $entity;
+            $components[$entity['slug']][$entity['name']][$entity['subname']] = $entity;
         }
 
         return $components;

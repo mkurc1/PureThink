@@ -38,9 +38,9 @@ class CMSComponentOnPageHasValueRepository extends EntityRepository
                 ->setParameter('componentId', $componentId);
         }
 
-        $qb->orderBy($order, $sequence);
-
         $qb->groupBy('a.componentOnPageHasElement');
+
+        $qb->orderBy($order, $sequence);
 
         return $qb->getQuery();
     }
@@ -64,5 +64,47 @@ class CMSComponentOnPageHasValueRepository extends EntityRepository
             ->setMaxResults(1);
 
         return $qb->getQuery()->getSingleResult();
+    }
+
+    /**
+     * Get components
+     *
+     * @param string $locale
+     * @return array
+     */
+    public function getComponents($locale)
+    {
+        $qb = $this->createQueryBuilder('a')
+            ->select('a.content')
+            ->addSelect('cop.slug')
+            ->addSelect('('.$this->getElementName('cophe.id')->getDQL().') AS name')
+            ->addSelect('chc.slug AS subname')
+            ->leftJoin('a.componentOnPageHasElement', 'cophe')
+            ->leftJoin('a.componentHasColumn', 'chc')
+            ->leftJoin('cophe.componentOnPage', 'cop')
+            ->where('cop.isEnable = true')
+            ->andWhere('cophe.isEnable = true')
+            ->orderBy('cop.slug', 'ASC');
+
+        return $qb->getQuery()->getResult();
+    }
+
+    /**
+     * Get element name
+     *
+     * @param integer $elementId
+     * @return object
+     */
+    private function getElementName($elementId)
+    {
+        $qb = $this->createQueryBuilder('a2')
+            ->select('a2.content')
+            ->leftJoin('a2.componentOnPageHasElement', 'cophe2')
+            ->leftJoin('a2.componentHasColumn', 'chc2')
+            ->andWhere('cophe2.id = '.$elementId)
+            ->andWhere('chc2.isMainField = true')
+            ->setMaxResults(1);
+
+        return $qb->getQuery();
     }
 }

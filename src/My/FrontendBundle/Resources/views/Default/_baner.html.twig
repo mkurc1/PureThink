@@ -1,13 +1,9 @@
 <div id="baner">
     <div class="container">
-        <a href="#">
-            <img src="{{ asset('bundles/cms/frontend/fresh_style/images/baner_1.png') }}" alt="" />
-        </a>
-        <a href="#">
-            <img src="{{ asset('bundles/cms/frontend/fresh_style/images/baner_1.png') }}" alt="" />
-        </a>
-        <a href="#">
-            <img src="{{ asset('bundles/cms/frontend/fresh_style/images/baner_1.png') }}" alt="" />
-        </a>
+        {% for baner in baners %}
+            <a href="{{ baner['adres'].content }}">
+                <img src="{{ asset('bundles/cms/frontend/fresh_style/images/baner_1.png') }}" alt="{{ baner['nazwa'].content }}" />
+            </a>
+        {% endfor %}
     </div>
 </div>
