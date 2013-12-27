@@ -24,6 +24,10 @@ class CMSMenuType extends AbstractType
                     )
                 )
             )
+            ->add('slug', 'text', array(
+                'label' => 'Nazwa widoczna w adresie'
+                )
+            )
             ->add('article', 'entity', array(
                 'label' => 'Wybierz artykuł',
                 'class' => 'MyCMSBundle:CMSArticle',

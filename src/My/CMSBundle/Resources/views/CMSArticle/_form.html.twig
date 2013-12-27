@@ -7,6 +7,12 @@
 </div>
 
 <div class="dane_element">
+    {{ form_label(form.slug) }}
+    {{ form_widget(form.slug) }}
+    {{ form_errors(form.slug) }}
+</div>
+
+<div class="dane_element">
     <div class="dane_element_medium">
         {{ form_label(form.series) }}
         {{ form_widget(form.series) }}

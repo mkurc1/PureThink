@@ -135,7 +135,7 @@ function Edit() {
                     else {
                         $('#edit_container').html(data.view);
                         Edit.html5validateOff();
-                        edit.defaultSelectValue();
+                        Edit.defaultSelectValue();
                         beautifySelects();
                         Edit.submitAction();
                         Edit.setActionOnUploadFileButtons();

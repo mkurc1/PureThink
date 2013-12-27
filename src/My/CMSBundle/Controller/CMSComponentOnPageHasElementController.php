@@ -179,7 +179,8 @@ class CMSComponentOnPageHasElementController extends Controller
                 'attr' => array(
                     'class' => $column->getComponentHasColumn()->getClass(),
                     'type' => $column->getComponentHasColumn()->getColumnType()->getName(),
-                    'label' => $column->getComponentHasColumn()->getColumnLabel()
+                    'label' => $column->getComponentHasColumn()->getColumnLabel(),
+                    'isRequired' => $column->getComponentHasColumn()->getIsRequired()
                     )
                 )
             );
