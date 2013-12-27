@@ -14,7 +14,9 @@ class DefaultController extends Controller
      */
     public function mainAction(Request $request)
     {
-        $locale = $request->getLocale();
+        $avilableLocales = $this->getAvilableLocales();
+
+        $locale = $request->getPreferredLanguage($avilableLocales);
 
         return $this->redirect($this->generateUrl('localized_frontend', array('locale' => $locale)));
     }
@@ -25,7 +27,12 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request, $locale)
     {
-        $request->setLocale($locale);
+        if ($this->checkAvilableLocales($locale)) {
+            $request->setLocale($locale);
+        }
+        else {
+            return $this->redirect($this->generateUrl('frontend'));
+        }
 
         $meta = $this->getMeta($locale);
         $languages = $this->getLanguages();
@@ -42,12 +49,51 @@ class DefaultController extends Controller
     }
 
     /**
+     * Check avilable locales
+     *
+     * @param string $locale
+     * @return boolean
+     */
+    private function checkAvilableLocales($locale)
+    {
+        $avilableLocales = $this->getAvilableLocales();
+        if (!in_array($locale, $avilableLocales)) {
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+
+    /**
+     * Get avilable locales
+     *
+     * @return array
+     */
+    private function getAvilableLocales()
+    {
+        $avilableLocales = array();
+
+        $languages = $this->getLanguages();
+        foreach ($languages as $language) {
+            $avilableLocales[] = strtolower($language->getAlias());
+        }
+
+        return $avilableLocales;
+    }
+
+    /**
      * @Route("/{locale}/{slug}", name="article")
      * @Template()
      */
     public function articleAction(Request $request, $locale, $slug)
     {
-        $request->setLocale($locale);
+        if ($this->checkAvilableLocales($locale)) {
+            $request->setLocale($locale);
+        }
+        else {
+            return $this->redirect($this->generateUrl('frontend'));
+        }
 
         $languages = $this->getLanguages();
         $menus = $this->getMenus($locale);
@@ -85,9 +131,17 @@ class DefaultController extends Controller
      */
     private function getMenus($locale)
     {
+        $menus = array();
+
         $em = $this->getDoctrine()->getManager();
 
-        return $em->getRepository('MyCMSBundle:CMSMenu')->getPublicMenus($locale);
+        $entities = $em->getRepository('MyCMSBundle:CMSMenu')->getPublicMenus($locale);
+
+        foreach ($entities as $entity) {
+            $menus[$entity->getSeries()->getName()][] = $entity;
+        }
+
+        return $menus;
     }
 
     /**
@@ -102,8 +156,8 @@ class DefaultController extends Controller
 
         $em = $this->getDoctrine()->getManager();
 
-        $enties = $em->getRepository('MyCMSBundle:CMSComponentOnPageHasValue')->getComponents($locale);
-        foreach ($enties as $key => $entity) {
+        $entities = $em->getRepository('MyCMSBundle:CMSComponentOnPageHasValue')->getComponents($locale);
+        foreach ($entities as $entity) {
             $content = $entity['content'];
 
             switch ($entity['type']) {

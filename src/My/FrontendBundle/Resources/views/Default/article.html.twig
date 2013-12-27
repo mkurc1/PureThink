@@ -39,7 +39,7 @@
 
     <div id="main_menu">
         <div class="container">
-            {% include 'MyFrontendBundle:Default:_menu.html.twig' with { 'menus': menus, 'locale': locale, 'home': true } %}
+            {% include 'MyFrontendBundle:Default:_menu.html.twig' with { 'menus': menus['Main'], 'locale': locale, 'home': true } %}
         </div>
     </div>
 
@@ -51,20 +51,5 @@
         </div>
     </div>
 
-    <div id="footer">
-        <div class="container">
-            <div class="left">
-                <ul id="bottom_menu">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Lorem Ipsum</a></li>
-                    <li><a href="#">Lorem Ipsum</a></li>
-                    <li><a href="#">Lorem Ipsum</a></li>
-                    <li><a href="{{ path('fos_user_security_login') }}">Login</a></li>
-                </ul>
-            </div>
-            <div class="right">
-                <span>All righgts reserved 2013.</span>
-            </div>
-        </div>
-    </div>
+    {% include 'MyFrontendBundle:Default:_footer.html.twig' with { 'menus': menus, 'locale': locale } %}
 {% endblock body %}
