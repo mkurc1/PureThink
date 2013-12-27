@@ -1,0 +1,10 @@
+<div id="links">
+    <div class="container">
+        <h3>Lorem Ipsum Dolom</h3>
+        <ul>
+            {% for link in links %}
+                <li><a href="{{ path('article', {'locale': locale, 'slug': link['adres-1']}) }}">{{ link['nazwa-1'] }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>

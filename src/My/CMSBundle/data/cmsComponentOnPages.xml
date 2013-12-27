@@ -7,4 +7,11 @@
         <series_id>5</series_id>
         <is_enable>1</is_enable>
     </cmsComponentOnPage>
+    <cmsComponentOnPage>
+        <name>Linki</name>
+        <language_id>2</language_id>
+        <component_id>1</component_id>
+        <series_id>5</series_id>
+        <is_enable>1</is_enable>
+    </cmsComponentOnPage>
 </cmsComponentOnPages>

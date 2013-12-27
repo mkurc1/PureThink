@@ -117,7 +117,7 @@ class DefaultController extends Controller
                     break;
             }
 
-            $components[$entity['slug']][$entity['name']][$entity['subname']] = $content;
+            $components[$entity['slug']][$entity['elementId']][$entity['subname']] = $content;
         }
 
         return $components;
