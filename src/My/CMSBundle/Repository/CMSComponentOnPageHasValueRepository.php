@@ -79,11 +79,16 @@ class CMSComponentOnPageHasValueRepository extends EntityRepository
             ->addSelect('cop.slug')
             ->addSelect('('.$this->getElementName('cophe.id')->getDQL().') AS name')
             ->addSelect('chc.slug AS subname')
+            ->addSelect('ct.name AS type')
             ->leftJoin('a.componentOnPageHasElement', 'cophe')
             ->leftJoin('a.componentHasColumn', 'chc')
+            ->leftJoin('chc.columnType', 'ct')
             ->leftJoin('cophe.componentOnPage', 'cop')
+            ->leftJoin('cop.language', 'l')
             ->where('cop.isEnable = true')
             ->andWhere('cophe.isEnable = true')
+            ->andWhere('l.alias = :locale')
+            ->setParameter('locale', $locale)
             ->orderBy('cop.slug', 'ASC');
 
         return $qb->getQuery()->getResult();

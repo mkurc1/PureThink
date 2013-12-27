@@ -104,7 +104,20 @@ class DefaultController extends Controller
 
         $enties = $em->getRepository('MyCMSBundle:CMSComponentOnPageHasValue')->getComponents($locale);
         foreach ($enties as $key => $entity) {
-            $components[$entity['slug']][$entity['name']][$entity['subname']] = $entity;
+            $content = $entity['content'];
+
+            switch ($entity['type']) {
+                case 'Article':
+                    $content = $em->getRepository('MyCMSBundle:CMSArticle')
+                        ->find((int)$content)->getSlug();
+                    break;
+                case 'File':
+                    $content = $em->getRepository('MyFileBundle:File')
+                        ->find((int)$content)->getPath();
+                    break;
+            }
+
+            $components[$entity['slug']][$entity['name']][$entity['subname']] = $content;
         }
 
         return $components;
