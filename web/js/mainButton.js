@@ -36,7 +36,18 @@ function setActionOnListMainButtons() {
 
     $('#main_button > div > div').on('click', '.remove', function() {
         if (!$(this).parent().hasClass('disable')) {
-            List.removeElements();
+            var confirmationText;
+            if (List.getCountSelect() > 1) {
+                confirmationText = 'Czy napewno chcesz usunąć wybrane pozycje?';
+            }
+            else {
+                confirmationText = 'Czy napewno chcesz usunąć wybraną pozycje?';
+            }
+
+            var confirmation = confirm(confirmationText);
+            if(confirmation) {
+                List.removeElements();
+            }
         }
     });
 }

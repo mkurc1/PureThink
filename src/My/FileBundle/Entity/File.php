@@ -55,6 +55,13 @@ class File
     private $path;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="mimeType", type="string", length=255, nullable=true)
+     */
+    private $mimeType;
+
+    /**
      * @ORM\ManyToOne(targetEntity="My\UserBundle\Entity\User", inversedBy="file")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id", onDelete="CASCADE", nullable=false)
      */
@@ -322,6 +329,7 @@ class File
             $filename = sha1(uniqid(mt_rand(), true));
             $this->path = $filename.'.'.$this->getFile()->guessExtension();
             $this->size = $this->getFile()->getClientSize();
+            $this->mimeType = $this->getFile()->getMimeType();
         }
     }
 
@@ -362,5 +370,28 @@ class File
         if (($file = $this->getAbsolutePath()) && (file_exists($this->getAbsolutePath()))) {
             unlink($file);
         }
+    }
+
+    /**
+     * Set mimeType
+     *
+     * @param string $mimeType
+     * @return File
+     */
+    public function setMimeType($mimeType)
+    {
+        $this->mimeType = $mimeType;
+
+        return $this;
+    }
+
+    /**
+     * Get mimeType
+     *
+     * @return string
+     */
+    public function getMimeType()
+    {
+        return $this->mimeType;
     }
 }

@@ -97,6 +97,7 @@ class DefaultController extends Controller
 
         $languages = $this->getLanguages();
         $menus = $this->getMenus($locale);
+        $components = $this->getComponents($locale);
 
         if ($slug2) {
             $article = $this->getArticle($slug2);
@@ -109,6 +110,7 @@ class DefaultController extends Controller
             'locale' => $locale,
             'languages' => $languages,
             'menus' => $menus,
+            'components' => $components,
             'article' => $article
             );
     }

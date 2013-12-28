@@ -31,6 +31,7 @@ class LoadData implements FixtureInterface
             $File->setName($file->name);
             $File->setSize($file->size);
             $File->setPath($file->path);
+            $File->setMimeType($file->mime_type);
             $File->setUser($manager->getRepository('MyUserBundle:User')->find($file->user_id));
             $File->setSeries($manager->getRepository('MyBackendBundle:Series')->find($file->series_id));
 

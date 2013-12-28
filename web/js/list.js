@@ -9,11 +9,12 @@ function List() {
     this.sequence;
     this.filtr;
     this.url;
-    this.select = new Array();
+    this.select = [];
 
     this.addToSelect = addToSelect;
     this.removeFromSelect = removeFromSelect;
     this.emptySelect = emptySelect;
+    this.getCountSelect = getCountSelect;
     this.emptyList = emptyList;
     this.arrowOrder = arrowOrder;
     this.setActionOnChangeOrder = setActionOnChangeOrder;
@@ -55,6 +56,14 @@ function List() {
      */
     function emptySelect() {
         this.select.clear();
+    }
+
+    /**
+     * Get count select
+     * @return integer
+     */
+    function getCountSelect() {
+        return this.select.length;
     }
 
     /**

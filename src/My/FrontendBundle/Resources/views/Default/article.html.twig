@@ -51,5 +51,9 @@
         </div>
     </div>
 
+    {% if components['linki'] is defined %}
+        {% include 'MyFrontendBundle:Default:_link.html.twig' with { 'links': components['linki'], 'locale': locale } %}
+    {% endif %}
+
     {% include 'MyFrontendBundle:Default:_footer.html.twig' with { 'menus': menus, 'locale': locale } %}
 {% endblock body %}

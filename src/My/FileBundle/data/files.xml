@@ -5,6 +5,7 @@
         <user_id>1</user_id>
         <series_id>7</series_id>
         <size>222669</size>
+        <mime_type>image/png</mime_type>
         <path>54423af5757fdc53537d769a18beb499fee43b19.png</path>
     </file>
     <file>
@@ -12,6 +13,7 @@
         <user_id>1</user_id>
         <series_id>7</series_id>
         <size>222669</size>
+        <mime_type>image/png</mime_type>
         <path>1e3538908d39dc829970f0ca2b12f339bf688e5b.png</path>
     </file>
     <file>
@@ -19,6 +21,7 @@
         <user_id>1</user_id>
         <series_id>7</series_id>
         <size>222669</size>
+        <mime_type>image/png</mime_type>
         <path>8f226b0a29d652f91dfe956a853c95f58ed864b8.png</path>
     </file>
 </files>

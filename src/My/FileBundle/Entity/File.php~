@@ -55,6 +55,13 @@ class File
     private $path;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="mimeType", type="string", length=255, nullable=true)
+     */
+    private $mimeType;
+
+    /**
      * @ORM\ManyToOne(targetEntity="My\UserBundle\Entity\User", inversedBy="file")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id", onDelete="CASCADE", nullable=false)
      */

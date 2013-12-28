@@ -4,7 +4,8 @@
             <th class="select"></th>
             <th class="lp">Lp.</th>
             <th column="a.name" class="name width_big">Nazwa</th>
-            <th column="a.size" class="width_small">Wielkość</th>
+            <th column="a.size" class="width_small">Rozmiar</th>
+            <th column="a.mimeType" class="width_small">Typ</th>
             <th column="a.createdAt" class="width_small">Data utworzenia</th>
         </tr>
     </thead>
@@ -21,6 +22,7 @@
             <td class="lp">{{ i }}.</td>
             <td class="width_big name"><a class="editMode" href="{{ path('file_edit', { 'id': entity.id }) }}">{{ entity }}</a></td>
             <td class="width_small">{{ entity.size|number_format(0, '.', ' ') }}</td>
+            <td class="width_small">{{ entity.mimeType }}</td>
             <td class="width_small">{{ entity.createdAt|date('Y-m-d') }}</td>
         </tr>
     {% endfor %}
