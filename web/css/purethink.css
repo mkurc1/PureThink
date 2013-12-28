@@ -781,6 +781,26 @@ a {
 #main > #main_container > table > tbody > tr > td.select > input {
   opacity: 0.5;
 }
+#shortcut_container {
+  position: relative;
+  float: right;
+  height: 100%;
+  margin-right: 25px;
+}
+#shortcut_container > a {
+  position: relative;
+  float: right;
+  margin: 7px 0 0 7px;
+}
+#shortcut_container > a > img.arrow {
+  position: relative;
+  float: right;
+  margin: 8px 0 0 3px;
+}
+#shortcut_container > a > i {
+  font-size: 16px;
+  color: #777777;
+}
 #main_button {
   position: fixed;
   width: 100%;
@@ -1011,26 +1031,6 @@ a {
 }
 #main_menu > ul#main_menu_list > li.selected > a {
   color: #eb3c00;
-}
-#shortcut_container {
-  position: relative;
-  float: right;
-  height: 100%;
-  margin-right: 25px;
-}
-#shortcut_container > a {
-  position: relative;
-  float: right;
-  margin: 7px 0 0 7px;
-}
-#shortcut_container > a > img.arrow {
-  position: relative;
-  float: right;
-  margin: 8px 0 0 3px;
-}
-#shortcut_container > a > i {
-  font-size: 16px;
-  color: #777777;
 }
 #notify_container {
   position: fixed;

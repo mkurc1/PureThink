@@ -16,7 +16,7 @@ use My\BackendBundle\Pagination\Pagination as Pagination;
 /**
  * File controller.
  *
- * @Route("/file")
+ * @Route("/")
  */
 class FileController extends Controller
 {

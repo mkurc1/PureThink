@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Response;
 /**
  * File controller.
  *
- * @Route("/file/browse")
+ * @Route("/browse")
  */
 class FileBrowseController extends Controller
 {
