@@ -63,7 +63,7 @@ function setActionOnEditMainButtons() {
         else {
             createListButtons();
             toggleListMainButton();
-            Pagination.togglePagination();
+            paginationView.togglePagination();
             List.setMode();
         }
     });

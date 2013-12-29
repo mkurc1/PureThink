@@ -283,17 +283,17 @@
   font-size: 15px;
   color: #808080;
 }
-#footer > #pagination > div.pagination > div#str {
+#footer > #pagination > div.pagination > .pages {
   float: left;
   position: relative;
 }
-#footer > #pagination > div.pagination > div#str > span {
+#footer > #pagination > div.pagination > .pages > span {
   cursor: pointer;
   float: left;
   margin: 0 3px;
   color: #666666;
 }
-#footer > #pagination > div.pagination > div#str > span#str_selected {
+#footer > #pagination > div.pagination > .pages > span#str_selected {
   font-weight: bold;
   color: #3a3a3a;
 }

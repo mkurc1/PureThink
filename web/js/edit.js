@@ -88,7 +88,7 @@ function Edit() {
                 $('#main_container').hide();
                 $('#edit_container').show();
 
-                Pagination.hidePagination();
+                paginationView.hidePagination();
                 edit.html5validateOff();
                 edit.defaultSelectValue();
                 beautifySelects();
