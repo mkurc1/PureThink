@@ -12,8 +12,8 @@ isDev();
 // Object
 var UserSetting = new Setting();
 // Object
-var paginationModel = new PaginationModel({rowsOnPage: 10});
-var paginationView;
+var paginationListModel = new PaginationModel({rowsOnPage: 10});
+var paginationListView;
 // Object
 var List = new List();
 // Object
@@ -29,9 +29,9 @@ $(function() {
 
     UserSetting.getUserSetting();
 
-    paginationView = new PaginationView({
+    paginationListView = new PaginationView({
         el: '#pagination',
-        model: paginationModel
+        model: paginationListModel
     });
 
     $('#main_menu_list').setMainMenu(UserSetting.moduleId);

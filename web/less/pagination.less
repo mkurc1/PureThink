@@ -1,0 +1,39 @@
+//
+// Pagination
+// --------------------------------------------------
+
+.pagination {
+    float: left;
+    font-size: 13px;
+    margin: 3px 10px 0 0;
+
+    > a {
+        color: #757575;
+        cursor: pointer;
+        float: left;
+        margin: 0 1px;
+        position: relative;
+
+        > i {
+            font-size: 15px;
+            color: #808080;
+        }
+    }
+
+    > .pages {
+        float: left;
+        position: relative;
+
+        > span {
+            cursor: pointer;
+            float: left;
+            margin: 0 3px;
+            color: #666666;
+
+            &.selected {
+                font-weight: bold;
+                color: #3a3a3a;
+            }
+        }
+    }
+}

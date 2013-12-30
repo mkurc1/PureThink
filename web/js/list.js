@@ -198,8 +198,8 @@ function List() {
             type: "post",
             dataType: 'json',
             data: {
-                rowsOnPage: paginationModel.get('rowsOnPage'),
-                page: paginationModel.get('page'),
+                rowsOnPage: paginationListModel.get('rowsOnPage'),
+                page: paginationListModel.get('page'),
                 order: list.order,
                 sequence: list.sequence,
                 filtr: list.filtr,
@@ -218,7 +218,7 @@ function List() {
                 list.setActionOnChangeOrder();
                 list.setActionOnChangeState();
                 list.setActionOnSublistClick();
-                paginationView.togglePagination();
+                paginationListView.togglePagination();
                 Edit.setEditAction();
                 list.checkboxChangeAction();
                 toggleListMainButton();
@@ -228,14 +228,14 @@ function List() {
                 if (data.response) {
                     $('#main_container').append(data.list.toString());
 
-                    paginationModel.set({
+                    paginationListModel.set({
                         firstPage: data.pagination.first_page,
                         previousPage: data.pagination.previous,
                         nextPage: data.pagination.next,
                         lastPage: data.pagination.last_page
                     });
 
-                    paginationView.render(data.pagination.pages);
+                    paginationListView.render(data.pagination.pages);
 
                     if (data.order) {
                         list.order = data.order;
@@ -305,7 +305,7 @@ function List() {
         this.filtr = '';
         this.groupId = 0;
         this.languageId = 0;
-        paginationModel.set({page: 1});
+        paginationListModel.set({page: 1});
 
         emptyFilter();
     }

@@ -4,11 +4,11 @@ PaginationView = Backbone.View.extend({
     },
 
     events: {
-        "click #pagination_first"    : "firstPage",
-        "click #pagination_last"     : "lastPage",
-        "click #pagination_previous" : "previousPage",
-        "click #pagination_next"     : "nextPage",
-        "click .page"                : "changePage"
+        "click .first"    : "firstPage",
+        "click .last"     : "lastPage",
+        "click .previous" : "previousPage",
+        "click .next"     : "nextPage",
+        "click .page"     : "changePage"
     },
 
     /**
@@ -21,7 +21,7 @@ PaginationView = Backbone.View.extend({
 
         for(i = 0; i < pages.length; i++) {
             if(pages[i] == this.model.get('page')) {
-                this.$el.find('.pages').append('<span class="page" id="str_selected">' + pages[i] + '</span>');
+                this.$el.find('.pages').append('<span class="page selected">' + pages[i] + '</span>');
             }
             else {
                 this.$el.find('.pages').append('<span class="page">' + pages[i] + '</span>');
@@ -37,8 +37,8 @@ PaginationView = Backbone.View.extend({
     page: function(page) {
         this.model.set({page: page});
 
-        this.$el.find('.pages span').removeAttr('id');
-        this.$el.find('.pages span').eq(page - 1).attr('id', 'str_selected');
+        this.$el.find('.pages span').removeClass('selected');
+        this.$el.find('.pages span').eq(page - 1).addClass('selected');
 
         List.refresh(false);
     },

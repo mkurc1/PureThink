@@ -267,36 +267,6 @@
   height: 100%;
   margin: 10px 25px 0 0;
 }
-#footer > #pagination > div.pagination {
-  float: left;
-  font-size: 13px;
-  margin: 3px 10px 0 0;
-}
-#footer > #pagination > div.pagination > a {
-  color: #757575;
-  cursor: pointer;
-  float: left;
-  margin: 0 1px;
-  position: relative;
-}
-#footer > #pagination > div.pagination > a > i {
-  font-size: 15px;
-  color: #808080;
-}
-#footer > #pagination > div.pagination > .pages {
-  float: left;
-  position: relative;
-}
-#footer > #pagination > div.pagination > .pages > span {
-  cursor: pointer;
-  float: left;
-  margin: 0 3px;
-  color: #666666;
-}
-#footer > #pagination > div.pagination > .pages > span#str_selected {
-  font-weight: bold;
-  color: #3a3a3a;
-}
 #footer > #pagination > label {
   color: #666666;
   float: left;
@@ -1196,4 +1166,34 @@ a {
 #top_menu > #top_menu_right > #person_name > a {
   color: #f2f2f2;
   font-weight: bold;
+}
+.pagination {
+  float: left;
+  font-size: 13px;
+  margin: 3px 10px 0 0;
+}
+.pagination > a {
+  color: #757575;
+  cursor: pointer;
+  float: left;
+  margin: 0 1px;
+  position: relative;
+}
+.pagination > a > i {
+  font-size: 15px;
+  color: #808080;
+}
+.pagination > .pages {
+  float: left;
+  position: relative;
+}
+.pagination > .pages > span {
+  cursor: pointer;
+  float: left;
+  margin: 0 3px;
+  color: #666666;
+}
+.pagination > .pages > span.selected {
+  font-weight: bold;
+  color: #3a3a3a;
 }

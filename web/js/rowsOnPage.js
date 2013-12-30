@@ -14,7 +14,7 @@ function getRowsOnPage(rowsOnPageId) {
         beforeSend: function() {
         },
         complete: function() {
-            paginationModel.set({'rowsOnPage': $("#pagination > .number_of_lines").val()});
+            paginationListModel.set({'rowsOnPage': $("#pagination > .number_of_lines").val()});
             setActionOnChangeRowsOnPage();
             beautifySelects();
         },
@@ -31,8 +31,8 @@ function getRowsOnPage(rowsOnPageId) {
  */
 function setActionOnChangeRowsOnPage() {
     $("#pagination > .number_of_lines").change(function() {
-        paginationModel.set({'rowsOnPage': $(this).val()});
-        paginationModel.set({page: 1});
+        paginationListModel.set({'rowsOnPage': $(this).val()});
+        paginationListModel.set({page: 1});
         setRowsOnPage();
         List.refresh();
     });
@@ -46,7 +46,7 @@ function setRowsOnPage() {
         type: "post",
         dataType: 'json',
         data: {
-            rowsOnPage: paginationModel.get('rowsOnPage')
+            rowsOnPage: paginationListModel.get('rowsOnPage')
         },
         url: links.setRowsOnPage,
         beforeSend: function() {
