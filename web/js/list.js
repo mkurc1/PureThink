@@ -219,7 +219,7 @@ function List() {
                 list.setActionOnChangeState();
                 list.setActionOnSublistClick();
                 paginationListView.togglePagination();
-                Edit.setEditAction();
+                editView.setEditModeAction();
                 list.checkboxChangeAction();
                 toggleListMainButton();
                 list.removeLoading();

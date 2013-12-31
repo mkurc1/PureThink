@@ -1,8 +1,8 @@
 $(function() {
     $('#main_button > div').on('click', '#create', function() {
         if (!$(this).parent().hasClass('disable')) {
-            Edit.url = List.url+'new';
-            Edit.getEdit();
+            editModel.set({url: List.url+'new'});
+            editView.render();
         }
     });
 });
@@ -29,8 +29,8 @@ function setActionOnListMainButtons() {
                 editUrl = List.url+listId+'/edit';
             }
 
-            Edit.url = editUrl;
-            Edit.getEdit();
+            editModel.set({url: editUrl});
+            editView.render();
         }
     });
 
@@ -58,7 +58,7 @@ function setActionOnListMainButtons() {
 function setActionOnEditMainButtons() {
     $('#main_button > div > div').on('click', '.cancel', function() {
         if (isEditMode(getMainMenuUrl())) {
-            Edit.getEdit();
+            editView.render();
         }
         else {
             createListButtons();
@@ -69,14 +69,14 @@ function setActionOnEditMainButtons() {
     });
 
     $('#main_button > div > div').on('click', '.apply', function() {
-        Edit.isApplyOption = true;
+        editModel.set({isApplyOption: true});
 
         $('#edit_container > .container > form').submit();
     });
 
     $('#main_button > div > div').on('click', '.save', function() {
         if (!$(this).parent().hasClass('disable')) {
-            Edit.isApplyOption = false;
+            editModel.set({isApplyOption: false});
 
             $('#edit_container > .container > form').submit();
         }

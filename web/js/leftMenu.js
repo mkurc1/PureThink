@@ -75,7 +75,7 @@ function setActionsOnLeftMenu() {
 
             if ($(this).parent().parent().parent().parent().hasClass('language')) {
                 if (isEditMode(url)) {
-                    Edit.languageId = $(this).attr('list_id');
+                    editModel.set({languageId: $(this).attr('list_id')});
                 }
                 else {
                     List.languageId = $(this).attr('list_id');
@@ -83,8 +83,8 @@ function setActionsOnLeftMenu() {
             }
 
             if (isEditMode(url)) {
-                Edit.isApplyOption = false;
-                Edit.getEdit();
+                editModel.set({isApplyOption: false});
+                editView.render();
             }
             else {
                 List.refresh();

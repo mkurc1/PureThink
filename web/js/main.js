@@ -17,7 +17,8 @@ var paginationListView;
 // Object
 var List = new List();
 // Object
-var Edit = new Edit();
+var editModel = new EditModel();
+var editView;
 // Object
 var Module = new Module();
 
@@ -32,6 +33,11 @@ $(function() {
     paginationListView = new PaginationView({
         el: '#pagination',
         model: paginationListModel
+    });
+
+    editView = new EditView({
+        el: '#edit_container',
+        model: editModel
     });
 
     $('#main_menu_list').setMainMenu(UserSetting.moduleId);

@@ -39,10 +39,10 @@ function startMode() {
     var url = getMainMenuUrl();
 
     if (isEditMode(url)) {
-        Edit.url = url;
+        editModel.set({url: url});
         getLeftMenu(true);
-        Edit.setDefaultParameters();
-        Edit.getEdit();
+        editView.defaultParameters();
+        editView.render();
     }
     else {
         List.url = url;
