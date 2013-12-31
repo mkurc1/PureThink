@@ -23,7 +23,7 @@ EditView = Backbone.View.extend({
      * HTML5 validate set off
      */
     html5validateOff: function() {
-        this.$el.find('.container > form').attr('novalidate', 'novalidate');
+        this.$el.find('form').attr('novalidate', 'novalidate');
     },
 
     /**
@@ -62,11 +62,21 @@ EditView = Backbone.View.extend({
      * CKEdit update element
      */
     ckeditUpdateElement: function() {
-        if (this.$el.find('> .container > form').find('div.cke').length > 0) {
+        if (this.$el.find('form div.cke').length > 0) {
             $.each(CKEDITOR.instances, function(index, val) {
                 CKEDITOR.instances[index].updateElement();
             });
         }
+    },
+
+    /**
+     * Helper
+     */
+    helper: function() {
+        this.html5validateOff();
+        this.defaultSelectValue();
+        beautifySelects();
+        this.setFocusOnFirstInput();
     },
 
     /**
@@ -96,9 +106,7 @@ EditView = Backbone.View.extend({
                 else {
                     edit.$el.html(data.view);
 
-                    edit.html5validateOff();
-                    edit.defaultSelectValue();
-                    beautifySelects();
+                    edit.helper();
                 }
 
                 edit.model.set({isApplyOption: false});
@@ -125,19 +133,15 @@ EditView = Backbone.View.extend({
             },
             beforeSend: function() {
                 edit.emptyContainer();
+                paginationListView.hidePagination();
             },
             complete: function() {
                 $('#main_container').hide();
                 edit.$el.show();
 
-                paginationListView.hidePagination();
-                edit.html5validateOff();
-                edit.defaultSelectValue();
-                beautifySelects();
+                edit.helper();
                 createEditButtons();
                 toggleListMainButton();
-                edit.setFocusOnFirstInput();
-
             },
             success: function(data) {
                 if (data.response) {
@@ -151,7 +155,7 @@ EditView = Backbone.View.extend({
      * Default select value
      */
     defaultSelectValue: function() {
-        $.each(this.$el.find('> .container > form select'), function(index, val) {
+        $.each(this.$el.find('form select'), function(index, val) {
             if ($(val).attr('selected_id')) {
                 var selected = $(val).attr('selected_id');
 
@@ -170,6 +174,7 @@ EditView = Backbone.View.extend({
         $('.editMode').click(function(e) {
             edit.model.set({url: $(e.currentTarget).attr('href')});
             edit.render();
+
             return false;
         });
     }
