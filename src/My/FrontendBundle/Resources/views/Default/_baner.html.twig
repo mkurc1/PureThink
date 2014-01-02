@@ -1,7 +1,7 @@
 <div id="baner">
     <div class="container">
         {% for baner in baners %}
-            <a href="{{ path('article', {'locale': locale, 'slug': baner['adres']}) }}">
+            <a href="{{ path('article', { 'locale': locale, 'slug': baner['adres'] }) }}">
                 <img src="{{ asset('uploads/' ~ baner['fotografia']) }}" alt="{{ baner['nazwa'] }}" />
             </a>
         {% endfor %}

@@ -1,7 +1,9 @@
 <div id="footer">
     <div class="container">
         <div class="left">
-            {% include 'MyFrontendBundle:Default:_menu.html.twig' with { 'menus': menus['Footer'], 'locale': locale, 'home': true } %}
+            {% if menus['Footer'] is defined %}
+                {% include 'MyFrontendBundle:Default:_menu.html.twig' with { 'menus': menus['Footer'], 'locale': locale, 'home': true } %}
+            {% endif %}
         </div>
         <div class="right">
             <span>All righgts reserved 2013.</span>

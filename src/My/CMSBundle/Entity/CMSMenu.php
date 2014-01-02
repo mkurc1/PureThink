@@ -53,6 +53,7 @@ class CMSMenu
 
     /**
      * @ORM\ManyToOne(targetEntity="CMSMenu", inversedBy="menus")
+     * @ORM\JoinColumn(name="menu_id", referencedColumnName="id", onDelete="CASCADE", nullable=true)
      */
     protected $menu;
 

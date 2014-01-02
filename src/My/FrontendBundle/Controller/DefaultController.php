@@ -14,7 +14,8 @@ class DefaultController extends Controller
      */
     public function mainAction(Request $request)
     {
-        $avilableLocales = $this->getAvilableLocales();
+        $languages = $this->getLanguages();
+        $avilableLocales = $this->getAvilableLocales($languages);
 
         $locale = $request->getPreferredLanguage($avilableLocales);
 
@@ -27,7 +28,8 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request, $locale)
     {
-        if ($this->checkAvilableLocales($locale)) {
+        $languages = $this->getLanguages();
+        if ($this->checkAvilableLocales($languages, $locale)) {
             $request->setLocale($locale);
         }
         else {
@@ -35,7 +37,6 @@ class DefaultController extends Controller
         }
 
         $meta = $this->getMeta($locale);
-        $languages = $this->getLanguages();
         $menus = $this->getMenus($locale);
         $components = $this->getComponents($locale);
 
@@ -51,12 +52,13 @@ class DefaultController extends Controller
     /**
      * Check avilable locales
      *
+     * @param object $languages
      * @param string $locale
      * @return boolean
      */
-    private function checkAvilableLocales($locale)
+    private function checkAvilableLocales($languages, $locale)
     {
-        $avilableLocales = $this->getAvilableLocales();
+        $avilableLocales = $this->getAvilableLocales($languages);
         if (!in_array($locale, $avilableLocales)) {
             return false;
         }
@@ -68,13 +70,13 @@ class DefaultController extends Controller
     /**
      * Get avilable locales
      *
+     * @param object $languages
      * @return array
      */
-    private function getAvilableLocales()
+    private function getAvilableLocales($languages)
     {
         $avilableLocales = array();
 
-        $languages = $this->getLanguages();
         foreach ($languages as $language) {
             $avilableLocales[] = strtolower($language->getAlias());
         }
@@ -88,14 +90,14 @@ class DefaultController extends Controller
      */
     public function articleAction(Request $request, $locale, $slug, $slug2 = false)
     {
-        if ($this->checkAvilableLocales($locale)) {
+        $languages = $this->getLanguages();
+        if ($this->checkAvilableLocales($languages, $locale)) {
             $request->setLocale($locale);
         }
         else {
             return $this->redirect($this->generateUrl('frontend'));
         }
 
-        $languages = $this->getLanguages();
         $menus = $this->getMenus($locale);
         $components = $this->getComponents($locale);
 
@@ -143,7 +145,17 @@ class DefaultController extends Controller
         $entities = $em->getRepository('MyCMSBundle:CMSMenu')->getPublicMenus($locale);
 
         foreach ($entities as $entity) {
-            $menus[$entity->getSeries()->getName()][] = $entity;
+            $series = $entity->getSeries()->getName();
+            $id = $entity->getId();
+
+            if (is_object($entity->getMenu())) {
+                $parentId = $entity->getMenu()->getId();
+
+                $menus[$series][$parentId]['childrens'][$id]['parent'] = $entity;
+            }
+            else {
+                $menus[$series][$id]['parent'] = $entity;
+            }
         }
 
         return $menus;

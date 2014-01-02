@@ -5,17 +5,17 @@
         </li>
     {% endif %}
     {% for menu in menus %}
-        <li class="{{ menu.menus|length > 0 ? 'has_submenu' : '' }}">
-            {% set slug = menu.article.slug  %}
+        <li class="{{ menu['childrens'] is defined ? 'has_submenu' : '' }}">
+            {% set slug = menu['parent'].article.slug  %}
 
             {% if (slug2 is defined) %}
-                <a href="{{ path('article', {'locale': locale, 'slug': slug2, 'slug2': slug}) }}">{{ menu }}</a>
+                <a href="{{ path('article', {'locale': locale, 'slug': slug2, 'slug2': slug}) }}">{{ menu['parent'] }}</a>
             {% else %}
-                <a href="{{ path('article', {'locale': locale, 'slug': slug}) }}">{{ menu }}</a>
+                <a href="{{ path('article', {'locale': locale, 'slug': slug}) }}">{{ menu['parent'] }}</a>
             {% endif %}
 
-            {% if menu.menus|length > 0 %}
-                {% include 'MyFrontendBundle:Default:_menu.html.twig' with { 'menus': menu.menus, 'locale': locale, 'home': false, 'slug2': menu.slug } %}
+            {% if menu['childrens'] is defined %}
+                {% include 'MyFrontendBundle:Default:_menu.html.twig' with { 'menus': menu['childrens'], 'locale': locale, 'home': false, 'slug2': menu['parent'].slug } %}
             {% endif %}
         </li>
     {% endfor %}

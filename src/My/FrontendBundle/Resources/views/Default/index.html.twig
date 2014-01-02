@@ -39,7 +39,7 @@
     <div id="top">
         <div class="container">
             <div id="logo">
-                <a href="{{ path('localized_frontend', {'locale': locale}) }}">
+                <a href="{{ path('localized_frontend', { 'locale': locale }) }}">
                     <img src="{{ asset('bundles/cms/frontend/fresh_style/images/logo.png') }}" alt="logo" />
                 </a>
             </div>
@@ -50,7 +50,9 @@
 
     <div id="main_menu">
         <div class="container">
-            {% include 'MyFrontendBundle:Default:_menu.html.twig' with { 'menus': menus['Main'], 'locale': locale, 'home': true } %}
+            {% if menus['Main'] is defined %}
+                {% include 'MyFrontendBundle:Default:_menu.html.twig' with { 'menus': menus['Main'], 'locale': locale, 'home': true } %}
+            {% endif %}
         </div>
     </div>
 
