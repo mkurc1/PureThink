@@ -34,7 +34,7 @@ function setActionOnChangeRowsOnPage() {
         paginationListModel.set({'rowsOnPage': $(this).val()});
         paginationListModel.set({page: 1});
         setRowsOnPage();
-        List.refresh();
+        listView.refresh();
     });
 }
 

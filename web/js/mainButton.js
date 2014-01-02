@@ -1,7 +1,7 @@
 $(function() {
     $('#main_button > div').on('click', '#create', function() {
         if (!$(this).parent().hasClass('disable')) {
-            editModel.set({url: List.url+'new'});
+            editModel.set({url: listModel.get('url')+'new'});
             editView.render();
         }
     });
@@ -12,12 +12,12 @@ $(function() {
  */
 function setActionOnListMainButtons() {
     $('#main_button > div > div').on('click', '.refresh', function() {
-        List.refresh(true);
+        listView.refresh(true);
     });
 
     $('#main_button > div > div').on('click', '.edit', function() {
         if (!$(this).parent().hasClass('disable')) {
-            var listId = List.select[0];
+            var listId = listView.select.get(0);
 
             var editObject = $('#main_container > table > tbody tr[list_id="'+listId+'"]');
             var editUrl;
@@ -26,7 +26,7 @@ function setActionOnListMainButtons() {
                 editUrl = editObject.find('.editMode').attr('href');
             }
             else {
-                editUrl = List.url+listId+'/edit';
+                editUrl = listModel.get('url')+listId+'/edit';
             }
 
             editModel.set({url: editUrl});
@@ -37,7 +37,7 @@ function setActionOnListMainButtons() {
     $('#main_button > div > div').on('click', '.remove', function() {
         if (!$(this).parent().hasClass('disable')) {
             var confirmationText;
-            if (List.getCountSelect() > 1) {
+            if (listView.select.count() > 1) {
                 confirmationText = 'Czy napewno chcesz usunąć wybrane pozycje?';
             }
             else {
@@ -46,7 +46,7 @@ function setActionOnListMainButtons() {
 
             var confirmation = confirm(confirmationText);
             if(confirmation) {
-                List.removeElements();
+                listView.removeElements();
             }
         }
     });
@@ -64,7 +64,7 @@ function setActionOnEditMainButtons() {
             createListButtons();
             toggleListMainButton();
             paginationListView.togglePagination();
-            List.setMode();
+            listView.setMode();
         }
     });
 
@@ -101,7 +101,7 @@ function toggleListMainButton() {
 function toggleListMainButtonForListMode() {
     enableMainButtonCreate();
 
-    switch(List.select.length) {
+    switch(listView.select.count()) {
         case 0:
             disableMainButtonEdit();
             disableMainButtonRemove();

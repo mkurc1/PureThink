@@ -89,8 +89,8 @@ EditView = Backbone.View.extend({
             type: "post",
             dataType: 'json',
             data: {
-                menuId: menuId,
-                sublistId: List.sublistId
+                menuId    : menuId,
+                sublistId : listModel.get('sublistId')
             },
             beforeSerialize: function() {
                 edit.ckeditUpdateElement();
@@ -100,7 +100,7 @@ EditView = Backbone.View.extend({
                     notify('success', data.message);
 
                     if (!edit.model.get('isApplyOption')) {
-                        List.refresh(false);
+                        listView.refresh(false);
                     }
                 }
                 else {
@@ -127,9 +127,9 @@ EditView = Backbone.View.extend({
             dataType: 'json',
             url: edit.model.get('url'),
             data: {
-                languageId: edit.model.get('languageId'),
-                menuId: menuId,
-                sublistId: List.sublistId
+                languageId : edit.model.get('languageId'),
+                menuId     : menuId,
+                sublistId  : listModel.get('sublistId')
             },
             beforeSend: function() {
                 edit.emptyContainer();

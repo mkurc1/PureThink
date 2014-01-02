@@ -70,15 +70,15 @@ function setActionsOnLeftMenu() {
             $(this).parent().addClass('selected');
 
             if ($(this).parent().parent().parent().parent().hasClass('group')) {
-                List.groupId = $(this).attr('list_id');
+                listModel.set({ groupId: $(this).attr('list_id') });
             }
 
             if ($(this).parent().parent().parent().parent().hasClass('language')) {
                 if (isEditMode(url)) {
-                    editModel.set({languageId: $(this).attr('list_id')});
+                    editModel.set({ languageId: $(this).attr('list_id') });
                 }
                 else {
-                    List.languageId = $(this).attr('list_id');
+                    listModel.set({ languageId: $(this).attr('list_id') });
                 }
             }
 
@@ -87,7 +87,7 @@ function setActionsOnLeftMenu() {
                 editView.render();
             }
             else {
-                List.refresh();
+                listView.refresh();
             }
         }
 

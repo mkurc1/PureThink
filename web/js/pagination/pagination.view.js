@@ -40,7 +40,7 @@ PaginationView = Backbone.View.extend({
         this.$el.find('.pages span').removeClass('selected');
         this.$el.find('.pages span').eq(page - 1).addClass('selected');
 
-        List.refresh(false);
+        listView.refresh(false);
     },
 
     /**

@@ -45,9 +45,9 @@ function startMode() {
         editView.render();
     }
     else {
-        List.url = url;
-        List.sublistId = 0;
-        List.refresh(true);
+        listModel.set({ url: url });
+        listView.sublistId = 0;
+        listView.refresh(true);
     }
 }
 

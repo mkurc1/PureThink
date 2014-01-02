@@ -8,8 +8,8 @@ $(function() {
         search.timer = setTimeout(function() {
             search.timer = null;
 
-            List.filtr = search.value;
-            List.refresh();
+            listModel.set({ filtr: search.value });
+            listView.render();
         }, 800);
     });
 });

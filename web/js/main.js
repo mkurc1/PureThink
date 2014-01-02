@@ -12,32 +12,37 @@ isDev();
 // Object
 var UserSetting = new Setting();
 // Object
-var paginationListModel = new PaginationModel({rowsOnPage: 10});
+var paginationListModel = new PaginationModel();
 var paginationListView;
 // Object
-var List = new List();
+var listModel = new ListModel();
+var listView;
 // Object
 var editModel = new EditModel();
 var editView;
 // Object
 var Module = new Module();
 
-
 var menuId;
 
 $(function() {
-    $.ajaxSetup({async: false});
+    $.ajaxSetup({ async: false });
 
     UserSetting.getUserSetting();
 
     paginationListView = new PaginationView({
-        el: '#pagination',
-        model: paginationListModel
+        el    : '#pagination',
+        model : paginationListModel
+    });
+
+    listView = new ListView({
+        el    : '#main_container',
+        model : listModel
     });
 
     editView = new EditView({
-        el: '#edit_container',
-        model: editModel
+        el    : '#edit_container',
+        model : editModel
     });
 
     $('#main_menu_list').setMainMenu(UserSetting.moduleId);
@@ -47,16 +52,3 @@ $(function() {
 $(window).load(function() {
     selectFirstMenu();
 });
-
-/**
- * Is dev
- */
-function isDev() {
-    var url = document.URL;
-
-    if (url.indexOf("app_dev.php") > 0) {
-        $.each(links, function(index, val) {
-             links[index] = '/app_dev.php'+val;
-        });
-    }
-}
