@@ -15,20 +15,19 @@ class CMSMenuRepository extends EntityRepository
     /**
      * Get menus
      *
-     * @param string $order
-     * @param string $sequence
      * @param string $filtr
      * @param string $languageId
      * @param string $groupId
      * @return array
      */
-	public function getMenus($order, $sequence, $filtr, $languageId, $groupId)
+	public function getMenus($filtr, $languageId, $groupId)
 	{
 		$qb = $this->createQueryBuilder('a')
             ->leftJoin('a.language', 'l')
             ->leftJoin('a.series', 's')
             ->leftJoin('a.article', 'art')
             ->where('a.name LIKE :filtr')
+            ->andWhere('a.menu IS NULL')
             ->setParameter('filtr', '%'.$filtr.'%');
 
         if ($languageId) {
@@ -43,7 +42,7 @@ class CMSMenuRepository extends EntityRepository
 
         $qb->orderBy('a.sequence');
 
-		return $qb->getQuery();
+		return $qb->getQuery()->getResult();
 	}
 
     /**

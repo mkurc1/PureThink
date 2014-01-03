@@ -110,7 +110,7 @@
                 spaceForElement = spaceForElements;
             }
             else {
-                spaceForElement = Number(spaceForElements / openElementCount);
+                spaceForElement = parseInt(spaceForElements/openElementCount, 10);
             }
         }
 
@@ -118,6 +118,8 @@
          * Set element height
          */
         function setElementHeight() {
+            menu.find('> li > div.showMenu > ul').height(spaceForElement-26);
+
             menu.find('> li > div.showMenu').stop().animate({
                 height: spaceForElement,
                 queue: false
@@ -146,7 +148,7 @@
          */
         function getIntegerPart(value, removeValue) {
             if (value)
-                return Number(value.replace(removeValue, ''));
+                return parseInt(value.replace(removeValue, ''), 10);
             else
                 return 0;
         }

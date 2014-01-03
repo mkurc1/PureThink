@@ -28,30 +28,25 @@ class CMSMenuController extends Controller
      */
     public function listAction(Request $request)
     {
-        $rowsOnPage = (int)$request->get('rowsOnPage', 10);
-        $page = (int)$request->get('page', 1);
-        $order = $request->get('order', 'a.name');
-        $sequence = $request->get('sequence', 'ASC');
         $filtr = $request->get('filtr');
         $languageId = $request->get('languageId');
         $groupId = $request->get('groupId');
 
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('MyCMSBundle:CMSMenu')->getMenus($order, $sequence, $filtr, $languageId, $groupId);
+        $entities = $em->getRepository('MyCMSBundle:CMSMenu')->getMenus($filtr, $languageId, $groupId);
 
-        $paginator  = $this->get('knp_paginator');
-        $pagination = $paginator->paginate(
-            $entities,
-            $page,
-            $rowsOnPage
-        );
-
-        $list = $this->renderView('MyCMSBundle:CMSMenu:_list.html.twig', array('entities' => $pagination, 'page' => $page, 'rowsOnPage' => $rowsOnPage));
+        $list = $this->renderView('MyCMSBundle:CMSMenu:_list.html.twig', array('entities' => $entities));
 
         $response = array(
             "list" => $list,
-            "pagination" => Pagination::helper($pagination),
+            "pagination" => array(
+                'first_page' => 1,
+                'previous' => 1,
+                'next' => 1,
+                'last_page' => 1,
+                'pages' => array(1)
+                ),
             "response" => true
             );
 
