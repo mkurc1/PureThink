@@ -30,14 +30,15 @@ $(function() {
 
     UserSetting.getUserSetting();
 
-    paginationListView = new PaginationView({
-        el    : '#pagination',
-        model : paginationListModel
-    });
-
     listView = new ListView({
         el    : '#main_container',
         model : listModel
+    });
+
+    paginationListView = new PaginationView({
+        el    : '#pagination',
+        model : paginationListModel,
+        list  : listView
     });
 
     editView = new EditView({

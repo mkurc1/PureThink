@@ -226,13 +226,34 @@ ListView = Backbone.View.extend({
             order      : 'a.name',
             sequence   : 'ASC',
             filtr      : '',
-            groupId    : 0,
-            languageId : 0
+            groupId    : this.getGroupId(),
+            languageId : this.getLanguageId()
         });
-
         paginationListModel.set({ page: 1 });
 
         emptyFilter();
+    },
+
+    /**
+     * Get group ID
+     *
+     * @return integer
+     */
+    getGroupId: function() {
+        var groupId = $('#left_menu_container > .group').find('li.selected').find('a').attr('list_id');
+
+        return (typeof groupId !== 'undefined') ? groupId : 0;
+    },
+
+    /**
+     * Get language ID
+     *
+     * @return integer
+     */
+    getLanguageId: function() {
+        var languageId = $('#left_menu_container > .language').find('li.selected').find('a').attr('list_id');
+
+        return (typeof languageId !== 'undefined') ? languageId : 0;
     },
 
     /**
@@ -241,12 +262,13 @@ ListView = Backbone.View.extend({
      * @param boolean withLeftMenu
      */
     refresh: function(withLeftMenu) {
+
         this.select.empty();
         createListButtons();
 
         if (withLeftMenu) {
+            getLeftMenu();
             this.defaultParameters();
-            getLeftMenu(false);
         }
 
         this.render();

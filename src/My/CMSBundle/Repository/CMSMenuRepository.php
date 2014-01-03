@@ -41,7 +41,7 @@ class CMSMenuRepository extends EntityRepository
                 ->setParameter('groupId', $groupId);
         }
 
-        $qb->orderBy($order, $sequence);
+        $qb->orderBy('a.sequence');
 
 		return $qb->getQuery();
 	}

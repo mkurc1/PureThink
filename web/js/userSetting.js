@@ -7,6 +7,7 @@ function Setting() {
     this.moduleId = 0;
     this.languageId = 0;
     this.url = links.userSetting;
+
     this.getUserSetting = getUserSetting;
     this.setUserSetting = setUserSetting;
 

@@ -33,7 +33,14 @@ function getLeftMenu(editMode) {
         complete: function() {
             $('#left_menu_container').accordionMenu();
             setActionsOnLeftMenu();
-            setDynamicMenu(editMode);
+
+            // if menuId == 2, don't show show all
+            if (menuId == 2) {
+                setDynamicMenu(true);
+            }
+            else {
+                setDynamicMenu(editMode);
+            }
         },
         success: function(data) {
             if (data.response) {

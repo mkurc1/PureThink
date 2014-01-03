@@ -684,6 +684,7 @@ a {
   float: left;
   width: 100%;
   border-collapse: collapse;
+  background-color: #FFFFFF;
   margin-bottom: -1px;
 }
 #main > #main_container > table > thead > tr > th {
@@ -734,6 +735,9 @@ a {
   height: 32px;
   border-right: 1px solid #F4F4F4;
   padding-left: 10px;
+}
+#main > #main_container > table > tbody > tr > td.submenu {
+  padding-left: 25px;
 }
 #main > #main_container > table > tbody > tr > td:last-child {
   border-right: 0;

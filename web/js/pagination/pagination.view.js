@@ -1,6 +1,8 @@
 PaginationView = Backbone.View.extend({
-    initialize: function() {
+    initialize: function(options) {
         console.log('Initialize Pagination View');
+
+        this.list = options.list;
     },
 
     events: {
@@ -35,12 +37,12 @@ PaginationView = Backbone.View.extend({
      * @param  integer page
      */
     page: function(page) {
-        this.model.set({page: page});
+        this.model.set({ page: page });
 
         this.$el.find('.pages span').removeClass('selected');
         this.$el.find('.pages span').eq(page - 1).addClass('selected');
 
-        listView.refresh(false);
+        this.list.refresh(false);
     },
 
     /**
