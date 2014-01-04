@@ -60,7 +60,7 @@
         {% include 'MyFrontendBundle:Default:_baner.html.twig' with { 'baners': components['baner'], 'locale': locale } %}
     {% endif %}
 
-    {% include 'MyFrontendBundle:Default:_news.html.twig' %}
+    {% include 'MyFrontendBundle:Default:_news_container.html.twig' with { 'components': components, 'locale': locale } %}
 
     {% if components['linki'] is defined %}
         {% include 'MyFrontendBundle:Default:_link.html.twig' with { 'links': components['linki'], 'locale': locale } %}

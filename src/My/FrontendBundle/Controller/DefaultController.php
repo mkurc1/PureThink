@@ -175,6 +175,12 @@ class DefaultController extends Controller
 
         $entities = $em->getRepository('MyCMSBundle:CMSComponentOnPageHasValue')->getComponents($locale);
         foreach ($entities as $entity) {
+            $slug = $entity['slug'];
+            $title = $entity['title'];
+            $elementId = $entity['elementId'];
+            $subname = $entity['subname'];
+            $createdAt = $entity['createdAt'];
+            $updatedAt = $entity['updatedAt'];
             $content = $entity['content'];
 
             switch ($entity['type']) {
@@ -188,7 +194,9 @@ class DefaultController extends Controller
                     break;
             }
 
-            $components[$entity['slug']][$entity['elementId']][$entity['subname']] = $content;
+            $components[$slug][$elementId][$subname] = $content;
+            $components[$slug][$elementId]['createdAt'] = $createdAt;
+            $components[$slug][$elementId]['updatedAt'] = $updatedAt;
         }
 
         return $components;

@@ -45,4 +45,40 @@
         <is_required>1</is_required>
         <is_main_field>0</is_main_field>
     </cmsComponentHasColumn>
+    <cmsComponentHasColumn>
+        <component_id>3</component_id>
+        <type_id>1</type_id>
+        <name>Nazwa</name>
+        <column_label>Nazwa newsa</column_label>
+        <class></class>
+        <is_required>1</is_required>
+        <is_main_field>1</is_main_field>
+    </cmsComponentHasColumn>
+    <cmsComponentHasColumn>
+        <component_id>3</component_id>
+        <type_id>9</type_id>
+        <name>Adres</name>
+        <column_label>Adres docelowy</column_label>
+        <class>sintetic-select</class>
+        <is_required>1</is_required>
+        <is_main_field>0</is_main_field>
+    </cmsComponentHasColumn>
+    <cmsComponentHasColumn>
+        <component_id>3</component_id>
+        <type_id>10</type_id>
+        <name>Fotografia</name>
+        <column_label>Wybierz fotografię</column_label>
+        <class>sintetic-select</class>
+        <is_required>1</is_required>
+        <is_main_field>0</is_main_field>
+    </cmsComponentHasColumn>
+    <cmsComponentHasColumn>
+        <component_id>3</component_id>
+        <type_id>2</type_id>
+        <name>Treść</name>
+        <column_label>Treść</column_label>
+        <class></class>
+        <is_required>1</is_required>
+        <is_main_field>0</is_main_field>
+    </cmsComponentHasColumn>
 </cmsComponentHasColumns>

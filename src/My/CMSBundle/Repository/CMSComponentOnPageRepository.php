@@ -27,6 +27,7 @@ class CMSComponentOnPageRepository extends EntityRepository
         $qb = $this->createQueryBuilder('a')
             ->leftJoin('a.language', 'l')
             ->leftJoin('a.series', 's')
+            ->leftJoin('a.component', 'c')
             ->where('a.name LIKE :filtr')
             ->setParameter('filtr', '%'.$filtr.'%');
 

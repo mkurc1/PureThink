@@ -4,6 +4,7 @@
             <th class="select"></th>
             <th class="lp">Lp.</th>
             <th column="a.name" class="name width_big">Nazwa</th>
+            <th column="c.name" class="width_small">Rozszerzenie</th>
             <th column="a.slug" class="width_small">Adres</th>
             <th column="a.isEnable" class="width_small">Aktywne</th>
             <th column="a.createdAt" class="width_small">Data utworzenia</th>
@@ -22,6 +23,7 @@
             <td class="select"><input type="checkbox" class="multi_check" /></td>
             <td class="lp">{{ i }}.</td>
             <td class="width_big name"><a class="sublist" sublist_id="{{ entity.id }}" href="{{ path('cmscomponentonpagehaselement') }}">{{ entity }}</a></td>
+            <td class="width_small">{{ entity.component.name }}</td>
             <td class="width_small">{{ entity.slug }}</td>
             <td class="width_small state">
                 {% if entity.isEnable %}
