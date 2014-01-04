@@ -1,6 +1,6 @@
 <div id="baner">
     <div class="container">
-        {% for baner in baners %}
+        {% for key, baner in baners if key != 'title' %}
             <a href="{{ path('article', { 'locale': locale, 'slug': baner['adres'] }) }}">
                 <img src="{{ asset('uploads/' ~ baner['fotografia']) }}" alt="{{ baner['nazwa'] }}" />
             </a>

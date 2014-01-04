@@ -194,6 +194,7 @@ class DefaultController extends Controller
                     break;
             }
 
+            $components[$slug]['title'] = $title;
             $components[$slug][$elementId][$subname] = $content;
             $components[$slug][$elementId]['createdAt'] = $createdAt;
             $components[$slug][$elementId]['updatedAt'] = $updatedAt;

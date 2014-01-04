@@ -1,4 +1,6 @@
-{% for new in news %}
+<h3>{{ news['title'] }}</h3>
+
+{% for key, new in news if key != 'title' %}
     <a href="{{ path('article', { 'locale': locale, 'slug': new['adres-2'] }) }}" class="news">
         <div class="image">
             <img src="{{ asset('uploads/' ~ new['fotografia-1']) }}" alt="" />
