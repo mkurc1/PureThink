@@ -76,10 +76,11 @@ class CMSComponentOnPageHasValueRepository extends EntityRepository
     {
         $qb = $this->createQueryBuilder('a')
             ->select('a.content')
-            ->addSelect('cop.slug')
+            ->addSelect('cop.slug, cop.name AS title')
             ->addSelect('('.$this->getElementId('cophe.id')->getDQL().') AS elementId')
             ->addSelect('chc.slug AS subname')
             ->addSelect('ct.name AS type')
+            ->addSelect('cophe.createdAt AS createdAt, cophe.updatedAt AS updatedAt')
             ->leftJoin('a.componentOnPageHasElement', 'cophe')
             ->leftJoin('a.componentHasColumn', 'chc')
             ->leftJoin('chc.columnType', 'ct')

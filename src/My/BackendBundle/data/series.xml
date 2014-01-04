@@ -32,4 +32,8 @@
         <name>Footer</name>
         <menu_id>2</menu_id>
     </serie>
+    <serie>
+        <name>News</name>
+        <menu_id>7</menu_id>
+    </serie>
 </series>

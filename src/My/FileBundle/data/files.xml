@@ -24,4 +24,76 @@
         <mime_type>image/png</mime_type>
         <path>8f226b0a29d652f91dfe956a853c95f58ed864b8.png</path>
     </file>
+    <file>
+        <name>News 1</name>
+        <user_id>1</user_id>
+        <series_id>9</series_id>
+        <size>22192</size>
+        <mime_type>image/jpeg</mime_type>
+        <path>21fdd0ac93255246a10fedd0fcdf7464fd5f16c9.jpeg</path>
+    </file>
+    <file>
+        <name>News 2</name>
+        <user_id>1</user_id>
+        <series_id>9</series_id>
+        <size>22192</size>
+        <mime_type>image/jpeg</mime_type>
+        <path>99194822cdd00b446582592a77beca017855c74d.jpeg</path>
+    </file>
+    <file>
+        <name>News 3</name>
+        <user_id>1</user_id>
+        <series_id>9</series_id>
+        <size>22192</size>
+        <mime_type>image/jpeg</mime_type>
+        <path>be882d04a441acdaaefd9ce6e0479b30e2a84ca2.jpeg</path>
+    </file>
+    <file>
+        <name>News 4</name>
+        <user_id>1</user_id>
+        <series_id>9</series_id>
+        <size>22192</size>
+        <mime_type>image/jpeg</mime_type>
+        <path>43889c9417a99b47a50786644516cde573c1db63.jpeg</path>
+    </file>
+    <file>
+        <name>News 5</name>
+        <user_id>1</user_id>
+        <series_id>9</series_id>
+        <size>22192</size>
+        <mime_type>image/jpeg</mime_type>
+        <path>3ba6ee0529d4949928c07da66a91f457e520e6ef.jpeg</path>
+    </file>
+    <file>
+        <name>News 6</name>
+        <user_id>1</user_id>
+        <series_id>9</series_id>
+        <size>22192</size>
+        <mime_type>image/jpeg</mime_type>
+        <path>e4da6c145b029ad06f952fc11faf1a3f49bf74ca.jpeg</path>
+    </file>
+    <file>
+        <name>News 7</name>
+        <user_id>1</user_id>
+        <series_id>9</series_id>
+        <size>22192</size>
+        <mime_type>image/jpeg</mime_type>
+        <path>07259458160d1e14f799921a4f41f674e8f34cb8.jpeg</path>
+    </file>
+    <file>
+        <name>News 8</name>
+        <user_id>1</user_id>
+        <series_id>9</series_id>
+        <size>22192</size>
+        <mime_type>image/jpeg</mime_type>
+        <path>bf24f871d73aa4d5277fc785e31765d973a34248.jpeg</path>
+    </file>
+    <file>
+        <name>News 9</name>
+        <user_id>1</user_id>
+        <series_id>9</series_id>
+        <size>22192</size>
+        <mime_type>image/jpeg</mime_type>
+        <path>b7e854467ea97aab69880d4fef810c86ac5a56ea.jpeg</path>
+    </file>
 </files>

@@ -62,12 +62,12 @@ ListView = Backbone.View.extend({
         var list = this;
 
         $.ajax({
-            type     : "post",
+            type     : 'post',
             dataType : 'json',
+            url      : list.model.get('url')+'state',
             data: {
                 id: selectId
             },
-            url: list.model.get('url')+'state',
             beforeSend: function() {
             },
             complete: function() {
@@ -121,8 +121,9 @@ ListView = Backbone.View.extend({
         var list = this;
 
         $.ajax({
-            type     : "post",
+            type     : 'post',
             dataType : 'json',
+            url      : list.model.get('url'),
             data: {
                 rowsOnPage : paginationListModel.get('rowsOnPage'),
                 page       : paginationListModel.get('page'),
@@ -133,7 +134,6 @@ ListView = Backbone.View.extend({
                 groupId    : list.model.get('groupId'),
                 sublistId  : list.model.get('sublistId')
             },
-            url: list.model.get('url'),
             beforeSend: function() {
                 list.setMode();
                 list.emptyContainer();
@@ -196,12 +196,12 @@ ListView = Backbone.View.extend({
         var list = this;
 
         $.ajax({
-            type: "post",
-            dataType: 'json',
+            type     : 'post',
+            dataType : 'json',
+            url      : list.model.get('url')+'delete',
             data: {
                 arrayId: list.select.getAll()
             },
-            url: list.model.get('url')+'delete',
             beforeSend: function() {
             },
             complete: function() {
