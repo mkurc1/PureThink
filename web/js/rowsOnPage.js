@@ -14,7 +14,7 @@ function getRowsOnPage(rowsOnPageId) {
         beforeSend: function() {
         },
         complete: function() {
-            paginationListModel.set({'rowsOnPage': $("#pagination > .number_of_lines").val()});
+            listView.paginationModel.set({'rowsOnPage': $("#pagination > .number_of_lines").val()});
             setActionOnChangeRowsOnPage();
             beautifySelects();
         },
@@ -31,8 +31,8 @@ function getRowsOnPage(rowsOnPageId) {
  */
 function setActionOnChangeRowsOnPage() {
     $("#pagination > .number_of_lines").change(function() {
-        paginationListModel.set({'rowsOnPage': $(this).val()});
-        paginationListModel.set({page: 1});
+        listView.paginationModel.set({'rowsOnPage': $(this).val()});
+        listView.paginationModel.set({page: 1});
         setRowsOnPage();
         listView.refresh();
     });
@@ -46,7 +46,7 @@ function setRowsOnPage() {
         type: "post",
         dataType: 'json',
         data: {
-            rowsOnPage: paginationListModel.get('rowsOnPage')
+            rowsOnPage: listView.paginationModel.get('rowsOnPage')
         },
         url: links.setRowsOnPage,
         beforeSend: function() {

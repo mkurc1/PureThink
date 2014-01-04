@@ -1,6 +1,13 @@
 ListView = Backbone.View.extend({
-    initialize: function() {
+    initialize: function(options) {
         console.log('Initialize List View');
+
+        this.paginationModel = new PaginationModel();
+        this.paginationView = new PaginationView({
+            el    : options.paginationEl,
+            model : this.paginationModel,
+            list  : this
+        });
 
         this.select = new Select();
     },
@@ -125,8 +132,8 @@ ListView = Backbone.View.extend({
             dataType : 'json',
             url      : list.model.get('url'),
             data: {
-                rowsOnPage : paginationListModel.get('rowsOnPage'),
-                page       : paginationListModel.get('page'),
+                rowsOnPage : list.paginationModel.get('rowsOnPage'),
+                page       : list.paginationModel.get('page'),
                 order      : list.model.get('order'),
                 sequence   : list.model.get('sequence'),
                 filtr      : list.model.get('filtr'),
@@ -141,7 +148,7 @@ ListView = Backbone.View.extend({
             },
             complete: function() {
                 list.arrowOrder();
-                paginationListView.togglePagination();
+                list.paginationView.togglePagination();
                 editView.setEditModeAction();
                 toggleListMainButton();
                 list.removeLoading();
@@ -150,14 +157,14 @@ ListView = Backbone.View.extend({
                 if (data.response) {
                     list.$el.append(data.list.toString());
 
-                    paginationListModel.set({
+                    list.paginationModel.set({
                         firstPage    : data.pagination.first_page,
                         previousPage : data.pagination.previous,
                         nextPage     : data.pagination.next,
                         lastPage     : data.pagination.last_page
                     });
 
-                    paginationListView.render(data.pagination.pages);
+                    list.paginationView.render(data.pagination.pages);
 
                     if (data.order) {
                         list.model.set({ order: data.order });
@@ -229,7 +236,7 @@ ListView = Backbone.View.extend({
             groupId    : this.getGroupId(),
             languageId : this.getLanguageId()
         });
-        paginationListModel.set({ page: 1 });
+        this.paginationModel.set({ page: 1 });
 
         emptyFilter();
     },

@@ -133,7 +133,7 @@ EditView = Backbone.View.extend({
             },
             beforeSend: function() {
                 edit.emptyContainer();
-                paginationListView.hidePagination();
+                listView.paginationView.hidePagination();
             },
             complete: function() {
                 $('#main_container').hide();

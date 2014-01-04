@@ -12,9 +12,6 @@ isDev();
 // Object
 var UserSetting = new Setting();
 // Object
-var paginationListModel = new PaginationModel();
-var paginationListView;
-// Object
 var listModel = new ListModel();
 var listView;
 // Object
@@ -31,14 +28,9 @@ $(function() {
     UserSetting.getUserSetting();
 
     listView = new ListView({
-        el    : '#main_container',
-        model : listModel
-    });
-
-    paginationListView = new PaginationView({
-        el    : '#pagination',
-        model : paginationListModel,
-        list  : listView
+        el           : '#main_container',
+        model        : listModel,
+        paginationEl : '#pagination'
     });
 
     editView = new EditView({
