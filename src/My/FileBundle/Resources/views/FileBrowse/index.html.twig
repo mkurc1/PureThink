@@ -6,22 +6,31 @@
 
 {% block stylesheets %}
     {{ parent() }}
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/plugins/font-awesome.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/purethink.css') }}">
 {% endblock stylesheets %}
 
 {% block javascripts %}
     {{ parent() }}
+    <script src="{{ asset('js/plugins/underscore-min.js') }}"></script>
+    <script src="{{ asset('js/plugins/backbone-min.js') }}"></script>
+    <script src="{{ asset('js/pagination/pagination.model.js') }}"></script>
+    <script src="{{ asset('js/pagination/pagination.view.js') }}"></script>
+    <script src="{{ asset('js/list/list.model.js') }}"></script>
+    <script src="{{ asset('js/list/list.view.js') }}"></script>
+    <script src="{{ asset('js/select.js') }}"></script>
     <script src="{{ asset('js/helper.js') }}"></script>
+    <script src="{{ asset('js/links.js') }}"></script>
     <script src="{{ asset('js/file/fileBrowse.js') }}"></script>
 {% endblock javascripts %}
 
 {% block body %}
     <div id="file_browse">
-        <div id="file_browse_top">
-            <h2>Przeglądaj pliki</h2>
-        </div>
-
-        <div id="file_borwse_list">
-            {% include 'MyFileBundle:FileBrowse:_list.html.twig' with { 'entities': entities } %}
+        <div id="file_borwse_list"></div>
+        <div id="file_borwse_footer">
+            <div id="file_borwse_pagination">
+                {% include 'MyBackendBundle:Default:_pagination.html.twig' %}
+            </div>
         </div>
     </div>
 {% endblock body %}

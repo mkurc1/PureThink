@@ -1,14 +1,3 @@
-// AJAX actions URL's
-var links = {
-    userSetting   : '/admin/user/setting',
-    mainMenu      : '/admin/menu',
-    lefMenu       : '/admin/left_menu',
-    rowsOnPage    : '/admin/rows_on_page',
-    setRowsOnPage : '/admin/user/setting/set_rows_on_page'
-};
-
-isDev();
-
 // Object
 var UserSetting = new Setting();
 // Object
@@ -30,7 +19,8 @@ $(function() {
     listView = new ListView({
         el           : '#main_container',
         model        : listModel,
-        paginationEl : '#pagination'
+        paginationEl : '#pagination',
+        isMainList   : true
     });
 
     editView = new EditView({

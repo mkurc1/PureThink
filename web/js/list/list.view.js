@@ -2,6 +2,8 @@ ListView = Backbone.View.extend({
     initialize: function(options) {
         console.log('Initialize List View');
 
+        this.isMainList = options.isMainList;
+
         this.paginationModel = new PaginationModel();
         this.paginationView = new PaginationView({
             el    : options.paginationEl,
@@ -149,8 +151,15 @@ ListView = Backbone.View.extend({
             complete: function() {
                 list.arrowOrder();
                 list.paginationView.togglePagination();
-                editView.setEditModeAction();
-                toggleListMainButton();
+
+                if (list.isMainList) {
+                    editView.setEditModeAction();
+                    toggleListMainButton();
+                }
+                else {
+                    setActionOnClickBrowseElement();
+                }
+
                 list.removeLoading();
             },
             success: function(data) {
@@ -271,7 +280,10 @@ ListView = Backbone.View.extend({
     refresh: function(withLeftMenu) {
 
         this.select.empty();
-        createListButtons();
+
+        if (this.isMainList) {
+            createListButtons();
+        }
 
         if (withLeftMenu) {
             getLeftMenu();

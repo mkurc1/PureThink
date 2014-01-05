@@ -43,13 +43,15 @@ function getURLParameter(name) {
 
 /**
  * Is dev
+ *
+ * @param array array
  */
-function isDev() {
+function isDev(array) {
     var url = document.URL;
 
     if (url.indexOf("app_dev.php") > 0) {
-        $.each(links, function(index, val) {
-             links[index] = '/app_dev.php'+val;
+        $.each(array, function(index, val) {
+             array[index] = '/app_dev.php'+val;
         });
     }
 }
