@@ -7,6 +7,7 @@
 {% block stylesheets %}
     {{ parent() }}
     <link rel="stylesheet" type="text/css" href="{{ asset('css/plugins/font-awesome.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/plugins/jquery.qtip.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/purethink.css') }}">
 {% endblock stylesheets %}
 
@@ -14,6 +15,7 @@
     {{ parent() }}
     <script src="{{ asset('js/plugins/underscore-min.js') }}"></script>
     <script src="{{ asset('js/plugins/backbone-min.js') }}"></script>
+    <script src="{{ asset('js/plugins/jquery.qtip.js') }}"></script>
     <script src="{{ asset('js/pagination/pagination.model.js') }}"></script>
     <script src="{{ asset('js/pagination/pagination.view.js') }}"></script>
     <script src="{{ asset('js/list/list.model.js') }}"></script>

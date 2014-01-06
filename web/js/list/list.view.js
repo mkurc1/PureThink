@@ -16,7 +16,7 @@ ListView = Backbone.View.extend({
 
     events: {
         'click table th'                    : 'changeOrder',
-        'click table tr td.state > img'     : 'changeState',
+        'click table tr td.state > i'       : 'changeState',
         'click td.select input.multi_check' : 'checkboxChange',
         'click .sublist'                    : 'sublist'
     },
@@ -62,8 +62,6 @@ ListView = Backbone.View.extend({
 
     /**
      * Change state action
-     *
-     * @param integer id
      */
     changeState: function(e) {
         var selectId = $(e.currentTarget).parent().parent().attr('list_id');
@@ -150,6 +148,7 @@ ListView = Backbone.View.extend({
             },
             complete: function() {
                 list.arrowOrder();
+                list.paginationView.showEl();
                 list.paginationView.togglePagination();
 
                 if (list.isMainList) {
@@ -160,6 +159,7 @@ ListView = Backbone.View.extend({
                     setActionOnClickBrowseElement();
                 }
 
+                list.setActionOnHoverInfo();
                 list.removeLoading();
             },
             success: function(data) {
@@ -278,7 +278,6 @@ ListView = Backbone.View.extend({
      * @param boolean withLeftMenu
      */
     refresh: function(withLeftMenu) {
-
         this.select.empty();
 
         if (this.isMainList) {
@@ -291,5 +290,35 @@ ListView = Backbone.View.extend({
         }
 
         this.render();
+    },
+
+    /**
+     * Set action on hover info
+     */
+    setActionOnHoverInfo: function() {
+        this.$el.find('.info > i').qtip({
+            content: {
+                text: function(event, api) {
+                    return $.ajax({
+                        type     : 'POST',
+                        dataType : 'json',
+                        url      : links.fileInfo,
+                        data: {
+                            id: $(this).parent().parent().attr('list_id')
+                        }
+                    })
+                    .then(function(data) {
+                        var content = data.view.toString();
+
+                        api.set('content.text', content);
+                    }, function(xhr, status, error) {
+                        api.set('content.text', status + ': ' + error);
+                    });
+                }
+            },
+            style: {
+                classes: 'qtip-light qtip-shado'
+            }
+        });
     }
 });

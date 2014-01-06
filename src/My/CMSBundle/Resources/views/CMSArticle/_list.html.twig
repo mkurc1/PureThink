@@ -23,9 +23,9 @@
             <td class="width_big name"><a class="editMode" href="{{ path('cmsarticle_edit', { 'id': entity.id }) }}">{{ entity }}</a></td>
             <td class="width_small state">
                 {% if entity.isPublic %}
-                    <img class="active" src="{{ asset('images/active.png') }}" alt="active" />
+                    <i class="fa fa-check"></i>
                 {% else %}
-                    <img class="deactive" src="{{ asset('images/deactive.png') }}" alt="deactive" />
+                    <i class="fa fa-ban"></i>
                 {% endif %}
             </td>
             <td class="width_small">{{ entity.createdAt|date('Y-m-d') }}</td>

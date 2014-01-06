@@ -248,4 +248,30 @@ class FileController extends Controller
 
         return new Response(json_encode($response));
     }
+
+    /**
+     * @Route("/info", name="file_info")
+     * @Method("POST")
+     */
+    public function infoAction(Request $request)
+    {
+        $id = (int)$request->get('id');
+
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('MyFileBundle:File')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find File entity.');
+        }
+
+        $view = $this->renderView('MyFileBundle:File:_info.html.twig', array('entity' => $entity));
+
+        $response = array(
+                "response" => true,
+                "view" => $view
+                );
+
+        return new Response(json_encode($response));
+    }
 }

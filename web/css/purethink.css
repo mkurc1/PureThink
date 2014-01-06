@@ -746,8 +746,18 @@ table.list > tbody > tr > td > a {
   color: #3a3a3a;
   cursor: pointer;
 }
-table.list > tbody > tr > td > img {
+table.list > tbody > tr > td > i {
   cursor: pointer;
+  font-size: 16px;
+}
+table.list > tbody > tr > td > i.fa-check {
+  color: #abe866;
+}
+table.list > tbody > tr > td > i.fa-ban {
+  color: #bf1e2e;
+}
+table.list > tbody > tr > td > i.fa-info {
+  color: #9B9B9B;
 }
 table.list > tbody > tr > td.select {
   text-align: center;

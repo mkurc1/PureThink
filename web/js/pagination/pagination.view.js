@@ -101,6 +101,20 @@ PaginationView = Backbone.View.extend({
     },
 
     /**
+     * Show element
+     */
+    showEl: function() {
+        this.$el.show();
+    },
+
+    /**
+     * Hide elment
+     */
+    hideEl: function() {
+        this.$el.hide();
+    },
+
+    /**
      * Show pagination
      */
     showPagination: function() {

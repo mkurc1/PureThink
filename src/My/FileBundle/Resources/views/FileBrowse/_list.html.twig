@@ -3,6 +3,7 @@
         <tr>
             <th class="lp">Lp.</th>
             <th column="a.name" class="name width_big">Nazwa</th>
+            <th class="width_small">Info</th>
             <th column="a.size" class="width_small">Wielkość</th>
             <th column="a.createdAt" class="width_small">Data utworzenia</th>
         </tr>
@@ -18,6 +19,7 @@
         <tr list_id="{{ entity.id }}">
             <td class="lp">{{ i }}.</td>
             <td class="width_big name"><a class="browse_element" path="{{ entity.path }}">{{ entity }}</a></td>
+            <td class="width_small info"><i class="fa fa-info"></i></td>
             <td class="width_small">{{ entity.size|number_format(0, '.', ' ') }}</td>
             <td class="width_small">{{ entity.createdAt|date('Y-m-d') }}</td>
         </tr>

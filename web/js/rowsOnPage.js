@@ -14,7 +14,7 @@ function getRowsOnPage(rowsOnPageId) {
         beforeSend: function() {
         },
         complete: function() {
-            listView.paginationModel.set({'rowsOnPage': $("#pagination > .number_of_lines").val()});
+            listView.paginationModel.set({ 'rowsOnPage': $("#pagination > .number_of_lines").val() });
             setActionOnChangeRowsOnPage();
             beautifySelects();
         },
@@ -31,7 +31,7 @@ function getRowsOnPage(rowsOnPageId) {
  */
 function setActionOnChangeRowsOnPage() {
     $("#pagination > .number_of_lines").change(function() {
-        listView.paginationModel.set({'rowsOnPage': $(this).val()});
+        listView.paginationModel.set({ 'rowsOnPage': $(this).val() });
         listView.paginationModel.set({page: 1});
         setRowsOnPage();
         listView.refresh();
