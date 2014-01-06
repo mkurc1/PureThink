@@ -317,7 +317,7 @@ ListView = Backbone.View.extend({
                 }
             },
             style: {
-                classes: 'qtip-light qtip-shado'
+                classes: 'qtip-light qtip-shadow'
             }
         });
     }
