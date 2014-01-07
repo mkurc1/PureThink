@@ -149,9 +149,12 @@ class DefaultController extends Controller
             $id = $entity->getId();
 
             if (is_object($entity->getMenu())) {
-                $parentId = $entity->getMenu()->getId();
+                if ($entity->getMenu()->getIsPublic())
+                {
+                    $parentId = $entity->getMenu()->getId();
 
-                $menus[$series][$parentId]['childrens'][$id]['parent'] = $entity;
+                    $menus[$series][$parentId]['childrens'][$id]['parent'] = $entity;
+                }
             }
             else {
                 $menus[$series][$id]['parent'] = $entity;

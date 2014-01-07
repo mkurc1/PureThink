@@ -86,8 +86,8 @@ EditView = Backbone.View.extend({
         var edit = this;
 
         this.$el.find('form').ajaxSubmit({
-            type: "post",
-            dataType: 'json',
+            type     : "post",
+            dataType : 'json',
             data: {
                 menuId    : menuId,
                 sublistId : listModel.get('sublistId')
@@ -109,7 +109,7 @@ EditView = Backbone.View.extend({
                     edit.helper();
                 }
 
-                edit.model.set({isApplyOption: false});
+                edit.model.set({ isApplyOption: false });
             }
         });
 
@@ -123,9 +123,9 @@ EditView = Backbone.View.extend({
         var edit = this;
 
         $.ajax({
-            type: "post",
-            dataType: 'json',
-            url: edit.model.get('url'),
+            type     : "post",
+            dataType : 'json',
+            url      : edit.model.get('url'),
             data: {
                 languageId : edit.model.get('languageId'),
                 menuId     : menuId,
@@ -133,15 +133,16 @@ EditView = Backbone.View.extend({
             },
             beforeSend: function() {
                 edit.emptyContainer();
+                listView.$el.hide();
                 listView.paginationView.hideEl();
+                edit.$el.show();
+                edit.showLoading();
             },
             complete: function() {
-                $('#main_container').hide();
-                edit.$el.show();
-
                 edit.helper();
                 createEditButtons();
                 toggleListMainButton();
+                edit.removeLoading();
             },
             success: function(data) {
                 if (data.response) {
@@ -177,5 +178,19 @@ EditView = Backbone.View.extend({
 
             return false;
         });
-    }
+    },
+
+    /**
+     * Show loading
+     */
+    showLoading: function() {
+        this.$el.append('<div class="loading"></div>');
+    },
+
+    /**
+     * Remove loading
+     */
+    removeLoading: function() {
+        this.$el.find('.loading').remove();
+    },
 });
