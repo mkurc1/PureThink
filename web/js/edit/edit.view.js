@@ -1,5 +1,7 @@
 EditView = Backbone.View.extend({
-    initialize: function() {
+    initialize: function(options) {
+        this.isMainEdit = options.isMainEdit;
+
         console.log('Initialize Edit View');
     },
 
@@ -89,7 +91,7 @@ EditView = Backbone.View.extend({
             type     : "post",
             dataType : 'json',
             data: {
-                menuId    : menuId,
+                menuId    : edit.model.get('menuId'),
                 sublistId : listModel.get('sublistId')
             },
             beforeSerialize: function() {
@@ -99,8 +101,17 @@ EditView = Backbone.View.extend({
                 if (data.response) {
                     notify('success', data.message);
 
-                    if (!edit.model.get('isApplyOption')) {
-                        listView.refresh(false);
+                    if (edit.isMainEdit) {
+                        if (!edit.model.get('isApplyOption')) {
+                            listView.refresh(false);
+                        }
+                    }
+                    else {
+                        edit.closePopup();
+
+                        if (menuId == 7) {
+                            listView.refresh(false);
+                        }
                     }
                 }
                 else {
@@ -117,6 +128,14 @@ EditView = Backbone.View.extend({
     },
 
     /**
+     * Close popup
+     */
+    closePopup: function() {
+        $('.popup').remove();
+        $('.popup-overall-bg').remove();
+    },
+
+    /**
      * Render
      */
     render: function() {
@@ -128,20 +147,28 @@ EditView = Backbone.View.extend({
             url      : edit.model.get('url'),
             data: {
                 languageId : edit.model.get('languageId'),
-                menuId     : menuId,
+                menuId     : edit.model.get('menuId'),
                 sublistId  : listModel.get('sublistId')
             },
             beforeSend: function() {
                 edit.emptyContainer();
-                listView.$el.hide();
-                listView.paginationView.hideEl();
+
+                if (edit.isMainEdit) {
+                    listView.$el.hide();
+                    listView.paginationView.hideEl();
+                }
+
                 edit.$el.show();
                 edit.showLoading();
             },
             complete: function() {
                 edit.helper();
-                createEditButtons();
-                toggleListMainButton();
+
+                if (edit.isMainEdit) {
+                    createEditButtons();
+                    toggleListMainButton();
+                }
+
                 edit.removeLoading();
             },
             success: function(data) {

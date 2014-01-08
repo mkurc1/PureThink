@@ -30,6 +30,14 @@
     .gradient(#6AC03D, #6BC23E, #6BC23E, #5CB85C);
 }
 
+.popup_button_gradient() {
+    .gradient(#ffffff, #F2F3F7, #F2F3F7, #F4F4F4);
+}
+
+.popup_button_hover_gradient() {
+    .gradient(#EFF1F5, #EDEFF3, #EDEFF3, #eeeeee);
+}
+
 .gradient(@color1, @color2, @color3, @color4) {
     background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(20%, @color1), color-stop(50%, @color2), color-stop(52%, @color3), color-stop(100%, @color4));
     background: -webkit-linear-gradient(top, @color1 20%, @color2 50%, @color3 52%, @color4 100%);

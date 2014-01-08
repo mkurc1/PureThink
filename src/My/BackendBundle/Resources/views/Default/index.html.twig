@@ -14,13 +14,14 @@
 
 {% block javascripts %}
 	{{ parent() }}
-    <script src="{{ asset('js/plugins/underscore-min.js') }}"></script>
-    <script src="{{ asset('js/plugins/backbone-min.js') }}"></script>
+    <script src="{{ asset('js/lib/underscore-min.js') }}"></script>
+    <script src="{{ asset('js/lib/backbone-min.js') }}"></script>
 	<script src="{{ asset('js/plugins/jquery.accordion.menu.js') }}"></script>
 	<script src="{{ asset('js/plugins/jquery.dynamic.menu.js') }}"></script>
     <script src="{{ asset('js/plugins/chosen.jquery.js') }}"></script>
     <script src="{{ asset('js/plugins/jquery.form.js') }}"></script>
     <script src="{{ asset('js/plugins/jquery.qtip.js') }}"></script>
+    <script src="{{ asset('js/plugins/jquery.popup.js') }}"></script>
     <script src="{{ asset('js/pagination/pagination.model.js') }}"></script>
     <script src="{{ asset('js/pagination/pagination.view.js') }}"></script>
     <script src="{{ asset('js/list/list.model.js') }}"></script>
@@ -37,7 +38,6 @@
     <script src="{{ asset('js/select.js') }}"></script>
     <script src="{{ asset('js/filter.js') }}"></script>
     <script src="{{ asset('js/helper.js') }}"></script>
-    <script src="{{ asset('js/shortcut.js') }}"></script>
     <script src="{{ asset('js/links.js') }}"></script>
     <script src="{{ asset('js/main.js') }}"></script>
 {% endblock javascripts %}

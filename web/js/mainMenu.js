@@ -82,7 +82,10 @@ function isEditMode(url) {
  * Set menu Id
  */
 function setMenuId() {
-    menuId = $('#main_menu_list > li.selected > a').attr('menu_id');
+    var id = $('#main_menu_list > li.selected > a').attr('menu_id');
+
+    menuId = id;
+    editModel.set({ menuId: id });
 }
 
 /**

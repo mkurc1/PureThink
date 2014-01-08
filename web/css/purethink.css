@@ -1,4 +1,5 @@
-#edit_container > .header {
+#edit_container > .header,
+.popup-content > .header {
   background-color: #F7F7F7;
   border-bottom: 1px solid #E7E7E7;
   position: fixed;
@@ -8,43 +9,50 @@
   height: 32px;
   z-index: 45;
 }
-#edit_container > .header > h2 {
+#edit_container > .header > h2,
+.popup-content > .header > h2 {
   color: #3A3A3A;
   font-weight: normal;
   font-size: 13px;
   font-weight: bold;
   margin: 7px 0 0 35px;
 }
-#edit_container > .container {
+#edit_container > .container,
+.popup-content > .container {
   position: relative;
   float: left;
   margin: 43px 0 15px 35px;
   width: 760px;
 }
-#edit_container > .container .cke {
+#edit_container > .container .cke,
+.popup-content > .container .cke {
   position: relative;
   float: left;
   width: 100%;
 }
-#edit_container > .container .dane_element_big {
+#edit_container > .container .dane_element_big,
+.popup-content > .container .dane_element_big {
   position: relative;
   float: left;
   margin: 0 26px 11px 0;
   width: 739px;
 }
-#edit_container > .container .dane_element_small {
+#edit_container > .container .dane_element_small,
+.popup-content > .container .dane_element_small {
   position: relative;
   float: left;
   width: 109px;
   margin-right: 17px;
 }
-#edit_container > .container .dane_element_medium {
+#edit_container > .container .dane_element_medium,
+.popup-content > .container .dane_element_medium {
   position: relative;
   float: left;
   width: 235px;
   margin-right: 17px;
 }
-#edit_container > .container .dane_element {
+#edit_container > .container .dane_element,
+.popup-content > .container .dane_element {
   position: relative;
   float: left;
   margin: 0 17px 0 0;
@@ -52,15 +60,23 @@
   padding: 0;
 }
 #edit_container > .container .dane_element.margin_right_off,
+.popup-content > .container .dane_element.margin_right_off,
 #edit_container > .container .dane_element_big.margin_right_off,
+.popup-content > .container .dane_element_big.margin_right_off,
 #edit_container > .container .dane_element_small.margin_right_off,
-#edit_container > .container .dane_element_medium.margin_right_off {
+.popup-content > .container .dane_element_small.margin_right_off,
+#edit_container > .container .dane_element_medium.margin_right_off,
+.popup-content > .container .dane_element_medium.margin_right_off {
   margin-right: 0;
 }
 #edit_container > .container .dane_element label,
+.popup-content > .container .dane_element label,
 #edit_container > .container .dane_element_big label,
+.popup-content > .container .dane_element_big label,
 #edit_container > .container .dane_element_small label,
-#edit_container > .container .dane_element_medium label {
+.popup-content > .container .dane_element_small label,
+#edit_container > .container .dane_element_medium label,
+.popup-content > .container .dane_element_medium label {
   font-size: 12px;
   color: #3d3d3d;
   position: relative;
@@ -69,13 +85,21 @@
   margin: 11px 0 2px 0;
 }
 #edit_container > .container .dane_element > input[type='text'],
+.popup-content > .container .dane_element > input[type='text'],
 #edit_container > .container .dane_element_big > input[type='text'],
+.popup-content > .container .dane_element_big > input[type='text'],
 #edit_container > .container .dane_element_small > input[type='text'],
+.popup-content > .container .dane_element_small > input[type='text'],
 #edit_container > .container .dane_element_medium > input[type='text'],
+.popup-content > .container .dane_element_medium > input[type='text'],
 #edit_container > .container .dane_element > div.input_file,
+.popup-content > .container .dane_element > div.input_file,
 #edit_container > .container .dane_element_big > div.input_file,
+.popup-content > .container .dane_element_big > div.input_file,
 #edit_container > .container .dane_element_small > div.input_file,
-#edit_container > .container .dane_element_medium > div.input_file {
+.popup-content > .container .dane_element_small > div.input_file,
+#edit_container > .container .dane_element_medium > div.input_file,
+.popup-content > .container .dane_element_medium > div.input_file {
   position: relative;
   float: left;
   width: 475px;
@@ -88,9 +112,13 @@
   font-size: 13px;
 }
 #edit_container > .container .dane_element > input[type='text'].name,
+.popup-content > .container .dane_element > input[type='text'].name,
 #edit_container > .container .dane_element_big > input[type='text'].name,
+.popup-content > .container .dane_element_big > input[type='text'].name,
 #edit_container > .container .dane_element_small > input[type='text'].name,
-#edit_container > .container .dane_element_medium > input[type='text'].name {
+.popup-content > .container .dane_element_small > input[type='text'].name,
+#edit_container > .container .dane_element_medium > input[type='text'].name,
+.popup-content > .container .dane_element_medium > input[type='text'].name {
   background-color: #fef3c2;
   height: 40px;
   font-size: 18px;
@@ -101,16 +129,24 @@
   box-shadow: 0 0 10px #E5E5E5;
 }
 #edit_container > .container .dane_element > div.input_file,
+.popup-content > .container .dane_element > div.input_file,
 #edit_container > .container .dane_element_big > div.input_file,
+.popup-content > .container .dane_element_big > div.input_file,
 #edit_container > .container .dane_element_small > div.input_file,
-#edit_container > .container .dane_element_medium > div.input_file {
+.popup-content > .container .dane_element_small > div.input_file,
+#edit_container > .container .dane_element_medium > div.input_file,
+.popup-content > .container .dane_element_medium > div.input_file {
   padding: 5px;
   height: 17px;
 }
 #edit_container > .container .dane_element textarea,
+.popup-content > .container .dane_element textarea,
 #edit_container > .container .dane_element_big textarea,
+.popup-content > .container .dane_element_big textarea,
 #edit_container > .container .dane_element_small textarea,
-#edit_container > .container .dane_element_medium textarea {
+.popup-content > .container .dane_element_small textarea,
+#edit_container > .container .dane_element_medium textarea,
+.popup-content > .container .dane_element_medium textarea {
   position: relative;
   float: left;
   width: 475px;
@@ -123,9 +159,13 @@
   padding: 5px;
 }
 #edit_container > .container .dane_element > button,
+.popup-content > .container .dane_element > button,
 #edit_container > .container .dane_element_big > button,
+.popup-content > .container .dane_element_big > button,
 #edit_container > .container .dane_element_small > button,
-#edit_container > .container .dane_element_medium > button {
+.popup-content > .container .dane_element_small > button,
+#edit_container > .container .dane_element_medium > button,
+.popup-content > .container .dane_element_medium > button {
   position: relative;
   float: right;
   height: 29px;
@@ -143,9 +183,13 @@
   cursor: pointer;
 }
 #edit_container > .container .dane_element > button:hover,
+.popup-content > .container .dane_element > button:hover,
 #edit_container > .container .dane_element_big > button:hover,
+.popup-content > .container .dane_element_big > button:hover,
 #edit_container > .container .dane_element_small > button:hover,
-#edit_container > .container .dane_element_medium > button:hover {
+.popup-content > .container .dane_element_small > button:hover,
+#edit_container > .container .dane_element_medium > button:hover,
+.popup-content > .container .dane_element_medium > button:hover {
   background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(20%, #6ac03d), color-stop(50%, #6bc23e), color-stop(52%, #6bc23e), color-stop(100%, #5cb85c));
   background: -webkit-linear-gradient(top, #6ac03d 20%, #6bc23e 50%, #6bc23e 52%, #5cb85c 100%);
   background: -moz-linear-gradient(top, #6ac03d 20%, #6bc23e 50%, #6bc23e 52%, #5cb85c 100%);
@@ -153,61 +197,85 @@
   background: linear-gradient(top, #6ac03d 20%, #6bc23e 50%, #6bc23e 52%, #5cb85c 100%);
 }
 #edit_container > .container .dane_element > ul,
+.popup-content > .container .dane_element > ul,
 #edit_container > .container .dane_element_big > ul,
+.popup-content > .container .dane_element_big > ul,
 #edit_container > .container .dane_element_small > ul,
-#edit_container > .container .dane_element_medium > ul {
+.popup-content > .container .dane_element_small > ul,
+#edit_container > .container .dane_element_medium > ul,
+.popup-content > .container .dane_element_medium > ul {
   float: left;
   list-style-type: none;
   margin-top: 2px;
 }
 #edit_container > .container .dane_element > ul > li,
+.popup-content > .container .dane_element > ul > li,
 #edit_container > .container .dane_element_big > ul > li,
+.popup-content > .container .dane_element_big > ul > li,
 #edit_container > .container .dane_element_small > ul > li,
-#edit_container > .container .dane_element_medium > ul > li {
+.popup-content > .container .dane_element_small > ul > li,
+#edit_container > .container .dane_element_medium > ul > li,
+.popup-content > .container .dane_element_medium > ul > li {
   color: #DD4B39;
   float: left;
   font-size: 11px;
 }
-#edit_container > .container .dane_element > div.input_file {
+#edit_container > .container .dane_element > div.input_file,
+.popup-content > .container .dane_element > div.input_file {
   width: 375px;
 }
 #edit_container > .container .dane_element > input[type='text'],
-#edit_container > .container .dane_element textarea {
+.popup-content > .container .dane_element > input[type='text'],
+#edit_container > .container .dane_element textarea,
+.popup-content > .container .dane_element textarea {
   width: 475px;
 }
 #edit_container > .container .dane_element_big > input[type='text'],
-#edit_container > .container .dane_element_big textarea {
+.popup-content > .container .dane_element_big > input[type='text'],
+#edit_container > .container .dane_element_big textarea,
+.popup-content > .container .dane_element_big textarea {
   width: 727px;
 }
 #edit_container > .container .dane_element_small > input[type='text'],
-#edit_container > .container .dane_element_small textarea {
+.popup-content > .container .dane_element_small > input[type='text'],
+#edit_container > .container .dane_element_small textarea,
+.popup-content > .container .dane_element_small textarea {
   width: 97px;
 }
 #edit_container > .container .dane_element_medium > input[type='text'],
-#edit_container > .container .dane_element_medium textarea {
+.popup-content > .container .dane_element_medium > input[type='text'],
+#edit_container > .container .dane_element_medium textarea,
+.popup-content > .container .dane_element_medium textarea {
   width: 223px;
 }
-#edit_container > .container .dane_element_small > select {
+#edit_container > .container .dane_element_small > select,
+.popup-content > .container .dane_element_small > select {
   width: 109px;
 }
-#edit_container > .container .dane_element_medium > select {
+#edit_container > .container .dane_element_medium > select,
+.popup-content > .container .dane_element_medium > select {
   width: 235px;
 }
-#edit_container > .container .dane_element > select {
+#edit_container > .container .dane_element > select,
+.popup-content > .container .dane_element > select {
   width: 487px;
 }
-#edit_container > .container .chosen-container-single .chosen-single {
+#edit_container > .container .chosen-container-single .chosen-single,
+.popup-content > .container .chosen-container-single .chosen-single {
   height: 27px;
   line-height: 18px;
   margin-top: -2px;
 }
-#edit_container > .container .chosen-container-single .chosen-single div {
+#edit_container > .container .chosen-container-single .chosen-single div,
+.popup-content > .container .chosen-container-single .chosen-single div {
   top: 2px;
 }
-#edit_container > .container .chosen-container-single .chosen-single span {
+#edit_container > .container .chosen-container-single .chosen-single span,
+.popup-content > .container .chosen-container-single .chosen-single span {
   margin-top: 4px;
 }
-#edit_container > .container .chosen-container-single .chosen-single abbr {
+#edit_container > .container .chosen-container-single .chosen-single abbr,
+.popup-content > .container .chosen-container-single .chosen-single abbr {
   margin-top: 2px;
 }
 #footer {
@@ -1232,4 +1300,115 @@ table.list > tbody > tr > td.select > input {
   float: right;
   height: 100%;
   margin: 10px 15px 0 0;
+}
+.popup-overall-bg {
+  position: fixed;
+  z-index: 1500;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: #000;
+  opacity: 0.1;
+}
+.popup {
+  position: fixed;
+  z-index: 1501;
+  min-width: 200px;
+  min-height: 100px;
+  background: #FBFBFB;
+  border: 1px solid #ADADAD;
+  -moz-box-shadow: 0 0 20px #BEBEBE;
+  -webkit-box-shadow: 0 0 20px #BEBEBE;
+  box-shadow: 0 0 20px #BEBEBE;
+  border-radius: 8px;
+  padding: 15px 0 20px 0;
+}
+.popup .popup-close {
+  position: relative;
+  float: right;
+  font-size: 16px;
+  text-transform: lowercase;
+  font-weight: bold;
+  color: #000;
+  opacity: 0.2;
+  cursor: pointer;
+  margin-right: 15px;
+}
+.popup .popup-close:hover {
+  opacity: 0.5;
+}
+.popup > .popup-content > .header {
+  background-color: transparent;
+  border: 0;
+  position: relative;
+  float: left;
+  width: auto;
+  height: auto;
+  margin: 0 0 0 15px;
+}
+.popup > .popup-content > .header > h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: normal;
+}
+.popup > .popup-content > .container {
+  clear: both;
+  width: 487px;
+  margin: 15px 0 0 0;
+  border: 1px solid #E7E7E7;
+  border-width: 1px 0;
+  padding: 5px 15px 25px 15px;
+}
+.popup > .popup-button-container {
+  position: relative;
+  float: left;
+  width: 100%;
+  margin-top: 20px;
+}
+.popup > .popup-button-container > button {
+  position: relative;
+  float: right;
+  height: 31px;
+  font-size: 14px;
+  font-weight: normal;
+  margin-right: 15px;
+  padding: 0 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #313131;
+  background-color: #FAFAFA;
+  border: 1px solid #CACACA;
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(20%, #ffffff), color-stop(50%, #f2f3f7), color-stop(52%, #f2f3f7), color-stop(100%, #f4f4f4));
+  background: -webkit-linear-gradient(top, #ffffff 20%, #f2f3f7 50%, #f2f3f7 52%, #f4f4f4 100%);
+  background: -moz-linear-gradient(top, #ffffff 20%, #f2f3f7 50%, #f2f3f7 52%, #f4f4f4 100%);
+  background: -o-linear-gradient(top, #ffffff 20%, #f2f3f7 50%, #f2f3f7 52%, #f4f4f4 100%);
+  background: linear-gradient(top, #ffffff 20%, #f2f3f7 50%, #f2f3f7 52%, #f4f4f4 100%);
+}
+.popup > .popup-button-container > button:hover {
+  background-color: #F5F5F5;
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(20%, #eff1f5), color-stop(50%, #edeff3), color-stop(52%, #edeff3), color-stop(100%, #eeeeee));
+  background: -webkit-linear-gradient(top, #eff1f5 20%, #edeff3 50%, #edeff3 52%, #eeeeee 100%);
+  background: -moz-linear-gradient(top, #eff1f5 20%, #edeff3 50%, #edeff3 52%, #eeeeee 100%);
+  background: -o-linear-gradient(top, #eff1f5 20%, #edeff3 50%, #edeff3 52%, #eeeeee 100%);
+  background: linear-gradient(top, #eff1f5 20%, #edeff3 50%, #edeff3 52%, #eeeeee 100%);
+}
+.popup > .popup-button-container > button.popup-button-submit {
+  color: #FCFCFC;
+  background-color: #4d90fe;
+  border: 1px solid #75B8FE;
+  padding: 0 35px;
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(20%, #4d90fe), color-stop(50%, #518ded), color-stop(52%, #3b82f5), color-stop(100%, #2371ed));
+  background: -webkit-linear-gradient(top, #4d90fe 20%, #518ded 50%, #3b82f5 52%, #2371ed 100%);
+  background: -moz-linear-gradient(top, #4d90fe 20%, #518ded 50%, #3b82f5 52%, #2371ed 100%);
+  background: -o-linear-gradient(top, #4d90fe 20%, #518ded 50%, #3b82f5 52%, #2371ed 100%);
+  background: linear-gradient(top, #4d90fe 20%, #518ded 50%, #3b82f5 52%, #2371ed 100%);
+}
+.popup > .popup-button-container > button.popup-button-submit:hover {
+  background-color: #3480FE;
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(20%, #518ded), color-stop(50%, #3b82f5), color-stop(52%, #3b82f5), color-stop(100%, #2371ed));
+  background: -webkit-linear-gradient(top, #518ded 20%, #3b82f5 50%, #3b82f5 52%, #2371ed 100%);
+  background: -moz-linear-gradient(top, #518ded 20%, #3b82f5 50%, #3b82f5 52%, #2371ed 100%);
+  background: -o-linear-gradient(top, #518ded 20%, #3b82f5 50%, #3b82f5 52%, #2371ed 100%);
+  background: linear-gradient(top, #518ded 20%, #3b82f5 50%, #3b82f5 52%, #2371ed 100%);
 }

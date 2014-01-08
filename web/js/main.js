@@ -24,12 +24,15 @@ $(function() {
     });
 
     editView = new EditView({
-        el    : '#edit_container',
-        model : editModel
+        el         : '#edit_container',
+        model      : editModel,
+        isMainEdit : true
     });
 
     $('#main_menu_list').setMainMenu(UserSetting.moduleId);
     getRowsOnPage(UserSetting.rowsOnPageId);
+
+    $('#shortcut_attachment').popup();
 });
 
 $(window).load(function() {
