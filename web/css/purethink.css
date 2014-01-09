@@ -1351,6 +1351,7 @@ table.list > tbody > tr > td.select > input {
   margin: 0;
   font-size: 18px;
   font-weight: normal;
+  color: #000;
 }
 .popup > .popup-content > .container {
   clear: both;

@@ -14,21 +14,22 @@
 
 {% block javascripts %}
 	{{ parent() }}
-    <script src="{{ asset('js/lib/underscore-min.js') }}"></script>
-    <script src="{{ asset('js/lib/backbone-min.js') }}"></script>
+    <script src="{{ asset('js/lib/jquery-2.0.3.js') }}"></script>
+    <script src="{{ asset('js/lib/underscore.js') }}"></script>
+    <script src="{{ asset('js/lib/backbone.js') }}"></script>
 	<script src="{{ asset('js/plugins/jquery.accordion.menu.js') }}"></script>
 	<script src="{{ asset('js/plugins/jquery.dynamic.menu.js') }}"></script>
     <script src="{{ asset('js/plugins/chosen.jquery.js') }}"></script>
     <script src="{{ asset('js/plugins/jquery.form.js') }}"></script>
     <script src="{{ asset('js/plugins/jquery.qtip.js') }}"></script>
     <script src="{{ asset('js/plugins/jquery.popup.js') }}"></script>
-    <script src="{{ asset('js/pagination/pagination.model.js') }}"></script>
-    <script src="{{ asset('js/pagination/pagination.view.js') }}"></script>
-    <script src="{{ asset('js/list/list.model.js') }}"></script>
-    <script src="{{ asset('js/list/list.view.js') }}"></script>
-    <script src="{{ asset('js/edit/edit.model.js') }}"></script>
-    <script src="{{ asset('js/edit/edit.view.js') }}"></script>
-	<script src="{{ asset('js/userSetting.js') }}"></script>
+    <script src="{{ asset('js/model/userSetting.model.js') }}"></script>
+    <script src="{{ asset('js/model/pagination.model.js') }}"></script>
+    <script src="{{ asset('js/view/pagination.view.js') }}"></script>
+    <script src="{{ asset('js/model/list.model.js') }}"></script>
+    <script src="{{ asset('js/view/list.view.js') }}"></script>
+    <script src="{{ asset('js/model/edit.model.js') }}"></script>
+    <script src="{{ asset('js/view/edit.view.js') }}"></script>
 	<script src="{{ asset('js/notify.js') }}"></script>
 	<script src="{{ asset('js/rowsOnPage.js') }}"></script>
     <script src="{{ asset('js/module.js') }}"></script>

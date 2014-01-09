@@ -18,7 +18,7 @@ function Module() {
      * Set active module
      */
     function setActiveModule() {
-        var module = $('#select_mode > #select_container_list > li[module_id="'+UserSetting.moduleId+'"]');
+        var module = $('#select_mode > #select_container_list > li[module_id="'+UserSettingModel.get('moduleId')+'"]');
         $('#select_mode > #select').text(module.text());
     }
 
@@ -31,13 +31,13 @@ function Module() {
         $('#select_mode > #select_container_list > li.module').click(function() {
             var moduleId = $(this).attr('module_id');
 
-            if (UserSetting.moduleId != moduleId) {
-                UserSetting.moduleId = moduleId;
-                UserSetting.setUserSetting();
+            if (UserSettingModel.get('moduleId') != moduleId) {
+                UserSettingModel.set({ moduleId: moduleId });
+                UserSettingModel.saveSetting();
 
                 module.setActiveModule();
 
-                $('#main_menu_list').setMainMenu(UserSetting.moduleId);
+                $('#main_menu_list').setMainMenu(UserSettingModel.get('moduleId'));
 
                 selectFirstMenu();
             }

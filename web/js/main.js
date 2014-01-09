@@ -1,5 +1,5 @@
 // Object
-var UserSetting = new Setting();
+var UserSettingModel = new UserSettingModel();
 // Object
 var listModel = new ListModel();
 var listView;
@@ -14,7 +14,7 @@ var menuId;
 $(function() {
     $.ajaxSetup({ async: false });
 
-    UserSetting.getUserSetting();
+    UserSettingModel.getSetting();
 
     listView = new ListView({
         el           : '#main_container',
@@ -29,8 +29,8 @@ $(function() {
         isMainEdit : true
     });
 
-    $('#main_menu_list').setMainMenu(UserSetting.moduleId);
-    getRowsOnPage(UserSetting.rowsOnPageId);
+    $('#main_menu_list').setMainMenu(UserSettingModel.get('moduleId'));
+    getRowsOnPage(UserSettingModel.get('rowsOnPageId'));
 
     $('#shortcut_attachment').popup();
 });

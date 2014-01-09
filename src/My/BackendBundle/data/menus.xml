@@ -32,7 +32,7 @@
     </menu>
     <menu>
         <name>Szablony</name>
-        <link>cmsarticle</link>
+        <link>cmstemplate</link>
         <sequence>6</sequence>
         <module_id>1</module_id>
     </menu>

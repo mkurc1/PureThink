@@ -8,7 +8,7 @@ function getRowsOnPage(rowsOnPageId) {
         type: "post",
         dataType: 'json',
         data: {
-            rowsOnPageId: UserSetting.rowsOnPageId
+            rowsOnPageId: UserSettingModel.get('rowsOnPageId')
         },
         url: links.rowsOnPage,
         beforeSend: function() {
@@ -55,7 +55,7 @@ function setRowsOnPage() {
         },
         success: function(data) {
             if (data.response) {
-                UserSetting.rowsOnPageId = data.row_id;
+                UserSettingModel.set({ rowsOnPageId: data.row_id });
             }
         }
     });

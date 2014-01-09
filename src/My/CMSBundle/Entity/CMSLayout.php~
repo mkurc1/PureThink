@@ -5,12 +5,12 @@ namespace My\CMSBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * CMSJS
+ * CMSLayout
  *
- * @ORM\Table(name="cms_js")
+ * @ORM\Table(name="cms_layout")
  * @ORM\Entity
  */
-class CMSJS
+class CMSLayout
 {
     /**
      * @var integer
@@ -29,10 +29,16 @@ class CMSJS
     private $path;
 
     /**
-     * @ORM\ManyToOne(targetEntity="CMSTemplate", inversedBy="cmsJSs")
-     * @ORM\JoinColumn(name="template_id", referencedColumnName="id", onDelete="CASCADE", nullable=true)
+     * @ORM\ManyToOne(targetEntity="CMSTemplate", inversedBy="cmsLayouts")
+     * @ORM\JoinColumn(name="template_id", referencedColumnName="id", onDelete="CASCADE", nullable=false)
      */
     protected $template;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="CMSLayoutType", inversedBy="cmsLayouts")
+     * @ORM\JoinColumn(name="type_id", referencedColumnName="id", onDelete="CASCADE", nullable=false)
+     */
+    protected $type;
 
 
     /**
@@ -49,7 +55,7 @@ class CMSJS
      * Set path
      *
      * @param string $path
-     * @return CMSJS
+     * @return CMSLayout
      */
     public function setPath($path)
     {
@@ -68,14 +74,13 @@ class CMSJS
         return $this->path;
     }
 
-
     /**
      * Set template
      *
      * @param \My\CMSBundle\Entity\CMSTemplate $template
-     * @return CMSJS
+     * @return CMSLayout
      */
-    public function setTemplate(\My\CMSBundle\Entity\CMSTemplate $template = null)
+    public function setTemplate(\My\CMSBundle\Entity\CMSTemplate $template)
     {
         $this->template = $template;
     
@@ -90,5 +95,28 @@ class CMSJS
     public function getTemplate()
     {
         return $this->template;
+    }
+
+    /**
+     * Set type
+     *
+     * @param \My\CMSBundle\Entity\CMSLayoutType $type
+     * @return CMSLayout
+     */
+    public function setType(\My\CMSBundle\Entity\CMSLayoutType $type)
+    {
+        $this->type = $type;
+    
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return \My\CMSBundle\Entity\CMSLayoutType 
+     */
+    public function getType()
+    {
+        return $this->type;
     }
 }

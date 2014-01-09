@@ -13,17 +13,18 @@
 
 {% block javascripts %}
     {{ parent() }}
-    <script src="{{ asset('js/lib/underscore-min.js') }}"></script>
-    <script src="{{ asset('js/lib/backbone-min.js') }}"></script>
+    <script src="{{ asset('js/lib/jquery-2.0.3.js') }}"></script>
+    <script src="{{ asset('js/lib/underscore.js') }}"></script>
+    <script src="{{ asset('js/lib/backbone.js') }}"></script>
     <script src="{{ asset('js/plugins/jquery.qtip.js') }}"></script>
-    <script src="{{ asset('js/pagination/pagination.model.js') }}"></script>
-    <script src="{{ asset('js/pagination/pagination.view.js') }}"></script>
-    <script src="{{ asset('js/list/list.model.js') }}"></script>
-    <script src="{{ asset('js/list/list.view.js') }}"></script>
+    <script src="{{ asset('js/model/pagination.model.js') }}"></script>
+    <script src="{{ asset('js/view/pagination.view.js') }}"></script>
+    <script src="{{ asset('js/model/list.model.js') }}"></script>
+    <script src="{{ asset('js/view/list.view.js') }}"></script>
     <script src="{{ asset('js/select.js') }}"></script>
     <script src="{{ asset('js/helper.js') }}"></script>
     <script src="{{ asset('js/links.js') }}"></script>
-    <script src="{{ asset('js/file/fileBrowse.js') }}"></script>
+    <script src="{{ asset('js/fileBrowse.js') }}"></script>
 {% endblock javascripts %}
 
 {% block body %}

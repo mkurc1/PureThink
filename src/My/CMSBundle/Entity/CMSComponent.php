@@ -52,16 +52,6 @@ class CMSComponent
     protected $series;
 
     /**
-     * @ORM\OneToMany(targetEntity="CMSCSS", mappedBy="cmsComponent")
-     */
-    protected $cmsCSSs;
-
-    /**
-     * @ORM\OneToMany(targetEntity="CMSJS", mappedBy="cmsComponent")
-     */
-    protected $cmsJSs;
-
-    /**
      * @ORM\OneToMany(targetEntity="CMSComponentHasColumn", mappedBy="cmsComponent")
      */
     protected $cmsComponentHasColumns;
@@ -183,80 +173,6 @@ class CMSComponent
     {
         return $this->series;
     }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->cmsCSSs = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->cmsJSs = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Add cmsCSSs
-     *
-     * @param \My\CMSBundle\Entity\CMSCSS $cmsCSSs
-     * @return CMSComponent
-     */
-    public function addCmsCSS(\My\CMSBundle\Entity\CMSCSS $cmsCSSs)
-    {
-        $this->cmsCSSs[] = $cmsCSSs;
-
-        return $this;
-    }
-
-    /**
-     * Remove cmsCSSs
-     *
-     * @param \My\CMSBundle\Entity\CMSCSS $cmsCSSs
-     */
-    public function removeCmsCSS(\My\CMSBundle\Entity\CMSCSS $cmsCSSs)
-    {
-        $this->cmsCSSs->removeElement($cmsCSSs);
-    }
-
-    /**
-     * Get cmsCSSs
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getCmsCSSs()
-    {
-        return $this->cmsCSSs;
-    }
-
-    /**
-     * Add cmsJSs
-     *
-     * @param \My\CMSBundle\Entity\CMSJS $cmsJSs
-     * @return CMSComponent
-     */
-    public function addCmsJS(\My\CMSBundle\Entity\CMSJS $cmsJSs)
-    {
-        $this->cmsJSs[] = $cmsJSs;
-
-        return $this;
-    }
-
-    /**
-     * Remove cmsJSs
-     *
-     * @param \My\CMSBundle\Entity\CMSJS $cmsJSs
-     */
-    public function removeCmsJS(\My\CMSBundle\Entity\CMSJS $cmsJSs)
-    {
-        $this->cmsJSs->removeElement($cmsJSs);
-    }
-
-    /**
-     * Get cmsJSs
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getCmsJSs()
-    {
-        return $this->cmsJSs;
-    }
 
     /**
      * Add cmsComponentHasColumns
@@ -323,4 +239,13 @@ class CMSComponent
     {
         return $this->cmsComponentOnPages;
     }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->cmsComponentHasColumns = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->cmsComponentOnPages = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
 }

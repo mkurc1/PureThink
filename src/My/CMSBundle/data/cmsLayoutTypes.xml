@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cmsLayoutTypes>
+    <cmsLayoutType>
+        <name>Main</name>
+    </cmsLayoutType>
+    <cmsLayoutType>
+        <name>Article</name>
+    </cmsLayoutType>
+</cmsLayoutTypes>

@@ -23,7 +23,7 @@ function getLeftMenu(editMode) {
         type: "post",
         dataType: 'json',
         data: {
-            moduleId: UserSetting.moduleId,
+            moduleId: UserSettingModel.get('moduleId'),
             menuId: menuId,
             editMode: editMode
         },
@@ -58,7 +58,7 @@ function getLeftMenu(editMode) {
 function setDynamicMenu(editMode) {
     $('#left_menu_container > li.editable').each(function() {
         $(this).dynamicMenu({
-            moduleId: UserSetting.moduleId,
+            moduleId: UserSettingModel.get('moduleId'),
             menuId: menuId,
             editMode: editMode
         });

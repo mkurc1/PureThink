@@ -29,10 +29,10 @@ class CMSCSS
     private $path;
 
     /**
-     * @ORM\ManyToOne(targetEntity="CMSComponent", inversedBy="cmsCSSs")
-     * @ORM\JoinColumn(name="component_id", referencedColumnName="id", onDelete="CASCADE", nullable=true)
+     * @ORM\ManyToOne(targetEntity="CMSTemplate", inversedBy="cmsCSSs")
+     * @ORM\JoinColumn(name="template_id", referencedColumnName="id", onDelete="CASCADE", nullable=true)
      */
-    protected $component;
+    protected $template;
 
 
     /**
@@ -68,26 +68,27 @@ class CMSCSS
         return $this->path;
     }
 
+
     /**
-     * Set component
+     * Set template
      *
-     * @param \My\CMSBundle\Entity\CMSComponent $component
+     * @param \My\CMSBundle\Entity\CMSTemplate $template
      * @return CMSCSS
      */
-    public function setComponent(\My\CMSBundle\Entity\CMSComponent $component = null)
+    public function setTemplate(\My\CMSBundle\Entity\CMSTemplate $template = null)
     {
-        $this->component = $component;
-
+        $this->template = $template;
+    
         return $this;
     }
 
     /**
-     * Get component
+     * Get template
      *
-     * @return \My\CMSBundle\Entity\CMSComponent
+     * @return \My\CMSBundle\Entity\CMSTemplate 
      */
-    public function getComponent()
+    public function getTemplate()
     {
-        return $this->component;
+        return $this->template;
     }
 }

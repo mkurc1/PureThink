@@ -13,6 +13,7 @@ use My\CMSBundle\Entity\CMSComponentHasColumn;
 use My\CMSBundle\Entity\CMSComponentOnPage;
 use My\CMSBundle\Entity\CMSComponentOnPageHasElement;
 use My\CMSBundle\Entity\CMSComponentOnPageHasValue;
+use My\CMSBundle\Entity\CMSLayoutType;
 
 class LoadData implements FixtureInterface
 {
@@ -32,6 +33,7 @@ class LoadData implements FixtureInterface
 		$manager = $this->addCMSComponentOnPage($manager);
 		$manager = $this->addCMSComponentOnPageHasElement($manager);
 		$manager = $this->addCMSComponentOnPageHasValue($manager);
+		$manager = $this->addCMSLayoutType($manager);
 	}
 
 	/**
@@ -233,6 +235,25 @@ class LoadData implements FixtureInterface
 			$CMSComponentOnPageHasValue->setComponentHasColumn($manager->getRepository('MyCMSBundle:CMSComponentHasColumn')->find($cmsComponentOnPageHasValue->component_has_column_id));
 
 			$manager->persist($CMSComponentOnPageHasValue);
+		}
+
+		$manager->flush();
+		return $manager;
+	}
+
+	/**
+	 * Add CMS layout type fixtures
+	 *
+	 * @param ObjectManager $manager
+	 */
+	private function addCMSLayoutType(ObjectManager $manager)
+	{
+		$xml = simplexml_load_file('src/My/CMSBundle/data/cmsLayoutTypes.xml');
+		foreach ($xml->cmsLayoutType as $cmsLayoutType) {
+			$CMSLayoutType = new CMSLayoutType();
+			$CMSLayoutType->setName($cmsLayoutType->name);
+
+			$manager->persist($CMSLayoutType);
 		}
 
 		$manager->flush();
