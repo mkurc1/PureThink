@@ -16,14 +16,10 @@ class CMSTemplateType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('slug')
             ->add('author')
-            ->add('isEnable')
-            ->add('createdAt')
-            ->add('updatedAt')
         ;
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */

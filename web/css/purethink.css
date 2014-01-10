@@ -898,6 +898,7 @@ table.list > tbody > tr > td.select > input {
 }
 #main_button > .left.disable > button#create {
   opacity: 0.6;
+  cursor: default;
 }
 #main_button > .left.disable > button#create:hover {
   background-color: #4d90fe;
@@ -944,6 +945,9 @@ table.list > tbody > tr > td.select > input {
   background: -moz-linear-gradient(top, #f6f6f6 20%, #eff1f5 50%, #edeff3 52%, #e8e8e8 100%);
   background: -o-linear-gradient(top, #f6f6f6 20%, #eff1f5 50%, #edeff3 52%, #e8e8e8 100%);
   background: linear-gradient(top, #f6f6f6 20%, #eff1f5 50%, #edeff3 52%, #e8e8e8 100%);
+}
+#main_button > .center > .button_container.disable > button {
+  cursor: default;
 }
 #main_button > .center > .button_container > button {
   position: relative;

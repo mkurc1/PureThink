@@ -180,6 +180,7 @@ class CMSTemplate
         $this->cmsCSSs = new \Doctrine\Common\Collections\ArrayCollection();
         $this->cmsJSs = new \Doctrine\Common\Collections\ArrayCollection();
         $this->cmsLayouts = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->isEnable = false;
     }
 
     /**
