@@ -40,7 +40,7 @@ function startMode() {
 
     if (isEditMode(url)) {
         editModel.set({url: url});
-        getLeftMenu(true);
+        leftMenuView.render(true);
         editView.defaultParameters();
         editView.render();
     }

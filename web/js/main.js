@@ -1,5 +1,7 @@
 // Object
-var UserSettingModel = new UserSettingModel();
+var userSettingModel = new UserSettingModel();
+// Object
+var mainButtonView;
 // Object
 var listModel = new ListModel();
 var listView;
@@ -7,14 +9,36 @@ var listView;
 var editModel = new EditModel();
 var editView;
 // Object
-var Module = new Module();
+var moduleView;
+// Object
+var footerView;
+// Object
+var leftMenuView;
+// Object
+var filterView;
 
 var menuId;
 
 $(function() {
     $.ajaxSetup({ async: false });
 
-    UserSettingModel.getSetting();
+    userSettingModel.getSetting();
+
+    mainButtonView = new MainButtonView({
+        el : '#main_button'
+    });
+
+    footerView = new FooterView({
+        el : "#footer"
+    });
+
+    leftMenuView = new LeftMenuView({
+        el : "#left_menu_container"
+    });
+
+    filterView = new FilterView({
+        el : "#search_box"
+    });
 
     listView = new ListView({
         el           : '#main_container',
@@ -29,8 +53,8 @@ $(function() {
         isMainEdit : true
     });
 
-    $('#main_menu_list').setMainMenu(UserSettingModel.get('moduleId'));
-    getRowsOnPage(UserSettingModel.get('rowsOnPageId'));
+    $('#main_menu_list').setMainMenu(userSettingModel.get('moduleId'));
+    getRowsOnPage(userSettingModel.get('rowsOnPageId'));
 
     $('#shortcut_attachment').popup();
 });

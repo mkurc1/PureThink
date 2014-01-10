@@ -50,7 +50,6 @@
         selectFirstElement();
         addActionOnClick();
         addActionOnClickChangeState();
-        setActionsOnLeftMenu();
 
         menu.find('> div > .edit > .remove').on('click', function() {
             if (!$(this).hasClass('disable')) {
@@ -218,7 +217,6 @@
                 beforeSend: function() {
                 },
                 complete: function() {
-                    setActionsOnLeftMenu();
                     addActionOnClick();
                     addActionOnClickChangeState();
                     sortList();

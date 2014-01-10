@@ -154,6 +154,7 @@ EditView = Backbone.View.extend({
                 edit.emptyContainer();
 
                 if (edit.isMainEdit) {
+                    filterView.hideEl();
                     listView.$el.hide();
                     listView.paginationView.hideEl();
                 }
@@ -165,8 +166,8 @@ EditView = Backbone.View.extend({
                 edit.helper();
 
                 if (edit.isMainEdit) {
-                    createEditButtons();
-                    toggleListMainButton();
+                    mainButtonView.createEditButtons();
+                    mainButtonView.toggleListMainButton();
                 }
 
                 edit.removeLoading();

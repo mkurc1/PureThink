@@ -18,7 +18,9 @@ UserSettingModel = Backbone.Model.extend({
             dataType : 'json',
             url      : setting.url,
             complete: function() {
-                Module.init();
+                moduleView = new ModuleView({
+                    el: "#select_mode"
+                });
             },
             success: function(data) {
                 if (data.response) {

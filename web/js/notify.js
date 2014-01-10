@@ -36,7 +36,7 @@ function notify(type, message) {
         $('.notify').last().fadeOut(function() {
             $(this).remove();
 
-            if ($('#notify_container > .notify').length == 0) {
+            if ($('#notify_container > .notify').length === 0) {
                 $('#notify_container').remove();
             }
         });

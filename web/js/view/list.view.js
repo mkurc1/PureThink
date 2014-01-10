@@ -104,7 +104,7 @@ ListView = Backbone.View.extend({
             this.select.remove(selectId);
         }
 
-        toggleListMainButton();
+        mainButtonView.toggleListMainButton();
     },
 
     /**
@@ -142,6 +142,10 @@ ListView = Backbone.View.extend({
                 sublistId  : list.model.get('sublistId')
             },
             beforeSend: function() {
+                if (list.isMainList) {
+                    filterView.showEl();
+                }
+
                 list.setMode();
                 list.emptyContainer();
                 list.showLoading();
@@ -153,7 +157,7 @@ ListView = Backbone.View.extend({
 
                 if (list.isMainList) {
                     editView.setEditModeAction();
-                    toggleListMainButton();
+                    mainButtonView.toggleListMainButton();
                 }
                 else {
                     setActionOnClickBrowseElement();
@@ -247,7 +251,7 @@ ListView = Backbone.View.extend({
         });
         this.paginationModel.set({ page: 1 });
 
-        emptyFilter();
+        filterView.empty();
     },
 
     /**
@@ -281,11 +285,11 @@ ListView = Backbone.View.extend({
         this.select.empty();
 
         if (this.isMainList) {
-            createListButtons();
+            mainButtonView.createListButtons();
         }
 
         if (withLeftMenu) {
-            getLeftMenu();
+            leftMenuView.render();
             this.defaultParameters();
         }
 
