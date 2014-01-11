@@ -59,7 +59,7 @@ LeftMenuView = Backbone.View.extend({
      */
     selectEl: function(e) {
         if (!$(e.currentTarget).parent().hasClass('selected')) {
-            var url = getMainMenuUrl();
+            var url = mainMenuView.getMainMenuUrl();
 
             $(e.currentTarget).parent().parent().find('> li').removeClass('selected');
             $(e.currentTarget).parent().addClass('selected');
@@ -77,8 +77,8 @@ LeftMenuView = Backbone.View.extend({
                 }
             }
 
-            if (isEditMode(url)) {
-                editModel.set({isApplyOption: false});
+            if (mainMenuView.isEditMode(url)) {
+                editModel.set({ isApplyOption: false });
                 editView.render();
             }
             else {

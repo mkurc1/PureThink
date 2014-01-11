@@ -72,7 +72,7 @@ MainButtonView = Backbone.View.extend({
      * Cancel
      */
     cancel: function() {
-        if (isEditMode(getMainMenuUrl())) {
+        if (mainMenuView.isEditMode(mainMenuView.getMainMenuUrl())) {
             editView.render();
         }
         else {
@@ -109,7 +109,7 @@ MainButtonView = Backbone.View.extend({
      * Toggle list main button
      */
     toggleListMainButton: function() {
-        if (isEditMode(getMainMenuUrl())) {
+        if (mainMenuView.isEditMode(mainMenuView.getMainMenuUrl())) {
             this.toggleListMainButtonForEditMode();
         }
         else {

@@ -19,9 +19,7 @@ ModuleView = Backbone.View.extend({
 
             this.setActiveModule();
 
-            $('#main_menu_list').setMainMenu(userSettingModel.get('moduleId'));
-
-            selectFirstMenu();
+            mainMenuView.render();
         }
     },
 

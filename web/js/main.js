@@ -15,6 +15,8 @@ var footerView;
 // Object
 var leftMenuView;
 // Object
+var mainMenuView;
+// Object
 var filterView;
 
 var menuId;
@@ -30,6 +32,10 @@ $(function() {
 
     footerView = new FooterView({
         el : "#footer"
+    });
+
+    mainMenuView = new MainMenuView({
+        el : "#main_menu_list"
     });
 
     leftMenuView = new LeftMenuView({
@@ -53,12 +59,9 @@ $(function() {
         isMainEdit : true
     });
 
-    $('#main_menu_list').setMainMenu(userSettingModel.get('moduleId'));
-    getRowsOnPage(userSettingModel.get('rowsOnPageId'));
+    mainMenuView.render();
+
+    footerView.getRowsOnPage(userSettingModel.get('rowsOnPageId'));
 
     $('#shortcut_attachment').popup();
-});
-
-$(window).load(function() {
-    selectFirstMenu();
 });

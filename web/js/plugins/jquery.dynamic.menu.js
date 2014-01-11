@@ -53,7 +53,12 @@
 
         menu.find('> div > .edit > .remove').on('click', function() {
             if (!$(this).hasClass('disable')) {
-                remove(listId);
+                var confirmationText = 'Czy napewno chcesz usunąć wybraną pozycje?';
+
+                var confirmation = confirm(confirmationText);
+                if(confirmation) {
+                    remove(listId);
+                }
             }
         });
 
