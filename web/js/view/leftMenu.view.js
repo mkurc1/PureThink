@@ -69,7 +69,7 @@ LeftMenuView = Backbone.View.extend({
             }
 
             if ($(e.currentTarget).parent().parent().parent().parent().hasClass('language')) {
-                if (isEditMode(url)) {
+                if (mainMenuView.isEditMode(url)) {
                     editModel.set({ languageId: $(e.currentTarget).attr('list_id') });
                 }
                 else {
