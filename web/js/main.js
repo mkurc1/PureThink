@@ -1,24 +1,19 @@
-// Object
-var userSettingModel = new UserSettingModel();
-// Object
-var mainButtonView;
-// Object
-var listModel = new ListModel();
-var listView;
-// Object
-var editModel = new EditModel();
-var editView;
-// Object
-var moduleView;
-// Object
-var footerView;
-// Object
-var leftMenuView;
-// Object
-var mainMenuView;
-// Object
-var filterView;
+// Models
+var userSettingModel = new UserSettingModel(),
+    listModel        = new ListModel(),
+    editModel        = new EditModel();
 
+// Views
+var mainButtonView,
+    listView,
+    editView,
+    moduleView,
+    footerView,
+    leftMenuView,
+    mainMenuView,
+    filterView;
+
+// Selected menu ID
 var menuId;
 
 $(function() {
@@ -27,7 +22,7 @@ $(function() {
     userSettingModel.getSetting();
 
     mainButtonView = new MainButtonView({
-        el : '#main_button'
+        el : "#main_button"
     });
 
     footerView = new FooterView({
@@ -47,14 +42,14 @@ $(function() {
     });
 
     listView = new ListView({
-        el           : '#main_container',
+        el           : "#main_container",
         model        : listModel,
-        paginationEl : '#pagination',
+        paginationEl : "#pagination",
         isMainList   : true
     });
 
     editView = new EditView({
-        el         : '#edit_container',
+        el         : "#edit_container",
         model      : editModel,
         isMainEdit : true
     });

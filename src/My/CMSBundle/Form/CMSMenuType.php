@@ -28,6 +28,7 @@ class CMSMenuType extends AbstractType
                 )
             )
             ->add('slug', 'text', array(
+                'required' => false,
                 'label' => 'Nazwa widoczna w adresie'
                 )
             )
@@ -51,6 +52,7 @@ class CMSMenuType extends AbstractType
                 )
             )
             ->add('menu', 'entity', array(
+                'required' => false,
                 'label' => 'Wybierz menu',
                 'class' => 'MyCMSBundle:CMSMenu',
                 'empty_value' => '',

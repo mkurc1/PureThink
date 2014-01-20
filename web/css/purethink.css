@@ -84,6 +84,16 @@
   width: 100%;
   margin: 11px 0 2px 0;
 }
+#edit_container > .container .dane_element label > span.star,
+.popup-content > .container .dane_element label > span.star,
+#edit_container > .container .dane_element_big label > span.star,
+.popup-content > .container .dane_element_big label > span.star,
+#edit_container > .container .dane_element_small label > span.star,
+.popup-content > .container .dane_element_small label > span.star,
+#edit_container > .container .dane_element_medium label > span.star,
+.popup-content > .container .dane_element_medium label > span.star {
+  color: #DD4B39;
+}
 #edit_container > .container .dane_element > input[type='text'],
 .popup-content > .container .dane_element > input[type='text'],
 #edit_container > .container .dane_element_big > input[type='text'],
@@ -852,6 +862,8 @@ table.list > tbody > tr > td.select > input {
 }
 #shortcut_container > a > i {
   font-size: 16px;
+  float: left;
+  margin-top: 1px;
   color: #777777;
 }
 #main_button {

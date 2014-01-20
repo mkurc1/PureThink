@@ -22,8 +22,8 @@ class CMSWebSiteType extends AbstractType
                     )
                 )
             )
-            ->add('description', 'textarea', array('label' => 'Opis'))
-            ->add('keywords', 'textarea', array('label' => 'Słowa kluczowe'))
+            ->add('description', 'textarea', array('label' => 'Opis', 'required' => false))
+            ->add('keywords', 'textarea', array('label' => 'Słowa kluczowe', 'required' => false))
         ;
     }
 

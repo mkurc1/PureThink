@@ -28,11 +28,12 @@ class CMSArticleType extends AbstractType
                 )
             )
             ->add('slug', 'text', array(
+                'required' => false,
                 'label' => 'Nazwa widoczna w adresie'
                 )
             )
-            ->add('description', 'textarea', array('label' => 'Opis'))
-            ->add('keywords', 'textarea', array('label' => 'Słowa kluczowe'))
+            ->add('description', 'textarea', array('label' => 'Opis', 'required' => false))
+            ->add('keywords', 'textarea', array('label' => 'Słowa kluczowe', 'required' => false))
             ->add('content', 'ckeditor', array('label' => 'Treść'))
             ->add('language', 'entity', array(
                 'label' => 'Język',

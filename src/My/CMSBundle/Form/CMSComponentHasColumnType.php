@@ -35,6 +35,7 @@ class CMSComponentHasColumnType extends AbstractType
                 )
             )
             ->add('class', 'text', array(
+                'required' => false,
                 'label' => 'Class'
                 )
             )

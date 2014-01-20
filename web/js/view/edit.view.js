@@ -76,9 +76,21 @@ EditView = Backbone.View.extend({
      */
     helper: function() {
         this.html5validateOff();
+        this.addStarToRequiredFields();
         this.defaultSelectValue();
         beautifySelects();
         this.setFocusOnFirstInput();
+    },
+
+    /**
+     * Add star to required fields
+     */
+    addStarToRequiredFields: function() {
+        var star = '<span class="star">*</span>';
+
+        $.each(this.$el.find('label.required'), function(index, val) {
+            $(val).append(star);
+        });
     },
 
     /**

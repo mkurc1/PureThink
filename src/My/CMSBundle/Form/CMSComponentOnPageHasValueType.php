@@ -53,6 +53,7 @@ class CMSComponentOnPageHasValueType extends AbstractType
 
         if ($type == 'entity') {
             $builder->add('content', $type, array(
+                'required' => $isRequired,
                 'label' => $options['attr']['label'],
                 'class' => $class,
                 'empty_value' => '',
@@ -66,6 +67,7 @@ class CMSComponentOnPageHasValueType extends AbstractType
         }
         else {
             $builder->add('content', $type, array(
+                'required' => $isRequired,
                 'label' => $options['attr']['label'],
                 'attr' => array(
                     'class' => $options['attr']['class']

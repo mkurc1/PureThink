@@ -23,10 +23,10 @@ PaginationView = Backbone.View.extend({
 
         for(i = 0; i < pages.length; i++) {
             if(pages[i] == this.model.get('page')) {
-                this.$el.find('.pages').append('<span class="page selected">' + pages[i] + '</span>');
+                this.$el.find('.pages').append('<span class="page selected">'+pages[i]+'</span>');
             }
             else {
-                this.$el.find('.pages').append('<span class="page">' + pages[i] + '</span>');
+                this.$el.find('.pages').append('<span class="page">'+pages[i]+'</span>');
             }
         }
     },
@@ -39,8 +39,8 @@ PaginationView = Backbone.View.extend({
     page: function(page) {
         this.model.set({ page: page });
 
-        this.$el.find('.pages span').removeClass('selected');
-        this.$el.find('.pages span').eq(page - 1).addClass('selected');
+        this.$el.find('.pages span').removeClass('selected')
+            .eq(page - 1).addClass('selected');
 
         this.list.refresh(false);
     },

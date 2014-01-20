@@ -1,5 +1,5 @@
 /**
- * Object Select Cunstructor
+ * Object Select Constructor
  */
 function Select() {
     this.select = [];
