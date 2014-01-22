@@ -506,7 +506,7 @@
   float: left;
   width: 100%;
   height: 26px;
-  background-color: #E5E5E5;
+  background-color: #E0E0E0;
 }
 #left_menu > #left_menu_container > li > div.submenu_left > div.edit > button {
   position: relative;
@@ -1173,7 +1173,7 @@ table.list > tbody > tr > td.select > input {
   position: fixed;
   width: 100%;
   height: 40px;
-  background-color: #555555;
+  background-color: #4A4A4A;
   z-index: 100;
   top: 0;
 }

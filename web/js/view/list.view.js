@@ -130,6 +130,7 @@ ListView = Backbone.View.extend({
         $.ajax({
             type     : 'post',
             dataType : 'json',
+            async    : true,
             url      : list.model.get('url'),
             data: {
                 rowsOnPage : list.paginationModel.get('rowsOnPage'),

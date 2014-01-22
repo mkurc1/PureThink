@@ -156,6 +156,7 @@ EditView = Backbone.View.extend({
         $.ajax({
             type     : "post",
             dataType : 'json',
+            async    : true,
             url      : edit.model.get('url'),
             data: {
                 languageId : edit.model.get('languageId'),
