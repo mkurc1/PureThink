@@ -122,6 +122,20 @@ PaginationView = Backbone.View.extend({
     },
 
     /**
+     * Is pagination visible
+     *
+     * @return Boolean
+     */
+    isPaginationVisible: function() {
+        if (this.$el.find('.pagination').is(':visible')) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    },
+
+    /**
      * Hide pagination
      */
     hidePagination: function() {

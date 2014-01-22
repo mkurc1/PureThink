@@ -41,7 +41,7 @@ FooterView = Backbone.View.extend({
             },
             complete: function() {
                 listView.paginationModel.set({ 'rowsOnPage': rows.$el.find("#pagination > .number_of_lines").val() });
-                beautifySelects();
+                rows.addBeautifySelect();
             },
             success: function(data) {
                 if (data.response) {
@@ -49,6 +49,20 @@ FooterView = Backbone.View.extend({
                 }
             }
         });
+    },
+
+    /**
+     * Add beautify select
+     */
+    addBeautifySelect: function() {
+        if (listView.paginationView.isPaginationVisible()) {
+            beautifySelects();
+        }
+        else {
+            listView.paginationView.showEl();
+            beautifySelects();
+            listView.paginationView.hideEl();
+        }
     },
 
     /**
