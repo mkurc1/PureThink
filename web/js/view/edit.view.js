@@ -153,7 +153,7 @@ EditView = Backbone.View.extend({
     render: function() {
         var edit = this;
 
-        $.ajax({
+        return $.ajax({
             type     : "post",
             dataType : 'json',
             async    : true,

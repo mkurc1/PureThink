@@ -72,11 +72,11 @@
 
             popup.center();
 
-            editPopupView.render();
+            $.when(editPopupView.render()).done(function() {
+                addSubmitButton(popup);
 
-            addSubmitButton(popup);
-
-            popup.center();
+                popup.center();
+            });
         }
 
         /**
