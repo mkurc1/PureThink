@@ -1,6 +1,8 @@
 app/cache/*
 app/config/parameters.yml
 app/logs/*
+purethink.sublime-project
+purethink.sublime-workspace
 
 # OS generated files #
 ######################
@@ -12,5 +14,3 @@ app/logs/*
 Icon?
 ehthumbs.db
 Thumbs.db
-/purethink.sublime-project
-/purethink.sublime-workspace

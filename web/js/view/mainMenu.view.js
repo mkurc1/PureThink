@@ -12,6 +12,7 @@ MainMenuView = Backbone.View.extend({
         $.ajax({
             type     : "post",
             dataType : 'json',
+            async    : true,
             url      : links.mainMenu,
             data: {
                 moduleId: userSettingModel.get('moduleId')

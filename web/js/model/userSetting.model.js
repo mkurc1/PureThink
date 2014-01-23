@@ -41,6 +41,7 @@ UserSettingModel = Backbone.Model.extend({
         $.ajax({
             type     : "post",
             dataType : 'json',
+            async    : true,
             url      : setting.url+'/set',
             data: {
                 rowsOnPageId : setting.get('rowsOnPageId'),
