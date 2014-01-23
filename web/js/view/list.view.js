@@ -192,7 +192,7 @@ ListView = Backbone.View.extend({
      * Show loading
      */
     showLoading: function() {
-        this.$el.append('<div class="loading"></div>');
+        this.$el.append('<div class="loading"><i class="fa fa-spinner fa-spin"></i></div>');
     },
 
     /**

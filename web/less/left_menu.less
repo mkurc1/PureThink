@@ -13,6 +13,16 @@
     background-color: #FCFCFC;
     margin-top: 155px;
 
+    // &:after {
+    //     content: "";
+    //     display: block;
+    //     position: absolute;
+    //     width: 1px;
+    //     height: 100%;
+    //     right: -1px;
+    //     box-shadow: #AEB0A2 -2px 0 8px 0;
+    // }
+
     > #left_menu_container {
         position: relative;
         float: left;
@@ -200,24 +210,26 @@
             > a {
                 position: relative;
                 float: left;
-                width: 198px;
+                width: 215px;
                 color: #3a3a3a;
                 font-size: 13px;
                 border-bottom: 1px solid @main-border-color;
                 height: 18px;
-                padding: 7px 0 7px 52px;
+                padding: 7px 0 7px 35px;
                 background-color: #F7F7F7;
                 font-weight: bold;
                 background-position: 25px 50%;
                 background-repeat: no-repeat;
                 cursor: pointer;
 
-                &.language {
-                    background-image: url("/../images/language.png");
+                &:hover {
+                    background-color: #F5F5F5;
                 }
 
-                &.group {
-                    background-image: url("/../images/group.png");
+                > i {
+                    margin-right: 10px;
+                    color: #7C7C7C;
+                    font-size: 14px;
                 }
             }
 

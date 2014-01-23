@@ -653,23 +653,25 @@
 #left_menu > #left_menu_container > li > a {
   position: relative;
   float: left;
-  width: 198px;
+  width: 215px;
   color: #3a3a3a;
   font-size: 13px;
   border-bottom: 1px solid #e7e7e7;
   height: 18px;
-  padding: 7px 0 7px 52px;
+  padding: 7px 0 7px 35px;
   background-color: #F7F7F7;
   font-weight: bold;
   background-position: 25px 50%;
   background-repeat: no-repeat;
   cursor: pointer;
 }
-#left_menu > #left_menu_container > li > a.language {
-  background-image: url("/../images/language.png");
+#left_menu > #left_menu_container > li > a:hover {
+  background-color: #F5F5F5;
 }
-#left_menu > #left_menu_container > li > a.group {
-  background-image: url("/../images/group.png");
+#left_menu > #left_menu_container > li > a > i {
+  margin-right: 10px;
+  color: #7C7C7C;
+  font-size: 14px;
 }
 #left_menu > #left_menu_container > li:first-child > a {
   border-top: 0;
@@ -751,11 +753,14 @@ a {
 }
 .loading {
   position: relative;
+  float: left;
   width: 100%;
-  height: 80px;
-  background-image: url("/../images/loading.gif");
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
+  text-align: center;
+}
+.loading i {
+  font-size: 28px;
+  margin-top: 20px;
+  color: #747474;
 }
 table.list {
   position: relative;

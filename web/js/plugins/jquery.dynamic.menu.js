@@ -76,6 +76,9 @@
                         if ((event.which === 13) && ($(this).val() !== '')) {
                             add(menu.find('> div > ul > .new').val(), $(this).val());
                         }
+                        else if (event.which === 0) {
+                            removeInput();
+                        }
                     });
                 }
 
@@ -90,6 +93,9 @@
                         else {
                             add($(this).val(), '');
                         }
+                    }
+                    else if (event.which === 0) {
+                        removeInput();
                     }
                 });
             }
@@ -117,6 +123,9 @@
                         if ((event.which === 13) && ($(this).val() !== '')) {
                             edit(menu.find('> div > ul .edit').val(), $(this).val());
                         }
+                        else if (event.which === 0) {
+                            removeInput();
+                        }
                     });
                 }
 
@@ -134,6 +143,9 @@
                         else {
                             edit($(this).val(), '');
                         }
+                    }
+                    else if (event.which === 0) {
+                        removeInput();
                     }
                 });
             }

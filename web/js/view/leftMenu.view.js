@@ -19,6 +19,8 @@ LeftMenuView = Backbone.View.extend({
             },
             url: links.lefMenu,
             beforeSend: function() {
+                leftMenu.emptyContainer();
+                leftMenu.showLoading();
             },
             complete: function() {
                 leftMenu.$el.accordionMenu();
@@ -30,13 +32,36 @@ LeftMenuView = Backbone.View.extend({
                 else {
                     leftMenu.setDynamicMenu(editMode);
                 }
+
+                leftMenu.removeLoading();
             },
             success: function(data) {
                 if (data.response) {
-                    leftMenu.$el.empty().append(data.menu.toString());
+                    leftMenu.$el.append(data.menu.toString());
                 }
             }
         });
+    },
+
+    /**
+     * Empty container
+     */
+    emptyContainer: function() {
+        this.$el.empty();
+    },
+
+    /**
+     * Show loading
+     */
+    showLoading: function() {
+        this.$el.append('<div class="loading"><i class="fa fa-spinner fa-spin"></i></div>');
+    },
+
+    /**
+     * Remove loading
+     */
+    removeLoading: function() {
+        this.$el.find('.loading').remove();
     },
 
     /**
