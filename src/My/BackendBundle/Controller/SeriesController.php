@@ -4,6 +4,7 @@ namespace My\BackendBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Response;
@@ -13,6 +14,7 @@ class SeriesController extends Controller
 {
     /**
      * @Route("/group/add", name="group_new")
+     * @Method("POST")
      */
     public function addGroupAction(Request $request)
     {
@@ -47,6 +49,7 @@ class SeriesController extends Controller
 
     /**
      * @Route("/group/edit", name="group_edit")
+     * @Method("POST")
      */
     public function editGroupAction(Request $request)
     {
@@ -79,6 +82,7 @@ class SeriesController extends Controller
 
     /**
      * @Route("/group/remove", name="group_remove")
+     * @Method("POST")
      */
     public function removeGroupAction(Request $request)
     {

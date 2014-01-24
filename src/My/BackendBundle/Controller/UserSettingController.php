@@ -4,6 +4,7 @@ namespace My\BackendBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Response;
@@ -12,6 +13,7 @@ class UserSettingController extends Controller
 {
     /**
      * @Route("/user/setting")
+     * @Method("POST")
      */
     public function getUserSettingAction(Request $request)
     {
@@ -38,6 +40,7 @@ class UserSettingController extends Controller
 
     /**
      * @Route("/user/setting/set_rows_on_page")
+     * @Method("POST")
      */
     public function setRowsOnPageAction(Request $request)
     {
@@ -66,6 +69,7 @@ class UserSettingController extends Controller
 
     /**
      * @Route("/user/setting/set")
+     * @Method("POST")
      */
     public function setUserSettingAction(Request $request)
     {

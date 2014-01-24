@@ -4,6 +4,7 @@ namespace My\BackendBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Response;
@@ -12,6 +13,7 @@ class MenuController extends Controller
 {
     /**
      * @Route("/menu")
+     * @Method("POST")
      */
     public function menuAction(Request $request)
     {

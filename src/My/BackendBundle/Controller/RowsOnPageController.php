@@ -4,6 +4,7 @@ namespace My\BackendBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Response;
@@ -12,6 +13,7 @@ class RowsOnPageController extends Controller
 {
     /**
      * @Route("/rows_on_page")
+     * @Method("POST")
      */
     public function getRowsOnPageAction(Request $request)
     {

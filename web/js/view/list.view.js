@@ -283,18 +283,23 @@ ListView = Backbone.View.extend({
      * @param boolean withLeftMenu
      */
     refresh: function(withLeftMenu) {
-        this.select.empty();
+        var list = this;
 
-        if (this.isMainList) {
+        list.select.empty();
+
+        if (list.isMainList) {
             mainButtonView.createListButtons();
         }
 
         if (withLeftMenu) {
-            leftMenuView.render();
-            this.defaultParameters();
+            $.when(leftMenuView.render()).done(function() {
+                list.defaultParameters();
+                list.render();
+            });
         }
-
-        this.render();
+        else {
+            list.render();
+        }
     },
 
     /**

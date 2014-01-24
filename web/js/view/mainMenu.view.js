@@ -54,10 +54,12 @@ MainMenuView = Backbone.View.extend({
         var url = this.getMainMenuUrl();
 
         if (this.isEditMode(url)) {
-            editModel.set({url: url});
-            leftMenuView.render(true);
-            editView.defaultParameters();
-            editView.render();
+            editModel.set({ url: url });
+
+            $.when(leftMenuView.render(true)).done(function() {
+                editView.defaultParameters();
+                editView.render();
+            });
         }
         else {
             listModel.set({ url: url });

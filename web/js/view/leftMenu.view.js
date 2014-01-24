@@ -5,19 +5,23 @@ LeftMenuView = Backbone.View.extend({
 
     /**
      * Render left menu
+     *
+     * @param boolean editMode
+     * @return object
      */
     render: function(editMode) {
         var leftMenu = this;
 
-        $.ajax({
-            type: "post",
-            dataType: 'json',
+        return $.ajax({
+            type     : "post",
+            dataType : 'json',
+            async    : true,
+            url      : links.lefMenu,
             data: {
                 moduleId: userSettingModel.get('moduleId'),
                 menuId: menuId,
                 editMode: editMode
             },
-            url: links.lefMenu,
             beforeSend: function() {
                 leftMenu.emptyContainer();
                 leftMenu.showLoading();
@@ -25,19 +29,19 @@ LeftMenuView = Backbone.View.extend({
             complete: function() {
                 leftMenu.$el.accordionMenu();
 
-                // if menuId == 2, don't show show all
-                if (menuId == 2) {
-                    leftMenu.setDynamicMenu(true);
-                }
-                else {
-                    leftMenu.setDynamicMenu(editMode);
-                }
-
                 leftMenu.removeLoading();
             },
             success: function(data) {
                 if (data.response) {
                     leftMenu.$el.append(data.menu.toString());
+
+                    // if menuId == 2, don't show show all
+                    if (menuId == 2) {
+                        leftMenu.setDynamicMenu(true);
+                    }
+                    else {
+                        leftMenu.setDynamicMenu(editMode);
+                    }
                 }
             }
         });
