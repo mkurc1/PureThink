@@ -805,13 +805,22 @@ table.list > thead > tr > th > img.order {
   margin-left: 5px;
   padding-bottom: 2px;
 }
-table.list > tbody > tr {
+table.list tbody > tr {
   border-bottom: 1px solid #F4F4F4;
 }
-table.list > tbody > tr:hover {
+table.list tbody > tr.placeholder {
+  background-color: #FDEC9D;
+}
+table.list tbody > tr.placeholder.children {
+  border-left: 50px solid #ffffff;
+}
+table.list tbody > tr.placeholder > td {
+  border-right: 0;
+}
+table.list tbody > tr:hover {
   background-color: #FEF3C2;
 }
-table.list > tbody > tr > td {
+table.list tbody > tr > td {
   ext-align: left;
   font-size: 13px;
   color: #3a3a3a;
@@ -819,34 +828,34 @@ table.list > tbody > tr > td {
   border-right: 1px solid #F4F4F4;
   padding-left: 10px;
 }
-table.list > tbody > tr > td.submenu {
+table.list tbody > tr > td.submenu {
   padding-left: 25px;
 }
-table.list > tbody > tr > td:last-child {
+table.list tbody > tr > td:last-child {
   border-right: 0;
 }
-table.list > tbody > tr > td > a {
+table.list tbody > tr > td > a {
   color: #3a3a3a;
   cursor: pointer;
 }
-table.list > tbody > tr > td > i {
+table.list tbody > tr > td > i {
   cursor: pointer;
   font-size: 16px;
 }
-table.list > tbody > tr > td > i.fa-check {
+table.list tbody > tr > td > i.fa-check {
   color: #abe866;
 }
-table.list > tbody > tr > td > i.fa-ban {
+table.list tbody > tr > td > i.fa-ban {
   color: #bf1e2e;
 }
-table.list > tbody > tr > td > i.fa-info {
+table.list tbody > tr > td > i.fa-info {
   color: #9B9B9B;
 }
-table.list > tbody > tr > td.select {
+table.list tbody > tr > td.select {
   text-align: center;
   padding-right: 10px;
 }
-table.list > tbody > tr > td.select > input {
+table.list tbody > tr > td.select > input {
   opacity: 0.5;
 }
 #shortcut_container {

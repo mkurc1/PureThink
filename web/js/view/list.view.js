@@ -165,6 +165,7 @@ ListView = Backbone.View.extend({
                 }
 
                 list.setActionOnHoverInfo();
+                list.setDragAndDrop();
                 list.removeLoading();
             },
             success: function(data) {
@@ -185,6 +186,18 @@ ListView = Backbone.View.extend({
                     }
                 }
             }
+        });
+    },
+
+    /**
+     * Set drag and drop
+     */
+    setDragAndDrop: function() {
+        var list = this;
+
+        this.$el.find('table.drag-and-drop tbody').multidrag({
+            page       : list.paginationModel.get('page'),
+            rowsOnPage : list.paginationModel.get('rowsOnPage')
         });
     },
 

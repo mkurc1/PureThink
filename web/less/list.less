@@ -53,8 +53,20 @@ table.list {
         }
     }
 
-    > tbody > tr {
+    tbody > tr {
         border-bottom: 1px solid #F4F4F4;
+
+        &.placeholder {
+            background-color: #FDEC9D;
+
+            &.children {
+                border-left: 50px solid #ffffff;
+            }
+
+            > td {
+                border-right: 0;
+            }
+        }
 
         &:hover {
             background-color: #FEF3C2;

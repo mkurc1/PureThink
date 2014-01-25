@@ -1,6 +1,6 @@
 {% for entity in entities %}
 {% set i = i+1 %}
-    <tr list_id="{{ entity.id }}">
+    <tr list_id="{{ entity.id }}" {{ entity.menu ? 'class=child parent-id='~entity.menu.id : '' }}>
         <td class="select"><input type="checkbox" class="multi_check" /></td>
         <td class="lp">{{ i }}.</td>
         <td class="width_big name {{ (entity.menu) ? 'submenu' : '' }}"><a class="editMode" href="{{ path('cmsmenu_edit', { 'id': entity.id }) }}">{{ entity }}</a></td>
