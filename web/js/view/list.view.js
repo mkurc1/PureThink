@@ -196,8 +196,7 @@ ListView = Backbone.View.extend({
         var list = this;
 
         this.$el.find('table.drag-and-drop tbody').multidrag({
-            page       : list.paginationModel.get('page'),
-            rowsOnPage : list.paginationModel.get('rowsOnPage')
+            url: list.model.get('url')+'sequence'
         });
     },
 

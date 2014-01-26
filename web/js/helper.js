@@ -87,3 +87,16 @@ Array.prototype.clear = function()
         return this;
     };
 })(jQuery);
+
+(function($) {
+    $.fn.hasAttr = function(val) {
+        var attr = $(this).attr(val);
+
+        if (typeof attr !== 'undefined' && attr !== false) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    };
+})(jQuery);

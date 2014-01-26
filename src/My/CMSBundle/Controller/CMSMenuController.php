@@ -231,6 +231,37 @@ class CMSMenuController extends Controller
     }
 
     /**
+     * Change sequence a CMSMenu entity.
+     *
+     * @Route("/sequence", name="cmsmenu_sequence")
+     * @Method("POST")
+     */
+    public function sequenceAction(Request $request)
+    {
+        $sequence = $request->get('sequence');
+
+        $em = $this->getDoctrine()->getManager();
+
+        foreach ($sequence as $key => $value) {
+            $entity = $em->getRepository('MyCMSBundle:CMSMenu')->find((int)$value['id']);
+            $entity->setSequence((int)$value['sequence']);
+
+            if (isset($value['parentId'])) {
+                $entity->setMenu($em->getRepository('MyCMSBundle:CMSMenu')->find((int)$value['parentId']));
+            }
+            else {
+                $entity->setMenu(null);
+            }
+
+            $em->persist($entity);
+        }
+
+        $em->flush();
+
+        return new Response(json_encode(array("response" => true)));
+    }
+
+    /**
      * Change state a CMSMenu entity.
      *
      * @Route("/state", name="cmsmenu_state")

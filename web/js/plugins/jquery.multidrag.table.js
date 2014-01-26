@@ -5,12 +5,24 @@
             cursor      : "move",
             distance    : 8,
             opacity     : 0.6,
-            page        : 1,
-            rowsOnPage  : 10,
             childMargin : 50
         };
 
         var settings = $.extend({}, defaults, options);
+
+        /**
+         * Is Submenu
+         *
+         * @param object ui
+         */
+        function isSubmenu(ui) {
+            if (ui.position.left > settings.childMargin) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
 
         /**
          * Sort
@@ -19,7 +31,7 @@
          * @param object ui
          */
         function sort(e, ui) {
-            if (ui.position.left > settings.childMargin) {
+            if (isSubmenu(ui)) {
                 ui.placeholder.addClass('children');
             }
             else {
@@ -46,6 +58,35 @@
         }
 
         /**
+         * Set numbers
+         *
+         * @param object ui
+         */
+        function setNumbers(ui) {
+            var items = ui.item.parent().find('tr'),
+                j = 0,
+                k, item, i, parentId;
+
+            for (i=0; i<items.length; i++) {
+                item = items.eq(i);
+
+                item.find('td.lp').html((i+1)+'.');
+
+                if (item.hasAttr('parent-id')) {
+                    if (parentId != item.attr('parent-id')) {
+                        k = 0;
+                        parentId = item.attr('parent-id');
+                    }
+
+                    item.find('td.sequence').html(++k);
+                }
+                else {
+                    item.find('td.sequence').html(++j);
+                }
+            }
+        }
+
+        /**
          * Stop
          *
          * @param object e
@@ -57,22 +98,11 @@
             });
             ui.item.find('tbody').remove();
 
-            var row        = 0,
-                page       = settings.page,
-                rowsOnPage = settings.rowsOnPage;
-
-            if (page > 1) {
-                row = (page-1)*rowsOnPage;
-            }
-
-            $('td.lp', ui.item.parent()).each(function (i) {
-                $(this).html((++row)+'.');
-            });
-
-            if (ui.position.left > settings.childMargin) {
+            if (isSubmenu(ui)) {
                 var prevEl = ui.item.prev();
-                if (prevEl.attr('parent-id') !== 'undefined')
+                if (prevEl.hasAttr('parent-id')) {
                     ui.item.attr('parent-id', prevEl.attr('parent-id'));
+                }
                 else {
                     ui.item.attr('parent-id', prevEl.attr('list_id'));
                 }
@@ -82,6 +112,47 @@
                 ui.item.removeAttr('parent-id');
                 ui.item.find('td.name').removeClass('submenu');
             }
+
+            setNumbers(ui);
+            send(ui);
+        }
+
+        /**
+         * Prepare data to send
+         *
+         * @param object ui
+         * @return array
+         */
+        function prepareDataToSend(ui) {
+            var items = ui.item.parent().find('tr'),
+                tab = {};
+
+            $.each(items, function(index, val) {
+                tab[index] = {
+                    id: $(val).attr('list_id'),
+                    sequence: $(val).find('td.sequence').html(),
+                    parentId: $(val).attr('parent-id')
+                };
+            });
+
+            return tab;
+        }
+
+        /**
+         * Send
+         *
+         * @param object ui
+         */
+        function send(ui) {
+            $.ajax({
+                type     : 'post',
+                dataType : 'json',
+                async    : true,
+                url      : settings.url,
+                data: {
+                    sequence: prepareDataToSend(ui)
+                }
+            });
         }
 
         $(this).sortable({
