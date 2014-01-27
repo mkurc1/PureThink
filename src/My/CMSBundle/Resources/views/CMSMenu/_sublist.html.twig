@@ -1,8 +1,8 @@
 {% for entity in entities %}
 {% set i = i+1 %}
-    <tr list_id="{{ entity.id }}" {{ entity.menu ? 'parent-id='~entity.menu.id : '' }}>
+    <tr {{ entity.menus|length > 0 ? 'class=parent' : '' }} list_id="{{ entity.id }}" sequence="{{ entity.sequence }}" {{ entity.menu ? 'parent-id='~entity.menu.id : '' }}>
         <td class="select"><input type="checkbox" class="multi_check" /></td>
-        <td class="lp">{{ i }}.</td>
+        <td class="lp {{ (entity.menu) ? 'submenu' : '' }}">{{ i }}.</td>
         <td class="width_big name {{ (entity.menu) ? 'submenu' : '' }}"><a class="editMode" href="{{ path('cmsmenu_edit', { 'id': entity.id }) }}">{{ entity }}</a></td>
         <td class="width_small state">
             {% if entity.isPublic %}
@@ -11,7 +11,6 @@
                 <i class="fa fa-ban"></i>
             {% endif %}
         </td>
-        <td class="width_small sequence">{{ entity.sequence }}</td>
         <td class="width_small">{{ entity.article.name }}</td>
     </tr>
 

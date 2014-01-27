@@ -22,7 +22,8 @@ PaginationModel = Backbone.Model.extend({
         lastPage     : 0,
         previousPage : 0,
         nextPage     : 0,
-        rowsOnPage   : 10
+        rowsOnPage   : 10,
+        hide         : false
     },
 
     validate: function(attrs, options) {

@@ -40,7 +40,7 @@ class CMSMenu
     /**
      * @var integer
      *
-     * @ORM\Column(name="sequence", type="integer")
+     * @ORM\Column(name="sequence", type="integer", nullable=true)
      */
     private $sequence;
 

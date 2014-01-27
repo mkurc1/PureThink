@@ -9,7 +9,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  * CMSTemplate
  *
  * @ORM\Table(name="cms_template")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="My\CMSBundle\Repository\CMSTemplateRepository")
  */
 class CMSTemplate
 {
@@ -180,6 +180,7 @@ class CMSTemplate
         $this->cmsCSSs = new \Doctrine\Common\Collections\ArrayCollection();
         $this->cmsJSs = new \Doctrine\Common\Collections\ArrayCollection();
         $this->cmsLayouts = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->isEnable = false;
     }
 
     /**
@@ -325,5 +326,28 @@ class CMSTemplate
     public function getCmsLayouts()
     {
         return $this->cmsLayouts;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     * @return CMSTemplate
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 }

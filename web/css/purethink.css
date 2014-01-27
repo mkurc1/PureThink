@@ -306,7 +306,7 @@
   bottom: 0;
   border-right: 1px solid #e7e7e7;
   background-color: #F7F7F7;
-  background-image: url("/../images/arrow_left_big.png");
+  background-image: url("images/arrow_left_big.png");
   background-position: 50% 50%;
   background-repeat: no-repeat;
   cursor: pointer;
@@ -316,7 +316,7 @@
 }
 #footer > #left_menu_toggle.hide_menu {
   left: 0;
-  background-image: url("/../images/arrow_right_big.png");
+  background-image: url("images/arrow_right_big.png");
 }
 #footer > #pagination_count {
   position: relative;
@@ -808,6 +808,9 @@ table.list > thead > tr > th > img.order {
 table.list tbody > tr {
   border-bottom: 1px solid #F4F4F4;
 }
+table.list tbody > tr.parent {
+  border-bottom: 1px dashed #EAEAEA;
+}
 table.list tbody > tr.placeholder {
   background-color: #FDEC9D;
 }
@@ -987,26 +990,26 @@ table.list tbody > tr > td.select > input {
   background-position: 50% 50%;
 }
 #main_button > .center > .button_container > button.select {
-  background-image: url("/../images/select.png");
+  background-image: url("/images/select.png");
 }
 #main_button > .center > .button_container > button.refresh {
-  background-image: url("/../images/refresh.png");
+  background-image: url("/images/refresh.png");
 }
 #main_button > .center > .button_container > button.edit {
-  background-image: url("/../images/edit.png");
+  background-image: url("/images/edit.png");
 }
 #main_button > .center > .button_container > button.remove,
 #main_button > .center > .button_container > button.cancel {
-  background-image: url("/../images/remove.png");
+  background-image: url("/images/remove.png");
 }
 #main_button > .center > .button_container > button.more {
-  background-image: url("/../images/more.png");
+  background-image: url("/images/more.png");
 }
 #main_button > .center > .button_container > button.save {
-  background-image: url("/../images/save.png");
+  background-image: url("/images/save.png");
 }
 #main_button > .center > .button_container > button.apply {
-  background-image: url("/../images/apply.png");
+  background-image: url("/images/apply.png");
 }
 #main_menu {
   position: fixed;
@@ -1144,11 +1147,11 @@ table.list tbody > tr > td.select > input {
 }
 #notify_container > .notify.success > .left {
   background-color: #9ad459;
-  background-image: url("/../images/success.png");
+  background-image: url("/images/success.png");
 }
 #notify_container > .notify.fail > .left {
   background-color: #c94654;
-  background-image: url("/../images/fail.png");
+  background-image: url("/images/fail.png");
 }
 #notify_container > .notify > .close {
   position: relative;

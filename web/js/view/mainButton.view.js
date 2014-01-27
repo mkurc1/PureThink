@@ -79,8 +79,15 @@ MainButtonView = Backbone.View.extend({
             this.createListButtons();
             this.toggleListMainButton();
             filterView.showEl();
-            listView.paginationView.showEl();
-            listView.paginationView.togglePagination();
+
+            if (listView.paginationModel.get('hide')) {
+                listView.paginationView.hideEl();
+            }
+            else {
+                listView.paginationView.showEl();
+                listView.paginationView.togglePagination();
+            }
+
             listView.setMode();
         }
     },

@@ -13,15 +13,42 @@
         /**
          * Is Submenu
          *
+         * @param object e
          * @param object ui
          */
-        function isSubmenu(ui) {
-            if (ui.position.left > settings.childMargin) {
-                return true;
-            }
-            else {
+        function isSubmenu(e, ui) {
+            // console.log({
+            //     item: ui.item.index(),
+            //     placeholder: ui.placeholder.index(),
+            //     event: e.type
+            // });
+
+            // if have children return false
+            if (ui.item.parent().find('tr[parent-id="'+ui.item.attr('list_id')+'"]').length > 0) {
                 return false;
             }
+
+            if (e.type == "sortstop") {
+                if (ui.item.index() === 0) {
+                    return false;
+                }
+            }
+
+            if (e.type == "sort") {
+                if ((ui.item.index() === 0) && (ui.placeholder.index() === 1)) {
+                    return false;
+                }
+
+                if (ui.placeholder.index() === 0) {
+                    return false;
+                }
+            }
+
+            if (ui.position.left < settings.childMargin) {
+                return false;
+            }
+
+            return true;
         }
 
         /**
@@ -31,7 +58,7 @@
          * @param object ui
          */
         function sort(e, ui) {
-            if (isSubmenu(ui)) {
+            if (isSubmenu(e, ui)) {
                 ui.placeholder.addClass('children');
             }
             else {
@@ -78,12 +105,25 @@
                         parentId = item.attr('parent-id');
                     }
 
-                    item.find('td.sequence').html(++k);
+                    item.attr('sequence', ++k);
                 }
                 else {
-                    item.find('td.sequence').html(++j);
+                    item.attr('sequence', ++j);
                 }
             }
+        }
+
+        /**
+         * Drop children
+         *
+         * @param object ui
+         */
+        function dropChildren(ui) {
+            $.each(ui.item.find('tbody tr'), function(index, val) {
+                ui.item.after($(val));
+            });
+
+            ui.item.find('tbody').remove();
         }
 
         /**
@@ -93,24 +133,26 @@
          * @param object ui
          */
         function stop(e, ui) {
-            $.each(ui.item.find('tbody tr'), function(index, val) {
-                ui.item.after($(val));
-            });
-            ui.item.find('tbody').remove();
+            dropChildren(ui);
 
-            if (isSubmenu(ui)) {
-                var prevEl = ui.item.prev();
+            var prevEl = ui.item.prev();
+
+            if (isSubmenu(e, ui)) {
                 if (prevEl.hasAttr('parent-id')) {
                     ui.item.attr('parent-id', prevEl.attr('parent-id'));
                 }
                 else {
+                    prevEl.addClass('parent');
                     ui.item.attr('parent-id', prevEl.attr('list_id'));
                 }
                 ui.item.find('td.name').addClass('submenu');
+                ui.item.find('td.lp').addClass('submenu');
             }
             else {
+                prevEl.removeClass('parent');
                 ui.item.removeAttr('parent-id');
                 ui.item.find('td.name').removeClass('submenu');
+                ui.item.find('td.lp').removeClass('submenu');
             }
 
             setNumbers(ui);
@@ -130,7 +172,7 @@
             $.each(items, function(index, val) {
                 tab[index] = {
                     id: $(val).attr('list_id'),
-                    sequence: $(val).find('td.sequence').html(),
+                    sequence: $(val).attr('sequence'),
                     parentId: $(val).attr('parent-id')
                 };
             });
@@ -147,7 +189,6 @@
             $.ajax({
                 type     : 'post',
                 dataType : 'json',
-                async    : true,
                 url      : settings.url,
                 data: {
                     sequence: prepareDataToSend(ui)

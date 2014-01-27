@@ -153,8 +153,6 @@ ListView = Backbone.View.extend({
             },
             complete: function() {
                 list.arrowOrder();
-                list.paginationView.showEl();
-                list.paginationView.togglePagination();
 
                 if (list.isMainList) {
                     editView.setEditModeAction();
@@ -172,14 +170,24 @@ ListView = Backbone.View.extend({
                 if (data.response) {
                     list.$el.append(data.list.toString());
 
-                    list.paginationModel.set({
-                        firstPage    : data.pagination.first_page,
-                        previousPage : data.pagination.previous,
-                        nextPage     : data.pagination.next,
-                        lastPage     : data.pagination.last_page
-                    });
-
-                    list.paginationView.render(data.pagination.pages);
+                    if (data.pagination.hide) {
+                        list.paginationModel.set({
+                            hide : true
+                        });
+                        list.paginationView.hideEl();
+                    }
+                    else {
+                        list.paginationModel.set({
+                            firstPage    : data.pagination.first_page,
+                            previousPage : data.pagination.previous,
+                            nextPage     : data.pagination.next,
+                            lastPage     : data.pagination.last_page,
+                            hide         : false
+                        });
+                        list.paginationView.render(data.pagination.pages);
+                        list.paginationView.showEl();
+                        list.paginationView.togglePagination();
+                    }
 
                     if (data.order) {
                         list.model.set({ order: data.order });

@@ -45,7 +45,8 @@ class CMSMenuController extends Controller
                 'previous' => 1,
                 'next' => 1,
                 'last_page' => 1,
-                'pages' => array(1)
+                'pages' => array(1),
+                'hide' => true
                 ),
             "response" => true
             );

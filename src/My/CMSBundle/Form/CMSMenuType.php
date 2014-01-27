@@ -44,23 +44,6 @@ class CMSMenuType extends AbstractType
                     )
                 )
             )
-            ->add('sequence', 'number', array(
-                'label' => 'Kolejność',
-                'constraints' => array(
-                    new NotBlank()
-                    )
-                )
-            )
-            ->add('menu', 'entity', array(
-                'required' => false,
-                'label' => 'Wybierz menu',
-                'class' => 'MyCMSBundle:CMSMenu',
-                'empty_value' => '',
-                'attr' => array(
-                    'class' => 'sintetic-select'
-                    )
-                )
-            )
             ->add('language', 'entity', array(
                 'label' => 'Język',
                 'class' => 'MyCMSBundle:CMSLanguage',
