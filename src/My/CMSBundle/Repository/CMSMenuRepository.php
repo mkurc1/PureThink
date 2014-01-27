@@ -58,10 +58,11 @@ class CMSMenuRepository extends EntityRepository
             ->leftJoin('a.language', 'l')
             ->leftJoin('a.series', 's')
             ->leftJoin('a.article', 'art')
+            ->leftJoin('a.menu', 'm')
             ->where('a.isPublic = true')
             ->andWhere('l.alias = :locale')
             ->setParameter('locale', $locale)
-            ->orderBy('a.sequence');
+            ->orderBy('m.sequence, a.sequence');
 
         return $qb->getQuery()->getResult();
     }

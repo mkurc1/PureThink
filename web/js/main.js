@@ -17,7 +17,17 @@ var mainButtonView,
 var menuId;
 
 $(function() {
-    $.ajaxSetup({ async: false });
+    $.ajaxSetup({
+        async: false,
+        error: function (x, status, error) {
+            if (x.status == 403) {
+                notify("fail" ,"Sorry, your session has expired. Please login again to continue");
+            }
+            else {
+                notify("fail" ,"An error occurred: " + status + "nError: " + error);
+            }
+        }
+    });
 
     userSettingModel.getSetting();
 

@@ -256,9 +256,21 @@ class CMSMenuController extends Controller
             $em->persist($entity);
         }
 
-        $em->flush();
+        try {
+            $em->flush();
 
-        return new Response(json_encode(array("response" => true)));
+            $response = array(
+                "response" => true,
+                "message" => 'Zmiana kolejności zakończyła się powodzeniem'
+                );
+        } catch (\Exception $e) {
+            $response = array(
+                "response" => false,
+                "message" => 'Zmiana kolejności zakończyła się niepowodzeniem'
+                );
+        }
+
+        return new Response(json_encode($response));
     }
 
     /**

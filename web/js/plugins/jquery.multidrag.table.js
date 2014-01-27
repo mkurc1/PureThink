@@ -151,6 +151,14 @@
                 url      : settings.url,
                 data: {
                     sequence: prepareDataToSend(ui)
+                },
+                success: function(data) {
+                    if (data.response) {
+                        notify('success', data.message);
+                    }
+                    else {
+                        notify('fail', data.message);
+                    }
                 }
             });
         }
@@ -160,6 +168,7 @@
             cursor      : settings.cursor,
             distance    : settings.distance,
             opacity     : settings.opacity,
+            axis        : "y",
             sort        : sort,
             start       : start,
             stop        : stop

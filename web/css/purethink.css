@@ -867,7 +867,7 @@ table.list tbody > tr > td.select > input {
 #shortcut_container > a {
   position: relative;
   float: right;
-  margin: 7px 0 0 7px;
+  margin: 7px 0 0 8px;
 }
 #shortcut_container > a > img.arrow {
   position: relative;
