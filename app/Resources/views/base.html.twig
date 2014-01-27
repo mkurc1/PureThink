@@ -8,8 +8,12 @@
         <meta name="viewport" content="width=device-width" />
         <title>{% block title %}PureThink{% endblock %}</title>
 
-        {% block stylesheets %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        {% block stylesheets %}
+            <link rel="stylesheet" type="text/css" href="{{ asset('css/plugins/font-awesome.css') }}">
+        {% endblock %}
+        {% block javascripts %}
+            <script src="{{ asset('js/lib/jquery-2.0.3.js') }}"></script>
+        {% endblock %}
 
         {% block icon %}
             <link rel="icon" type="image/x-icon" href="{{ asset('purethink.ico') }}" />

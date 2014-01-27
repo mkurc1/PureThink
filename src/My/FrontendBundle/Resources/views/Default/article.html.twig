@@ -20,7 +20,6 @@
 
 {% block javascripts %}
     {{ parent() }}
-    <script src="{{ asset('js/lib/jquery-2.0.3.js') }}"></script>
     <script src="{{ asset('template/fresh-style/js/jquery.slides.min.js') }}"></script>
     <script src="{{ asset('template/fresh-style/js/main.js') }}"></script>
 {% endblock javascripts %}
@@ -41,6 +40,8 @@
     <div id="main_menu">
         <div class="container">
             {% include 'MyFrontendBundle:Default:_menu.html.twig' with { 'menus': menus['Main'], 'locale': locale, 'home': true } %}
+
+            {% include 'MyFrontendBundle:Default:_search.html.twig' with { 'locale': locale } %}
         </div>
     </div>
 

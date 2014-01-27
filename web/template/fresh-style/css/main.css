@@ -110,6 +110,40 @@ a {
 #main_menu > .container > ul > li:hover > ul {
     display: block;
 }
+#main_menu > .container > #search-form {
+    position: relative;
+    float: right;
+}
+#main_menu > .container > #search-form > #search_box {
+    position: relative;
+    float: right;
+    margin-top: 3px;
+    background-color: #FFFFFF;
+    border: 1px solid #C5C5C5;
+    border-radius: 4px;
+    height: 22px;
+    width: 240px;
+}
+#main_menu > .container > #search-form > #search_box > input {
+    position: relative;
+    float: left;
+    border: 0;
+    font-size: 11px;
+    font-weight: normal;
+    color: #4b4b4b;
+    height: 22px;
+    width: 192px;
+    padding: 0 13px;
+    background-color: #FFFFFF;
+    border-radius: 4px;
+}
+#main_menu > .container > #search-form > #search_box > i {
+    position: relative;
+    float: right;
+    font-size: 14px;
+    margin: 4px 5px 0 0;
+    color: #7F7F7F;
+}
 #baner {
     position: relative;
     float: left;
@@ -255,13 +289,14 @@ a {
     color: #1e60b4;
     font-size: 12px;
 }
-#article {
+#article, #search {
     position: relative;
     float: left;
     width: 100%;
     margin: 20px 0 30px 0;
 }
-#article > .container > h2 {
+#article > .container > h2,
+#search > .container > h2  {
     position: relative;
     float: left;
     font-weight: normal;
@@ -269,6 +304,20 @@ a {
     color: #545450;
     width: 100%;
     margin: 0 0 10px 0;
+}
+#search > .container ul {
+    list-style-position: inside;
+}
+#search > .container ul li {
+    line-height: 1.6em;
+    font-size: 12px;
+}
+#search > .container ul li a {
+    font-size: 12px;
+    color: #136CD9;
+}
+#search > .container ul li a:hover {
+    color: #333333;
 }
 #footer {
     position: relative;

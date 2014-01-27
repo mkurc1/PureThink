@@ -6,14 +6,12 @@
 
 {% block stylesheets %}
     {{ parent() }}
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/plugins/font-awesome.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/plugins/jquery.qtip.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/purethink.css') }}">
 {% endblock stylesheets %}
 
 {% block javascripts %}
     {{ parent() }}
-    <script src="{{ asset('js/lib/jquery-2.0.3.js') }}"></script>
     <script src="{{ asset('js/lib/underscore.js') }}"></script>
     <script src="{{ asset('js/lib/backbone.js') }}"></script>
     <script src="{{ asset('js/plugins/jquery-ui-1.10.4.custom.js') }}"></script>

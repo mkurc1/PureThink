@@ -4,6 +4,7 @@ namespace My\FrontendBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
@@ -11,6 +12,7 @@ class DefaultController extends Controller
 {
     /**
      * @Route("/", name="frontend")
+     * @Method("GET")
      */
     public function mainAction(Request $request)
     {
@@ -24,6 +26,7 @@ class DefaultController extends Controller
 
     /**
      * @Route("/{locale}", name="localized_frontend")
+     * @Method("GET")
      * @Template()
      */
     public function indexAction(Request $request, $locale)
@@ -85,7 +88,43 @@ class DefaultController extends Controller
     }
 
     /**
+     * @Route("/{locale}/search", name="search")
+     * @Method("GET")
+     * @Template()
+     */
+    public function searchAction(Request $request, $locale)
+    {
+        $languages = $this->getLanguages();
+        if ($this->checkAvilableLocales($languages, $locale)) {
+            $request->setLocale($locale);
+        }
+        else {
+            return $this->redirect($this->generateUrl('frontend'));
+        }
+
+        $meta = $this->getMeta($locale);
+        $menus = $this->getMenus($locale);
+        $components = $this->getComponents($locale);
+
+        $search = $request->get('article');
+
+        $em = $this->getDoctrine()->getManager();
+
+        $articles = $em->getRepository('MyCMSBundle:CMSArticle')->search($locale, $search);
+
+        return array(
+            'locale' => $locale,
+            'meta' => $meta,
+            'languages' => $languages,
+            'menus' => $menus,
+            'components' => $components,
+            'articles' => $articles
+            );
+    }
+
+    /**
      * @Route("/{locale}/{slug}/{slug2}", name="article")
+     * @Method("GET")
      * @Template()
      */
     public function articleAction(Request $request, $locale, $slug, $slug2 = false)

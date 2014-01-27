@@ -44,4 +44,24 @@ class CMSArticleRepository extends EntityRepository
 
 		return $qb->getQuery();
 	}
+
+    /**
+     * Search
+     *
+     * @param string $locale
+     * @param string $search
+     * @return array
+     */
+    public function search($locale, $search)
+    {
+        $qb = $this->createQueryBuilder('a')
+            ->leftJoin('a.language', 'l')
+            ->where('a.isPublic = true')
+            ->andWhere('l.alias = :locale')
+            ->setParameter('locale', $locale)
+            ->andWhere('a.name LIKE :search')
+            ->setParameter('search', '%'.$search.'%');
+
+        return $qb->getQuery()->getResult();
+    }
 }

@@ -306,7 +306,7 @@
   bottom: 0;
   border-right: 1px solid #e7e7e7;
   background-color: #F7F7F7;
-  background-image: url("images/arrow_left_big.png");
+  background-image: url("/images/arrow_left_big.png");
   background-position: 50% 50%;
   background-repeat: no-repeat;
   cursor: pointer;
@@ -316,7 +316,7 @@
 }
 #footer > #left_menu_toggle.hide_menu {
   left: 0;
-  background-image: url("images/arrow_right_big.png");
+  background-image: url("/images/arrow_right_big.png");
 }
 #footer > #pagination_count {
   position: relative;

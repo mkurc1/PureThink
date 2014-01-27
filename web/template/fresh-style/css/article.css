@@ -50,7 +50,7 @@ For licensing, see LICENSE.md or http://ckeditor.com/license
 	color: #0782C1;
 }
 
-#article ol, #article ul,#article dl
+#article ol, #article ul, #article dl
 {
 	/* IE7: reset rtl list margin. (#7334) */
 	*margin-right: 0px;
