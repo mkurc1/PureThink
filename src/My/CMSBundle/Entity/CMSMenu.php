@@ -52,6 +52,13 @@ class CMSMenu
     private $isPublic;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="is_new_page", type="boolean", nullable=true)
+     */
+    private $isNewPage;
+
+    /**
      * @ORM\ManyToOne(targetEntity="CMSMenu", inversedBy="menus")
      * @ORM\JoinColumn(name="menu_id", referencedColumnName="id", onDelete="CASCADE", nullable=true)
      */
@@ -166,6 +173,7 @@ class CMSMenu
     {
         $this->menus = new \Doctrine\Common\Collections\ArrayCollection();
         $this->isPublic = false;
+        $this->isNewPage = false;
     }
 
     /**
@@ -324,5 +332,28 @@ class CMSMenu
     public function getArticle()
     {
         return $this->article;
+    }
+
+    /**
+     * Set isNewPage
+     *
+     * @param boolean $isNewPage
+     * @return CMSMenu
+     */
+    public function setIsNewPage($isNewPage)
+    {
+        $this->isNewPage = $isNewPage;
+
+        return $this;
+    }
+
+    /**
+     * Get isNewPage
+     *
+     * @return boolean
+     */
+    public function getIsNewPage()
+    {
+        return $this->isNewPage;
     }
 }

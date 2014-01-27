@@ -71,6 +71,17 @@ class CMSMenuType extends AbstractType
                     )
                 )
             )
+            ->add('isNewPage', 'choice', array(
+                'label' => 'Otwórz na nowej stronie',
+                'choices' => array(
+                    true => 'Tak',
+                    false => 'Nie'
+                    ),
+                'attr' => array(
+                    'class' => 'sintetic-select'
+                    )
+                )
+            )
         ;
     }
 

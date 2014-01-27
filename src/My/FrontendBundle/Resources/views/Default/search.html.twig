@@ -1,4 +1,4 @@
-{% extends "::base.html.twig" %}
+{% extends "MyFrontendBundle:Default:layout.html.twig" %}
 
 {% block keywords %}
     {% if meta %}
@@ -24,17 +24,6 @@
     {% endif %}
 {% endblock title %}
 
-{% block stylesheets %}
-    {{ parent() }}
-    <link rel="stylesheet" type="text/css" href="{{ asset('template/fresh-style/css/main.css') }}">
-{% endblock stylesheets %}
-
-{% block javascripts %}
-    {{ parent() }}
-    <script src="{{ asset('template/fresh-style/js/jquery.slides.min.js') }}"></script>
-    <script src="{{ asset('template/fresh-style/js/main.js') }}"></script>
-{% endblock javascripts %}
-
 {% block body %}
     <div id="top">
         <div class="container">
@@ -50,7 +39,9 @@
 
     <div id="main_menu">
         <div class="container">
-            {% include 'MyFrontendBundle:Default:_menu.html.twig' with { 'menus': menus['Main'], 'locale': locale, 'home': true } %}
+            {% if menus['Main'] is defined %}
+                {% include 'MyFrontendBundle:Default:_menu.html.twig' with { 'menus': menus['Main'], 'locale': locale, 'home': true } %}
+            {% endif %}
 
             {% include 'MyFrontendBundle:Default:_search.html.twig' with { 'locale': locale } %}
         </div>
@@ -64,7 +55,7 @@
             {% for article in articles %}
                 <li><a href="{{ path('article', {'locale': locale, 'slug': article.slug}) }}">{{ article.name }}</a></li>
             {% endfor %}
-        </ul>
+            </ul>
         </div>
     </div>
 

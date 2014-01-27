@@ -52,6 +52,13 @@ class CMSMenu
     private $isPublic;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="is_new_page", type="boolean", nullable=true)
+     */
+    private $isNewPage;
+
+    /**
      * @ORM\ManyToOne(targetEntity="CMSMenu", inversedBy="menus")
      * @ORM\JoinColumn(name="menu_id", referencedColumnName="id", onDelete="CASCADE", nullable=true)
      */

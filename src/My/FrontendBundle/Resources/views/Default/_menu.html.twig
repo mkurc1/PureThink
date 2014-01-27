@@ -9,9 +9,9 @@
             {% set slug = menu['parent'].article.slug  %}
 
             {% if (slug2 is defined) %}
-                <a href="{{ path('article', {'locale': locale, 'slug': slug2, 'slug2': slug}) }}">{{ menu['parent'] }}</a>
+                <a {{ menu['parent'].isNewPage ? 'target="_blank"' : '' }} href="{{ path('article', {'locale': locale, 'slug': slug2, 'slug2': slug}) }}">{{ menu['parent'] }}</a>
             {% else %}
-                <a href="{{ path('article', {'locale': locale, 'slug': slug}) }}">{{ menu['parent'] }}</a>
+                <a {{ menu['parent'].isNewPage ? 'target="_blank"' : '' }} href="{{ path('article', {'locale': locale, 'slug': slug}) }}">{{ menu['parent'] }}</a>
             {% endif %}
 
             {% if menu['childrens'] is defined %}
