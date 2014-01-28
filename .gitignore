@@ -1,8 +1,12 @@
-app/cache/*
-app/config/parameters.yml
-app/logs/*
-purethink.sublime-project
-purethink.sublime-workspace
+/web/bundles/
+/app/bootstrap*
+/app/cache/*
+/app/logs/*
+/vendor/
+/app/config/parameters.ini
+
+/purethink.sublime-project
+/purethink.sublime-workspace
 
 # OS generated files #
 ######################

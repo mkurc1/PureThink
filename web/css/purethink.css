@@ -380,15 +380,23 @@
   margin: 50px auto 0 auto;
   width: 420px;
 }
-#login_container > #resetting {
+#login_container > ul.links {
   position: relative;
   float: left;
-  font-size: 12px;
-  color: #21759B;
-  margin: 10px 0 0 20px;
+  list-style: none;
+  margin-left: 20px;
 }
-#login_container > #resetting:hover {
-  color: #222222;
+#login_container > ul.links li {
+  font-size: 11px;
+  margin-top: 10px;
+}
+#login_container > ul.links li a {
+  color: #21759B;
+  font-size: 11px;
+  text-decoration: underline;
+}
+#login_container > ul.links li a:hover {
+  color: #EB3C00;
 }
 #login_container > #login {
   position: relative;
@@ -404,17 +412,20 @@
   font-size: 12px;
   padding: 0 10px;
 }
+#login_container > #login label {
+  float: left;
+  font-size: 11px;
+  color: #070707;
+  margin-left: 20px;
+}
 #login_container > #login #remember_me_container {
   position: relative;
   float: left;
   width: 380px;
   margin: 0 0 0 20px;
 }
-#login_container > #login label {
-  float: left;
+#login_container > #login #remember_me_container label {
   margin-left: 10px;
-  font-size: 11px;
-  color: #070707;
 }
 #login_container > #login input[type="text"],
 #login_container > #login input[type="password"] {

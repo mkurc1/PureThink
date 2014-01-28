@@ -1,7 +1,7 @@
 security:
     providers:
         fos_userbundle:
-            id: fos_user.user_provider.username
+            id: fos_user.user_provider.username_email
 
     encoders:
         "FOS\UserBundle\Model\UserInterface": sha512
@@ -11,7 +11,7 @@ security:
             pattern: ^/
             logout:
                 path: /logout
-                target: /
+                target: /login
                 invalidate_session: false
             anonymous: true
             form_login:
