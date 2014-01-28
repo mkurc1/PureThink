@@ -23,12 +23,6 @@
                 <input type="submit" id="_submit" value="{{ 'resetting.reset.submit'|trans }}" />
             </div>
         </form>
-
-        {% for key, message in app.session.flashbag.all() %}
-            <div class="{{ key }}">
-                {{ message|trans({}, 'FOSUserBundle') }}
-            </div>
-        {% endfor %}
     </div>
 
     <ul class="links">
