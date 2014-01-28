@@ -96,4 +96,12 @@
         <mime_type>image/jpeg</mime_type>
         <path>b7e854467ea97aab69880d4fef810c86ac5a56ea.jpeg</path>
     </file>
+    <file>
+        <name>Apollo 11</name>
+        <user_id>1</user_id>
+        <series_id>10</series_id>
+        <size>17932</size>
+        <mime_type>image/jpeg</mime_type>
+        <path>82badcf2c208e14a28e3da58679c7c0618275db1.jpeg</path>
+    </file>
 </files>

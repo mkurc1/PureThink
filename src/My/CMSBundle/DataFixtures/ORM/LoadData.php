@@ -86,6 +86,8 @@ class LoadData implements FixtureInterface
 	 */
 	private function addCMSArticle(ObjectManager $manager)
 	{
+		$text = file('src/My/CMSBundle/data/cmsArticle.txt');
+
 		$xml = simplexml_load_file('src/My/CMSBundle/data/cmsArticles.xml');
 		for ($i=0; $i<5; $i++) {
 			foreach ($xml->cmsArticle as $cmsArticle) {
@@ -94,7 +96,7 @@ class LoadData implements FixtureInterface
 				$CMSArticle->setDescription($cmsArticle->description);
 				$CMSArticle->setKeywords($cmsArticle->keywords);
 				$CMSArticle->setIsPublic($cmsArticle->is_public);
-				$CMSArticle->setContent($cmsArticle->content);
+				$CMSArticle->setContent(trim($text[0]));
 				$CMSArticle->setLanguage($manager->getRepository('MyCMSBundle:CMSLanguage')->find($cmsArticle->language_id));
 				$CMSArticle->setUser($manager->getRepository('MyUserBundle:User')->find($cmsArticle->user_id));
 				$CMSArticle->setSeries($manager->getRepository('MyBackendBundle:Series')->find($cmsArticle->series_id));

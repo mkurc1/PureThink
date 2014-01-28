@@ -4,12 +4,16 @@
 		"selected_items":
 		[
 			[
-				"pad",
-				"padding"
+				"mar",
+				"margin-top"
 			],
 			[
-				"mar",
-				"margin"
+				"list",
+				"list-style"
+			],
+			[
+				"pad",
+				"padding"
 			],
 			[
 				"list-style",
@@ -38,10 +42,6 @@
 			[
 				"pare",
 				"parentId"
-			],
-			[
-				"list",
-				"list_id"
 			],
 			[
 				"has",
@@ -519,22 +519,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "src/My/UserBundle/MyUserBundle.php",
-			"settings":
-			{
-				"buffer_size": 196,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/config/security.yml",
-			"settings":
-			{
-				"buffer_size": 1424,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -1005,10 +989,46 @@
 	},
 	"file_history":
 	[
-		"/C/wamp/www/PureThink/src/My/UserBundle/Controller/SecurityController.php",
-		"/C/wamp/www/PureThink/app/config/routing.yml",
-		"/C/wamp/www/PureThink/app/config/config.yml",
+		"/C/wamp/www/PureThink/src/My/BackendBundle/Entity/SMTP.php",
+		"/C/wamp/www/PureThink/src/My/BackendBundle/Entity/SMTP.php~",
+		"/C/wamp/www/PureThink/src/My/BackendBundle/DataFixtures/ORM/LoadData.php",
+		"/C/wamp/www/PureThink/src/My/BackendBundle/data/smtps.xml",
+		"/C/wamp/www/PureThink/.gitignore",
+		"/C/wamp/www/PureThink/app/config/parameters.yml",
+		"/C/wamp/www/PureThink/app/Resources/FOSUserBundle/views/Resetting/checkEmail.html.twig",
+		"/C/wamp/www/PureThink/app/Resources/FOSUserBundle/views/Resetting/passwordAlreadyRequested.html.twig",
+		"/C/wamp/www/PureThink/app/Resources/FOSUserBundle/views/Security/login.html.twig",
+		"/C/wamp/www/PureThink/app/Resources/FOSUserBundle/views/Resetting/request_content.html.twig",
+		"/C/wamp/www/PureThink/app/Resources/FOSUserBundle/views/Resetting/reset_content.html.twig",
+		"/C/wamp/www/PureThink/web/less/login.less",
+		"/C/wamp/www/PureThink/app/config/parameters.yml.dist",
+		"/C/wamp/www/PureThink/app/Resources/FOSUserBundle/views/Resetting/reset.html.twig",
+		"/C/wamp/www/PureThink/app/Resources/FOSUserBundle/views/Resetting/request.html.twig",
 		"/C/wamp/www/PureThink/app/config/security.yml",
+		"/C/wamp/www/PureThink/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/views/Resetting/reset.html.twig",
+		"/C/wamp/www/PureThink/app/Resources/FOSUserBundle/views/ChangePassword/changePassword_content.html.twig",
+		"/C/wamp/www/PureThink/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/views/ChangePassword/changePassword.html.twig",
+		"/C/wamp/www/PureThink/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/views/Registration/confirmed.html.twig",
+		"/C/wamp/www/PureThink/app/Resources/FOSUserBundle/views/ChangePassword/changePassword.html.twig",
+		"/C/wamp/www/PureThink/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/views/Resetting/reset_content.html.twig",
+		"/C/wamp/www/PureThink/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/views/ChangePassword/changePassword_content.html.twig",
+		"/C/wamp/www/PureThink/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/views/Registration/email.txt.twig",
+		"/C/wamp/www/PureThink/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/config/mailer.xml",
+		"/C/Users/Michał/Documents/Dropbox/PureThink/demo.txt",
+		"/C/wamp/www/PureThink/app/config/config.yml",
+		"/C/wamp/www/PureThink/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Mailer/Mailer.php",
+		"/C/wamp/www/PureThink/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Mailer/TwigSwiftMailer.php",
+		"/C/wamp/www/PureThink/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Controller/ResettingController.php",
+		"/C/wamp/www/PureThink/src/My/UserBundle/MyUserBundle.php",
+		"/C/wamp/www/PureThink/src/My/UserBundle/Controller/ResettingController.php",
+		"/C/wamp/www/PureThink/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/EventListener/ResettingListener.php",
+		"/C/wamp/www/PureThink/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Controller/SecurityController.php",
+		"/C/wamp/www/PureThink/src/My/UserBundle/Controller/SecurityController.php",
+		"/C/wamp/www/PureThink/src/My/CMSBundle/Tests/Controller/CMSArticleControllerTest.php",
+		"/C/wamp/www/PureThink/src/My/UserBundle/Tests/Controller/DefaultControllerTest.php",
+		"/C/wamp/www/PureThink/src/My/UserBundle/DependencyInjection/MyUserExtension.php",
+		"/C/wamp/www/PureThink/src/My/UserBundle/DependencyInjection/Configuration.php",
+		"/C/wamp/www/PureThink/app/config/routing.yml",
 		"/C/wamp/www/PureThink/src/My/UserBundle/Resources/config/services.xml",
 		"/C/wamp/www/PureThink/src/My/UserBundle/Controller/DefaultController.php",
 		"/C/Users/Michał/Downloads/Symfony/symfony2_polecenia.txt",
@@ -1019,10 +1039,6 @@
 		"/C/Users/Michał/AppData/Local/Temp/_tc/Symfony/app/config/security.yml",
 		"/C/Users/Michał/AppData/Local/Temp/_tc/Symfony/app/config/config_test.yml",
 		"/C/Users/Michał/AppData/Local/Temp/_tc/Symfony/app/config/config_prod.yml",
-		"/C/wamp/www/PureThink/web/less/login.less",
-		"/C/wamp/www/PureThink/app/Resources/FOSUserBundle/views/Resetting/request_content.html.twig",
-		"/C/wamp/www/PureThink/app/Resources/FOSUserBundle/views/Security/login.html.twig",
-		"/C/Users/Michał/Documents/Dropbox/PureThink/demo.txt",
 		"/C/wamp/www/PureThink/app/config/config_dev.yml",
 		"/C/Users/Michał/AppData/Local/Temp/_tc/Symfony/app/config/config_dev.yml",
 		"/C/wamp/www/PureThink/composer.json",
@@ -1030,23 +1046,12 @@
 		"/C/Users/Michał/AppData/Local/Temp/_tc/Symfony/composer.json",
 		"/C/wamp/www/PureThink/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/views/Resetting/request.html.twig",
 		"/C/Users/Michał/Downloads/Symfony/symfony2-commands.txt",
-		"/C/wamp/www/PureThink/app/Resources/FOSUserBundle/views/Resetting/passwordAlreadyRequested.html.twig",
-		"/C/wamp/www/PureThink/app/Resources/FOSUserBundle/views/Resetting/checkEmail.html.twig",
 		"/C/wamp/www/PureThink/app/SymfonyRequirements.php",
-		"/C/wamp/www/PureThink/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Controller/ResettingController.php",
-		"/C/wamp/www/PureThink/app/config/parameters.yml",
-		"/C/wamp/www/PureThink/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Controller/SecurityController.php",
 		"/C/wamp/www/PureThink/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/views/Resetting/checkEmail.html.twig",
 		"/C/wamp/www/PureThink/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/views/Resetting/request_content.html.twig",
-		"/C/wamp/www/PureThink/app/Resources/FOSUserBundle/views/Resetting/request.html.twig",
 		"/C/wamp/www/PureThink/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/views/Resetting/passwordAlreadyRequested.html.twig",
-		"/C/wamp/www/PureThink/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/views/Resetting/reset.html.twig",
-		"/C/wamp/www/PureThink/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/views/Resetting/reset_content.html.twig",
 		"/C/wamp/www/PureThink/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/views/Resetting/email.txt.twig",
 		"/C/wamp/www/PureThink/app/Resources/FOSUserBundle/views/Security/resetting.html.twig",
-		"/C/wamp/www/PureThink/src/My/BackendBundle/DataFixtures/ORM/LoadData.php",
-		"/C/wamp/www/PureThink/src/My/BackendBundle/Entity/SMTP.php",
-		"/C/wamp/www/PureThink/src/My/BackendBundle/data/smtps.xml",
 		"/C/wamp/www/GetTime/config/doctrine/firma.yml",
 		"/C/wamp/www/PureThink/src/My/BackendBundle/Entity/Series.php",
 		"/C/wamp/www/PureThink/src/My/FrontendBundle/Resources/views/Default/_footer.html.twig",
@@ -1111,28 +1116,7 @@
 		"/C/wamp/www/PureThink/src/My/BackendBundle/Controller/RowsOnPageController.php",
 		"/C/wamp/www/PureThink/src/My/BackendBundle/Controller/MenuController.php",
 		"/C/wamp/www/PureThink/src/My/BackendBundle/Controller/LeftMenuController.php",
-		"/C/wamp/www/PureThink/web/js/view/leftMenu.view.js",
-		"/C/wamp/www/PureThink/web/js/plugins/jquery.popup.js",
-		"/C/wamp/www/PureThink/src/My/BackendBundle/Resources/views/LeftMenu/_groups.html.twig",
-		"/C/wamp/www/PureThink/src/My/CMSBundle/Resources/views/CMSLeftMenu/_languages.html.twig",
-		"/C/Users/Michał/Downloads/25.01 lub 1.02/ing do 22.01",
-		"/C/wamp/www/PureThink/src/My/CMSBundle/Controller/CMSArticleController.php",
-		"/C/wamp/www/PureThink/web/less/mixins.less",
-		"/C/wamp/www/PureThink/src/My/CMSBundle/Resources/views/CMSArticle/_list.html.twig",
-		"/C/wamp/www/PureThink/web/js/view/edit.view.js",
-		"/C/wamp/www/PureThink/web/less/main.less",
-		"/C/wamp/www/PureThink/src/My/CMSBundle/Controller/CMSComponentController.php",
-		"/C/Users/Michał/AppData/Local/Temp/Temp1_Fixed-Header-Table-master.zip/Fixed-Header-Table-master/css/defaultTheme.css",
-		"/C/wamp/www/PureThink/.gitignore",
-		"/C/wamp/www/PureThink/web/app.php",
-		"/C/wamp/www/PureThink/web/js/view/module.view.js",
-		"/C/wamp/www/PureThink/web/js/model/userSetting.model.js",
-		"/C/Users/Michał/AppData/Local/Temp/Temp1_ludo-jquery-treetable-3.1.0-0-g609b82a.zip/ludo-jquery-treetable-609b82a/javascripts/src/jquery.treetable.js",
-		"/C/wamp/www/PureThink/src/My/BackendBundle/Resources/views/Default/_top_menu.html.twig",
-		"/C/wamp/www/PureThink/web/js/view/footer.view.js",
-		"/C/wamp/www/PureThink/web/less/top_menu.less",
-		"/C/wamp/www/PureThink/web/less/edit.less",
-		"/C/wamp/www/PureThink/web/js/view/pagination.view.js"
+		"/C/wamp/www/PureThink/web/js/view/leftMenu.view.js"
 	],
 	"find":
 	{
@@ -1150,6 +1134,10 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"sendMessage",
+			"sendEmailAction",
+			"sendResettingEmailMessage",
+			"send",
 			"renderLogin",
 			"username",
 			"fos_user_content",
@@ -1273,11 +1261,7 @@
 			"footer_container",
 			"stopka",
 			"emptyFilter",
-			"setActionsOnLeftMenu",
-			"                    \n",
-			"setActionsOnLeftMenu",
-			"setDynamicMenu",
-			"getLeftMenu"
+			"setActionsOnLeftMenu"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1295,334 +1279,8 @@
 	"groups":
 	[
 		{
-			"selected": 1,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "src/My/UserBundle/MyUserBundle.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 196,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								193,
-								193
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"annotations":
-							[
-								"TODO",
-								"README",
-								"FIXME"
-							],
-							"bh_regions":
-							[
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close"
-							],
-							"csslint_options":
-							{
-								"adjoining-classes": "warning",
-								"box-model": true,
-								"box-sizing": "warning",
-								"compatible-vendor-prefixes": "warning",
-								"display-property-grouping": true,
-								"duplicate-background-images": "warning",
-								"duplicate-properties": true,
-								"empty-rules": true,
-								"errors": true,
-								"fallback-colors": "warning",
-								"floats": "warning",
-								"font-faces": "warning",
-								"font-sizes": "warning",
-								"gradients": "warning",
-								"ids": "warning",
-								"import": "warning",
-								"important": "warning",
-								"known-properties": true,
-								"outline-none": "warning",
-								"overqualified-elements": "warning",
-								"qualified-headings": "warning",
-								"regex-selectors": "warning",
-								"rules-count": "warning",
-								"shorthand": "warning",
-								"star-property-hack": "warning",
-								"text-indent": "warning",
-								"underscore-property-hack": "warning",
-								"unique-headings": "warning",
-								"universal-selector": "warning",
-								"vendor-prefix": true,
-								"zero-units": "warning"
-							},
-							"gjslint_ignore":
-							[
-								110
-							],
-							"gjslint_options":
-							[
-							],
-							"is_xml": false,
-							"javascript_linter": "jshint",
-							"jshint_options":
-							{
-								"browser": true,
-								"evil": true,
-								"regexdash": true,
-								"sub": true,
-								"trailing": true,
-								"wsh": true
-							},
-							"pep8": true,
-							"pep8_ignore":
-							[
-								"E501"
-							],
-							"perl_linter": "perlcritic",
-							"pyflakes_ignore":
-							[
-							],
-							"pyflakes_ignore_import_*": true,
-							"sublimelinter": true,
-							"sublimelinter_delay": 2,
-							"sublimelinter_disable":
-							[
-							],
-							"sublimelinter_executable_map":
-							{
-							},
-							"sublimelinter_fill_outlines": false,
-							"sublimelinter_gutter_marks": true,
-							"sublimelinter_gutter_marks_theme": "simple",
-							"sublimelinter_mark_style": "none",
-							"sublimelinter_notes": false,
-							"sublimelinter_objj_check_ascii": false,
-							"sublimelinter_popup_errors_on_save": false,
-							"sublimelinter_syntax_map":
-							{
-								"C++": "c",
-								"Python Django": "python",
-								"Ruby on Rails": "ruby"
-							},
-							"sublimelinter_wrap_find": true,
-							"syntax": "Packages/PHP/PHP.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "app/config/security.yml",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1424,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								294,
-								294
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"annotations":
-							[
-								"TODO",
-								"README",
-								"FIXME"
-							],
-							"bh_regions":
-							[
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close"
-							],
-							"csslint_options":
-							{
-								"adjoining-classes": "warning",
-								"box-model": true,
-								"box-sizing": "warning",
-								"compatible-vendor-prefixes": "warning",
-								"display-property-grouping": true,
-								"duplicate-background-images": "warning",
-								"duplicate-properties": true,
-								"empty-rules": true,
-								"errors": true,
-								"fallback-colors": "warning",
-								"floats": "warning",
-								"font-faces": "warning",
-								"font-sizes": "warning",
-								"gradients": "warning",
-								"ids": "warning",
-								"import": "warning",
-								"important": "warning",
-								"known-properties": true,
-								"outline-none": "warning",
-								"overqualified-elements": "warning",
-								"qualified-headings": "warning",
-								"regex-selectors": "warning",
-								"rules-count": "warning",
-								"shorthand": "warning",
-								"star-property-hack": "warning",
-								"text-indent": "warning",
-								"underscore-property-hack": "warning",
-								"unique-headings": "warning",
-								"universal-selector": "warning",
-								"vendor-prefix": true,
-								"zero-units": "warning"
-							},
-							"gjslint_ignore":
-							[
-								110
-							],
-							"gjslint_options":
-							[
-							],
-							"javascript_linter": "jshint",
-							"jshint_options":
-							{
-								"browser": true,
-								"evil": true,
-								"regexdash": true,
-								"sub": true,
-								"trailing": true,
-								"wsh": true
-							},
-							"pep8": true,
-							"pep8_ignore":
-							[
-								"E501"
-							],
-							"perl_linter": "perlcritic",
-							"pyflakes_ignore":
-							[
-							],
-							"pyflakes_ignore_import_*": true,
-							"sublimelinter": true,
-							"sublimelinter_delay": 2,
-							"sublimelinter_disable":
-							[
-							],
-							"sublimelinter_executable_map":
-							{
-							},
-							"sublimelinter_fill_outlines": false,
-							"sublimelinter_gutter_marks": true,
-							"sublimelinter_gutter_marks_theme": "simple",
-							"sublimelinter_mark_style": "none",
-							"sublimelinter_notes": false,
-							"sublimelinter_objj_check_ascii": false,
-							"sublimelinter_popup_errors_on_save": false,
-							"sublimelinter_syntax_map":
-							{
-								"C++": "c",
-								"Python Django": "python",
-								"Ruby on Rails": "ruby"
-							},
-							"sublimelinter_wrap_find": true,
-							"syntax": "Packages/YAML/YAML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				}
 			]
 		}
 	],

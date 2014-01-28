@@ -36,4 +36,8 @@
         <name>News</name>
         <menu_id>7</menu_id>
     </serie>
+    <serie>
+        <name>Artykuł</name>
+        <menu_id>7</menu_id>
+    </serie>
 </series>

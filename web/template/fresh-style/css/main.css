@@ -295,8 +295,11 @@ a {
     width: 100%;
     margin: 20px 0 30px 0;
 }
-#article > .container > h2,
-#search > .container > h2  {
+#article {
+    margin-bottom: 0;
+}
+#article > .container > h2.header,
+#search > .container > h2.header  {
     position: relative;
     float: left;
     font-weight: normal;
