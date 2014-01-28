@@ -440,12 +440,6 @@
   border-radius: 3px;
   margin: 0 0 10px 20px;
 }
-#login_container > #login input[type="text"].name {
-  background-color: #fef3c2;
-  -moz-box-shadow: 0 0 10px #E5E5E5;
-  -webkit-box-shadow: 0 0 10px #E5E5E5;
-  box-shadow: 0 0 10px #E5E5E5;
-}
 #login_container > #login input[type="checkbox"] {
   position: relative;
   float: left;
@@ -491,12 +485,14 @@
   background: -o-linear-gradient(top, #6ac03d 20%, #6bc23e 50%, #6bc23e 52%, #5cb85c 100%);
   background: linear-gradient(top, #6ac03d 20%, #6bc23e 50%, #6bc23e 52%, #5cb85c 100%);
 }
-#login_container > #login .error_list {
-  position: relative;
-  float: left;
-  margin: 0 0 2px 20px;
+#login_container .error_list {
+  margin: 0 0 10px 20px;
   color: #DD4B39;
+  width: 100%;
   font-size: 12px;
+}
+#login_container .error_list ul {
+  list-style: none;
 }
 #left_menu {
   position: fixed;

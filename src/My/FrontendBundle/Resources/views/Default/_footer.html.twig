@@ -2,7 +2,7 @@
     <div class="container">
         <div class="left">
             {% if menus['Footer'] is defined %}
-                {% include 'MyFrontendBundle:Default:_menu.html.twig' with { 'menus': menus['Footer'], 'locale': locale, 'home': true } %}
+                {% include 'MyFrontendBundle:Default:_menu.html.twig' with { 'menus': menus['Footer'], 'locale': locale, 'home': true, 'login': true } %}
             {% endif %}
         </div>
         <div class="right">

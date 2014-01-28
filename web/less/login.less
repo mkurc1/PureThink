@@ -77,13 +77,6 @@
             margin: 0 0 10px 20px;
         }
 
-        input[type="text"].name {
-            background-color: @main-field-color;
-            -moz-box-shadow: 0 0 10px #E5E5E5;
-            -webkit-box-shadow: 0 0 10px #E5E5E5;
-            box-shadow: 0 0 10px #E5E5E5;
-        }
-
         input[type="checkbox"] {
             position: relative;
             float: left;
@@ -125,13 +118,16 @@
                 .edit_container_button_hover_gradient;
             }
         }
+    }
 
-        .error_list {
-            position: relative;
-            float: left;
-            margin: 0 0 2px 20px;
-            color: #DD4B39;
-            font-size: 12px;
+    .error_list {
+        margin: 0 0 10px 20px;
+        color: #DD4B39;
+        width: 100%;
+        font-size: 12px;
+
+        ul {
+            list-style: none;
         }
     }
 }

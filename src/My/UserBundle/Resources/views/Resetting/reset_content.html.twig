@@ -7,16 +7,20 @@
 </div>
 
 <div id="login_container">
-    <div id="login">
-        {% if invalid_username is defined %}
-            <div class="error_list">{{ 'resetting.request.invalid_username'|trans({'%username%': invalid_username}) }}</div>
-        {% endif %}
+    <div class="error_list">{{ form_errors(form.plainPassword.first) }}</div>
 
-        <form action="{{ path("fos_user_resetting_send_email") }}" method="POST">
-            <input type="text" id="username" name="username" placeholder="{{ 'resetting.request.username'|trans }}" />
+    <div id="login">
+        <form action="{{ path('fos_user_resetting_reset', {'token': token}) }}" {{ form_enctype(form) }} method="POST">
+            {{ form_widget(form._token) }}
+
+            {{ form_label(form.plainPassword.first) }}
+            {{ form_widget(form.plainPassword.first) }}
+
+            {{ form_label(form.plainPassword.second) }}
+            {{ form_widget(form.plainPassword.second) }}
 
             <div id="submit_container">
-                <input type="submit" id="_submit" name="_submit" value="{{ 'resetting.request.submit'|trans({}, 'FOSUserBundle') }}" />
+                <input type="submit" id="_submit" value="{{ 'resetting.reset.submit'|trans }}" />
             </div>
         </form>
 
