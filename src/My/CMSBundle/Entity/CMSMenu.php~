@@ -173,6 +173,7 @@ class CMSMenu
     {
         $this->menus = new \Doctrine\Common\Collections\ArrayCollection();
         $this->isPublic = false;
+        $this->isNewPage = false;
     }
 
     /**
@@ -331,5 +332,28 @@ class CMSMenu
     public function getArticle()
     {
         return $this->article;
+    }
+
+    /**
+     * Set isNewPage
+     *
+     * @param boolean $isNewPage
+     * @return CMSMenu
+     */
+    public function setIsNewPage($isNewPage)
+    {
+        $this->isNewPage = $isNewPage;
+
+        return $this;
+    }
+
+    /**
+     * Get isNewPage
+     *
+     * @return boolean
+     */
+    public function getIsNewPage()
+    {
+        return $this->isNewPage;
     }
 }

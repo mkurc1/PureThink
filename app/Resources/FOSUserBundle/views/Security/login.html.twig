@@ -31,7 +31,7 @@
 			<form action="{{ path("fos_user_security_check") }}" method="post">
 				<input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
 
-				<input type="text" id="username" name="_username" placeholder="Login ID" value="{{ last_username }}" />
+				<input class="name" type="text" id="username" name="_username" placeholder="Login ID" value="{{ last_username }}" />
 				<input type="password" id="password" name="_password" placeholder="Password" />
 
 				<div id="remember_me_container">
@@ -50,5 +50,7 @@
 			    </div>
 			{% endfor %}
 		</div>
+
+		<a id="resetting" href="{{ path("fos_user_resetting_request") }}">Zgubiłeś swoje hasło?</a>
 	</div>
 {% endblock body %}

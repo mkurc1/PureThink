@@ -114,6 +114,7 @@ class Series
     {
         return $this->menu;
     }
+
     /**
      * Constructor
      */

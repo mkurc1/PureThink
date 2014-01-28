@@ -1,0 +1,34 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}
+    PureThink - Resetting
+{% endblock title %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/purethink.css') }}">
+{% endblock stylesheets %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/helper.js') }}"></script>
+    <script src="{{ asset('js/login.js') }}"></script>
+{% endblock javascripts %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block body %}
+    <div id="top_menu">
+        <div id="logo">
+            <a href="{{ path('frontend') }}"><img src="{{ asset('images/logo_small.png') }}" alt="logo" /></a>
+        </div>
+    </div>
+
+    <div id="login_container">
+        <div id="login">
+            <p>{{ 'resetting.check_email'|trans({'%email%': email}) }}</p>
+        </div>
+
+        <a id="resetting" href="{{ path("fos_user_security_login") }}">Wróć na stronę logowania</a>
+    </div>
+{% endblock body %}

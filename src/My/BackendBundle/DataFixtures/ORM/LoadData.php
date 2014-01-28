@@ -11,6 +11,7 @@ use My\BackendBundle\Entity\RowsOnPage;
 use My\BackendBundle\Entity\UserSetting;
 use My\BackendBundle\Entity\Series;
 use My\BackendBundle\Entity\ColumnType;
+use My\BackendBundle\Entity\SMTP;
 
 class LoadData implements FixtureInterface
 {
@@ -28,6 +29,7 @@ class LoadData implements FixtureInterface
 		$manager = $this->addUserSettings($manager);
 		$manager = $this->addSeries($manager);
 		$manager = $this->addColumnTypes($manager);
+		$manager = $this->addSMTP($manager);
 	}
 
 	/**
@@ -168,6 +170,29 @@ class LoadData implements FixtureInterface
 			$ColumnType->setName($columnType->name);
 
 			$manager->persist($ColumnType);
+		}
+
+		$manager->flush();
+		return $manager;
+	}
+
+	/**
+	 * Add SMTP fixtures
+	 *
+	 * @param ObjectManager $manager
+	 */
+	private function addSMTP(ObjectManager $manager)
+	{
+		$xml = simplexml_load_file('src/My/BackendBundle/data/smtps.xml');
+		foreach ($xml->smtp as $smtp) {
+			$SMTP = new SMTP();
+			$SMTP->setHost($smtp->host);
+			$SMTP->setUser($smtp->user);
+			$SMTP->setPassword($smtp->password);
+			$SMTP->setPort($smtp->port);
+			$SMTP->setEncryption($smtp->encryption);
+
+			$manager->persist($SMTP);
 		}
 
 		$manager->flush();

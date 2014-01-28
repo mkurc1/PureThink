@@ -5,13 +5,23 @@
 #login_container {
     position: relative;
     float: left;
-    margin-top: 50px;
-    width: 100%;
+    margin: 50px auto 0 auto;
+    width: 420px;
+
+    > #resetting {
+        position: relative;
+        float: left;
+        font-size: 12px;
+        color: #21759B;
+        margin: 10px 0 0 20px;
+
+        &:hover {
+            color: #222222;
+        }
+    }
 
     > #login {
         position: relative;
-        margin: 0 auto;
-        width: 420px;
         background: #F8F8F8;
         border: 1px solid #d3d3d3;
         -moz-box-shadow: 0 0 20px #e4e4e4;
@@ -20,11 +30,16 @@
         border-radius: 4px;
         padding: 20px 0 15px 0;
 
+        p {
+            font-size: 12px;
+            padding: 0 10px;
+        }
+
         #remember_me_container {
             position: relative;
             float: left;
             width: 380px;
-            margin: 0 0 10px 20px;
+            margin: 0 0 0 20px;
         }
 
         label {
@@ -48,7 +63,7 @@
             margin: 0 0 10px 20px;
         }
 
-        input[type="text"] {
+        input[type="text"].name {
             background-color: @main-field-color;
             -moz-box-shadow: 0 0 10px #E5E5E5;
             -webkit-box-shadow: 0 0 10px #E5E5E5;
@@ -71,6 +86,7 @@
         #submit_container {
             position: relative;
             margin: 0 auto;
+            padding-top: 10px;
             width: 102px;
             height: 27px;
             clear: both;
