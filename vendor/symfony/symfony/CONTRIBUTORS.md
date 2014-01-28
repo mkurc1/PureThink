@@ -16,8 +16,8 @@ Symfony2 is the result of the work of many people who made the code better
  - Karma Dordrak (drak)
  - Ryan Weaver (weaverryan)
  - Lukas Kahwe Smith (lsmith)
- - Joseph Bielawski (stloyd)
  - Jakub Zalas (jakubzalas)
+ - Joseph Bielawski (stloyd)
  - Jeremy Mikola (jmikola)
  - Jean-François Simon (jfsimon)
  - Benjamin Eberlei (beberlei)
@@ -37,10 +37,10 @@ Symfony2 is the result of the work of many people who made the code better
  - Miha Vrhovnik
  - Henrik Bjørnskov (henrikbjorn)
  - Konstantin Kudryashov (everzet)
- - Florin Patan (florinpatan)
  - Bilal Amarni (bamarni)
- - Saša Stamenković (umpirsky)
+ - Florin Patan (florinpatan)
  - Grégoire Pineau (lyrixx)
+ - Saša Stamenković (umpirsky)
  - hhamon
  - Eric Clemmons (ericclemmons)
  - Deni
@@ -48,66 +48,71 @@ Symfony2 is the result of the work of many people who made the code better
  - Dariusz Górecki (canni)
  - Arnout Boks (aboks)
  - Andrej Hudec (pulzarraider)
+ - Wouter De Jong (wouterj)
  - Lee McDermott
  - Brandon Turner
  - Daniel Holmes (dholmes)
  - Jordan Alliot (jalliot)
+ - Douglas Greenshields (shieldo)
  - John Wards (johnwards)
  - Fran Moreno (franmomu)
  - Bart van den Burg (burgov)
- - Antoine Hérault (herzult)
- - Michel Weimerskirch (mweimerskirch)
- - Toni Uebernickel (havvg)
  - Christian Raue
- - Douglas Greenshields (shieldo)
+ - Antoine Hérault (herzult)
+ - Toni Uebernickel (havvg)
+ - Michel Weimerskirch (mweimerskirch)
+ - Brice BERNARD (brikou)
  - Arnaud Le Blanc (arnaud-lb)
  - marc.weistroff
- - Brice BERNARD (brikou)
  - lenar
  - Tim Nagel (merk)
  - Włodzimierz Gajda (gajdaw)
+ - Kevin Bond (kbond)
  - Colin Frei
  - excelwebzone
  - Fabien Pennequin (fabienpennequin)
  - Jacob Dreesen (jdreesen)
- - Kevin Bond (kbond)
- - Wouter De Jong (wouterj)
  - Adrien Brault (adrienbrault)
  - Michal Piotrowski (eventhorizon)
+ - Luis Cordova (cordoval)
  - Robert Schönthal (digitalkaoz)
  - Juti Noppornpitak (shiroyuki)
  - Sebastian Hörl (blogsh)
  - Hidenori Goto (hidenorigoto)
  - Gábor Egyed (1ed)
  - David Buchmann (dbu)
+ - Ait Boudad Abdellatif (aitboudad)
  - Daniel Gomes (danielcsgomes)
+ - Peter Kokot (maastermedia)
  - Jérémie Augustin (jaugustin)
  - Tigran Azatyan (tigranazatyan)
+ - Javier Eguiluz (javier.eguiluz)
+ - Rafael Dohms (rdohms)
  - Richard Shank (iampersistent)
  - Gordon Franke (gimler)
  - Helmer Aaviksoo
- - Javier Eguiluz (javier.eguiluz)
  - Matthieu Ouellette-Vachon (maoueh)
  - Michał Pipa (michal.pipa)
  - Amal Raghav (kertz)
  - Jonathan Ingram (jonathaningram)
  - Artur Kotyrba
  - Pablo Godel (pgodel)
+ - Eric GELOEN (gelo)
+ - Jérôme Tamarelle (gromnan)
  - Sebastiaan Stok (sstok)
  - Dmitrii Chekaliuk (lazyhammer)
  - Clément JOBEILI (dator)
  - Hiromi Hishida (77web)
+ - Dorian Villet (gnutix)
  - Richard Miller (mr_r_miller)
  - Arnaud Kleinpeter (nanocom)
- - Rafael Dohms (rdohms)
  - Mario A. Alvarez Garcia (nomack84)
  - Dennis Benkert (denderello)
- - Eric GELOEN (gelo)
  - Benjamin Dulau (dbenjamin)
  - Andreas Hucks (meandmymonkey)
  - Noel Guilbert (noel)
+ - bronze1man
  - Larry Garfield (crell)
- - Dorian Villet (gnutix)
  - Guilherme Blanco (guilhermeblanco)
  - Martin Schuhfuß (usefulthink)
  - Thomas Rabaix (rande)
@@ -115,22 +120,21 @@ Symfony2 is the result of the work of many people who made the code better
  - Pierre Minnieur (pminnieur)
  - fivestar
  - Dominique Bongiraud
+ - Rouven Weßling (realityking)
  - Leszek Prabucki (l3l0)
+ - François Zaninotto (fzaninotto)
  - Dustin Whittle (dustinwhittle)
  - jeff
  - Clemens Tolboom
- - Peter Kokot (maastermedia)
  - Justin Hileman (bobthecow)
  - Sven Paulus (subsven)
  - Joel Wurtz (brouznouf)
  - Rui Marinho (ruimarinho)
- - Jérôme Tamarelle (gromnan)
  - Julien Brochet (mewt)
  - Sergey Linnik (linniksa)
  - Marcel Beerta (mazen)
  - Francois Zaninotto
  - Alexander Kotynia (olden)
- - François Zaninotto (fzaninotto)
  - Danny Berger (dpb587)
  - Xavier Montaña Carreras (xmontana)
  - Xavier Perez
@@ -138,12 +142,13 @@ Symfony2 is the result of the work of many people who made the code better
  - Katsuhiro OGAWA
  - Andréia Bohner (andreia)
  - Alif Rachmawadi
+ - Matthias Pigulla (mpdude)
  - Joseph Rouff (rouffj)
  - Félix Labrecque (woodspire)
+ - Christian Flothmann (xabbuh)
  - GordonsLondon
  - Jan Sorgalla (jsor)
  - Ray
- - Ait Boudad Abdellatif (aitboudad)
  - Thomas Adam
  - Albert Casademont (acasademont)
  - jdhoek
@@ -154,23 +159,27 @@ Symfony2 is the result of the work of many people who made the code better
  - Kim Hemsø Rasmussen
  - Wouter Van Hecke
  - Michael Holm (hollo)
+ - Peter Rehm (rpet)
  - Marc Weistroff (futurecat)
- - bronze1man
  - Roman Marintšenko (inori)
  - Florian Klein (docteurklein)
- - Matthias Pigulla (mpdude)
  - Manuel Kiessling (manuelkiessling)
- - Christian Flothmann (xabbuh)
  - Bertrand Zuchuat (garfield-fr)
+ - Gabor Toth (tgabi333)
+ - Thomas Tourlourat (armetiz)
+ - Andrey Esaulov (andremaha)
  - Grégoire Passault (gregwar)
  - Uwe Jäger (uwej711)
  - Aurelijus Valeiša (aurelijus)
  - Gustavo Piltcher
  - Stepan Tanasiychuk (stfalcon)
+ - Bob den Otter (bopp)
  - Adrian Rudnik (kreischweide)
  - Francesc Rosàs (frosas)
+ - Julien Galenski (ruian)
  - Bongiraud Dominique
  - janschoenherr
+ - Marco Pivetta (ocramius)
  - Ricard Clau (ricardclau)
  - Erin Millard
  - Matthew Lewinski (lewinski)
@@ -179,6 +188,7 @@ Symfony2 is the result of the work of many people who made the code better
  - Vitaliy Zakharov (zakharovvi)
  - Gyula Sallai (salla)
  - Michele Orselli (orso)
+ - Christian Gärtner (dagardner)
  - Tom Van Looy (tvlooy)
  - Peter Kruithof (pkruithof)
  - Felix Labrecque
@@ -187,13 +197,15 @@ Symfony2 is the result of the work of many people who made the code better
  - Terje Bråten
  - Kristen Gilden (kgilden)
  - hossein zolfi (ocean)
+ - giulio de donato (liuggio)
  - Philipp Kräutli (pkraeutli)
+ - Kirill chEbba Chebunin (chebba)
  - Greg Thornton (xdissent)
  - Atsuhiro KUBO (iteman)
  - sun (sun)
  - Lars Strojny
- - Gabor Toth (tgabi333)
  - Costin Bereveanu (schniper)
+ - Loïc Chardonnet (gnusat)
  - realmfoo
  - Tamas Szijarto
  - Pavel Volokitin (pvolok)
@@ -203,9 +215,9 @@ Symfony2 is the result of the work of many people who made the code better
  - Joe Lencioni
  - Chekote
  - Kai
+ - Stefano Sala (stefano.sala)
  - Xavier HAUSHERR
  - Albert Jessurum (ajessu)
- - Luis Cordova (cordoval)
  - Laszlo Korte
  - Tiago Ribeiro (fixe)
  - Alessandro Desantis
@@ -214,13 +226,12 @@ Symfony2 is the result of the work of many people who made the code better
  - Oscar Cubo Medina (ocubom)
  - Karel Souffriau
  - Christophe L. (christophelau)
- - Julien Galenski (ruian)
  - Jáchym Toušek
  - Emanuele Gaspari (inmarelibero)
  - Brian King
  - Michel Salib (michelsalib)
  - geoffrey
- - Marco Pivetta (ocramius)
+ - Florian Voutzinos (florianv)
  - Nikita Konstantinov
  - Jeanmonod David (jeanmonod)
  - Jan Schumann
@@ -229,15 +240,17 @@ Symfony2 is the result of the work of many people who made the code better
  - lancergr
  - Antonio J. García Lagar (ajgarlag)
  - Olivier Dolbeau (odolbeau)
+ - Daniel Tschinder
  - alquerci
  - vagrant
- - Christian Gärtner (dagardner)
  - Asier Illarramendi (doup)
  - Christoph Mewes (xrstf)
  - Vitaliy Tverdokhlib (vitaliytv)
  - Dirk Pahl (dirkaholic)
  - Jonas Flodén (flojon)
+ - Sébastien Lavoie (lavoiesl)
  - Marcin Sikoń (marphi)
+ - franek (franek)
  - Adam Harvey
  - boombatower
  - Fabrice Bernhard (fabriceb)
@@ -249,7 +262,6 @@ Symfony2 is the result of the work of many people who made the code better
  - Manuel de Ruiter (manuel)
  - Jérémy Romey (jeremyfreeagent)
  - Eduardo Oliveira (entering)
- - Loïc Chardonnet (gnusat)
  - Iker Ibarguren (ikerib)
  - Ricardo Oliveira (ricardolotr)
  - ondrowan
@@ -280,7 +292,6 @@ Symfony2 is the result of the work of many people who made the code better
  - Ivan Rey (ivanrey)
  - Marcin Chyłek (songoq)
  - Ned Schwartz
- - Thomas Tourlourat (armetiz)
  - Ziumin
  - Lenar Lõhmus
  - Zach Badgett (zachbadgett)
@@ -289,6 +300,7 @@ Symfony2 is the result of the work of many people who made the code better
  - Pavel Campr (pcampr)
  - Miha Vrhovnik
  - Geoffrey Tran (geoff)
+ - Jan Behrens
  - Thomas Lallement (raziel057)
  - vitaliytv
  - Markus Bachmann (baachi)
@@ -308,6 +320,7 @@ Symfony2 is the result of the work of many people who made the code better
  - Dustin Dobervich (dustin10)
  - Sebastian Marek (proofek)
  - Erkhembayar Gantulga (erheme318)
+ - Kamil Kokot (pamil)
  - Rostyslav Kinash
  - Vincent Simonin
  - Stefan Warman
@@ -318,24 +331,28 @@ Symfony2 is the result of the work of many people who made the code better
  - Chris Heng (gigablah)
  - Antoine Corcy
  - cedric lombardot (cedriclombardot)
- - franek (franek)
  - John Kary (johnkary)
  - François-Xavier de Guillebon (de-gui_f)
  - Hossein Bukhamsin
+ - Paweł Wacławczyk (pwc)
  - Oleg Zinchenko (cystbear)
  - Diego Saint Esteben (dii3g0)
  - Johannes Klauss (cloppy)
+ - Evan Villemez
  - fzerorubigd
  - Tiago Brito (blackmx)
  - develop
  - Tomasz Kowalczyk (thunderer)
  - Mark Sonnabaum
  - Filippo Tessarotto
+ - Arturas Smorgun (asarturas)
+ - Alexander Volochnev (exelenz)
  - Michael Piecko
  - yclian
  - Pascal Helfenstein
  - Baldur Rensch (brensch)
  - Alex Xandra Albert Sim
+ - florianv
  - Yuen-Chi Lian
  - Besnik Br
  - Joshua Nye
@@ -349,7 +366,6 @@ Symfony2 is the result of the work of many people who made the code better
  - Casper Valdemar Poulsen
  - Eduardo Gulias (egulias)
  - Josiah (josiah)
- - Peter Rehm
  - John Bohn (jbohn)
  - Andrew Hilobok (hilobok)
  - Christian Soronellas (theunic)
@@ -371,7 +387,6 @@ Symfony2 is the result of the work of many people who made the code better
  - Thomas Ploch (tploch)
  - Reen Lokum
  - Martin Parsiegla (spea)
- - Stefano Sala (stefano.sala)
  - Pierre Vanliefland (pvanliefland)
  - frost-nzcr4
  - Abhoryo
@@ -383,12 +398,11 @@ Symfony2 is the result of the work of many people who made the code better
  - Cyril Quintin (cyqui)
  - Gerard van Helden (drm)
  - Patrick Allaert
- - Kirill chEbba Chebunin (chebba)
  - Gustavo Falco (gfalco)
  - Aleksey Podskrebyshev
- - Bob den Otter (bopp)
  - David Marín Carreño (davefx)
  - Jörn Lang (j.lang)
+ - Baptiste Clavié (talus)
  - julien pauli (jpauli)
  - mwsaz
  - Benoît Bourgeois
@@ -402,7 +416,6 @@ Symfony2 is the result of the work of many people who made the code better
  - Timothée Barray (tyx)
  - Christian Morgan
  - Alexander Miehe (engerim)
- - giulio de donato (liuggio)
  - Titouan Galopin (tgalopin)
  - Don Pinkster
  - Maksim Muruev
@@ -415,7 +428,9 @@ Symfony2 is the result of the work of many people who made the code better
  - Arno Geurts
  - Adán Lobato (adanlobato)
  - Maks
+ - Gábor Tóth
  - Daniel Cestari
+ - Philipp Rieber (bicpi)
  - Magnus Nordlander (magnusnordlander)
  - Mikhail Yurasov (mym)
  - Florian Rey (nervo)
@@ -423,7 +438,6 @@ Symfony2 is the result of the work of many people who made the code better
  - Robert Gruendler (pulse00)
  - Simon Terrien (sterrien)
  - Benoît Merlet (trompette)
- - Jan Behrens
  - Raul Fraile (raulfraile)
  - sensio
  - Patrick Kaufmann
@@ -438,6 +452,7 @@ Symfony2 is the result of the work of many people who made the code better
  - ttomor
  - Mei Gwilym (meigwilym)
  - Luciano Mammino (loige)
+ - fabios
  - Sander Coolen (scoolen)
  - Nicolas Le Goff (nlegoff)
  - Manuele Menozzi
@@ -446,6 +461,7 @@ Symfony2 is the result of the work of many people who made the code better
  - dantleech
  - Tero Alén (tero)
  - DerManoMann
+ - Guillaume Royer
  - Artem (digi)
  - dantleech
  - Vadim Tyukov (vatson)
@@ -455,22 +471,26 @@ Symfony2 is the result of the work of many people who made the code better
  - Máximo Cuadros (mcuadros)
  - Alex Bogomazov
  - julien.galenski
- - Sébastien Lavoie (lavoiesl)
+ - Christian Schmidt
  - Per Sandström (per)
  - Lin Clark
  - Jeremy David (jeremy.david)
+ - Florian Lonqueu-Brochard (florianlb)
  - Troy McCabe
  - Ville Mattila
  - Ben Davies
  - Max Beutel
+ - Catalin Dan
  - Piotr Antosik (antek88)
  - Artem Lopata
  - Marcos Quesada (marcos_quesada)
  - Dan Finnie
  - Ken Marfilla (marfillaster)
+ - benatespina (benatespina)
  - jfcixmedia
  - Martijn Evers
  - Benjamin Paap (benjaminpaap)
+ - Simon Schick (simonsimcity)
  - Christian
  - Sergii Smertin (nfx)
  - Eddie Jaoude
@@ -488,27 +508,34 @@ Symfony2 is the result of the work of many people who made the code better
  - Benoit Garret
  - DerManoMann
  - Roland Franssen (ro0)
+ - Mathieu Lemoine
+ - Rodrigo Díez Villamuera (rodrigodiez)
  - Jochen Bayer (jocl)
  - Jeremy Bush
- - Evan Villemez
  - Péter Buri (burci)
  - Davide Borsatto (davide.borsatto)
  - kaiwa
  - Albert Ganiev (helios-ag)
  - Neil Katin
  - peter
+ - Artem Kolesnikov (tyomo4ka)
  - Gustavo Adrian
  - Clément Gautier (clementgautier)
+ - David de Boer (ddeboer)
  - Brooks Boyd
  - Roger Webb
  - Nicolas Fabre (nfabre)
  - Raul Rodriguez (raul782)
+ - Derek Lambert
  - Felicitus
+ - Krzysztof Przybyszewski
  - Paul Matthews
  - Juan Traverso
+ - Jerzy Zawadzki
  - Philipp Strube
  - Christian Sciberras
  - Clement Herreman (clemherreman)
+ - Trent Steel (trsteel88)
  - Marco
  - Alberto Aldegheri
  - heccjj
@@ -518,6 +545,7 @@ Symfony2 is the result of the work of many people who made the code better
  - Mo Di (modi)
  - Richard van den Brand (ricbra)
  - Quique Porta (quiqueporta)
+ - Tomasz Szymczyk (karion)
  - Aharon Perkel
  - Malaney J. Hill
  - Cédric Girard (enk_)
@@ -532,6 +560,7 @@ Symfony2 is the result of the work of many people who made the code better
  - Daniel Wehner
  - Saem Ghani
  - Sebastian Utz
+ - Karol Sójko (karolsojko)
  - Sébastien HOUZÉ
  - Samy Dindane (dinduks)
  - Keri Henare (kerihenare)
@@ -541,16 +570,21 @@ Symfony2 is the result of the work of many people who made the code better
  - ShiraNai7
  - Janusz Jabłoński (yanoosh)
  - George Giannoulopoulos
+ - Daniel Richter (richtermeister)
  - Chris Wilkinson (thewilkybarkid)
+ - ChrisC
  - Ilya Biryukov
  - Jason Desrosiers
  - m.chwedziak
  - Lance McNearney
+ - Giorgio Premi
  - caponica
  - Matt Daum (daum)
  - Alberto Pirovano (geezmo)
  - Martin Pärtel
+ - Evgeniy (ewgraf)
  - Xavier Briand (xavierbriand)
+ - WedgeSama
  - Romain Geissler
  - Charles Sarrazin (csarrazi)
  - Marcus Stöhr (dafish)
@@ -565,7 +599,9 @@ Symfony2 is the result of the work of many people who made the code better
  - Sebastian Krebs
  - Rick Prent
  - Martin Eckhardt
+ - Jon Gotlin (jongotlin)
  - Michael Dowling (mtdowling)
+ - Nicolas Grekas (nicolas-grekas)
  - BilgeXA
  - Robert Queck
  - mlively
@@ -577,6 +613,7 @@ Symfony2 is the result of the work of many people who made the code better
  - fdgdfg (psampaz)
  - Maxwell Vandervelde
  - kaywalker
+ - Mike Meier
  - Sebastian Ionescu
  - Simon Neidhold
  - Kevin Dew
@@ -584,6 +621,7 @@ Symfony2 is the result of the work of many people who made the code better
  - Jeremy Livingston (jeremylivingston)
  - Nicolas Schwartz (nicoschwartz)
  - Patrik Gmitter (patie)
+ - Jonathan Gough
  - Benjamin Bender
  - Konrad Mohrfeldt
  - Benoit Lévêque (benoit_leveque)
@@ -598,6 +636,7 @@ Symfony2 is the result of the work of many people who made the code better
  - Jakub Škvára (jskvara)
  - Nicolas Badey (nico-b)
  - povilas
+ - Alexander Obuhovich
  - Alessandro Tagliapietra (alex88)
  - Gunnar Lium (gunnarlium)
  - Tiago Garcia (tiagojsag)
@@ -606,18 +645,17 @@ Symfony2 is the result of the work of many people who made the code better
  - Harm van Tilborg
  - Martin Eckhardt
  - Leonid Terentyev
+ - Jonathan Poston
  - Przemysław Piechota (kibao)
  - Adam Prager (padam87)
  - Francisco Facioni (fran6co)
  - Iwan van Staveren (istaveren)
  - Povilas S. (povilas)
- - Paweł Wacławczyk (pwc)
  - pborreli
  - Eric Caron
  - 2manypeople
  - Thomas Bibb
  - Josef Cech
- - Andrey Esaulov (andremaha)
  - Matthew Foster (mfoster)
  - Paul Seiffert (seiffert)
  - Vasily Khayrulin (sirian)
@@ -626,6 +664,7 @@ Symfony2 is the result of the work of many people who made the code better
  - stloyd
  - Chris Tickner
  - Andrew Coulton
+ - David Stone
  - Luis Muñoz
  - Strate
  - Thomas Chmielowiec
@@ -664,8 +703,10 @@ Symfony2 is the result of the work of many people who made the code better
  - Artyom Protaskin
  - Nathanael d. Noblet
  - helmer
+ - Daan van Renterghem
  - Bram Van der Sype (brammm)
  - Julien Moulin (lizjulien)
+ - Matthieu Auger (matthieuauger)
  - dened
  - devel
  - gedrox
@@ -679,6 +720,7 @@ Symfony2 is the result of the work of many people who made the code better
  - tante kinast (tante)
  - Alexander Zogheb
  - Florian Pfitzer
+ - Joel Marcey
  - David Christmann
  - root
  - Tom Maguire
@@ -716,33 +758,40 @@ Symfony2 is the result of the work of many people who made the code better
  - Rafał
  - Masao Maeda (brtriver)
  - Dave Marshall (davedevelopment)
+ - David Joos (djoos)
  - Denis Klementjev (dklementjev)
  - Kévin Dunglas (dunglas)
  - Vincent Composieux (eko)
+ - gondo (gondo)
  - Osman Üngür (import)
  - Jorge Martin (jorgemartind)
  - Kevin Herrera (kherge)
+ - Marek Štípek (maryo)
  - Matthew Davis (mdavis1982)
  - Muriel (metalmumu)
  - Michaël Perrin (michael.perrin)
  - Pablo Monterde Perez (plebs)
  - Rafał Wrzeszcz (rafalwrzeszcz)
  - Jimmy Leger (redpanda)
- - Baptiste Clavié (talus)
  - Cyrille Jouineau (tuxosaurus)
  - Yorkie Chadwick (yorkie76)
  - Yanick Witschi
+ - Ondrej Mirtes
+ - Youpie
  - srsbiz
  - Nicolas A. Bérard-Nault
  - Gladhon
  - Saem Ghani
  - Stefan Oderbolz
+ - Daniel Tschinder
  - Alexey Popkov
+ - Joseph Deray
  - Arnaud Buathier (arnapou)
  - chesteroni (chesteroni)
  - Alexander M. Turek (derrabus)
  - Mauricio Lopez (diaspar)
  - Daniele Cesarini (ijanki)
+ - Ismail Asci (ismailasci)
  - Simon CONSTANS (kosssi)
  - Ramon Henrique Ornelas (ramonornela)
  - Till Klampaeckel (till)
@@ -755,8 +804,10 @@ Symfony2 is the result of the work of many people who made the code better
  - Sylvain Lorinet
  - jc
  - BenjaminBeck
+ - Aurelijus Rožėnas
  - Christian Eikermann
  - Antonio Angelino
+ - Quentin Schuler
  - Vladimir Sazhin
  - jamogon
  - Vyacheslav Slinko
@@ -774,7 +825,6 @@ Symfony2 is the result of the work of many people who made the code better
  - Kaipi Yann
  - Sam Williams
  - James Michael DuPont
- - Gábor Tóth
  - Tammy D
  - Ondrej Slinták
  - vlechemin
@@ -783,13 +833,16 @@ Symfony2 is the result of the work of many people who made the code better
  - mieszko4
  - datibbaw
  - Norbert Orzechowicz
+ - Markus Staab
  - Pierre-Louis LAUNAY
  - djama
+ - Eduardo Conceição
  - Jon Cave
  - Sébastien HOUZE
  - Abdulkadir N. A.
  - Sema
  - Thorsten Hallwas
+ - Daisuke Ohata
  - Michael Squires
  - Chris Smith
  - kwiateusz
@@ -798,7 +851,6 @@ Symfony2 is the result of the work of many people who made the code better
  - dinitrol
  - Penny Leach
  - oscartv
- - Philipp Rieber
  - DanSync
  - Peter Zwosta
  - parhs
@@ -806,6 +858,7 @@ Symfony2 is the result of the work of many people who made the code better
  - Christian Stocker
  - tirnanog06
  - phc
+ - Michaël VEROUX
  - sualko
  - Nicolas Roudaire
  - Lee Rowlands
@@ -818,6 +871,7 @@ Symfony2 is the result of the work of many people who made the code better
  - Chris Sedlmayr (catchamonkey)
  - Kousuke Ebihara (co3k)
  - Cas Leentfaar (codeklopper)
+ - Loïc Vernet (coil)
  - Christoph Schaefer (cvschaefer)
  - Damien Alexandre (damienalexandre)
  - Damon Jones (damon__jones)

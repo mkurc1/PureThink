@@ -1,5 +1,21 @@
 # CHANGELOG
 
+### 1.1.9 - 2.1.9 (2014-01-04)
+
+ * ebeb553 - [ConfigManager] Fix merge config behavior
+ * 4808b41 - Fix Config, Plugin, Template & StylesSet arrays initialization
+ * ec2f56d - [Template] Fix textarea value escaping
+ * 58f9549 - [ConfigManager] Allow to define filebrowser*Url via a closure
+ * 9ecc2c1 - [Model] Add stylesSet support
+ * c199353 - [Model] Add templates support
+
+### 1.1.8 - 2.1.8 (2013-12-12)
+
+ * b22d11c - Upgrade CKEditor to 4.3.1
+ * c9e65d7 - [Travis] Simplify matrix + Add Symfony 2.4 to the build
+ * 434e92f - [Type] Add CKEditor constants support
+ * af8f9da - Upgrade CKEditor to 4.3
+
 ### 1.1.7 - 2.1.7 (2013-10-09)
 
  * 03f90cf - Upgrade CKEditor to 4.2.1

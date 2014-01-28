@@ -264,6 +264,57 @@ abstract class AbstractIvoryCKEditorExtensionTest extends \PHPUnit_Framework_Tes
         $this->container->leaveScope('request');
     }
 
+    public function testStylesSets()
+    {
+        $this->loadConfiguration($this->container, 'styles_sets');
+        $this->container->compile();
+
+        $stylesSetManager = $this->container->get('ivory_ck_editor.styles_set_manager');
+
+        $expected = array(
+            'default' => array(
+                array('name' => 'Blue Title', 'element' => 'h2', 'styles' => array('color' => 'Blue')),
+                array('name' => 'CSS Style', 'element' => 'span', 'attributes' => array('class' => 'my_style')),
+            )
+        );
+
+        $this->assertSame($expected, $stylesSetManager->getStylesSets());
+    }
+
+    public function testTemplates()
+    {
+        $this->loadConfiguration($this->container, 'templates');
+        $this->container->compile();
+
+        $this->container->enterScope('request');
+
+        $this->assetsHelperMock
+            ->expects($this->once())
+            ->method('getUrl')
+            ->with($this->equalTo('/my/path'), $this->equalTo(null))
+            ->will($this->returnValue('/my/rewritten/path'));
+
+        $templateManager = $this->container->get('ivory_ck_editor.template_manager');
+
+        $expected = array(
+            'default' => array(
+                'imagesPath' => '/my/rewritten/path',
+                'templates'  => array(
+                    array(
+                        'title'       => 'My Template',
+                        'image'       => 'image.jpg',
+                        'description' => 'My awesome description',
+                        'html'        => '<h1>Template</h1><p>Type your text here.</p>',
+                    ),
+                ),
+            ),
+        );
+
+        $this->assertSame($expected, $templateManager->getTemplates());
+
+        $this->container->leaveScope('request');
+    }
+
     public function testCustomPaths()
     {
         $this->loadConfiguration($this->container, 'custom_paths');

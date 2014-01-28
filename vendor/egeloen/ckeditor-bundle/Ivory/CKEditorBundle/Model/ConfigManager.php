@@ -36,7 +36,7 @@ class ConfigManager implements ConfigManagerInterface
     protected $defaultConfig;
 
     /** @var array */
-    protected $configs;
+    protected $configs = array();
 
     /**
      * Creates a CKEditor config manager.
@@ -206,7 +206,10 @@ class ConfigManager implements ConfigManagerInterface
      */
     public function mergeConfig($name, array $config)
     {
-        $this->setConfig($name, array_merge($this->getConfig($name), $config));
+        $previousConfig = $this->getConfig($name);
+        $this->setConfig($name, $config);
+
+        $this->configs[$name] = array_merge($previousConfig, $this->getConfig($name));
     }
 
     /**
@@ -242,22 +245,25 @@ class ConfigManager implements ConfigManagerInterface
     protected function handleFileBrowser(array $config)
     {
         $filebrowser = function ($key, array &$config, RouterInterface $router) {
+            $filebrowserHandler = 'filebrowser'.$key.'Handler';
             $filebrowserRoute = 'filebrowser'.$key.'Route';
+            $filebrowserRouteParameters = 'filebrowser'.$key.'RouteParameters';
+            $filebrowserRouteAbsolute = 'filebrowser'.$key.'RouteAbsolute';
 
-            if (isset($config[$filebrowserRoute])) {
-                $filebrowserRouteParameters = 'filebrowser'.$key.'RouteParameters';
-                $filebrowserRouteAbsolute = 'filebrowser'.$key.'RouteAbsolute';
-
+            if (isset($config[$filebrowserHandler])) {
+                $config['filebrowser'.$key.'Url'] = $config[$filebrowserHandler]($router);
+            } elseif (isset($config[$filebrowserRoute])) {
                 $config['filebrowser'.$key.'Url'] = $router->generate(
                     $config[$filebrowserRoute],
                     isset($config[$filebrowserRouteParameters]) ? $config[$filebrowserRouteParameters] : array(),
                     isset($config[$filebrowserRouteAbsolute]) ? $config[$filebrowserRouteAbsolute] : false
                 );
-
-                unset($config[$filebrowserRoute]);
-                unset($config[$filebrowserRouteParameters]);
-                unset($config[$filebrowserRouteAbsolute]);
             }
+
+            unset($config[$filebrowserHandler]);
+            unset($config[$filebrowserRoute]);
+            unset($config[$filebrowserRouteParameters]);
+            unset($config[$filebrowserRouteAbsolute]);
         };
 
         $filebrowser('Browse', $config, $this->router);

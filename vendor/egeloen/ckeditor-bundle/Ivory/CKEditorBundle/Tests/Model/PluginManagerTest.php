@@ -58,6 +58,7 @@ class PluginManagerTest extends \PHPUnit_Framework_TestCase
         $this->assertSame($this->assetsHelperMock, $this->pluginManager->getAssetsHelper());
         $this->assertSame($this->assetsVersionTrimerHelperMock, $this->pluginManager->getAssetsVersionTrimerHelper());
         $this->assertFalse($this->pluginManager->hasPlugins());
+        $this->assertSame(array(), $this->pluginManager->getPlugins());
     }
 
     public function testInitialState()
@@ -121,8 +122,8 @@ class PluginManagerTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue($this->pluginManager->hasPlugin('wordcount'));
 
         $this->assertSame(
-            array('path' => '/my/rewritten/path', 'filename' => 'plugin.js'),
-            $this->pluginManager->getPlugin('wordcount')
+            array('wordcount' => array('path' => '/my/rewritten/path', 'filename' => 'plugin.js')),
+            $this->pluginManager->getPlugins()
         );
     }
 

@@ -270,4 +270,27 @@ class Menu
     {
         return $this->series;
     }
+
+    /**
+     * Add series
+     *
+     * @param \My\BackendBundle\Entity\Series $series
+     * @return Menu
+     */
+    public function addSeries(\My\BackendBundle\Entity\Series $series)
+    {
+        $this->series[] = $series;
+
+        return $this;
+    }
+
+    /**
+     * Remove series
+     *
+     * @param \My\BackendBundle\Entity\Series $series
+     */
+    public function removeSeries(\My\BackendBundle\Entity\Series $series)
+    {
+        $this->series->removeElement($series);
+    }
 }
