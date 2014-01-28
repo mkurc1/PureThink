@@ -1,20 +1,10 @@
-{% extends "::base.html.twig" %}
+{% extends "MyUserBundle::layout.html.twig" %}
 
 {% block title %}
     PureThink - Resetting
 {% endblock title %}
 
-{% block stylesheets %}
-    {{ parent() }}
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/purethink.css') }}">
-{% endblock stylesheets %}
-
-{% block javascripts %}
-    {{ parent() }}
-    <script src="{{ asset('js/helper.js') }}"></script>
-    <script src="{{ asset('js/login.js') }}"></script>
-{% endblock javascripts %}
-
 {% block body %}
+    {{ parent() }}
     {% include "FOSUserBundle:Resetting:reset_content.html.twig" %}
 {% endblock body %}

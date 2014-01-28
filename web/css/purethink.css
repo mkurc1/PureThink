@@ -485,14 +485,19 @@
   background: -o-linear-gradient(top, #6ac03d 20%, #6bc23e 50%, #6bc23e 52%, #5cb85c 100%);
   background: linear-gradient(top, #6ac03d 20%, #6bc23e 50%, #6bc23e 52%, #5cb85c 100%);
 }
-#login_container .error_list {
+#login_container .error_list,
+#login_container .flash-success {
   margin: 0 0 10px 20px;
   color: #DD4B39;
   width: 100%;
   font-size: 12px;
 }
-#login_container .error_list ul {
+#login_container .error_list ul,
+#login_container .flash-success ul {
   list-style: none;
+}
+#login_container .flash-success {
+  color: #44E714;
 }
 #left_menu {
   position: fixed;

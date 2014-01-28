@@ -1,0 +1,20 @@
+{% extends "::base.html.twig" %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/purethink.css') }}">
+{% endblock stylesheets %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/helper.js') }}"></script>
+    <script src="{{ asset('js/login.js') }}"></script>
+{% endblock javascripts %}
+
+{% block body %}
+    <div id="top_menu">
+        <div id="logo">
+            <a href="{{ path('frontend') }}"><img src="{{ asset('images/logo_small.png') }}" alt="logo" /></a>
+        </div>
+    </div>
+{% endblock body %}
