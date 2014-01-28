@@ -9,7 +9,10 @@ security:
     firewalls:
         main:
             pattern: ^/
-            logout: true
+            logout:
+                path: /logout
+                target: /
+                invalidate_session: false
             anonymous: true
             form_login:
                 provider: fos_userbundle
