@@ -1,112 +1,28 @@
-/*
-Copyright (c) 2003-2013, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.md or http://ckeditor.com/license
-*/
-
-#article {
-	/* Font */
-	font-family: sans-serif, Arial, Verdana, "Trebuchet MS";
-	font-size: 13px;
-
-	/* Text color */
-	color: #333;
-
-    line-height: 1.6em;
+#main_menu {
+    background-color: #579BF0;
+    background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(20%, #2B9BEE), color-stop(50%, #518ded), color-stop(52%, #3b82f5), color-stop(100%, #347AEF));
+    background: -webkit-linear-gradient(top, #2B9BEE 20%, #518ded 50%, #3b82f5 52%, #347AEF 100%);
+    background: -moz-linear-gradient(top, #2B9BEE 20%, #518ded 50%, #3b82f5 52%, #347AEF 100%);
+    background: -o-linear-gradient(top, #2B9BEE 20%, #518ded 50%, #3b82f5 52%, #347AEF 100%);
+    background: linear-gradient(top, #2B9BEE 20%, #518ded 50%, #3b82f5 52%, #347AEF 100%);
 }
 
-#article .cke_editable {
-	font-size: 13px;
-	line-height: 1.6em;
+#main_menu > .container > #search-form > #search_box {
+    margin-top: 5px;
 }
 
-#article blockquote {
-	font-style: italic;
-	font-family: Georgia, Times, "Times New Roman", serif;
-	padding: 2px 0;
-	border-style: solid;
-	border-color: #ccc;
-	border-width: 0;
+#main_menu > .container > ul > li {
+    padding: 9px 10px 8px;
 }
 
-#article .cke_contents_ltr blockquote {
-	padding-left: 20px;
-	padding-right: 8px;
-	border-left-width: 5px;
+#main_menu > .container > ul > li > a {
+    color: #F8F8F8;
 }
 
-#article .cke_contents_rtl blockquote {
-	padding-left: 8px;
-	padding-right: 20px;
-	border-right-width: 5px;
+#main_menu > .container > ul > li.selected > a {
+    color: #E1E1E1;
 }
 
-#article a {
-	color: #0782C1;
-}
-
-#article p {
-    line-height: 1.7em;
-    margin-bottom: 5px;
-}
-
-#article table {
-    border: 1px solid #cccccc;
-}
-
-#article table td,
-#article table th {
-    border: 1px solid #cccccc;
-    padding: 3px 5px;
-}
-
-#article ol, #article ul, #article dl {
-	/* IE7: reset rtl list margin. (#7334) */
-	*margin-right: 0px;
-	/* preserved spaces for list items with text direction other than the list. (#6249,#8049)*/
-	padding: 0 40px;
-    margin-bottom: 5px;
-}
-
-#article li {
-    line-height: 1.7em;
-    margin-bottom: 5px;
-}
-
-#article h1, #article h2, #article h3, #article h4, #article h5, #article h6 {
-	font-weight: normal;
-	line-height: 1.2em;
-    margin: 15px 0;
-}
-
-#article hr {
-	border: 0px;
-	border-top: 1px solid #ccc;
-}
-
-#article img.right {
-    border: 1px solid #ccc;
-    float: right;
-    margin-left: 15px;
-    padding: 5px;
-}
-
-#article img.left {
-    border: 1px solid #ccc;
-    float: left;
-    margin-right: 15px;
-    padding: 5px;
-}
-
-#article img:hover {
-	opacity: .9;
-	filter: alpha(opacity = 90);
-}
-
-#article pre {
-	white-space: pre-wrap; /* CSS 2.1 */
-	word-wrap: break-word; /* IE7 */
-}
-
-#article .marker {
-    background-color: Yellow;
+#main_menu > .container > ul > li.has_submenu:hover > a {
+    color: #303030;
 }

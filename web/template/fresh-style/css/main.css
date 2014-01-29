@@ -17,6 +17,46 @@ a {
     margin: 0 auto;
     width: 1000px;
 }
+#cookie {
+    position: relative;
+    width: 100%;
+    display: none;
+}
+#cookie > .container {
+    background-color: #E7EBED;
+    border-radius: 5px;
+    margin-top: 25px;
+    padding: 10px;
+    width: 980px;
+}
+#cookie > .container h5 {
+    font-size: 17px;
+    font-weight: normal;
+    color: #3E3E3E;
+    margin-bottom: 10px;
+}
+#cookie > .container p {
+    font-size: 13px;
+    color: #3E3E3E;
+}
+#cookie > .container a {
+    color: #000;
+}
+#cookie > .container a:hover {
+    text-decoration: underline;
+}
+#cookie > .container a.close {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    cursor: pointer;
+}
+#cookie > .container a.close i {
+    color: #2D2D2D;
+}
+#cookie > .container a.close:hover i {
+    color: #000;
+}
 #top {
     position: relative;
     width: 100%;
@@ -45,7 +85,7 @@ a {
     color: #121212;
 }
 #top > .container > ul#language > li.selected > a {
-    color: #666666;
+    color: #A5A5A5;
 }
 #main_menu {
     position: relative;
@@ -306,7 +346,7 @@ a {
     font-size: 18px;
     color: #545450;
     width: 100%;
-    margin: 0 0 10px 0;
+    margin: 10px 0 20px 0;
 }
 #search > .container ul {
     list-style-position: inside;

@@ -128,4 +128,8 @@
         <component_on_page_id>5</component_on_page_id>
         <is_enable>1</is_enable>
     </cmsComponentOnPageHasElement>
+    <cmsComponentOnPageHasElement>
+        <component_on_page_id>6</component_on_page_id>
+        <is_enable>1</is_enable>
+    </cmsComponentOnPageHasElement>
 </cmsComponentOnPageHasElements>

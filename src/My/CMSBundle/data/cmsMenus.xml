@@ -82,4 +82,13 @@
         <sequence>2</sequence>
         <menu_id>2</menu_id>
     </cmsMenu>
+    <cmsMenu>
+        <name>Lorem ipsum dolom</name>
+        <series_id>4</series_id>
+        <language_id>2</language_id>
+        <is_public>1</is_public>
+        <article_id>8</article_id>
+        <sequence>2</sequence>
+        <menu_id>2</menu_id>
+    </cmsMenu>
 </cmsMenus>

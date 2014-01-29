@@ -5,7 +5,7 @@
 		[
 			[
 				"mar",
-				"margin-bottom"
+				"margin-top"
 			],
 			[
 				"list",
@@ -520,34 +520,10 @@
 	"buffers":
 	[
 		{
-			"file": "src/My/BackendBundle/data/series.xml",
+			"file": "web/template/fresh-style/css/article.css",
 			"settings":
 			{
-				"buffer_size": 916,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/My/FileBundle/data/files.xml",
-			"settings":
-			{
-				"buffer_size": 3296,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/My/FrontendBundle/Resources/views/Default/article.html.twig",
-			"settings":
-			{
-				"buffer_size": 1612,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/My/FrontendBundle/Resources/views/Default/search.html.twig",
-			"settings":
-			{
-				"buffer_size": 2037,
+				"buffer_size": 951,
 				"line_ending": "Windows"
 			}
 		},
@@ -555,40 +531,32 @@
 			"file": "web/template/fresh-style/css/main.css",
 			"settings":
 			{
-				"buffer_size": 7565,
+				"buffer_size": 7568,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "web/template/fresh-style/css/article.css",
+			"file": "src/My/FrontendBundle/Resources/views/Default/article.html.twig",
 			"settings":
 			{
-				"buffer_size": 1957,
+				"buffer_size": 1786,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "src/My/CMSBundle/DataFixtures/ORM/LoadData.php",
+			"file": "src/My/FrontendBundle/Resources/views/Default/layout.html.twig",
 			"settings":
 			{
-				"buffer_size": 9112,
+				"buffer_size": 523,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "src/My/CMSBundle/data/cmsArticles.xml",
+			"file": "src/My/FrontendBundle/Resources/views/Default/search.html.twig",
 			"settings":
 			{
-				"buffer_size": 32323,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/My/CMSBundle/data/cmsArticle.txt",
-			"settings":
-			{
-				"buffer_size": 3703,
-				"line_ending": "Windows"
+				"buffer_size": 2211,
+				"line_ending": "Unix"
 			}
 		}
 	],
@@ -1065,6 +1033,50 @@
 	},
 	"file_history":
 	[
+		"/C/wamp/www/PureThink/src/My/CMSBundle/data/cmsMenus.xml",
+		"/C/wamp/www/PureThink/src/My/FrontendBundle/Resources/views/Default/layout.html.twig",
+		"/C/wamp/www/PureThink/web/less/login.less",
+		"/C/wamp/www/PureThink/src/My/UserBundle/Resources/views/Security/login.html.twig",
+		"/C/wamp/www/PureThink/src/My/UserBundle/Resources/views/Resetting/checkEmail.html.twig",
+		"/C/wamp/www/PureThink/src/My/UserBundle/Resources/views/Resetting/passwordAlreadyRequested.html.twig",
+		"/C/wamp/www/PureThink/src/My/UserBundle/Resources/views/Resetting/request.html.twig",
+		"/C/wamp/www/PureThink/src/My/UserBundle/Resources/views/Resetting/request_content.html.twig",
+		"/C/wamp/www/PureThink/src/My/UserBundle/Resources/views/Resetting/reset.html.twig",
+		"/C/wamp/www/PureThink/src/My/UserBundle/Resources/views/Resetting/reset_content.html.twig",
+		"/C/wamp/www/PureThink/src/My/UserBundle/Resources/views/layout.html.twig",
+		"/C/wamp/www/PureThink/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/views/layout.html.twig",
+		"/C/wamp/www/PureThink/src/My/FrontendBundle/Resources/views/Default/_footer.html.twig",
+		"/C/wamp/www/PureThink/src/My/FrontendBundle/Resources/views/Default/index.html.twig",
+		"/C/wamp/www/PureThink/src/My/FrontendBundle/Resources/views/Default/_menu.html.twig",
+		"/C/wamp/www/PureThink/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.pl.yml",
+		"/C/wamp/www/PureThink/src/My/UserBundle/Controller/ResettingController.php",
+		"/C/wamp/www/PureThink/app/config/config.yml",
+		"/C/wamp/www/PureThink/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Controller/SecurityController.php",
+		"/C/wamp/www/PureThink/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/views/Group/edit.html.twig",
+		"/C/wamp/www/PureThink/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/views/Profile/edit_content.html.twig",
+		"/C/wamp/www/PureThink/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/views/Profile/edit.html.twig",
+		"/C/wamp/www/PureThink/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/views/Profile/show_content.html.twig",
+		"/C/wamp/www/PureThink/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/views/Profile/show.html.twig",
+		"/C/wamp/www/PureThink/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/views/Security/login.html.twig",
+		"/C/wamp/www/PureThink/app/Resources/FOSUserBundle/views/Resetting/reset_content.html.twig",
+		"/C/wamp/www/PureThink/app/Resources/FOSUserBundle/views/Resetting/reset.html.twig",
+		"/C/wamp/www/PureThink/app/Resources/FOSUserBundle/views/Resetting/email.txt.twig",
+		"/C/wamp/www/PureThink/app/Resources/FOSUserBundle/views/Security/login.html.twig",
+		"/C/wamp/www/PureThink/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Controller/ResettingController.php",
+		"/C/wamp/www/PureThink/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Controller/RegistrationController.php",
+		"/C/wamp/www/PureThink/app/Resources/FOSUserBundle/views/Resetting/request_content.html.twig",
+		"/C/wamp/www/PureThink/app/Resources/FOSUserBundle/views/Resetting/checkEmail.html.twig",
+		"/C/wamp/www/PureThink/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/views/Resetting/email.txt.twig",
+		"/C/wamp/www/PureThink/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Controller/ProfileController.php",
+		"/C/wamp/www/PureThink/src/My/CMSBundle/data/cmsArticle.txt",
+		"/C/wamp/www/PureThink/src/My/CMSBundle/data/cmsArticles.xml",
+		"/C/wamp/www/PureThink/src/My/CMSBundle/DataFixtures/ORM/LoadData.php",
+		"/C/wamp/www/PureThink/web/template/fresh-style/css/article.css",
+		"/C/wamp/www/PureThink/src/My/BackendBundle/data/series.xml",
+		"/C/wamp/www/PureThink/src/My/FileBundle/data/files.xml",
+		"/C/wamp/www/PureThink/src/My/FrontendBundle/Resources/views/Default/article.html.twig",
+		"/C/wamp/www/PureThink/src/My/FrontendBundle/Resources/views/Default/search.html.twig",
+		"/C/wamp/www/PureThink/web/template/fresh-style/css/main.css",
 		"/C/wamp/www/zad-28/src/My/FrontendBundle/DataFixtures/ORM/LoadData.php",
 		"/C/wamp/www/PureThink/src/My/BackendBundle/Entity/SMTP.php",
 		"/C/wamp/www/PureThink/src/My/BackendBundle/Entity/SMTP.php~",
@@ -1072,14 +1084,8 @@
 		"/C/wamp/www/PureThink/src/My/BackendBundle/data/smtps.xml",
 		"/C/wamp/www/PureThink/.gitignore",
 		"/C/wamp/www/PureThink/app/config/parameters.yml",
-		"/C/wamp/www/PureThink/app/Resources/FOSUserBundle/views/Resetting/checkEmail.html.twig",
 		"/C/wamp/www/PureThink/app/Resources/FOSUserBundle/views/Resetting/passwordAlreadyRequested.html.twig",
-		"/C/wamp/www/PureThink/app/Resources/FOSUserBundle/views/Security/login.html.twig",
-		"/C/wamp/www/PureThink/app/Resources/FOSUserBundle/views/Resetting/request_content.html.twig",
-		"/C/wamp/www/PureThink/app/Resources/FOSUserBundle/views/Resetting/reset_content.html.twig",
-		"/C/wamp/www/PureThink/web/less/login.less",
 		"/C/wamp/www/PureThink/app/config/parameters.yml.dist",
-		"/C/wamp/www/PureThink/app/Resources/FOSUserBundle/views/Resetting/reset.html.twig",
 		"/C/wamp/www/PureThink/app/Resources/FOSUserBundle/views/Resetting/request.html.twig",
 		"/C/wamp/www/PureThink/app/config/security.yml",
 		"/C/wamp/www/PureThink/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/views/Resetting/reset.html.twig",
@@ -1092,14 +1098,10 @@
 		"/C/wamp/www/PureThink/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/views/Registration/email.txt.twig",
 		"/C/wamp/www/PureThink/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/config/mailer.xml",
 		"/C/Users/Michał/Documents/Dropbox/PureThink/demo.txt",
-		"/C/wamp/www/PureThink/app/config/config.yml",
 		"/C/wamp/www/PureThink/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Mailer/Mailer.php",
 		"/C/wamp/www/PureThink/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Mailer/TwigSwiftMailer.php",
-		"/C/wamp/www/PureThink/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Controller/ResettingController.php",
 		"/C/wamp/www/PureThink/src/My/UserBundle/MyUserBundle.php",
-		"/C/wamp/www/PureThink/src/My/UserBundle/Controller/ResettingController.php",
 		"/C/wamp/www/PureThink/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/EventListener/ResettingListener.php",
-		"/C/wamp/www/PureThink/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Controller/SecurityController.php",
 		"/C/wamp/www/PureThink/src/My/UserBundle/Controller/SecurityController.php",
 		"/C/wamp/www/PureThink/src/My/CMSBundle/Tests/Controller/CMSArticleControllerTest.php",
 		"/C/wamp/www/PureThink/src/My/UserBundle/Tests/Controller/DefaultControllerTest.php",
@@ -1127,23 +1129,15 @@
 		"/C/wamp/www/PureThink/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/views/Resetting/checkEmail.html.twig",
 		"/C/wamp/www/PureThink/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/views/Resetting/request_content.html.twig",
 		"/C/wamp/www/PureThink/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/views/Resetting/passwordAlreadyRequested.html.twig",
-		"/C/wamp/www/PureThink/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/views/Resetting/email.txt.twig",
 		"/C/wamp/www/PureThink/app/Resources/FOSUserBundle/views/Security/resetting.html.twig",
 		"/C/wamp/www/GetTime/config/doctrine/firma.yml",
 		"/C/wamp/www/PureThink/src/My/BackendBundle/Entity/Series.php",
-		"/C/wamp/www/PureThink/src/My/FrontendBundle/Resources/views/Default/_footer.html.twig",
-		"/C/wamp/www/PureThink/src/My/FrontendBundle/Resources/views/Default/index.html.twig",
 		"/C/wamp/www/PureThink/src/My/FrontendBundle/Controller/DefaultController.php",
 		"/C/wamp/www/PureThink/src/My/CMSBundle/Repository/CMSMenuRepository.php",
 		"/C/wamp/www/PureThink/src/My/CMSBundle/Entity/CMSMenu.php",
-		"/C/wamp/www/PureThink/src/My/FrontendBundle/Resources/views/Default/_menu.html.twig",
 		"/C/wamp/www/PureThink/src/My/CMSBundle/Form/CMSMenuType.php",
 		"/C/wamp/www/PureThink/src/My/CMSBundle/Resources/views/CMSMenu/_form.html.twig",
 		"/C/wamp/www/PureThink/src/My/CMSBundle/data/cmsLanguages.xml",
-		"/C/wamp/www/PureThink/src/My/FrontendBundle/Resources/views/Default/article.html.twig",
-		"/C/wamp/www/PureThink/web/template/fresh-style/css/main.css",
-		"/C/wamp/www/PureThink/src/My/FrontendBundle/Resources/views/Default/search.html.twig",
-		"/C/wamp/www/PureThink/src/My/FrontendBundle/Resources/views/Default/layout.html.twig",
 		"/C/wamp/www/PureThink/web/js/plugins/jquery.dynamic.menu.js",
 		"/C/wamp/www/aaa/test/test.js",
 		"/C/Users/Michał/AppData/Local/Temp/_tc/jquery-ajax-retry-master/src/jquery.ajaxretry.js",
@@ -1151,7 +1145,6 @@
 		"/C/Users/Michał/AppData/Local/Temp/_tc/Chat/web/css/signin.css",
 		"/C/Users/Michał/AppData/Local/Temp/_tc/Chat/web/js/chat.js",
 		"/C/wamp/www/PureThink/web/template/fresh-style/css/search.css",
-		"/C/wamp/www/PureThink/web/template/fresh-style/css/article.css",
 		"/C/wamp/www/PureThink/src/My/CMSBundle/Repository/CMSArticleRepository.php",
 		"/C/wamp/www/PureThink/src/My/FrontendBundle/Resources/views/Default/_search.html.twig",
 		"/C/wamp/www/PureThink/src/My/FileBundle/Controller/FileController.php",
@@ -1167,32 +1160,7 @@
 		"/C/wamp/www/PureThink/web/less/list.less",
 		"/C/wamp/www/PureThink/web/less/footer.less",
 		"/C/Users/Michał/Documents/pgadmin.log",
-		"/C/Users/Michał/Documents/Dropbox/Documents/WSKIZ/Semestr8/Negocjacie biznesowe/projekt.txt",
-		"/C/wamp/www/PureThink/web/less/main_button.less",
-		"/C/wamp/www/PureThink/src/My/CMSBundle/Resources/views/CMSMenu/_list.html.twig",
-		"/C/wamp/www/PureThink/web/less/notify.less",
-		"/C/wamp/www/PureThink/web/js/view/mainButton.view.js",
-		"/C/wamp/www/PureThink/src/My/FileBundle/Resources/views/File/_list.html.twig",
-		"/C/wamp/www/PureThink/src/My/BackendBundle/Resources/views/RowsOnPage/_rows_on_page.html.twig",
-		"/C/wamp/www/PureThink/web/less/left_menu.less",
-		"/C/wamp/www/PureThink/web/js/main.js",
-		"/C/wamp/www/PureThink/web/less/shortcut.less",
-		"/C/wamp/www/GetTime/web/js/plugins/jquery.gs-bubble.js",
-		"/C/wamp/www/PureThink/web/js/helper.js",
-		"/C/wamp/www/GetTime/web/js/noty/jquery.noty.js",
-		"/C/Users/Michał/AppData/Local/Temp/_tc/jquery.multisortable-master/src/jquery.multisortable.js",
-		"/C/wamp/www/PureThink/vendor/twig/twig/lib/Twig/Error/Syntax.php",
-		"/C/wamp/www/PureThink/vendor/symfony/icu/Symfony/Component/Icu/Resources/data/curr/sh_YU.res",
-		"/C/wamp/www/GetTime/web/gsPlanowaniePlugin/js/planList.js",
-		"/C/wamp/www/GetTime/web/gsPlanowaniePlugin/js/planowanie_tasks.js",
-		"/C/Users/Michał/AppData/Local/Temp/_tc/jquery-ui-1.10.4/ui/jquery-ui.js",
-		"/C/Users/Michał/AppData/Local/Temp/_tc/jquery-ui-1.10.4.custom/css/no-theme/jquery-ui-1.10.4.custom.css",
-		"/C/wamp/www/PureThink/web/js/view/mainMenu.view.js",
-		"/C/wamp/www/PureThink/src/My/BackendBundle/Controller/UserSettingController.php",
-		"/C/wamp/www/PureThink/src/My/BackendBundle/Controller/SeriesController.php",
-		"/C/wamp/www/PureThink/src/My/BackendBundle/Controller/RowsOnPageController.php",
-		"/C/wamp/www/PureThink/src/My/BackendBundle/Controller/MenuController.php",
-		"/C/wamp/www/PureThink/src/My/BackendBundle/Controller/LeftMenuController.php"
+		"/C/Users/Michał/Documents/Dropbox/Documents/WSKIZ/Semestr8/Negocjacie biznesowe/projekt.txt"
 	],
 	"find":
 	{
@@ -1210,6 +1178,21 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"2371ed",
+			"659EFE",
+			"3b82f5",
+			"518ded",
+			"4d90fe",
+			"color4",
+			"color3",
+			"color2",
+			"color1",
+			"fos_user",
+			"resetAction",
+			"ContainerAware",
+			"RedirectResponse",
+			"name",
+			", 'FOSUserBundle'",
 			"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Virtutes materia inutile emolumento praesertim tractatas altera, natum adhaesiones vester viderer seque data rectas discordans. Fere honoris fugiendis neglegit. Quaeri, horreat scribere concederetur aliam artem propriae, mea tueri fecerit scribentur sequitur scribere divina graecis necesse debet, is aequitate, obligantur quietae temperantia optari. Tale contumeliae. Simul iucunditate verear elaboraret debemus ennius adolescens philosopho, habemus hortensio deinde possint corrumpit. Impeditur dolores idcirco afferat inportuno studiis philosophorum aristoteli incursione. Metus inpotenti praeceptrice pulchraeque eum iudico. Pacto probarentur, sum loqueretur discidia ferrentur pedalis maximi. Indignae summo statuerunt finiri inprobitas elaboraret inanes eaque. Tollitur percipit audire, iusteque.",
 			"tabl",
 			"p",
@@ -1322,22 +1305,7 @@
 			";",
 			"links",
 			"this.",
-			"FilterView",
-			"MainMenuView",
-			"ModuleView",
-			"moduleView",
-			"links",
-			"ListView",
-			"links",
-			"js",
-			"isEditMode",
-			"getMainMenuUrl",
-			"isEditMode",
-			"main_menu_list",
-			"$(\"#paginat",
-			"remove",
-			"_container",
-			"footer_container"
+			"FilterView"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1355,841 +1323,24 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "src/My/BackendBundle/data/series.xml",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 916,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								755,
-								755
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"annotations":
-							[
-								"TODO",
-								"README",
-								"FIXME"
-							],
-							"bh_regions":
-							[
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close"
-							],
-							"csslint_options":
-							{
-								"adjoining-classes": "warning",
-								"box-model": true,
-								"box-sizing": "warning",
-								"compatible-vendor-prefixes": "warning",
-								"display-property-grouping": true,
-								"duplicate-background-images": "warning",
-								"duplicate-properties": true,
-								"empty-rules": true,
-								"errors": true,
-								"fallback-colors": "warning",
-								"floats": "warning",
-								"font-faces": "warning",
-								"font-sizes": "warning",
-								"gradients": "warning",
-								"ids": "warning",
-								"import": "warning",
-								"important": "warning",
-								"known-properties": true,
-								"outline-none": "warning",
-								"overqualified-elements": "warning",
-								"qualified-headings": "warning",
-								"regex-selectors": "warning",
-								"rules-count": "warning",
-								"shorthand": "warning",
-								"star-property-hack": "warning",
-								"text-indent": "warning",
-								"underscore-property-hack": "warning",
-								"unique-headings": "warning",
-								"universal-selector": "warning",
-								"vendor-prefix": true,
-								"zero-units": "warning"
-							},
-							"gjslint_ignore":
-							[
-								110
-							],
-							"gjslint_options":
-							[
-							],
-							"is_xml": true,
-							"javascript_linter": "jshint",
-							"jshint_options":
-							{
-								"browser": true,
-								"evil": true,
-								"regexdash": true,
-								"sub": true,
-								"trailing": true,
-								"wsh": true
-							},
-							"pep8": true,
-							"pep8_ignore":
-							[
-								"E501"
-							],
-							"perl_linter": "perlcritic",
-							"pyflakes_ignore":
-							[
-							],
-							"pyflakes_ignore_import_*": true,
-							"sublimelinter": true,
-							"sublimelinter_delay": 2,
-							"sublimelinter_disable":
-							[
-							],
-							"sublimelinter_executable_map":
-							{
-							},
-							"sublimelinter_fill_outlines": false,
-							"sublimelinter_gutter_marks": true,
-							"sublimelinter_gutter_marks_theme": "simple",
-							"sublimelinter_mark_style": "none",
-							"sublimelinter_notes": false,
-							"sublimelinter_objj_check_ascii": false,
-							"sublimelinter_popup_errors_on_save": false,
-							"sublimelinter_syntax_map":
-							{
-								"C++": "c",
-								"Python Django": "python",
-								"Ruby on Rails": "ruby"
-							},
-							"sublimelinter_wrap_find": true,
-							"syntax": "Packages/XML/XML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 8,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "src/My/FileBundle/data/files.xml",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3296,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3139,
-								3139
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"annotations":
-							[
-								"TODO",
-								"README",
-								"FIXME"
-							],
-							"bh_regions":
-							[
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close"
-							],
-							"csslint_options":
-							{
-								"adjoining-classes": "warning",
-								"box-model": true,
-								"box-sizing": "warning",
-								"compatible-vendor-prefixes": "warning",
-								"display-property-grouping": true,
-								"duplicate-background-images": "warning",
-								"duplicate-properties": true,
-								"empty-rules": true,
-								"errors": true,
-								"fallback-colors": "warning",
-								"floats": "warning",
-								"font-faces": "warning",
-								"font-sizes": "warning",
-								"gradients": "warning",
-								"ids": "warning",
-								"import": "warning",
-								"important": "warning",
-								"known-properties": true,
-								"outline-none": "warning",
-								"overqualified-elements": "warning",
-								"qualified-headings": "warning",
-								"regex-selectors": "warning",
-								"rules-count": "warning",
-								"shorthand": "warning",
-								"star-property-hack": "warning",
-								"text-indent": "warning",
-								"underscore-property-hack": "warning",
-								"unique-headings": "warning",
-								"universal-selector": "warning",
-								"vendor-prefix": true,
-								"zero-units": "warning"
-							},
-							"gjslint_ignore":
-							[
-								110
-							],
-							"gjslint_options":
-							[
-							],
-							"is_xml": true,
-							"javascript_linter": "jshint",
-							"jshint_options":
-							{
-								"browser": true,
-								"evil": true,
-								"regexdash": true,
-								"sub": true,
-								"trailing": true,
-								"wsh": true
-							},
-							"pep8": true,
-							"pep8_ignore":
-							[
-								"E501"
-							],
-							"perl_linter": "perlcritic",
-							"pyflakes_ignore":
-							[
-							],
-							"pyflakes_ignore_import_*": true,
-							"sublimelinter": true,
-							"sublimelinter_delay": 2,
-							"sublimelinter_disable":
-							[
-							],
-							"sublimelinter_executable_map":
-							{
-							},
-							"sublimelinter_fill_outlines": false,
-							"sublimelinter_gutter_marks": true,
-							"sublimelinter_gutter_marks_theme": "simple",
-							"sublimelinter_mark_style": "none",
-							"sublimelinter_notes": false,
-							"sublimelinter_objj_check_ascii": false,
-							"sublimelinter_popup_errors_on_save": false,
-							"sublimelinter_syntax_map":
-							{
-								"C++": "c",
-								"Python Django": "python",
-								"Ruby on Rails": "ruby"
-							},
-							"sublimelinter_wrap_find": true,
-							"syntax": "Packages/XML/XML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1063.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "src/My/FrontendBundle/Resources/views/Default/article.html.twig",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1612,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1216,
-								1197
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"annotations":
-							[
-								"TODO",
-								"README",
-								"FIXME"
-							],
-							"bh_regions":
-							[
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close"
-							],
-							"csslint_options":
-							{
-								"adjoining-classes": "warning",
-								"box-model": true,
-								"box-sizing": "warning",
-								"compatible-vendor-prefixes": "warning",
-								"display-property-grouping": true,
-								"duplicate-background-images": "warning",
-								"duplicate-properties": true,
-								"empty-rules": true,
-								"errors": true,
-								"fallback-colors": "warning",
-								"floats": "warning",
-								"font-faces": "warning",
-								"font-sizes": "warning",
-								"gradients": "warning",
-								"ids": "warning",
-								"import": "warning",
-								"important": "warning",
-								"known-properties": true,
-								"outline-none": "warning",
-								"overqualified-elements": "warning",
-								"qualified-headings": "warning",
-								"regex-selectors": "warning",
-								"rules-count": "warning",
-								"shorthand": "warning",
-								"star-property-hack": "warning",
-								"text-indent": "warning",
-								"underscore-property-hack": "warning",
-								"unique-headings": "warning",
-								"universal-selector": "warning",
-								"vendor-prefix": true,
-								"zero-units": "warning"
-							},
-							"gjslint_ignore":
-							[
-								110
-							],
-							"gjslint_options":
-							[
-							],
-							"javascript_linter": "jshint",
-							"jshint_options":
-							{
-								"browser": true,
-								"evil": true,
-								"regexdash": true,
-								"sub": true,
-								"trailing": true,
-								"wsh": true
-							},
-							"pep8": true,
-							"pep8_ignore":
-							[
-								"E501"
-							],
-							"perl_linter": "perlcritic",
-							"pyflakes_ignore":
-							[
-							],
-							"pyflakes_ignore_import_*": true,
-							"sublimelinter": true,
-							"sublimelinter_delay": 2,
-							"sublimelinter_disable":
-							[
-							],
-							"sublimelinter_executable_map":
-							{
-							},
-							"sublimelinter_fill_outlines": false,
-							"sublimelinter_gutter_marks": true,
-							"sublimelinter_gutter_marks_theme": "simple",
-							"sublimelinter_mark_style": "none",
-							"sublimelinter_notes": false,
-							"sublimelinter_objj_check_ascii": false,
-							"sublimelinter_popup_errors_on_save": false,
-							"sublimelinter_syntax_map":
-							{
-								"C++": "c",
-								"Python Django": "python",
-								"Ruby on Rails": "ruby"
-							},
-							"sublimelinter_wrap_find": true,
-							"syntax": "Packages/Twig/Syntaxes/HTML (Twig).tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": -0.0,
-						"translation.y": 75.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "src/My/FrontendBundle/Resources/views/Default/search.html.twig",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2037,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1454,
-								1454
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"annotations":
-							[
-								"TODO",
-								"README",
-								"FIXME"
-							],
-							"bh_regions":
-							[
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close"
-							],
-							"csslint_options":
-							{
-								"adjoining-classes": "warning",
-								"box-model": true,
-								"box-sizing": "warning",
-								"compatible-vendor-prefixes": "warning",
-								"display-property-grouping": true,
-								"duplicate-background-images": "warning",
-								"duplicate-properties": true,
-								"empty-rules": true,
-								"errors": true,
-								"fallback-colors": "warning",
-								"floats": "warning",
-								"font-faces": "warning",
-								"font-sizes": "warning",
-								"gradients": "warning",
-								"ids": "warning",
-								"import": "warning",
-								"important": "warning",
-								"known-properties": true,
-								"outline-none": "warning",
-								"overqualified-elements": "warning",
-								"qualified-headings": "warning",
-								"regex-selectors": "warning",
-								"rules-count": "warning",
-								"shorthand": "warning",
-								"star-property-hack": "warning",
-								"text-indent": "warning",
-								"underscore-property-hack": "warning",
-								"unique-headings": "warning",
-								"universal-selector": "warning",
-								"vendor-prefix": true,
-								"zero-units": "warning"
-							},
-							"gjslint_ignore":
-							[
-								110
-							],
-							"gjslint_options":
-							[
-							],
-							"javascript_linter": "jshint",
-							"jshint_options":
-							{
-								"browser": true,
-								"evil": true,
-								"regexdash": true,
-								"sub": true,
-								"trailing": true,
-								"wsh": true
-							},
-							"pep8": true,
-							"pep8_ignore":
-							[
-								"E501"
-							],
-							"perl_linter": "perlcritic",
-							"pyflakes_ignore":
-							[
-							],
-							"pyflakes_ignore_import_*": true,
-							"sublimelinter": true,
-							"sublimelinter_delay": 2,
-							"sublimelinter_disable":
-							[
-							],
-							"sublimelinter_executable_map":
-							{
-							},
-							"sublimelinter_fill_outlines": false,
-							"sublimelinter_gutter_marks": true,
-							"sublimelinter_gutter_marks_theme": "simple",
-							"sublimelinter_mark_style": "none",
-							"sublimelinter_notes": false,
-							"sublimelinter_objj_check_ascii": false,
-							"sublimelinter_popup_errors_on_save": false,
-							"sublimelinter_syntax_map":
-							{
-								"C++": "c",
-								"Python Django": "python",
-								"Ruby on Rails": "ruby"
-							},
-							"sublimelinter_wrap_find": true,
-							"syntax": "Packages/Twig/Syntaxes/HTML (Twig).tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": -0.0,
-						"translation.y": 228.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "web/template/fresh-style/css/main.css",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 7565,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								6222,
-								6222
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"annotations":
-							[
-								"TODO",
-								"README",
-								"FIXME"
-							],
-							"bh_regions":
-							[
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close"
-							],
-							"csslint_options":
-							{
-								"adjoining-classes": "warning",
-								"box-model": true,
-								"box-sizing": "warning",
-								"compatible-vendor-prefixes": "warning",
-								"display-property-grouping": true,
-								"duplicate-background-images": "warning",
-								"duplicate-properties": true,
-								"empty-rules": true,
-								"errors": true,
-								"fallback-colors": "warning",
-								"floats": "warning",
-								"font-faces": "warning",
-								"font-sizes": "warning",
-								"gradients": "warning",
-								"ids": "warning",
-								"import": "warning",
-								"important": "warning",
-								"known-properties": true,
-								"outline-none": "warning",
-								"overqualified-elements": "warning",
-								"qualified-headings": "warning",
-								"regex-selectors": "warning",
-								"rules-count": "warning",
-								"shorthand": "warning",
-								"star-property-hack": "warning",
-								"text-indent": "warning",
-								"underscore-property-hack": "warning",
-								"unique-headings": "warning",
-								"universal-selector": "warning",
-								"vendor-prefix": true,
-								"zero-units": "warning"
-							},
-							"gjslint_ignore":
-							[
-								110
-							],
-							"gjslint_options":
-							[
-							],
-							"javascript_linter": "jshint",
-							"jshint_options":
-							{
-								"browser": true,
-								"evil": true,
-								"regexdash": true,
-								"sub": true,
-								"trailing": true,
-								"wsh": true
-							},
-							"pep8": true,
-							"pep8_ignore":
-							[
-								"E501"
-							],
-							"perl_linter": "perlcritic",
-							"pyflakes_ignore":
-							[
-							],
-							"pyflakes_ignore_import_*": true,
-							"sublimelinter": true,
-							"sublimelinter_delay": 2,
-							"sublimelinter_disable":
-							[
-							],
-							"sublimelinter_executable_map":
-							{
-							},
-							"sublimelinter_fill_outlines": false,
-							"sublimelinter_gutter_marks": true,
-							"sublimelinter_gutter_marks_theme": "simple",
-							"sublimelinter_mark_style": "none",
-							"sublimelinter_notes": false,
-							"sublimelinter_objj_check_ascii": false,
-							"sublimelinter_popup_errors_on_save": false,
-							"sublimelinter_syntax_map":
-							{
-								"C++": "c",
-								"Python Django": "python",
-								"Ruby on Rails": "ruby"
-							},
-							"sublimelinter_wrap_find": true,
-							"syntax": "Packages/CSS/CSS.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 5195.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
 					"file": "web/template/fresh-style/css/article.css",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1957,
+						"buffer_size": 951,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								294,
-								297
+								667,
+								667
 							]
 						],
 						"settings":
@@ -2203,26 +1354,14 @@
 							],
 							"bh_regions":
 							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
 								"bh_round",
 								"bh_round_center",
 								"bh_round_open",
 								"bh_round_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
 								"bh_curly",
 								"bh_curly_center",
 								"bh_curly_open",
@@ -2231,18 +1370,30 @@
 								"bh_double_quote_center",
 								"bh_double_quote_open",
 								"bh_double_quote_close",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
 								"bh_tag",
 								"bh_tag_center",
 								"bh_tag_open",
 								"bh_tag_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
 								"bh_square",
 								"bh_square_center",
 								"bh_square_open",
-								"bh_square_close"
+								"bh_square_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
 							],
 							"csslint_options":
 							{
@@ -2337,20 +1488,20 @@
 					"type": "text"
 				},
 				{
-					"buffer": 6,
-					"file": "src/My/CMSBundle/DataFixtures/ORM/LoadData.php",
+					"buffer": 1,
+					"file": "web/template/fresh-style/css/main.css",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 9112,
+						"buffer_size": 7568,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2987,
-								2987
+								935,
+								935
 							]
 						],
 						"settings":
@@ -2364,26 +1515,14 @@
 							],
 							"bh_regions":
 							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
 								"bh_round",
 								"bh_round_center",
 								"bh_round_open",
 								"bh_round_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
 								"bh_curly",
 								"bh_curly_center",
 								"bh_curly_open",
@@ -2392,18 +1531,30 @@
 								"bh_double_quote_center",
 								"bh_double_quote_open",
 								"bh_double_quote_close",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
 								"bh_tag",
 								"bh_tag_center",
 								"bh_tag_open",
 								"bh_tag_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
 								"bh_square",
 								"bh_square_center",
 								"bh_square_open",
-								"bh_square_close"
+								"bh_square_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
 							],
 							"csslint_options":
 							{
@@ -2446,7 +1597,6 @@
 							"gjslint_options":
 							[
 							],
-							"is_xml": false,
 							"javascript_linter": "jshint",
 							"jshint_options":
 							{
@@ -2489,107 +1639,195 @@
 								"Ruby on Rails": "ruby"
 							},
 							"sublimelinter_wrap_find": true,
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1491.0,
+						"translation.y": 323.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/My/FrontendBundle/Resources/views/Default/article.html.twig",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1786,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								204,
+								106
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": true,
+							"sublimelinter_delay": 2,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": true,
+							"sublimelinter_gutter_marks_theme": "simple",
+							"sublimelinter_mark_style": "none",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"C++": "c",
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/Twig/Syntaxes/HTML (Twig).tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 7,
-					"file": "src/My/CMSBundle/data/cmsArticles.xml",
+					"buffer": 3,
+					"file": "src/My/FrontendBundle/Resources/views/Default/layout.html.twig",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 32323,
+						"buffer_size": 523,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1514,
-								654
-							],
-							[
-								2276,
-								3136
-							],
-							[
-								3898,
-								4758
-							],
-							[
-								5520,
-								6380
-							],
-							[
-								7142,
-								8002
-							],
-							[
-								8742,
-								9602
-							],
-							[
-								10364,
-								11224
-							],
-							[
-								11968,
-								12828
-							],
-							[
-								13577,
-								14437
-							],
-							[
-								15171,
-								16031
-							],
-							[
-								16771,
-								17631
-							],
-							[
-								18393,
-								19253
-							],
-							[
-								19997,
-								20857
-							],
-							[
-								21606,
-								22466
-							],
-							[
-								23228,
-								24088
-							],
-							[
-								24828,
-								25688
-							],
-							[
-								26450,
-								27310
-							],
-							[
-								28044,
-								28904
-							],
-							[
-								29666,
-								30526
-							],
-							[
-								31288,
-								32148
+								262,
+								262
 							]
 						],
 						"settings":
@@ -2603,26 +1841,14 @@
 							],
 							"bh_regions":
 							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
 								"bh_round",
 								"bh_round_center",
 								"bh_round_open",
 								"bh_round_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
 								"bh_curly",
 								"bh_curly_center",
 								"bh_curly_open",
@@ -2631,18 +1857,30 @@
 								"bh_double_quote_center",
 								"bh_double_quote_open",
 								"bh_double_quote_close",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
 								"bh_tag",
 								"bh_tag_center",
 								"bh_tag_open",
 								"bh_tag_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
 								"bh_square",
 								"bh_square_center",
 								"bh_square_open",
-								"bh_square_close"
+								"bh_square_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
 							],
 							"csslint_options":
 							{
@@ -2685,7 +1923,6 @@
 							"gjslint_options":
 							[
 							],
-							"is_xml": true,
 							"javascript_linter": "jshint",
 							"jshint_options":
 							{
@@ -2728,32 +1965,30 @@
 								"Ruby on Rails": "ruby"
 							},
 							"sublimelinter_wrap_find": true,
-							"syntax": "Packages/XML/XML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/Twig/Syntaxes/HTML (Twig).tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 7295.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 8,
-					"file": "src/My/CMSBundle/data/cmsArticle.txt",
+					"buffer": 4,
+					"file": "src/My/FrontendBundle/Resources/views/Default/search.html.twig",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3703,
+						"buffer_size": 2211,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3703,
-								3703
+								231,
+								231
 							]
 						],
 						"settings":
@@ -2767,26 +2002,14 @@
 							],
 							"bh_regions":
 							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
 								"bh_round",
 								"bh_round_center",
 								"bh_round_open",
 								"bh_round_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
 								"bh_curly",
 								"bh_curly_center",
 								"bh_curly_open",
@@ -2795,18 +2018,30 @@
 								"bh_double_quote_center",
 								"bh_double_quote_open",
 								"bh_double_quote_close",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
 								"bh_tag",
 								"bh_tag_center",
 								"bh_tag_open",
 								"bh_tag_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
 								"bh_square",
 								"bh_square_center",
 								"bh_square_open",
-								"bh_square_close"
+								"bh_square_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
 							],
 							"csslint_options":
 							{
@@ -2849,7 +2084,6 @@
 							"gjslint_options":
 							[
 							],
-							"is_xml": false,
 							"javascript_linter": "jshint",
 							"jshint_options":
 							{
@@ -2892,7 +2126,9 @@
 								"Ruby on Rails": "ruby"
 							},
 							"sublimelinter_wrap_find": true,
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"syntax": "Packages/Twig/Syntaxes/HTML (Twig).tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,

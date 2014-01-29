@@ -25,6 +25,10 @@
 {% endblock title %}
 
 {% block body %}
+    {% if components['cookie'] is defined %}
+        {% include 'MyFrontendBundle:Default:_cookie.html.twig' with { 'cookies': components['cookie'], 'locale': locale } %}
+    {% endif %}
+
     <div id="top">
         <div class="container">
             <div id="logo">

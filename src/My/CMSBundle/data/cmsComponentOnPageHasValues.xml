@@ -425,4 +425,19 @@
         <component_on_page_has_element_id>32</component_on_page_has_element_id>
         <component_has_column_id>9</component_has_column_id>
     </cmsComponentOnPageHasValue>
+    <cmsComponentOnPageHasValue>
+        <content>Uwaga ta strona używa COOKIES.</content>
+        <component_on_page_has_element_id>33</component_on_page_has_element_id>
+        <component_has_column_id>10</component_has_column_id>
+    </cmsComponentOnPageHasValue>
+    <cmsComponentOnPageHasValue>
+        <content>12</content>
+        <component_on_page_has_element_id>33</component_on_page_has_element_id>
+        <component_has_column_id>11</component_has_column_id>
+    </cmsComponentOnPageHasValue>
+    <cmsComponentOnPageHasValue>
+        <content>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tincidunt, ligula in consequat commodo, sapien justo ornare magna. Duis tincidunt, ligula in consequat commodo, sapien justo ornare magna.</content>
+        <component_on_page_has_element_id>33</component_on_page_has_element_id>
+        <component_has_column_id>12</component_has_column_id>
+    </cmsComponentOnPageHasValue>
 </cmsComponentOnPageHasValues>

@@ -3,7 +3,18 @@ $(function(){
 
     $('#main_menu ul li.has_submenu > a').removeAttr('href');
 
-  	$('#baner > .container').slidesjs({
+    //cookies policy
+    if (getCookie('cookies_policy') != "true") {
+        $('#cookie').show();
+    }
+
+    $('#cookie').find('a.close').click(function() {
+        $('#cookie').remove();
+
+        setCookie('cookies_policy', true, 365);
+    });
+
+    $('#baner > .container').slidesjs({
         width: 1000,
         height: 296,
         play: {
