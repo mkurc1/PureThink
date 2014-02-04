@@ -1003,38 +1003,89 @@ table.list tbody > tr > td.select > input {
 #main_button > .center > .button_container.disable > button {
   cursor: default;
 }
-#main_button > .center > .button_container > button {
+#main_button > .center > .button_container > div {
   position: relative;
   float: left;
-  height: 26px;
+  height: 28px;
   width: 59px;
   border: 0;
   background-color: transparent;
   cursor: pointer;
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
+  text-align: center;
 }
-#main_button > .center > .button_container > button.select {
-  background-image: url("/images/select.png");
+#main_button > .center > .button_container > div > i {
+  margin-top: 6px;
+  font-size: 14px;
+  color: #888888;
 }
-#main_button > .center > .button_container > button.refresh {
-  background-image: url("/images/refresh.png");
+#main_button > .center > .button_container > div > i.spacing {
+  letter-spacing: 4px;
 }
-#main_button > .center > .button_container > button.edit {
-  background-image: url("/images/edit.png");
+#main_button > .center > .button_container > div > i.fa-refresh {
+  margin-top: 5px;
 }
-#main_button > .center > .button_container > button.remove,
-#main_button > .center > .button_container > button.cancel {
-  background-image: url("/images/remove.png");
+#main_button > .center > .button_container > div > i.fa-ellipsis-h {
+  margin-top: 7px;
 }
-#main_button > .center > .button_container > button.more {
-  background-image: url("/images/more.png");
+#main_button > .center > .button_container > div > i.fa-caret-down {
+  font-size: 10px;
+  position: absolute;
+  margin-top: 8px;
 }
-#main_button > .center > .button_container > button.save {
-  background-image: url("/images/save.png");
+#main_button > .center > .button_container > div > ul {
+  display: none;
+  position: absolute;
+  background-color: #FCFCFC;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+  list-style-type: none;
+  top: 28px;
+  padding: 8px 0 9px 0;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
-#main_button > .center > .button_container > button.apply {
-  background-image: url("/images/apply.png");
+#main_button > .center > .button_container > div > ul:before {
+  border-bottom: 7px solid rgba(0, 0, 0, 0.2);
+  border-left: 7px solid rgba(0, 0, 0, 0);
+  border-right: 7px solid rgba(0, 0, 0, 0);
+  display: inline-block;
+  position: absolute;
+  top: -7px;
+  left: 9px;
+  content: "";
+}
+#main_button > .center > .button_container > div > ul:after {
+  border-bottom: 6px solid #FCFCFC;
+  border-left: 6px solid rgba(0, 0, 0, 0);
+  border-right: 6px solid rgba(0, 0, 0, 0);
+  display: inline-block;
+  position: absolute;
+  top: -6px;
+  left: 10px;
+  content: "";
+}
+#main_button > .center > .button_container > div > ul > li {
+  position: relative;
+  float: left;
+  font-size: 13px;
+  cursor: pointer;
+  padding: 1px 7px 1px 10px;
+  color: #4E4E4E;
+  min-width: 140px;
+  text-align: left;
+}
+#main_button > .center > .button_container > div > ul > li.header {
+  color: #999999;
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+#main_button > .center > .button_container > div > ul > li.header:hover {
+  background-color: transparent;
+}
+#main_button > .center > .button_container > div > ul > li:hover {
+  background-color: #E8E8E8;
+}
+#main_button > .center > .button_container > div:hover > ul {
+  display: block;
 }
 #main_menu {
   position: fixed;

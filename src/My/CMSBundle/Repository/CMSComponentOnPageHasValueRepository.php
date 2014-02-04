@@ -81,6 +81,8 @@ class CMSComponentOnPageHasValueRepository extends EntityRepository
             ->addSelect('chc.slug AS subname')
             ->addSelect('ct.name AS type')
             ->addSelect('cophe.createdAt AS createdAt, cophe.updatedAt AS updatedAt')
+            ->addSelect('(SELECT art.slug FROM MyCMSBundle:CMSArticle AS art WHERE art.id=a.content) AS article')
+            ->addSelect('(SELECT f.path FROM MyFileBundle:File AS f WHERE f.id=a.content) AS file')
             ->leftJoin('a.componentOnPageHasElement', 'cophe')
             ->leftJoin('a.componentHasColumn', 'chc')
             ->leftJoin('chc.columnType', 'ct')

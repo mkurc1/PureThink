@@ -168,14 +168,16 @@ MainButtonView = Backbone.View.extend({
         this.removeMainButtons();
 
         var buttons = {
-            'select'  : '<button class="select"></button>',
-            'refresh' : '<button class="refresh"></button>',
-            'edit'    : '<button class="edit"></button>',
-            'remove'  : '<button class="remove"></button>',
-            'more'    : '<button class="more"></button>'
+            'select'  : '<div class="select"><i class="fa fa-square-o spacing"></i><i class="fa fa-caret-down"></i></div>',
+            'refresh' : '<div class="refresh"><i class="fa fa-refresh"></i></div>',
+            'edit'    : '<div class="edit"><i class="fa fa-pencil-square-o"></i></div>',
+            'remove'  : '<div class="remove"><i class="fa fa-trash-o"></i></div>',
+            'more'    : '<div class="more"><i class="fa fa-ellipsis-h spacing"></i><i class="fa fa-caret-down"></i></div>'
         };
 
         this.addMainButtons(buttons);
+        this.createSelectMenu();
+        this.createMoreMenu();
     },
 
     /**
@@ -185,12 +187,57 @@ MainButtonView = Backbone.View.extend({
         this.removeMainButtons();
 
         var buttons = {
-            'cancel' : '<button class="cancel"></button>',
-            'apply'  : '<button class="apply"></button>',
-            'save'   : '<button class="save"></button>'
+            'cancel' : '<div class="cancel"><i class="fa fa-times"></i></div>',
+            'apply'  : '<div class="apply"><i class="fa fa-pencil"></i></div>',
+            'save'   : '<div class="save"><i class="fa fa-floppy-o"></i></div>'
         };
 
         this.addMainButtons(buttons);
+    },
+
+    /**
+     * Create select menu
+     */
+    createSelectMenu: function() {
+        var mainButton = this;
+
+        var menu = {
+            'select-header'  : '<li class="header">Zaznacz</li>',
+            'select-all'     : '<li class="select-all">Zaznacz wszystkie</li>',
+            'select-clear'   : '<li class="select-clear">Odznacz wszystkie</li>',
+            'select-reverse' : '<li class="select-reverse">Odwróć zaznaczenie</li>'
+        };
+
+        var menuList = $('<ul></ul>');
+
+        $.each(menu, function(index, val) {
+            menuList.append(val);
+        });
+
+
+        mainButton.$el.find('.select').append(menuList);
+    },
+
+    /**
+     * Create more menu
+     */
+    createMoreMenu: function() {
+        var mainButton = this;
+
+        var menu = {
+            'data-header' : '<li class="header">Dane</li>',
+            'data-import' : '<li class="data-import">Importuj dane</li>',
+            'data-export' : '<li class="data-export">Eksportuj dane</li>',
+        };
+
+        var menuList = $('<ul></ul>');
+
+        $.each(menu, function(index, val) {
+            menuList.append(val);
+        });
+
+
+        mainButton.$el.find('.more').append(menuList);
     },
 
     /**

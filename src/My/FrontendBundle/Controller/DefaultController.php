@@ -152,7 +152,11 @@ class DefaultController extends Controller
             'languages' => $languages,
             'menus' => $menus,
             'components' => $components,
-            'article' => $article
+            'article' => $article,
+            'url' => array(
+                'slug' => $slug,
+                'slug2' => $slug2
+                )
             );
     }
 
@@ -182,7 +186,6 @@ class DefaultController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $entities = $em->getRepository('MyCMSBundle:CMSMenu')->getPublicMenus($locale);
-
         foreach ($entities as $entity) {
             $series = $entity->getSeries()->getName();
             $id = $entity->getId();
@@ -227,12 +230,10 @@ class DefaultController extends Controller
 
             switch ($entity['type']) {
                 case 'Article':
-                    $content = $em->getRepository('MyCMSBundle:CMSArticle')
-                        ->find((int)$content)->getSlug();
+                    $content = $entity['article'];
                     break;
                 case 'File':
-                    $content = $em->getRepository('MyFileBundle:File')
-                        ->find((int)$content)->getPath();
+                    $content = $entity['file'];
                     break;
             }
 

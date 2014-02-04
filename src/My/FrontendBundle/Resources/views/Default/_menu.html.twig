@@ -1,6 +1,6 @@
 <ul>
     {% if home %}
-        <li class="selected">
+        <li {{  url is defined ? '' : 'class="selected"' }}>
             <a href="{{ path('localized_frontend', {'locale': locale}) }}">Home</a>
         </li>
     {% endif %}
@@ -18,11 +18,11 @@
                 {% include 'MyFrontendBundle:Default:_menu.html.twig' with { 'menus': menu['childrens'], 'locale': locale, 'home': false, 'slug2': menu['parent'].slug } %}
             {% endif %}
         </li>
-
-        {% if (login is defined) %}
-            <li>
-                <a href="{{ path('fos_user_security_login') }}">Login</a>
-            </li>
-        {% endif %}
     {% endfor %}
+
+    {% if (login is defined) %}
+        <li>
+            <a href="{{ path('fos_user_security_login') }}">Login</a>
+        </li>
+    {% endif %}
 </ul>

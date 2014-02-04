@@ -37,7 +37,7 @@
     <div id="main_menu">
         <div class="container">
             {% if menus['Main'] is defined %}
-                {% include 'MyFrontendBundle:Default:_menu.html.twig' with { 'menus': menus['Main'], 'locale': locale, 'home': true } %}
+                {% include 'MyFrontendBundle:Default:_menu.html.twig' with { 'menus': menus['Main'], 'locale': locale, 'home': true, 'url': url } %}
             {% endif %}
 
             {% include 'MyFrontendBundle:Default:_search.html.twig' with { 'locale': locale } %}
