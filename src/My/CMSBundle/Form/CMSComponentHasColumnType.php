@@ -5,12 +5,10 @@ namespace My\CMSBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-use Symfony\Component\Validator\Constraints\NotBlank;
-use Symfony\Component\Validator\Constraints\NotNull;
 
 class CMSComponentHasColumnType extends AbstractType
 {
-        /**
+    /**
      * @param FormBuilderInterface $builder
      * @param array $options
      */
@@ -21,17 +19,11 @@ class CMSComponentHasColumnType extends AbstractType
                 'label' => 'Nazwa kolumny',
                 'attr' => array(
                     'class' => 'name'
-                    ),
-                'constraints' => array(
-                    new NotBlank()
                     )
                 )
             )
             ->add('columnLabel', 'text', array(
-                'label' => 'Etykieta',
-                'constraints' => array(
-                    new NotBlank()
-                    )
+                'label' => 'Etykieta'
                 )
             )
             ->add('class', 'text', array(
@@ -56,9 +48,6 @@ class CMSComponentHasColumnType extends AbstractType
                 'empty_value' => '',
                 'attr' => array(
                     'class' => 'sintetic-select'
-                    ),
-                'constraints' => array(
-                    new NotNull()
                     )
                 )
             )

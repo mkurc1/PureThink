@@ -5,12 +5,10 @@ namespace My\CMSBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-use Symfony\Component\Validator\Constraints\NotBlank;
-use Symfony\Component\Validator\Constraints\NotNull;
 
 class CMSComponentType extends AbstractType
 {
-        /**
+    /**
      * @param FormBuilderInterface $builder
      * @param array $options
      */
@@ -21,9 +19,6 @@ class CMSComponentType extends AbstractType
                 'label' => 'Nazwa rozszerzenia',
                 'attr' => array(
                     'class' => 'name'
-                    ),
-                'constraints' => array(
-                    new NotBlank()
                     )
                 )
             )
@@ -36,9 +31,6 @@ class CMSComponentType extends AbstractType
                 'empty_value' => '',
                 'attr' => array(
                     'class' => 'sintetic-select'
-                    ),
-                'constraints' => array(
-                    new NotNull()
                     )
                 )
             )

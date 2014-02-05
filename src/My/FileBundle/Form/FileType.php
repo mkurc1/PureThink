@@ -5,8 +5,6 @@ namespace My\FileBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-use Symfony\Component\Validator\Constraints\NotBlank;
-use Symfony\Component\Validator\Constraints\NotNull;
 
 class FileType extends AbstractType
 {
@@ -21,9 +19,6 @@ class FileType extends AbstractType
                 'label' => 'Nazwa pliku',
                 'attr' => array(
                     'class' => 'name'
-                    ),
-                'constraints' => array(
-                    new NotBlank()
                     )
                 )
             )
@@ -36,9 +31,6 @@ class FileType extends AbstractType
                 'empty_value' => '',
                 'attr' => array(
                     'class' => 'sintetic-select'
-                    ),
-                'constraints' => array(
-                    new NotNull()
                     )
                 )
             )

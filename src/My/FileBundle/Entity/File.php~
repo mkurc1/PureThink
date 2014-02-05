@@ -4,7 +4,6 @@ namespace My\FileBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
-use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
@@ -74,7 +73,7 @@ class File
     protected $series;
 
     /**
-     * @Assert\File(maxSize="6000000")
+     * @var object
      */
     private $file;
 

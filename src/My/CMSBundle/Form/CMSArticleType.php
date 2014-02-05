@@ -5,8 +5,6 @@ namespace My\CMSBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-use Symfony\Component\Validator\Constraints\NotBlank;
-use Symfony\Component\Validator\Constraints\NotNull;
 
 class CMSArticleType extends AbstractType
 {
@@ -21,9 +19,6 @@ class CMSArticleType extends AbstractType
                 'label' => 'Nazwa artykułu',
                 'attr' => array(
                     'class' => 'name'
-                    ),
-                'constraints' => array(
-                    new NotBlank()
                     )
                 )
             )
@@ -41,9 +36,6 @@ class CMSArticleType extends AbstractType
                 'empty_value' => '',
                 'attr' => array(
                     'class' => 'sintetic-select'
-                    ),
-                'constraints' => array(
-                    new NotNull()
                     )
                 )
             )
@@ -56,9 +48,6 @@ class CMSArticleType extends AbstractType
                 'empty_value' => '',
                 'attr' => array(
                     'class' => 'sintetic-select'
-                    ),
-                'constraints' => array(
-                    new NotNull()
                     )
                 )
             )

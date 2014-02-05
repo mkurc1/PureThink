@@ -206,26 +206,26 @@
   background: -o-linear-gradient(top, #6ac03d 20%, #6bc23e 50%, #6bc23e 52%, #5cb85c 100%);
   background: linear-gradient(top, #6ac03d 20%, #6bc23e 50%, #6bc23e 52%, #5cb85c 100%);
 }
-#edit_container > .container .dane_element > ul,
-.popup-content > .container .dane_element > ul,
-#edit_container > .container .dane_element_big > ul,
-.popup-content > .container .dane_element_big > ul,
-#edit_container > .container .dane_element_small > ul,
-.popup-content > .container .dane_element_small > ul,
-#edit_container > .container .dane_element_medium > ul,
-.popup-content > .container .dane_element_medium > ul {
+#edit_container > .container .dane_element > ul.error,
+.popup-content > .container .dane_element > ul.error,
+#edit_container > .container .dane_element_big > ul.error,
+.popup-content > .container .dane_element_big > ul.error,
+#edit_container > .container .dane_element_small > ul.error,
+.popup-content > .container .dane_element_small > ul.error,
+#edit_container > .container .dane_element_medium > ul.error,
+.popup-content > .container .dane_element_medium > ul.error {
   float: left;
   list-style-type: none;
   margin-top: 2px;
 }
-#edit_container > .container .dane_element > ul > li,
-.popup-content > .container .dane_element > ul > li,
-#edit_container > .container .dane_element_big > ul > li,
-.popup-content > .container .dane_element_big > ul > li,
-#edit_container > .container .dane_element_small > ul > li,
-.popup-content > .container .dane_element_small > ul > li,
-#edit_container > .container .dane_element_medium > ul > li,
-.popup-content > .container .dane_element_medium > ul > li {
+#edit_container > .container .dane_element > ul.error > li,
+.popup-content > .container .dane_element > ul.error > li,
+#edit_container > .container .dane_element_big > ul.error > li,
+.popup-content > .container .dane_element_big > ul.error > li,
+#edit_container > .container .dane_element_small > ul.error > li,
+.popup-content > .container .dane_element_small > ul.error > li,
+#edit_container > .container .dane_element_medium > ul.error > li,
+.popup-content > .container .dane_element_medium > ul.error > li {
   color: #DD4B39;
   float: left;
   font-size: 11px;

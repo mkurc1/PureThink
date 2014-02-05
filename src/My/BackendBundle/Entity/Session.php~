@@ -1,0 +1,38 @@
+<?php
+
+namespace My\BackendBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Session
+ *
+ * @ORM\Table(name="session")
+ * @ORM\Entity
+ */
+class Session
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="session_id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="session_value", type="text")
+     */
+    private $value;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="session_time", type="integer")
+     */
+    private $time;
+
+}

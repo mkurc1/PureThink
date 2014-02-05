@@ -1,0 +1,87 @@
+# src/My/CMSBundle/Resources/config/validation.yml
+My\CMSBundle\Entity\CMSWebSite:
+    properties:
+        name:
+            - NotBlank: ~
+            - Length:
+                max: 255
+        description:
+            - Length:
+                max: 255
+        keywords:
+            - Length:
+                max: 255
+
+My\CMSBundle\Entity\CMSArticle:
+    properties:
+        name:
+            - NotBlank: ~
+            - Length:
+                max: 255
+        slug:
+            - Length:
+                max: 255
+        description:
+            - Length:
+                max: 255
+        keywords:
+            - Length:
+                max: 255
+        language:
+            - NotNull: ~
+        series:
+            - NotNull: ~
+
+My\CMSBundle\Entity\CMSMenu:
+    properties:
+        name:
+            - NotBlank: ~
+            - Length:
+                max: 255
+        slug:
+            - Length:
+                max: 255
+        article:
+            - NotNull: ~
+        language:
+            - NotNull: ~
+        series:
+            - NotNull: ~
+
+My\CMSBundle\Entity\CMSComponent:
+    properties:
+        name:
+            - NotBlank: ~
+            - Length:
+                max: 255
+        series:
+            - NotNull: ~
+
+My\CMSBundle\Entity\CMSComponentHasColumn:
+    properties:
+        name:
+            - NotBlank: ~
+            - Length:
+                max: 255
+        columnLabel:
+            - NotBlank: ~
+            - Length:
+                max: 255
+        class:
+            - Length:
+                max: 255
+        columnType:
+            - NotNull: ~
+
+My\CMSBundle\Entity\CMSComponentOnPage:
+    properties:
+        name:
+            - NotBlank: ~
+            - Length:
+                max: 255
+        component:
+            - NotNull: ~
+        language:
+            - NotNull: ~
+        series:
+            - NotNull: ~

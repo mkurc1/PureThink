@@ -1,0 +1,12 @@
+# src/My/FileBundle/Resources/config/validation.yml
+My\FileBundle\Entity\File:
+    properties:
+        name:
+            - NotBlank: ~
+            - Length:
+                max: 255
+        series:
+            - NotNull: ~
+        file:
+            - File:
+                maxSize: 6000000

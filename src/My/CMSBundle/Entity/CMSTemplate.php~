@@ -350,4 +350,50 @@ class CMSTemplate
     {
         return $this->slug;
     }
+
+    /**
+     * Add cmsCSSs
+     *
+     * @param \My\CMSBundle\Entity\CMSCSS $cmsCSSs
+     * @return CMSTemplate
+     */
+    public function addCmsCSSs(\My\CMSBundle\Entity\CMSCSS $cmsCSSs)
+    {
+        $this->cmsCSSs[] = $cmsCSSs;
+
+        return $this;
+    }
+
+    /**
+     * Remove cmsCSSs
+     *
+     * @param \My\CMSBundle\Entity\CMSCSS $cmsCSSs
+     */
+    public function removeCmsCSSs(\My\CMSBundle\Entity\CMSCSS $cmsCSSs)
+    {
+        $this->cmsCSSs->removeElement($cmsCSSs);
+    }
+
+    /**
+     * Add cmsJSs
+     *
+     * @param \My\CMSBundle\Entity\CMSJS $cmsJSs
+     * @return CMSTemplate
+     */
+    public function addCmsJSs(\My\CMSBundle\Entity\CMSJS $cmsJSs)
+    {
+        $this->cmsJSs[] = $cmsJSs;
+
+        return $this;
+    }
+
+    /**
+     * Remove cmsJSs
+     *
+     * @param \My\CMSBundle\Entity\CMSJS $cmsJSs
+     */
+    public function removeCmsJSs(\My\CMSBundle\Entity\CMSJS $cmsJSs)
+    {
+        $this->cmsJSs->removeElement($cmsJSs);
+    }
 }

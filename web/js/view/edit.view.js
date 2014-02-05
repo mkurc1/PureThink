@@ -117,6 +117,9 @@ EditView = Backbone.View.extend({
                         if (!edit.model.get('isApplyOption')) {
                             listView.refresh(false);
                         }
+                        else {
+                            edit.removeErrors();
+                        }
                     }
                     else {
                         edit.closePopup();
@@ -137,6 +140,13 @@ EditView = Backbone.View.extend({
         });
 
         return false;
+    },
+
+    /**
+     * Remove errors
+     */
+    removeErrors: function() {
+        this.$el.find('ul.error').remove();
     },
 
     /**

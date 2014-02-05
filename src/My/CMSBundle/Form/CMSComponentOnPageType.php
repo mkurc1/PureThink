@@ -5,12 +5,10 @@ namespace My\CMSBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-use Symfony\Component\Validator\Constraints\NotBlank;
-use Symfony\Component\Validator\Constraints\NotNull;
 
 class CMSComponentOnPageType extends AbstractType
 {
-        /**
+    /**
      * @param FormBuilderInterface $builder
      * @param array $options
      */
@@ -21,9 +19,6 @@ class CMSComponentOnPageType extends AbstractType
                 'label' => 'Nazwa komponentu',
                 'attr' => array(
                     'class' => 'name'
-                    ),
-                'constraints' => array(
-                    new NotBlank()
                     )
                 )
             )
@@ -33,9 +28,6 @@ class CMSComponentOnPageType extends AbstractType
                 'empty_value' => '',
                 'attr' => array(
                     'class' => 'sintetic-select'
-                    ),
-                'constraints' => array(
-                    new NotNull()
                     )
                 )
             )
@@ -45,9 +37,6 @@ class CMSComponentOnPageType extends AbstractType
                 'empty_value' => '',
                 'attr' => array(
                     'class' => 'sintetic-select'
-                    ),
-                'constraints' => array(
-                    new NotNull()
                     )
                 )
             )
@@ -60,9 +49,6 @@ class CMSComponentOnPageType extends AbstractType
                 'empty_value' => '',
                 'attr' => array(
                     'class' => 'sintetic-select'
-                    ),
-                'constraints' => array(
-                    new NotNull()
                     )
                 )
             )
