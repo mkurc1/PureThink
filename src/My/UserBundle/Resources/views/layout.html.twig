@@ -6,9 +6,13 @@
 {% endblock stylesheets %}
 
 {% block javascripts %}
-    {{ parent() }}
-    <script src="{{ asset('js/helper.js') }}"></script>
-    <script src="{{ asset('js/login.js') }}"></script>
+    {% javascripts
+        '@jquery'
+        '@helper'
+        '@MyUserBundle/Resources/public/js/*'
+        output='js/compiled/login.js' %}
+        <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
 {% endblock javascripts %}
 
 {% block body %}

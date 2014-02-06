@@ -12,35 +12,19 @@
 {% endblock stylesheets %}
 
 {% block javascripts %}
-	{{ parent() }}
-    <script src="{{ asset('js/lib/underscore.js') }}"></script>
-    <script src="{{ asset('js/lib/backbone.js') }}"></script>
-    <script src="{{ asset('js/plugins/jquery-ui-1.10.4.custom.js') }}"></script>
-    <script src="{{ asset('js/plugins/jquery.accordion.menu.js') }}"></script>
-    <script src="{{ asset('js/plugins/jquery.dynamic.menu.js') }}"></script>
-    <script src="{{ asset('js/plugins/chosen.jquery.js') }}"></script>
-    <script src="{{ asset('js/plugins/jquery.form.js') }}"></script>
-    <script src="{{ asset('js/plugins/jquery.qtip.js') }}"></script>
-    <script src="{{ asset('js/plugins/jquery.popup.js') }}"></script>
-    <script src="{{ asset('js/plugins/jquery.multidrag.table.js') }}"></script>
-    <script src="{{ asset('js/model/userSetting.model.js') }}"></script>
-    <script src="{{ asset('js/model/pagination.model.js') }}"></script>
-    <script src="{{ asset('js/view/pagination.view.js') }}"></script>
-    <script src="{{ asset('js/model/list.model.js') }}"></script>
-    <script src="{{ asset('js/view/list.view.js') }}"></script>
-    <script src="{{ asset('js/model/edit.model.js') }}"></script>
-    <script src="{{ asset('js/view/edit.view.js') }}"></script>
-    <script src="{{ asset('js/view/mainButton.view.js') }}"></script>
-    <script src="{{ asset('js/view/module.view.js') }}"></script>
-    <script src="{{ asset('js/view/footer.view.js') }}"></script>
-    <script src="{{ asset('js/view/mainMenu.view.js') }}"></script>
-    <script src="{{ asset('js/view/leftMenu.view.js') }}"></script>
-    <script src="{{ asset('js/view/filter.view.js') }}"></script>
-    <script src="{{ asset('js/notify.js') }}"></script>
-    <script src="{{ asset('js/select.js') }}"></script>
-    <script src="{{ asset('js/helper.js') }}"></script>
-    <script src="{{ asset('js/links.js') }}"></script>
-    <script src="{{ asset('js/main.js') }}"></script>
+    {% javascripts
+        '@jquery'
+        '@jquery_ui'
+        '@underscore'
+        '@backbone'
+        '@helper'
+        '@MyBackendBundle/Resources/public/js/plugin/*'
+        '@MyBackendBundle/Resources/public/js/model/*'
+        '@MyBackendBundle/Resources/public/js/view/*'
+        '@MyBackendBundle/Resources/public/js/*'
+        output='js/compiled/backend.js' %}
+        <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
 {% endblock javascripts %}
 
 {% block body %}

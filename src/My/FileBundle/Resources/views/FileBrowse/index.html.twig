@@ -11,20 +11,24 @@
 {% endblock stylesheets %}
 
 {% block javascripts %}
-    {{ parent() }}
-    <script src="{{ asset('js/lib/underscore.js') }}"></script>
-    <script src="{{ asset('js/lib/backbone.js') }}"></script>
-    <script src="{{ asset('js/plugins/jquery-ui-1.10.4.custom.js') }}"></script>
-    <script src="{{ asset('js/plugins/jquery.qtip.js') }}"></script>
-    <script src="{{ asset('js/plugins/jquery.multidrag.table.js') }}"></script>
-    <script src="{{ asset('js/model/pagination.model.js') }}"></script>
-    <script src="{{ asset('js/view/pagination.view.js') }}"></script>
-    <script src="{{ asset('js/model/list.model.js') }}"></script>
-    <script src="{{ asset('js/view/list.view.js') }}"></script>
-    <script src="{{ asset('js/select.js') }}"></script>
-    <script src="{{ asset('js/helper.js') }}"></script>
-    <script src="{{ asset('js/links.js') }}"></script>
-    <script src="{{ asset('js/fileBrowse.js') }}"></script>
+    {% javascripts
+        '@jquery'
+        '@jquery_ui'
+        '@underscore'
+        '@backbone'
+        '@helper'
+        '@MyBackendBundle/Resources/public/js/plugin/jquery.qtip.js'
+        '@MyBackendBundle/Resources/public/js/plugin/jquery.multidrag.table.js'
+        '@MyBackendBundle/Resources/public/js/model/pagination.model.js'
+        '@MyBackendBundle/Resources/public/js/model/list.model.js'
+        '@MyBackendBundle/Resources/public/js/view/pagination.view.js'
+        '@MyBackendBundle/Resources/public/js/view/list.view.js'
+        '@MyBackendBundle/Resources/public/js/select.js'
+        '@MyBackendBundle/Resources/public/js/links.js'
+        '@MyFileBundle/Resources/public/js/fileBrowse.js'
+        output='js/compiled/fileBrowse.js' %}
+        <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
 {% endblock javascripts %}
 
 {% block body %}
