@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"comand",
+				"commandline"
+			],
+			[
 				"en",
 				"entities"
 			],
@@ -510,10 +514,6 @@
 			[
 				"fe",
 				"fetchOne"
-			],
-			[
-				"f",
-				"float"
 			]
 		]
 	},
@@ -528,18 +528,26 @@
 			}
 		},
 		{
-			"file": "/C/Users/mkurc1/Downloads/Symfony/symfony2_polecenia.txt",
-			"settings":
-			{
-				"buffer_size": 1695,
-				"line_ending": "Windows"
-			}
-		},
-		{
 			"file": "src/My/FileBundle/Resources/views/FileBrowse/index.html.twig",
 			"settings":
 			{
 				"buffer_size": 1548,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/My/FrontendBundle/Controller/DefaultController.php",
+			"settings":
+			{
+				"buffer_size": 7525,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "cmd/createDatabase.bat",
+			"settings":
+			{
+				"buffer_size": 188,
 				"line_ending": "Windows"
 			}
 		},
@@ -563,7 +571,7 @@
 			"file": "app/config/config.yml",
 			"settings":
 			{
-				"buffer_size": 5181,
+				"buffer_size": 5183,
 				"line_ending": "Unix"
 			}
 		}
@@ -576,7 +584,7 @@
 		[
 			[
 				"pat",
-				"File: Copy Path From Project"
+				"File: Copy Path as URI"
 			],
 			[
 				"path",
@@ -1070,6 +1078,19 @@
 	},
 	"file_history":
 	[
+		"/C/Users/mkurc1/Dropbox/praca.txt",
+		"/C/Users/mkurc1/.config/configstore/update-notifier-bower.yml",
+		"/C/Users/mkurc1/.VirtualBox/VirtualBox.xml",
+		"/C/wamp/www/PureThink/src/My/BackendBundle/Command/UpdateSchemaCommand.php",
+		"/C/cygwin/Cygwin.bat",
+		"/C/Users/mkurc1/Videos/The Big Bang Theory - The Complete Season 4 [HDTV]/The.Big.Bang.Theory.S04E01.The.Robotic.Manipulation.HDTV.XviD-FQM.txt",
+		"/C/wamp/www/PureThink/app/config/security.yml",
+		"/C/wamp/www/PureThink/vendor/symfony/symfony/src/Symfony/Component/Process/ProcessBuilder.php",
+		"/C/wamp/www/PureThink/app/Resources/java/yuicompressor-2.4.8.jar",
+		"/C/wamp/www/PureThink/vendor/symfony/symfony/src/Symfony/Component/Process/Process.php",
+		"/C/wamp/www/PureThink/vendor/symfony/assetic-bundle/Symfony/Bundle/AsseticBundle/Resources/config/assetic.xml",
+		"/C/Users/mkurc1/Downloads/Symfony/symfony2_polecenia.txt",
+		"/C/Users/mkurc1/Dropbox/Documents/GetSales/login.txt",
 		"/C/wamp/bin/php/php5.4.16/php.ini",
 		"/C/wamp/bin/apache/Apache2.4.4/bin/php.ini",
 		"/C/Users/Michał/Downloads/Symfony/symfony2_polecenia.txt",
@@ -1184,20 +1205,7 @@
 		"/C/wamp/www/GetTime/web/js/cookies.js",
 		"/C/wamp/www/PureThink/src/My/CMSBundle/data/cmsComponents.xml",
 		"/C/wamp/www/PureThink/src/My/CMSBundle/data/cmsComponentOnPages.xml",
-		"/C/wamp/www/PureThink/src/My/CMSBundle/data/cmsComponentOnPageHasElements.xml",
-		"/C/wamp/www/PureThink/src/My/CMSBundle/data/cmsComponentHasColumns.xml",
-		"/C/wamp/www/PureThink/src/My/CMSBundle/data/cmsMenus.xml",
-		"/C/wamp/www/PureThink/web/less/login.less",
-		"/C/wamp/www/PureThink/src/My/UserBundle/Resources/views/Security/login.html.twig",
-		"/C/wamp/www/PureThink/src/My/UserBundle/Resources/views/Resetting/checkEmail.html.twig",
-		"/C/wamp/www/PureThink/src/My/UserBundle/Resources/views/Resetting/passwordAlreadyRequested.html.twig",
-		"/C/wamp/www/PureThink/src/My/UserBundle/Resources/views/Resetting/request.html.twig",
-		"/C/wamp/www/PureThink/src/My/UserBundle/Resources/views/Resetting/request_content.html.twig",
-		"/C/wamp/www/PureThink/src/My/UserBundle/Resources/views/Resetting/reset.html.twig",
-		"/C/wamp/www/PureThink/src/My/UserBundle/Resources/views/Resetting/reset_content.html.twig",
-		"/C/wamp/www/PureThink/src/My/UserBundle/Resources/views/layout.html.twig",
-		"/C/wamp/www/PureThink/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/views/layout.html.twig",
-		"/C/wamp/www/PureThink/src/My/FrontendBundle/Resources/views/Default/_footer.html.twig"
+		"/C/wamp/www/PureThink/src/My/CMSBundle/data/cmsComponentOnPageHasElements.xml"
 	],
 	"find":
 	{
@@ -1215,6 +1223,28 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"Micha&#x142;",
+			"script",
+			"Process",
+			"/",
+			"commandline",
+			"options",
+			"Options",
+			"options",
+			"Options",
+			"options",
+			"descriptors",
+			"Descriptors",
+			"descriptors",
+			"Descriptors",
+			"descriptors",
+			"commandline",
+			"CommandLine",
+			"commandline",
+			"CommandLine",
+			"commandline",
+			"proc_open",
+			"yuicompressor-2.4.8.jar",
 			"url_int",
 			"opensll",
 			"yuicompressor.jar",
@@ -1320,29 +1350,7 @@
 			"Menu",
 			"menu",
 			"Menu",
-			"menu",
-			"list.model.get('url')",
-			"list.url",
-			"=",
-			"tab.",
-			"sequence",
-			"[index]",
-			"j",
-			"+1",
-			"s.eq(i)",
-			"Page",
-			"page",
-			"childMargin",
-			"rowsOnPage",
-			"index",
-			"[]",
-			"isSubmenu(ul)",
-			"ui.position.left > settings.childMargin",
-			"setNumbrts",
-			"child",
-			"50",
-			"methods",
-			"init"
+			"menu"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1360,7 +1368,7 @@
 	"groups":
 	[
 		{
-			"selected": 5,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -1376,8 +1384,8 @@
 						"selection":
 						[
 							[
-								451,
-								451
+								653,
+								653
 							]
 						],
 						"settings":
@@ -1385,46 +1393,46 @@
 							"BracketHighlighterBusy": false,
 							"bh_regions":
 							[
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
 								"bh_square",
 								"bh_square_center",
 								"bh_square_open",
 								"bh_square_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
 								"bh_angle",
 								"bh_angle_center",
 								"bh_angle_open",
-								"bh_angle_close"
+								"bh_angle_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close"
 							],
 							"syntax": "Packages/Twig/Syntaxes/HTML (Twig).tmLanguage",
 							"tab_size": 4,
@@ -1434,86 +1442,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "/C/Users/mkurc1/Downloads/Symfony/symfony2_polecenia.txt",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1695,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1592,
-								1564
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close"
-							],
-							"is_xml": false,
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
 					"file": "src/My/FileBundle/Resources/views/FileBrowse/index.html.twig",
 					"semi_transient": false,
 					"settings":
@@ -1534,46 +1467,46 @@
 							"BracketHighlighterBusy": false,
 							"bh_regions":
 							[
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
 								"bh_square",
 								"bh_square_center",
 								"bh_square_open",
 								"bh_square_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
 								"bh_single_quote",
 								"bh_single_quote_center",
 								"bh_single_quote_open",
 								"bh_single_quote_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
 								"bh_tag",
 								"bh_tag_center",
 								"bh_tag_open",
 								"bh_tag_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
 								"bh_default",
 								"bh_default_center",
 								"bh_default_open",
 								"bh_default_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close"
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close"
 							],
 							"syntax": "Packages/Twig/Syntaxes/HTML (Twig).tmLanguage",
 							"tab_size": 4,
@@ -1583,11 +1516,158 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/My/FrontendBundle/Controller/DefaultController.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7525,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								395,
+								395
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close"
+							],
+							"is_xml": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
 					"buffer": 3,
+					"file": "cmd/createDatabase.bat",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 188,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								140,
+								110
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close"
+							],
+							"syntax": "Packages/Batch File/Batch File.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
 					"file": "src/My/FrontendBundle/Resources/views/Default/layout.html.twig",
 					"semi_transient": false,
 					"settings":
@@ -1608,46 +1688,46 @@
 							"BracketHighlighterBusy": false,
 							"bh_regions":
 							[
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
 								"bh_square",
 								"bh_square_center",
 								"bh_square_open",
 								"bh_square_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
 								"bh_single_quote",
 								"bh_single_quote_center",
 								"bh_single_quote_open",
 								"bh_single_quote_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
 								"bh_tag",
 								"bh_tag_center",
 								"bh_tag_open",
 								"bh_tag_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
 								"bh_default",
 								"bh_default_center",
 								"bh_default_open",
 								"bh_default_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close"
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close"
 							],
 							"syntax": "Packages/Twig/Syntaxes/HTML (Twig).tmLanguage"
 						},
@@ -1655,11 +1735,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 5,
 					"file": "src/My/UserBundle/Resources/views/layout.html.twig",
 					"semi_transient": false,
 					"settings":
@@ -1680,6 +1760,34 @@
 							"BracketHighlighterBusy": false,
 							"bh_regions":
 							[
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
 								"bh_angle",
 								"bh_angle_center",
 								"bh_angle_open",
@@ -1688,38 +1796,10 @@
 								"bh_curly_center",
 								"bh_curly_open",
 								"bh_curly_close",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
 								"bh_single_quote",
 								"bh_single_quote_center",
 								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close"
+								"bh_single_quote_close"
 							],
 							"syntax": "Packages/Twig/Syntaxes/HTML (Twig).tmLanguage",
 							"tab_size": 4,
@@ -1729,24 +1809,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 6,
 					"file": "app/config/config.yml",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5181,
+						"buffer_size": 5183,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2005,
-								2011
+								1946,
+								1946
 							]
 						],
 						"settings":
@@ -1754,26 +1834,14 @@
 							"BracketHighlighterBusy": false,
 							"bh_regions":
 							[
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
 								"bh_curly",
 								"bh_curly_center",
 								"bh_curly_open",
 								"bh_curly_close",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
 								"bh_default",
 								"bh_default_center",
 								"bh_default_open",
@@ -1782,28 +1850,40 @@
 								"bh_round_center",
 								"bh_round_open",
 								"bh_round_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
 								"bh_unmatched",
 								"bh_unmatched_center",
 								"bh_unmatched_open",
 								"bh_unmatched_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close"
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close"
 							],
 							"syntax": "Packages/YAML/YAML.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 285.0,
+						"translation.y": 655.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 6,
 					"type": "text"
 				}
 			]
