@@ -29,7 +29,7 @@ class DefaultController extends Controller
      * @Route("/{locale}", name="localized_frontend")
      * @Method("GET")
      * @Template()
-     * @Cache(maxage="86400")
+     * @Cache(maxage="3600")
      */
     public function indexAction(Request $request, $locale)
     {
@@ -46,10 +46,10 @@ class DefaultController extends Controller
         $components = $this->getComponents($locale);
 
         return array(
-            'locale' => $locale,
-            'meta' => $meta,
-            'languages' => $languages,
-            'menus' => $menus,
+            'locale'     => $locale,
+            'meta'       => $meta,
+            'languages'  => $languages,
+            'menus'      => $menus,
             'components' => $components
             );
     }
@@ -115,12 +115,12 @@ class DefaultController extends Controller
         $articles = $em->getRepository('MyCMSBundle:CMSArticle')->search($locale, $search);
 
         return array(
-            'locale' => $locale,
-            'meta' => $meta,
-            'languages' => $languages,
-            'menus' => $menus,
+            'locale'     => $locale,
+            'meta'       => $meta,
+            'languages'  => $languages,
+            'menus'      => $menus,
             'components' => $components,
-            'articles' => $articles
+            'articles'   => $articles
             );
     }
 
@@ -150,14 +150,14 @@ class DefaultController extends Controller
         }
 
         return array(
-            'locale' => $locale,
-            'languages' => $languages,
-            'menus' => $menus,
+            'locale'     => $locale,
+            'languages'  => $languages,
+            'menus'      => $menus,
             'components' => $components,
-            'article' => $article,
-            'url' => array(
-                'slug' => $slug,
-                'slug2' => $slug2
+            'article'    => $article,
+            'url'        => array(
+                'slug'   => $slug,
+                'slug2'  => $slug2
                 )
             );
     }

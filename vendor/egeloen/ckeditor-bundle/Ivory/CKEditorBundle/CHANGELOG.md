@@ -1,5 +1,18 @@
 # CHANGELOG
 
+### 2.2.1 (2014-01-31)
+
+ * aa81171 - [Travis] Make symfony/form dynamic
+ * e51427c - [Twig] Fix js escaping
+ * fa08cd3 - [Twig] Fix caching by lazy loading services scoped request
+
+### 2.2.0 (2014-01-30)
+
+ * db93af5 - [Model] Move all view logic to an helper
+ * ff12310 - Upgrade CKEditor to 4.3.2
+ * 2b1786a - Update new year
+ * cdad813 - Deprecate Symfony 2.0
+
 ### 1.1.9 - 2.1.9 (2014-01-04)
 
  * ebeb553 - [ConfigManager] Fix merge config behavior

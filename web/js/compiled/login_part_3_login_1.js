@@ -1,3 +1,1 @@
-$(function() {
-    $('#login_container').center();
-});
+$(function(){$("#login_container").center()});

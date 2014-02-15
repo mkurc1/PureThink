@@ -10,6 +10,7 @@
     {% javascripts
         '@jquery'
         '@MyFrontendBundle/Resources/public/js/*'
+        filter="uglifyjs2"
         output='js/compiled/frontend.js' %}
         <script src="{{ asset_url }}"></script>
     {% endjavascripts %}

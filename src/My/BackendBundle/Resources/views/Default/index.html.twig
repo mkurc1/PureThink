@@ -22,6 +22,7 @@
         '@MyBackendBundle/Resources/public/js/model/*'
         '@MyBackendBundle/Resources/public/js/view/*'
         '@MyBackendBundle/Resources/public/js/*'
+        filter="uglifyjs2"
         output='js/compiled/backend.js' %}
         <script src="{{ asset_url }}"></script>
     {% endjavascripts %}

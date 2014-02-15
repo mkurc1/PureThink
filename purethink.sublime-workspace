@@ -520,58 +520,10 @@
 	"buffers":
 	[
 		{
-			"file": "src/My/BackendBundle/Resources/views/Default/index.html.twig",
+			"file": "app/config/parameters.yml",
 			"settings":
 			{
-				"buffer_size": 1736,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "src/My/FileBundle/Resources/views/FileBrowse/index.html.twig",
-			"settings":
-			{
-				"buffer_size": 1548,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/My/FrontendBundle/Controller/DefaultController.php",
-			"settings":
-			{
-				"buffer_size": 7525,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "cmd/createDatabase.bat",
-			"settings":
-			{
-				"buffer_size": 188,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/My/FrontendBundle/Resources/views/Default/layout.html.twig",
-			"settings":
-			{
-				"buffer_size": 708,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/My/UserBundle/Resources/views/layout.html.twig",
-			"settings":
-			{
-				"buffer_size": 677,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/config/config.yml",
-			"settings":
-			{
-				"buffer_size": 5183,
+				"buffer_size": 544,
 				"line_ending": "Unix"
 			}
 		}
@@ -579,9 +531,41 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 375.0,
+		"height": 79.0,
 		"selected_items":
 		[
+			[
+				"syntayam",
+				"Set Syntax: YAML"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"isntall",
+				"Package Control: Install Package"
+			],
+			[
+				"syntahtm",
+				"Set Syntax: HTML"
+			],
+			[
+				"linter",
+				"SublimeLinter: Next Error"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"proj",
+				"Project: Edit"
+			],
+			[
+				"proje",
+				"Project: Edit"
+			],
 			[
 				"pat",
 				"File: Copy Path as URI"
@@ -589,10 +573,6 @@
 			[
 				"path",
 				"File: Copy Path as URI"
-			],
-			[
-				"install",
-				"Package Control: Install Package"
 			],
 			[
 				"syntaxj",
@@ -621,10 +601,6 @@
 			[
 				"syntaxphp",
 				"Set Syntax: PHP"
-			],
-			[
-				"linter",
-				"SublimeLinter: Next Error"
 			],
 			[
 				"synta",
@@ -669,10 +645,6 @@
 			[
 				"sytht",
 				"Set Syntax: HTML"
-			],
-			[
-				"isntall",
-				"Package Control: Install Package"
 			],
 			[
 				"his",
@@ -847,14 +819,6 @@
 				"Set Syntax: HTML"
 			],
 			[
-				"proj",
-				"Project: Edit"
-			],
-			[
-				"proje",
-				"Project: Edit"
-			],
-			[
 				"syntaxht",
 				"Set Syntax: HTML"
 			],
@@ -893,10 +857,6 @@
 			[
 				"java",
 				"Set Syntax: JavaScript"
-			],
-			[
-				"instal",
-				"Package Control: Install Package"
 			],
 			[
 				"syntaxp",
@@ -1051,7 +1011,7 @@
 				"Word Wrap: Toggle"
 			]
 		],
-		"width": 450.0
+		"width": 579.0
 	},
 	"console":
 	{
@@ -1078,6 +1038,62 @@
 	},
 	"file_history":
 	[
+		"/home/mkurc1/Workplace/purethink/app/config/parameters.yml.dist",
+		"/home/mkurc1/.config/sublime-text-3/Packages/User/Base File.sublime-settings",
+		"/home/mkurc1/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/home/mkurc1/.config/sublime-text-3/Packages/Alignment/Base File.sublime-settings",
+		"/home/mkurc1/Workplace/purethink/src/My/FrontendBundle/Controller/DefaultController.php",
+		"/home/mkurc1/Workplace/purethink/src/My/UserBundle/Resources/views/layout.html.twig",
+		"/home/mkurc1/Workplace/purethink/src/My/FileBundle/Resources/views/FileBrowse/index.html.twig",
+		"/home/mkurc1/.config/sublime-text-3/Packages/Alignment/Default (Linux).sublime-keymap",
+		"/home/mkurc1/Wideo/The Big Bang Theory - The Complete Season 6 [HDTV]/The.Big.Bang.Theory.S06E24.HDTV.x264-LOL.txt",
+		"/home/mkurc1/Workplace/purethink/app/config/config.yml",
+		"/home/mkurc1/Workplace/gamedot.pl/composer.json",
+		"/home/mkurc1/Workplace/purethink/composer.json",
+		"/home/mkurc1/Dropbox/Documents/Symfony/symfony2_polecenia.txt",
+		"/home/mkurc1/Workplace/purethink/app/AppKernel.php",
+		"/home/mkurc1/Workplace/gamedot.pl/makefile",
+		"/home/mkurc1/Workplace/gamedot.pl/app/AppKernel.php",
+		"/home/mkurc1/Workplace/purethink/src/My/FrontendBundle/Resources/views/Default/layout.html.twig",
+		"/home/mkurc1/Workplace/purethink/src/My/BackendBundle/Resources/views/Default/index.html.twig",
+		"/home/mkurc1/Workplace/purethink/app/Resources/public/js/helper.js",
+		"/home/mkurc1/Workplace/purethink/src/My/CMSBundle/Entity/CMSWebSite.php",
+		"/home/mkurc1/Workplace/purethink/src/My/CMSBundle/Entity/CMSWebSite.php~",
+		"/home/mkurc1/Workplace/purethink/src/My/CMSBundle/Controller/CMSWebSiteController.php",
+		"/home/mkurc1/Workplace/purethink/app/cache/prod/doctrine/orm/Proxies/__CG__MyCMSBundleEntityCMSWebSite.php",
+		"/home/mkurc1/Workplace/purethink/src/My/CMSBundle/data/cmsWebSites.xml",
+		"/home/mkurc1/Workplace/purethink/src/My/CMSBundle/data/cmsMenus.xml",
+		"/home/mkurc1/Workplace/purethink/LICENSE",
+		"/home/mkurc1/Workplace/purethink/vendor/twig/twig/lib/Twig/LexerInterface.php",
+		"/home/mkurc1/.gitconfig",
+		"/home/mkurc1/Workplace/gamedot.pl/README.md",
+		"/etc/postgresql/9.1/main/pg_hba.conf",
+		"/home/mkurc1/pgadmin.log",
+		"/home/mkurc1/Pobrane/office.txt",
+		"/tmp/.fr-x3rAIQ/LibreOffice_4.2.0.4_Linux_x86-64_deb/readmes/README_en-US",
+		"/home/mkurc1/Wideo/The Big Bang Theory - The Complete Season 6 [HDTV]/The.Big.Bang.Theory.S06E01.HDTV.x264-LOL.txt",
+		"/home/mkurc1/Wideo/The Big Bang Theory - The Complete Season 6 [HDTV]/The.Big.Bang.Theory.S06E02.HDTV.x264-LOL.txt",
+		"/home/mkurc1/Wideo/The Big Bang Theory - The Complete Season 6 [HDTV]/The.Big.Bang.Theory.S06E03.HDTV.x264-LOL.txt",
+		"/home/mkurc1/Wideo/The Big Bang Theory - The Complete Season 6 [HDTV]/The.Big.Bang.Theory.S06E04.HDTV.x264-LOL.txt",
+		"/home/mkurc1/Dropbox/praca.txt",
+		"/home/mkurc1/Dropbox/Rozmowa rekrutacyjna.txt",
+		"/usr/share/applications/defaults.list",
+		"/home/mkurc1/.local/share/applications/mimeapps.list",
+		"/home/mkurc1/Workplace/purethink/src/My/BackendBundle/Controller/UserSettingController.php",
+		"/home/mkurc1/.local/share/mime/application/x-extension-eml.xml",
+		"/home/mkurc1/Workplace/purethink/web/css/purethink.css",
+		"/etc/apache2/sites-available/000-default.conf",
+		"/home/mkurc1/Workplace/purethink/web/.htaccess",
+		"/etc/apache2/apache2.conf",
+		"/home/mkurc1/.bashrc",
+		"/etc/skel/.bashrc",
+		"/etc/bashrc",
+		"/etc/php5/cli/php.ini",
+		"/etc/hosts",
+		"/etc/apache2/sites-enabled/000-default.conf",
+		"/etc/php5/apache2/php.ini",
+		"/home/mkurc1/Workplace/purethink/cmd/createDatabase.bat",
+		"/home/mkurc1/Workplace/purethink/purethink.sublime-project",
 		"/C/Users/mkurc1/Dropbox/praca.txt",
 		"/C/Users/mkurc1/.config/configstore/update-notifier-bower.yml",
 		"/C/Users/mkurc1/.VirtualBox/VirtualBox.xml",
@@ -1149,63 +1165,7 @@
 		"/C/wamp/www/PureThink/web/app_dev.php",
 		"/C/Users/Michał/Downloads/httpd.conf",
 		"/C/wamp/bin/apache/Apache2.4.4/conf/httpd.conf",
-		"/C/wamp/www/PureThink/web/.htaccess",
-		"/C/wamp/www/PureThink/app/autoload.php",
-		"/C/wamp/bin/apache/apache2.4.2/conf/httpd.conf",
-		"/C/wamp/www/PureThink/src/My/BackendBundle/Resources/public/js",
-		"/C/wamp/www/PureThink/web/js/lib/require.js",
-		"/C/wamp/www/PureThink/src/My/CMSBundle/Entity/CMSComponentOnPageHasValue.php",
-		"/C/wamp/www/PureThink/src/My/FrontendBundle/MyFrontendBundle.php",
-		"/C/wamp/www/PureThink/src/My/FrontendBundle/Controller/DefaultController.php",
-		"/C/wamp/www/PureThink/src/My/CMSBundle/Entity/CMSMenu.php",
-		"/C/wamp/www/PureThink/src/My/CMSBundle/Repository/CMSMenuRepository.php",
-		"/C/wamp/www/PureThink/src/My/FrontendBundle/Resources/views/Default/_menu.html.twig",
-		"/C/wamp/www/PureThink/web/js/view/mainButton.view.js",
-		"/C/Users/Michał/Desktop/praca.txt",
-		"/C/Users/Michał/Documents/Dropbox/Rozmowa rekrutacyjna.txt",
-		"/C/Users/Michał/Desktop/Rozmowa rekrutacyjna.txt",
-		"/C/wamp/www/PureThink/app/config/ProjectConfiguration.class.php",
-		"/C/wamp/www/GetTime/plugins/gsTeamPlugin/lib/paypal.class.php",
-		"/C/wamp/www/PureThink/src/My/FrontendBundle/Resources/views/Default/article.html.twig",
-		"/C/wamp/www/PureThink/web/less/main_menu.less",
-		"/C/Users/Michał/AppData/Roaming/Sublime Text 3/Packages/User/SublimeLinter.sublime-settings",
-		"/C/wamp/www/PureThink/web/less/main_button.less",
-		"/C/wamp/www/PureThink/src/My/CMSBundle/Repository/CMSComponentOnPageHasValueRepository.php",
-		"/C/wamp/www/PureThink/src/My/BackendBundle/Resources/views/Default/_module.html.twig",
-		"/C/wamp/www/PureThink/web/js/view/module.view.js",
-		"/C/wamp/www/PureThink/web/less/left_menu.less",
-		"/C/wamp/www/PureThink/web/js/main.js",
-		"/C/Users/Michał/Desktop/poprawki.txt",
-		"/C/wamp/www/PureThink/web/js/lib/jquery.js",
-		"/C/wamp/www/PureThink/web/js/plugins/chosen.jquery.js",
-		"/C/wamp/www/PureThink/web/js/plugins/jquery.dynamic.menu.js",
-		"/C/Users/Michał/Desktop/Rozmowa rekrutacyjna",
-		"/C/wamp/www/PureThink/web/js/cookies.js",
-		"/C/wamp/www/PureThink/src/My/FrontendBundle/Resources/views/Default/_cookie.html.twig",
-		"/C/wamp/www/PureThink/web/template/fresh-style/css/main.css",
-		"/C/wamp/www/PureThink/web/template/fresh-style/js/main.js",
-		"/C/wamp/www/PureThink/src/My/FrontendBundle/Resources/views/Default/search.html.twig",
-		"/C/wamp/www/PureThink/src/My/CMSBundle/Controller/CMSArticleController.php",
-		"/C/Users/Michał/AppData/Roaming/Sublime Text 3/Packages/User/SublimeCodeIntel.sublime-settings",
-		"/C/Users/Michał/AppData/Roaming/Sublime Text 3/Packages/SublimeCodeIntel/SublimeCodeIntel.sublime-settings",
-		"/C/Users/Michał/AppData/Roaming/Sublime Text 3/Local/Session.sublime_session",
-		"/C/wamp/www/PureThink/.phpintel/00658517f7d21b2b72daf8b419687683",
-		"/C/wamp/www/PureThink/.phpintel/008912f8344d26d8bc19825227320c5b",
-		"/C/Users/Michał/AppData/Roaming/Sublime Text 3/Packages/User/Package Control.sublime-settings",
-		"/C/Users/Michał/AppData/Roaming/Sublime Text 3/Packages/SublimeCodeIntel/Main.sublime-menu",
-		"/C/Users/Michał/AppData/Roaming/Sublime Text 3/Packages/SublimeCodeIntel/Default (Windows).sublime-keymap",
-		"/C/Users/Michał/.codeintel/config",
-		"/C/wamp/www/PureThink/src/My/BackendBundle/Controller/DefaultController.php",
-		"/C/wamp/www/PureThink/.jscs.json",
-		"/C/wamp/www/PureThink/web/template/fresh-style/css/article.css",
-		"/C/Users/Michał/AppData/Roaming/Sublime Text 3/Packages/SublimeLinter/SublimeLinter.sublime-settings",
-		"/C/wamp/www/PureThink/src/My/CMSBundle/data/cmsComponentOnPageHasValues.xml",
-		"/C/wamp/www/PureThink/src/My/FrontendBundle/Resources/views/Default/index.html.twig",
-		"/C/wamp/www/GetTime/web/gsCmsPlugin/js/scripts/front/cms_front.js",
-		"/C/wamp/www/GetTime/web/js/cookies.js",
-		"/C/wamp/www/PureThink/src/My/CMSBundle/data/cmsComponents.xml",
-		"/C/wamp/www/PureThink/src/My/CMSBundle/data/cmsComponentOnPages.xml",
-		"/C/wamp/www/PureThink/src/My/CMSBundle/data/cmsComponentOnPageHasElements.xml"
+		"/C/wamp/www/PureThink/web/.htaccess"
 	],
 	"find":
 	{
@@ -1223,6 +1183,33 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"RaulFraileLadybugBundle",
+			"LadybugBundle",
+			"Sensio",
+			"libreoffice4.2",
+			"     ",
+			"    ",
+			"   ",
+			"  ",
+			"                         ",
+			"                        ",
+			"                       ",
+			"                      ",
+			"                     ",
+			"                    ",
+			"pyt",
+			"mod_rewrite",
+			"grep",
+			"in",
+			"uncomment",
+			"magic_quotes",
+			"magic_quotes_",
+			"magic_quotes_gpc",
+			"httpd",
+			"extens",
+			"timez",
+			"www",
+			"/var/www/project",
 			"Micha&#x142;",
 			"script",
 			"Process",
@@ -1323,34 +1310,7 @@
 			"fos_user_content",
 			"resetting",
 			"fos_user_security_check",
-			"ColumnType",
-			"columnType",
-			"port",
-			"module_id",
-			"language_id",
-			"user_id",
-			"rows_on_page_id",
-			"userSetting",
-			"userSettings",
-			"_blank",
-			"['isNewPage'",
-			"isNewPage",
-			"language",
-			"MyFrontendBundel",
-			"ajaxRetrySetup",
-			"sortList",
-			"filtr",
-			"link",
-			"/..",
-			"submenu",
-			"/..",
-			"ui.item.parent().find('tr')",
-			"isSubmenu",
-			"sequence",
-			"Menu",
-			"menu",
-			"Menu",
-			"menu"
+			"ColumnType"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1368,24 +1328,24 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "src/My/BackendBundle/Resources/views/Default/index.html.twig",
+					"file": "app/config/parameters.yml",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1736,
+						"buffer_size": 544,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								653,
-								653
+								544,
+								544
 							]
 						],
 						"settings":
@@ -1393,170 +1353,6 @@
 							"BracketHighlighterBusy": false,
 							"bh_regions":
 							[
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close"
-							],
-							"syntax": "Packages/Twig/Syntaxes/HTML (Twig).tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "src/My/FileBundle/Resources/views/FileBrowse/index.html.twig",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1548,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								917,
-								917
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close"
-							],
-							"syntax": "Packages/Twig/Syntaxes/HTML (Twig).tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "src/My/FrontendBundle/Controller/DefaultController.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 7525,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								395,
-								395
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
 								"bh_double_quote",
 								"bh_double_quote_center",
 								"bh_double_quote_open",
@@ -1565,25 +1361,144 @@
 								"bh_tag_center",
 								"bh_tag_open",
 								"bh_tag_close",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
 								"bh_curly",
 								"bh_curly_center",
 								"bh_curly_open",
 								"bh_curly_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
 								"bh_single_quote",
 								"bh_single_quote_center",
 								"bh_single_quote_open",
-								"bh_single_quote_close"
+								"bh_single_quote_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close"
 							],
-							"is_xml": false,
-							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"codeintel": true,
+							"codeintel_config":
+							{
+								"JavaScript":
+								{
+									"codeintel_max_recursive_dir_depth": 2,
+									"codeintel_scan_files_in_project": false,
+									"javascriptExtraPaths":
+									[
+									]
+								},
+								"PHP":
+								{
+									"codeintel_max_recursive_dir_depth": 5,
+									"codeintel_scan_files_in_project": false,
+									"phpExtraPaths":
+									[
+									]
+								},
+								"Python":
+								{
+									"env":
+									{
+									}
+								}
+							},
+							"codeintel_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_live": true,
+							"codeintel_live_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_max_recursive_dir_depth": 10,
+							"codeintel_scan_exclude_dir":
+							{
+								"JavaScript":
+								[
+									"/build/",
+									"/min/"
+								]
+							},
+							"codeintel_scan_files_in_project": true,
+							"codeintel_selected_catalogs":
+							[
+								"PyWin32",
+								"jQuery",
+								"Rails"
+							],
+							"codeintel_snippets": true,
+							"codeintel_syntax_map":
+							{
+								"Python Django": "Python"
+							},
+							"codeintel_tooltips": "popup",
+							"sublime_auto_complete": true,
+							"syntax": "Packages/YAML/YAML.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
@@ -1593,305 +1508,13 @@
 					},
 					"stack_index": 0,
 					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "cmd/createDatabase.bat",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 188,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								140,
-								110
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close"
-							],
-							"syntax": "Packages/Batch File/Batch File.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "src/My/FrontendBundle/Resources/views/Default/layout.html.twig",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 708,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								438,
-								438
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close"
-							],
-							"syntax": "Packages/Twig/Syntaxes/HTML (Twig).tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "src/My/UserBundle/Resources/views/layout.html.twig",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 677,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								347,
-								347
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close"
-							],
-							"syntax": "Packages/Twig/Syntaxes/HTML (Twig).tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "app/config/config.yml",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5183,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1946,
-								1946
-							]
-						],
-						"settings":
-						{
-							"BracketHighlighterBusy": false,
-							"bh_regions":
-							[
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close"
-							],
-							"syntax": "Packages/YAML/YAML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 655.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
 				}
 			]
 		}
 	],
 	"incremental_find":
 	{
-		"height": 27.0
+		"height": 26.0
 	},
 	"input":
 	{
@@ -1951,7 +1574,7 @@
 	"project": "purethink.sublime-project",
 	"replace":
 	{
-		"height": 50.0
+		"height": 48.0
 	},
 	"save_all_on_build": true,
 	"select_file":
