@@ -1,20 +1,10 @@
-/web/bundles/
+/web/bundles/*
 /app/bootstrap*
 /app/cache/*
 /app/logs/*
+/web/js/*
 /vendor/
 /app/config/parameters.ini
 
-/purethink.sublime-project
-/purethink.sublime-workspace
-
-# OS generated files #
-######################
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-Icon?
-ehthumbs.db
-Thumbs.db
+/web/robots.txt
+*~
