@@ -1,0 +1,16 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_driver: pdo_mysql
+    database_host: 127.0.0.1
+    database_port: 3306
+    database_name: purethink
+    database_user: editor
+    database_password: secretPASSWORD
+    mailer_transport: smtp
+    mailer_host: mail.purethink.pl
+    mailer_user: demo@purethink.pl
+    mailer_password: 3MYKkR2R
+    mailer_encryption: null
+    mailer_port: 587
+    locale: en
+    secret: ThisTokenIsNotSoSecretChangeIt
