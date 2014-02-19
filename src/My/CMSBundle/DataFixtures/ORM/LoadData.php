@@ -125,7 +125,9 @@ class LoadData implements FixtureInterface
 			$CMSMenu->setLanguage($manager->getRepository('MyCMSBundle:CMSLanguage')->find($cmsMenu->language_id));
 			$CMSMenu->setSeries($manager->getRepository('MyBackendBundle:Series')->find($cmsMenu->series_id));
 			$CMSMenu->setArticle($manager->getRepository('MyCMSBundle:CMSArticle')->find($cmsMenu->article_id));
-			$CMSMenu->setMenu($manager->getRepository('MyCMSBundle:CMSMenu')->find($cmsMenu->menu_id));
+			if ($cmsMenu->menu_id != '') {
+				$CMSMenu->setMenu($manager->getRepository('MyCMSBundle:CMSMenu')->find($cmsMenu->menu_id));
+			}
 
 			$manager->persist($CMSMenu);
 			$manager->flush();

@@ -89,6 +89,8 @@ doctrine:
     orm:
         auto_generate_proxy_classes: "%kernel.debug%"
         auto_mapping: true
+        metadata_cache_driver: apc
+        query_cache_driver: apc
 
 # Swiftmailer Configuration
 swiftmailer:
@@ -109,7 +111,7 @@ services:
     pdo:
         class: PDO
         arguments:
-            - "mysql:host=%database_host%;port=%database_port%;dbname=%database_name%"
+            - "%database_driver_short%:host=%database_host%;port=%database_port%;dbname=%database_name%"
             - "%database_user%"
             - "%database_password%"
         calls:
