@@ -94,7 +94,7 @@ class CMSComponentOnPageHasValueRepository extends EntityRepository
             ->setParameter('locale', $locale)
             ->orderBy('cop.slug', 'ASC');
 
-        return $qb->getQuery()->useResultCache(true, 3600)->getResult();
+        return $qb->getQuery()->getResult();
     }
 
     /**

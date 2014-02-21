@@ -13,7 +13,7 @@ composer_install:
 	php composer.phar install -o
 
 composer_update:
-	# php composer.phar update
+	php composer.phar update
 
 do_install:
 	mkdir -p app/cache app/logs app/config web/uploads web/js web/css
