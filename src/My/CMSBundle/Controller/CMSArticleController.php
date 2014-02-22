@@ -293,4 +293,44 @@ class CMSArticleController extends Controller
 
         return new Response(json_encode($response));
     }
+
+    /**
+     * Export a CMSArticle entity.
+     *
+     * @Route("/export", name="cmsarticle_export")
+     * @Method("POST")
+     */
+    public function exportAction(Request $request)
+    {
+        $arrayId = $request->get('arrayId');
+
+        $em = $this->getDoctrine()->getManager();
+
+        $data = [];
+
+        foreach ($arrayId as $id) {
+            $entity = $em->getRepository('MyCMSBundle:CMSArticle')->find((int)$id);
+
+            if (!$entity) {
+                throw $this->createNotFoundException('Unable to find CMSArticle entity.');
+            }
+
+            $data[] = $this->get('jms_serializer')->serialize($entity, 'json');
+        }
+
+        if (count($arrayId) > 1) {
+            $message = 'Export artykułów zakończył się powodzeniem';
+        }
+        else {
+            $message = 'Export artykułu zakończył się powodzeniem';
+        }
+
+        $response = array(
+            "response" => true,
+            "message" => $message,
+            "data" => $data
+            );
+
+        return new Response(json_encode($response));
+    }
 }

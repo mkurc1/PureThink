@@ -42,16 +42,11 @@ class DefaultController extends Controller
         }
 
         $meta = $this->getMeta($locale);
+
         $menus = $this->getMenus($locale);
         $components = $this->getComponents($locale);
 
-        return array(
-            'locale'     => $locale,
-            'meta'       => $meta,
-            'languages'  => $languages,
-            'menus'      => $menus,
-            'components' => $components
-            );
+        return compact('locale', 'meta', 'languages', 'menus', 'components');
     }
 
     /**
@@ -114,14 +109,7 @@ class DefaultController extends Controller
 
         $articles = $em->getRepository('MyCMSBundle:CMSArticle')->search($locale, $search);
 
-        return array(
-            'locale'     => $locale,
-            'meta'       => $meta,
-            'languages'  => $languages,
-            'menus'      => $menus,
-            'components' => $components,
-            'articles'   => $articles
-            );
+        return compact('locale', 'meta', 'languages', 'menus', 'components', 'articles');
     }
 
     /**
@@ -149,17 +137,12 @@ class DefaultController extends Controller
             $article = $this->getArticle($slug);
         }
 
-        return array(
-            'locale'     => $locale,
-            'languages'  => $languages,
-            'menus'      => $menus,
-            'components' => $components,
-            'article'    => $article,
-            'url'        => array(
-                'slug'   => $slug,
-                'slug2'  => $slug2
-                )
+        $url = array(
+            'slug'  => $slug,
+            'slug2' => $slug2
             );
+
+        return compact('locale', 'languages', 'menus', 'components', 'article', 'url');
     }
 
     /**

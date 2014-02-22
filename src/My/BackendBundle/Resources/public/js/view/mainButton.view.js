@@ -1,12 +1,12 @@
 MainButtonView = Backbone.View.extend({
     events: {
-        "click #create"  : "create",
-        "click .refresh" : "refresh",
-        "click .edit"    : "edit",
-        "click .remove"  : "remove",
-        "click .cancel"  : "cancel",
-        "click .apply"   : "apply",
-        "click .save"    : "save"
+        "click #create" : "create",
+        "click .refresh": "refresh",
+        "click .edit"   : "edit",
+        "click .remove" : "remove",
+        "click .cancel" : "cancel",
+        "click .apply"  : "apply",
+        "click .save"   : "save"
     },
 
     /**
