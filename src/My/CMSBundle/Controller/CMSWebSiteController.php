@@ -34,9 +34,8 @@ class CMSWebSiteController extends Controller
 
         $em = $this->getDoctrine()->getManager();
 
-        try {
-            $entity = $em->getRepository('MyCMSBundle:CMSWebSite')->getWebSite($languageId);
-        } catch (\Exception $e) {
+        $entity = $em->getRepository('MyCMSBundle:CMSWebSite')->getWebSite($languageId);
+        if (!$entity) {
             $entity = $this->createWebSite($languageId);
         }
 

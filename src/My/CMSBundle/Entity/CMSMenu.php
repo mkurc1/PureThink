@@ -82,7 +82,7 @@ class CMSMenu
     protected $series;
 
     /**
-     * @ORM\ManyToOne(targetEntity="CMSArticle", inversedBy="cmsMenus")
+     * @ORM\ManyToOne(targetEntity="CMSArticle")
      * @ORM\JoinColumn(name="article_id", referencedColumnName="id", onDelete="CASCADE", nullable=false)
      */
     protected $article;
@@ -312,29 +312,6 @@ class CMSMenu
     }
 
     /**
-     * Set article
-     *
-     * @param \My\CMSBundle\Entity\CMSArticle $article
-     * @return CMSMenu
-     */
-    public function setArticle(\My\CMSBundle\Entity\CMSArticle $article)
-    {
-        $this->article = $article;
-
-        return $this;
-    }
-
-    /**
-     * Get article
-     *
-     * @return \My\CMSBundle\Entity\CMSArticle
-     */
-    public function getArticle()
-    {
-        return $this->article;
-    }
-
-    /**
      * Set isNewPage
      *
      * @param boolean $isNewPage
@@ -355,5 +332,28 @@ class CMSMenu
     public function getIsNewPage()
     {
         return $this->isNewPage;
+    }
+
+    /**
+     * Set article
+     *
+     * @param \My\CMSBundle\Entity\CMSArticle $article
+     * @return CMSMenu
+     */
+    public function setArticle(\My\CMSBundle\Entity\CMSArticle $article)
+    {
+        $this->article = $article;
+
+        return $this;
+    }
+
+    /**
+     * Get article
+     *
+     * @return \My\CMSBundle\Entity\CMSArticle
+     */
+    public function getArticle()
+    {
+        return $this->article;
     }
 }

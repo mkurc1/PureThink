@@ -26,7 +26,7 @@ class CMSWebSiteRepository extends EntityRepository
             ->setParameter('languageId', $languageId)
             ->setMaxResults(1);
 
-        return $qb->getQuery()->getSingleResult();
+        return $qb->getQuery()->getOneOrNullResult();
     }
 
     /**

@@ -42,7 +42,6 @@ class DefaultController extends Controller
         }
 
         $meta = $this->getMeta($locale);
-
         $menus = $this->getMenus($locale);
         $components = $this->getComponents($locale);
 
@@ -171,20 +170,20 @@ class DefaultController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $entities = $em->getRepository('MyCMSBundle:CMSMenu')->getPublicMenus($locale);
-        foreach ($entities as $entity) {
-            $series = $entity->getSeries()->getName();
-            $id = $entity->getId();
+        foreach ($entities as $menu) {
+            $series = $menu->getSeries()->getName();
+            $id = $menu->getId();
 
-            if (is_object($entity->getMenu())) {
-                if ($entity->getMenu()->getIsPublic())
+            if (is_object($menu->getMenu())) {
+                if ($menu->getMenu()->getIsPublic())
                 {
-                    $parentId = $entity->getMenu()->getId();
+                    $parentId = $menu->getMenu()->getId();
 
-                    $menus[$series][$parentId]['childrens'][$id]['parent'] = $entity;
+                    $menus[$series][$parentId]['childrens'][$id]['parent'] = $menu;
                 }
             }
             else {
-                $menus[$series][$id]['parent'] = $entity;
+                $menus[$series][$id]['parent'] = $menu;
             }
         }
 
