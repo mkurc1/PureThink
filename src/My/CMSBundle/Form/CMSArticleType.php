@@ -43,7 +43,7 @@ class CMSArticleType extends AbstractType
                 'label' => 'Grupa',
                 'class' => 'MyBackendBundle:Series',
                 'query_builder' => function (\Doctrine\ORM\EntityRepository $er) use ($options) {
-                    return $er->getGroupsByMenuIdNoExecute($options['attr']['menuId']);
+                    return $er->getGroupsByMenuIdNoExecute($options['menuId']);
                 },
                 'empty_value' => '',
                 'attr' => array(
@@ -60,7 +60,8 @@ class CMSArticleType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'My\CMSBundle\Entity\CMSArticle'
+            'data_class' => 'My\CMSBundle\Entity\CMSArticle',
+            'menuId'     => null
         ));
     }
 

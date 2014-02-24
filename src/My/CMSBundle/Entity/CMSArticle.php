@@ -383,7 +383,7 @@ class CMSArticle
     public function __construct()
     {
         $this->menus = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->isPublic = false;
+        $this->setIsPublic(false);
     }
 
     /**
