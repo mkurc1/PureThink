@@ -32,14 +32,14 @@ class CMSArticleController extends Controller
         $page       = (int)$request->get('page', 1);
         $order      = $request->get('order', 'a.name');
         $sequence   = $request->get('sequence', 'ASC');
-        $filtr      = $request->get('filtr');
-        $languageId = $request->get('languageId');
-        $groupId    = $request->get('groupId');
+        $filter      = $request->get('filtr', null);
+        $languageId = $request->get('languageId', null);
+        $groupId    = $request->get('groupId', null);
 
         $articles = $this->getDoctrine()->getRepository('MyCMSBundle:CMSArticle')
-            ->getArticles($order, $sequence, $filtr, $languageId, $groupId);
+            ->getArticlesQB($order, $sequence, $filter, $languageId, $groupId);
 
-        $pagination  = $this->get('knp_paginator')->paginate($articles, $page, $rowsOnPage);
+        $pagination = $this->get('knp_paginator')->paginate($articles, $page, $rowsOnPage);
 
         $list = $this->renderView('MyCMSBundle:CMSArticle:_list.html.twig',
             array('entities' => $pagination, 'page' => $page, 'rowsOnPage' => $rowsOnPage));

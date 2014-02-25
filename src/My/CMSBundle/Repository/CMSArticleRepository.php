@@ -17,28 +17,20 @@ class CMSArticleRepository extends EntityRepository
      *
      * @param string $order
      * @param string $sequence
-     * @param string $filtr
+     * @param string $filter
      * @param string $languageId
      * @param string $groupId
      * @return array
      */
-	public function getArticles($order, $sequence, $filtr, $languageId, $groupId)
+	public function getArticlesQB($order, $sequence, $filter, $languageId, $groupId)
 	{
 		$qb = $this->createQueryBuilder('a')
             ->leftJoin('a.language', 'l')
-            ->leftJoin('a.series', 's')
-            ->where('a.name LIKE :filtr')
-            ->setParameter('filtr', '%'.$filtr.'%');
+            ->leftJoin('a.series', 's');
 
-        if ($languageId) {
-            $qb->andWhere('l.id = :languageId')
-                ->setParameter('languageId', $languageId);
-        }
-
-        if ($groupId) {
-            $qb->andWhere('s.id = :groupId')
-                ->setParameter('groupId', $groupId);
-        }
+        $this->addFilterQB($qb, $filter);
+        $this->addLanguageFilterQB($qb, $languageId);
+        $this->addGroupFilterQB($qb, $groupId);
 
         $qb->orderBy($order, $sequence);
 
@@ -58,10 +50,49 @@ class CMSArticleRepository extends EntityRepository
             ->leftJoin('a.language', 'l')
             ->where('a.isPublic = true')
             ->andWhere('l.alias = :locale')
-            ->setParameter('locale', $locale)
-            ->andWhere('a.name LIKE :search')
-            ->setParameter('search', '%'.$search.'%');
+            ->setParameter('locale', $locale);
+
+        $this->addFilterQB($qb, $search);
 
         return $qb->getQuery()->getResult();
+    }
+
+    /**
+     * Add filter
+     *
+     * @param QueryBuilde $qb
+     * @param string $filter
+     */
+    private function addFilterQB($qb, $filter = null) {
+        if ($filter) {
+            $qb->andWhere($qb->getRootAlias().'.name LIKE :filter')
+               ->setParameter('filter', '%'.$filter.'%');
+        }
+    }
+
+    /**
+     * Add language filter
+     *
+     * @param QueryBuilde $qb
+     * @param string $filter
+     */
+    private function addLanguageFilterQB($qb, $languageId = null) {
+        if ($languageId) {
+            $qb->andWhere('l.id = :languageId')
+               ->setParameter('languageId', $languageId);
+        }
+    }
+
+    /**
+     * Add group filter
+     *
+     * @param QueryBuilde $qb
+     * @param string $filter
+     */
+    private function addGroupFilterQB($qb, $groupId = null) {
+        if ($groupId) {
+            $qb->andWhere('s.id = :groupId')
+               ->setParameter('groupId', $groupId);
+        }
     }
 }
