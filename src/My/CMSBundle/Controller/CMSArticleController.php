@@ -36,10 +36,10 @@ class CMSArticleController extends Controller
         $languageId = (int)$request->get('languageId');
         $groupId    = (int)$request->get('groupId');
 
-        $articles = $this->getDoctrine()->getRepository('MyCMSBundle:CMSArticle')
+        $articlesQB = $this->getDoctrine()->getRepository('MyCMSBundle:CMSArticle')
             ->getArticlesQB($order, $sequence, $filter, $languageId, $groupId);
 
-        $pagination = $this->get('knp_paginator')->paginate($articles, $page, $rowsOnPage);
+        $pagination = $this->get('knp_paginator')->paginate($articlesQB, $page, $rowsOnPage);
 
         $list = $this->renderView('MyCMSBundle:CMSArticle:_list.html.twig',
             array('entities' => $pagination, 'page' => $page, 'rowsOnPage' => $rowsOnPage));
@@ -202,11 +202,11 @@ class CMSArticleController extends Controller
     {
         $arrayId = $request->get('arrayId');
 
-        $entities = $this->getDoctrine()->getRepository('MyCMSBundle:CMSArticle')
+        $articles = $this->getDoctrine()->getRepository('MyCMSBundle:CMSArticle')
             ->getArticlesById($arrayId);
 
         $response = $this->get('my.manageList.service')
-            ->deleteEntities($entities);
+            ->deleteEntities($articles);
 
         return new Response(json_encode($response));
     }

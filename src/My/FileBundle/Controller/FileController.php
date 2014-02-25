@@ -29,29 +29,24 @@ class FileController extends Controller
     public function listAction(Request $request)
     {
         $rowsOnPage = (int)$request->get('rowsOnPage', 10);
-        $page = (int)$request->get('page', 1);
-        $order = $request->get('order', 'a.name');
-        $sequence = $request->get('sequence', 'ASC');
-        $filtr = $request->get('filtr');
-        $groupId = $request->get('groupId');
+        $page       = (int)$request->get('page', 1);
+        $order      = $request->get('order', 'a.name');
+        $sequence   = $request->get('sequence', 'ASC');
+        $filtr      = $request->get('filtr');
+        $groupId    = (int)$request->get('groupId');
 
-        $em = $this->getDoctrine()->getManager();
+        $filesQB = $this->getDoctrine()->getRepository('MyFileBundle:File')
+            ->getFilesQB($order, $sequence, $filtr, $groupId);
 
-        $entities = $em->getRepository('MyFileBundle:File')->getFiles($order, $sequence, $filtr, $groupId);
+        $pagination  = $this->get('knp_paginator')->paginate($filesQB, $page, $rowsOnPage);
 
-        $paginator  = $this->get('knp_paginator');
-        $pagination = $paginator->paginate(
-            $entities,
-            $page,
-            $rowsOnPage
-        );
-
-        $list = $this->renderView('MyFileBundle:File:_list.html.twig', array('entities' => $pagination, 'page' => $page, 'rowsOnPage' => $rowsOnPage));
+        $list = $this->renderView('MyFileBundle:File:_list.html.twig',
+            array('entities' => $pagination, 'page' => $page, 'rowsOnPage' => $rowsOnPage));
 
         $response = array(
-            "list" => $list,
+            "list"       => $list,
             "pagination" => Pagination::helper($pagination),
-            "response" => true
+            "response"   => true
             );
 
         return new Response(json_encode($response));
@@ -206,45 +201,11 @@ class FileController extends Controller
     {
         $arrayId = $request->get('arrayId');
 
-        $em = $this->getDoctrine()->getManager();
+        $files = $this->getDoctrine()->getRepository('MyFileBundle:File')
+            ->getFilesById($arrayId);
 
-        foreach ($arrayId as $id) {
-            $entity = $em->getRepository('MyFileBundle:File')->find((int)$id);
-
-            if (!$entity) {
-                throw $this->createNotFoundException('Unable to find File entity.');
-            }
-
-            $em->remove($entity);
-        }
-
-        try {
-            $em->flush();
-
-            if (count($arrayId) > 1) {
-                $message = 'Usuwanie plików zakończyło się powodzeniem';
-            }
-            else {
-                $message = 'Usuwanie pliku zakończyło się powodzeniem';
-            }
-
-            $response = array(
-                "response" => true,
-                "message" => $message
-                );
-        } catch (\Exception $e) {
-            if (count($arrayId) > 1) {
-                $message = 'Usuwanie plików zakończyło się niepowodzeniem';
-            }
-            else {
-                $message = 'Usuwanie pliku zakończyło się niepowodzeniem';
-            }
-
-            $response = array(
-                "response" => false,
-                "message" => $message
-                );
-        }
+        $response = $this->get('my.manageList.service')
+            ->deleteEntities($files);
 
         return new Response(json_encode($response));
     }
