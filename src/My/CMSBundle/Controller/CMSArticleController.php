@@ -202,45 +202,11 @@ class CMSArticleController extends Controller
     {
         $arrayId = $request->get('arrayId');
 
-        $em = $this->getDoctrine()->getManager();
+        $entities = $this->getDoctrine()->getRepository('MyCMSBundle:CMSArticle')
+            ->getArticlesById($arrayId);
 
-        foreach ($arrayId as $id) {
-            $entity = $em->getRepository('MyCMSBundle:CMSArticle')->find((int)$id);
-
-            if (!$entity) {
-                throw $this->createNotFoundException('Unable to find CMSArticle entity.');
-            }
-
-            $em->remove($entity);
-        }
-
-        try {
-            $em->flush();
-
-            if (count($arrayId) > 1) {
-                $message = 'Usuwanie artykułów zakończyło się powodzeniem';
-            }
-            else {
-                $message = 'Usuwanie artykułu zakończyło się powodzeniem';
-            }
-
-            $response = array(
-                "response" => true,
-                "message"  => $message
-                );
-        } catch (\Exception $e) {
-            if (count($arrayId) > 1) {
-                $message = 'Usuwanie artykułów zakończyło się niepowodzeniem';
-            }
-            else {
-                $message = 'Usuwanie artykułu zakończyło się niepowodzeniem';
-            }
-
-            $response = array(
-                "response" => false,
-                "message"  => $message
-                );
-        }
+        $response = $this->get('my.manageList.service')
+            ->deleteEntities($entities);
 
         return new Response(json_encode($response));
     }

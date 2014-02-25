@@ -26,7 +26,7 @@ class LeftMenuController extends Controller
 
         switch ($moduleId) {
             case 1:
-                $CMSLeftMenuController = $this->get('my_cms_left_menu');
+                $CMSLeftMenuController = $this->get('my.leftMenu.service');
                 $menus = $CMSLeftMenuController->menu($menuId);
                 break;
         }

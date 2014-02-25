@@ -1,0 +1,8 @@
+services:
+    my.leftMenu.service:
+        class: My\CMSBundle\Controller\CMSLeftMenuController
+        arguments: [@doctrine.orm.entity_manager, @templating]
+
+    my.manageList.service:
+        class: My\BackendBundle\Service\ManageListService
+        arguments: [@doctrine.orm.entity_manager]

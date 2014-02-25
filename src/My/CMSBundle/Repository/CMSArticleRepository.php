@@ -38,6 +38,21 @@ class CMSArticleRepository extends EntityRepository
 	}
 
     /**
+     * Get articles by ID
+     *
+     * @param  $ids
+     * @return array
+     */
+    public function getArticlesById($ids = [])
+    {
+        $qb = $this->createQueryBuilder('a')
+            ->where('a.id IN (:ids)')
+            ->setParameter('ids', $ids);
+
+        return $qb->getQuery()->getResult();
+    }
+
+    /**
      * Search
      *
      * @param string $locale

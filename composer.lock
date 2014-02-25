@@ -989,12 +989,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/l3pp4rd/DoctrineExtensions.git",
-                "reference": "e16bc46d9c65953b32bc7613a7522bbe0a44a9ea"
+                "reference": "d708b0317b746ad40bf0d9619af01dd76ef947bc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/l3pp4rd/DoctrineExtensions/zipball/e16bc46d9c65953b32bc7613a7522bbe0a44a9ea",
-                "reference": "e16bc46d9c65953b32bc7613a7522bbe0a44a9ea",
+                "url": "https://api.github.com/repos/l3pp4rd/DoctrineExtensions/zipball/d708b0317b746ad40bf0d9619af01dd76ef947bc",
+                "reference": "d708b0317b746ad40bf0d9619af01dd76ef947bc",
                 "shasum": ""
             },
             "require": {
@@ -1061,7 +1061,7 @@
                 "tree",
                 "uploadable"
             ],
-            "time": "2014-02-19 21:14:45"
+            "time": "2014-02-24 20:17:49"
         },
         {
             "name": "incenteev/composer-parameter-handler",
