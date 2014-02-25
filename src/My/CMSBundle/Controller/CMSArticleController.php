@@ -33,8 +33,8 @@ class CMSArticleController extends Controller
         $order      = $request->get('order', 'a.name');
         $sequence   = $request->get('sequence', 'ASC');
         $filter      = $request->get('filtr', null);
-        $languageId = $request->get('languageId', null);
-        $groupId    = $request->get('groupId', null);
+        $languageId = (int)$request->get('languageId');
+        $groupId    = (int)$request->get('groupId');
 
         $articles = $this->getDoctrine()->getRepository('MyCMSBundle:CMSArticle')
             ->getArticlesQB($order, $sequence, $filter, $languageId, $groupId);
