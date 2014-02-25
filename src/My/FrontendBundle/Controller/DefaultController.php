@@ -136,6 +136,10 @@ class DefaultController extends Controller
             $article = $this->getArticle($slug);
         }
 
+        if (null == $article) {
+            throw $this->createNotFoundException();
+        }
+
         $url = array(
             'slug'  => $slug,
             'slug2' => $slug2

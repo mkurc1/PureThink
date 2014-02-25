@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>PureThink</title>
+</head>
+<body>
+    <h1>{% if status_code == '404' %}
+        Podana strona nie istnieje.
+    {%endif %}
+    </h1>
+    <h2>"{{ status_code }} {{ status_text }}".</h2>
+
+    <p><a href="{{ path('frontend') }}"><strong>Kliknij tutaj</strong></a>, aby powrócić do głównej strony portalu.</p>
+</body>
+</html>
