@@ -173,8 +173,8 @@ class DefaultController extends Controller
 
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('MyCMSBundle:CMSMenu')->getPublicMenus($locale);
-        foreach ($entities as $menu) {
+        $menus = $em->getRepository('MyCMSBundle:CMSMenu')->getPublicMenus($locale);
+        foreach ($menus as $menu) {
             $series = $menu->getSeries()->getName();
             $id = $menu->getId();
 
