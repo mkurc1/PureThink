@@ -1,23 +1,24 @@
 <?php
 
-namespace My\BackendBundle\Pagination;
+namespace My\BackendBundle\Service;
 
-/**
- * Pagination
- */
-class Pagination
+class PaginationService
 {
-    /**
-     * Get pagination
-     *
-     * @param  \Knp\Bundle\PaginatorBundle\Pagination\SlidingPagination $pagination
-     * @return array
-     */
-    static function helper(\Knp\Bundle\PaginatorBundle\Pagination\SlidingPagination $pagination)
+    private $knpPaginator;
+
+    public function __construct($knpPaginator)
     {
-        $paginationData = $pagination->getPaginationData();
+        $this->knpPaginator = $knpPaginator;
+    }
+
+    public function setPagination($entitiesQB, $page, $rowsOnPage)
+    {
+        $paginator = $this->knpPaginator->paginate($entitiesQB, $page, $rowsOnPage);
+
+        $paginationData = $paginator->getPaginationData();
 
         return array(
+            "entities" => $paginator,
             "pages" => $paginationData['pagesInRange'],
             "previous" => (isset($paginationData['previous']) ? $paginationData['previous'] : $paginationData['current']),
             "next" => (isset($paginationData['next']) ? $paginationData['next'] : $paginationData['current']),

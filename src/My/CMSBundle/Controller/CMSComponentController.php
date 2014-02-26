@@ -11,8 +11,6 @@ use My\CMSBundle\Entity\CMSComponent;
 use My\CMSBundle\Form\CMSComponentType;
 use Symfony\Component\HttpFoundation\Response;
 
-use My\BackendBundle\Pagination\Pagination as Pagination;
-
 /**
  * CMSComponent controller.
  *
@@ -39,19 +37,16 @@ class CMSComponentController extends Controller
 
         $entities = $em->getRepository('MyCMSBundle:CMSComponent')->getComponentsQB($order, $sequence, $filtr, $groupId);
 
-        $paginator  = $this->get('knp_paginator');
-        $pagination = $paginator->paginate(
-            $entities,
-            $page,
-            $rowsOnPage
-        );
+        $pagination = $this->get('my.pagination.service')
+            ->setPagination($entities, $page, $rowsOnPage);
 
-        $list = $this->renderView('MyCMSBundle:CMSComponent:_list.html.twig', array('entities' => $pagination, 'page' => $page, 'rowsOnPage' => $rowsOnPage));
+        $list = $this->renderView('MyCMSBundle:CMSComponent:_list.html.twig',
+            array('entities' => $pagination['entities'], 'page' => $page, 'rowsOnPage' => $rowsOnPage));
 
         $response = array(
-            "list" => $list,
-            "pagination" => Pagination::helper($pagination),
-            "response" => true
+            "list"       => $list,
+            "pagination" => $pagination,
+            "response"   => true
             );
 
         return new Response(json_encode($response));

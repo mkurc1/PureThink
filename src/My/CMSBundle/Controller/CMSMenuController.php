@@ -11,8 +11,6 @@ use My\CMSBundle\Entity\CMSMenu;
 use My\CMSBundle\Form\CMSMenuType;
 use Symfony\Component\HttpFoundation\Response;
 
-use My\BackendBundle\Pagination\Pagination as Pagination;
-
 /**
  * CMSMenu controller.
  *

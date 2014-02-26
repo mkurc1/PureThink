@@ -6,3 +6,7 @@ services:
     my.manageList.service:
         class: My\BackendBundle\Service\ManageListService
         arguments: [@doctrine.orm.entity_manager]
+
+    my.pagination.service:
+        class: My\BackendBundle\Service\PaginationService
+        arguments: [@knp_paginator]

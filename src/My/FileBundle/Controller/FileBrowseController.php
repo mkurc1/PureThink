@@ -9,8 +9,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Response;
 
-use My\BackendBundle\Pagination\Pagination as Pagination;
-
 /**
  * File controller.
  *
@@ -43,25 +41,22 @@ class FileBrowseController extends Controller
         $order = $request->get('order', 'a.name');
         $sequence = $request->get('sequence', 'ASC');
         $filtr = $request->get('filtr');
-        $groupId = $request->get('groupId', 0);
+        $groupId = (int)$request->get('groupId', 0);
 
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('MyFileBundle:File')->getFiles($order, $sequence, $filtr, $groupId);
+        $entities = $em->getRepository('MyFileBundle:File')->getFilesQB($order, $sequence, $filtr, $groupId);
 
-        $paginator  = $this->get('knp_paginator');
-        $pagination = $paginator->paginate(
-            $entities,
-            $page,
-            $rowsOnPage
-        );
+        $pagination = $this->get('my.pagination.service')
+            ->setPagination($entities, $page, $rowsOnPage);
 
-        $list = $this->renderView('MyFileBundle:FileBrowse:_list.html.twig', array('entities' => $pagination, 'page' => $page, 'rowsOnPage' => $rowsOnPage));
+        $list = $this->renderView('MyFileBundle:FileBrowse:_list.html.twig',
+            array('entities' => $pagination['entities'], 'page' => $page, 'rowsOnPage' => $rowsOnPage));
 
         $response = array(
-            "list" => $list,
-            "pagination" => Pagination::helper($pagination),
-            "response" => true
+            "list"       => $list,
+            "pagination" => $pagination,
+            "response"   => true
             );
 
         return new Response(json_encode($response));

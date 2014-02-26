@@ -11,8 +11,6 @@ use My\CMSBundle\Entity\CMSComponentHasColumn;
 use My\CMSBundle\Form\CMSComponentHasColumnType;
 use Symfony\Component\HttpFoundation\Response;
 
-use My\BackendBundle\Pagination\Pagination as Pagination;
-
 /**
  * CMSComponentHasColumn controller.
  *
@@ -39,18 +37,15 @@ class CMSComponentHasColumnController extends Controller
 
         $entities = $em->getRepository('MyCMSBundle:CMSComponentHasColumn')->getColumnsQB($order, $sequence, $filtr, $sublistId);
 
-        $paginator  = $this->get('knp_paginator');
-        $pagination = $paginator->paginate(
-            $entities,
-            $page,
-            $rowsOnPage
-        );
+        $pagination = $this->get('my.pagination.service')
+            ->setPagination($entities, $page, $rowsOnPage);
 
-        $list = $this->renderView('MyCMSBundle:CMSComponentHasColumn:_list.html.twig', array('entities' => $pagination, 'page' => $page, 'rowsOnPage' => $rowsOnPage));
+        $list = $this->renderView('MyCMSBundle:CMSComponentHasColumn:_list.html.twig',
+            array('entities' => $pagination['entities'], 'page' => $page, 'rowsOnPage' => $rowsOnPage));
 
         $response = array(
             "list" => $list,
-            "pagination" => Pagination::helper($pagination),
+            "pagination" => $pagination,
             "response" => true
             );
 

@@ -11,8 +11,6 @@ use My\CMSBundle\Entity\CMSComponentOnPage;
 use My\CMSBundle\Form\CMSComponentOnPageType;
 use Symfony\Component\HttpFoundation\Response;
 
-use My\BackendBundle\Pagination\Pagination as Pagination;
-
 /**
  * CMSComponentOnPage controller.
  *
@@ -40,18 +38,15 @@ class CMSComponentOnPageController extends Controller
 
         $entities = $em->getRepository('MyCMSBundle:CMSComponentOnPage')->getComponentsQB($order, $sequence, $filtr, $languageId, $groupId);
 
-        $paginator  = $this->get('knp_paginator');
-        $pagination = $paginator->paginate(
-            $entities,
-            $page,
-            $rowsOnPage
-        );
+        $pagination = $this->get('my.pagination.service')
+            ->setPagination($entities, $page, $rowsOnPage);
 
-        $list = $this->renderView('MyCMSBundle:CMSComponentOnPage:_list.html.twig', array('entities' => $pagination, 'page' => $page, 'rowsOnPage' => $rowsOnPage));
+        $list = $this->renderView('MyCMSBundle:CMSComponentOnPage:_list.html.twig',
+            array('entities' => $pagination['entities'], 'page' => $page, 'rowsOnPage' => $rowsOnPage));
 
         $response = array(
             "list" => $list,
-            "pagination" => Pagination::helper($pagination),
+            "pagination" => $pagination,
             "response" => true
             );
 

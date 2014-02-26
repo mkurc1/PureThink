@@ -11,8 +11,6 @@ use My\FileBundle\Entity\File;
 use My\FileBundle\Form\FileType;
 use Symfony\Component\HttpFoundation\Response;
 
-use My\BackendBundle\Pagination\Pagination as Pagination;
-
 /**
  * File controller.
  *
@@ -38,14 +36,15 @@ class FileController extends Controller
         $filesQB = $this->getDoctrine()->getRepository('MyFileBundle:File')
             ->getFilesQB($order, $sequence, $filtr, $groupId);
 
-        $pagination  = $this->get('knp_paginator')->paginate($filesQB, $page, $rowsOnPage);
+        $pagination = $this->get('my.pagination.service')
+            ->setPagination($filesQB, $page, $rowsOnPage);
 
         $list = $this->renderView('MyFileBundle:File:_list.html.twig',
-            array('entities' => $pagination, 'page' => $page, 'rowsOnPage' => $rowsOnPage));
+            array('entities' => $pagination['entities'], 'page' => $page, 'rowsOnPage' => $rowsOnPage));
 
         $response = array(
             "list"       => $list,
-            "pagination" => Pagination::helper($pagination),
+            "pagination" => $pagination,
             "response"   => true
             );
 
