@@ -29,15 +29,15 @@ class CMSComponentController extends Controller
     public function listAction(Request $request)
     {
         $rowsOnPage = (int)$request->get('rowsOnPage', 10);
-        $page = (int)$request->get('page', 1);
-        $order = $request->get('order', 'a.name');
-        $sequence = $request->get('sequence', 'ASC');
-        $filtr = $request->get('filtr');
-        $groupId = $request->get('groupId');
+        $page       = (int)$request->get('page', 1);
+        $order      = $request->get('order', 'a.name');
+        $sequence   = $request->get('sequence', 'ASC');
+        $filtr      = $request->get('filtr');
+        $groupId    = (int)$request->get('groupId');
 
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('MyCMSBundle:CMSComponent')->getComponents($order, $sequence, $filtr, $groupId);
+        $entities = $em->getRepository('MyCMSBundle:CMSComponent')->getComponentsQB($order, $sequence, $filtr, $groupId);
 
         $paginator  = $this->get('knp_paginator');
         $pagination = $paginator->paginate(

@@ -242,14 +242,8 @@ class DefaultController extends Controller
      */
     private function getMeta($locale)
     {
-        $em = $this->getDoctrine()->getManager();
-
-        try {
-            return $em->getRepository('MyCMSBundle:CMSWebsite')->getMeta($locale);
-        }
-        catch (\Exception $e) {
-            return false;
-        }
+        return $this->getDoctrine()->getRepository('MyCMSBundle:CMSWebSite')
+            ->getMeta($locale);
     }
 
     /**

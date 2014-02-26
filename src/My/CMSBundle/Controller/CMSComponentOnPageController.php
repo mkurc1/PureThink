@@ -29,16 +29,16 @@ class CMSComponentOnPageController extends Controller
     public function listAction(Request $request)
     {
         $rowsOnPage = (int)$request->get('rowsOnPage', 10);
-        $page = (int)$request->get('page', 1);
-        $order = $request->get('order', 'a.name');
-        $sequence = $request->get('sequence', 'ASC');
-        $filtr = $request->get('filtr');
-        $languageId = $request->get('languageId');
-        $groupId = $request->get('groupId');
+        $page       = (int)$request->get('page', 1);
+        $order      = $request->get('order', 'a.name');
+        $sequence   = $request->get('sequence', 'ASC');
+        $filtr      = $request->get('filtr');
+        $languageId = (int)$request->get('languageId');
+        $groupId    = (int)$request->get('groupId');
 
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('MyCMSBundle:CMSComponentOnPage')->getComponents($order, $sequence, $filtr, $languageId, $groupId);
+        $entities = $em->getRepository('MyCMSBundle:CMSComponentOnPage')->getComponentsQB($order, $sequence, $filtr, $languageId, $groupId);
 
         $paginator  = $this->get('knp_paginator');
         $pagination = $paginator->paginate(

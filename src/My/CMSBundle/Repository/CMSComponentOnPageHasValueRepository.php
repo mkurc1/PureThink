@@ -17,11 +17,11 @@ class CMSComponentOnPageHasValueRepository extends EntityRepository
      *
      * @param string $order
      * @param string $sequence
-     * @param string $filtr
+     * @param string $filter
      * @param integer $componentId
      * @return array
      */
-    public function getElements($order, $sequence, $filtr, $componentId)
+    public function getElementsQB($order, $sequence, $filter, $componentId)
     {
         $qb = $this->createQueryBuilder('a')
             ->select('a, a.content')
@@ -30,12 +30,12 @@ class CMSComponentOnPageHasValueRepository extends EntityRepository
             ->leftJoin('a.componentHasColumn', 'chc')
             ->leftJoin('cophe.componentOnPage', 'cop')
             ->where('chc.isMainField = true')
-            ->andWhere('a.content LIKE :filtr')
-            ->setParameter('filtr', '%'.$filtr.'%');
+            ->andWhere('a.content LIKE :filter')
+            ->setParameter('filter', '%'.$filter.'%');
 
         if ($componentId) {
             $qb->andWhere('cop.id = :componentId')
-                ->setParameter('componentId', $componentId);
+               ->setParameter('componentId', $componentId);
         }
 
         $qb->groupBy('a.componentOnPageHasElement');
@@ -55,8 +55,8 @@ class CMSComponentOnPageHasValueRepository extends EntityRepository
     public function getContent($elementId, $typeId)
     {
         $qb = $this->createQueryBuilder('a')
-            ->leftJoin('a.componentOnPageHasElement', 'cophe')
-            ->leftJoin('a.componentHasColumn', 'chc')
+            ->join('a.componentOnPageHasElement', 'cophe')
+            ->join('a.componentHasColumn', 'chc')
             ->where('cophe.id = :elementId')
             ->setParameter('elementId', $elementId)
             ->andWhere('chc.id = :typeId')
@@ -83,11 +83,11 @@ class CMSComponentOnPageHasValueRepository extends EntityRepository
             ->addSelect('cophe.createdAt AS createdAt, cophe.updatedAt AS updatedAt')
             ->addSelect('(SELECT art.slug FROM MyCMSBundle:CMSArticle AS art WHERE art.id=a.content) AS article')
             ->addSelect('(SELECT f.path FROM MyFileBundle:File AS f WHERE f.id=a.content) AS file')
-            ->leftJoin('a.componentOnPageHasElement', 'cophe')
-            ->leftJoin('a.componentHasColumn', 'chc')
-            ->leftJoin('chc.columnType', 'ct')
-            ->leftJoin('cophe.componentOnPage', 'cop')
-            ->leftJoin('cop.language', 'l')
+            ->join('a.componentOnPageHasElement', 'cophe')
+            ->join('a.componentHasColumn', 'chc')
+            ->join('chc.columnType', 'ct')
+            ->join('cophe.componentOnPage', 'cop')
+            ->join('cop.language', 'l')
             ->where('cop.isEnable = true')
             ->andWhere('cophe.isEnable = true')
             ->andWhere('l.alias = :locale')

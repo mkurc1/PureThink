@@ -28,13 +28,13 @@ class CMSMenuController extends Controller
      */
     public function listAction(Request $request)
     {
-        $filtr = $request->get('filtr');
-        $languageId = $request->get('languageId');
-        $groupId = $request->get('groupId');
+        $filtr      = $request->get('filtr');
+        $languageId = (int)$request->get('languageId');
+        $groupId    = (int)$request->get('groupId');
 
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('MyCMSBundle:CMSMenu')->getMenus($filtr, $languageId, $groupId);
+        $entities = $em->getRepository('MyCMSBundle:CMSMenu')->getMenusQB($filtr, $languageId, $groupId);
 
         $list = $this->renderView('MyCMSBundle:CMSMenu:_list.html.twig', array('entities' => $entities));
 

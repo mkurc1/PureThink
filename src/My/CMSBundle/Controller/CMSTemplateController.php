@@ -36,7 +36,7 @@ class CMSTemplateController extends Controller
 
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('MyCMSBundle:CMSTemplate')->getTemplates($order, $sequence, $filtr);
+        $entities = $em->getRepository('MyCMSBundle:CMSTemplate')->getTemplatesQB($order, $sequence, $filtr);
 
         $paginator  = $this->get('knp_paginator');
         $pagination = $paginator->paginate(

@@ -26,8 +26,8 @@ class CMSArticleRepository extends FilterRepository
 	public function getArticlesQB($order, $sequence, $filter, $languageId, $groupId)
 	{
 		$qb = $this->createQueryBuilder('a')
-            ->leftJoin('a.language', 'l')
-            ->leftJoin('a.series', 's');
+            ->join('a.language', 'l')
+            ->join('a.series', 's');
 
         $this->addNameFilterQB($qb, $filter);
         $this->addLanguageIdFilterQB($qb, $languageId);
@@ -63,7 +63,7 @@ class CMSArticleRepository extends FilterRepository
     public function search($locale, $search)
     {
         $qb = $this->createQueryBuilder('a')
-            ->leftJoin('a.language', 'l')
+            ->join('a.language', 'l')
             ->where('a.isPublic = true');
 
         $this->addLanguageAliasFilter($qb, $locale);

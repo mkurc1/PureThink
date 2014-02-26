@@ -37,7 +37,7 @@ class CMSComponentHasColumnController extends Controller
 
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('MyCMSBundle:CMSComponentHasColumn')->getColumns($order, $sequence, $filtr, $sublistId);
+        $entities = $em->getRepository('MyCMSBundle:CMSComponentHasColumn')->getColumnsQB($order, $sequence, $filtr, $sublistId);
 
         $paginator  = $this->get('knp_paginator');
         $pagination = $paginator->paginate(

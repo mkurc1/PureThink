@@ -24,7 +24,7 @@ class FileRepository extends FilterRepository
 	public function getFilesQB($order, $sequence, $filter, $groupId)
 	{
 		$qb = $this->createQueryBuilder('a')
-            ->leftJoin('a.series', 's');
+            ->join('a.series', 's');
 
         $this->addNameFilterQB($qb, $filter);
         $this->addGroupFilterQB($qb, $groupId);

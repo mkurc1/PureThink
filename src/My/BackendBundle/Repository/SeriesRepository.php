@@ -21,7 +21,7 @@ class SeriesRepository extends EntityRepository
 	public function getGroupsByMenuIdNoExecute($menuId)
 	{
 		$qb = $this->createQueryBuilder('s')
-			->leftJoin('s.menu', 'm')
+			->join('s.menu', 'm')
 			->where('m.id = :menu_id')
 		    ->setParameter('menu_id', $menuId)
 			->orderBy('s.name');

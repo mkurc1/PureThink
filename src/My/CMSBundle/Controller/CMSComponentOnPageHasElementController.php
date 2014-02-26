@@ -43,7 +43,7 @@ class CMSComponentOnPageHasElementController extends Controller
 
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('MyCMSBundle:CMSComponentOnPageHasValue')->getElements($order, $sequence, $filtr, $sublistId);
+        $entities = $em->getRepository('MyCMSBundle:CMSComponentOnPageHasValue')->getElementsQB($order, $sequence, $filtr, $sublistId);
 
         $paginator  = $this->get('knp_paginator');
         $pagination = $paginator->paginate(
