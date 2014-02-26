@@ -32,16 +32,6 @@ class User extends BaseUser
      */
     private $last_name;
 
-    /**
-     * @ORM\OneToMany(targetEntity="My\CMSBundle\Entity\CMSArticle", mappedBy="user")
-     */
-    protected $articles;
-
-    /**
-     * @ORM\OneToMany(targetEntity="My\FileBundle\Entity\File", mappedBy="user")
-     */
-    protected $files;
-
 
 	public function __construct()
 	{
@@ -102,71 +92,5 @@ class User extends BaseUser
     public function getLastName()
     {
         return $this->last_name;
-    }
-
-    /**
-     * Add articles
-     *
-     * @param \My\CMSBundle\Entity\CMSArticle $articles
-     * @return User
-     */
-    public function addArticle(\My\CMSBundle\Entity\CMSArticle $articles)
-    {
-        $this->articles[] = $articles;
-
-        return $this;
-    }
-
-    /**
-     * Remove articles
-     *
-     * @param \My\CMSBundle\Entity\CMSArticle $articles
-     */
-    public function removeArticle(\My\CMSBundle\Entity\CMSArticle $articles)
-    {
-        $this->articles->removeElement($articles);
-    }
-
-    /**
-     * Get articles
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getArticles()
-    {
-        return $this->articles;
-    }
-
-    /**
-     * Add files
-     *
-     * @param \My\FileBundle\Entity\File $files
-     * @return User
-     */
-    public function addFile(\My\FileBundle\Entity\File $files)
-    {
-        $this->files[] = $files;
-
-        return $this;
-    }
-
-    /**
-     * Remove files
-     *
-     * @param \My\FileBundle\Entity\File $files
-     */
-    public function removeFile(\My\FileBundle\Entity\File $files)
-    {
-        $this->files->removeElement($files);
-    }
-
-    /**
-     * Get files
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getFiles()
-    {
-        return $this->files;
     }
 }
