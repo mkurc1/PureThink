@@ -13,6 +13,19 @@ use Gedmo\Mapping\Annotation as Gedmo;
  */
 class CMSComponentHasColumn
 {
+    public static $avilableColumnType = [
+                                         1  => "Text",
+                                         2  => "Textarea",
+                                         3  => "Integer",
+                                         4  => "Float",
+                                         5  => "Double",
+                                         6  => "Boolean",
+                                         7  => "Date",
+                                         8  => "Datetime",
+                                         9  => "Article",
+                                         10 => "File"
+                                        ];
+
     /**
      * @var integer
      *
@@ -72,16 +85,35 @@ class CMSComponentHasColumn
     protected $component;
 
     /**
-     * @ORM\ManyToOne(targetEntity="My\BackendBundle\Entity\ColumnType", inversedBy="cmsComponentHasColumns")
-     * @ORM\JoinColumn(name="type_id", referencedColumnName="id", onDelete="CASCADE", nullable=false)
+     * @ORM\Column(name="column_type", type="integer")
      */
-    protected $columnType;
+    private $columnType;
 
     /**
      * @ORM\OneToMany(targetEntity="CMSComponentOnPageHasValue", mappedBy="cmsComponentHasColumns")
      */
     protected $cmsComponentOnPagesHasValues;
 
+
+    /**
+     * Get string column type by ID
+     *
+     * @param  integer $id
+     * @return string
+     */
+    public static function getColumnTypeStringById($id) {
+        return self::$avilableColumnType[$id];
+    }
+
+    /**
+     * Get string column type
+     *
+     * @return string
+     */
+    public function getColumnTypeString()
+    {
+        return self::$avilableColumnType[$this->getColumnType()];
+    }
 
     /**
      * Get id
@@ -219,28 +251,6 @@ class CMSComponentHasColumn
     }
 
     /**
-     * Set columnType
-     *
-     * @param \My\BackendBundle\Entity\ColumnType $columnType
-     * @return CMSComponentHasColumn
-     */
-    public function setColumnType(\My\BackendBundle\Entity\ColumnType $columnType)
-    {
-        $this->columnType = $columnType;
-
-        return $this;
-    }
-
-    /**
-     * Get columnType
-     *
-     * @return \My\BackendBundle\Entity\ColumnType
-     */
-    public function getColumnType()
-    {
-        return $this->columnType;
-    }
-    /**
      * Constructor
      */
     public function __construct()
@@ -326,5 +336,28 @@ class CMSComponentHasColumn
     public function getIsMainField()
     {
         return $this->isMainField;
+    }
+
+    /**
+     * Set columnType
+     *
+     * @param integer $columnType
+     * @return CMSComponentHasColumn
+     */
+    public function setColumnType($columnType)
+    {
+        $this->columnType = $columnType;
+
+        return $this;
+    }
+
+    /**
+     * Get columnType
+     *
+     * @return integer
+     */
+    public function getColumnType()
+    {
+        return $this->columnType;
     }
 }

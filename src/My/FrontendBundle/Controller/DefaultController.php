@@ -8,6 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
+use My\CMSBundle\Entity\CMSComponentHasColumn;
 
 class DefaultController extends Controller
 {
@@ -215,8 +216,9 @@ class DefaultController extends Controller
             $createdAt = $entity['createdAt'];
             $updatedAt = $entity['updatedAt'];
             $content = $entity['content'];
+            $type = CMSComponentHasColumn::getColumnTypeStringById($entity['type']);
 
-            switch ($entity['type']) {
+            switch ($type) {
                 case 'Article':
                     $content = $entity['article'];
                     break;

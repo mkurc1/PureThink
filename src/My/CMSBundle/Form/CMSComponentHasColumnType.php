@@ -5,6 +5,7 @@ namespace My\CMSBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use My\CMSBundle\Entity\CMSComponentHasColumn;
 
 class CMSComponentHasColumnType extends AbstractType
 {
@@ -42,9 +43,9 @@ class CMSComponentHasColumnType extends AbstractType
                     )
                 )
             )
-            ->add('columnType', 'entity', array(
+            ->add('columnType', 'choice', array(
                 'label' => 'Wybierz typ',
-                'class' => 'MyBackendBundle:ColumnType',
+                'choices' => CMSComponentHasColumn::$avilableColumnType,
                 'empty_value' => '',
                 'attr' => array(
                     'class' => 'sintetic-select'

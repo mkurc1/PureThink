@@ -10,7 +10,6 @@ use My\BackendBundle\Entity\Menu;
 use My\BackendBundle\Entity\RowsOnPage;
 use My\BackendBundle\Entity\UserSetting;
 use My\BackendBundle\Entity\Series;
-use My\BackendBundle\Entity\ColumnType;
 
 class LoadData implements FixtureInterface
 {
@@ -27,7 +26,6 @@ class LoadData implements FixtureInterface
 		$manager = $this->addRowsOnPage($manager);
 		$manager = $this->addUserSettings($manager);
 		$manager = $this->addSeries($manager);
-		$manager = $this->addColumnTypes($manager);
 	}
 
 	/**
@@ -149,25 +147,6 @@ class LoadData implements FixtureInterface
 			$Series->setMenu($manager->getRepository('MyBackendBundle:Menu')->find($series->menu_id));
 
 			$manager->persist($Series);
-		}
-
-		$manager->flush();
-		return $manager;
-	}
-
-	/**
-	 * Add column types fixtures
-	 *
-	 * @param ObjectManager $manager
-	 */
-	private function addColumnTypes(ObjectManager $manager)
-	{
-		$xml = simplexml_load_file('src/My/BackendBundle/data/columnType.xml');
-		foreach ($xml->columnType as $columnType) {
-			$ColumnType = new ColumnType();
-			$ColumnType->setName($columnType->name);
-
-			$manager->persist($ColumnType);
 		}
 
 		$manager->flush();

@@ -178,7 +178,7 @@ class CMSComponentOnPageHasElementController extends Controller
             $form->get('componentOnPageHasValues')->add('column_'.$key, new CMSComponentOnPageHasValueType($column), array(
                 'attr' => array(
                     'class' => $class,
-                    'type' => $column->getComponentHasColumn()->getColumnType()->getName(),
+                    'type' => $column->getComponentHasColumn()->getColumnTypeString(),
                     'label' => $column->getComponentHasColumn()->getColumnLabel(),
                     'isRequired' => $column->getComponentHasColumn()->getIsRequired()
                     )

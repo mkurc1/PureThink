@@ -172,7 +172,7 @@ class LoadData implements FixtureInterface
 			$CMSComponentHasColumn->setIsRequired($cmsComponentHasColumn->is_required);
 			$CMSComponentHasColumn->setIsMainField($cmsComponentHasColumn->is_main_field);
 			$CMSComponentHasColumn->setComponent($manager->getRepository('MyCMSBundle:CMSComponent')->find($cmsComponentHasColumn->component_id));
-			$CMSComponentHasColumn->setColumnType($manager->getRepository('MyBackendBundle:ColumnType')->find($cmsComponentHasColumn->type_id));
+			$CMSComponentHasColumn->setColumnType($cmsComponentHasColumn->type_id);
 
 			$manager->persist($CMSComponentHasColumn);
 		}

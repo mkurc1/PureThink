@@ -24,9 +24,7 @@ class CMSComponentHasColumnRepository extends FilterRepository
 	public function getColumnsQB($order, $sequence, $filter, $componentId)
 	{
 		$qb = $this->createQueryBuilder('a')
-            ->select('a, ct')
             ->join('a.component', 'c')
-            ->join('a.columnType', 'ct')
             ->where('c.id = :componentId')
             ->setParameter('componentId', $componentId);
 
