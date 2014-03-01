@@ -45,7 +45,8 @@ assetic:
     debug:          "%kernel.debug%"
     use_controller: false
     #java: /usr/bin/java
-    node: /usr/bin/nodejs
+    node: "/usr/bin/nodejs"
+    node_paths: ["/usr/local/lib/node_modules"]
     assets:
         jquery:
             inputs: "%kernel.root_dir%/Resources/public/js/jquery.js"
@@ -61,16 +62,20 @@ assetic:
         - MyBackendBundle
         - MyCMSBundle
         - MyFileBundle
-        - MyFrontendBundle
         - MyUserBundle
     filters:
+        cssembed:
+            jar: "/usr/share/cssembed/cssembed-0.4.5.jar"
+            skip_missing: false
         cssrewrite: ~
-        #closure:
-        #    jar: %kernel.root_dir%/Resources/java/compiler.jar
-        uglifyjs2:
-            bin: /usr/local/bin/uglifyjs
+        less:
+            apply_to: "\.less$"
+        closure:
+          compilation_level: SIMPLE_OPTIMIZATIONS
         uglifycss:
             bin: /usr/local/bin/uglifycss
+        uglifyjs2:
+            bin: /usr/local/bin/uglifyjs
 
 # Doctrine Configuration
 doctrine:

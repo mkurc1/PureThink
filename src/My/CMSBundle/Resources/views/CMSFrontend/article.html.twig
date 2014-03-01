@@ -1,0 +1,60 @@
+{% extends "MyCMSBundle:CMSFrontend:layout.html.twig" %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" type="text/css" href="{{ asset('template/fresh-style/css/article.css') }}">
+{% endblock stylesheets %}
+
+{% block keywords %}
+    {{ article.keywords }}
+{% endblock keywords %}
+
+{% block description %}
+    {{ article.description }}
+{% endblock description %}
+
+{% block title %}
+    {{ article.name }}
+{% endblock title %}
+
+{% block body %}
+    {% if components['cookie'] is defined %}
+        {% include 'MyCMSBundle:CMSFrontend:_cookie.html.twig' with { 'cookies': components['cookie'], 'locale': locale } %}
+    {% endif %}
+
+    <div id="top">
+        <div class="container">
+            <div id="logo">
+                <a href="{{ path('localized_frontend', {'locale': locale}) }}">
+                    <img src="{{ asset('template/fresh-style/images/logo.png') }}" alt="logo" />
+                </a>
+            </div>
+
+            {% include 'MyCMSBundle:CMSFrontend:_language.html.twig' with { 'languages': languages, 'locale': locale } %}
+        </div>
+    </div>
+
+    <div id="main_menu">
+        <div class="container">
+            {% if menus['Main'] is defined %}
+                {% include 'MyCMSBundle:CMSFrontend:_menu.html.twig' with { 'menus': menus['Main'], 'locale': locale, 'home': true, 'url': url } %}
+            {% endif %}
+
+            {% include 'MyCMSBundle:CMSFrontend:_search.html.twig' with { 'locale': locale } %}
+        </div>
+    </div>
+
+    <div id="article">
+        <div class="container">
+            <h2 class="header">{{ article.name }}</h2>
+
+            {{ article.content|raw }}
+        </div>
+    </div>
+
+    {% if components['linki'] is defined %}
+        {% include 'MyCMSBundle:CMSFrontend:_link.html.twig' with { 'links': components['linki'], 'locale': locale } %}
+    {% endif %}
+
+    {% include 'MyCMSBundle:CMSFrontend:_footer.html.twig' with { 'menus': menus, 'locale': locale } %}
+{% endblock body %}

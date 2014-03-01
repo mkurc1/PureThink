@@ -14,7 +14,7 @@ use Symfony\Component\HttpFoundation\Response;
 /**
  * CMSMenu controller.
  *
- * @Route("/menu")
+ * @Route("/admin/cms/menu")
  */
 class CMSMenuController extends Controller
 {

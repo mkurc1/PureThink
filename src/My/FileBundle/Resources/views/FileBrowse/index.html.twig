@@ -6,8 +6,13 @@
 
 {% block stylesheets %}
     {{ parent() }}
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/plugins/jquery.qtip.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/purethink.css') }}">
+    {% stylesheets
+        '@MyBackendBundle/Resources/public/css/plugins/jquery.qtip.css'
+        '@MyBackendBundle/Resources/public/less/purethink.less'
+        filter='less,cssrewrite,uglifycss'
+        output='css/fileBrowse.css' %}
+        <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+    {% endstylesheets %}
 {% endblock stylesheets %}
 
 {% block javascripts %}
@@ -27,7 +32,7 @@
         '@MyBackendBundle/Resources/public/js/links.js'
         '@MyFileBundle/Resources/public/js/fileBrowse.js'
         filter="uglifyjs2"
-        output='js/compiled/fileBrowse.js' %}
+        output='js/fileBrowse.js' %}
         <script src="{{ asset_url }}"></script>
     {% endjavascripts %}
 {% endblock javascripts %}

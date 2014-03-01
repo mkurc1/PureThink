@@ -22,12 +22,12 @@ class AppKernel extends Kernel
             new RaulFraile\Bundle\LadybugBundle\RaulFraileLadybugBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new My\UserBundle\MyUserBundle(),
-            new My\FrontendBundle\MyFrontendBundle(),
             new My\BackendBundle\MyBackendBundle(),
             new My\FileBundle\MyFileBundle(),
             new My\CMSBundle\MyCMSBundle(),
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
             new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
+            new Bmatzner\FontAwesomeBundle\BmatznerFontAwesomeBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

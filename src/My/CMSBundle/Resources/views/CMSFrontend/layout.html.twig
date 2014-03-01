@@ -1,0 +1,24 @@
+{% extends "::base.html.twig" %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {% stylesheets
+        '@MyCMSBundle/Resources/public/css/article.css'
+        filter='less,cssrewrite,uglifycss'
+        output='css/article.css' %}
+        <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+    {% endstylesheets %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('template/fresh-style/css/main.css') }}">
+{% endblock stylesheets %}
+
+{% block javascripts %}
+    {% javascripts
+        '@jquery'
+        '@MyCMSBundle/Resources/public/js/cookies.js'
+        filter="uglifyjs2"
+        output='js/frontend.js' %}
+        <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+    <script src="{{ asset('template/fresh-style/js/jquery.slides.min.js') }}"></script>
+    <script src="{{ asset('template/fresh-style/js/main.js') }}"></script>
+{% endblock javascripts %}

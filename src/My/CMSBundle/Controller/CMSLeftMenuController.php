@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 /**
  * LeftMenu controller.
  *
- * @Route("/left_menu")
+ * @Route("/admin/cms/left_menu")
  */
 class CMSLeftMenuController extends Controller
 {

@@ -16,7 +16,7 @@ use Symfony\Component\HttpFoundation\Response;
 /**
  * CMSComponentOnPageHasElement controller.
  *
- * @Route("/component/element")
+ * @Route("/admin/cms/component/element")
  */
 class CMSComponentOnPageHasElementController extends Controller
 {

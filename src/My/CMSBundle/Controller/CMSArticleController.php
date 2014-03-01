@@ -14,7 +14,7 @@ use Symfony\Component\HttpFoundation\Response;
 /**
  * CMSArticle controller.
  *
- * @Route("/article")
+ * @Route("/admin/cms/article")
  */
 class CMSArticleController extends Controller
 {

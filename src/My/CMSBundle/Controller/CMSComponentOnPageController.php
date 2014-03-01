@@ -14,7 +14,7 @@ use Symfony\Component\HttpFoundation\Response;
 /**
  * CMSComponentOnPage controller.
  *
- * @Route("/component")
+ * @Route("/admin/cms/component")
  */
 class CMSComponentOnPageController extends Controller
 {

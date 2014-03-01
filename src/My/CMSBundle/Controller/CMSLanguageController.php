@@ -10,6 +10,9 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Response;
 use My\CMSBundle\Entity\CMSLanguage;
 
+/**
+ * @Route("/admin/cms")
+ */
 class CMSLanguageController extends Controller
 {
     /**

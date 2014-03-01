@@ -2,7 +2,12 @@
 
 {% block stylesheets %}
     {{ parent() }}
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/purethink.css') }}">
+    {% stylesheets
+        '@MyBackendBundle/Resources/public/less/purethink.less'
+        filter='less,cssrewrite,uglifycss'
+        output='css/login.css' %}
+        <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+    {% endstylesheets %}
 {% endblock stylesheets %}
 
 {% block javascripts %}
@@ -11,7 +16,7 @@
         '@helper'
         '@MyUserBundle/Resources/public/js/*'
         filter="uglifyjs2"
-        output='js/compiled/login.js' %}
+        output='js/login.js' %}
         <script src="{{ asset_url }}"></script>
     {% endjavascripts %}
 {% endblock javascripts %}

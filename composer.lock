@@ -3,8 +3,55 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "d7394d10528aadc7b51521cb3b2c60e9",
+    "hash": "25ae56f5f04f6aa3db5467456b4c9396",
     "packages": [
+        {
+            "name": "bmatzner/fontawesome-bundle",
+            "version": "4.0.3",
+            "target-dir": "Bmatzner/FontAwesomeBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bmatzner/BmatznerFontAwesomeBundle.git",
+                "reference": "e72d1a6198231dc0eb8a691a5cf42b8a7f590fe4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bmatzner/BmatznerFontAwesomeBundle/zipball/e72d1a6198231dc0eb8a691a5cf42b8a7f590fe4",
+                "reference": "e72d1a6198231dc0eb8a691a5cf42b8a7f590fe4",
+                "shasum": ""
+            },
+            "require": {
+                "symfony/framework-bundle": ">=2.1"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-0": {
+                    "Bmatzner\\FontAwesomeBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT",
+                "CC BY 3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Bernd Matzner",
+                    "email": "bernd@matznermatzner.de",
+                    "homepage": "http://berndmatzner.de"
+                }
+            ],
+            "description": "FontAwesome Bundle for Symfony2",
+            "homepage": "http://fortawesome.github.com/Font-Awesome/",
+            "keywords": [
+                "css",
+                "graphics",
+                "symfony",
+                "typography",
+                "webfonts"
+            ],
+            "time": "2013-11-22 10:28:03"
+        },
         {
             "name": "doctrine/annotations",
             "version": "v1.1.2",
@@ -1233,12 +1280,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/KnpLabs/KnpPaginatorBundle.git",
-                "reference": "0558122152ca6a7af71730f88b728a091dea490e"
+                "reference": "10325e71cb8d644cdab546b45465587d5bf3fdfa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KnpLabs/KnpPaginatorBundle/zipball/0558122152ca6a7af71730f88b728a091dea490e",
-                "reference": "0558122152ca6a7af71730f88b728a091dea490e",
+                "url": "https://api.github.com/repos/KnpLabs/KnpPaginatorBundle/zipball/10325e71cb8d644cdab546b45465587d5bf3fdfa",
+                "reference": "10325e71cb8d644cdab546b45465587d5bf3fdfa",
                 "shasum": ""
             },
             "require": {
@@ -1283,7 +1330,7 @@
                 "pagination",
                 "paginator"
             ],
-            "time": "2014-01-21 11:16:05"
+            "time": "2014-02-28 12:13:24"
         },
         {
             "name": "kriswallsmith/assetic",

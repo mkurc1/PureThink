@@ -3,6 +3,7 @@
 /app/cache/*
 /app/logs/*
 /web/js/*
+/web/css/*
 /vendor/
 /app/config/parameters.yml
 

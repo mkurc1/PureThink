@@ -28,7 +28,8 @@
         "friendsofsymfony/user-bundle": "dev-master",
         "knplabs/knp-paginator-bundle": "dev-master",
         "egeloen/ckeditor-bundle": "2.*",
-        "raulfraile/ladybug-bundle": "*"
+        "raulfraile/ladybug-bundle": "*",
+        "bmatzner/fontawesome-bundle": "~4.0"
     },
     "scripts": {
         "post-install-cmd": [

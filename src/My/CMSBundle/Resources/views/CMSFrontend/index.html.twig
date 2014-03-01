@@ -1,0 +1,65 @@
+{% extends "MyCMSBundle:CMSFrontend:layout.html.twig" %}
+
+{% block keywords %}
+    {% if meta %}
+        {{ meta.keywords }}
+    {% else %}
+        {{ parent() }}
+    {% endif %}
+{% endblock keywords %}
+
+{% block description %}
+    {% if meta %}
+        {{ meta.description }}
+    {% else %}
+        {{ parent() }}
+    {% endif %}
+{% endblock description %}
+
+{% block title %}
+    {% if meta and meta.name != '' %}
+        {{ meta.name }}
+    {% else %}
+        {{ parent() }}
+    {% endif %}
+{% endblock title %}
+
+{% block body %}
+    {% if components['cookie'] is defined %}
+        {% include 'MyCMSBundle:CMSFrontend:_cookie.html.twig' with { 'cookies': components['cookie'], 'locale': locale } %}
+    {% endif %}
+
+    <div id="top">
+        <div class="container">
+            <div id="logo">
+                <a href="{{ path('localized_frontend', { 'locale': locale }) }}">
+                    <img src="{{ asset('template/fresh-style/images/logo.png') }}" alt="logo" />
+                </a>
+            </div>
+
+            {% include 'MyCMSBundle:CMSFrontend:_language.html.twig' with { 'languages': languages, 'locale': locale } %}
+        </div>
+    </div>
+
+    <div id="main_menu">
+        <div class="container">
+            {% if menus['Main'] is defined %}
+                {% include 'MyCMSBundle:CMSFrontend:_menu.html.twig' with { 'menus': menus['Main'], 'locale': locale, 'home': true } %}
+            {% endif %}
+
+            {% include 'MyCMSBundle:CMSFrontend:_search.html.twig' with { 'locale': locale } %}
+        </div>
+    </div>
+
+    {% if components['baner'] is defined %}
+        {% include 'MyCMSBundle:CMSFrontend:_baner.html.twig' with { 'baners': components['baner'], 'locale': locale } %}
+    {% endif %}
+
+    {% include 'MyCMSBundle:CMSFrontend:_news_container.html.twig' with { 'components': components, 'locale': locale } %}
+
+    {% if components['linki'] is defined %}
+        {% include 'MyCMSBundle:CMSFrontend:_link.html.twig' with { 'links': components['linki'], 'locale': locale } %}
+    {% endif %}
+
+    {% include 'MyCMSBundle:CMSFrontend:_footer.html.twig' with { 'menus': menus, 'locale': locale } %}
+{% endblock body %}
