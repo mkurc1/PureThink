@@ -1,3 +1,4 @@
+/web/assetic/*
 /web/bundles/*
 /app/bootstrap*
 /app/cache/*
