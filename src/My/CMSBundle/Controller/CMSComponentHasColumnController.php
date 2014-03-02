@@ -33,9 +33,8 @@ class CMSComponentHasColumnController extends Controller
         $filtr = $request->get('filtr');
         $sublistId = (int)$request->get('sublistId');
 
-        $em = $this->getDoctrine()->getManager();
-
-        $entities = $em->getRepository('MyCMSBundle:CMSComponentHasColumn')->getColumnsQB($order, $sequence, $filtr, $sublistId);
+        $entities = $this->getDoctrine()->getRepository('MyCMSBundle:CMSComponentHasColumn')
+            ->getColumnsQB($order, $sequence, $filtr, $sublistId);
 
         $pagination = $this->get('my.pagination.service')
             ->setPagination($entities, $page, $rowsOnPage);
@@ -44,9 +43,9 @@ class CMSComponentHasColumnController extends Controller
             array('entities' => $pagination['entities'], 'page' => $page, 'rowsOnPage' => $rowsOnPage));
 
         $response = array(
-            "list" => $list,
+            "list"       => $list,
             "pagination" => $pagination,
-            "response" => true
+            "response"   => true
             );
 
         return new Response(json_encode($response));

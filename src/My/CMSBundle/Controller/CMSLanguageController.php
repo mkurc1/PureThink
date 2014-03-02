@@ -38,13 +38,13 @@ class CMSLanguageController extends Controller
 
             $response = array(
                 "response" => true,
-                "id" => $entity->getId(),
-                "message" => "Dodanie języka zakończyło się powodzeniem"
+                "id"       => $entity->getId(),
+                "message"  => "Dodanie języka zakończyło się powodzeniem"
                 );
         } catch (\Exception $e) {
             $response = array(
                 "response" => false,
-                "message" => "Dodanie języka zakończyło się niepowodzeniem"
+                "message"  => "Dodanie języka zakończyło się niepowodzeniem"
                 );
         }
 

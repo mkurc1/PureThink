@@ -34,9 +34,8 @@ class CMSComponentOnPageController extends Controller
         $languageId = (int)$request->get('languageId');
         $groupId    = (int)$request->get('groupId');
 
-        $em = $this->getDoctrine()->getManager();
-
-        $entities = $em->getRepository('MyCMSBundle:CMSComponentOnPage')->getComponentsQB($order, $sequence, $filtr, $languageId, $groupId);
+        $entities = $this->getDoctrine()->getRepository('MyCMSBundle:CMSComponentOnPage')
+            ->getComponentsQB($order, $sequence, $filtr, $languageId, $groupId);
 
         $pagination = $this->get('my.pagination.service')
             ->setPagination($entities, $page, $rowsOnPage);
@@ -45,9 +44,9 @@ class CMSComponentOnPageController extends Controller
             array('entities' => $pagination['entities'], 'page' => $page, 'rowsOnPage' => $rowsOnPage));
 
         $response = array(
-            "list" => $list,
+            "list"       => $list,
             "pagination" => $pagination,
-            "response" => true
+            "response"   => true
             );
 
         return new Response(json_encode($response));

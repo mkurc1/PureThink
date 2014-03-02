@@ -33,9 +33,8 @@ class CMSComponentController extends Controller
         $filtr      = $request->get('filtr');
         $groupId    = (int)$request->get('groupId');
 
-        $em = $this->getDoctrine()->getManager();
-
-        $entities = $em->getRepository('MyCMSBundle:CMSComponent')->getComponentsQB($order, $sequence, $filtr, $groupId);
+        $entities = $this->getDoctrine()->getRepository('MyCMSBundle:CMSComponent')
+            ->getComponentsQB($order, $sequence, $filtr, $groupId);
 
         $pagination = $this->get('my.pagination.service')
             ->setPagination($entities, $page, $rowsOnPage);

@@ -27,14 +27,13 @@ class CMSTemplateController extends Controller
     public function listAction(Request $request)
     {
         $rowsOnPage = (int)$request->get('rowsOnPage', 10);
-        $page = (int)$request->get('page', 1);
-        $order = $request->get('order', 'a.name');
-        $sequence = $request->get('sequence', 'ASC');
-        $filtr = $request->get('filtr');
+        $page       = (int)$request->get('page', 1);
+        $order      = $request->get('order', 'a.name');
+        $sequence   = $request->get('sequence', 'ASC');
+        $filtr      = $request->get('filtr');
 
-        $em = $this->getDoctrine()->getManager();
-
-        $entities = $em->getRepository('MyCMSBundle:CMSTemplate')->getTemplatesQB($order, $sequence, $filtr);
+        $entities = $this->getDoctrine()->getRepository('MyCMSBundle:CMSTemplate')
+            ->getTemplatesQB($order, $sequence, $filtr);
 
         $pagination = $this->get('my.pagination.service')
             ->setPagination($entities, $page, $rowsOnPage);
@@ -43,9 +42,9 @@ class CMSTemplateController extends Controller
             array('entities' => $pagination['entities'], 'page' => $page, 'rowsOnPage' => $rowsOnPage));
 
         $response = array(
-            "list" => $list,
+            "list"       => $list,
             "pagination" => $pagination,
-            "response" => true
+            "response"   => true
             );
 
         return new Response(json_encode($response));

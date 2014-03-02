@@ -29,19 +29,18 @@ class CMSComponentOnPageHasElementController extends Controller
     public function listAction(Request $request)
     {
         $rowsOnPage = (int)$request->get('rowsOnPage', 10);
-        $page = (int)$request->get('page', 1);
-        $order = $request->get('order', 'a.name');
-        $sequence = $request->get('sequence', 'ASC');
-        $filtr = $request->get('filtr');
-        $sublistId = (int)$request->get('sublistId');
+        $page       = (int)$request->get('page', 1);
+        $order      = $request->get('order', 'a.name');
+        $sequence   = $request->get('sequence', 'ASC');
+        $filtr      = $request->get('filtr');
+        $sublistId  = (int)$request->get('sublistId');
 
         if ($order == 'a.name') {
             $order = 'a.content';
         }
 
-        $em = $this->getDoctrine()->getManager();
-
-        $entities = $em->getRepository('MyCMSBundle:CMSComponentOnPageHasValue')->getElementsQB($order, $sequence, $filtr, $sublistId);
+        $entities = $this->getDoctrine()->getRepository('MyCMSBundle:CMSComponentOnPageHasValue')
+            ->getElementsQB($order, $sequence, $filtr, $sublistId);
 
         $pagination = $this->get('my.pagination.service')
             ->setPagination($entities, $page, $rowsOnPage);

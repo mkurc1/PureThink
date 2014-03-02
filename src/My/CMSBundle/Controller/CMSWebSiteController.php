@@ -28,24 +28,25 @@ class CMSWebSiteController extends Controller
     {
         $languageId = (int)$request->get('languageId');
 
-        if ($languageId == 0) {
+        if (null == $languageId) {
             $languageId = $this->getDefaultLanguageId();
         }
 
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('MyCMSBundle:CMSWebSite')->getWebSite($languageId);
-        if (!$entity) {
+        if (null == $entity) {
             $entity = $this->createWebSite($languageId);
         }
 
         $editForm = $this->createForm(new CMSWebSiteType(), $entity);
 
-        $view = $this->renderView('MyCMSBundle:CMSWebSite:_edit.html.twig', array('entity' => $entity, 'form' => $editForm->createView()));
+        $view = $this->renderView('MyCMSBundle:CMSWebSite:_edit.html.twig',
+            array('entity' => $entity, 'form' => $editForm->createView()));
 
         $response = array(
             "response" => true,
-            "view" => $view
+            "view"     => $view
             );
 
         return new Response(json_encode($response));

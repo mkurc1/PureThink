@@ -40,11 +40,11 @@ class CMSMenuController extends Controller
             "list" => $list,
             "pagination" => array(
                 'first_page' => 1,
-                'previous' => 1,
-                'next' => 1,
-                'last_page' => 1,
-                'pages' => array(1),
-                'hide' => true
+                'previous'   => 1,
+                'next'       => 1,
+                'last_page'  => 1,
+                'pages'      => array(1),
+                'hide'       => true
                 ),
             "response" => true
             );
