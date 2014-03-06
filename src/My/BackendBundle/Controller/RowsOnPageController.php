@@ -19,10 +19,10 @@ class RowsOnPageController extends Controller
     {
         $rowsOnPageId = (int)$request->get('rowsOnPageId');
 
-        $em = $this->getDoctrine()->getManager();
-        $entities = $em->getRepository('MyBackendBundle:RowsOnPage')->findAll();
+        $entities = $this->getDoctrine()->getRepository('MyBackendBundle:RowsOnPage')->findAll();
 
-        $rows = $this->renderView('MyBackendBundle:RowsOnPage:_rows_on_page.html.twig', array('entities' => $entities, 'rowsOnPageId' => $rowsOnPageId));
+        $rows = $this->renderView('MyBackendBundle:RowsOnPage:_rows_on_page.html.twig',
+            array('entities' => $entities, 'rowsOnPageId' => $rowsOnPageId));
 
         $response = array("rows" => $rows, "response" => true);
 

@@ -6,15 +6,15 @@
 {% endblock stylesheets %}
 
 {% block keywords %}
-    {{ article.keywords }}
+    {{ article.keywords|default(parent()) }}
 {% endblock keywords %}
 
 {% block description %}
-    {{ article.description }}
+    {{ article.description|default(parent()) }}
 {% endblock description %}
 
 {% block title %}
-    {{ article.name }}
+    {{ article.name|default(parent()) }}
 {% endblock title %}
 
 {% block body %}
@@ -25,7 +25,7 @@
     <div id="top">
         <div class="container">
             <div id="logo">
-                <a href="{{ path('localized_frontend', {'locale': locale}) }}">
+                <a href="{{ path('localized_frontend', { 'locale': locale }) }}">
                     <img src="{{ asset('template/fresh-style/images/logo.png') }}" alt="logo" />
                 </a>
             </div>

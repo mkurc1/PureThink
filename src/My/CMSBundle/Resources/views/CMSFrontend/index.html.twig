@@ -1,27 +1,15 @@
 {% extends "MyCMSBundle:CMSFrontend:layout.html.twig" %}
 
 {% block keywords %}
-    {% if meta %}
-        {{ meta.keywords }}
-    {% else %}
-        {{ parent() }}
-    {% endif %}
+    {{ meta.keywords|default(parent()) }}
 {% endblock keywords %}
 
 {% block description %}
-    {% if meta %}
-        {{ meta.description }}
-    {% else %}
-        {{ parent() }}
-    {% endif %}
+    {{ meta.description|default(parent()) }}
 {% endblock description %}
 
 {% block title %}
-    {% if meta and meta.name != '' %}
-        {{ meta.name }}
-    {% else %}
-        {{ parent() }}
-    {% endif %}
+    {{ meta.name|default(parent()) }}
 {% endblock title %}
 
 {% block body %}

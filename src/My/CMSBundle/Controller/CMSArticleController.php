@@ -30,7 +30,7 @@ class CMSArticleController extends Controller
         $page       = (int)$request->get('page', 1);
         $order      = $request->get('order', 'a.name');
         $sequence   = $request->get('sequence', 'ASC');
-        $filter      = $request->get('filtr', null);
+        $filter     = $request->get('filtr', null);
         $languageId = (int)$request->get('languageId');
         $groupId    = (int)$request->get('groupId');
 
