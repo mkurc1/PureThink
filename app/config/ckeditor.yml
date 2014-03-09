@@ -1,0 +1,25 @@
+ivory_ck_editor:
+    default_config: cke_config
+    configs:
+        cke_config:
+            toolbar: "cke_toolbar"
+            # skin: moonocolor
+            uiColor: "#E7E7E7"
+            height: "400px"
+            filebrowserImageBrowseRoute: "file_browse"
+            filebrowserWindowWidth  : 800
+            filebrowserWindowHeight : 500
+    toolbars:
+        configs:
+            cke_toolbar : ['@clipboard', '@editing', '@links', '@insert', '@tools', '@document', '/', '@basicstyles', '@paragraph', '@styles', '@colors']
+        items:
+            clipboard   : ['Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo']
+            editing     : ['Scayt']
+            links       : ['Link', 'Unlink', 'Anchor']
+            insert      : ['Image', 'Table', 'HorizontalRule',  'SpecialChar']
+            tools       : ['Maximize']
+            document    : ['Source']
+            basicstyles : ['Bold', 'Italic', 'Underline', 'Strike', '-', 'RemoveFormat']
+            paragraph   : ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'JustifyLeft',  'JustifyCenter', 'JustifyRight', 'JustifyBlock']
+            styles      : ['Styles', 'Format']
+            colors      : ['TextColor', 'BGColor']

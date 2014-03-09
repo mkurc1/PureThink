@@ -5,6 +5,7 @@ namespace My\CMSBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use My\BackendBundle\Form\MetadataType;
 
 class CMSArticleType extends AbstractType
 {
@@ -27,8 +28,6 @@ class CMSArticleType extends AbstractType
                 'label' => 'Nazwa widoczna w adresie'
                 )
             )
-            ->add('description', 'textarea', array('label' => 'Opis', 'required' => false))
-            ->add('keywords', 'textarea', array('label' => 'Słowa kluczowe', 'required' => false))
             ->add('content', 'ckeditor', array('label' => 'Treść'))
             ->add('language', 'entity', array(
                 'label' => 'Język',
@@ -51,6 +50,7 @@ class CMSArticleType extends AbstractType
                     )
                 )
             )
+            ->add('metadata', new MetadataType(), ['required' => false])
         ;
     }
 

@@ -4,6 +4,8 @@ namespace My\CMSBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use My\BackendBundle\Entity\Metadata;
+use My\BackendBundle\Entity\MetadataInterface;
 
 /**
  * CMSArticle
@@ -11,7 +13,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  * @ORM\Table(name="cms_article")
  * @ORM\Entity(repositoryClass="My\CMSBundle\Repository\CMSArticleRepository")
  */
-class CMSArticle
+class CMSArticle implements MetadataInterface
 {
     /**
      * @var integer
@@ -54,25 +56,11 @@ class CMSArticle
     private $updatedAt;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="description", type="string", length=255, nullable=true)
-     */
-    private $description;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="keywords", type="string", length=255, nullable=true)
-     */
-    private $keywords;
-
-    /**
      * @var boolean
      *
      * @ORM\Column(name="is_public", type="boolean", nullable=true)
      */
-    private $isPublic;
+    private $isPublic = false;
 
     /**
      * @var string
@@ -85,20 +73,31 @@ class CMSArticle
      * @ORM\ManyToOne(targetEntity="CMSLanguage", inversedBy="cmsArticles")
      * @ORM\JoinColumn(name="language_id", referencedColumnName="id", onDelete="CASCADE", nullable=false)
      */
-    protected $language;
+    private $language;
 
     /**
      * @ORM\ManyToOne(targetEntity="My\UserBundle\Entity\User", inversedBy="cmsArticles")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id", onDelete="CASCADE", nullable=false)
      */
-    protected $user;
+    private $user;
 
     /**
      * @ORM\ManyToOne(targetEntity="My\BackendBundle\Entity\Series", inversedBy="cmsArticles")
      * @ORM\JoinColumn(name="series_id", referencedColumnName="id", onDelete="CASCADE", nullable=false)
      */
-    protected $series;
+    private $series;
 
+    /**
+     * @ORM\OneToOne(targetEntity="My\BackendBundle\Entity\Metadata", cascade={"persist"})
+     * @ORM\JoinColumn(name="metadata_id", referencedColumnName="id")
+     */
+    private $metadata;
+
+
+    public function getSEOData()
+    {
+        $this->getMetadata();
+    }
 
     /**
      * Get id
@@ -131,52 +130,6 @@ class CMSArticle
     public function getName()
     {
         return $this->name;
-    }
-
-    /**
-     * Set description
-     *
-     * @param string $description
-     * @return CMSArticle
-     */
-    public function setDescription($description)
-    {
-        $this->description = $description;
-
-        return $this;
-    }
-
-    /**
-     * Get description
-     *
-     * @return string
-     */
-    public function getDescription()
-    {
-        return $this->description;
-    }
-
-    /**
-     * Set keywords
-     *
-     * @param string $keywords
-     * @return CMSArticle
-     */
-    public function setKeywords($keywords)
-    {
-        $this->keywords = $keywords;
-
-        return $this;
-    }
-
-    /**
-     * Get keywords
-     *
-     * @return string
-     */
-    public function getKeywords()
-    {
-        return $this->keywords;
     }
 
     /**
@@ -378,6 +331,29 @@ class CMSArticle
      */
     public function __construct()
     {
-        $this->setIsPublic(false);
+        $this->setMetadata(new Metadata());
+    }
+
+    /**
+     * Set metadata
+     *
+     * @param \My\BackendBundle\Entity\Metadata $metadata
+     * @return CMSArticle
+     */
+    public function setMetadata(\My\BackendBundle\Entity\Metadata $metadata = null)
+    {
+        $this->metadata = $metadata;
+
+        return $this;
+    }
+
+    /**
+     * Get metadata
+     *
+     * @return \My\BackendBundle\Entity\Metadata
+     */
+    public function getMetadata()
+    {
+        return $this->metadata;
     }
 }

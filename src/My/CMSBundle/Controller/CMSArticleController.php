@@ -65,7 +65,7 @@ class CMSArticleController extends Controller
         $entity = new CMSArticle();
         $entity->setUser($this->getUser());
 
-        $form   = $this->createForm(new CMSArticleType(), $entity, array('menuId' => $menuId));
+        $form = $this->createForm(new CMSArticleType(), $entity, array('menuId' => $menuId));
         $form->bind($request);
 
         if ($form->isValid()) {

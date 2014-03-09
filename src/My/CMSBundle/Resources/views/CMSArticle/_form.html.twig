@@ -33,13 +33,19 @@
 </div>
 
 <div class="dane_element_big">
-    {{ form_label(form.description) }}
-    {{ form_widget(form.description) }}
-    {{ form_errors(form.description) }}
+    {{ form_label(form.metadata.title) }}
+    {{ form_widget(form.metadata.title) }}
+    {{ form_errors(form.metadata.title) }}
 </div>
 
 <div class="dane_element_big">
-    {{ form_label(form.keywords) }}
-    {{ form_widget(form.keywords) }}
-    {{ form_errors(form.keywords) }}
+    {{ form_label(form.metadata.description) }}
+    {{ form_widget(form.metadata.description) }}
+    {{ form_errors(form.metadata.description) }}
+</div>
+
+<div class="dane_element_big">
+    {{ form_label(form.metadata.keyword) }}
+    {{ form_widget(form.metadata.keyword) }}
+    {{ form_errors(form.metadata.keyword) }}
 </div>

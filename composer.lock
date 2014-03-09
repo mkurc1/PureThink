@@ -540,12 +540,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/DoctrineFixturesBundle.git",
-                "reference": "351bcc4de9ff58bac8d72bb3ef0b7481377bb25e"
+                "reference": "ccd69d9ec90013955a412a21125672afc09738dc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/DoctrineFixturesBundle/zipball/351bcc4de9ff58bac8d72bb3ef0b7481377bb25e",
-                "reference": "351bcc4de9ff58bac8d72bb3ef0b7481377bb25e",
+                "url": "https://api.github.com/repos/doctrine/DoctrineFixturesBundle/zipball/ccd69d9ec90013955a412a21125672afc09738dc",
+                "reference": "ccd69d9ec90013955a412a21125672afc09738dc",
                 "shasum": ""
             },
             "require": {
@@ -571,7 +571,7 @@
             ],
             "authors": [
                 {
-                    "name": "Fabien Potencier2",
+                    "name": "Fabien Potencier",
                     "email": "fabien@symfony.com",
                     "homepage": "http://fabien.potencier.org",
                     "role": "Lead Developer"
@@ -591,7 +591,7 @@
                 "Fixture",
                 "persistence"
             ],
-            "time": "2014-02-22 15:01:12"
+            "time": "2014-03-05 01:11:31"
         },
         {
             "name": "doctrine/doctrine-migrations-bundle",
@@ -968,12 +968,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSUserBundle.git",
-                "reference": "6a79d379164ec7d63088c3c7ba18bcca5f993a97"
+                "reference": "7867dfc7aa67969a24fec7f8aa1051eda23098e9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/6a79d379164ec7d63088c3c7ba18bcca5f993a97",
-                "reference": "6a79d379164ec7d63088c3c7ba18bcca5f993a97",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/7867dfc7aa67969a24fec7f8aa1051eda23098e9",
+                "reference": "7867dfc7aa67969a24fec7f8aa1051eda23098e9",
                 "shasum": ""
             },
             "require": {
@@ -1028,7 +1028,7 @@
             "keywords": [
                 "User management"
             ],
-            "time": "2014-03-04 01:12:08"
+            "time": "2014-03-04 23:23:39"
         },
         {
             "name": "gedmo/doctrine-extensions",
@@ -1036,12 +1036,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/l3pp4rd/DoctrineExtensions.git",
-                "reference": "d708b0317b746ad40bf0d9619af01dd76ef947bc"
+                "reference": "af68e0521d8023ebbbb93bbddeaab993dc390412"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/l3pp4rd/DoctrineExtensions/zipball/d708b0317b746ad40bf0d9619af01dd76ef947bc",
-                "reference": "d708b0317b746ad40bf0d9619af01dd76ef947bc",
+                "url": "https://api.github.com/repos/l3pp4rd/DoctrineExtensions/zipball/af68e0521d8023ebbbb93bbddeaab993dc390412",
+                "reference": "af68e0521d8023ebbbb93bbddeaab993dc390412",
                 "shasum": ""
             },
             "require": {
@@ -1108,7 +1108,7 @@
                 "tree",
                 "uploadable"
             ],
-            "time": "2014-02-24 20:17:49"
+            "time": "2014-03-05 18:13:50"
         },
         {
             "name": "incenteev/composer-parameter-handler",

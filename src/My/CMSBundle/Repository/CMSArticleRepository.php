@@ -71,4 +71,16 @@ class CMSArticleRepository extends FilterRepository
 
         return $qb->getQuery()->getResult();
     }
+
+    public function getArticleBySlug($slug)
+    {
+        $qb = $this->createQueryBuilder('a')
+            ->addSelect('am')
+            ->join('a.metadata', 'am')
+            ->where('a.isPublic = true')
+            ->andWhere('a.slug = :slug')
+            ->setParameter('slug', $slug);
+
+        return $qb->getQuery()->getOneOrNullResult();
+    }
 }

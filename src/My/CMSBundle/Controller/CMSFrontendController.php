@@ -157,9 +157,14 @@ class CMSFrontendController extends Controller
      */
     public function getArticle($slug)
     {
-        $em = $this->getDoctrine()->getManager();
+        $article = $this->getDoctrine()->getRepository('MyCMSBundle:CMSArticle')
+            ->getArticleBySlug($slug);
 
-        return $em->getRepository('MyCMSBundle:CMSArticle')->findOneBySlug($slug);
+        if (!$article) {
+            throw $this->createNotFoundException('Unable to find CMSArticle entity.');
+        }
+
+        return $article;
     }
 
     /**

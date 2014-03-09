@@ -93,8 +93,6 @@ class LoadData implements FixtureInterface
 			foreach ($xml->cmsArticle as $cmsArticle) {
 				$CMSArticle = new CMSArticle();
 				$CMSArticle->setName($cmsArticle->name);
-				$CMSArticle->setDescription($cmsArticle->description);
-				$CMSArticle->setKeywords($cmsArticle->keywords);
 				$CMSArticle->setIsPublic($cmsArticle->is_public);
 				$CMSArticle->setContent(trim($text[0]));
 				$CMSArticle->setLanguage($manager->getRepository('MyCMSBundle:CMSLanguage')->find($cmsArticle->language_id));

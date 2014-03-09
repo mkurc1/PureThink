@@ -21,12 +21,6 @@ My\CMSBundle\Entity\CMSArticle:
         slug:
             - Length:
                 max: 255
-        description:
-            - Length:
-                max: 255
-        keywords:
-            - Length:
-                max: 255
         language:
             - NotNull: ~
         series:
