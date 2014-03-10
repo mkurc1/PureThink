@@ -96,7 +96,7 @@ class CMSArticle implements MetadataInterface
 
     public function getSEOData()
     {
-        $this->getMetadata();
+        return $this->getMetadata();
     }
 
     /**

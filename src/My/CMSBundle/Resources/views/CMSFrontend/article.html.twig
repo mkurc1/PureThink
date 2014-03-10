@@ -6,15 +6,15 @@
 {% endblock stylesheets %}
 
 {% block keywords %}
-    {{ article.metadata.keyword|default(parent()) }}
+    {{ article.SEOData.keyword|default(parent()) }}
 {% endblock keywords %}
 
 {% block description %}
-    {{ article.metadata.description|default(parent()) }}
+    {{ article.SEOData.description|default(parent()) }}
 {% endblock description %}
 
 {% block title %}
-    {{ article.metadata.title|default(parent()) }}
+    {{ article.SEOData.title|default(parent()) }}
 {% endblock title %}
 
 {% block body %}

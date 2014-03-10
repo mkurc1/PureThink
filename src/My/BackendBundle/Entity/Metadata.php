@@ -31,14 +31,14 @@ class Metadata
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="string", length=1000, nullable=true)
+     * @ORM\Column(name="description", type="string", length=255, nullable=true)
      */
     private $description;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="keyword", type="string", length=1000, nullable=true)
+     * @ORM\Column(name="keyword", type="string", length=255, nullable=true)
      */
     private $keyword;
 

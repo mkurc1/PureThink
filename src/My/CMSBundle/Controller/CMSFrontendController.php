@@ -160,8 +160,8 @@ class CMSFrontendController extends Controller
         $article = $this->getDoctrine()->getRepository('MyCMSBundle:CMSArticle')
             ->getArticleBySlug($slug);
 
-        if (!$article) {
-            throw $this->createNotFoundException('Unable to find CMSArticle entity.');
+        if (null == $article) {
+            throw $this->createNotFoundException();
         }
 
         return $article;
