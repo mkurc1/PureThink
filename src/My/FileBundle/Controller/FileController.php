@@ -210,7 +210,7 @@ class FileController extends Controller
     }
 
     /**
-     * @Route("/info", name="file_info")
+     * @Route("/info", options={"expose"=true})
      * @Method("POST")
      */
     public function infoAction(Request $request)

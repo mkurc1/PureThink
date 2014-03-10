@@ -1,8 +1,4 @@
 UserSettingModel = Backbone.Model.extend({
-    initialize: function() {
-        this.url = links.userSetting;
-    },
-
     defaults: {
         userId       : 0,
         rowsOnPageId : 0,
@@ -16,7 +12,7 @@ UserSettingModel = Backbone.Model.extend({
         $.ajax({
             type     : "post",
             dataType : 'json',
-            url      : setting.url,
+            url      : Routing.generate('my_backend_usersetting_getusersetting'),
             complete: function() {
                 moduleView = new ModuleView({
                     el: "#select_mode"
@@ -42,7 +38,7 @@ UserSettingModel = Backbone.Model.extend({
             type     : "post",
             dataType : 'json',
             async    : true,
-            url      : setting.url+'/set',
+            url      : Routing.generate('my_backend_usersetting_setusersetting'),
             data: {
                 rowsOnPageId : setting.get('rowsOnPageId'),
                 moduleId     : setting.get('moduleId'),

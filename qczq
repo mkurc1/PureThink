@@ -1,0 +1,365 @@
+[1;33mdiff --git a/app/AppKernel.php b/app/AppKernel.php[m
+[1;33mindex 44fd197..e5df9e0 100644[m
+[1;33m--- a/app/AppKernel.php[m
+[1;33m+++ b/app/AppKernel.php[m
+[1;35m@@ -21,13 +21,15 @@[m [mclass AppKernel extends Kernel[m
+             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),[m
+             new RaulFraile\Bundle\LadybugBundle\RaulFraileLadybugBundle(),[m
+             new FOS\UserBundle\FOSUserBundle(),[m
+[1;32m+[m[1;32m            new FOS\JsRoutingBundle\FOSJsRoutingBundle(),[m
+[1;32m+[m[1;32m            new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),[m
+[1;32m+[m[1;32m            new Ivory\CKEditorBundle\IvoryCKEditorBundle(),[m
+[1;32m+[m[1;32m            new Bmatzner\FontAwesomeBundle\BmatznerFontAwesomeBundle(),[m
+[1;32m+[m
+             new My\UserBundle\MyUserBundle(),[m
+             new My\BackendBundle\MyBackendBundle(),[m
+             new My\FileBundle\MyFileBundle(),[m
+             new My\CMSBundle\MyCMSBundle(),[m
+[1;31m-            new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),[m
+[1;31m-            new Ivory\CKEditorBundle\IvoryCKEditorBundle(),[m
+[1;31m-            new Bmatzner\FontAwesomeBundle\BmatznerFontAwesomeBundle(),[m
+         );[m
+ [m
+         if (in_array($this->getEnvironment(), array('dev', 'test'))) {[m
+[1;33mdiff --git a/app/config/routing.yml b/app/config/routing.yml[m
+[1;33mindex 2dabe64..cf02705 100644[m
+[1;33m--- a/app/config/routing.yml[m
+[1;33m+++ b/app/config/routing.yml[m
+[1;35m@@ -17,6 +17,9 @@[m [mfos_user_resetting:[m
+ fos_user_security:[m
+     resource: "@FOSUserBundle/Resources/config/routing/security.xml"[m
+ [m
+[1;32m+[m[1;32mfos_js_routing:[m
+[1;32m+[m[1;32m    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"[m
+[1;32m+[m
+ my_file:[m
+     resource: "@MyFileBundle/Controller/"[m
+     type:     annotation[m
+[1;33mdiff --git a/composer.json b/composer.json[m
+[1;33mindex 300c491..b5a0fd3 100644[m
+[1;33m--- a/composer.json[m
+[1;33m+++ b/composer.json[m
+[1;35m@@ -26,6 +26,7 @@[m
+         "gedmo/doctrine-extensions": "dev-master",[m
+         "stof/doctrine-extensions-bundle": "dev-master",[m
+         "friendsofsymfony/user-bundle": "dev-master",[m
+[1;32m+[m[1;32m        "friendsofsymfony/jsrouting-bundle": "@stable",[m
+         "knplabs/knp-paginator-bundle": "dev-master",[m
+         "egeloen/ckeditor-bundle": "2.*",[m
+         "raulfraile/ladybug-bundle": "*",[m
+[1;33mdiff --git a/composer.lock b/composer.lock[m
+[1;33mindex 9715a9b..c3383e1 100644[m
+[1;33m--- a/composer.lock[m
+[1;33m+++ b/composer.lock[m
+[1;35m@@ -3,7 +3,7 @@[m
+         "This file locks the dependencies of your project to a known state",[m
+         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"[m
+     ],[m
+[1;31m-    "hash": "25ae56f5f04f6aa3db5467456b4c9396",[m
+[1;32m+[m[1;32m    "hash": "e9d4da41d6dfc8414121606322acedc7",[m
+     "packages": [[m
+         {[m
+             "name": "bmatzner/fontawesome-bundle",[m
+[1;35m@@ -962,6 +962,63 @@[m
+             "time": "2014-01-31 15:15:28"[m
+         },[m
+         {[m
+[1;32m+[m[1;32m            "name": "friendsofsymfony/jsrouting-bundle",[m
+[1;32m+[m[1;32m            "version": "1.5.3",[m
+[1;32m+[m[1;32m            "target-dir": "FOS/JsRoutingBundle",[m
+[1;32m+[m[1;32m            "source": {[m
+[1;32m+[m[1;32m                "type": "git",[m
+[1;32m+[m[1;32m                "url": "https://github.com/FriendsOfSymfony/FOSJsRoutingBundle.git",[m
+[1;32m+[m[1;32m                "reference": "dade3bb0b21007e5c0fb40f203ed197841eb913c"[m
+[1;32m+[m[1;32m            },[m
+[1;32m+[m[1;32m            "dist": {[m
+[1;32m+[m[1;32m                "type": "zip",[m
+[1;32m+[m[1;32m                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSJsRoutingBundle/zipball/dade3bb0b21007e5c0fb40f203ed197841eb913c",[m
+[1;32m+[m[1;32m                "reference": "dade3bb0b21007e5c0fb40f203ed197841eb913c",[m
+[1;32m+[m[1;32m                "shasum": ""[m
+[1;32m+[m[1;32m            },[m
+[1;32m+[m[1;32m            "require": {[m
+[1;32m+[m[1;32m                "php": ">=5.3.2",[m
+[1;32m+[m[1;32m                "symfony/console": "~2.0",[m
+[1;32m+[m[1;32m                "symfony/framework-bundle": "~2.0",[m
+[1;32m+[m[1;32m                "symfony/serializer": "~2.0",[m
+[1;32m+[m[1;32m                "willdurand/jsonp-callback-validator": "~1.0"[m
+[1;32m+[m[1;32m            },[m
+[1;32m+[m[1;32m            "type": "symfony-bundle",[m
+[1;32m+[m[1;32m            "extra": {[m
+[1;32m+[m[1;32m                "branch-alias": {[m
+[1;32m+[m[1;32m                    "dev-master": "1.5-dev"[m
+[1;32m+[m[1;32m                }[m
+[1;32m+[m[1;32m            },[m
+[1;32m+[m[1;32m            "autoload": {[m
+[1;32m+[m[1;32m                "psr-0": {[m
+[1;32m+[m[1;32m                    "FOS\\JsRoutingBundle": ""[m
+[1;32m+[m[1;32m                }[m
+[1;32m+[m[1;32m            },[m
+[1;32m+[m[1;32m            "notification-url": "https://packagist.org/downloads/",[m
+[1;32m+[m[1;32m            "license": [[m
+[1;32m+[m[1;32m                "MIT"[m
+[1;32m+[m[1;32m            ],[m
+[1;32m+[m[1;32m            "authors": [[m
+[1;32m+[m[1;32m                {[m
+[1;32m+[m[1;32m                    "name": "William Durand",[m
+[1;32m+[m[1;32m                    "email": "william.durand1@gmail.com",[m
+[1;32m+[m[1;32m                    "homepage": "http://www.willdurand.fr"[m
+[1;32m+[m[1;32m                },[m
+[1;32m+[m[1;32m                {[m
+[1;32m+[m[1;32m                    "name": "FriendsOfSymfony Community",[m
+[1;32m+[m[1;32m                    "homepage": "https://github.com/friendsofsymfony/FOSJsRoutingBundle/contributors"[m
+[1;32m+[m[1;32m                }[m
+[1;32m+[m[1;32m            ],[m
+[1;32m+[m[1;32m            "description": "A pretty nice way to expose your Symfony2 routing to client applications.",[m
+[1;32m+[m[1;32m            "homepage": "http://friendsofsymfony.github.com",[m
+[1;32m+[m[1;32m            "keywords": [[m
+[1;32m+[m[1;32m                "Js Routing",[m
+[1;32m+[m[1;32m                "javascript",[m
+[1;32m+[m[1;32m                "routing"[m
+[1;32m+[m[1;32m            ],[m
+[1;32m+[m[1;32m            "time": "2014-01-23 21:25:39"[m
+[1;32m+[m[1;32m        },[m
+[1;32m+[m[1;32m        {[m
+             "name": "friendsofsymfony/user-bundle",[m
+             "version": "dev-master",[m
+             "target-dir": "FOS/UserBundle",[m
+[1;35m@@ -2551,6 +2608,46 @@[m
+                 "templating"[m
+             ],[m
+             "time": "2014-02-13 10:19:29"[m
+[1;32m+[m[1;32m        },[m
+[1;32m+[m[1;32m        {[m
+[1;32m+[m[1;32m            "name": "willdurand/jsonp-callback-validator",[m
+[1;32m+[m[1;32m            "version": "v1.1.0",[m
+[1;32m+[m[1;32m            "source": {[m
+[1;32m+[m[1;32m                "type": "git",[m
+[1;32m+[m[1;32m                "url": "https://github.com/willdurand/JsonpCallbackValidator.git",[m
+[1;32m+[m[1;32m                "reference": "1a7d388bb521959e612ef50c5c7b1691b097e909"[m
+[1;32m+[m[1;32m            },[m
+[1;32m+[m[1;32m            "dist": {[m
+[1;32m+[m[1;32m                "type": "zip",[m
+[1;32m+[m[1;32m                "url": "https://api.github.com/repos/willdurand/JsonpCallbackValidator/zipball/1a7d388bb521959e612ef50c5c7b1691b097e909",[m
+[1;32m+[m[1;32m                "reference": "1a7d388bb521959e612ef50c5c7b1691b097e909",[m
+[1;32m+[m[1;32m                "shasum": ""[m
+[1;32m+[m[1;32m            },[m
+[1;32m+[m[1;32m            "require": {[m
+[1;32m+[m[1;32m                "php": ">=5.3.0"[m
+[1;32m+[m[1;32m            },[m
+[1;32m+[m[1;32m            "require-dev": {[m
+[1;32m+[m[1;32m                "phpunit/phpunit": "~3.7"[m
+[1;32m+[m[1;32m            },[m
+[1;32m+[m[1;32m            "type": "library",[m
+[1;32m+[m[1;32m            "autoload": {[m
+[1;32m+[m[1;32m                "psr-0": {[m
+[1;32m+[m[1;32m                    "JsonpCallbackValidator": "src/"[m
+[1;32m+[m[1;32m                }[m
+[1;32m+[m[1;32m            },[m
+[1;32m+[m[1;32m            "notification-url": "https://packagist.org/downloads/",[m
+[1;32m+[m[1;32m            "license": [[m
+[1;32m+[m[1;32m                "MIT"[m
+[1;32m+[m[1;32m            ],[m
+[1;32m+[m[1;32m            "authors": [[m
+[1;32m+[m[1;32m                {[m
+[1;32m+[m[1;32m                    "name": "William Durand",[m
+[1;32m+[m[1;32m                    "email": "william.durand1@gmail.com",[m
+[1;32m+[m[1;32m                    "homepage": "http://www.willdurand.fr"[m
+[1;32m+[m[1;32m                }[m
+[1;32m+[m[1;32m            ],[m
+[1;32m+[m[1;32m            "description": "JSONP callback validator.",[m
+[1;32m+[m[1;32m            "time": "2014-01-20 22:35:06"[m
+         }[m
+     ],[m
+     "packages-dev": [[m
+[1;35m@@ -2568,6 +2665,7 @@[m
+         "gedmo/doctrine-extensions": 20,[m
+         "stof/doctrine-extensions-bundle": 20,[m
+         "friendsofsymfony/user-bundle": 20,[m
+[1;32m+[m[1;32m        "friendsofsymfony/jsrouting-bundle": 0,[m
+         "knplabs/knp-paginator-bundle": 20[m
+     },[m
+     "platform": {[m
+[1;33mdiff --git a/src/My/BackendBundle/Controller/MenuController.php b/src/My/BackendBundle/Controller/MenuController.php[m
+[1;33mindex d27c747..07fe993 100644[m
+[1;33m--- a/src/My/BackendBundle/Controller/MenuController.php[m
+[1;33m+++ b/src/My/BackendBundle/Controller/MenuController.php[m
+[1;35m@@ -12,7 +12,7 @@[m [muse Symfony\Component\HttpFoundation\Response;[m
+ class MenuController extends Controller[m
+ {[m
+     /**[m
+[1;31m-     * @Route("/menu")[m
+[1;32m+[m[1;32m     * @Route("/menu", options={"expose"=true})[m
+      * @Method("POST")[m
+      */[m
+     public function menuAction(Request $request)[m
+[1;33mdiff --git a/src/My/BackendBundle/Controller/RowsOnPageController.php b/src/My/BackendBundle/Controller/RowsOnPageController.php[m
+[1;33mindex 1b13116..058c928 100644[m
+[1;33m--- a/src/My/BackendBundle/Controller/RowsOnPageController.php[m
+[1;33m+++ b/src/My/BackendBundle/Controller/RowsOnPageController.php[m
+[1;35m@@ -12,7 +12,7 @@[m [muse Symfony\Component\HttpFoundation\Response;[m
+ class RowsOnPageController extends Controller[m
+ {[m
+     /**[m
+[1;31m-     * @Route("/rows_on_page")[m
+[1;32m+[m[1;32m     * @Route("/rows", options={"expose"=true})[m
+      * @Method("POST")[m
+      */[m
+     public function getRowsOnPageAction(Request $request)[m
+[1;33mdiff --git a/src/My/BackendBundle/Controller/UserSettingController.php b/src/My/BackendBundle/Controller/UserSettingController.php[m
+[1;33mindex 9837a12..eabd990 100644[m
+[1;33m--- a/src/My/BackendBundle/Controller/UserSettingController.php[m
+[1;33m+++ b/src/My/BackendBundle/Controller/UserSettingController.php[m
+[1;35m@@ -12,7 +12,7 @@[m [muse Symfony\Component\HttpFoundation\Response;[m
+ class UserSettingController extends Controller[m
+ {[m
+     /**[m
+[1;31m-     * @Route("/user/setting")[m
+[1;32m+[m[1;32m     * @Route("/user/setting", options={"expose"=true})[m
+      * @Method("POST")[m
+      */[m
+     public function getUserSettingAction(Request $request)[m
+[1;35m@@ -39,7 +39,7 @@[m [mclass UserSettingController extends Controller[m
+     }[m
+ [m
+     /**[m
+[1;31m-     * @Route("/user/setting/set_rows_on_page")[m
+[1;32m+[m[1;32m     * @Route("/user/setting/set-rows", options={"expose"=true})[m
+      * @Method("POST")[m
+      */[m
+     public function setRowsOnPageAction(Request $request)[m
+[1;35m@@ -68,7 +68,7 @@[m [mclass UserSettingController extends Controller[m
+     }[m
+ [m
+     /**[m
+[1;31m-     * @Route("/user/setting/set")[m
+[1;32m+[m[1;32m     * @Route("/user/setting/set", options={"expose"=true})[m
+      * @Method("POST")[m
+      */[m
+     public function setUserSettingAction(Request $request)[m
+[1;33mdiff --git a/src/My/BackendBundle/Resources/public/js/links.js b/src/My/BackendBundle/Resources/public/js/links.js[m
+[1;33mindex 0968cc4..9c0b538 100644[m
+[1;33m--- a/src/My/BackendBundle/Resources/public/js/links.js[m
+[1;33m+++ b/src/My/BackendBundle/Resources/public/js/links.js[m
+[1;35m@@ -1,10 +1,6 @@[m
+ // AJAX actions URL's[m
+ var links = {[m
+[1;31m-    userSetting   : '/admin/user/setting',[m
+[1;31m-    mainMenu      : '/admin/menu',[m
+     lefMenu       : '/admin/left_menu',[m
+[1;31m-    rowsOnPage    : '/admin/rows_on_page',[m
+[1;31m-    setRowsOnPage : '/admin/user/setting/set_rows_on_page',[m
+     fileBrowse    : '/admin/file/browse/list',[m
+     fileInfo      : '/admin/file/info'[m
+ };[m
+[1;33mdiff --git a/src/My/BackendBundle/Resources/public/js/model/userSetting.model.js b/src/My/BackendBundle/Resources/public/js/model/userSetting.model.js[m
+[1;33mindex 1ca857b..f5ed441 100644[m
+[1;33m--- a/src/My/BackendBundle/Resources/public/js/model/userSetting.model.js[m
+[1;33m+++ b/src/My/BackendBundle/Resources/public/js/model/userSetting.model.js[m
+[1;35m@@ -1,8 +1,4 @@[m
+ UserSettingModel = Backbone.Model.extend({[m
+[1;31m-    initialize: function() {[m
+[1;31m-        this.url = links.userSetting;[m
+[1;31m-    },[m
+[1;31m-[m
+     defaults: {[m
+         userId       : 0,[m
+         rowsOnPageId : 0,[m
+[1;35m@@ -16,7 +12,7 @@[m [mUserSettingModel = Backbone.Model.extend({[m
+         $.ajax({[m
+             type     : "post",[m
+             dataType : 'json',[m
+[1;31m-            url      : setting.url,[m
+[1;32m+[m[1;32m            url      : Routing.generate('my_backend_usersetting_getusersetting'),[m
+             complete: function() {[m
+                 moduleView = new ModuleView({[m
+                     el: "#select_mode"[m
+[1;35m@@ -42,7 +38,7 @@[m [mUserSettingModel = Backbone.Model.extend({[m
+             type     : "post",[m
+             dataType : 'json',[m
+             async    : true,[m
+[1;31m-            url      : setting.url+'/set',[m
+[1;32m+[m[1;32m            url      : Routing.generate('my_backend_usersetting_setusersetting'),[m
+             data: {[m
+                 rowsOnPageId : setting.get('rowsOnPageId'),[m
+                 moduleId     : setting.get('moduleId'),[m
+[1;33mdiff --git a/src/My/BackendBundle/Resources/public/js/view/footer.view.js b/src/My/BackendBundle/Resources/public/js/view/footer.view.js[m
+[1;33mindex 9745dbf..06e2093 100644[m
+[1;33m--- a/src/My/BackendBundle/Resources/public/js/view/footer.view.js[m
+[1;33m+++ b/src/My/BackendBundle/Resources/public/js/view/footer.view.js[m
+[1;35m@@ -34,8 +34,8 @@[m [mFooterView = Backbone.View.extend({[m
+ [m
+         $.ajax({[m
+             type     : "post",[m
+[1;31m-            dataType : 'json',[m
+[1;31m-            url      : links.rowsOnPage,[m
+[1;32m+[m[1;32m            dataType : "json",[m
+[1;32m+[m[1;32m            url      : Routing.generate('my_backend_rowsonpage_getrowsonpage'),[m
+             data: {[m
+                 rowsOnPageId: userSettingModel.get('rowsOnPageId')[m
+             },[m
+[1;35m@@ -71,8 +71,8 @@[m [mFooterView = Backbone.View.extend({[m
+     setRowsOnPage: function() {[m
+         $.ajax({[m
+             type     : "post",[m
+[1;31m-            dataType : 'json',[m
+[1;31m-            url      : links.setRowsOnPage,[m
+[1;32m+[m[1;32m            dataType : "json",[m
+[1;32m+[m[1;32m            url      : Routing.generate('my_backend_usersetting_setrowsonpage'),[m
+             data: {[m
+                 rowsOnPage: listView.paginationModel.get('rowsOnPage')[m
+             },[m
+[1;33mdiff --git a/src/My/BackendBundle/Resources/public/js/view/mainMenu.view.js b/src/My/BackendBundle/Resources/public/js/view/mainMenu.view.js[m
+[1;33mindex 863640a..e5ae77f 100644[m
+[1;33m--- a/src/My/BackendBundle/Resources/public/js/view/mainMenu.view.js[m
+[1;33m+++ b/src/My/BackendBundle/Resources/public/js/view/mainMenu.view.js[m
+[1;35m@@ -13,7 +13,7 @@[m [mMainMenuView = Backbone.View.extend({[m
+             type     : "post",[m
+             dataType : 'json',[m
+             async    : true,[m
+[1;31m-            url      : links.mainMenu,[m
+[1;32m+[m[1;32m            url      : Routing.generate('my_backend_menu_menu'),[m
+             data: {[m
+                 moduleId: userSettingModel.get('moduleId')[m
+             },[m
+[1;33mdiff --git a/src/My/BackendBundle/Resources/views/Default/index.html.twig b/src/My/BackendBundle/Resources/views/Default/index.html.twig[m
+[1;33mindex 4beb985..205e109 100644[m
+[1;33m--- a/src/My/BackendBundle/Resources/views/Default/index.html.twig[m
+[1;33m+++ b/src/My/BackendBundle/Resources/views/Default/index.html.twig[m
+[1;35m@@ -17,6 +17,9 @@[m
+ {% endblock stylesheets %}[m
+ [m
+ {% block javascripts %}[m
+[1;32m+[m[1;32m    <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>[m
+[1;32m+[m[1;32m    <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>[m
+[1;32m+[m
+     {% javascripts[m
+         '@jquery'[m
+         '@jquery_ui'[m
+[1;33mdiff --git a/src/My/CMSBundle/Controller/CMSWebSiteController.php b/src/My/CMSBundle/Controller/CMSWebSiteController.php[m
+[1;33mindex b7ebefc..cbaf2b8 100644[m
+[1;33m--- a/src/My/CMSBundle/Controller/CMSWebSiteController.php[m
+[1;33m+++ b/src/My/CMSBundle/Controller/CMSWebSiteController.php[m
+[1;35m@@ -58,7 +58,8 @@[m [mclass CMSWebSiteController extends Controller[m
+      * @param integer $languageId[m
+      * @return CMSWebSite[m
+      */[m
+[1;31m-    private function createWebSite($languageId) {[m
+[1;32m+[m[1;32m    private function createWebSite($languageId)[m
+[1;32m+[m[1;32m    {[m
+         $em = $this->getDoctrine()->getManager();[m
+ [m
+         $entity = new CMSWebSite();[m
+[1;33mdiff --git a/src/My/FileBundle/Resources/views/FileBrowse/index.html.twig b/src/My/FileBundle/Resources/views/FileBrowse/index.html.twig[m
+[1;33mindex 8c76b78..495f60c 100644[m
+[1;33m--- a/src/My/FileBundle/Resources/views/FileBrowse/index.html.twig[m
+[1;33m+++ b/src/My/FileBundle/Resources/views/FileBrowse/index.html.twig[m
+[1;35m@@ -16,6 +16,9 @@[m
+ {% endblock stylesheets %}[m
+ [m
+ {% block javascripts %}[m
+[1;32m+[m[1;32m    <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>[m[41m[m
+[1;32m+[m[1;32m    <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>[m[41m[m
+[1;32m+[m[41m[m
+     {% javascripts[m
+         '@jquery'[m
+         '@jquery_ui'[m

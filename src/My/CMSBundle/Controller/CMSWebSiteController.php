@@ -58,7 +58,8 @@ class CMSWebSiteController extends Controller
      * @param integer $languageId
      * @return CMSWebSite
      */
-    private function createWebSite($languageId) {
+    private function createWebSite($languageId)
+    {
         $em = $this->getDoctrine()->getManager();
 
         $entity = new CMSWebSite();

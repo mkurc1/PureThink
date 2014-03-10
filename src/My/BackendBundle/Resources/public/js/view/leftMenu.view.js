@@ -16,7 +16,7 @@ LeftMenuView = Backbone.View.extend({
             type     : "post",
             dataType : 'json',
             async    : true,
-            url      : links.lefMenu,
+            url      : Routing.generate('my_backend_leftmenu_menu'),
             data: {
                 moduleId: userSettingModel.get('moduleId'),
                 menuId: menuId,

@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Response;
 class RowsOnPageController extends Controller
 {
     /**
-     * @Route("/rows_on_page")
+     * @Route("/rows", options={"expose"=true})
      * @Method("POST")
      */
     public function getRowsOnPageAction(Request $request)

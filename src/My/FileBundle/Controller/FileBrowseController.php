@@ -31,7 +31,7 @@ class FileBrowseController extends Controller
     /**
      * Lists all File entities.
      *
-     * @Route("/list", name="file_browse_list")
+     * @Route("/list", options={"expose"=true})
      * @Method("POST")
      */
     public function listAction(Request $request)

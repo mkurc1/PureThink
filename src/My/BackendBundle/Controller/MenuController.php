@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Response;
 class MenuController extends Controller
 {
     /**
-     * @Route("/menu")
+     * @Route("/menu", options={"expose"=true})
      * @Method("POST")
      */
     public function menuAction(Request $request)

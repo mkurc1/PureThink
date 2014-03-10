@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Response;
 class UserSettingController extends Controller
 {
     /**
-     * @Route("/user/setting")
+     * @Route("/user/setting", options={"expose"=true})
      * @Method("POST")
      */
     public function getUserSettingAction(Request $request)
@@ -39,7 +39,7 @@ class UserSettingController extends Controller
     }
 
     /**
-     * @Route("/user/setting/set_rows_on_page")
+     * @Route("/user/setting/set-rows", options={"expose"=true})
      * @Method("POST")
      */
     public function setRowsOnPageAction(Request $request)
@@ -68,7 +68,7 @@ class UserSettingController extends Controller
     }
 
     /**
-     * @Route("/user/setting/set")
+     * @Route("/user/setting/set", options={"expose"=true})
      * @Method("POST")
      */
     public function setUserSettingAction(Request $request)

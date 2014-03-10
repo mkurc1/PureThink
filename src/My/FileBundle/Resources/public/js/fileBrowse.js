@@ -2,7 +2,7 @@ var fileCatalog = '/uploads/';
 var CKEditorFuncNum;
 
 var listBrowseModel = new ListModel({
-    url: links.fileBrowse
+    url: Routing.generate('my_file_filebrowse_list')
 });
 
 $(function() {

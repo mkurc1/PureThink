@@ -332,7 +332,7 @@ ListView = Backbone.View.extend({
                     return $.ajax({
                         type     : 'POST',
                         dataType : 'json',
-                        url      : links.fileInfo,
+                        url      : Routing.generate('my_file_file_info'),
                         data: {
                             id: $(this).parent().parent().attr('list_id')
                         }

@@ -12,13 +12,13 @@ use Symfony\Component\HttpFoundation\Response;
 class LeftMenuController extends Controller
 {
     /**
-     * @Route("/left_menu")
+     * @Route("/left-menu", options={"expose"=true})
      * @Method("POST")
      */
     public function menuAction(Request $request)
     {
         $moduleId = (int)$request->get('moduleId');
-        $menuId = (int)$request->get('menuId');
+        $menuId   = (int)$request->get('menuId');
         $editMode = ($request->get('editMode') == 'true') ? true : false;
 
         $menu = '';
@@ -52,8 +52,10 @@ class LeftMenuController extends Controller
      */
     Private function getGroups($menuId)
     {
-        $entities = $this->getDoctrine()->getRepository('MyBackendBundle:Series')->getGroupsByMenuId($menuId);
+        $entities = $this->getDoctrine()->getRepository('MyBackendBundle:Series')
+            ->getGroupsByMenuId($menuId);
 
-        return $this->renderView("MyBackendBundle:LeftMenu:_groups.html.twig", array('entities' => $entities));
+        return $this->renderView("MyBackendBundle:LeftMenu:_groups.html.twig",
+            array('entities' => $entities));
     }
 }

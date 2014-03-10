@@ -16,6 +16,9 @@
 {% endblock stylesheets %}
 
 {% block javascripts %}
+    <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
+
     {% javascripts
         '@jquery'
         '@jquery_ui'
@@ -29,7 +32,6 @@
         '@MyBackendBundle/Resources/public/js/view/pagination.view.js'
         '@MyBackendBundle/Resources/public/js/view/list.view.js'
         '@MyBackendBundle/Resources/public/js/select.js'
-        '@MyBackendBundle/Resources/public/js/links.js'
         '@MyFileBundle/Resources/public/js/fileBrowse.js'
         filter="uglifyjs2"
         output='js/fileBrowse.js' %}

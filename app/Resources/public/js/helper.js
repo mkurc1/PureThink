@@ -42,21 +42,6 @@ function getURLParameter(name) {
 }
 
 /**
- * Is dev
- *
- * @param array array
- */
-function isDev(array) {
-    var url = document.URL;
-
-    if (url.indexOf("app_dev.php") > 0) {
-        $.each(array, function(index, val) {
-             array[index] = '/app_dev.php'+val;
-        });
-    }
-}
-
-/**
  * Array clear function
  */
 Array.prototype.clear = function()
