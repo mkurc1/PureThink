@@ -5,6 +5,7 @@ namespace My\CMSBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use My\BackendBundle\Form\MetadataType;
 
 class CMSWebSiteType extends AbstractType
 {
@@ -15,15 +16,7 @@ class CMSWebSiteType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name', 'text', array(
-                'label' => 'Nazwa witryny',
-                'attr' => array(
-                    'class' => 'name'
-                    )
-                )
-            )
-            ->add('description', 'textarea', array('label' => 'Opis', 'required' => false))
-            ->add('keywords', 'textarea', array('label' => 'Słowa kluczowe', 'required' => false))
+            ->add('metadata', new MetadataType(), ['required' => false])
         ;
     }
 

@@ -30,19 +30,14 @@ class CMSWebSiteRepository extends FilterRepository
         return $qb->getQuery()->getOneOrNullResult();
     }
 
-    /**
-     * Get meta
-     *
-     * @param string $locale
-     * @return object
-     */
-    public function getMeta($locale)
+    public function getWebsiteByLocale($locale)
     {
-        $qb = $this->createQueryBuilder('a')
-            ->join('a.language', 'l');
+        $qb = $this->createQueryBuilder('w')
+            ->addSelect('wm')
+            ->join('w.language', 'wl')
+            ->join('w.metadata', 'wm');
 
-        $this->addLanguageAliasFilter($qb, $locale);
-        $qb->setMaxResults(1);
+        $this->addLanguageAliasFilter($qb, $locale, 'wl');
 
         return $qb->getQuery()->getOneOrNullResult();
     }

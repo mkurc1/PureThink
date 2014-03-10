@@ -42,7 +42,7 @@ class CMSFrontendController extends Controller
             return $this->redirect($this->generateUrl('frontend'));
         }
 
-        $meta = $this->getMeta($locale);
+        $meta = $this->getMetadataByLocale($locale);
         $menus = $this->getMenus($locale);
         $components = $this->getComponents($locale);
 
@@ -99,7 +99,7 @@ class CMSFrontendController extends Controller
             return $this->redirect($this->generateUrl('frontend'));
         }
 
-        $meta = $this->getMeta($locale);
+        $meta = $this->getMetadataByLocale($locale);
         $menus = $this->getMenus($locale);
         $components = $this->getComponents($locale);
 
@@ -242,15 +242,15 @@ class CMSFrontendController extends Controller
     }
 
     /**
-     * Get meta
+     * Get metadata by locale
      *
      * @param string $locale
      * @return object
      */
-    private function getMeta($locale)
+    private function getMetadataByLocale($locale)
     {
         return $this->getDoctrine()->getRepository('MyCMSBundle:CMSWebSite')
-            ->getMeta($locale);
+            ->getWebsiteByLocale($locale);
     }
 
     /**

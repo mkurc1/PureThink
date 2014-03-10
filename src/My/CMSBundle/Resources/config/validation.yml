@@ -1,17 +1,3 @@
-# src/My/CMSBundle/Resources/config/validation.yml
-My\CMSBundle\Entity\CMSWebSite:
-    properties:
-        name:
-            - NotBlank: ~
-            - Length:
-                max: 255
-        description:
-            - Length:
-                max: 255
-        keywords:
-            - Length:
-                max: 255
-
 My\CMSBundle\Entity\CMSArticle:
     properties:
         name:

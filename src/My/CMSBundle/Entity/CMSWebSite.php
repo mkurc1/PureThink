@@ -3,6 +3,8 @@
 namespace My\CMSBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use My\BackendBundle\Entity\Metadata;
+use My\BackendBundle\Entity\MetadataInterface;
 
 /**
  * CMSWebSite
@@ -10,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="cms_website")
  * @ORM\Entity(repositoryClass="My\CMSBundle\Repository\CMSWebSiteRepository")
  */
-class CMSWebSite
+class CMSWebSite implements MetadataInterface
 {
     /**
      * @var integer
@@ -22,32 +24,27 @@ class CMSWebSite
     private $id;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="name", type="string", length=255, nullable=true)
-     */
-    private $name;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="description", type="string", length=255, nullable=true)
-     */
-    private $description;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="keywords", type="string", length=255, nullable=true)
-     */
-    private $keywords;
-
-    /**
      * @ORM\OneToOne(targetEntity="CMSLanguage")
      * @ORM\JoinColumn(name="language_id", referencedColumnName="id", onDelete="CASCADE", nullable=false)
      */
     private $language;
 
+    /**
+     * @ORM\OneToOne(targetEntity="My\BackendBundle\Entity\Metadata", cascade={"persist"})
+     * @ORM\JoinColumn(name="metadata_id", referencedColumnName="id")
+     */
+    private $metadata;
+
+
+    public function __construct()
+    {
+        $this->setMetadata(new Metadata());
+    }
+
+    public function getSEOData()
+    {
+        return $this->getMetadata();
+    }
 
     /**
      * Get id
@@ -57,75 +54,6 @@ class CMSWebSite
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set name
-     *
-     * @param string $name
-     * @return CMSWebSite
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * Get name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * Set description
-     *
-     * @param string $description
-     * @return CMSWebSite
-     */
-    public function setDescription($description)
-    {
-        $this->description = $description;
-
-        return $this;
-    }
-
-    /**
-     * Get description
-     *
-     * @return string
-     */
-    public function getDescription()
-    {
-        return $this->description;
-    }
-
-    /**
-     * Set keywords
-     *
-     * @param string $keywords
-     * @return CMSWebSite
-     */
-    public function setKeywords($keywords)
-    {
-        $this->keywords = $keywords;
-
-        return $this;
-    }
-
-    /**
-     * Get keywords
-     *
-     * @return string
-     */
-    public function getKeywords()
-    {
-        return $this->keywords;
     }
 
     /**
@@ -149,5 +77,28 @@ class CMSWebSite
     public function getLanguage()
     {
         return $this->language;
+    }
+
+    /**
+     * Set metadata
+     *
+     * @param \My\BackendBundle\Entity\Metadata $metadata
+     * @return CMSWebSite
+     */
+    public function setMetadata(\My\BackendBundle\Entity\Metadata $metadata = null)
+    {
+        $this->metadata = $metadata;
+
+        return $this;
+    }
+
+    /**
+     * Get metadata
+     *
+     * @return \My\BackendBundle\Entity\Metadata
+     */
+    public function getMetadata()
+    {
+        return $this->metadata;
     }
 }

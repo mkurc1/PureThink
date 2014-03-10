@@ -5,7 +5,6 @@ namespace My\CMSBundle\DataFixtures\ORM;
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use My\CMSBundle\Entity\CMSLanguage;
-use My\CMSBundle\Entity\CMSWebSite;
 use My\CMSBundle\Entity\CMSArticle;
 use My\CMSBundle\Entity\CMSMenu;
 use My\CMSBundle\Entity\CMSComponent;
@@ -25,7 +24,6 @@ class LoadData implements FixtureInterface
 	public function load(ObjectManager $manager)
 	{
 		$manager = $this->addCMSLanguage($manager);
-		$manager = $this->addCMSWebSite($manager);
 		$manager = $this->addCMSArticle($manager);
 		$manager = $this->addCMSMenu($manager);
 		$manager = $this->addCMSComponent($manager);
@@ -51,28 +49,6 @@ class LoadData implements FixtureInterface
 			$CMSLanguage->setIsPublic($language->is_public);
 
 			$manager->persist($CMSLanguage);
-		}
-
-		$manager->flush();
-		return $manager;
-	}
-
-	/**
-	 * Add CMS website fixtures
-	 *
-	 * @param ObjectManager $manager
-	 */
-	private function addCMSWebSite(ObjectManager $manager)
-	{
-		$xml = simplexml_load_file('src/My/CMSBundle/data/cmsWebSites.xml');
-		foreach ($xml->webSite as $webSite) {
-			$CMSWebSite = new CMSWebSite();
-			$CMSWebSite->setName($webSite->name);
-			$CMSWebSite->setDescription($webSite->description);
-			$CMSWebSite->setKeywords($webSite->keywords);
-			$CMSWebSite->setLanguage($manager->getRepository('MyCMSBundle:CMSLanguage')->find($webSite->language_id));
-
-			$manager->persist($CMSWebSite);
 		}
 
 		$manager->flush();
