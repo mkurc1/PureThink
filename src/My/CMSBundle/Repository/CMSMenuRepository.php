@@ -53,6 +53,7 @@ class CMSMenuRepository extends FilterRepository
             ->leftJoin('a.menu', 'm')
             ->where('a.isPublic = true')
             ->andWhere('l.alias = :locale')
+            ->andWhere('art.isPublic = true')
             ->setParameter('locale', $locale)
             ->orderBy('m.sequence, a.sequence');
 

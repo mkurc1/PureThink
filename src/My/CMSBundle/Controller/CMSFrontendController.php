@@ -118,7 +118,7 @@ class CMSFrontendController extends Controller
      * @Method("GET")
      * @Template()
      */
-    public function articleAction(Request $request, $locale, $slug, $slug2 = false)
+    public function articleAction(Request $request, $locale, $slug, $slug2 = null)
     {
         $languages = $this->getLanguages();
         if ($this->checkAvilableLocales($languages, $locale)) {
@@ -131,11 +131,11 @@ class CMSFrontendController extends Controller
         $menus = $this->getMenus($locale);
         $components = $this->getComponents($locale);
 
-        if ($slug2) {
-            $article = $this->getArticle($slug2);
+        if (null == $slug2) {
+            $article = $this->getArticle($slug);
         }
         else {
-            $article = $this->getArticle($slug);
+            $article = $this->getArticle($slug2);
         }
 
         if (null == $article) {
@@ -152,6 +152,11 @@ class CMSFrontendController extends Controller
         return compact('locale', 'languages', 'menus', 'components', 'article', 'url');
     }
 
+    /**
+     * Incremet article views
+     *
+     * @param CMSArticle $article
+     */
     private function incremetArticleViews(CMSArticle $article)
     {
         $article->setViews($article->getViews()+1);
