@@ -42,21 +42,16 @@ class CMSLanguage
      */
     private $isPublic;
 
-    /**
-     * @ORM\OneToMany(targetEntity="CMSArticle", mappedBy="language")
-     */
-    protected $articles;
 
     /**
-     * @ORM\OneToMany(targetEntity="CMSMenu", mappedBy="language")
+     * Get name
+     *
+     * @return string
      */
-    protected $menus;
-
-    /**
-     * @ORM\OneToMany(targetEntity="CMSComponentOnPage", mappedBy="language")
-     */
-    protected $cmsComponentOnPages;
-
+    public function __toString()
+    {
+        return $this->getName();
+    }
 
     /**
      * Get id
@@ -135,121 +130,5 @@ class CMSLanguage
     public function getIsPublic()
     {
         return $this->isPublic;
-    }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->articles = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Add articles
-     *
-     * @param \My\CMSBundle\Entity\CMSArticle $articles
-     * @return CMSLanguage
-     */
-    public function addArticle(\My\CMSBundle\Entity\CMSArticle $articles)
-    {
-        $this->articles[] = $articles;
-
-        return $this;
-    }
-
-    /**
-     * Remove articles
-     *
-     * @param \My\CMSBundle\Entity\CMSArticle $articles
-     */
-    public function removeArticle(\My\CMSBundle\Entity\CMSArticle $articles)
-    {
-        $this->articles->removeElement($articles);
-    }
-
-    /**
-     * Get articles
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getArticles()
-    {
-        return $this->articles;
-    }
-
-    /**
-     * Get name
-     *
-     * @return string
-     */
-    public function __toString()
-    {
-        return $this->getName();
-    }
-
-    /**
-     * Add menus
-     *
-     * @param \My\CMSBundle\Entity\CMSMenu $menus
-     * @return CMSLanguage
-     */
-    public function addMenu(\My\CMSBundle\Entity\CMSMenu $menus)
-    {
-        $this->menus[] = $menus;
-
-        return $this;
-    }
-
-    /**
-     * Remove menus
-     *
-     * @param \My\CMSBundle\Entity\CMSMenu $menus
-     */
-    public function removeMenu(\My\CMSBundle\Entity\CMSMenu $menus)
-    {
-        $this->menus->removeElement($menus);
-    }
-
-    /**
-     * Get menus
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getMenus()
-    {
-        return $this->menus;
-    }
-
-    /**
-     * Add cmsComponentOnPages
-     *
-     * @param \My\CMSBundle\Entity\CMSComponentOnPage $cmsComponentOnPages
-     * @return CMSLanguage
-     */
-    public function addCmsComponentOnPage(\My\CMSBundle\Entity\CMSComponentOnPage $cmsComponentOnPages)
-    {
-        $this->cmsComponentOnPages[] = $cmsComponentOnPages;
-
-        return $this;
-    }
-
-    /**
-     * Remove cmsComponentOnPages
-     *
-     * @param \My\CMSBundle\Entity\CMSComponentOnPage $cmsComponentOnPages
-     */
-    public function removeCmsComponentOnPage(\My\CMSBundle\Entity\CMSComponentOnPage $cmsComponentOnPages)
-    {
-        $this->cmsComponentOnPages->removeElement($cmsComponentOnPages);
-    }
-
-    /**
-     * Get cmsComponentOnPages
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getCmsComponentOnPages()
-    {
-        return $this->cmsComponentOnPages;
     }
 }

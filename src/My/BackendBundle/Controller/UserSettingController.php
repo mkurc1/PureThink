@@ -27,10 +27,10 @@ class UserSettingController extends Controller
 
         $response = array(
             "setting" => array(
-                'userId' => $entity->getUser()->getId(),
+                'userId'       => $entity->getUser()->getId(),
                 'rowsOnPageId' => $entity->getRowsOnPage()->getId(),
-                'languageId' => $entity->getLanguage()->getId(),
-                'moduleId' => $entity->getModule()->getId()
+                'languageId'   => $entity->getLanguage()->getId(),
+                'moduleId'     => $entity->getModule()->getId()
                 ),
             "response" => true
             );

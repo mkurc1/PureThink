@@ -61,16 +61,16 @@ class File
     private $mimeType;
 
     /**
-     * @ORM\ManyToOne(targetEntity="My\UserBundle\Entity\User", inversedBy="file")
+     * @ORM\ManyToOne(targetEntity="My\UserBundle\Entity\User")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id", onDelete="CASCADE", nullable=false)
      */
-    protected $user;
+    private $user;
 
     /**
-     * @ORM\ManyToOne(targetEntity="My\BackendBundle\Entity\Series", inversedBy="file")
+     * @ORM\ManyToOne(targetEntity="My\BackendBundle\Entity\Series")
      * @ORM\JoinColumn(name="series_id", referencedColumnName="id", onDelete="CASCADE", nullable=false)
      */
-    protected $series;
+    private $series;
 
     /**
      * @var object

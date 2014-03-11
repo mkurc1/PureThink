@@ -61,27 +61,27 @@ class CMSComponentOnPage
     private $isEnable;
 
     /**
-     * @ORM\ManyToOne(targetEntity="CMSLanguage", inversedBy="cmsComponentOnPages")
+     * @ORM\ManyToOne(targetEntity="CMSLanguage")
      * @ORM\JoinColumn(name="language_id", referencedColumnName="id", onDelete="CASCADE", nullable=false)
      */
-    protected $language;
+    private $language;
 
     /**
-     * @ORM\ManyToOne(targetEntity="My\BackendBundle\Entity\Series", inversedBy="cmsComponentOnPages")
+     * @ORM\ManyToOne(targetEntity="My\BackendBundle\Entity\Series")
      * @ORM\JoinColumn(name="series_id", referencedColumnName="id", onDelete="CASCADE", nullable=false)
      */
-    protected $series;
+    private $series;
 
     /**
      * @ORM\ManyToOne(targetEntity="CMSComponent", inversedBy="cmsComponentOnPages")
      * @ORM\JoinColumn(name="component_id", referencedColumnName="id", onDelete="CASCADE", nullable=false)
      */
-    protected $component;
+    private $component;
 
     /**
      * @ORM\OneToMany(targetEntity="CMSComponentOnPageHasElement", mappedBy="cmsComponentOnPages")
      */
-    protected $componentOnPagesHasElements;
+    private $componentOnPagesHasElements;
 
 
     /**

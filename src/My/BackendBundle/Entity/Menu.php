@@ -45,22 +45,17 @@ class Menu
     /**
      * @ORM\ManyToOne(targetEntity="Menu", inversedBy="menus")
      */
-    protected $menu;
+    private $menu;
 
     /**
      * @ORM\OneToMany(targetEntity="Menu", mappedBy="menu")
      */
-    protected $menus;
+    private $menus;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Module", inversedBy="menus")
+     * @ORM\ManyToOne(targetEntity="Module")
      */
-    protected $module;
-
-    /**
-     * @ORM\OneToMany(targetEntity="Series", mappedBy="menu")
-     */
-    protected $series;
+    private $module;
 
 
     /**
@@ -236,61 +231,5 @@ class Menu
     public function __toString()
     {
         return $this->getName();
-    }
-
-    /**
-     * Add series
-     *
-     * @param \My\BackendBundle\Entity\Series $series
-     * @return Menu
-     */
-    public function addSerie(\My\BackendBundle\Entity\Series $series)
-    {
-        $this->series[] = $series;
-
-        return $this;
-    }
-
-    /**
-     * Remove series
-     *
-     * @param \My\BackendBundle\Entity\Series $series
-     */
-    public function removeSerie(\My\BackendBundle\Entity\Series $series)
-    {
-        $this->series->removeElement($series);
-    }
-
-    /**
-     * Get series
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getSeries()
-    {
-        return $this->series;
-    }
-
-    /**
-     * Add series
-     *
-     * @param \My\BackendBundle\Entity\Series $series
-     * @return Menu
-     */
-    public function addSeries(\My\BackendBundle\Entity\Series $series)
-    {
-        $this->series[] = $series;
-
-        return $this;
-    }
-
-    /**
-     * Remove series
-     *
-     * @param \My\BackendBundle\Entity\Series $series
-     */
-    public function removeSeries(\My\BackendBundle\Entity\Series $series)
-    {
-        $this->series->removeElement($series);
     }
 }

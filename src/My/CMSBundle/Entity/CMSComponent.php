@@ -46,20 +46,20 @@ class CMSComponent
     private $updatedAt;
 
     /**
-     * @ORM\ManyToOne(targetEntity="My\BackendBundle\Entity\Series", inversedBy="cmsComponents")
+     * @ORM\ManyToOne(targetEntity="My\BackendBundle\Entity\Series")
      * @ORM\JoinColumn(name="series_id", referencedColumnName="id", onDelete="CASCADE", nullable=false)
      */
-    protected $series;
+    private $series;
 
     /**
      * @ORM\OneToMany(targetEntity="CMSComponentHasColumn", mappedBy="cmsComponent")
      */
-    protected $cmsComponentHasColumns;
+    private $cmsComponentHasColumns;
 
     /**
      * @ORM\OneToMany(targetEntity="CMSComponentOnPage", mappedBy="cmsComponent")
      */
-    protected $cmsComponentOnPages;
+    private $cmsComponentOnPages;
 
 
     /**
@@ -247,5 +247,5 @@ class CMSComponent
         $this->cmsComponentHasColumns = new \Doctrine\Common\Collections\ArrayCollection();
         $this->cmsComponentOnPages = new \Doctrine\Common\Collections\ArrayCollection();
     }
-    
+
 }

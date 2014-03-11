@@ -6,7 +6,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Response;
 
 class RowsOnPageController extends Controller
@@ -22,9 +21,9 @@ class RowsOnPageController extends Controller
         $entities = $this->getDoctrine()->getRepository('MyBackendBundle:RowsOnPage')->findAll();
 
         $rows = $this->renderView('MyBackendBundle:RowsOnPage:_rows_on_page.html.twig',
-            array('entities' => $entities, 'rowsOnPageId' => $rowsOnPageId));
+            compact('entities', 'rowsOnPageId'));
 
-        $response = array("rows" => $rows, "response" => true);
+        $response = ["rows" => $rows, "response" => true];
 
         return new Response(json_encode($response));
     }

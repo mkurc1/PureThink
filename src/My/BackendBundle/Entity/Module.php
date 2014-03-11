@@ -35,16 +35,6 @@ class Module
      */
     private $isDefault;
 
-    /**
-     * @ORM\OneToMany(targetEntity="Menu", mappedBy="module")
-     */
-    protected $menus;
-
-    /**
-     * @ORM\OneToMany(targetEntity="UserSetting", mappedBy="module")
-     */
-    protected $userSettings;
-
 
     /**
      * Get id
@@ -101,46 +91,6 @@ class Module
     {
         return $this->isDefault;
     }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->menus = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Add menus
-     *
-     * @param \My\BackendBundle\Entity\Menu $menus
-     * @return Module
-     */
-    public function addMenu(\My\BackendBundle\Entity\Menu $menus)
-    {
-        $this->menus[] = $menus;
-
-        return $this;
-    }
-
-    /**
-     * Remove menus
-     *
-     * @param \My\BackendBundle\Entity\Menu $menus
-     */
-    public function removeMenu(\My\BackendBundle\Entity\Menu $menus)
-    {
-        $this->menus->removeElement($menus);
-    }
-
-    /**
-     * Get menus
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getMenus()
-    {
-        return $this->menus;
-    }
 
     /**
      * Get name
@@ -150,38 +100,5 @@ class Module
     public function __toString()
     {
         return $this->getName();
-    }
-
-    /**
-     * Add userSettings
-     *
-     * @param \My\BackendBundle\Entity\UserSetting $userSettings
-     * @return Module
-     */
-    public function addUserSetting(\My\BackendBundle\Entity\UserSetting $userSettings)
-    {
-        $this->userSettings[] = $userSettings;
-
-        return $this;
-    }
-
-    /**
-     * Remove userSettings
-     *
-     * @param \My\BackendBundle\Entity\UserSetting $userSettings
-     */
-    public function removeUserSetting(\My\BackendBundle\Entity\UserSetting $userSettings)
-    {
-        $this->userSettings->removeElement($userSettings);
-    }
-
-    /**
-     * Get userSettings
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getUserSettings()
-    {
-        return $this->userSettings;
     }
 }

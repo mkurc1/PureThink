@@ -70,19 +70,19 @@ class CMSArticle implements MetadataInterface
     private $content;
 
     /**
-     * @ORM\ManyToOne(targetEntity="CMSLanguage", inversedBy="cmsArticles")
+     * @ORM\ManyToOne(targetEntity="CMSLanguage")
      * @ORM\JoinColumn(name="language_id", referencedColumnName="id", onDelete="CASCADE", nullable=false)
      */
     private $language;
 
     /**
-     * @ORM\ManyToOne(targetEntity="My\UserBundle\Entity\User", inversedBy="cmsArticles")
+     * @ORM\ManyToOne(targetEntity="My\UserBundle\Entity\User")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id", onDelete="CASCADE", nullable=false)
      */
     private $user;
 
     /**
-     * @ORM\ManyToOne(targetEntity="My\BackendBundle\Entity\Series", inversedBy="cmsArticles")
+     * @ORM\ManyToOne(targetEntity="My\BackendBundle\Entity\Series")
      * @ORM\JoinColumn(name="series_id", referencedColumnName="id", onDelete="CASCADE", nullable=false)
      */
     private $series;

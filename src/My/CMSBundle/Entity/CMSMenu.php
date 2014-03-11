@@ -62,30 +62,30 @@ class CMSMenu
      * @ORM\ManyToOne(targetEntity="CMSMenu", inversedBy="menus")
      * @ORM\JoinColumn(name="menu_id", referencedColumnName="id", onDelete="CASCADE", nullable=true)
      */
-    protected $menu;
+    private $menu;
 
     /**
      * @ORM\OneToMany(targetEntity="CMSMenu", mappedBy="menu")
      */
-    protected $menus;
+    private $menus;
 
     /**
-     * @ORM\ManyToOne(targetEntity="CMSLanguage", inversedBy="cmsMenus")
+     * @ORM\ManyToOne(targetEntity="CMSLanguage")
      * @ORM\JoinColumn(name="language_id", referencedColumnName="id", onDelete="CASCADE", nullable=false)
      */
-    protected $language;
+    private $language;
 
     /**
-     * @ORM\ManyToOne(targetEntity="My\BackendBundle\Entity\Series", inversedBy="cmsMenus")
+     * @ORM\ManyToOne(targetEntity="My\BackendBundle\Entity\Series")
      * @ORM\JoinColumn(name="series_id", referencedColumnName="id", onDelete="CASCADE", nullable=false)
      */
-    protected $series;
+    private $series;
 
     /**
      * @ORM\ManyToOne(targetEntity="CMSArticle")
      * @ORM\JoinColumn(name="article_id", referencedColumnName="id", onDelete="CASCADE", nullable=false)
      */
-    protected $article;
+    private $article;
 
 
     /**

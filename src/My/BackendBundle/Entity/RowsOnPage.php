@@ -35,11 +35,6 @@ class RowsOnPage
      */
     private $isDefault;
 
-    /**
-     * @ORM\OneToMany(targetEntity="UserSetting", mappedBy="rowsOnPage")
-     */
-    protected $userSettings;
-
 
     /**
      * Get id
@@ -95,46 +90,5 @@ class RowsOnPage
     public function getIsDefault()
     {
         return $this->isDefault;
-    }
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->userSettings = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Add userSettings
-     *
-     * @param \My\BackendBundle\Entity\UserSetting $userSettings
-     * @return RowsOnPage
-     */
-    public function addUserSetting(\My\BackendBundle\Entity\UserSetting $userSettings)
-    {
-        $this->userSettings[] = $userSettings;
-
-        return $this;
-    }
-
-    /**
-     * Remove userSettings
-     *
-     * @param \My\BackendBundle\Entity\UserSetting $userSettings
-     */
-    public function removeUserSetting(\My\BackendBundle\Entity\UserSetting $userSettings)
-    {
-        $this->userSettings->removeElement($userSettings);
-    }
-
-    /**
-     * Get userSettings
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getUserSettings()
-    {
-        return $this->userSettings;
     }
 }

@@ -22,9 +22,9 @@ class UserSetting
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="RowsOnPage", inversedBy="userSettings")
+     * @ORM\ManyToOne(targetEntity="RowsOnPage")
      */
-    protected $rowsOnPage;
+    private $rowsOnPage;
 
     /**
      * @ORM\OneToOne(targetEntity="My\UserBundle\Entity\User")
@@ -33,14 +33,14 @@ class UserSetting
     private $user;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Language", inversedBy="userSettings")
+     * @ORM\ManyToOne(targetEntity="Language")
      */
-    protected $language;
+    private $language;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Module", inversedBy="userSettings")
+     * @ORM\ManyToOne(targetEntity="Module")
      */
-    protected $module;
+    private $module;
 
 
     /**

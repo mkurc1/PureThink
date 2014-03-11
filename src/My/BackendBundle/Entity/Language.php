@@ -42,16 +42,6 @@ class Language
      */
     private $isDefault;
 
-    /**
-     * @ORM\OneToMany(targetEntity="Translate", mappedBy="language")
-     */
-    protected $translates;
-
-    /**
-     * @ORM\OneToMany(targetEntity="UserSetting", mappedBy="language")
-     */
-    protected $userSettings;
-
 
     /**
      * Get id
@@ -130,79 +120,5 @@ class Language
     public function getIsDefault()
     {
         return $this->isDefault;
-    }
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->translates = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Add translates
-     *
-     * @param \My\BackendBundle\Entity\Translate $translates
-     * @return Language
-     */
-    public function addTranslate(\My\BackendBundle\Entity\Translate $translates)
-    {
-        $this->translates[] = $translates;
-
-        return $this;
-    }
-
-    /**
-     * Remove translates
-     *
-     * @param \My\BackendBundle\Entity\Translate $translates
-     */
-    public function removeTranslate(\My\BackendBundle\Entity\Translate $translates)
-    {
-        $this->translates->removeElement($translates);
-    }
-
-    /**
-     * Get translates
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getTranslates()
-    {
-        return $this->translates;
-    }
-
-    /**
-     * Add userSettings
-     *
-     * @param \My\BackendBundle\Entity\UserSetting $userSettings
-     * @return Language
-     */
-    public function addUserSetting(\My\BackendBundle\Entity\UserSetting $userSettings)
-    {
-        $this->userSettings[] = $userSettings;
-
-        return $this;
-    }
-
-    /**
-     * Remove userSettings
-     *
-     * @param \My\BackendBundle\Entity\UserSetting $userSettings
-     */
-    public function removeUserSetting(\My\BackendBundle\Entity\UserSetting $userSettings)
-    {
-        $this->userSettings->removeElement($userSettings);
-    }
-
-    /**
-     * Get userSettings
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getUserSettings()
-    {
-        return $this->userSettings;
     }
 }

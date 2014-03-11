@@ -23,7 +23,7 @@ class CMSFrontendController extends Controller
 
         $locale = $request->getPreferredLanguage($avilableLocales);
 
-        return $this->redirect($this->generateUrl('localized_frontend', array('locale' => $locale)));
+        return $this->forward('MyCMSBundle:CMSFrontend:index', compact('locale'));
     }
 
     /**
@@ -75,7 +75,7 @@ class CMSFrontendController extends Controller
      */
     private function getAvilableLocales($languages)
     {
-        $avilableLocales = array();
+        $avilableLocales = [];
 
         foreach ($languages as $language) {
             $avilableLocales[] = strtolower($language->getAlias());
@@ -141,10 +141,10 @@ class CMSFrontendController extends Controller
             throw $this->createNotFoundException();
         }
 
-        $url = array(
+        $url = [
             'slug'  => $slug,
             'slug2' => $slug2
-            );
+            ];
 
         return compact('locale', 'languages', 'menus', 'components', 'article', 'url');
     }
@@ -175,7 +175,7 @@ class CMSFrontendController extends Controller
      */
     private function getMenus($locale)
     {
-        $menus = array();
+        $menus = [];
 
         $em = $this->getDoctrine()->getManager();
 
@@ -208,7 +208,7 @@ class CMSFrontendController extends Controller
      */
     private function getComponents($locale)
     {
-        $components = array();
+        $components = [];
 
         $em = $this->getDoctrine()->getManager();
 
@@ -260,8 +260,7 @@ class CMSFrontendController extends Controller
      */
     private function getLanguages()
     {
-        $em = $this->getDoctrine()->getManager();
-
-        return $em->getRepository('MyCMSBundle:CMSLanguage')->getPublicLanguages();
+        return $this->getDoctrine()->getRepository('MyCMSBundle:CMSLanguage')
+            ->getPublicLanguages();
     }
 }

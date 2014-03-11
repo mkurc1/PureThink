@@ -36,9 +36,9 @@ class Translate
     private $translateName;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Language", inversedBy="translates")
+     * @ORM\ManyToOne(targetEntity="Language")
      */
-    protected $language;
+    private $language;
 
 
     /**
