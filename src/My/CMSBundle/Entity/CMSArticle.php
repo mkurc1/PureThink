@@ -70,6 +70,11 @@ class CMSArticle implements MetadataInterface
     private $content;
 
     /**
+     * @ORM\Column(type="integer")
+     */
+    private $views = 0;
+
+    /**
      * @ORM\ManyToOne(targetEntity="CMSLanguage")
      * @ORM\JoinColumn(name="language_id", referencedColumnName="id", onDelete="CASCADE", nullable=false)
      */
@@ -355,5 +360,28 @@ class CMSArticle implements MetadataInterface
     public function getMetadata()
     {
         return $this->metadata;
+    }
+
+    /**
+     * Set views
+     *
+     * @param integer $views
+     * @return CMSArticle
+     */
+    public function setViews($views)
+    {
+        $this->views = $views;
+
+        return $this;
+    }
+
+    /**
+     * Get views
+     *
+     * @return integer
+     */
+    public function getViews()
+    {
+        return $this->views;
     }
 }

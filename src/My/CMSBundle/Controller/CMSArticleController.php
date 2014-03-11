@@ -41,13 +41,13 @@ class CMSArticleController extends Controller
             ->setPagination($articlesQB, $page, $rowsOnPage);
 
         $list = $this->renderView('MyCMSBundle:CMSArticle:_list.html.twig',
-            array('entities' => $pagination['entities'], 'page' => $page, 'rowsOnPage' => $rowsOnPage));
+            ['entities' => $pagination['entities'], 'page' => $page, 'rowsOnPage' => $rowsOnPage]);
 
-        $response = array(
+        $response = [
             "list"       => $list,
             "pagination" => $pagination,
             "response"   => true
-            );
+            ];
 
         return new Response(json_encode($response));
     }
@@ -65,7 +65,7 @@ class CMSArticleController extends Controller
         $entity = new CMSArticle();
         $entity->setUser($this->getUser());
 
-        $form = $this->createForm(new CMSArticleType(), $entity, array('menuId' => $menuId));
+        $form = $this->createForm(new CMSArticleType(), $entity, compact('menuId'));
         $form->bind($request);
 
         if ($form->isValid()) {
@@ -73,20 +73,20 @@ class CMSArticleController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            $response = array(
+            $response = [
                 "response" => true,
                 "id"       => $entity->getId(),
                 "message"  => 'Dodawanie artykułu zakończyło się powodzeniem'
-                );
+                ];
         }
         else {
             $view = $this->renderView('MyCMSBundle:CMSArticle:_new.html.twig',
-                array('entity' => $entity, 'form' => $form->createView()));
+                ['entity' => $entity, 'form' => $form->createView()]);
 
-            $response = array(
+            $response = [
                 "response" => false,
                 "view"     => $view
-                );
+                ];
         }
 
         return new Response(json_encode($response));
@@ -103,15 +103,15 @@ class CMSArticleController extends Controller
         $menuId = (int)$request->get('menuId');
 
         $entity = new CMSArticle();
-        $form = $this->createForm(new CMSArticleType(), $entity, array('menuId' => $menuId));
+        $form = $this->createForm(new CMSArticleType(), $entity, compact('menuId'));
 
         $view = $this->renderView('MyCMSBundle:CMSArticle:_new.html.twig',
-            array('entity' => $entity, 'form' => $form->createView()));
+            ['entity' => $entity, 'form' => $form->createView()]);
 
-        $response = array(
+        $response = [
             "response" => true,
             "view"     => $view
-            );
+            ];
 
         return new Response(json_encode($response));
     }
@@ -130,19 +130,19 @@ class CMSArticleController extends Controller
 
         $entity = $em->getRepository('MyCMSBundle:CMSArticle')->find($id);
 
-        if (!$entity) {
-            throw $this->createNotFoundException('Unable to find CMSArticle entity.');
+        if (null == $entity) {
+            throw $this->createNotFoundException();
         }
 
-        $editForm = $this->createForm(new CMSArticleType(), $entity, array('menuId' => $menuId));
+        $form = $this->createForm(new CMSArticleType(), $entity, compact('menuId'));
 
         $view = $this->renderView('MyCMSBundle:CMSArticle:_edit.html.twig',
-            array('entity' => $entity, 'form' => $editForm->createView()));
+            ['entity' => $entity, 'form' => $form->createView()]);
 
-        $response = array(
+        $response = [
             "response" => true,
             "view"     => $view
-            );
+            ];
 
         return new Response(json_encode($response));
     }
@@ -161,31 +161,31 @@ class CMSArticleController extends Controller
 
         $entity = $em->getRepository('MyCMSBundle:CMSArticle')->find($id);
 
-        if (!$entity) {
-            throw $this->createNotFoundException('Unable to find CMSArticle entity.');
+        if (null == $entity) {
+            throw $this->createNotFoundException();
         }
 
-        $editForm = $this->createForm(new CMSArticleType(), $entity, array('menuId' => $menuId));
-        $editForm->bind($request);
+        $form = $this->createForm(new CMSArticleType(), $entity, compact('menuId'));
+        $form->bind($request);
 
-        if ($editForm->isValid()) {
+        if ($form->isValid()) {
             $em->persist($entity);
             $em->flush();
 
-            $response = array(
+            $response = [
                 "response" => true,
                 "id"       => $entity->getId(),
                 "message"  => 'Edycja artykułu zakończyła się powodzeniem'
-                );
+                ];
         }
         else {
             $view = $this->renderView('MyCMSBundle:CMSArticle:_edit.html.twig',
-                array('entity' => $entity, 'form' => $editForm->createView()));
+                ['entity' => $entity, 'form' => $form->createView()]);
 
-            $response = array(
+            $response = [
                 "response" => false,
                 "view"     => $view
-                );
+                ];
         }
 
         return new Response(json_encode($response));
@@ -202,7 +202,7 @@ class CMSArticleController extends Controller
         $arrayId = $request->get('arrayId');
 
         $articles = $this->getDoctrine()->getRepository('MyCMSBundle:CMSArticle')
-            ->getArticlesById($arrayId);
+            ->getArticlesByIds($arrayId);
 
         $response = $this->get('my.manageList.service')
             ->deleteEntities($articles);
@@ -224,8 +224,8 @@ class CMSArticleController extends Controller
 
         $entity = $em->getRepository('MyCMSBundle:CMSArticle')->find($id);
 
-        if (!$entity) {
-            throw $this->createNotFoundException('Unable to find CMSArticle entity.');
+        if (null == $entity) {
+            throw $this->createNotFoundException();
         }
 
         if ($entity->getIsPublic()) {
@@ -240,15 +240,15 @@ class CMSArticleController extends Controller
         try {
             $em->flush();
 
-            $response = array(
+            $response = [
                 "response" => true,
                 "message"  => 'Zmiana stanu artykułu zakończyła się powodzeniem'
-                );
+                ];
         } catch (\Exception $e) {
-            $response = array(
+            $response = [
                 "response" => false,
                 "message"  => 'Zmiana stanu artykułu zakończyła się niepowodzeniem'
-                );
+                ];
         }
 
         return new Response(json_encode($response));

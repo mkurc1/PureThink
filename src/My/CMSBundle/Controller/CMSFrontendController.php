@@ -9,6 +9,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
 use My\CMSBundle\Entity\CMSComponentHasColumn;
+use My\CMSBundle\Entity\CMSArticle;
 
 class CMSFrontendController extends Controller
 {
@@ -141,12 +142,23 @@ class CMSFrontendController extends Controller
             throw $this->createNotFoundException();
         }
 
+        $this->incremetArticleViews($article);
+
         $url = [
             'slug'  => $slug,
             'slug2' => $slug2
             ];
 
         return compact('locale', 'languages', 'menus', 'components', 'article', 'url');
+    }
+
+    private function incremetArticleViews(CMSArticle $article)
+    {
+        $article->setViews($article->getViews()+1);
+
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($article);
+        $em->flush();
     }
 
     /**
