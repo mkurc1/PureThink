@@ -3,6 +3,9 @@ clean:
 	php app/console cache:clear --env=prod
 	php app/console cache:clear
 
+cleans: clean
+    php app/console assets:install --symlink
+
 assetic:
 	php app/console assets:install web
 	php app/console assetic:dump -e=prod

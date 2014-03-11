@@ -47,6 +47,7 @@
     <div id="article">
         <div class="container">
             <h2 class="header">{{ article.name }}</h2>
+            <h3 class="datetime">{{ article.createdAt|date('D, d M Y G:i:s') }}</h3>
 
             {{ article.content|raw }}
         </div>

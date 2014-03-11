@@ -343,10 +343,18 @@ a {
     position: relative;
     float: left;
     font-weight: normal;
-    font-size: 18px;
-    color: #545450;
+    font-size: 20px;
+    color: #444444;
     width: 100%;
     margin: 10px 0 20px 0;
+}
+#article > .container > h2.header {
+    margin-bottom: 15px;
+}
+#article > .container > h3.datetime {
+    font-size: 14px;
+    color: #999999;
+    margin: 0 0 20px 0;
 }
 #search > .container ul {
     list-style-position: inside;
