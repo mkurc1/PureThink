@@ -51,41 +51,6 @@ class CMSFrontendController extends Controller
     }
 
     /**
-     * Check avilable locales
-     *
-     * @param object $languages
-     * @param string $locale
-     * @return boolean
-     */
-    private function checkAvilableLocales($languages, $locale)
-    {
-        $avilableLocales = $this->getAvilableLocales($languages);
-        if (!in_array($locale, $avilableLocales)) {
-            return false;
-        }
-        else {
-            return true;
-        }
-    }
-
-    /**
-     * Get avilable locales
-     *
-     * @param object $languages
-     * @return array
-     */
-    private function getAvilableLocales($languages)
-    {
-        $avilableLocales = [];
-
-        foreach ($languages as $language) {
-            $avilableLocales[] = strtolower($language->getAlias());
-        }
-
-        return $avilableLocales;
-    }
-
-    /**
      * @Route("/{locale}/search", name="search")
      * @Method("GET")
      * @Template()
@@ -279,5 +244,40 @@ class CMSFrontendController extends Controller
     {
         return $this->getDoctrine()->getRepository('MyCMSBundle:CMSLanguage')
             ->getPublicLanguages();
+    }
+
+    /**
+     * Check avilable locales
+     *
+     * @param object $languages
+     * @param string $locale
+     * @return boolean
+     */
+    private function checkAvilableLocales($languages, $locale)
+    {
+        $avilableLocales = $this->getAvilableLocales($languages);
+        if (!in_array($locale, $avilableLocales)) {
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+
+    /**
+     * Get avilable locales
+     *
+     * @param object $languages
+     * @return array
+     */
+    private function getAvilableLocales($languages)
+    {
+        $avilableLocales = [];
+
+        foreach ($languages as $language) {
+            $avilableLocales[] = strtolower($language->getAlias());
+        }
+
+        return $avilableLocales;
     }
 }
