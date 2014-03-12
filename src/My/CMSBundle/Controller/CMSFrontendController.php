@@ -172,7 +172,7 @@ class CMSFrontendController extends Controller
      * @param string $slug
      * @return object
      */
-    public function getArticle($slug)
+    private function getArticle($slug)
     {
         $article = $this->getDoctrine()->getRepository('MyCMSBundle:CMSArticle')
             ->getArticleBySlug($slug);
