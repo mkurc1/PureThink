@@ -23,11 +23,6 @@ class CMSArticleType extends AbstractType
                     )
                 )
             )
-            ->add('slug', 'text', array(
-                'required' => false,
-                'label' => 'Nazwa widoczna w adresie'
-                )
-            )
             ->add('content', 'ckeditor', array('label' => 'Treść'))
             ->add('language', 'entity', array(
                 'label' => 'Język',
