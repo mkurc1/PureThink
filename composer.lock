@@ -347,12 +347,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/data-fixtures.git",
-                "reference": "d5970ef13cc39607caf7d1b3d1417881f63af67d"
+                "reference": "e847b073c2b5350045edbb40443645ad09a59538"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/data-fixtures/zipball/d5970ef13cc39607caf7d1b3d1417881f63af67d",
-                "reference": "d5970ef13cc39607caf7d1b3d1417881f63af67d",
+                "url": "https://api.github.com/repos/doctrine/data-fixtures/zipball/e847b073c2b5350045edbb40443645ad09a59538",
+                "reference": "e847b073c2b5350045edbb40443645ad09a59538",
                 "shasum": ""
             },
             "require": {
@@ -395,7 +395,7 @@
             "keywords": [
                 "database"
             ],
-            "time": "2014-03-03 22:09:44"
+            "time": "2014-03-13 12:26:17"
         },
         {
             "name": "doctrine/dbal",
@@ -1025,12 +1025,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSUserBundle.git",
-                "reference": "7867dfc7aa67969a24fec7f8aa1051eda23098e9"
+                "reference": "c4103172903de83563790d42ea203e3758fe9794"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/7867dfc7aa67969a24fec7f8aa1051eda23098e9",
-                "reference": "7867dfc7aa67969a24fec7f8aa1051eda23098e9",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/c4103172903de83563790d42ea203e3758fe9794",
+                "reference": "c4103172903de83563790d42ea203e3758fe9794",
                 "shasum": ""
             },
             "require": {
@@ -1085,7 +1085,7 @@
             "keywords": [
                 "User management"
             ],
-            "time": "2014-03-04 23:23:39"
+            "time": "2014-03-14 17:10:00"
         },
         {
             "name": "gedmo/doctrine-extensions",
@@ -1093,12 +1093,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/l3pp4rd/DoctrineExtensions.git",
-                "reference": "af68e0521d8023ebbbb93bbddeaab993dc390412"
+                "reference": "417e3cba780e6751ba62b42874c718d272934723"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/l3pp4rd/DoctrineExtensions/zipball/af68e0521d8023ebbbb93bbddeaab993dc390412",
-                "reference": "af68e0521d8023ebbbb93bbddeaab993dc390412",
+                "url": "https://api.github.com/repos/l3pp4rd/DoctrineExtensions/zipball/417e3cba780e6751ba62b42874c718d272934723",
+                "reference": "417e3cba780e6751ba62b42874c718d272934723",
                 "shasum": ""
             },
             "require": {
@@ -1165,7 +1165,7 @@
                 "tree",
                 "uploadable"
             ],
-            "time": "2014-03-05 18:13:50"
+            "time": "2014-03-11 09:04:14"
         },
         {
             "name": "incenteev/composer-parameter-handler",

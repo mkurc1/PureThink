@@ -24,12 +24,12 @@ class CMSArticleRepositoryFunctionalTest extends WebTestCase
         ;
     }
 
-    public function testSearchArticleByLocaleAndName()
+    public function testSearchArticlesByLocaleAndName()
     {
-        $existArticles = $this->getArticleByLocaleAndName('pl', 'Lorem Ipsum Dolor');
+        $existArticles = $this->getArticlesByLocaleAndName('pl', 'Lorem Ipsum Dolor');
         $this->assertCount(80, $existArticles);
 
-        $noExitArticles = $this->getArticleByLocaleAndName('pl', 'abc');
+        $noExitArticles = $this->getArticlesByLocaleAndName('pl', 'abc');
         $this->assertCount(0, $noExitArticles);
     }
 
@@ -52,7 +52,7 @@ class CMSArticleRepositoryFunctionalTest extends WebTestCase
         $this->em->close();
     }
 
-    private function getArticleByLocaleAndName($locale, $name)
+    private function getArticlesByLocaleAndName($locale, $name)
     {
         return $this->em
             ->getRepository('MyCMSBundle:CMSArticle')
