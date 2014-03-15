@@ -242,8 +242,14 @@ class CMSFrontendController extends Controller
      */
     private function getLanguages()
     {
-        return $this->getDoctrine()->getRepository('MyCMSBundle:CMSLanguage')
+        $languages = $this->getDoctrine()->getRepository('MyCMSBundle:CMSLanguage')
             ->getPublicLanguages();
+
+        if (count($languages) == 0) {
+            throw $this->createNotFoundException();
+        }
+
+        return $languages;
     }
 
     /**
