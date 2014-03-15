@@ -25,6 +25,7 @@ class AppKernel extends Kernel
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
             new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
             new Bmatzner\FontAwesomeBundle\BmatznerFontAwesomeBundle(),
+            new Sonata\IntlBundle\SonataIntlBundle(),
 
             new My\UserBundle\MyUserBundle(),
             new My\BackendBundle\MyBackendBundle(),

@@ -7,7 +7,7 @@
         </div>
         <div class="content">
             <h4>{{ new['nazwa-2'] }}</h4>
-            <span class="date">{{ new['createdAt']|date('Y-m-d') }}</span>
+            <span class="date">{{ new['createdAt']|format_datetime('dd MMM Y H:m') }}</span>
             <p>{{ new['tresc'] }}</p>
         </div>
     </a>

@@ -30,7 +30,8 @@
         "knplabs/knp-paginator-bundle": "dev-master",
         "egeloen/ckeditor-bundle": "2.*",
         "raulfraile/ladybug-bundle": "*",
-        "bmatzner/fontawesome-bundle": "~4.0"
+        "bmatzner/fontawesome-bundle": "~4.0",
+        "sonata-project/intl-bundle": "*"
     },
     "scripts": {
         "post-install-cmd": [
