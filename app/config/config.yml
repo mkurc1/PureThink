@@ -40,6 +40,7 @@ twig:
     form:
         resources:
             - ':Form:form_errors.html.twig'
+            - ':Form:form_row.html.twig'
 
 # Assetic Configuration
 assetic:

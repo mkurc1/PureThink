@@ -1,45 +1,31 @@
 {{ form_widget(form._token) }}
 
 <div class="dane_element">
-    {{ form_label(form.name) }}
-    {{ form_widget(form.name) }}
-    {{ form_errors(form.name) }}
+    {{ form_row(form.name) }}
 </div>
 
 <div class="dane_element">
     <div class="dane_element_medium">
-        {{ form_label(form.series) }}
-        {{ form_widget(form.series) }}
-        {{ form_errors(form.series) }}
+        {{ form_row(form.series) }}
     </div>
 
     <div class="dane_element_medium margin_right_off">
-        {{ form_label(form.language) }}
-        {{ form_widget(form.language) }}
-        {{ form_errors(form.language) }}
+        {{ form_row(form.language) }}
     </div>
 </div>
 
 <div class="dane_element_big">
-    {{ form_label(form.content) }}
-    {{ form_widget(form.content) }}
-    {{ form_errors(form.content) }}
+    {{ form_row(form.content) }}
 </div>
 
 <div class="dane_element_big">
-    {{ form_label(form.metadata.title) }}
-    {{ form_widget(form.metadata.title) }}
-    {{ form_errors(form.metadata.title) }}
+    {{ form_row(form.metadata.title) }}
 </div>
 
 <div class="dane_element_big">
-    {{ form_label(form.metadata.description) }}
-    {{ form_widget(form.metadata.description) }}
-    {{ form_errors(form.metadata.description) }}
+    {{ form_row(form.metadata.description) }}
 </div>
 
 <div class="dane_element_big">
-    {{ form_label(form.metadata.keyword) }}
-    {{ form_widget(form.metadata.keyword) }}
-    {{ form_errors(form.metadata.keyword) }}
+    {{ form_row(form.metadata.keyword) }}
 </div>

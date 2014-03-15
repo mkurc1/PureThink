@@ -2,8 +2,6 @@
 
 {% for value in form.componentOnPageHasValues %}
     <div class="dane_element">
-        {{ form_label(value.content) }}
-        {{ form_widget(value.content) }}
-        {{ form_errors(value.content) }}
+        {{ form_row(value.content) }}
     </div>
 {% endfor %}

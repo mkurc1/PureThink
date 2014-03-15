@@ -1,31 +1,21 @@
 {{ form_widget(form._token) }}
 
 <div class="dane_element">
-    {{ form_label(form.name) }}
-    {{ form_widget(form.name) }}
-    {{ form_errors(form.name) }}
+    {{ form_row(form.name) }}
 </div>
 
 <div class="dane_element">
-    {{ form_label(form.columnType) }}
-    {{ form_widget(form.columnType) }}
-    {{ form_errors(form.columnType) }}
+    {{ form_row(form.columnType) }}
 </div>
 
 <div class="dane_element">
-    {{ form_label(form.columnLabel) }}
-    {{ form_widget(form.columnLabel) }}
-    {{ form_errors(form.columnLabel) }}
+    {{ form_row(form.columnLabel) }}
 </div>
 
 <div class="dane_element">
-    {{ form_label(form.class) }}
-    {{ form_widget(form.class) }}
-    {{ form_errors(form.class) }}
+    {{ form_row(form.class) }}
 </div>
 
 <div class="dane_element">
-    {{ form_label(form.isRequired) }}
-    {{ form_widget(form.isRequired) }}
-    {{ form_errors(form.isRequired) }}
+    {{ form_row(form.isRequired) }}
 </div>

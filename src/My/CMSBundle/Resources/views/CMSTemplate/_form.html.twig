@@ -1,13 +1,9 @@
 {{ form_widget(form._token) }}
 
 <div class="dane_element">
-    {{ form_label(form.name) }}
-    {{ form_widget(form.name) }}
-    {{ form_errors(form.name) }}
+    {{ form_row(form.name) }}
 </div>
 
 <div class="dane_element">
-    {{ form_label(form.author) }}
-    {{ form_widget(form.author) }}
-    {{ form_errors(form.author) }}
+    {{ form_row(form.author) }}
 </div>
