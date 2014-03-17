@@ -1,17 +1,20 @@
-{{ form_widget(form._token) }}
+{{ form_start(form) }}
+    {{ form_errors(form) }}
 
-<div class="dane_element">
-    {{ form_row(form.name) }}
-</div>
+    <div class="dane_element">
+        {{ form_row(form.name) }}
+    </div>
 
-<div class="dane_element">
-    {{ form_row(form.series) }}
-</div>
+    <div class="dane_element">
+        {{ form_row(form.series) }}
+    </div>
 
-<div class="dane_element">
-    {{ form_label(form.file) }}
-    {{ form_widget(form.file) }}
-    <div class="input_file">{{ entity.path }}</div>
-    <button class="browse">Przeglądaj</button>
-    {{ form_errors(form.file) }}
-</div>
+    <div class="dane_element">
+        {{ form_label(form.file) }}
+        {{ form_widget(form.file) }}
+        <div class="input_file">{{ entity.path }}</div>
+        <button class="browse">Przeglądaj</button>
+        {{ form_errors(form.file) }}
+    </div>
+
+{{ form_end(form) }}

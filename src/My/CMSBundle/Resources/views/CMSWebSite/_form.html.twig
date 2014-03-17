@@ -1,13 +1,16 @@
-{{ form_widget(form._token) }}
+{{ form_start(form) }}
+    {{ form_errors(form) }}
 
-<div class="dane_element_big">
-    {{ form_row(form.metadata.title) }}
-</div>
+    <div class="dane_element_big">
+        {{ form_row(form.metadata.title) }}
+    </div>
 
-<div class="dane_element_big">
-    {{ form_row(form.metadata.description) }}
-</div>
+    <div class="dane_element_big">
+        {{ form_row(form.metadata.description) }}
+    </div>
 
-<div class="dane_element_big">
-    {{ form_row(form.metadata.keyword) }}
-</div>
+    <div class="dane_element_big">
+        {{ form_row(form.metadata.keyword) }}
+    </div>
+
+{{ form_end(form) }}

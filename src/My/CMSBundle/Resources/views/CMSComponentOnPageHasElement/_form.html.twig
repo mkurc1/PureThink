@@ -1,7 +1,10 @@
-{{ form_widget(form._token) }}
+{{ form_start(form) }}
+    {{ form_errors(form) }}
 
-{% for value in form.componentOnPageHasValues %}
-    <div class="dane_element">
-        {{ form_row(value.content) }}
-    </div>
-{% endfor %}
+    {% for value in form.componentOnPageHasValues %}
+        <div class="dane_element">
+            {{ form_row(value.content) }}
+        </div>
+    {% endfor %}
+
+{{ form_end(form) }}
