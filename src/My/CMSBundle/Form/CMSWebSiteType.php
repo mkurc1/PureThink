@@ -25,9 +25,10 @@ class CMSWebSiteType extends AbstractType
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        $resolver->setDefaults(array(
-            'data_class' => 'My\CMSBundle\Entity\CMSWebSite'
-        ));
+        $resolver->setDefaults([
+            'data_class'         => 'My\CMSBundle\Entity\CMSWebSite',
+            'cascade_validation' => true,
+        ]);
     }
 
     /**

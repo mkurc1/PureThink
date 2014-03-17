@@ -16,35 +16,23 @@ class CMSArticleType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name', 'text', array(
-                'label' => 'Nazwa artykułu',
-                'attr' => array(
-                    'class' => 'name'
-                    )
-                )
-            )
-            ->add('content', 'ckeditor', array('label' => 'Treść'))
-            ->add('language', 'entity', array(
-                'label' => 'Język',
-                'class' => 'MyCMSBundle:CMSLanguage',
+            ->add('name', 'text', ['label' => 'Nazwa artykułu', 'attr' => ['class' => 'name']])
+            ->add('content', 'ckeditor', ['label' => 'Treść'])
+            ->add('language', 'entity', [
+                'label'       => 'Język',
+                'class'       => 'MyCMSBundle:CMSLanguage',
                 'empty_value' => '',
-                'attr' => array(
-                    'class' => 'sintetic-select'
-                    )
-                )
-            )
-            ->add('series', 'entity', array(
-                'label' => 'Grupa',
-                'class' => 'MyBackendBundle:Series',
+                'attr'        => ['class' => 'sintetic-select']
+            ])
+            ->add('series', 'entity', [
+                'label'         => 'Grupa',
+                'class'         => 'MyBackendBundle:Series',
                 'query_builder' => function (\Doctrine\ORM\EntityRepository $er) use ($options) {
                     return $er->getGroupsByMenuIdNoExecute($options['menuId']);
                 },
                 'empty_value' => '',
-                'attr' => array(
-                    'class' => 'sintetic-select'
-                    )
-                )
-            )
+                'attr'        => ['class' => 'sintetic-select']
+            ])
             ->add('metadata', new MetadataType(), ['required' => false])
         ;
     }
@@ -55,8 +43,9 @@ class CMSArticleType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'My\CMSBundle\Entity\CMSArticle',
-            'menuId'     => null
+            'data_class'         => 'My\CMSBundle\Entity\CMSArticle',
+            'cascade_validation' => true,
+            'menuId'             => null
         ));
     }
 
