@@ -22,11 +22,11 @@ class LeftMenuController extends Controller
         $editMode = ($request->get('editMode') == 'true') ? true : false;
 
         $menu = '';
-        $menus = array();
+        $menus = [];
 
         switch ($moduleId) {
             case 1:
-                $CMSLeftMenuController = $this->get('my.leftMenu.service');
+                $CMSLeftMenuController = $this->get('my.cms.leftMenu.service');
                 $menus = $CMSLeftMenuController->menu($menuId);
                 break;
         }
@@ -39,9 +39,7 @@ class LeftMenuController extends Controller
             $menu .= $this->getGroups($menuId);
         }
 
-        $response = array("menu" => $menu, "response" => true);
-
-        return new Response(json_encode($response));
+        return new Response(json_encode(["menu" => $menu, "response" => true]));
     }
 
     /**
@@ -56,6 +54,6 @@ class LeftMenuController extends Controller
             ->getGroupsByMenuId($menuId);
 
         return $this->renderView("MyBackendBundle:LeftMenu:_groups.html.twig",
-            array('entities' => $entities));
+            compact('entities'));
     }
 }

@@ -1,0 +1,4 @@
+services:
+    my.cms.leftMenu.service:
+        class: My\CMSBundle\Service\LeftMenuService
+        arguments: [@doctrine.orm.entity_manager, @templating]
