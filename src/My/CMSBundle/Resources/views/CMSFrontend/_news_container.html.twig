@@ -1,19 +1,22 @@
 <div id="news">
     <div class="container">
         <div class="left">
-            {% if components['lorem-ipsum-dolom-news-1'] is defined %}
-                {% include 'MyCMSBundle:CMSFrontend:_news.html.twig' with { 'news': components['lorem-ipsum-dolom-news-1'], 'locale': locale } %}
-            {% endif %}
+            {{ render(controller('MyCMSBundle:CMSFrontend:component', {
+                'slug'    : 'lorem-ipsum-dolom-news-1',
+                'template': 'MyCMSBundle:CMSFrontend:_news.html.twig'
+            })) }}
         </div>
         <div class="center">
-            {% if components['lorem-ipsum-dolom-news-2'] is defined %}
-                {% include 'MyCMSBundle:CMSFrontend:_news.html.twig' with { 'news': components['lorem-ipsum-dolom-news-2'], 'locale': locale } %}
-            {% endif %}
+            {{ render(controller('MyCMSBundle:CMSFrontend:component', {
+                'slug'    : 'lorem-ipsum-dolom-news-2',
+                'template': 'MyCMSBundle:CMSFrontend:_news.html.twig'
+            })) }}
         </div>
         <div class="right">
-            {% if components['lorem-ipsum-dolom-news-3'] is defined %}
-                {% include 'MyCMSBundle:CMSFrontend:_news.html.twig' with { 'news': components['lorem-ipsum-dolom-news-3'], 'locale': locale } %}
-            {% endif %}
+            {{ render(controller('MyCMSBundle:CMSFrontend:component', {
+                'slug'    : 'lorem-ipsum-dolom-news-3',
+                'template': 'MyCMSBundle:CMSFrontend:_news.html.twig'
+            })) }}
         </div>
     </div>
 </div>

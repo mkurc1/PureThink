@@ -1,8 +1,8 @@
 <div id="links">
     <div class="container">
-        <h3>{{ links['title'] }}</h3>
+        <h3>{{ entities['title'] }}</h3>
         <ul>
-            {% for key, link in links if key != 'title' %}
+            {% for key, link in entities if key != 'title' %}
                 <li><a href="{{ path('article', {'locale': locale, 'slug': link['adres-1']}) }}">{{ link['nazwa-1'] }}</a></li>
             {% endfor %}
         </ul>

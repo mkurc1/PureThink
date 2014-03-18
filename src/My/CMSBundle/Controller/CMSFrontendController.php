@@ -8,7 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
-use My\CMSBundle\Entity\CMSComponentHasColumn;
+use Symfony\Component\HttpFoundation\Response;
 use My\CMSBundle\Entity\CMSArticle;
 
 class CMSFrontendController extends Controller
@@ -25,6 +25,28 @@ class CMSFrontendController extends Controller
         $locale = $request->getPreferredLanguage($avilableLocales);
 
         return $this->forward('MyCMSBundle:CMSFrontend:index', compact('locale'));
+    }
+
+    /**
+     * Component Action
+     *
+     * @param  Request $request
+     * @param  stirng  $slug
+     * @param  string  $template
+     * @return array
+     */
+    public function componentAction(Request $request, $slug, $template)
+    {
+        $locale = $request->getLocale();
+
+        $entities = $this->getDoctrine()->getRepository('MyCMSBundle:CMSComponentOnPageHasValue')
+            ->getActiveComponentBySlugAndLocale($slug, $locale);
+
+        if (count($entities) == 0) {
+            return new Response();
+        }
+
+        return $this->render($template, compact('entities', 'locale'));
     }
 
     /**
@@ -45,9 +67,8 @@ class CMSFrontendController extends Controller
 
         $meta = $this->getMetadataByLocale($locale);
         $menus = $this->getMenus($locale);
-        $components = $this->getComponents($locale);
 
-        return compact('locale', 'meta', 'languages', 'menus', 'components');
+        return compact('locale', 'meta', 'languages', 'menus');
     }
 
     /**
@@ -67,7 +88,6 @@ class CMSFrontendController extends Controller
 
         $meta = $this->getMetadataByLocale($locale);
         $menus = $this->getMenus($locale);
-        $components = $this->getComponents($locale);
 
         $search = $request->get('article');
 
@@ -75,7 +95,7 @@ class CMSFrontendController extends Controller
 
         $articles = $em->getRepository('MyCMSBundle:CMSArticle')->search($locale, $search);
 
-        return compact('locale', 'meta', 'languages', 'menus', 'components', 'articles');
+        return compact('locale', 'meta', 'languages', 'menus', 'articles');
     }
 
     /**
@@ -94,7 +114,6 @@ class CMSFrontendController extends Controller
         }
 
         $menus = $this->getMenus($locale);
-        $components = $this->getComponents($locale);
 
         if (null == $slug2) {
             $article = $this->getArticle($slug);
@@ -114,7 +133,7 @@ class CMSFrontendController extends Controller
             'slug2' => $slug2
             ];
 
-        return compact('locale', 'languages', 'menus', 'components', 'article', 'url');
+        return compact('locale', 'languages', 'menus', 'article', 'url');
     }
 
     /**
@@ -180,47 +199,6 @@ class CMSFrontendController extends Controller
         }
 
         return $menus;
-    }
-
-    /**
-     * Get components
-     *
-     * @param string $locale
-     * @return array
-     */
-    private function getComponents($locale)
-    {
-        $components = [];
-
-        $em = $this->getDoctrine()->getManager();
-
-        $entities = $em->getRepository('MyCMSBundle:CMSComponentOnPageHasValue')->getComponents($locale);
-        foreach ($entities as $entity) {
-            $slug = $entity['slug'];
-            $title = $entity['title'];
-            $elementId = $entity['elementId'];
-            $subname = $entity['subname'];
-            $createdAt = $entity['createdAt'];
-            $updatedAt = $entity['updatedAt'];
-            $content = $entity['content'];
-            $type = CMSComponentHasColumn::getColumnTypeStringById($entity['type']);
-
-            switch ($type) {
-                case 'Article':
-                    $content = $entity['article'];
-                    break;
-                case 'File':
-                    $content = $entity['file'];
-                    break;
-            }
-
-            $components[$slug]['title'] = $title;
-            $components[$slug][$elementId][$subname] = $content;
-            $components[$slug][$elementId]['createdAt'] = $createdAt;
-            $components[$slug][$elementId]['updatedAt'] = $updatedAt;
-        }
-
-        return $components;
     }
 
     /**

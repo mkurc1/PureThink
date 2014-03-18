@@ -18,9 +18,10 @@
 {% endblock title %}
 
 {% block body %}
-    {% if components['cookie'] is defined %}
-        {% include 'MyCMSBundle:CMSFrontend:_cookie.html.twig' with { 'cookies': components['cookie'], 'locale': locale } %}
-    {% endif %}
+    {{ render(controller('MyCMSBundle:CMSFrontend:component', {
+        'slug'    : 'cookie',
+        'template': 'MyCMSBundle:CMSFrontend:_cookie.html.twig'
+    })) }}
 
     <div id="top">
         <div class="container">
@@ -53,9 +54,10 @@
         </div>
     </div>
 
-    {% if components['linki'] is defined %}
-        {% include 'MyCMSBundle:CMSFrontend:_link.html.twig' with { 'links': components['linki'], 'locale': locale } %}
-    {% endif %}
+    {{ render(controller('MyCMSBundle:CMSFrontend:component', {
+        'slug'    : 'linki',
+        'template': 'MyCMSBundle:CMSFrontend:_link.html.twig'
+    })) }}
 
     {% include 'MyCMSBundle:CMSFrontend:_footer.html.twig' with { 'menus': menus, 'locale': locale } %}
 {% endblock body %}
