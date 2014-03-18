@@ -28,7 +28,7 @@ class CMSFrontendController extends Controller
     }
 
     /**
-     * Component Action
+     * Get component Action
      *
      * @param  Request $request
      * @param  stirng  $slug
@@ -50,6 +50,30 @@ class CMSFrontendController extends Controller
     }
 
     /**
+     * Get menu Action
+     *
+     * @param  Request $request
+     * @param  string  $slug
+     * @param  boolean $home
+     * @param  boolean $login
+     * @return array
+     */
+    public function menuAction(Request $request, $slug, $home = false, $login = false)
+    {
+        $locale = $request->getLocale();
+
+        $entities = $this->getDoctrine()->getRepository('MyCMSBundle:CMSMenu')
+            ->getActiveMenusBySlugAndLocale($slug, $locale);
+
+        if (count($entities) == 0) {
+            return new Response();
+        }
+
+        return $this->render('MyCMSBundle:CMSFrontend:_menu.html.twig',
+            compact('entities', 'locale', 'home', 'login'));
+    }
+
+    /**
      * @Route("/{locale}", name="localized_frontend")
      * @Method("GET")
      * @Template()
@@ -66,9 +90,8 @@ class CMSFrontendController extends Controller
         }
 
         $meta = $this->getMetadataByLocale($locale);
-        $menus = $this->getMenus($locale);
 
-        return compact('locale', 'meta', 'languages', 'menus');
+        return compact('locale', 'meta', 'languages');
     }
 
     /**
@@ -87,7 +110,6 @@ class CMSFrontendController extends Controller
         }
 
         $meta = $this->getMetadataByLocale($locale);
-        $menus = $this->getMenus($locale);
 
         $search = $request->get('article');
 
@@ -95,7 +117,7 @@ class CMSFrontendController extends Controller
 
         $articles = $em->getRepository('MyCMSBundle:CMSArticle')->search($locale, $search);
 
-        return compact('locale', 'meta', 'languages', 'menus', 'articles');
+        return compact('locale', 'meta', 'languages', 'articles');
     }
 
     /**
@@ -112,8 +134,6 @@ class CMSFrontendController extends Controller
         else {
             return $this->redirect($this->generateUrl('frontend'));
         }
-
-        $menus = $this->getMenus($locale);
 
         if (null == $slug2) {
             $article = $this->getArticle($slug);
@@ -133,7 +153,7 @@ class CMSFrontendController extends Controller
             'slug2' => $slug2
             ];
 
-        return compact('locale', 'languages', 'menus', 'article', 'url');
+        return compact('locale', 'languages', 'article', 'url');
     }
 
     /**
@@ -166,39 +186,6 @@ class CMSFrontendController extends Controller
         }
 
         return $article;
-    }
-
-    /**
-     * Get menus
-     *
-     * @param string $locale
-     * @return object
-     */
-    private function getMenus($locale)
-    {
-        $menus = [];
-
-        $em = $this->getDoctrine()->getManager();
-
-        $menus = $em->getRepository('MyCMSBundle:CMSMenu')->getPublicMenus($locale);
-        foreach ($menus as $menu) {
-            $series = $menu->getSeries()->getName();
-            $id = $menu->getId();
-
-            if (is_object($menu->getMenu())) {
-                if ($menu->getMenu()->getIsPublic())
-                {
-                    $parentId = $menu->getMenu()->getId();
-
-                    $menus[$series][$parentId]['childrens'][$id]['parent'] = $menu;
-                }
-            }
-            else {
-                $menus[$series][$id]['parent'] = $menu;
-            }
-        }
-
-        return $menus;
     }
 
     /**

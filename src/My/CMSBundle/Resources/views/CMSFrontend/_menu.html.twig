@@ -1,10 +1,10 @@
 <ul>
     {% if home %}
-        <li {{  url is defined ? '' : 'class="selected"' }}>
+        <li>
             <a href="{{ path('localized_frontend', {'locale': locale}) }}">Home</a>
         </li>
     {% endif %}
-    {% for menu in menus %}
+    {% for menu in entities %}
         <li class="{{ menu['childrens'] is defined ? 'has_submenu' : '' }}">
             {% set slug = menu['parent'].article.slug  %}
 
@@ -15,12 +15,12 @@
             {% endif %}
 
             {% if menu['childrens'] is defined %}
-                {% include 'MyCMSBundle:CMSFrontend:_menu.html.twig' with { 'menus': menu['childrens'], 'locale': locale, 'home': false, 'slug2': menu['parent'].slug } %}
+                {% include 'MyCMSBundle:CMSFrontend:_menu.html.twig' with { 'entities': menu['childrens'], 'locale': locale, 'home': false, 'slug2': menu['parent'].slug } %}
             {% endif %}
         </li>
     {% endfor %}
 
-    {% if (login is defined) %}
+    {% if (login) %}
         <li>
             <a href="{{ path('fos_user_security_login') }}">Login</a>
         </li>

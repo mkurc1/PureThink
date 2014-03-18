@@ -1,9 +1,11 @@
 <div id="footer">
     <div class="container">
         <div class="left">
-            {% if menus['Footer'] is defined %}
-                {% include 'MyCMSBundle:CMSFrontend:_menu.html.twig' with { 'menus': menus['Footer'], 'locale': locale, 'home': true, 'login': true } %}
-            {% endif %}
+            {{ render(controller('MyCMSBundle:CMSFrontend:menu', {
+                'slug' : 'Footer',
+                'home' : true,
+                'login': true
+            })) }}
         </div>
         <div class="right">
             <span>All righgts reserved 2013.</span>

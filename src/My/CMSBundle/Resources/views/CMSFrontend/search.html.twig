@@ -37,9 +37,10 @@
 
     <div id="main_menu">
         <div class="container">
-            {% if menus['Main'] is defined %}
-                {% include 'MyCMSBundle:CMSFrontend:_menu.html.twig' with { 'menus': menus['Main'], 'locale': locale, 'home': true } %}
-            {% endif %}
+            {{ render(controller('MyCMSBundle:CMSFrontend:menu', {
+                'slug': 'Main',
+                'home': true
+            })) }}
 
             {% include 'MyCMSBundle:CMSFrontend:_search.html.twig' with { 'locale': locale } %}
         </div>
@@ -62,5 +63,5 @@
         'template': 'MyCMSBundle:CMSFrontend:_link.html.twig'
     })) }}
 
-    {% include 'MyCMSBundle:CMSFrontend:_footer.html.twig' with { 'menus': menus, 'locale': locale } %}
+    {% include 'MyCMSBundle:CMSFrontend:_footer.html.twig' %}
 {% endblock body %}

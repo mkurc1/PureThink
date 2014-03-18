@@ -37,15 +37,31 @@ class CMSMenuRepository extends FilterRepository
 		return $qb->getQuery()->getResult();
 	}
 
-    /**
-     * Get public menus
-     *
-     * @param string $locale
-     * @return object
-     */
-    public function getPublicMenus($locale)
+    public function getActiveMenusBySlugAndLocale($slug, $locale)
     {
-        $qb = $this->createQueryBuilder('a')
+        $entities = [];
+
+        $menus = $this->getActiveMenusBySlugAndLocaleQb($slug, $locale);
+        $menus = $menus->getQuery()->getResult();
+
+        foreach ($menus as $menu) {
+            $id = $menu->getId();
+
+            if (is_object($menu->getMenu()) && $menu->getMenu()->getIsPublic()) {
+                $parentId = $menu->getMenu()->getId();
+                $entities[$parentId]['childrens'][$id]['parent'] = $menu;
+            }
+            else {
+                $entities[$id]['parent'] = $menu;
+            }
+        }
+
+        return $entities;
+    }
+
+    private function getActiveMenusBySlugAndLocaleQb($slug, $locale)
+    {
+        return $this->createQueryBuilder('a')
             ->select('a, s, art')
             ->join('a.language', 'l')
             ->join('a.series', 's')
@@ -54,9 +70,9 @@ class CMSMenuRepository extends FilterRepository
             ->where('a.isPublic = true')
             ->andWhere('l.alias = :locale')
             ->andWhere('art.isPublic = true')
-            ->setParameter('locale', $locale)
-            ->orderBy('m.sequence, a.sequence');
-
-        return $qb->getQuery()->getResult();
+            ->andWhere('s.name = :slug')
+            ->orderBy('m.sequence, a.sequence')
+            ->setParameter('slug', $slug)
+            ->setParameter('locale', $locale);
     }
 }
