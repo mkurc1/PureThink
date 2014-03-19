@@ -64,6 +64,7 @@
         }
 
         input[type="text"],
+        input[type="email"],
         input[type="password"] {
             position: relative;
             float: left;
@@ -88,6 +89,18 @@
             -moz-box-shadow: 0 0 10px #c6c6c6;
             -webkit-box-shadow: 0 0 10px #c6c6c6;
             box-shadow: 0 0 10px #c6c6c6;
+        }
+
+        ul.error {
+            float: left;
+            list-style-type: none;
+            margin-top: 2px;
+
+            > li {
+                color: #DD4B39;
+                float: left;
+                font-size: 11px;
+            }
         }
 
         #submit_container {

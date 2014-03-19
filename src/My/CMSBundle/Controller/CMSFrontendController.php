@@ -24,7 +24,7 @@ class CMSFrontendController extends Controller
 
         $locale = $request->getPreferredLanguage($avilableLocales);
 
-        return $this->forward('MyCMSBundle:CMSFrontend:index', compact('locale'));
+        return $this->redirect($this->generateUrl('localized_frontend', compact('locale')));
     }
 
     /**

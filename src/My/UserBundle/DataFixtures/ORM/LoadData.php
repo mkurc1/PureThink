@@ -34,8 +34,8 @@ class LoadData implements FixtureInterface
 			$User->setEmailCanonical($user->email_canonical);
 			$User->setEnabled($user->enabled);
 			$User->setPlainPassword($user->password);
-			$User->setFirstName($user->first_name);
-			$User->setLastName($user->last_name);
+			$User->setFirstName($user->firstname);
+			$User->setLastName($user->lastname);
 
 			foreach ($user->roles->role as $role)
 				$User->addRole($role->name);

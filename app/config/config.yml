@@ -141,5 +141,10 @@ fos_user:
     firewall_name: main
     user_class: My\UserBundle\Entity\User
     from_email:
-        address:        "%mailer_user%"
-        sender_name:    PureThink
+        address: "%mailer_user%"
+        sender_name: PureThink
+    registration:
+        form:
+            type: my_user_registration
+        confirmation:
+            enabled: true

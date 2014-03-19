@@ -7,8 +7,8 @@
         <email_canonical>mkurc1@gmail.com</email_canonical>
         <enabled>1</enabled>
         <password>qwerty123</password>
-        <first_name>Michał</first_name>
-        <last_name>Kurcewicz</last_name>
+        <firstname>Michał</firstname>
+        <lastname>Kurcewicz</lastname>
         <roles>
             <role>
                 <name>ROLE_SUPER_ADMIN</name>

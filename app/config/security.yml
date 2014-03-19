@@ -12,7 +12,6 @@ security:
             logout:
                 path: /logout
                 target: /login
-                invalidate_session: false
             anonymous: true
             form_login:
                 provider: fos_userbundle
