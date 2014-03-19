@@ -7,7 +7,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
 use Symfony\Component\HttpFoundation\Response;
 use My\CMSBundle\Entity\CMSArticle;
 
@@ -82,7 +81,6 @@ class CMSFrontendController extends Controller
      * @Route("/{locale}", name="localized_frontend")
      * @Method("GET")
      * @Template()
-     * @Cache(maxage="3600")
      */
     public function indexAction(Request $request, $locale)
     {

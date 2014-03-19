@@ -68,23 +68,57 @@ a {
     float: left;
     margin-top: 20px;
 }
-#top > .container > ul#language {
+div.top-menu {
+    position: relative;
+    float: right;
+    font-size: 13px;
+}
+div.user-container {
+    position: relative;
+    float: left;
+    color: #444444;
+}
+div.user-container > span {
+    border-right: 1px solid #959595;
+    padding-right: 8px;
+    margin-right: 8px;
+    float: left;
+}
+div.user-container span a.user-name {
+    font-weight: bold;
+    color: #5C5C5C;
+}
+div.user-container > a {
+    color: #444444;
+    border-right: 1px solid #959595;
+    padding-right: 8px;
+    margin-right: 8px;
+    float: left;
+}
+div.user-container > a:last-child {
+    padding-right: 0;
+    border-right: 0;
+    margin-right: 0;
+}
+ul#language {
     position: relative;
     float: right;
     list-style-type: none;
+    border-left: 1px solid #959595;
+    margin-left: 8px;
 }
-#top > .container > ul#language > li {
+ul#language > li {
     position: relative;
     float: left;
     margin-left: 8px;
 }
-#top > .container > ul#language > li > a {
+ul#language > li > a {
     position: relative;
     float: left;
     font-size: 13px;
     color: #121212;
 }
-#top > .container > ul#language > li.selected > a {
+ul#language > li.selected > a {
     color: #A5A5A5;
 }
 #main_menu {
