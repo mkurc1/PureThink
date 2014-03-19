@@ -19,10 +19,15 @@ class CMSFrontendController extends Controller
      */
     public function mainAction(Request $request)
     {
-        $languages = $this->getLanguages();
-        $avilableLocales = $this->getAvilableLocales($languages);
+        $locale = $request->getLocale();
 
-        $locale = $request->getPreferredLanguage($avilableLocales);
+        if (null == $locale) {
+            $languages = $this->getLanguages();
+            $avilableLocales = $this->getAvilableLocales($languages);
+
+            $locale = $request->getPreferredLanguage($avilableLocales);
+            $request->setLocale($locale);
+        }
 
         return $this->redirect($this->generateUrl('localized_frontend', compact('locale')));
     }
@@ -88,6 +93,7 @@ class CMSFrontendController extends Controller
         else {
             return $this->redirect($this->generateUrl('frontend'));
         }
+        $request->setLocale($locale);
 
         $meta = $this->getMetadataByLocale($locale);
 
