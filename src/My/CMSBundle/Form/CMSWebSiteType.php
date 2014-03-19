@@ -28,7 +28,7 @@ class CMSWebSiteType extends AbstractType
         $resolver->setDefaults([
             'data_class'         => 'My\CMSBundle\Entity\CMSWebSite',
             'cascade_validation' => true,
-            'validation_groups'  => ['website'],
+            'validation_groups'  => ['Default', 'website'],
         ]);
     }
 
