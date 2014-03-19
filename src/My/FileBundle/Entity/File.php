@@ -5,6 +5,7 @@ namespace My\FileBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * File
@@ -28,6 +29,9 @@ class File
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255)
+     *
+     * @Assert\NotNull()
+     * @Assert\Length(max="255")
      */
     private $name;
 
@@ -69,11 +73,15 @@ class File
     /**
      * @ORM\ManyToOne(targetEntity="My\BackendBundle\Entity\Series")
      * @ORM\JoinColumn(name="series_id", referencedColumnName="id", onDelete="CASCADE", nullable=false)
+     *
+     * @Assert\NotNull()
      */
     private $series;
 
     /**
      * @var object
+     *
+     * @Assert\File(maxSize="6000000")
      */
     private $file;
 

@@ -4,6 +4,7 @@ namespace My\CMSBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * CMSComponent
@@ -26,6 +27,9 @@ class CMSComponent
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255)
+     *
+     * @Assert\NotNull()
+     * @Assert\Length(max="255")
      */
     private $name;
 
@@ -48,6 +52,8 @@ class CMSComponent
     /**
      * @ORM\ManyToOne(targetEntity="My\BackendBundle\Entity\Series")
      * @ORM\JoinColumn(name="series_id", referencedColumnName="id", onDelete="CASCADE", nullable=false)
+     *
+     * @Assert\NotNull()
      */
     private $series;
 

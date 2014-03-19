@@ -3,6 +3,7 @@
 namespace My\BackendBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Metadata
@@ -25,6 +26,9 @@ class Metadata
      * @var string
      *
      * @ORM\Column(name="title", type="string", length=255, nullable=true)
+     *
+     * @Assert\NotNull(groups={"website"})
+     * @Assert\Length(max="255")
      */
     private $title;
 
@@ -32,6 +36,8 @@ class Metadata
      * @var string
      *
      * @ORM\Column(name="description", type="string", length=255, nullable=true)
+     *
+     * @Assert\Length(max="255")
      */
     private $description;
 
@@ -39,6 +45,8 @@ class Metadata
      * @var string
      *
      * @ORM\Column(name="keyword", type="string", length=255, nullable=true)
+     *
+     * @Assert\Length(max="255")
      */
     private $keyword;
 

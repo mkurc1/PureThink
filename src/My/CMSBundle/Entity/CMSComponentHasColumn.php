@@ -4,6 +4,7 @@ namespace My\CMSBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * CMSComponentHasColumn
@@ -39,6 +40,9 @@ class CMSComponentHasColumn
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255)
+     *
+     * @Assert\NotNull()
+     * @Assert\Length(max="255")
      */
     private $name;
 
@@ -54,6 +58,9 @@ class CMSComponentHasColumn
      * @var string
      *
      * @ORM\Column(name="column_label", type="string", length=255)
+     *
+     * @Assert\NotNull()
+     * @Assert\Length(max="255")
      */
     private $columnLabel;
 
@@ -61,6 +68,8 @@ class CMSComponentHasColumn
      * @var string
      *
      * @ORM\Column(name="class", type="string", length=255, nullable=true)
+     *
+     * @Assert\Length(max="255")
      */
     private $class;
 
@@ -86,6 +95,8 @@ class CMSComponentHasColumn
 
     /**
      * @ORM\Column(name="column_type", type="integer")
+     *
+     * @Assert\NotNull()
      */
     private $columnType;
 

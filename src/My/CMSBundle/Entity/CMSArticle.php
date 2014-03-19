@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use My\BackendBundle\Entity\Metadata;
 use My\BackendBundle\Entity\MetadataInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * CMSArticle
@@ -28,6 +29,9 @@ class CMSArticle implements MetadataInterface
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255)
+     *
+     * @Assert\NotNull()
+     * @Assert\Length(max="255")
      */
     private $name;
 
@@ -77,6 +81,8 @@ class CMSArticle implements MetadataInterface
     /**
      * @ORM\ManyToOne(targetEntity="CMSLanguage")
      * @ORM\JoinColumn(name="language_id", referencedColumnName="id", onDelete="CASCADE", nullable=false)
+     *
+     * @Assert\NotNull()
      */
     private $language;
 
@@ -89,6 +95,8 @@ class CMSArticle implements MetadataInterface
     /**
      * @ORM\ManyToOne(targetEntity="My\BackendBundle\Entity\Series")
      * @ORM\JoinColumn(name="series_id", referencedColumnName="id", onDelete="CASCADE", nullable=false)
+     *
+     * @Assert\NotNull()
      */
     private $series;
 
