@@ -17,7 +17,7 @@ class PaginationService
 
         $paginationData = $paginator->getPaginationData();
 
-        return array(
+        return [
             "entities" => $paginator,
             "pages" => $paginationData['pagesInRange'],
             "previous" => (isset($paginationData['previous']) ? $paginationData['previous'] : $paginationData['current']),
@@ -25,6 +25,6 @@ class PaginationService
             "first_page" => $paginationData['first'],
             "last_page" => ($paginationData['last'] != 0) ? $paginationData['last'] : 1,
             "total_count" => $paginationData['totalCount']
-            );
+            ];
     }
 }
