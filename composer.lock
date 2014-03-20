@@ -1094,13 +1094,13 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/l3pp4rd/DoctrineExtensions.git",
-                "reference": "59c819b22ec19867d330cc3173c874b7a7ffac3b"
+                "url": "https://github.com/Atlantic18/DoctrineExtensions.git",
+                "reference": "5c38b0930704e133d9afe3e99e69fe0778448ebd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/l3pp4rd/DoctrineExtensions/zipball/59c819b22ec19867d330cc3173c874b7a7ffac3b",
-                "reference": "59c819b22ec19867d330cc3173c874b7a7ffac3b",
+                "url": "https://api.github.com/repos/Atlantic18/DoctrineExtensions/zipball/5c38b0930704e133d9afe3e99e69fe0778448ebd",
+                "reference": "5c38b0930704e133d9afe3e99e69fe0778448ebd",
                 "shasum": ""
             },
             "require": {
@@ -1167,7 +1167,7 @@
                 "tree",
                 "uploadable"
             ],
-            "time": "2014-03-18 09:07:39"
+            "time": "2014-03-20 05:37:42"
         },
         {
             "name": "incenteev/composer-parameter-handler",
@@ -2297,17 +2297,17 @@
         },
         {
             "name": "symfony/icu",
-            "version": "v1.2.0",
+            "version": "v1.2.1",
             "target-dir": "Symfony/Component/Icu",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Icu.git",
-                "reference": "7299cd3d8d6602103d1ebff5d0a9917b7bc6de72"
+                "reference": "98e197da54df1f966dd5e8a4992135703569c987"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Icu/zipball/7299cd3d8d6602103d1ebff5d0a9917b7bc6de72",
-                "reference": "7299cd3d8d6602103d1ebff5d0a9917b7bc6de72",
+                "url": "https://api.github.com/repos/symfony/Icu/zipball/98e197da54df1f966dd5e8a4992135703569c987",
+                "reference": "98e197da54df1f966dd5e8a4992135703569c987",
                 "shasum": ""
             },
             "require": {
@@ -2341,7 +2341,7 @@
                 "icu",
                 "intl"
             ],
-            "time": "2013-06-03 18:32:58"
+            "time": "2013-10-04 10:06:38"
         },
         {
             "name": "symfony/monolog-bundle",

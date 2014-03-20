@@ -20,6 +20,16 @@ fos_user_change_password:
 fos_js_routing:
     resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
 
+my_core:
+    resource: "@MyCoreBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+my_user:
+    resource: "@MyUserBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 my_file:
     resource: "@MyFileBundle/Controller/"
     type:     annotation

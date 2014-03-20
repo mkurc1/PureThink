@@ -8,7 +8,6 @@ use My\BackendBundle\Entity\Module;
 use My\BackendBundle\Entity\Language;
 use My\BackendBundle\Entity\Menu;
 use My\BackendBundle\Entity\RowsOnPage;
-use My\BackendBundle\Entity\UserSetting;
 use My\BackendBundle\Entity\Series;
 
 class LoadData implements FixtureInterface
@@ -24,7 +23,6 @@ class LoadData implements FixtureInterface
 		$manager = $this->addLanguages($manager);
 		$manager = $this->addMenus($manager);
 		$manager = $this->addRowsOnPage($manager);
-		$manager = $this->addUserSettings($manager);
 		$manager = $this->addSeries($manager);
 	}
 
@@ -105,28 +103,6 @@ class LoadData implements FixtureInterface
 			$RowsOnPage->setIsDefault($row->is_default);
 
 			$manager->persist($RowsOnPage);
-		}
-
-		$manager->flush();
-		return $manager;
-	}
-
-	/**
-	 * Add user settings fixtures
-	 *
-	 * @param ObjectManager $manager
-	 */
-	private function addUserSettings(ObjectManager $manager)
-	{
-		$xml = simplexml_load_file('src/My/BackendBundle/data/userSettings.xml');
-		foreach ($xml->userSetting as $userSetting) {
-			$UserSetting = new UserSetting();
-			$UserSetting->setUser($manager->getRepository('MyUserBundle:User')->find($userSetting->user_id));
-			$UserSetting->setLanguage($manager->getRepository('MyBackendBundle:Language')->find($userSetting->language_id));
-			$UserSetting->setModule($manager->getRepository('MyBackendBundle:Module')->find($userSetting->module_id));
-			$UserSetting->setRowsOnPage($manager->getRepository('MyBackendBundle:RowsOnPage')->find($userSetting->rows_on_page_id));
-
-			$manager->persist($UserSetting);
 		}
 
 		$manager->flush();

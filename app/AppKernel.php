@@ -28,6 +28,7 @@ class AppKernel extends Kernel
             new Sonata\IntlBundle\SonataIntlBundle(),
 
             new My\UserBundle\MyUserBundle(),
+            new My\CoreBundle\MyCoreBundle(),
             new My\BackendBundle\MyBackendBundle(),
             new My\FileBundle\MyFileBundle(),
             new My\CMSBundle\MyCMSBundle(),

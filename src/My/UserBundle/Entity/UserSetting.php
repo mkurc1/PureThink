@@ -1,6 +1,6 @@
 <?php
 
-namespace My\BackendBundle\Entity;
+namespace My\UserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -22,26 +22,22 @@ class UserSetting
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="RowsOnPage")
+     * @ORM\ManyToOne(targetEntity="My\BackendBundle\Entity\RowsOnPage")
+     * @ORM\JoinColumn(name="row_id", referencedColumnName="id", nullable=true)
      */
     private $rowsOnPage;
 
     /**
-     * @ORM\OneToOne(targetEntity="My\UserBundle\Entity\User")
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="id", nullable=false)
-     */
-    private $user;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="Language")
+     * @ORM\ManyToOne(targetEntity="My\BackendBundle\Entity\Language")
+     * @ORM\JoinColumn(name="language_id", referencedColumnName="id", nullable=true)
      */
     private $language;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Module")
+     * @ORM\ManyToOne(targetEntity="My\BackendBundle\Entity\Module")
+     * @ORM\JoinColumn(name="module_id", referencedColumnName="id", nullable=true)
      */
     private $module;
-
 
     /**
      * Get id
@@ -74,29 +70,6 @@ class UserSetting
     public function getRowsOnPage()
     {
         return $this->rowsOnPage;
-    }
-
-    /**
-     * Set user
-     *
-     * @param \My\UserBundle\Entity\User $user
-     * @return UserSetting
-     */
-    public function setUser(\My\UserBundle\Entity\User $user)
-    {
-        $this->user = $user;
-
-        return $this;
-    }
-
-    /**
-     * Get user
-     *
-     * @return \My\UserBundle\Entity\User
-     */
-    public function getUser()
-    {
-        return $this->user;
     }
 
     /**

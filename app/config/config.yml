@@ -61,6 +61,7 @@ assetic:
         helper:
             inputs: "%kernel.root_dir%/Resources/public/js/helper.js"
     bundles:
+        - MyCoreBundle
         - MyBackendBundle
         - MyCMSBundle
         - MyFileBundle
