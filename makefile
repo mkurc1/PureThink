@@ -32,6 +32,7 @@ create_db:
 
 update_db:
 	php app/console doctrine:schema:update --force
+	php app/console khepin:yamlfixtures:load prod
 	php app/console doctrine:fixtures:load --append
 
 remove_db:

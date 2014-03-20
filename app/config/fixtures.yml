@@ -1,0 +1,10 @@
+khepin_yaml_fixtures:
+    resources:
+        - MyCoreBundle
+        - MyBackendBundle/module
+        - MyBackendBundle/menu
+        - MyBackendBundle/Series
+        - MyBackendBundle
+        - MyCMSBundle
+        - MyFileBundle
+        - MyUserBundle

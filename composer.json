@@ -31,7 +31,8 @@
         "egeloen/ckeditor-bundle": "2.*",
         "raulfraile/ladybug-bundle": "*",
         "bmatzner/fontawesome-bundle": "~4.0",
-        "sonata-project/intl-bundle": "*"
+        "sonata-project/intl-bundle": "*",
+        "khepin/yaml-fixtures-bundle": "~0.8.1"
     },
     "scripts": {
         "post-install-cmd": [

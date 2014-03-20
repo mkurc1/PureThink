@@ -40,7 +40,7 @@ class Language
      *
      * @ORM\Column(name="is_default", type="boolean")
      */
-    private $isDefault;
+    private $isDefault = 0;
 
 
     /**

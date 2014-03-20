@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "ae7e15c23f7c7868808c9d48e9161501",
+    "hash": "4662c9d680adc8228ffc13d86339045c",
     "packages": [
         {
             "name": "bmatzner/fontawesome-bundle",
@@ -1270,6 +1270,57 @@
                 "sql"
             ],
             "time": "2014-01-12 16:20:24"
+        },
+        {
+            "name": "khepin/yaml-fixtures-bundle",
+            "version": "v0.8.1",
+            "target-dir": "Khepin/YamlFixturesBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/khepin/KhepinYamlFixturesBundle.git",
+                "reference": "7d2a640a333ca08a17a4530c784b67141b93541c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/khepin/KhepinYamlFixturesBundle/zipball/7d2a640a333ca08a17a4530c784b67141b93541c",
+                "reference": "7d2a640a333ca08a17a4530c784b67141b93541c",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/data-fixtures": "1.*@alpha",
+                "doctrine/doctrine-bundle": "*",
+                "doctrine/doctrine-fixtures-bundle": "2.*@alpha",
+                "doctrine/orm": "2.*"
+            },
+            "require-dev": {
+                "doctrine/mongodb": "*@beta",
+                "doctrine/mongodb-odm": "*@beta",
+                "doctrine/mongodb-odm-bundle": "3.*@beta",
+                "mockery/mockery": "dev-master"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-0": {
+                    "Khepin\\YamlFixturesBundle": "",
+                    "Khepin": "tests"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sébastien Armand",
+                    "email": "khepin@gmail.com"
+                }
+            ],
+            "description": "Symfony bundle for easy loading of YAML based fixtures.",
+            "homepage": "https://github.com/khepin/KhepinYamlFixturesBundle",
+            "keywords": [
+                "data fixtures doctrine yaml"
+            ],
+            "time": "2013-03-14 06:13:58"
         },
         {
             "name": "knplabs/knp-components",
