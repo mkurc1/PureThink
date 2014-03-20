@@ -1,13 +1,13 @@
 <?php
 
-namespace My\BackendBundle\Entity;
+namespace My\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Session
  *
- * @ORM\Table(name="session")
+ * @ORM\Table(name="core_session")
  * @ORM\Entity
  */
 class Session
