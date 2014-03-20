@@ -1,7 +1,21 @@
-{% extends "FOSUserBundle::layout.html.twig" %}
+{% extends "MyUserBundle::layout.html.twig" %}
 
 {% trans_default_domain 'FOSUserBundle' %}
 
-{% block fos_user_content %}
-    <p>{{ 'registration.check_email'|trans({'%email%': user.email}) }}</p>
-{% endblock fos_user_content %}
+{% block title %}
+    PureThink - Registration Check Email
+{% endblock title %}
+
+{% block body %}
+    {{ parent() }}
+    <div id="login_container">
+        <div id="login">
+            <p>{{ 'registration.check_email'|trans({'%email%': user.email}) }}</p>
+        </div>
+
+        <ul class="links">
+            <li><a href="{{ path("fos_user_security_login") }}">Przejdź na stronę logowania</a></li>
+            <li><a href="{{ path("frontend") }}">Wróć na stronę główną</a></li>
+        </ul>
+    </div>
+{% endblock body %}
