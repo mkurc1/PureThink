@@ -43,7 +43,7 @@ class CMSComponentOnPageHasElement
      *
      * @ORM\Column(name="is_enable", type="boolean", nullable=true)
      */
-    private $isEnable;
+    private $isEnable = false;
 
     /**
      * @ORM\ManyToOne(targetEntity="CMSComponentOnPage", inversedBy="cmsComponentOnPageHasElements")
@@ -176,7 +176,6 @@ class CMSComponentOnPageHasElement
     public function __construct()
     {
         $this->componentOnPageHasValues = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->isEnable = false;
     }
 
 

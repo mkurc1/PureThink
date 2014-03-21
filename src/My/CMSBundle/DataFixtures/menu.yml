@@ -1,0 +1,82 @@
+model: My\CMSBundle\Entity\CMSMenu
+fixtures:
+    cms_menu_1:
+        name: "Lorem ipsum"
+        series: series_4
+        language: cms_language_2
+        isPublic: 1
+        article: cms_article_1
+        sequence: 1
+    cms_menu_2:
+        name: "Lorem ipsum"
+        series: series_4
+        language: cms_language_2
+        isPublic: 1
+        article: cms_article_2
+        sequence: 2
+    cms_menu_3:
+        name: "Lorem ipsum"
+        series: series_4
+        language: cms_language_2
+        isPublic: 1
+        article: cms_article_3
+        sequence: 3
+    cms_menu_4:
+        name: "Lorem ipsum"
+        series: series_4
+        language: cms_language_2
+        isPublic: 1
+        article: cms_article_4
+        sequence: 4
+    cms_menu_5:
+        name: "Lorem ipsum"
+        series: series_4
+        language: cms_language_2
+        isPublic: 1
+        article: cms_article_5
+        sequence: 5
+    cms_menu_6:
+        name: "Lorem ipsum"
+        series: series_8
+        language: cms_language_2
+        isPublic: 1
+        article: cms_article_9
+        sequence: 1
+    cms_menu_7:
+        name: "Lorem ipsum"
+        series: series_8
+        language: cms_language_2
+        isPublic: 1
+        article: cms_article_4
+        sequence: 2
+    cms_menu_8:
+        name: "Lorem ipsum"
+        series: series_8
+        language: cms_language_2
+        isPublic: 1
+        article: cms_article_6
+        sequence: 3
+    cms_menu_9:
+        name: "Lorem ipsum dolom"
+        series: series_4
+        language: cms_language_2
+        isPublic: 1
+        article: cms_article_9
+        sequence: 1
+        menu: cms_menu_2
+    cms_menu_10:
+        name: "Lorem ipsum dolom"
+        series: series_4
+        language: cms_language_2
+        isPublic: 1
+        article: cms_article_4
+        sequence: 2
+        menu: cms_menu_2
+    cms_menu_11:
+        name: "Lorem ipsum dolom"
+        series: series_4
+        language: cms_language_2
+        isPublic: 1
+        article: cms_article_8
+        sequence: 2
+        menu: cms_menu_2

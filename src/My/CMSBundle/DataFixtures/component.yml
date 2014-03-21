@@ -1,0 +1,14 @@
+model: My\CMSBundle\Entity\CMSComponent
+fixtures:
+    cms_component_1:
+        name: "Linki"
+        series: series_6
+    cms_component_2:
+        name: "Baner"
+        series: series_6
+    cms_component_3:
+        name: "News"
+        series: series_6
+    cms_component_4:
+        name: "Cookie"
+        series: series_6

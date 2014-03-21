@@ -1,0 +1,93 @@
+model: My\FileBundle\Entity\File
+fixtures:
+    file_1:
+        name: "Baner 1"
+        user: user_1
+        series: series_7
+        size: 222669
+        mimeType: "image/png"
+        path: "54423af5757fdc53537d769a18beb499fee43b19.png"
+    file_2:
+        name: "Baner 2"
+        user: user_1
+        series: series_7
+        size: 222669
+        mimeType: "image/png"
+        path: "1e3538908d39dc829970f0ca2b12f339bf688e5b.png"
+    file_3:
+        name: "Baner 3"
+        user: user_1
+        series: series_7
+        size: 222669
+        mimeType: "image/png"
+        path: "8f226b0a29d652f91dfe956a853c95f58ed864b8.png"
+    file_4:
+        name: "News 1"
+        user: user_1
+        series: series_9
+        size: 22192
+        mimeType: "image/jpeg"
+        path: "21fdd0ac93255246a10fedd0fcdf7464fd5f16c9.jpeg"
+    file_5:
+        name: "News 2"
+        user: user_1
+        series: series_9
+        size: 22192
+        mimeType: "image/jpeg"
+        path: "99194822cdd00b446582592a77beca017855c74d.jpeg"
+    file_6:
+        name: "News 3"
+        user: user_1
+        series: series_9
+        size: 22192
+        mimeType: "image/jpeg"
+        path: "be882d04a441acdaaefd9ce6e0479b30e2a84ca2.jpeg"
+    file_7:
+        name: "News 4"
+        user: user_1
+        series: series_9
+        size: 22192
+        mimeType: "image/jpeg"
+        path: "43889c9417a99b47a50786644516cde573c1db63.jpeg"
+    file_8:
+        name: "News 5"
+        user: user_1
+        series: series_9
+        size: 22192
+        mimeType: "image/jpeg"
+        path: "3ba6ee0529d4949928c07da66a91f457e520e6ef.jpeg"
+    file_9:
+        name: "News 6"
+        user: user_1
+        series: series_9
+        size: 22192
+        mimeType: "image/jpeg"
+        path: "e4da6c145b029ad06f952fc11faf1a3f49bf74ca.jpeg"
+    file_10:
+        name: "News 7"
+        user: user_1
+        series: series_9
+        size: 22192
+        mimeType: "image/jpeg"
+        path: "07259458160d1e14f799921a4f41f674e8f34cb8.jpeg"
+    file_11:
+        name: "News 8"
+        user: user_1
+        series: series_9
+        size: 22192
+        mimeType: "image/jpeg"
+        path: "bf24f871d73aa4d5277fc785e31765d973a34248.jpeg"
+    file_12:
+        name: "News 9"
+        user: user_1
+        series: series_9
+        size: 22192
+        mimeType: "image/jpeg"
+        path: "b7e854467ea97aab69880d4fef810c86ac5a56ea.jpeg"
+    file_13:
+        name: "Apollo 11"
+        user: user_1
+        series: series_10
+        size: 17932
+        mimeType: "image/jpeg"
+        path: "82badcf2c208e14a28e3da58679c7c0618275db1.jpeg"

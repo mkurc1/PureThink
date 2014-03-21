@@ -3,7 +3,7 @@ fixtures:
     language_1:
         name: "Angielski"
         alias: "EN"
-    langauge_2:
+    language_2:
         name: "Polski"
         alias: "PL"
         isDefault: 1

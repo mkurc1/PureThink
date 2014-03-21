@@ -40,7 +40,7 @@ class CMSLanguage
      *
      * @ORM\Column(name="is_public", type="boolean")
      */
-    private $isPublic;
+    private $isPublic = false;
 
 
     /**

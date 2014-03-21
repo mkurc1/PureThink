@@ -1,0 +1,354 @@
+model: My\CMSBundle\Entity\CMSComponentOnPageHasValue
+fixtures:
+    cms_component_on_page_has_value_1:
+        content: "Baner 1"
+        componentOnPageHasElement: cms_component_on_page_has_element_1
+        componentHasColumn: cms_component_has_column_1
+    cms_component_on_page_has_value_2:
+        content: "1"
+        componentOnPageHasElement: cms_component_on_page_has_element_1
+        componentHasColumn: cms_component_has_column_2
+    cms_component_on_page_has_value_3:
+        content: "1"
+        componentOnPageHasElement: cms_component_on_page_has_element_1
+        componentHasColumn: cms_component_has_column_3
+    cms_component_on_page_has_value_4:
+        content: "Baner 2"
+        componentOnPageHasElement: cms_component_on_page_has_element_2
+        componentHasColumn: cms_component_has_column_1
+    cms_component_on_page_has_value_5:
+        content: "5"
+        componentOnPageHasElement: cms_component_on_page_has_element_2
+        componentHasColumn: cms_component_has_column_2
+    cms_component_on_page_has_value_6:
+        content: "2"
+        componentOnPageHasElement: cms_component_on_page_has_element_2
+        componentHasColumn: cms_component_has_column_3
+    cms_component_on_page_has_value_7:
+        content: "Baner 3"
+        componentOnPageHasElement: cms_component_on_page_has_element_3
+        componentHasColumn: cms_component_has_column_1
+    cms_component_on_page_has_value_8:
+        content: "9"
+        componentOnPageHasElement: cms_component_on_page_has_element_3
+        componentHasColumn: cms_component_has_column_2
+    cms_component_on_page_has_value_9:
+        content: "3"
+        componentOnPageHasElement: cms_component_on_page_has_element_3
+        componentHasColumn: cms_component_has_column_3
+    cms_component_on_page_has_value_10:
+        content: "Lorem Ipsum Dolom 1"
+        componentOnPageHasElement: cms_component_on_page_has_element_4
+        componentHasColumn: cms_component_has_column_4
+    cms_component_on_page_has_value_11:
+        content: "1"
+        componentOnPageHasElement: cms_component_on_page_has_element_4
+        componentHasColumn: cms_component_has_column_5
+    cms_component_on_page_has_value_12:
+        content: "Lorem Ipsum Dolom 2"
+        componentOnPageHasElement: cms_component_on_page_has_element_5
+        componentHasColumn: cms_component_has_column_4
+    cms_component_on_page_has_value_13:
+        content: "1"
+        componentOnPageHasElement: cms_component_on_page_has_element_5
+        componentHasColumn: cms_component_has_column_5
+    cms_component_on_page_has_value_14:
+        content: "Lorem Ipsum Dolom 3"
+        componentOnPageHasElement: cms_component_on_page_has_element_6
+        componentHasColumn: cms_component_has_column_4
+    cms_component_on_page_has_value_15:
+        content: "1"
+        componentOnPageHasElement: cms_component_on_page_has_element_6
+        componentHasColumn: cms_component_has_column_5
+    cms_component_on_page_has_value_16:
+        content: "Lorem Ipsum Dolom 4"
+        componentOnPageHasElement: cms_component_on_page_has_element_7
+        componentHasColumn: cms_component_has_column_4
+    cms_component_on_page_has_value_17:
+        content: "1"
+        componentOnPageHasElement: cms_component_on_page_has_element_7
+        componentHasColumn: cms_component_has_column_5
+    cms_component_on_page_has_value_18:
+        content: "Lorem Ipsum Dolom 5"
+        componentOnPageHasElement: cms_component_on_page_has_element_8
+        componentHasColumn: cms_component_has_column_4
+    cms_component_on_page_has_value_19:
+        content: "1"
+        componentOnPageHasElement: cms_component_on_page_has_element_8
+        componentHasColumn: cms_component_has_column_5
+    cms_component_on_page_has_value_20:
+        content: "Lorem Ipsum Dolom 6"
+        componentOnPageHasElement: cms_component_on_page_has_element_9
+        componentHasColumn: cms_component_has_column_4
+    cms_component_on_page_has_value_21:
+        content: "1"
+        componentOnPageHasElement: cms_component_on_page_has_element_9
+        componentHasColumn: cms_component_has_column_5
+    cms_component_on_page_has_value_22:
+        content: "Lorem Ipsum Dolom 7"
+        componentOnPageHasElement: cms_component_on_page_has_element_10
+        componentHasColumn: cms_component_has_column_4
+    cms_component_on_page_has_value_23:
+        content: "1"
+        componentOnPageHasElement: cms_component_on_page_has_element_10
+        componentHasColumn: cms_component_has_column_5
+    cms_component_on_page_has_value_24:
+        content: "Lorem Ipsum Dolom 8"
+        componentOnPageHasElement: cms_component_on_page_has_element_11
+        componentHasColumn: cms_component_has_column_4
+    cms_component_on_page_has_value_25:
+        content: "1"
+        componentOnPageHasElement: cms_component_on_page_has_element_11
+        componentHasColumn: cms_component_has_column_5
+    cms_component_on_page_has_value_26:
+        content: "Lorem Ipsum Dolom 9"
+        componentOnPageHasElement: cms_component_on_page_has_element_12
+        componentHasColumn: cms_component_has_column_4
+    cms_component_on_page_has_value_27:
+        content: "1"
+        componentOnPageHasElement: cms_component_on_page_has_element_12
+        componentHasColumn: cms_component_has_column_5
+    cms_component_on_page_has_value_28:
+        content: "Lorem Ipsum Dolom 10"
+        componentOnPageHasElement: cms_component_on_page_has_element_13
+        componentHasColumn: cms_component_has_column_4
+    cms_component_on_page_has_value_29:
+        content: "1"
+        componentOnPageHasElement: cms_component_on_page_has_element_13
+        componentHasColumn: cms_component_has_column_5
+    cms_component_on_page_has_value_30:
+        content: "Lorem Ipsum Dolom 11"
+        componentOnPageHasElement: cms_component_on_page_has_element_14
+        componentHasColumn: cms_component_has_column_4
+    cms_component_on_page_has_value_31:
+        content: "1"
+        componentOnPageHasElement: cms_component_on_page_has_element_14
+        componentHasColumn: cms_component_has_column_5
+    cms_component_on_page_has_value_32:
+        content: "Lorem Ipsum Dolom 12"
+        componentOnPageHasElement: cms_component_on_page_has_element_15
+        componentHasColumn: cms_component_has_column_4
+    cms_component_on_page_has_value_33:
+        content: "1"
+        componentOnPageHasElement: cms_component_on_page_has_element_15
+        componentHasColumn: cms_component_has_column_5
+    cms_component_on_page_has_value_34:
+        content: "Lorem Ipsum Dolom 13"
+        componentOnPageHasElement: cms_component_on_page_has_element_16
+        componentHasColumn: cms_component_has_column_4
+    cms_component_on_page_has_value_35:
+        content: "1"
+        componentOnPageHasElement: cms_component_on_page_has_element_16
+        componentHasColumn: cms_component_has_column_5
+    cms_component_on_page_has_value_36:
+        content: "Lorem Ipsum Dolom 14"
+        componentOnPageHasElement: cms_component_on_page_has_element_17
+        componentHasColumn: cms_component_has_column_4
+    cms_component_on_page_has_value_37:
+        content: "1"
+        componentOnPageHasElement: cms_component_on_page_has_element_17
+        componentHasColumn: cms_component_has_column_5
+    cms_component_on_page_has_value_38:
+        content: "Lorem Ipsum Dolom 15"
+        componentOnPageHasElement: cms_component_on_page_has_element_18
+        componentHasColumn: cms_component_has_column_4
+    cms_component_on_page_has_value_39:
+        content: "1"
+        componentOnPageHasElement: cms_component_on_page_has_element_18
+        componentHasColumn: cms_component_has_column_5
+    cms_component_on_page_has_value_40:
+        content: "Lorem Ipsum Dolom 16"
+        componentOnPageHasElement: cms_component_on_page_has_element_19
+        componentHasColumn: cms_component_has_column_4
+    cms_component_on_page_has_value_41:
+        content: "1"
+        componentOnPageHasElement: cms_component_on_page_has_element_19
+        componentHasColumn: cms_component_has_column_5
+    cms_component_on_page_has_value_42:
+        content: "Lorem Ipsum Dolom 17"
+        componentOnPageHasElement: cms_component_on_page_has_element_20
+        componentHasColumn: cms_component_has_column_4
+    cms_component_on_page_has_value_43:
+        content: "1"
+        componentOnPageHasElement: cms_component_on_page_has_element_20
+        componentHasColumn: cms_component_has_column_5
+    cms_component_on_page_has_value_44:
+        content: "Lorem Ipsum Dolom 18"
+        componentOnPageHasElement: cms_component_on_page_has_element_21
+        componentHasColumn: cms_component_has_column_4
+    cms_component_on_page_has_value_45:
+        content: "1"
+        componentOnPageHasElement: cms_component_on_page_has_element_21
+        componentHasColumn: cms_component_has_column_5
+    cms_component_on_page_has_value_46:
+        content: "Lorem Ipsum Dolom 19"
+        componentOnPageHasElement: cms_component_on_page_has_element_22
+        componentHasColumn: cms_component_has_column_4
+    cms_component_on_page_has_value_47:
+        content: "1"
+        componentOnPageHasElement: cms_component_on_page_has_element_22
+        componentHasColumn: cms_component_has_column_5
+    cms_component_on_page_has_value_48:
+        content: "Lorem Ipsum Dolom 20"
+        componentOnPageHasElement: cms_component_on_page_has_element_23
+        componentHasColumn: cms_component_has_column_4
+    cms_component_on_page_has_value_49:
+        content: "1"
+        componentOnPageHasElement: cms_component_on_page_has_element_23
+        componentHasColumn: cms_component_has_column_5
+    cms_component_on_page_has_value_50:
+        content: "Lorem Ipsum Dolom 1"
+        componentOnPageHasElement: cms_component_on_page_has_element_24
+        componentHasColumn: cms_component_has_column_6
+    cms_component_on_page_has_value_51:
+        content: "1"
+        componentOnPageHasElement: cms_component_on_page_has_element_24
+        componentHasColumn: cms_component_has_column_7
+    cms_component_on_page_has_value_52:
+        content: "4"
+        componentOnPageHasElement: cms_component_on_page_has_element_24
+        componentHasColumn: cms_component_has_column_8
+    cms_component_on_page_has_value_53:
+        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tincidunt, ligula in consequat commodo, sapien justo ornare magna."
+        componentOnPageHasElement: cms_component_on_page_has_element_24
+        componentHasColumn: cms_component_has_column_9
+    cms_component_on_page_has_value_54:
+        content: "Lorem Ipsum Dolom 2"
+        componentOnPageHasElement: cms_component_on_page_has_element_25
+        componentHasColumn: cms_component_has_column_6
+    cms_component_on_page_has_value_55:
+        content: "1"
+        componentOnPageHasElement: cms_component_on_page_has_element_25
+        componentHasColumn: cms_component_has_column_7
+    cms_component_on_page_has_value_56:
+        content: "5"
+        componentOnPageHasElement: cms_component_on_page_has_element_25
+        componentHasColumn: cms_component_has_column_8
+    cms_component_on_page_has_value_57:
+        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tincidunt, ligula in consequat commodo, sapien justo ornare magna."
+        componentOnPageHasElement: cms_component_on_page_has_element_25
+        componentHasColumn: cms_component_has_column_9
+    cms_component_on_page_has_value_58:
+        content: "Lorem Ipsum Dolom 3"
+        componentOnPageHasElement: cms_component_on_page_has_element_26
+        componentHasColumn: cms_component_has_column_6
+    cms_component_on_page_has_value_59:
+        content: "1"
+        componentOnPageHasElement: cms_component_on_page_has_element_26
+        componentHasColumn: cms_component_has_column_7
+    cms_component_on_page_has_value_60:
+        content: "6"
+        componentOnPageHasElement: cms_component_on_page_has_element_26
+        componentHasColumn: cms_component_has_column_8
+    cms_component_on_page_has_value_61:
+        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tincidunt, ligula in consequat commodo, sapien justo ornare magna."
+        componentOnPageHasElement: cms_component_on_page_has_element_26
+        componentHasColumn: cms_component_has_column_9
+    cms_component_on_page_has_value_62:
+        content: "Lorem Ipsum Dolom 1"
+        componentOnPageHasElement: cms_component_on_page_has_element_27
+        componentHasColumn: cms_component_has_column_6
+    cms_component_on_page_has_value_63:
+        content: "1"
+        componentOnPageHasElement: cms_component_on_page_has_element_27
+        componentHasColumn: cms_component_has_column_7
+    cms_component_on_page_has_value_64:
+        content: "7"
+        componentOnPageHasElement: cms_component_on_page_has_element_27
+        componentHasColumn: cms_component_has_column_8
+    cms_component_on_page_has_value_65:
+        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tincidunt, ligula in consequat commodo, sapien justo ornare magna."
+        componentOnPageHasElement: cms_component_on_page_has_element_27
+        componentHasColumn: cms_component_has_column_9
+    cms_component_on_page_has_value_66:
+        content: "Lorem Ipsum Dolom 2"
+        componentOnPageHasElement: cms_component_on_page_has_element_28
+        componentHasColumn: cms_component_has_column_6
+    cms_component_on_page_has_value_67:
+        content: "1"
+        componentOnPageHasElement: cms_component_on_page_has_element_28
+        componentHasColumn: cms_component_has_column_7
+    cms_component_on_page_has_value_68:
+        content: "8"
+        componentOnPageHasElement: cms_component_on_page_has_element_28
+        componentHasColumn: cms_component_has_column_8
+    cms_component_on_page_has_value_69:
+        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tincidunt, ligula in consequat commodo, sapien justo ornare magna."
+        componentOnPageHasElement: cms_component_on_page_has_element_28
+        componentHasColumn: cms_component_has_column_9
+    cms_component_on_page_has_value_70:
+        content: "Lorem Ipsum Dolom 3"
+        componentOnPageHasElement: cms_component_on_page_has_element_29
+        componentHasColumn: cms_component_has_column_6
+    cms_component_on_page_has_value_71:
+        content: "1"
+        componentOnPageHasElement: cms_component_on_page_has_element_29
+        componentHasColumn: cms_component_has_column_7
+    cms_component_on_page_has_value_72:
+        content: "9"
+        componentOnPageHasElement: cms_component_on_page_has_element_29
+        componentHasColumn: cms_component_has_column_8
+    cms_component_on_page_has_value_73:
+        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tincidunt, ligula in consequat commodo, sapien justo ornare magna."
+        componentOnPageHasElement: cms_component_on_page_has_element_29
+        componentHasColumn: cms_component_has_column_9
+    cms_component_on_page_has_value_74:
+        content: "Lorem Ipsum Dolom 1"
+        componentOnPageHasElement: cms_component_on_page_has_element_30
+        componentHasColumn: cms_component_has_column_6
+    cms_component_on_page_has_value_75:
+        content: "1"
+        componentOnPageHasElement: cms_component_on_page_has_element_30
+        componentHasColumn: cms_component_has_column_7
+    cms_component_on_page_has_value_76:
+        content: "10"
+        componentOnPageHasElement: cms_component_on_page_has_element_30
+        componentHasColumn: cms_component_has_column_8
+    cms_component_on_page_has_value_77:
+        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tincidunt, ligula in consequat commodo, sapien justo ornare magna."
+        componentOnPageHasElement: cms_component_on_page_has_element_30
+        componentHasColumn: cms_component_has_column_9
+    cms_component_on_page_has_value_78:
+        content: "Lorem Ipsum Dolom 2"
+        componentOnPageHasElement: cms_component_on_page_has_element_31
+        componentHasColumn: cms_component_has_column_6
+    cms_component_on_page_has_value_79:
+        content: "1"
+        componentOnPageHasElement: cms_component_on_page_has_element_31
+        componentHasColumn: cms_component_has_column_7
+    cms_component_on_page_has_value_80:
+        content: "11"
+        componentOnPageHasElement: cms_component_on_page_has_element_31
+        componentHasColumn: cms_component_has_column_8
+    cms_component_on_page_has_value_81:
+        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tincidunt, ligula in consequat commodo, sapien justo ornare magna."
+        componentOnPageHasElement: cms_component_on_page_has_element_31
+        componentHasColumn: cms_component_has_column_9
+    cms_component_on_page_has_value_82:
+        content: "Lorem Ipsum Dolom 3"
+        componentOnPageHasElement: cms_component_on_page_has_element_32
+        componentHasColumn: cms_component_has_column_6
+    cms_component_on_page_has_value_83:
+        content: "1"
+        componentOnPageHasElement: cms_component_on_page_has_element_32
+        componentHasColumn: cms_component_has_column_7
+    cms_component_on_page_has_value_84:
+        content: "12"
+        componentOnPageHasElement: cms_component_on_page_has_element_32
+        componentHasColumn: cms_component_has_column_8
+    cms_component_on_page_has_value_85:
+        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tincidunt, ligula in consequat commodo, sapien justo ornare magna."
+        componentOnPageHasElement: cms_component_on_page_has_element_32
+        componentHasColumn: cms_component_has_column_9
+    cms_component_on_page_has_value_86:
+        content: "Uwaga ta strona używa COOKIES."
+        componentOnPageHasElement: cms_component_on_page_has_element_33
+        componentHasColumn: cms_component_has_column_10
+    cms_component_on_page_has_value_87:
+        content: "12"
+        componentOnPageHasElement: cms_component_on_page_has_element_33
+        componentHasColumn: cms_component_has_column_11
+    cms_component_on_page_has_value_88:
+        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tincidunt, ligula in consequat commodo, sapien justo ornare magna. Duis tincidunt, ligula in consequat commodo, sapien justo ornare magna."
+        componentOnPageHasElement: cms_component_on_page_has_element_33
+        componentHasColumn: cms_component_has_column_12

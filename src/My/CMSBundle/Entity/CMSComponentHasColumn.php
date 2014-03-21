@@ -78,14 +78,14 @@ class CMSComponentHasColumn
      *
      * @ORM\Column(name="is_required", type="boolean", nullable=true)
      */
-    private $isRequired;
+    private $isRequired = false;
 
     /**
      * @var boolean
      *
      * @ORM\Column(name="is_main_field", type="boolean", nullable=true)
      */
-    private $isMainField;
+    private $isMainField = false;
 
     /**
      * @ORM\ManyToOne(targetEntity="CMSComponent", inversedBy="cmsComponentHasColumns")
@@ -267,7 +267,6 @@ class CMSComponentHasColumn
     public function __construct()
     {
         $this->cmsComponentOnPagesHasValues = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->isMainField = false;
     }
 
     /**

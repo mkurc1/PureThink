@@ -62,7 +62,7 @@ class CMSComponentOnPage
      *
      * @ORM\Column(name="is_enable", type="boolean", nullable=true)
      */
-    private $isEnable;
+    private $isEnable = false;
 
     /**
      * @ORM\ManyToOne(targetEntity="CMSLanguage")
@@ -304,7 +304,6 @@ class CMSComponentOnPage
     public function __construct()
     {
         $this->componentOnPagesHasElements = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->isEnable = false;
     }
 
     /**

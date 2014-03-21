@@ -1,0 +1,84 @@
+model: My\CMSBundle\Entity\CMSComponentHasColumn
+fixtures:
+    cms_component_has_column_1:
+        component: cms_component_2
+        columnType: 1
+        name: "Nazwa"
+        columnLabel: "Nazwa banera"
+        isRequired: 1
+        isMainField: 1
+    cms_component_has_column_2:
+        component: cms_component_2
+        columnType: 9
+        name: "Adres"
+        columnLabel: "Adres docelowy"
+        class: "sintetic-select"
+        isRequired: 1
+    cms_component_has_column_3:
+        component: cms_component_2
+        columnType: 10
+        name: "Fotografia"
+        columnLabel: "Wybierz fotografię"
+        class: "sintetic-select"
+        isRequired: 1
+    cms_component_has_column_4:
+        component: cms_component_1
+        columnType: 1
+        name: "Nazwa"
+        columnLabel: "Nazwa linku"
+        isRequired: 1
+        isMainField: 1
+    cms_component_has_column_5:
+        component: cms_component_1
+        columnType: 9
+        name: "Adres"
+        columnLabel: "Adres docelowy"
+        class: "sintetic-select"
+        isRequired: 1
+    cms_component_has_column_6:
+        component: cms_component_3
+        columnType: 1
+        name: "Nazwa"
+        columnLabel: "Nazwa newsa"
+        isRequired: 1
+        isMainField: 1
+    cms_component_has_column_7:
+        component: cms_component_3
+        columnType: 9
+        name: "Adres"
+        columnLabel: "Adres docelowy"
+        class: "sintetic-select"
+        isRequired: 1
+    cms_component_has_column_8:
+        component: cms_component_3
+        columnType: 10
+        name: "Fotografia"
+        columnLabel: "Wybierz fotografię"
+        class: "sintetic-select"
+        isRequired: 1
+    cms_component_has_column_9:
+        component: cms_component_3
+        columnType: 2
+        name: "Treść"
+        columnLabel: "Treść"
+        isRequired: 1
+    cms_component_has_column_10:
+        component: cms_component_4
+        columnType: 1
+        name: "Nazwa"
+        columnLabel: "Nazwa"
+        isRequired: 1
+        isMainField: 1
+    cms_component_has_column_11:
+        component: cms_component_4
+        columnType: 9
+        name: "Adres"
+        columnLabel: "Adres docelowy"
+        class: "sintetic-select"
+        isRequired: 1
+    cms_component_has_column_12:
+        component: cms_component_4
+        columnType: 2
+        name: "Treść"
+        columnLabel: "Treść"
+        isRequired: 1
