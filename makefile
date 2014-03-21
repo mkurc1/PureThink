@@ -10,7 +10,7 @@ assetic:
 	php app/console assets:install web
 	php app/console assetic:dump -e=prod
 
-install: composer_install do_install create_db update_db clean
+install: composer_install do_install create_db update_db cleans
 
 composer_install:
 	php composer.phar install -o
@@ -32,7 +32,7 @@ create_db:
 
 update_db:
 	php app/console doctrine:schema:update --force
-	php app/console khepin:yamlfixtures:load prod
+	php app/console khepin:yamlfixtures:load
 
 remove_db:
 	php app/console doctrine:database:drop --force

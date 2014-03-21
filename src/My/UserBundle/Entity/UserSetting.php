@@ -12,6 +12,13 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class UserSetting
 {
+    private static $avilableCountRowsOnPage = [
+                                              1 => 10,
+                                              2 => 20,
+                                              3 => 50,
+                                              4 => 100
+                                             ];
+
     /**
      * @var integer
      *
@@ -22,8 +29,7 @@ class UserSetting
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="My\BackendBundle\Entity\RowsOnPage")
-     * @ORM\JoinColumn(name="row_id", referencedColumnName="id", nullable=true)
+     * @ORM\Column(name="rows_on_page", type="integer", nullable=true)
      */
     private $rowsOnPage;
 
@@ -39,6 +45,21 @@ class UserSetting
      */
     private $module;
 
+
+    public static function getAvilableCountRowsOnPage()
+    {
+        return self::$avilableCountRowsOnPage;
+    }
+
+    public function setRowsOnPageByValue($value)
+    {
+        foreach (self::getAvilableCountRowsOnPage() as $key => $row) {
+            if ($value == $row) {
+                return $this->setRowsOnPage($key);
+            }
+        }
+    }
+
     /**
      * Get id
      *
@@ -47,29 +68,6 @@ class UserSetting
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set rowsOnPage
-     *
-     * @param \My\BackendBundle\Entity\RowsOnPage $rowsOnPage
-     * @return UserSetting
-     */
-    public function setRowsOnPage(\My\BackendBundle\Entity\RowsOnPage $rowsOnPage = null)
-    {
-        $this->rowsOnPage = $rowsOnPage;
-
-        return $this;
-    }
-
-    /**
-     * Get rowsOnPage
-     *
-     * @return \My\BackendBundle\Entity\RowsOnPage
-     */
-    public function getRowsOnPage()
-    {
-        return $this->rowsOnPage;
     }
 
     /**
@@ -116,5 +114,28 @@ class UserSetting
     public function getModule()
     {
         return $this->module;
+    }
+
+    /**
+     * Set rowsOnPage
+     *
+     * @param integer $rowsOnPage
+     * @return UserSetting
+     */
+    public function setRowsOnPage($rowsOnPage)
+    {
+        $this->rowsOnPage = $rowsOnPage;
+
+        return $this;
+    }
+
+    /**
+     * Get rowsOnPage
+     *
+     * @return integer
+     */
+    public function getRowsOnPage()
+    {
+        return $this->rowsOnPage;
     }
 }

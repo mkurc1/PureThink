@@ -364,7 +364,7 @@ class CMSComponentHasColumn
     /**
      * Get columnType
      *
-     * @return integer
+     * @return integer 
      */
     public function getColumnType()
     {

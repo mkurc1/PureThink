@@ -1,0 +1,7 @@
+<label>ilość pozycji:</label>
+
+<select class="number_of_lines sintetic-select_top">
+    {% for key, entity in entities %}
+        <option value="{{ entity }}" {{ key == rowsOnPageId ? 'selected="selected"' : '' }}>{{ entity }}</option>
+    {% endfor %}
+</select>

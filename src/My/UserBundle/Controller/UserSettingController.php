@@ -12,6 +12,24 @@ use My\UserBundle\Entity\UserSetting;
 class UserSettingController extends Controller
 {
     /**
+     * @Route("/user/rows", options={"expose"=true})
+     * @Method("POST")
+     */
+    public function getUserRowsOnPageAction(Request $request)
+    {
+        $rowsOnPageId = (int)$request->get('rowsOnPageId');
+
+        $entities = UserSetting::getAvilableCountRowsOnPage();
+
+        $rows = $this->renderView('MyUserBundle:UserSetting:_rowsOnPage.html.twig',
+            compact('entities', 'rowsOnPageId'));
+
+        $response = ["rows" => $rows, "response" => true];
+
+        return new Response(json_encode($response));
+    }
+
+    /**
      * @Route("/user/setting", options={"expose"=true})
      * @Method("POST")
      */
@@ -25,7 +43,7 @@ class UserSettingController extends Controller
         $response = [
             "setting" => [
                 'userId'       => $user->getId(),
-                'rowsOnPageId' => $setting->getRowsOnPage()->getId(),
+                'rowsOnPageId' => $setting->getRowsOnPage(),
                 'languageId'   => $setting->getLanguage()->getId(),
                 'moduleId'     => $setting->getModule()->getId()
                 ],
@@ -43,18 +61,14 @@ class UserSettingController extends Controller
     {
         $rowsOnPage = (int)$request->get('rowsOnPage');
 
-        $em = $this->getDoctrine()->getManager();
-
-        $rowsOnPage = $em->getRepository('MyBackendBundle:RowsOnPage')
-            ->findOneByAmount($rowsOnPage);
-
         $userSetting = $this->getUser()->getUserSetting();
-        $userSetting->setRowsOnPage($rowsOnPage);
+        $userSetting->setRowsOnPageByValue($rowsOnPage);
 
+        $em = $this->getDoctrine()->getManager();
         $em->flush();
 
         $response = [
-            "row_id" => $rowsOnPage->getId(),
+            "row_id" => $userSetting->getRowsOnPage(),
             "response" => true
             ];
 
@@ -71,13 +85,12 @@ class UserSettingController extends Controller
         $moduleId     = (int)$request->get('moduleId');
         $languageId   = (int)$request->get('languageId');
 
-        $em = $this->getDoctrine()->getManager();
-
         $userSetting = $this->getUser()->getUserSetting();
-        $userSetting->setRowsOnPage($em->getRepository('MyBackendBundle:RowsOnPage')->find($rowsOnPageId));
+        $userSetting->setRowsOnPage($rowsOnPageId);
         $userSetting->setModule($em->getRepository('MyBackendBundle:Module')->find($moduleId));
         $userSetting->setLanguage($em->getRepository('MyBackendBundle:Language')->find($languageId));
 
+        $em = $this->getDoctrine()->getManager();
         $em->flush();
 
         $response = [
@@ -92,9 +105,7 @@ class UserSettingController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         if (null == $setting->getRowsOnPage()) {
-            $defaultCoutRows = $em->getRepository('MyBackendBundle:RowsOnPage')
-                ->findOneByIsDefault(true);
-            $setting->setRowsOnPage($defaultCoutRows);
+            $setting->setRowsOnPage(1);
         }
 
         if (null == $setting->getLanguage()) {

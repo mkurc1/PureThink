@@ -35,7 +35,7 @@ FooterView = Backbone.View.extend({
         $.ajax({
             type     : "post",
             dataType : "json",
-            url      : Routing.generate('my_backend_rowsonpage_getrowsonpage'),
+            url      : Routing.generate('my_user_usersetting_getuserrowsonpage'),
             data: {
                 rowsOnPageId: userSettingModel.get('rowsOnPageId')
             },

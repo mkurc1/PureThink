@@ -26,6 +26,7 @@ class AppKernel extends Kernel
             new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
             new Bmatzner\FontAwesomeBundle\BmatznerFontAwesomeBundle(),
             new Sonata\IntlBundle\SonataIntlBundle(),
+            new Khepin\YamlFixturesBundle\KhepinYamlFixturesBundle(),
 
             new My\UserBundle\MyUserBundle(),
             new My\CoreBundle\MyCoreBundle(),
@@ -38,7 +39,6 @@ class AppKernel extends Kernel
             $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
             $bundles[] = new Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
             $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();
-            $bundles[] = new Khepin\YamlFixturesBundle\KhepinYamlFixturesBundle();
         }
 
         return $bundles;
