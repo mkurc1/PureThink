@@ -21,10 +21,10 @@ $(function() {
         async: false,
         error: function (x, status, error) {
             if (x.status == 403) {
-                notify("fail" ,"Sorry, your session has expired. Please login again to continue");
+                alertify.error("Sorry, your session has expired. Please login again to continue");
             }
             else {
-                notify("fail" ,"An error occurred: " + status + "nError: " + error);
+                alertify.error("An error occurred: " + status + "nError: " + error);
             }
         }
     });

@@ -1,7 +1,8 @@
-{% extends "::base.html.twig" %}
+{% extends "MyCoreBundle::layout.html.twig" %}
 
 {% block stylesheets %}
     {{ parent() }}
+
     {% stylesheets
         '@MyCMSBundle/Resources/public/css/article.css'
         filter='less,cssrewrite,uglifycss'
@@ -12,8 +13,9 @@
 {% endblock stylesheets %}
 
 {% block javascripts %}
+    {{ parent() }}
+
     {% javascripts
-        '@jquery'
         '@MyCMSBundle/Resources/public/js/cookies.js'
         filter="uglifyjs2"
         output='js/frontend.js' %}

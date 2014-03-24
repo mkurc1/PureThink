@@ -250,10 +250,10 @@
                             menu.find('> div > ul > li > a[list_id="'+data.id+'"]').parent().append(newAlias+newState);
                         }
 
-                        notify('success', data.message);
+                        alertify.success(data.message);
                     }
                     else {
-                        notify('fail', data.message);
+                        alertify.error(data.message);
                     }
                 }
             });
@@ -289,10 +289,10 @@
                             menu.find('> div > ul > li > a[list_id="'+listId+'"]').parent().find('> span').text(alias);
                         }
 
-                        notify('success', data.message);
+                        alertify.success(data.message);
                     }
                     else {
-                        notify('fail', data.message);
+                        alertify.error(data.message);
                     }
                 }
             });
@@ -319,10 +319,10 @@
                     if (data.response) {
                         menu.find('> div > ul > li > a[list_id="'+id+'"]').parent().remove();
                         menu.find('> div > ul > li').eq(0).find('> a').click();
-                        notify('success', data.message);
+                        alertify.success(data.message);
                     }
                     else {
-                        notify('fail', data.message);
+                        alertify.error(data.message);
                     }
                 }
             });
@@ -355,10 +355,10 @@
                         else {
                             changeObject.removeClass('deactive').addClass('active');
                         }
-                        notify('success', data.message);
+                        alertify.success(data.message);
                     }
                     else {
-                        notify('fail', data.message);
+                        alertify.error(data.message);
                     }
                 }
             });

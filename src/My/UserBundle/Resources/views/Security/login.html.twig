@@ -8,14 +8,6 @@
 	{{ parent() }}
 
 	<div id="login_container">
-		{% for type, messages in app.session.flashbag.all() %}
-            {% for message in messages %}
-                <div class="flash-{{ type }}">
-                    {{ message }}
-                </div>
-            {% endfor %}
-        {% endfor %}
-
 		{% if error %}
 			<div class="error_list">{{ error|trans({}, 'FOSUserBundle') }}</div>
 		{% endif %}

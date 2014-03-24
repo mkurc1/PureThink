@@ -111,7 +111,7 @@ EditView = Backbone.View.extend({
             },
             success: function(data) {
                 if (data.response) {
-                    notify('success', data.message);
+                    alertify.success(data.message);
 
                     if (edit.isMainEdit) {
                         if (!edit.model.get('isApplyOption')) {

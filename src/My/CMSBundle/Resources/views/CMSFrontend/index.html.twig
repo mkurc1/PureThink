@@ -13,6 +13,8 @@
 {% endblock title %}
 
 {% block body %}
+    {{ parent() }}
+
     {{ render(controller('MyCMSBundle:CMSFrontend:component', {
         'slug'    : 'cookie',
         'template': 'MyCMSBundle:CMSFrontend:_cookie.html.twig'

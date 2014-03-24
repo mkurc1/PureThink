@@ -1,7 +1,8 @@
-{% extends "::base.html.twig" %}
+{% extends "MyCoreBundle::layout.html.twig" %}
 
 {% block stylesheets %}
     {{ parent() }}
+
     {% stylesheets
         '@MyBackendBundle/Resources/public/less/purethink.less'
         filter='less,cssrewrite,uglifycss'
@@ -11,8 +12,9 @@
 {% endblock stylesheets %}
 
 {% block javascripts %}
+    {{ parent() }}
+
     {% javascripts
-        '@jquery'
         '@helper'
         '@MyUserBundle/Resources/public/js/*'
         filter="uglifyjs2"
@@ -22,6 +24,8 @@
 {% endblock javascripts %}
 
 {% block body %}
+    {{ parent() }}
+
     <div id="top_menu">
         <div id="logo">
             <a href="{{ path('frontend') }}"><img src="{{ asset('images/logo_small.png') }}" alt="logo" /></a>

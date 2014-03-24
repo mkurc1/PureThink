@@ -81,11 +81,11 @@ ListView = Backbone.View.extend({
             },
             success: function(data) {
                 if (data.response) {
-                    notify('success', data.message);
+                    alertify.success(data.message);
                     list.refresh(false);
                 }
                 else {
-                    notify('fail', data.message);
+                    alertify.error(data.message);
                 }
             }
         });
@@ -249,11 +249,11 @@ ListView = Backbone.View.extend({
             },
             success: function(data) {
                 if (data.response) {
-                    notify('success', data.message);
+                    alertify.success(data.message);
                     list.refresh(false);
                 }
                 else {
-                    notify('fail', data.message);
+                    alertify.error(data.message);
                 }
             }
         });

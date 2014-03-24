@@ -1,4 +1,4 @@
-{% extends "::base.html.twig" %}
+{% extends "MyCoreBundle::layout.html.twig" %}
 
 {% block title %}
     PureThink - File Browse
@@ -6,6 +6,7 @@
 
 {% block stylesheets %}
     {{ parent() }}
+
     {% stylesheets
         '@MyBackendBundle/Resources/public/css/plugins/jquery.qtip.css'
         '@MyBackendBundle/Resources/public/less/purethink.less'
@@ -16,11 +17,12 @@
 {% endblock stylesheets %}
 
 {% block javascripts %}
+    {{ parent() }}
+
     <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
     <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
 
     {% javascripts
-        '@jquery'
         '@jquery_ui'
         '@underscore'
         '@backbone'
@@ -40,6 +42,8 @@
 {% endblock javascripts %}
 
 {% block body %}
+    {{ parent() }}
+
     <div id="file_browse">
         <div id="file_borwse_list"></div>
         <div id="file_borwse_footer">

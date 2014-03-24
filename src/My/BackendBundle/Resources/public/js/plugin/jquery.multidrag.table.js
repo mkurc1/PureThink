@@ -195,10 +195,10 @@
                 },
                 success: function(data) {
                     if (data.response) {
-                        notify('success', data.message);
+                        alertify.success(data.message);
                     }
                     else {
-                        notify('fail', data.message);
+                        alertify.error(data.message);
                     }
                 }
             });
