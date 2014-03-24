@@ -12,6 +12,12 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class CMSLayout
 {
+    private static $avilableType = [
+                                    1 => 'Main',
+                                    2 => 'Article',
+                                    3 => 'Search'
+                                   ];
+
     /**
      * @var integer
      *
@@ -35,11 +41,15 @@ class CMSLayout
     protected $template;
 
     /**
-     * @ORM\ManyToOne(targetEntity="CMSLayoutType", inversedBy="cmsLayouts")
-     * @ORM\JoinColumn(name="type_id", referencedColumnName="id", onDelete="CASCADE", nullable=false)
+     * @ORM\Column(name="type", type="integer")
      */
     protected $type;
 
+
+    public static function getAvilableType()
+    {
+        return self::$avilableType;
+    }
 
     /**
      * Get id
@@ -83,14 +93,14 @@ class CMSLayout
     public function setTemplate(\My\CMSBundle\Entity\CMSTemplate $template)
     {
         $this->template = $template;
-    
+
         return $this;
     }
 
     /**
      * Get template
      *
-     * @return \My\CMSBundle\Entity\CMSTemplate 
+     * @return \My\CMSBundle\Entity\CMSTemplate
      */
     public function getTemplate()
     {
@@ -100,20 +110,20 @@ class CMSLayout
     /**
      * Set type
      *
-     * @param \My\CMSBundle\Entity\CMSLayoutType $type
+     * @param integer $type
      * @return CMSLayout
      */
-    public function setType(\My\CMSBundle\Entity\CMSLayoutType $type)
+    public function setType($type)
     {
         $this->type = $type;
-    
+
         return $this;
     }
 
     /**
      * Get type
      *
-     * @return \My\CMSBundle\Entity\CMSLayoutType 
+     * @return integer
      */
     public function getType()
     {

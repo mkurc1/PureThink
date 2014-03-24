@@ -1,6 +1,0 @@
-model: My\CMSBundle\Entity\CMSLayoutType
-fixtures:
-    cms_layout_type_1:
-        name: "Main"
-    cms_layout_type_2:
-        name: "Article"
