@@ -1,4 +1,4 @@
-model: My\CMSBundle\Entity\CMSArticle
+model: My\CMSBundle\Entity\Article
 fixtures:
     cms_article_1:
         name: "Lorem ipsum dolor sit amet, consectetur"

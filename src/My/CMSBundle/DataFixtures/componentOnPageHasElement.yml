@@ -1,4 +1,4 @@
-model: My\CMSBundle\Entity\CMSComponentOnPageHasElement
+model: My\CMSBundle\Entity\ComponentOnPageHasElement
 fixtures:
     cms_component_on_page_has_element_1:
         componentOnPage: cms_component_on_page_1

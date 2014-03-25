@@ -1,4 +1,4 @@
-model: My\CMSBundle\Entity\CMSComponentOnPageHasValue
+model: My\CMSBundle\Entity\ComponentOnPageHasValue
 fixtures:
     cms_component_on_page_has_value_1:
         content: "Baner 1"

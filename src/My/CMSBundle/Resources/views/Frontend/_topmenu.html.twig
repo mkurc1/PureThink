@@ -1,0 +1,16 @@
+<div class="top-menu">
+    <div class="user-container">
+        {% if app.user is not null %}
+            <span>Witaj <a class="user-name" href="{{ path('fos_user_profile_show') }}">{{ app.user.firstName~" "~app.user.lastName }}</a></span>
+            {% if is_granted('ROLE_ADMIN') %}
+                <a class="admin" href="{{ path('backend') }}">Admin</a>
+            {% endif %}
+            <a class="logout" href="{{ path('fos_user_security_logout') }}">Wyloguj</a>
+        {% else %}
+            <a href="{{ path('fos_user_registration_register') }}">Rejestracja</a>
+            <a href="{{ path('fos_user_security_login') }}">Logowanie</a>
+        {% endif %}
+    </div>
+
+    {% include 'MyCMSBundle:Frontend:_language.html.twig' with { 'languages': languages, 'locale': locale } %}
+</div>

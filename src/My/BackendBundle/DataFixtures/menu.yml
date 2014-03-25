@@ -2,32 +2,32 @@ model: My\BackendBundle\Entity\Menu
 fixtures:
     menu_1:
         name: "Witryna"
-        link: "cmswebsite_edit"
+        link: "my_cms_website_edit"
         sequence: 1
         module: module_1
     menu_2:
         name: "Menu"
-        link: "cmsmenu"
+        link: "my_cms_menu_list"
         sequence: 2
         module: module_1
     menu_3:
         name: "Artykuły"
-        link: "cmsarticle"
+        link: "my_cms_article_list"
         sequence: 3
         module: module_1
     menu_4:
         name: "Komponenty"
-        link: "cmscomponentonpage"
+        link: "my_cms_componentonpage_list"
         sequence: 4
         module: module_1
     menu_5:
         name: "Rozszerzenia"
-        link: "cmscomponent"
+        link: "my_cms_component_list"
         sequence: 5
         module: module_1
     menu_6:
         name: "Szablony"
-        link: "cmstemplate"
+        link: "my_cms_template_list"
         sequence: 6
         module: module_1
     menu_7:

@@ -43,9 +43,9 @@ class LeftMenuService
         $languageLeftMeneActiveInMainMenu = [1, 2, 3, 4];
 
         if (in_array($menuId, $languageLeftMeneActiveInMainMenu)) {
-            $entities = $this->em->getRepository('MyCMSBundle:CMSLanguage')->getLanguages();
+            $entities = $this->em->getRepository('MyCMSBundle:Language')->getLanguages();
 
-            return $this->templateEngine->render("MyCMSBundle:CMSLeftMenu:_languages.html.twig", compact('entities'));
+            return $this->templateEngine->render("MyCMSBundle:LeftMenu:_languages.html.twig", compact('entities'));
         }
         else {
             return false;

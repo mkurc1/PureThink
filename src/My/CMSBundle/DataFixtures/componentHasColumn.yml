@@ -1,4 +1,4 @@
-model: My\CMSBundle\Entity\CMSComponentHasColumn
+model: My\CMSBundle\Entity\ComponentHasColumn
 fixtures:
     cms_component_has_column_1:
         component: cms_component_2

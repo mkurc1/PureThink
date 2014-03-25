@@ -1,4 +1,4 @@
-model: My\CMSBundle\Entity\CMSLanguage
+model: My\CMSBundle\Entity\Language
 fixtures:
     cms_language_1:
         name: "Angielski"

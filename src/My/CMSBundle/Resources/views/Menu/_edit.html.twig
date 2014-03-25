@@ -1,0 +1,9 @@
+<div class="header">
+    <h2>Edycja menu</h2>
+</div>
+
+<div class="container">
+    <form action="{{ path('my_cms_menu_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(form) }}>
+        {% include 'MyCMSBundle:Menu:_form.html.twig' with { 'form': form } %}
+    </form>
+</div>

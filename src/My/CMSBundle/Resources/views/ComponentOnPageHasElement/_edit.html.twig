@@ -1,0 +1,9 @@
+<div class="header">
+    <h2>Edycja elementu</h2>
+</div>
+
+<div class="container">
+    <form action="{{ path('my_cms_componentonpagehaselement_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(form) }}>
+        {% include 'MyCMSBundle:ComponentOnPageHasElement:_form.html.twig' with { 'form': form } %}
+    </form>
+</div>

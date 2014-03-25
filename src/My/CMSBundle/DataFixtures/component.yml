@@ -1,4 +1,4 @@
-model: My\CMSBundle\Entity\CMSComponent
+model: My\CMSBundle\Entity\Component
 fixtures:
     cms_component_1:
         name: "Linki"

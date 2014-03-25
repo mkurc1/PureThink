@@ -1,4 +1,4 @@
-model: My\CMSBundle\Entity\CMSMenu
+model: My\CMSBundle\Entity\Menu
 fixtures:
     cms_menu_1:
         name: "Lorem ipsum"

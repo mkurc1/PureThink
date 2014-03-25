@@ -1,4 +1,4 @@
-model: My\CMSBundle\Entity\CMSComponentOnPage
+model: My\CMSBundle\Entity\ComponentOnPage
 fixtures:
     cms_component_on_page_1:
         name: "Baner"
