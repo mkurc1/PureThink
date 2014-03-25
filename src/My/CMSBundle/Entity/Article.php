@@ -7,6 +7,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
 use My\BackendBundle\Entity\Metadata;
 use My\BackendBundle\Entity\MetadataInterface;
 use Symfony\Component\Validator\Constraints as Assert;
+use My\UserBundle\Entity\User;
 
 /**
  * @ORM\Table(name="cms_article")
@@ -322,9 +323,10 @@ class Article implements MetadataInterface
     /**
      * Constructor
      */
-    public function __construct()
+    public function __construct(User $user)
     {
         $this->setMetadata(new Metadata());
+        $this->setUser($user);
     }
 
     /**
