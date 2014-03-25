@@ -19,31 +19,27 @@ class CMSLayout
                                    ];
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="path", type="string", length=255)
+     * @ORM\Column(type="string", length=255)
      */
     private $path;
 
     /**
      * @ORM\ManyToOne(targetEntity="CMSTemplate", inversedBy="cmsLayouts")
-     * @ORM\JoinColumn(name="template_id", referencedColumnName="id", onDelete="CASCADE", nullable=false)
+     * @ORM\JoinColumn(onDelete="CASCADE", nullable=false)
      */
-    protected $template;
+    private $template;
 
     /**
-     * @ORM\Column(name="type", type="integer")
+     * @ORM\Column(type="integer")
      */
-    protected $type;
+    private $type;
 
 
     public static function getAvilableType()

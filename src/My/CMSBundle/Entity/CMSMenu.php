@@ -15,56 +15,43 @@ use Symfony\Component\Validator\Constraints as Assert;
 class CMSMenu
 {
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="name", type="string", length=128)
-     *
+     * @ORM\Column(type="string", length=128)
      * @Assert\NotNull()
      * @Assert\Length(max="128")
      */
     private $name;
 
     /**
-     * @var string
-     *
      * @Gedmo\Slug(fields={"name"})
      * @ORM\Column(length=128, unique=true)
      */
     private $slug;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="sequence", type="integer", nullable=true)
+     * @ORM\Column(type="integer", nullable=true)
      */
     private $sequence;
 
     /**
-     * @var boolean
-     *
-     * @ORM\Column(name="is_public", type="boolean", nullable=true)
+     * @ORM\Column(type="boolean", nullable=true)
      */
-    private $isPublic;
+    private $isPublic = false;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="is_new_page", type="boolean", nullable=true)
+     * @ORM\Column(type="boolean", nullable=true)
      */
-    private $isNewPage;
+    private $isNewPage = false;
 
     /**
      * @ORM\ManyToOne(targetEntity="CMSMenu", inversedBy="menus")
-     * @ORM\JoinColumn(name="menu_id", referencedColumnName="id", onDelete="CASCADE", nullable=true)
+     * @ORM\JoinColumn(onDelete="CASCADE", nullable=true)
      */
     private $menu;
 
@@ -75,24 +62,21 @@ class CMSMenu
 
     /**
      * @ORM\ManyToOne(targetEntity="CMSLanguage")
-     * @ORM\JoinColumn(name="language_id", referencedColumnName="id", onDelete="CASCADE", nullable=false)
-     *
+     * @ORM\JoinColumn(onDelete="CASCADE", nullable=false)
      * @Assert\NotNull()
      */
     private $language;
 
     /**
      * @ORM\ManyToOne(targetEntity="My\BackendBundle\Entity\Series")
-     * @ORM\JoinColumn(name="series_id", referencedColumnName="id", onDelete="CASCADE", nullable=false)
-     *
+     * @ORM\JoinColumn(onDelete="CASCADE", nullable=false)
      * @Assert\NotNull()
      */
     private $series;
 
     /**
      * @ORM\ManyToOne(targetEntity="CMSArticle")
-     * @ORM\JoinColumn(name="article_id", referencedColumnName="id", onDelete="CASCADE", nullable=false)
-     *
+     * @ORM\JoinColumn(onDelete="CASCADE", nullable=false)
      * @Assert\NotNull()
      */
     private $article;
@@ -182,8 +166,6 @@ class CMSMenu
     public function __construct()
     {
         $this->menus = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->isPublic = false;
-        $this->isNewPage = false;
     }
 
     /**

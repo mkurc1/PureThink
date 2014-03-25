@@ -51,8 +51,6 @@ assetic:
     node: "/usr/bin/nodejs"
     node_paths: ["/usr/local/lib/node_modules"]
     assets:
-        jquery:
-            inputs: "%kernel.root_dir%/Resources/public/js/jquery.js"
         jquery_ui:
             inputs: "%kernel.root_dir%/Resources/public/js/jquery-ui.js"
         underscore:

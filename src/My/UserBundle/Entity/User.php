@@ -20,16 +20,12 @@ class User extends BaseUser
 	protected $id;
 
 	/**
-     * @var string
-     *
-     * @ORM\Column(name="firstname", type="string", length=255)
+     * @ORM\Column(type="string", length=255)
      */
     private $firstName;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="lastname", type="string", length=255)
+     * @ORM\Column(type="string", length=255)
      */
     private $lastName;
 

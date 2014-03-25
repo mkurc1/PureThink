@@ -13,8 +13,6 @@ use Doctrine\ORM\Mapping as ORM;
 class Session
 {
     /**
-     * @var integer
-     *
      * @ORM\Column(name="session_id", type="string", length=255)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
@@ -22,15 +20,11 @@ class Session
     private $id;
 
     /**
-     * @var string
-     *
      * @ORM\Column(name="session_value", type="text")
      */
     private $value;
 
     /**
-     * @var integer
-     *
      * @ORM\Column(name="session_time", type="integer")
      */
     private $time;

@@ -15,83 +15,62 @@ use Symfony\Component\Validator\Constraints as Assert;
 class CMSComponentOnPage
 {
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="name", type="string", length=255)
-     *
+     * @ORM\Column(type="string", length=255)
      * @Assert\NotNull()
      * @Assert\Length(max="255")
      */
     private $name;
 
     /**
-     * @var string
-     *
      * @Gedmo\Slug(fields={"name"})
      * @ORM\Column(length=255, unique=true)
      */
     private $slug;
 
     /**
-     * @var datetime
-     *
      * @Gedmo\Timestampable(on="create")
      * @ORM\Column(type="datetime")
      */
     private $createdAt;
 
     /**
-     * @var datetime
-     *
      * @Gedmo\Timestampable(on="update")
      * @ORM\Column(type="datetime")
      */
     private $updatedAt;
 
     /**
-     * @var boolean
-     *
-     * @ORM\Column(name="is_enable", type="boolean", nullable=true)
+     * @ORM\Column(type="boolean", nullable=true)
      */
     private $isEnable = false;
 
     /**
      * @ORM\ManyToOne(targetEntity="CMSLanguage")
-     * @ORM\JoinColumn(name="language_id", referencedColumnName="id", onDelete="CASCADE", nullable=false)
-     *
+     * @ORM\JoinColumn(onDelete="CASCADE", nullable=false)
      * @Assert\NotNull()
      */
     private $language;
 
     /**
      * @ORM\ManyToOne(targetEntity="My\BackendBundle\Entity\Series")
-     * @ORM\JoinColumn(name="series_id", referencedColumnName="id", onDelete="CASCADE", nullable=false)
-     *
+     * @ORM\JoinColumn(onDelete="CASCADE", nullable=false)
      * @Assert\NotNull()
      */
     private $series;
 
     /**
-     * @ORM\ManyToOne(targetEntity="CMSComponent", inversedBy="cmsComponentOnPages")
-     * @ORM\JoinColumn(name="component_id", referencedColumnName="id", onDelete="CASCADE", nullable=false)
-     *
+     * @ORM\ManyToOne(targetEntity="CMSComponent")
+     * @ORM\JoinColumn(onDelete="CASCADE", nullable=false)
      * @Assert\NotNull()
      */
     private $component;
-
-    /**
-     * @ORM\OneToMany(targetEntity="CMSComponentOnPageHasElement", mappedBy="cmsComponentOnPages")
-     */
-    private $componentOnPagesHasElements;
 
 
     /**
@@ -298,44 +277,4 @@ class CMSComponentOnPage
         return $this->component;
     }
 
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->componentOnPagesHasElements = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Add componentOnPagesHasElements
-     *
-     * @param \My\CMSBundle\Entity\CMSComponentOnPageHasElement $componentOnPagesHasElements
-     * @return CMSComponentOnPage
-     */
-    public function addComponentOnPagesHasElement(\My\CMSBundle\Entity\CMSComponentOnPageHasElement $componentOnPagesHasElements)
-    {
-        $this->componentOnPagesHasElements[] = $componentOnPagesHasElements;
-
-        return $this;
-    }
-
-    /**
-     * Remove componentOnPagesHasElements
-     *
-     * @param \My\CMSBundle\Entity\CMSComponentOnPageHasElement $componentOnPagesHasElements
-     */
-    public function removeComponentOnPagesHasElement(\My\CMSBundle\Entity\CMSComponentOnPageHasElement $componentOnPagesHasElements)
-    {
-        $this->componentOnPagesHasElements->removeElement($componentOnPagesHasElements);
-    }
-
-    /**
-     * Get componentOnPagesHasElements
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getComponentOnPagesHasElements()
-    {
-        return $this->componentOnPagesHasElements;
-    }
 }

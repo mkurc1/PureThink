@@ -20,28 +20,26 @@ class UserSetting
                                              ];
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
     /**
-     * @ORM\Column(name="rows_on_page", type="integer", nullable=true)
+     * @ORM\Column(type="integer", nullable=true)
      */
     private $rowsOnPage;
 
     /**
      * @ORM\ManyToOne(targetEntity="My\BackendBundle\Entity\Language")
-     * @ORM\JoinColumn(name="language_id", referencedColumnName="id", nullable=true)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $language;
 
     /**
      * @ORM\ManyToOne(targetEntity="My\BackendBundle\Entity\Module")
-     * @ORM\JoinColumn(name="module_id", referencedColumnName="id", nullable=true)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $module;
 

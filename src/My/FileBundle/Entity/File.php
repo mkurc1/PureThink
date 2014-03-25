@@ -17,78 +17,60 @@ use Symfony\Component\Validator\Constraints as Assert;
 class File
 {
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="name", type="string", length=255)
-     *
+     * @ORM\Column(type="string", length=255)
      * @Assert\NotNull()
      * @Assert\Length(max="255")
      */
     private $name;
 
     /**
-     * @var datetime
-     *
      * @Gedmo\Timestampable(on="create")
      * @ORM\Column(type="datetime")
      */
     private $createdAt;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="size", type="integer", nullable=true)
+     * @ORM\Column(type="integer", nullable=true)
      */
     private $size;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="path", type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $path;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="mimeType", type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $mimeType;
 
     /**
      * @ORM\ManyToOne(targetEntity="My\UserBundle\Entity\User")
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="id", onDelete="CASCADE", nullable=false)
+     * @ORM\JoinColumn(onDelete="CASCADE", nullable=false)
      */
     private $user;
 
     /**
      * @ORM\ManyToOne(targetEntity="My\BackendBundle\Entity\Series")
-     * @ORM\JoinColumn(name="series_id", referencedColumnName="id", onDelete="CASCADE", nullable=false)
-     *
+     * @ORM\JoinColumn(onDelete="CASCADE", nullable=false)
      * @Assert\NotNull()
      */
     private $series;
 
     /**
-     * @var object
-     *
      * @Assert\File(maxSize="6000000")
      */
     private $file;
 
-    /**
-     * @var string
-     */
     private $temp;
+
 
     /**
      * Get id

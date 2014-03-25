@@ -14,54 +14,40 @@ use Gedmo\Mapping\Annotation as Gedmo;
 class CMSTemplate
 {
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="name", type="string", length=255)
+     * @ORM\Column(type="string", length=255)
      */
     private $name;
 
     /**
-     * @var string
-     *
      * @Gedmo\Slug(fields={"name"})
      * @ORM\Column(length=255, unique=true)
      */
     private $slug;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="author", type="string", length=255)
+     * @ORM\Column(type="string", length=255)
      */
     private $author;
 
     /**
-     * @var boolean
-     *
-     * @ORM\Column(name="is_enable", type="boolean")
+     * @ORM\Column(type="boolean", nullable=true)
      */
     private $isEnable;
 
     /**
-     * @var datetime
-     *
      * @Gedmo\Timestampable(on="create")
      * @ORM\Column(type="datetime")
      */
     private $createdAt;
 
     /**
-     * @var datetime
-     *
      * @Gedmo\Timestampable(on="update")
      * @ORM\Column(type="datetime")
      */
@@ -70,17 +56,17 @@ class CMSTemplate
     /**
      * @ORM\OneToMany(targetEntity="CMSCSS", mappedBy="cmsTemplate")
      */
-    protected $cmsCSSs;
+    private $cmsCSSs;
 
     /**
      * @ORM\OneToMany(targetEntity="CMSJS", mappedBy="cmsTemplate")
      */
-    protected $cmsJSs;
+    private $cmsJSs;
 
     /**
      * @ORM\OneToMany(targetEntity="CMSLayout", mappedBy="cmsTemplate")
      */
-    protected $cmsLayouts;
+    private $cmsLayouts;
 
 
     /**

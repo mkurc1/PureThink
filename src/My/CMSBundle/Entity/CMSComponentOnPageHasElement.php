@@ -14,47 +14,39 @@ use Gedmo\Mapping\Annotation as Gedmo;
 class CMSComponentOnPageHasElement
 {
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
     /**
-     * @var datetime
-     *
      * @Gedmo\Timestampable(on="create")
      * @ORM\Column(type="datetime")
      */
     private $createdAt;
 
     /**
-     * @var datetime
-     *
      * @Gedmo\Timestampable(on="update")
      * @ORM\Column(type="datetime")
      */
     private $updatedAt;
 
     /**
-     * @var boolean
-     *
-     * @ORM\Column(name="is_enable", type="boolean", nullable=true)
+     * @ORM\Column(type="boolean", nullable=true)
      */
     private $isEnable = false;
 
     /**
-     * @ORM\ManyToOne(targetEntity="CMSComponentOnPage", inversedBy="cmsComponentOnPageHasElements")
-     * @ORM\JoinColumn(name="component_on_page_id", referencedColumnName="id", onDelete="CASCADE", nullable=false)
+     * @ORM\ManyToOne(targetEntity="CMSComponentOnPage")
+     * @ORM\JoinColumn(onDelete="CASCADE", nullable=false)
      */
-    protected $componentOnPage;
+    private $componentOnPage;
 
     /**
      * @ORM\OneToMany(targetEntity="CMSComponentOnPageHasValue", mappedBy="cmsComponentOnPageHasElement", cascade={"persist"})
      */
-    protected $componentOnPageHasValues;
+    private $componentOnPageHasValues;
 
 
     /**

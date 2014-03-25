@@ -13,32 +13,28 @@ use Doctrine\ORM\Mapping as ORM;
 class CMSComponentOnPageHasValue
 {
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="content", type="text", nullable=true)
+     * @ORM\Column(type="text", nullable=true)
      */
     private $content;
 
     /**
      * @ORM\ManyToOne(targetEntity="CMSComponentOnPageHasElement", inversedBy="cmsComponentOnPageHasValues")
-     * @ORM\JoinColumn(name="component_on_page_has_element_id", referencedColumnName="id", onDelete="CASCADE", nullable=false)
+     * @ORM\JoinColumn(onDelete="CASCADE", nullable=false)
      */
-    protected $componentOnPageHasElement;
+    private $componentOnPageHasElement;
 
     /**
-     * @ORM\ManyToOne(targetEntity="CMSComponentHasColumn", inversedBy="cmsComponentOnPageHasValues")
-     * @ORM\JoinColumn(name="component_has_column_id", referencedColumnName="id", onDelete="CASCADE", nullable=false)
+     * @ORM\ManyToOne(targetEntity="CMSComponentHasColumn")
+     * @ORM\JoinColumn(onDelete="CASCADE", nullable=false)
      */
-    protected $componentHasColumn;
+    private $componentHasColumn;
 
 
     /**

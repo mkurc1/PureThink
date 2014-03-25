@@ -14,38 +14,27 @@ use Symfony\Component\Validator\Constraints as Assert;
 class Metadata
 {
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="title", type="string", length=255, nullable=true)
-     *
+     * @ORM\Column(type="string", length=255, nullable=true)
      * @Assert\NotNull(groups={"website"})
      * @Assert\Length(max="255")
      */
     private $title;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="description", type="string", length=255, nullable=true)
-     *
+     * @ORM\Column(type="string", length=255, nullable=true)
      * @Assert\Length(max="255")
      */
     private $description;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="keyword", type="string", length=255, nullable=true)
-     *
+     * @ORM\Column(type="string", length=255, nullable=true)
      * @Assert\Length(max="255")
      */
     private $keyword;

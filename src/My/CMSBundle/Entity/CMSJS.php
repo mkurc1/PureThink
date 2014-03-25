@@ -13,24 +13,20 @@ use Doctrine\ORM\Mapping as ORM;
 class CMSJS
 {
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="path", type="string", length=255)
+     * @ORM\Column(type="string", length=255)
      */
     private $path;
 
     /**
      * @ORM\ManyToOne(targetEntity="CMSTemplate", inversedBy="cmsJSs")
-     * @ORM\JoinColumn(name="template_id", referencedColumnName="id", onDelete="CASCADE", nullable=true)
+     * @ORM\JoinColumn(onDelete="CASCADE", nullable=true)
      */
     protected $template;
 
@@ -78,14 +74,14 @@ class CMSJS
     public function setTemplate(\My\CMSBundle\Entity\CMSTemplate $template = null)
     {
         $this->template = $template;
-    
+
         return $this;
     }
 
     /**
      * Get template
      *
-     * @return \My\CMSBundle\Entity\CMSTemplate 
+     * @return \My\CMSBundle\Entity\CMSTemplate
      */
     public function getTemplate()
     {

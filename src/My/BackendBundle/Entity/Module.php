@@ -13,25 +13,19 @@ use Doctrine\ORM\Mapping as ORM;
 class Module
 {
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="name", type="string", length=45)
+     * @ORM\Column(type="string", length=45)
      */
     private $name;
 
     /**
-     * @var boolean
-     *
-     * @ORM\Column(name="is_default", type="boolean")
+     * @ORM\Column(type="boolean")
      */
     private $isDefault = 0;
 

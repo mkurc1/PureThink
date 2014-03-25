@@ -15,9 +15,7 @@ use My\BackendBundle\Entity\MetadataInterface;
 class CMSWebSite implements MetadataInterface
 {
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
@@ -25,13 +23,12 @@ class CMSWebSite implements MetadataInterface
 
     /**
      * @ORM\OneToOne(targetEntity="CMSLanguage")
-     * @ORM\JoinColumn(name="language_id", referencedColumnName="id", onDelete="CASCADE", nullable=false)
+     * @ORM\JoinColumn(onDelete="CASCADE", nullable=false)
      */
     private $language;
 
     /**
      * @ORM\OneToOne(targetEntity="My\BackendBundle\Entity\Metadata", cascade={"persist"})
-     * @ORM\JoinColumn(name="metadata_id", referencedColumnName="id")
      */
     private $metadata;
 

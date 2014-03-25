@@ -15,35 +15,26 @@ use Symfony\Component\Validator\Constraints as Assert;
 class CMSComponent
 {
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="name", type="string", length=255)
-     *
+     * @ORM\Column(type="string", length=255)
      * @Assert\NotNull()
      * @Assert\Length(max="255")
      */
     private $name;
 
     /**
-     * @var datetime
-     *
      * @Gedmo\Timestampable(on="create")
      * @ORM\Column(type="datetime")
      */
     private $createdAt;
 
     /**
-     * @var datetime
-     *
      * @Gedmo\Timestampable(on="update")
      * @ORM\Column(type="datetime")
      */
@@ -51,21 +42,10 @@ class CMSComponent
 
     /**
      * @ORM\ManyToOne(targetEntity="My\BackendBundle\Entity\Series")
-     * @ORM\JoinColumn(name="series_id", referencedColumnName="id", onDelete="CASCADE", nullable=false)
-     *
+     * @ORM\JoinColumn(onDelete="CASCADE", nullable=false)
      * @Assert\NotNull()
      */
     private $series;
-
-    /**
-     * @ORM\OneToMany(targetEntity="CMSComponentHasColumn", mappedBy="cmsComponent")
-     */
-    private $cmsComponentHasColumns;
-
-    /**
-     * @ORM\OneToMany(targetEntity="CMSComponentOnPage", mappedBy="cmsComponent")
-     */
-    private $cmsComponentOnPages;
 
 
     /**
@@ -178,80 +158,6 @@ class CMSComponent
     public function getSeries()
     {
         return $this->series;
-    }
-
-    /**
-     * Add cmsComponentHasColumns
-     *
-     * @param \My\CMSBundle\Entity\CMSComponentHasColumn $cmsComponentHasColumns
-     * @return CMSComponent
-     */
-    public function addCmsComponentHasColumn(\My\CMSBundle\Entity\CMSComponentHasColumn $cmsComponentHasColumns)
-    {
-        $this->cmsComponentHasColumns[] = $cmsComponentHasColumns;
-
-        return $this;
-    }
-
-    /**
-     * Remove cmsComponentHasColumns
-     *
-     * @param \My\CMSBundle\Entity\CMSComponentHasColumn $cmsComponentHasColumns
-     */
-    public function removeCmsComponentHasColumn(\My\CMSBundle\Entity\CMSComponentHasColumn $cmsComponentHasColumns)
-    {
-        $this->cmsComponentHasColumns->removeElement($cmsComponentHasColumns);
-    }
-
-    /**
-     * Get cmsComponentHasColumns
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getCmsComponentHasColumns()
-    {
-        return $this->cmsComponentHasColumns;
-    }
-
-    /**
-     * Add cmsComponentOnPages
-     *
-     * @param \My\CMSBundle\Entity\CMSComponentOnPage $cmsComponentOnPages
-     * @return CMSComponent
-     */
-    public function addCmsComponentOnPage(\My\CMSBundle\Entity\CMSComponentOnPage $cmsComponentOnPages)
-    {
-        $this->cmsComponentOnPages[] = $cmsComponentOnPages;
-
-        return $this;
-    }
-
-    /**
-     * Remove cmsComponentOnPages
-     *
-     * @param \My\CMSBundle\Entity\CMSComponentOnPage $cmsComponentOnPages
-     */
-    public function removeCmsComponentOnPage(\My\CMSBundle\Entity\CMSComponentOnPage $cmsComponentOnPages)
-    {
-        $this->cmsComponentOnPages->removeElement($cmsComponentOnPages);
-    }
-
-    /**
-     * Get cmsComponentOnPages
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getCmsComponentOnPages()
-    {
-        return $this->cmsComponentOnPages;
-    }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->cmsComponentHasColumns = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->cmsComponentOnPages = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
 }

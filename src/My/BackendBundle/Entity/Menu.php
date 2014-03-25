@@ -13,32 +13,24 @@ use Doctrine\ORM\Mapping as ORM;
 class Menu
 {
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="name", type="string", length=128)
+     * @ORM\Column(type="string", length=128)
      */
     private $name;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="link", type="string", length=255)
+     * @ORM\Column(type="string", length=255)
      */
     private $link;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="sequence", type="integer")
+     * @ORM\Column(type="integer")
      */
     private $sequence;
 

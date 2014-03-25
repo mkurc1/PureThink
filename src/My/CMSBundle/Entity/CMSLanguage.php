@@ -13,32 +13,24 @@ use Doctrine\ORM\Mapping as ORM;
 class CMSLanguage
 {
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="name", type="string", length=45)
+     * @ORM\Column(type="string", length=45)
      */
     private $name;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="alias", type="string", length=3)
+     * @ORM\Column(type="string", length=3)
      */
     private $alias;
 
     /**
-     * @var boolean
-     *
-     * @ORM\Column(name="is_public", type="boolean")
+     * @ORM\Column(type="boolean")
      */
     private $isPublic = false;
 

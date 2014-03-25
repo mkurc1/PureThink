@@ -28,37 +28,27 @@ class CMSComponentHasColumn
                                         ];
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="name", type="string", length=255)
-     *
+     * @ORM\Column(type="string", length=255)
      * @Assert\NotNull()
      * @Assert\Length(max="255")
      */
     private $name;
 
     /**
-     * @var string
-     *
      * @Gedmo\Slug(fields={"name"})
      * @ORM\Column(length=255, unique=true)
      */
     private $slug;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="column_label", type="string", length=255)
-     *
+     * @ORM\Column(type="string", length=255)
      * @Assert\NotNull()
      * @Assert\Length(max="255")
      */
@@ -88,10 +78,10 @@ class CMSComponentHasColumn
     private $isMainField = false;
 
     /**
-     * @ORM\ManyToOne(targetEntity="CMSComponent", inversedBy="cmsComponentHasColumns")
+     * @ORM\ManyToOne(targetEntity="CMSComponent")
      * @ORM\JoinColumn(name="component_id", referencedColumnName="id", onDelete="CASCADE", nullable=false)
      */
-    protected $component;
+    private $component;
 
     /**
      * @ORM\Column(name="column_type", type="integer")
@@ -99,11 +89,6 @@ class CMSComponentHasColumn
      * @Assert\NotNull()
      */
     private $columnType;
-
-    /**
-     * @ORM\OneToMany(targetEntity="CMSComponentOnPageHasValue", mappedBy="cmsComponentHasColumns")
-     */
-    protected $cmsComponentOnPagesHasValues;
 
 
     /**
@@ -262,47 +247,6 @@ class CMSComponentHasColumn
     }
 
     /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->cmsComponentOnPagesHasValues = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Add cmsComponentOnPagesHasValues
-     *
-     * @param \My\CMSBundle\Entity\CMSComponentOnPageHasValue $cmsComponentOnPagesHasValues
-     * @return CMSComponentHasColumn
-     */
-    public function addCmsComponentOnPagesHasValue(\My\CMSBundle\Entity\CMSComponentOnPageHasValue $cmsComponentOnPagesHasValues)
-    {
-        $this->cmsComponentOnPagesHasValues[] = $cmsComponentOnPagesHasValues;
-
-        return $this;
-    }
-
-    /**
-     * Remove cmsComponentOnPagesHasValues
-     *
-     * @param \My\CMSBundle\Entity\CMSComponentOnPageHasValue $cmsComponentOnPagesHasValues
-     */
-    public function removeCmsComponentOnPagesHasValue(\My\CMSBundle\Entity\CMSComponentOnPageHasValue $cmsComponentOnPagesHasValues)
-    {
-        $this->cmsComponentOnPagesHasValues->removeElement($cmsComponentOnPagesHasValues);
-    }
-
-    /**
-     * Get cmsComponentOnPagesHasValues
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getCmsComponentOnPagesHasValues()
-    {
-        return $this->cmsComponentOnPagesHasValues;
-    }
-
-    /**
      * Set slug
      *
      * @param string $slug
@@ -364,7 +308,7 @@ class CMSComponentHasColumn
     /**
      * Get columnType
      *
-     * @return integer 
+     * @return integer
      */
     public function getColumnType()
     {

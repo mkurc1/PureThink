@@ -17,59 +17,44 @@ use Symfony\Component\Validator\Constraints as Assert;
 class CMSArticle implements MetadataInterface
 {
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="name", type="string", length=255)
-     *
+     * @ORM\Column(type="string", length=255)
      * @Assert\NotNull()
      * @Assert\Length(max="255")
      */
     private $name;
 
     /**
-     * @var string
-     *
      * @Gedmo\Slug(fields={"name"})
      * @ORM\Column(length=255, unique=true)
      */
     private $slug;
 
     /**
-     * @var datetime
-     *
      * @Gedmo\Timestampable(on="create")
      * @ORM\Column(type="datetime")
      */
     private $createdAt;
 
     /**
-     * @var datetime
-     *
      * @Gedmo\Timestampable(on="update")
      * @ORM\Column(type="datetime")
      */
     private $updatedAt;
 
     /**
-     * @var boolean
-     *
-     * @ORM\Column(name="is_public", type="boolean", nullable=true)
+     * @ORM\Column(type="boolean", nullable=true)
      */
     private $isPublic = false;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="content", type="text", nullable=true)
+     * @ORM\Column(type="text", nullable=true)
      */
     private $content;
 
@@ -80,7 +65,7 @@ class CMSArticle implements MetadataInterface
 
     /**
      * @ORM\ManyToOne(targetEntity="CMSLanguage")
-     * @ORM\JoinColumn(name="language_id", referencedColumnName="id", onDelete="CASCADE", nullable=false)
+     * @ORM\JoinColumn(onDelete="CASCADE", nullable=false)
      *
      * @Assert\NotNull()
      */
@@ -88,21 +73,19 @@ class CMSArticle implements MetadataInterface
 
     /**
      * @ORM\ManyToOne(targetEntity="My\UserBundle\Entity\User")
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="id", onDelete="CASCADE", nullable=false)
+     * @ORM\JoinColumn(onDelete="CASCADE", nullable=false)
      */
     private $user;
 
     /**
      * @ORM\ManyToOne(targetEntity="My\BackendBundle\Entity\Series")
-     * @ORM\JoinColumn(name="series_id", referencedColumnName="id", onDelete="CASCADE", nullable=false)
-     *
+     * @ORM\JoinColumn(onDelete="CASCADE", nullable=false)
      * @Assert\NotNull()
      */
     private $series;
 
     /**
      * @ORM\OneToOne(targetEntity="My\BackendBundle\Entity\Metadata", cascade={"persist"})
-     * @ORM\JoinColumn(name="metadata_id", referencedColumnName="id")
      */
     private $metadata;
 
