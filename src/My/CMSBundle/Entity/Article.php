@@ -323,10 +323,13 @@ class Article implements MetadataInterface
     /**
      * Constructor
      */
-    public function __construct(User $user)
+    public function __construct(User $user = null)
     {
         $this->setMetadata(new Metadata());
-        $this->setUser($user);
+
+        if (null != $user) {
+            $this->setUser($user);
+        }
     }
 
     /**

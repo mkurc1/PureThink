@@ -10,6 +10,7 @@ class FilterRepository extends EntityRepository
      * Add language alias filter
      *
      * @param QueryBuilde $qb
+     * @param string $languageAlias
      * @param string $alias
      */
     protected function addLanguageAliasFilter($qb, $languageAlias = null, $alias = 'l')
@@ -38,6 +39,7 @@ class FilterRepository extends EntityRepository
      * Add language filter
      *
      * @param QueryBuilde $qb
+     * @param integer $languageId
      * @param string $filter
      */
     protected function addLanguageIdFilterQB($qb, $languageId = null, $alias = 'l')
@@ -52,6 +54,7 @@ class FilterRepository extends EntityRepository
      * Add group filter
      *
      * @param QueryBuilde $qb
+     * @param integer $groupId
      * @param string $filter
      */
     protected function addGroupFilterQB($qb, $groupId = null, $alias = 's')

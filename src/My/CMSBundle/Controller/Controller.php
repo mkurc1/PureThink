@@ -114,7 +114,7 @@ class Controller extends BaseController
 
     /**
      * @Route("/{id}/edit")
-     * @Method("POST")
+     * @Method("GET")
      */
     public function editAction(Request $request, $id)
     {
