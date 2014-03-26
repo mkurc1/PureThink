@@ -96,6 +96,10 @@ doctrine:
     orm:
         auto_generate_proxy_classes: "%kernel.debug%"
         auto_mapping: true
+        dql:
+            string_functions:
+                if: My\CoreBundle\Doctrine\IfFunction
+                cast: My\CoreBundle\Doctrine\CastFunction
 
 # Swiftmailer Configuration
 swiftmailer:

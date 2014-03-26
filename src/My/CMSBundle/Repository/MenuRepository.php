@@ -63,7 +63,7 @@ class MenuRepository extends FilterRepository
             ->leftJoin('a.article', 'art')
             ->leftJoin('a.menu', 'm')
             ->where('a.isPublic = true')
-            ->andWhere('l.alias = :locale')
+            ->andWhere('UPPER(l.alias) = UPPER(:locale)')
             ->andWhere('art.isPublic = true')
             ->andWhere('s.name = :slug')
             ->orderBy('m.sequence, a.sequence')
