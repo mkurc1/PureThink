@@ -3,12 +3,12 @@
 namespace My\CMSBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller as BaseController;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Response;
 
-class Controller extends BaseController
+class CRUDController extends Controller
 {
     /**
      * @Route("/")
@@ -195,8 +195,24 @@ class Controller extends BaseController
 
         $entities = $this->getEntitiesByIds($arrayId);
 
-        $response = $this->get('my.manageList.service')
-            ->deleteEntities($entities);
+        $em = $this->getDoctrine()->getManager();
+        foreach ($entities as $entity) {
+            $em->remove($entity);
+        }
+
+        try {
+            $em->flush();
+
+            $response = array(
+                "response" => true,
+                "message"  => 'Usuwanie pozycji zakończyło się powodzeniem'
+                );
+        } catch (\Exception $e) {
+            $response = array(
+                "response" => false,
+                "message"  => 'Usuwanie pozycji zakończyło się niepowodzeniem'
+                );
+        }
 
         return new Response(json_encode($response));
     }

@@ -2,7 +2,7 @@
 
 namespace My\CMSBundle\Controller;
 
-use My\CMSBundle\Controller\Controller;
+use My\CMSBundle\Controller\CRUDController;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -13,7 +13,7 @@ use Symfony\Component\HttpFoundation\Response;
 /**
  * @Route("/admin/cms/article")
  */
-class ArticleController extends Controller
+class ArticleController extends CRUDController
 {
     protected function getListQB(array $params)
     {

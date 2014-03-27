@@ -61,10 +61,11 @@ MainButtonView = Backbone.View.extend({
                 confirmationText = 'Czy napewno chcesz usunąć wybraną pozycje?';
             }
 
-            var confirmation = confirm(confirmationText);
-            if(confirmation) {
-                listView.removeElements();
-            }
+            alertify.confirm(confirmationText, function (e) {
+                if (e) {
+                    listView.removeElements();
+                }
+            });
         }
     },
 

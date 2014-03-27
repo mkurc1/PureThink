@@ -55,10 +55,11 @@
             if (!$(this).hasClass('disable')) {
                 var confirmationText = 'Czy napewno chcesz usunąć wybraną pozycje?';
 
-                var confirmation = confirm(confirmationText);
-                if(confirmation) {
-                    remove(listId);
-                }
+                alertify.confirm(confirmationText, function (e) {
+                    if (e) {
+                        remove(listId);
+                    }
+                });
             }
         });
 
