@@ -46,7 +46,7 @@ class FrontendController extends Controller
         $entities = $this->getDoctrine()->getRepository('MyCMSBundle:ComponentOnPageHasValue')
             ->getActiveComponentBySlugAndLocale($slug, $locale);
 
-        if (count($entities) == 0) {
+        if (null == $entities) {
             return new Response();
         }
 
@@ -69,7 +69,7 @@ class FrontendController extends Controller
         $entities = $this->getDoctrine()->getRepository('MyCMSBundle:Menu')
             ->getActiveMenusBySlugAndLocale($slug, $locale);
 
-        if (count($entities) == 0) {
+        if (null == $entities) {
             return new Response();
         }
 

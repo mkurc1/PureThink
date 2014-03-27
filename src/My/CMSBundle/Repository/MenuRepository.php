@@ -39,10 +39,12 @@ class MenuRepository extends FilterRepository
         $menus = $this->getActiveMenusBySlugAndLocaleQb($slug, $locale);
         $menus = $menus->getQuery()->getResult();
 
+        // ldd($menus);
+
         foreach ($menus as $menu) {
             $id = $menu->getId();
 
-            if (is_object($menu->getMenu()) && $menu->getMenu()->getIsPublic()) {
+            if (is_object($menu->getMenu()) && $menu->getMenu()->getIsPublic() && $menu->getMenu()->getArticle()->getIsPublic()) {
                 $parentId = $menu->getMenu()->getId();
                 $entities[$parentId]['childrens'][$id]['parent'] = $menu;
             }
