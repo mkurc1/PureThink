@@ -1,6 +1,6 @@
 <?php
 
-namespace My\CMSBundle\Controller;
+namespace My\BackendBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -26,10 +26,8 @@ class CRUDController extends Controller
             'groupId'    => (int)$request->get('groupId'),
         ];
 
-        $entities = $this->getListQB($params);
-
-        $pagination = $this->get('my.pagination.service')
-            ->setPagination($entities, $params['page'], $params['rowsOnPage']);
+        $entities   = $this->getListQB($params);
+        $pagination = $this->setPagination($entities, $params['page'], $params['rowsOnPage']);
 
         $list = $this->renderView($this->getListTemplate(), [
             'entities'   => $pagination['entities'],
@@ -203,17 +201,23 @@ class CRUDController extends Controller
         try {
             $em->flush();
 
-            $response = array(
+            $response = [
                 "response" => true,
                 "message"  => 'Usuwanie pozycji zakończyło się powodzeniem'
-                );
+                ];
         } catch (\Exception $e) {
-            $response = array(
+            $response = [
                 "response" => false,
                 "message"  => 'Usuwanie pozycji zakończyło się niepowodzeniem'
-                );
+                ];
         }
 
         return new Response(json_encode($response));
+    }
+
+    private function setPagination($entities, $page = 1, $rowsOnPage = 10)
+    {
+        return $this->get('my.pagination.service')
+            ->setPagination($entities, $page, $rowsOnPage);
     }
 }

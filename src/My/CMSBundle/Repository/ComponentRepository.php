@@ -28,4 +28,13 @@ class ComponentRepository extends FilterRepository
 
 		return $qb->getQuery();
 	}
+
+    public function getComponentsByIds(array $ids)
+    {
+        $qb = $this->createQueryBuilder('c')
+            ->where('c.id IN (:ids)')
+            ->setParameter('ids', $ids);
+
+        return $qb->getQuery()->getResult();
+    }
 }

@@ -11,24 +11,18 @@ class ComponentType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name', 'text', array(
-                'label' => 'Nazwa rozszerzenia',
-                'attr' => array(
-                    'class' => 'name'
-                    )
-                )
-            )
-            ->add('series', 'entity', array(
+            ->add('name', 'text', ['label' => 'Nazwa rozszerzenia', 'attr' => ['class' => 'name']])
+            ->add('series', 'entity', [
                 'label' => 'Grupa',
                 'class' => 'MyBackendBundle:Series',
                 'query_builder' => function (\Doctrine\ORM\EntityRepository $er) use ($options) {
-                    return $er->getGroupsByMenuIdNoExecute($options['attr']['menuId']);
+                    return $er->getGroupsByMenuIdNoExecute($options['menuId']);
                 },
                 'empty_value' => '',
-                'attr' => array(
+                'attr' => [
                     'class' => 'sintetic-select'
-                    )
-                )
+                    ]
+                ]
             )
         ;
     }
@@ -36,13 +30,11 @@ class ComponentType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'My\CMSBundle\Entity\Component'
+            'data_class' => 'My\CMSBundle\Entity\Component',
+            'menuId'     => null
         ));
     }
 
-    /**
-     * @return string
-     */
     public function getName()
     {
         return 'my_cmsbundle_component';

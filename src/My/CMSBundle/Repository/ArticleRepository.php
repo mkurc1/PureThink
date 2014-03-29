@@ -38,7 +38,7 @@ class ArticleRepository extends FilterRepository
      * @param  $ids
      * @return array
      */
-    public function getArticlesByIds($ids = [])
+    public function getArticlesByIds(array $ids)
     {
         $qb = $this->createQueryBuilder('a')
             ->where('a.id IN (:ids)')

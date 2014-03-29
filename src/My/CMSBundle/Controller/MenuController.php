@@ -272,14 +272,7 @@ class MenuController extends Controller
             throw $this->createNotFoundException();
         }
 
-        if ($entity->getIsPublic()) {
-            $entity->setIsPublic(false);
-        }
-        else {
-            $entity->setIsPublic(true);
-        }
-
-        $em->persist($entity);
+        $entity->setIsPublic(!$entity->getIsPublic());
 
         try {
             $em->flush();
