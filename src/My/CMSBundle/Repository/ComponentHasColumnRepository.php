@@ -12,15 +12,15 @@ class ComponentHasColumnRepository extends FilterRepository
      * @param string $order
      * @param string $sequence
      * @param string $filter
-     * @param integer $componentId
+     * @param integer $extensionId
      * @return QueryBuilder
      */
-	public function getColumnsQB($order, $sequence, $filter, $componentId)
+	public function getColumnsQB($order, $sequence, $filter, $extensionId)
 	{
 		$qb = $this->createQueryBuilder('a')
-            ->join('a.component', 'c')
-            ->where('c.id = :componentId')
-            ->setParameter('componentId', $componentId);
+            ->join('a.extension', 'c')
+            ->where('c.id = :extensionId')
+            ->setParameter('extensionId', $extensionId);
 
         $this->addNameFilterQB($qb, $filter);
 

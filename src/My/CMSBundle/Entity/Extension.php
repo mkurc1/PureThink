@@ -7,10 +7,10 @@ use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ORM\Table(name="cms_component")
- * @ORM\Entity(repositoryClass="My\CMSBundle\Repository\ComponentRepository")
+ * @ORM\Table(name="cms_extension")
+ * @ORM\Entity(repositoryClass="My\CMSBundle\Repository\ExtensionRepository")
  */
-class Component
+class Extension
 {
     /**
      * @ORM\Column(type="integer")
@@ -60,7 +60,7 @@ class Component
      * Set name
      *
      * @param string $name
-     * @return Component
+     * @return Extension
      */
     public function setName($name)
     {
@@ -93,7 +93,7 @@ class Component
      * Set createdAt
      *
      * @param \DateTime $createdAt
-     * @return Component
+     * @return Extension
      */
     public function setCreatedAt($createdAt)
     {
@@ -116,7 +116,7 @@ class Component
      * Set updatedAt
      *
      * @param \DateTime $updatedAt
-     * @return Component
+     * @return Extension
      */
     public function setUpdatedAt($updatedAt)
     {
@@ -139,7 +139,7 @@ class Component
      * Set series
      *
      * @param \My\BackendBundle\Entity\Series $series
-     * @return Component
+     * @return Extension
      */
     public function setSeries(\My\BackendBundle\Entity\Series $series)
     {

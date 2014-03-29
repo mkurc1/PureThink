@@ -57,7 +57,7 @@ class ComponentHasColumnController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $entity = new ComponentHasColumn();
-        $entity->setComponent($em->getRepository('MyCMSBundle:Component')->find($sublistId));
+        $entity->setExtension($em->getRepository('MyCMSBundle:Extension')->find($sublistId));
 
         $form = $this->createForm(new ComponentHasColumnType(), $entity);
         $form->bind($request);
@@ -241,7 +241,7 @@ class ComponentHasColumnController extends Controller
         }
 
         $entities = $em->getRepository('MyCMSBundle:ComponentHasColumn')
-            ->findByComponent($selectedElement->getComponent());
+            ->findByExtension($selectedElement->getExtension());
 
         foreach ($entities as $entity) {
             if ($entity == $selectedElement) {

@@ -64,11 +64,11 @@ class ComponentOnPage
     private $series;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Component")
+     * @ORM\ManyToOne(targetEntity="Extension")
      * @ORM\JoinColumn(onDelete="CASCADE", nullable=false)
      * @Assert\NotNull()
      */
-    private $component;
+    private $extension;
 
 
     /**
@@ -253,26 +253,25 @@ class ComponentOnPage
     }
 
     /**
-     * Set component
+     * Set extension
      *
-     * @param \My\CMSBundle\Entity\Component $component
-     * @return CMSComponentOnPage
+     * @param \My\CMSBundle\Entity\Extension $extension
+     * @return ComponentOnPage
      */
-    public function setComponent(\My\CMSBundle\Entity\Component $component)
+    public function setExtension(\My\CMSBundle\Entity\Extension $extension)
     {
-        $this->component = $component;
+        $this->extension = $extension;
 
         return $this;
     }
 
     /**
-     * Get component
+     * Get extension
      *
-     * @return \My\CMSBundle\Entity\Component
+     * @return \My\CMSBundle\Entity\Extension 
      */
-    public function getComponent()
+    public function getExtension()
     {
-        return $this->component;
+        return $this->extension;
     }
-
 }

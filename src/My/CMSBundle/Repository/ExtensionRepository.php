@@ -1,14 +1,13 @@
 <?php
-
 namespace My\CMSBundle\Repository;
 
 use My\BackendBundle\Repository\FilterRepository;
 
 
-class ComponentRepository extends FilterRepository
+class ExtensionRepository extends FilterRepository
 {
     /**
-     * Get components
+     * Get extensions
      *
      * @param string $order
      * @param string $sequence
@@ -16,7 +15,7 @@ class ComponentRepository extends FilterRepository
      * @param string $groupId
      * @return array
      */
-	public function getComponentsQB($order, $sequence, $filter, $groupId)
+	public function getExtensionsQB($order, $sequence, $filter, $groupId)
 	{
 		$qb = $this->createQueryBuilder('a')
             ->join('a.series', 's');
@@ -29,7 +28,7 @@ class ComponentRepository extends FilterRepository
 		return $qb->getQuery();
 	}
 
-    public function getComponentsByIds(array $ids)
+    public function getExtensionsByIds(array $ids)
     {
         $qb = $this->createQueryBuilder('c')
             ->where('c.id IN (:ids)')

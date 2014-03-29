@@ -69,10 +69,10 @@ class ComponentHasColumn
     private $isMainField = false;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Component")
+     * @ORM\ManyToOne(targetEntity="Extension")
      * @ORM\JoinColumn(onDelete="CASCADE", nullable=false)
      */
-    private $component;
+    private $extension;
 
     /**
      * @ORM\Column(name="column_type", type="integer")
@@ -205,29 +205,6 @@ class ComponentHasColumn
     }
 
     /**
-     * Set component
-     *
-     * @param \My\CMSBundle\Entity\Component $component
-     * @return ComponentHasColumn
-     */
-    public function setComponent(\My\CMSBundle\Entity\Component $component)
-    {
-        $this->component = $component;
-
-        return $this;
-    }
-
-    /**
-     * Get component
-     *
-     * @return \My\CMSBundle\Entity\Component
-     */
-    public function getComponent()
-    {
-        return $this->component;
-    }
-
-    /**
      * Set slug
      *
      * @param string $slug
@@ -294,5 +271,28 @@ class ComponentHasColumn
     public function getColumnType()
     {
         return $this->columnType;
+    }
+
+    /**
+     * Set extension
+     *
+     * @param \My\CMSBundle\Entity\Extension $extension
+     * @return ComponentHasColumn
+     */
+    public function setExtension(\My\CMSBundle\Entity\Extension $extension)
+    {
+        $this->extension = $extension;
+
+        return $this;
+    }
+
+    /**
+     * Get extension
+     *
+     * @return \My\CMSBundle\Entity\Extension 
+     */
+    public function getExtension()
+    {
+        return $this->extension;
     }
 }

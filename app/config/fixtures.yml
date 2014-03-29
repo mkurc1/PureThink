@@ -11,7 +11,7 @@ khepin_yaml_fixtures:
 
         - MyCMSBundle/language
         - MyCMSBundle/article
-        - MyCMSBundle/component
+        - MyCMSBundle/extension
         - MyCMSBundle/componentHasColumn
         - MyCMSBundle/componentOnPage
         - MyCMSBundle/componentOnPageHasElement

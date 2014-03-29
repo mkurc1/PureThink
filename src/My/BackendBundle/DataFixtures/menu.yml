@@ -22,7 +22,7 @@ fixtures:
         module: module_1
     menu_5:
         name: "Rozszerzenia"
-        link: "my_cms_component_list"
+        link: "my_cms_extension_list"
         sequence: 5
         module: module_1
     menu_6:
