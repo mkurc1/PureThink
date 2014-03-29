@@ -39,7 +39,7 @@ class ArticleController extends CRUDController implements CRUDInterface
             ->getArticlesByIds($ids);
     }
 
-    public function getNewEntity()
+    public function getNewEntity($params)
     {
         return new Article($this->getUser());
     }

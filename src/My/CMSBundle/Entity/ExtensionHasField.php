@@ -5,14 +5,15 @@ namespace My\CMSBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
+use My\CMSBundle\Entity\Extension;
 
 /**
- * @ORM\Table(name="cms_component_has_column")
- * @ORM\Entity(repositoryClass="My\CMSBundle\Repository\ComponentHasColumnRepository")
+ * @ORM\Table(name="cms_extension_has_field")
+ * @ORM\Entity(repositoryClass="My\CMSBundle\Repository\ExtensionHasFieldRepository")
  */
-class ComponentHasColumn
+class ExtensionHasField
 {
-    public static $avilableColumnType = [
+    public static $avilableTypeOfField = [
                                          1  => "Text",
                                          2  => "Textarea",
                                          3  => "Integer",
@@ -50,7 +51,7 @@ class ComponentHasColumn
      * @Assert\NotNull()
      * @Assert\Length(max="255")
      */
-    private $columnLabel;
+    private $labelOfField;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -75,21 +76,27 @@ class ComponentHasColumn
     private $extension;
 
     /**
-     * @ORM\Column(name="column_type", type="integer")
-     *
+     * @ORM\Column(type="integer")
      * @Assert\NotNull()
      */
-    private $columnType;
+    private $typeOfField;
 
 
-    public static function getColumnTypeStringById($id)
+    public function __construct(Extension $extension = null)
     {
-        return self::$avilableColumnType[$id];
+        if (null != $extension) {
+            $this->setExtension($extension);
+        }
     }
 
-    public function getColumnTypeString()
+    public static function getTypeOfFieldStringById($id)
     {
-        return self::$avilableColumnType[$this->getColumnType()];
+        return self::$avilableTypeOfField[$id];
+    }
+
+    public function getTypeOfFieldString()
+    {
+        return self::$avilableTypeOfField[$this->getTypeOfField()];
     }
 
     /**
@@ -106,7 +113,7 @@ class ComponentHasColumn
      * Set name
      *
      * @param string $name
-     * @return ComponentHasColumn
+     * @return ExtensionHasField
      */
     public function setName($name)
     {
@@ -136,33 +143,10 @@ class ComponentHasColumn
     }
 
     /**
-     * Set columnLabel
-     *
-     * @param string $columnLabel
-     * @return ComponentHasColumn
-     */
-    public function setColumnLabel($columnLabel)
-    {
-        $this->columnLabel = $columnLabel;
-
-        return $this;
-    }
-
-    /**
-     * Get columnLabel
-     *
-     * @return string
-     */
-    public function getColumnLabel()
-    {
-        return $this->columnLabel;
-    }
-
-    /**
      * Set class
      *
      * @param string $class
-     * @return ComponentHasColumn
+     * @return ExtensionHasField
      */
     public function setClass($class)
     {
@@ -185,7 +169,7 @@ class ComponentHasColumn
      * Set isRequired
      *
      * @param boolean $isRequired
-     * @return ComponentHasColumn
+     * @return ExtensionHasField
      */
     public function setIsRequired($isRequired)
     {
@@ -208,7 +192,7 @@ class ComponentHasColumn
      * Set slug
      *
      * @param string $slug
-     * @return ComponentHasColumn
+     * @return ExtensionHasField
      */
     public function setSlug($slug)
     {
@@ -231,7 +215,7 @@ class ComponentHasColumn
      * Set isMainField
      *
      * @param boolean $isMainField
-     * @return ComponentHasColumn
+     * @return ExtensionHasField
      */
     public function setIsMainField($isMainField)
     {
@@ -251,33 +235,10 @@ class ComponentHasColumn
     }
 
     /**
-     * Set columnType
-     *
-     * @param integer $columnType
-     * @return ComponentHasColumn
-     */
-    public function setColumnType($columnType)
-    {
-        $this->columnType = $columnType;
-
-        return $this;
-    }
-
-    /**
-     * Get columnType
-     *
-     * @return integer
-     */
-    public function getColumnType()
-    {
-        return $this->columnType;
-    }
-
-    /**
      * Set extension
      *
      * @param \My\CMSBundle\Entity\Extension $extension
-     * @return ComponentHasColumn
+     * @return ExtensionHasField
      */
     public function setExtension(\My\CMSBundle\Entity\Extension $extension)
     {
@@ -289,10 +250,56 @@ class ComponentHasColumn
     /**
      * Get extension
      *
-     * @return \My\CMSBundle\Entity\Extension 
+     * @return \My\CMSBundle\Entity\Extension
      */
     public function getExtension()
     {
         return $this->extension;
+    }
+
+    /**
+     * Set labelOfField
+     *
+     * @param string $labelOfField
+     * @return ExtensionHasField
+     */
+    public function setLabelOfField($labelOfField)
+    {
+        $this->labelOfField = $labelOfField;
+
+        return $this;
+    }
+
+    /**
+     * Get labelOfField
+     *
+     * @return string
+     */
+    public function getLabelOfField()
+    {
+        return $this->labelOfField;
+    }
+
+    /**
+     * Set typeOfField
+     *
+     * @param integer $typeOfField
+     * @return ExtensionHasField
+     */
+    public function setTypeOfField($typeOfField)
+    {
+        $this->typeOfField = $typeOfField;
+
+        return $this;
+    }
+
+    /**
+     * Get typeOfField
+     *
+     * @return integer
+     */
+    public function getTypeOfField()
+    {
+        return $this->typeOfField;
     }
 }

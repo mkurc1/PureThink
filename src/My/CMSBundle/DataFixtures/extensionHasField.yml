@@ -1,84 +1,84 @@
-model: My\CMSBundle\Entity\ComponentHasColumn
+model: My\CMSBundle\Entity\ExtensionHasField
 fixtures:
-    cms_component_has_column_1:
+    cms_extension_has_field_1:
         extension: cms_extension_2
-        columnType: 1
+        typeOfField: 1
         name: "Nazwa"
-        columnLabel: "Nazwa banera"
+        labelOfField: "Nazwa banera"
         isRequired: 1
         isMainField: 1
-    cms_component_has_column_2:
+    cms_extension_has_field_2:
         extension: cms_extension_2
-        columnType: 9
+        typeOfField: 9
         name: "Adres"
-        columnLabel: "Adres docelowy"
+        labelOfField: "Adres docelowy"
         class: "sintetic-select"
         isRequired: 1
-    cms_component_has_column_3:
+    cms_extension_has_field_3:
         extension: cms_extension_2
-        columnType: 10
+        typeOfField: 10
         name: "Fotografia"
-        columnLabel: "Wybierz fotografię"
+        labelOfField: "Wybierz fotografię"
         class: "sintetic-select"
         isRequired: 1
-    cms_component_has_column_4:
+    cms_extension_has_field_4:
         extension: cms_extension_1
-        columnType: 1
+        typeOfField: 1
         name: "Nazwa"
-        columnLabel: "Nazwa linku"
+        labelOfField: "Nazwa linku"
         isRequired: 1
         isMainField: 1
-    cms_component_has_column_5:
+    cms_extension_has_field_5:
         extension: cms_extension_1
-        columnType: 9
+        typeOfField: 9
         name: "Adres"
-        columnLabel: "Adres docelowy"
+        labelOfField: "Adres docelowy"
         class: "sintetic-select"
         isRequired: 1
-    cms_component_has_column_6:
+    cms_extension_has_field_6:
         extension: cms_extension_3
-        columnType: 1
+        typeOfField: 1
         name: "Nazwa"
-        columnLabel: "Nazwa newsa"
+        labelOfField: "Nazwa newsa"
         isRequired: 1
         isMainField: 1
-    cms_component_has_column_7:
+    cms_extension_has_field_7:
         extension: cms_extension_3
-        columnType: 9
+        typeOfField: 9
         name: "Adres"
-        columnLabel: "Adres docelowy"
+        labelOfField: "Adres docelowy"
         class: "sintetic-select"
         isRequired: 1
-    cms_component_has_column_8:
+    cms_extension_has_field_8:
         extension: cms_extension_3
-        columnType: 10
+        typeOfField: 10
         name: "Fotografia"
-        columnLabel: "Wybierz fotografię"
+        labelOfField: "Wybierz fotografię"
         class: "sintetic-select"
         isRequired: 1
-    cms_component_has_column_9:
+    cms_extension_has_field_9:
         extension: cms_extension_3
-        columnType: 2
+        typeOfField: 2
         name: "Treść"
-        columnLabel: "Treść"
+        labelOfField: "Treść"
         isRequired: 1
-    cms_component_has_column_10:
+    cms_extension_has_field_10:
         extension: cms_extension_4
-        columnType: 1
+        typeOfField: 1
         name: "Nazwa"
-        columnLabel: "Nazwa"
+        labelOfField: "Nazwa"
         isRequired: 1
         isMainField: 1
-    cms_component_has_column_11:
+    cms_extension_has_field_11:
         extension: cms_extension_4
-        columnType: 9
+        typeOfField: 9
         name: "Adres"
-        columnLabel: "Adres docelowy"
+        labelOfField: "Adres docelowy"
         class: "sintetic-select"
         isRequired: 1
-    cms_component_has_column_12:
+    cms_extension_has_field_12:
         extension: cms_extension_4
-        columnType: 2
+        typeOfField: 2
         name: "Treść"
-        columnLabel: "Treść"
+        labelOfField: "Treść"
         isRequired: 1

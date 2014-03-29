@@ -20,10 +20,10 @@ class ComponentOnPageRepository extends FilterRepository
     public function getComponentsQB($order, $sequence, $filter, $languageId, $groupId)
     {
         $qb = $this->createQueryBuilder('a')
-            ->select('a, c')
+            ->addSelect('a, e')
             ->join('a.language', 'l')
             ->join('a.series', 's')
-            ->join('a.component', 'c');
+            ->join('a.extension', 'e');
 
         $this->addNameFilterQB($qb, $filter);
         $this->addLanguageIdFilterQB($qb, $languageId);

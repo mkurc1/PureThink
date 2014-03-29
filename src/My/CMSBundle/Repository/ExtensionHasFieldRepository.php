@@ -4,10 +4,10 @@ namespace My\CMSBundle\Repository;
 
 use My\BackendBundle\Repository\FilterRepository;
 
-class ComponentHasColumnRepository extends FilterRepository
+class ExtensionHasFieldRepository extends FilterRepository
 {
     /**
-     * Get columns
+     * Get fields
      *
      * @param string $order
      * @param string $sequence
@@ -15,7 +15,7 @@ class ComponentHasColumnRepository extends FilterRepository
      * @param integer $extensionId
      * @return QueryBuilder
      */
-	public function getColumnsQB($order, $sequence, $filter, $extensionId)
+	public function getFieldsQB($order, $sequence, $filter, $extensionId)
 	{
 		$qb = $this->createQueryBuilder('a')
             ->join('a.extension', 'c')
@@ -28,4 +28,13 @@ class ComponentHasColumnRepository extends FilterRepository
 
 		return $qb->getQuery();
 	}
+
+    public function getFieldsByIds(array $ids)
+    {
+        $qb = $this->createQueryBuilder('f')
+            ->where('f.id IN (:ids)')
+            ->setParameter('ids', $ids);
+
+        return $qb->getQuery()->getResult();
+    }
 }

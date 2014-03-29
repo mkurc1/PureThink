@@ -4,7 +4,7 @@ namespace My\CMSBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class ComponentControllerTest extends WebTestCase
+class ExtensionHasFieldControllerTest extends WebTestCase
 {
     /*
     public function testCompleteScenario()
@@ -13,13 +13,13 @@ class ComponentControllerTest extends WebTestCase
         $client = static::createClient();
 
         // Create a new entry in the database
-        $crawler = $client->request('GET', '/cmscomponent/');
-        $this->assertEquals(200, $client->getResponse()->getStatusCode(), "Unexpected HTTP status code for GET /cmscomponent/");
+        $crawler = $client->request('GET', '/cmscomponenthascolumn/');
+        $this->assertEquals(200, $client->getResponse()->getStatusCode(), "Unexpected HTTP status code for GET /cmscomponenthascolumn/");
         $crawler = $client->click($crawler->selectLink('Create a new entry')->link());
 
         // Fill in the form and submit it
         $form = $crawler->selectButton('Create')->form(array(
-            'my_cmsbundle_cmscomponenttype[field_name]'  => 'Test',
+            'my_cmsbundle_cmscomponenthascolumntype[field_name]'  => 'Test',
             // ... other fields to fill
         ));
 
@@ -33,7 +33,7 @@ class ComponentControllerTest extends WebTestCase
         $crawler = $client->click($crawler->selectLink('Edit')->link());
 
         $form = $crawler->selectButton('Edit')->form(array(
-            'my_cmsbundle_cmscomponenttype[field_name]'  => 'Foo',
+            'my_cmsbundle_cmscomponenthascolumntype[field_name]'  => 'Foo',
             // ... other fields to fill
         ));
 

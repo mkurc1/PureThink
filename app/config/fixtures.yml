@@ -12,7 +12,7 @@ khepin_yaml_fixtures:
         - MyCMSBundle/language
         - MyCMSBundle/article
         - MyCMSBundle/extension
-        - MyCMSBundle/componentHasColumn
+        - MyCMSBundle/extensionHasField
         - MyCMSBundle/componentOnPage
         - MyCMSBundle/componentOnPageHasElement
         - MyCMSBundle/componentOnPageHasValue

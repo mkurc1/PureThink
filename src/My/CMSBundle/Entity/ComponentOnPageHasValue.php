@@ -29,10 +29,10 @@ class ComponentOnPageHasValue
     private $componentOnPageHasElement;
 
     /**
-     * @ORM\ManyToOne(targetEntity="ComponentHasColumn")
+     * @ORM\ManyToOne(targetEntity="ExtensionHasField")
      * @ORM\JoinColumn(onDelete="CASCADE", nullable=false)
      */
-    private $componentHasColumn;
+    private $extensionHasField;
 
 
     /**
@@ -98,29 +98,6 @@ class ComponentOnPageHasValue
     }
 
     /**
-     * Set componentHasColumn
-     *
-     * @param \My\CMSBundle\Entity\ComponentHasColumn $componentHasColumn
-     * @return ComponentOnPageHasValue
-     */
-    public function setComponentHasColumn(\My\CMSBundle\Entity\ComponentHasColumn $componentHasColumn)
-    {
-        $this->componentHasColumn = $componentHasColumn;
-
-        return $this;
-    }
-
-    /**
-     * Get componentHasColumn
-     *
-     * @return \My\CMSBundle\Entity\ComponentHasColumn
-     */
-    public function getComponentHasColumn()
-    {
-        return $this->componentHasColumn;
-    }
-
-    /**
      * Get content
      *
      * @return string
@@ -128,5 +105,28 @@ class ComponentOnPageHasValue
     public function __toString()
     {
         return $this->getContent();
+    }
+
+    /**
+     * Set extensionHasField
+     *
+     * @param \My\CMSBundle\Entity\ExtensionHasField $extensionHasField
+     * @return ComponentOnPageHasValue
+     */
+    public function setExtensionHasField(\My\CMSBundle\Entity\ExtensionHasField $extensionHasField)
+    {
+        $this->extensionHasField = $extensionHasField;
+
+        return $this;
+    }
+
+    /**
+     * Get extensionHasField
+     *
+     * @return \My\CMSBundle\Entity\ExtensionHasField 
+     */
+    public function getExtensionHasField()
+    {
+        return $this->extensionHasField;
     }
 }

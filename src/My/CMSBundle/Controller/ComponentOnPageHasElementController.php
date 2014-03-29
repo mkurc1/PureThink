@@ -128,13 +128,13 @@ class ComponentOnPageHasElementController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $ComponentOnPage = $em->getRepository('MyCMSBundle:ComponentOnPage')->find($ComponentOnPageId);
-        $columns = $em->getRepository('MyCMSBundle:ComponentHasColumn')
-            ->findByComponent($ComponentOnPage->getComponent());
+        $columns = $em->getRepository('MyCMSBundle:ExtensionHasField')
+            ->findByExtension($ComponentOnPage->getExtension());
 
         foreach ($columns as $column) {
             $ComponentOnPageHasValue = new ComponentOnPageHasValue();
             $ComponentOnPageHasValue->setComponentOnPageHasElement($entity);
-            $ComponentOnPageHasValue->setComponentHasColumn($column);
+            $ComponentOnPageHasValue->setExtensionHasField($column);
 
             if ($editedEntityId) {
                 $contentEntity = $em->getRepository('MyCMSBundle:ComponentOnPageHasValue')->getContent($editedEntityId, $column->getId());
@@ -161,17 +161,17 @@ class ComponentOnPageHasElementController extends Controller
     {
         $columns = $this->getColumns($entity, $ComponentOnPageId, $editedEntityId);
         foreach ($columns->getComponentOnPageHasValues() as $key => $column) {
-            $class = $column->getComponentHasColumn()->getClass();
-            if ($column->getComponentHasColumn()->getIsMainField()) {
+            $class = $column->getExtensionHasField()->getClass();
+            if ($column->getExtensionHasField()->getIsMainField()) {
                 $class .= " name";
             }
 
             $form->get('componentOnPageHasValues')->add('column_'.$key, new ComponentOnPageHasValueType($column), array(
                 'attr' => array(
                     'class'      => $class,
-                    'type'       => $column->getComponentHasColumn()->getColumnTypeString(),
-                    'label'      => $column->getComponentHasColumn()->getColumnLabel(),
-                    'isRequired' => $column->getComponentHasColumn()->getIsRequired()
+                    'type'       => $column->getExtensionHasField()->getTypeOfFieldString(),
+                    'label'      => $column->getExtensionHasField()->getLabelOfField(),
+                    'isRequired' => $column->getExtensionHasField()->getIsRequired()
                     )
                 )
             );

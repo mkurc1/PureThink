@@ -20,7 +20,7 @@
         <tr list_id="{{ entity.id }}">
             <td class="select"><input type="checkbox" class="multi_check" /></td>
             <td class="lp">{{ i }}.</td>
-            <td class="width_small name"><a class="editMode" href="{{ path('my_cms_componenthascolumn_edit', { 'id': entity.id }) }}">{{ entity }}</a></td>
+            <td class="width_small name"><a class="editMode" href="{{ path('my_cms_extensionhasfield_edit', { 'id': entity.id }) }}">{{ entity }}</a></td>
             <td class="width_small">{{ entity.slug }}</td>
             <td class="width_small state">
                 {% if entity.isMainField %}
@@ -29,7 +29,7 @@
                     <i class="fa fa-ban"></i>
                 {% endif %}
             </td>
-            <td class="width_big">{{ entity.columnTypeString }}</td>
+            <td class="width_big">{{ entity.typeOfFieldString }}</td>
         </tr>
     {% endfor %}
     </tbody>

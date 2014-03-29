@@ -19,7 +19,7 @@
         <tr list_id="{{ entity.id }}">
             <td class="select"><input type="checkbox" class="multi_check" /></td>
             <td class="lp">{{ i }}.</td>
-            <td class="width_big name"><a class="sublist" sublist_id="{{ entity.id }}" href="{{ path('my_cms_componenthascolumn_list') }}">{{ entity }}</a></td>
+            <td class="width_big name"><a class="sublist" sublist_id="{{ entity.id }}" href="{{ path('my_cms_extensionhasfield_list') }}">{{ entity }}</a></td>
             <td class="width_small">{{ entity.createdAt|date('Y-m-d') }}</td>
             <td class="width_small">{{ entity.updatedAt|date('Y-m-d') }}</td>
         </tr>

@@ -30,8 +30,8 @@ class ExtensionRepository extends FilterRepository
 
     public function getExtensionsByIds(array $ids)
     {
-        $qb = $this->createQueryBuilder('c')
-            ->where('c.id IN (:ids)')
+        $qb = $this->createQueryBuilder('e')
+            ->where('e.id IN (:ids)')
             ->setParameter('ids', $ids);
 
         return $qb->getQuery()->getResult();

@@ -36,7 +36,7 @@ class ExtensionController extends CRUDController implements CRUDInterface
             ->getExtensionsByIds($ids);
     }
 
-    public function getNewEntity()
+    public function getNewEntity($params)
     {
         return new Extension();
     }

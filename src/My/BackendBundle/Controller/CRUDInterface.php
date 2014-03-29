@@ -11,7 +11,7 @@ interface CRUDInterface
 
     public function getEntitiesByIds(array $ids);
 
-    public function getNewEntity();
+    public function getNewEntity($params);
 
     public function getForm($entity, $params);
 

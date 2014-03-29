@@ -3,7 +3,7 @@
 namespace My\CMSBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
-use My\CMSBundle\Entity\ComponentHasColumn;
+use My\CMSBundle\Entity\ExtensionHasField;
 
 class ComponentOnPageHasValueRepository extends EntityRepository
 {
@@ -22,9 +22,9 @@ class ComponentOnPageHasValueRepository extends EntityRepository
             ->select('a, a.content')
             ->addSelect('cophe.id, cophe.createdAt, cophe.updatedAt, cophe.isEnable')
             ->leftJoin('a.componentOnPageHasElement', 'cophe')
-            ->leftJoin('a.componentHasColumn', 'chc')
+            ->leftJoin('a.extensionHasField', 'ehf')
             ->leftJoin('cophe.componentOnPage', 'cop')
-            ->where('chc.isMainField = true')
+            ->where('ehf.isMainField = true')
             ->andWhere('a.content LIKE :filter')
             ->setParameter('filter', '%'.$filter.'%');
 
@@ -51,10 +51,10 @@ class ComponentOnPageHasValueRepository extends EntityRepository
     {
         $qb = $this->createQueryBuilder('a')
             ->join('a.componentOnPageHasElement', 'cophe')
-            ->join('a.componentHasColumn', 'chc')
+            ->join('a.extensionHasField', 'ehf')
             ->where('cophe.id = :elementId')
             ->setParameter('elementId', $elementId)
-            ->andWhere('chc.id = :typeId')
+            ->andWhere('ehf.id = :typeId')
             ->setParameter('typeId', $typeId)
             ->setMaxResults(1);
 
@@ -88,7 +88,7 @@ class ComponentOnPageHasValueRepository extends EntityRepository
     private function getComponentContent($component)
     {
         $content = $component['content'];
-        $type = ComponentHasColumn::getColumnTypeStringById($component['type']);
+        $type = ExtensionHasField::getTypeOfFieldStringById($component['type']);
 
         switch ($type) {
             case 'Article':
@@ -108,16 +108,16 @@ class ComponentOnPageHasValueRepository extends EntityRepository
             ->select('a.content')
             ->addSelect('cop.name AS title')
             ->addSelect('('.$this->getElementId('cophe.id')->getDQL().') AS elementId')
-            ->addSelect('chc.slug AS subname, chc.columnType AS type')
+            ->addSelect('ehf.slug AS subname, ehf.typeOfField AS type')
             ->addSelect('cophe.createdAt, cophe.updatedAt')
             ->addSelect("art.slug AS article")
             ->addSelect("f.path AS file")
             ->join('a.componentOnPageHasElement', 'cophe')
-            ->join('a.componentHasColumn', 'chc')
+            ->join('a.extensionHasField', 'ehf')
             ->join('cophe.componentOnPage', 'cop')
             ->join('cop.language', 'l')
-            ->leftJoin('MyCMSBundle:Article', 'art', 'WITH', 'art.id=CASE WHEN chc.columnType=9 THEN a.content ELSE 0 END')
-            ->leftJoin('MyFileBundle:File', 'f', 'WITH', 'f.id=CASE WHEN chc.columnType=10 THEN a.content ELSE 0 END')
+            ->leftJoin('MyCMSBundle:Article', 'art', 'WITH', 'art.id=CASE WHEN ehf.typeOfField=9 THEN a.content ELSE 0 END')
+            ->leftJoin('MyFileBundle:File', 'f', 'WITH', 'f.id=CASE WHEN ehf.typeOfField=10 THEN a.content ELSE 0 END')
             ->where('cop.isEnable = true')
             ->andWhere('cophe.isEnable = true')
             ->andWhere('UPPER(l.alias) = UPPER(:locale)')
@@ -138,9 +138,9 @@ class ComponentOnPageHasValueRepository extends EntityRepository
         $qb = $this->createQueryBuilder('a2')
             ->select('a2.id')
             ->join('a2.componentOnPageHasElement', 'cophe2')
-            ->join('a2.componentHasColumn', 'chc2')
+            ->join('a2.extensionHasField', 'ehf2')
             ->andWhere('cophe2.id = '.$elementId)
-            ->andWhere('chc2.isMainField = true')
+            ->andWhere('ehf2.isMainField = true')
             ->setMaxResults(1);
 
         return $qb->getQuery();

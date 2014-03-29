@@ -19,9 +19,7 @@ class ExtensionType extends AbstractType
                     return $er->getGroupsByMenuIdNoExecute($options['menuId']);
                 },
                 'empty_value' => '',
-                'attr' => [
-                    'class' => 'sintetic-select'
-                    ]
+                'attr' => ['class' => 'sintetic-select']
                 ]
             )
         ;
@@ -29,10 +27,10 @@ class ExtensionType extends AbstractType
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        $resolver->setDefaults(array(
+        $resolver->setDefaults([
             'data_class' => 'My\CMSBundle\Entity\Extension',
             'menuId'     => null
-        ));
+        ]);
     }
 
     public function getName()

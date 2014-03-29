@@ -24,6 +24,7 @@ class CRUDController extends Controller
             'filter'     => $request->get('filtr', null),
             'languageId' => (int)$request->get('languageId'),
             'groupId'    => (int)$request->get('groupId'),
+            'sublistId'  => (int)$request->get('sublistId')
         ];
 
         $entities   = $this->getListQB($params);
@@ -51,10 +52,11 @@ class CRUDController extends Controller
     public function newAction(Request $request)
     {
         $params = [
-            'menuId' => (int)$request->get('menuId')
+            'menuId'    => (int)$request->get('menuId'),
+            'sublistId' => (int)$request->get('sublistId')
             ];
 
-        $entity = $this->getNewEntity();
+        $entity = $this->getNewEntity($params);
         $form = $this->getForm($entity, $params);
 
         $view = $this->renderView($this->getNewFormTemplate(), [
@@ -77,10 +79,11 @@ class CRUDController extends Controller
     public function createAction(Request $request)
     {
         $params = [
-            'menuId' => (int)$request->get('menuId')
+            'menuId'    => (int)$request->get('menuId'),
+            'sublistId' => (int)$request->get('sublistId')
             ];
 
-        $entity = $this->getNewEntity();
+        $entity = $this->getNewEntity($params);
         $form = $this->getForm($entity, $params);
         $form->bind($request);
 
