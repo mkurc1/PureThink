@@ -15,7 +15,7 @@
             {% endif %}
 
             {% if menu['childrens'] is defined %}
-                {% include 'MyCMSBundle:Frontend:_menu.html.twig' with { 'entities': menu['childrens'], 'locale': locale, 'home': false, 'slug2': menu['parent'].slug } %}
+                {% include 'MyCMSBundle:Frontend:menu.html.twig' with { 'entities': menu['childrens'], 'locale': locale, 'home': false, 'slug2': menu['parent'].slug } %}
             {% endif %}
         </li>
     {% endfor %}

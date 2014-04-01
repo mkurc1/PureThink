@@ -6,7 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class FrontendControllerTest extends WebTestCase
 {
-    public function testMainaa()
+    public function testMain()
     {
         $client = static::createClient();
 

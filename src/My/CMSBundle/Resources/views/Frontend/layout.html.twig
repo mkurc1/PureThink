@@ -24,3 +24,35 @@
     <script src="{{ asset('template/fresh-style/js/jquery.slides.min.js') }}"></script>
     <script src="{{ asset('template/fresh-style/js/main.js') }}"></script>
 {% endblock javascripts %}
+
+{% block body %}
+    {{ parent() }}
+
+    {{ render(controller('MyCMSBundle:Frontend:component', {
+        'slug'    : 'cookie',
+        'template': 'MyCMSBundle:Frontend:_cookie.html.twig'
+    })) }}
+
+    <div id="top">
+        <div class="container">
+            <div id="logo">
+                <a href="{{ path('localized_frontend', {'locale': locale}) }}">
+                    <img src="{{ asset('template/fresh-style/images/logo.png') }}" alt="logo" />
+                </a>
+            </div>
+
+            {% include 'MyCMSBundle:Frontend:_topmenu.html.twig' %}
+        </div>
+    </div>
+
+    <div id="main_menu">
+        <div class="container">
+            {{ render(controller('MyCMSBundle:Frontend:menu', {
+                'slug': 'Main',
+                'home': true
+            })) }}
+
+            {{ render(controller('MyCMSBundle:Frontend:search')) }}
+        </div>
+    </div>
+{% endblock body %}

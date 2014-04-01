@@ -27,7 +27,7 @@ class ArticleRepositoryFunctionalTest extends WebTestCase
     public function testSearchArticlesByLocaleAndName()
     {
         $existArticles = $this->getArticlesByLocaleAndName('pl', 'Lorem Ipsum Dolor');
-        $this->assertCount(80, $existArticles);
+        $this->assertCount(16, $existArticles);
 
         $noExitArticles = $this->getArticlesByLocaleAndName('pl', 'abc');
         $this->assertCount(0, $noExitArticles);

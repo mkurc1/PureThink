@@ -21,24 +21,23 @@ class FrontendController extends Controller
         $locale = $request->getLocale();
 
         if (null == $locale) {
-            $languages = $this->getLanguages();
-            $avilableLocales = $this->getAvilableLocales($languages);
-
-            $locale = $request->getPreferredLanguage($avilableLocales);
-            $request->setLocale($locale);
+            $request->setLocale($request->getPreferredLanguage($this->getAvilableLocales()));
         }
 
         return $this->redirect($this->generateUrl('localized_frontend', compact('locale')));
     }
 
     /**
-     * Get component Action
-     *
-     * @param  Request $request
-     * @param  stirng  $slug
-     * @param  string  $template
-     * @return array
+     * @Template()
      */
+    public function languageAction(Request $request)
+    {
+        $locale = $request->getLocale();
+        $languages = $this->getPublicLanguages();
+
+        return compact('languages', 'locale');
+    }
+
     public function componentAction(Request $request, $slug, $template)
     {
         $locale = $request->getLocale();
@@ -54,13 +53,7 @@ class FrontendController extends Controller
     }
 
     /**
-     * Get menu Action
-     *
-     * @param  Request $request
-     * @param  string  $slug
-     * @param  boolean $home
-     * @param  boolean $login
-     * @return array
+     * @Template()
      */
     public function menuAction(Request $request, $slug, $home = false, $login = false)
     {
@@ -73,8 +66,7 @@ class FrontendController extends Controller
             return new Response();
         }
 
-        return $this->render('MyCMSBundle:Frontend:_menu.html.twig',
-            compact('entities', 'locale', 'home', 'login'));
+        return compact('entities', 'locale', 'home', 'login');
     }
 
     /**
@@ -84,44 +76,50 @@ class FrontendController extends Controller
      */
     public function indexAction(Request $request, $locale)
     {
-        $languages = $this->getLanguages();
-        if ($this->checkAvilableLocales($languages, $locale)) {
+        if ($this->isAvilableLocales($locale)) {
             $request->setLocale($locale);
         }
         else {
-            return $this->redirect($this->generateUrl('frontend'));
+            return $this->getRedirectToMainPage();
         }
-        $request->setLocale($locale);
 
         $meta = $this->getMetadataByLocale($locale);
 
-        return compact('locale', 'meta', 'languages');
+        return compact('locale', 'meta');
     }
 
     /**
-     * @Route("/{locale}/search", name="search")
+     * @Template()
+     */
+    public function SearchAction(Request $request)
+    {
+        $locale = $request->getLocale();
+
+        return compact('locale');
+    }
+
+    /**
+     * @Route("/{locale}/search")
      * @Method("GET")
      * @Template()
      */
-    public function searchAction(Request $request, $locale)
+    public function searchListAction(Request $request, $locale)
     {
-        $languages = $this->getLanguages();
-        if ($this->checkAvilableLocales($languages, $locale)) {
+        if ($this->isAvilableLocales($locale)) {
             $request->setLocale($locale);
         }
         else {
-            return $this->redirect($this->generateUrl('frontend'));
+            return $this->getRedirectToMainPage();
         }
 
         $meta = $this->getMetadataByLocale($locale);
 
-        $search = $request->get('article');
+        $search = $request->get('query');
 
-        $em = $this->getDoctrine()->getManager();
+        $articles = $this->getDoctrine()->getRepository('MyCMSBundle:Article')
+            ->search($locale, $search);
 
-        $articles = $em->getRepository('MyCMSBundle:Article')->search($locale, $search);
-
-        return compact('locale', 'meta', 'languages', 'articles');
+        return compact('locale', 'meta', 'articles');
     }
 
     /**
@@ -131,33 +129,28 @@ class FrontendController extends Controller
      */
     public function articleAction(Request $request, $locale, $slug, $slug2 = null)
     {
-        $languages = $this->getLanguages();
-        if ($this->checkAvilableLocales($languages, $locale)) {
+        if ($this->isAvilableLocales($locale)) {
             $request->setLocale($locale);
         }
         else {
-            return $this->redirect($this->generateUrl('frontend'));
+            return $this->getRedirectToMainPage();
         }
 
         if (null == $slug2) {
-            $article = $this->getArticle($slug);
+            $article = $this->getArticleBySlug($slug);
         }
         else {
-            $article = $this->getArticle($slug2);
-        }
-
-        if (null == $article) {
-            throw $this->createNotFoundException();
+            $article = $this->getArticleBySlug($slug2);
         }
 
         $this->incremetArticleViews($article);
 
-        $url = [
-            'slug'  => $slug,
-            'slug2' => $slug2
-            ];
+        return compact('locale', 'article');
+    }
 
-        return compact('locale', 'languages', 'article', 'url');
+    private function getRedirectToMainPage()
+    {
+        return $this->redirect($this->generateUrl('frontend'));
     }
 
     private function incremetArticleViews(Article $article)
@@ -165,11 +158,10 @@ class FrontendController extends Controller
         $article->setViews($article->getViews()+1);
 
         $em = $this->getDoctrine()->getManager();
-        $em->persist($article);
         $em->flush();
     }
 
-    private function getArticle($slug)
+    private function getArticleBySlug($slug)
     {
         $article = $this->getDoctrine()->getRepository('MyCMSBundle:Article')
             ->getArticleBySlug($slug);
@@ -187,51 +179,28 @@ class FrontendController extends Controller
             ->getWebsiteByLocale($locale);
     }
 
-    /**
-     * Get public languages
-     *
-     * @return array
-     */
-    private function getLanguages()
+    private function getPublicLanguages()
     {
         $languages = $this->getDoctrine()->getRepository('MyCMSBundle:Language')
             ->getPublicLanguages();
 
-        if (count($languages) == 0) {
+        if (null == $languages) {
             throw $this->createNotFoundException();
         }
 
         return $languages;
     }
 
-    /**
-     * Check avilable locales
-     *
-     * @param object $languages
-     * @param string $locale
-     * @return boolean
-     */
-    private function checkAvilableLocales($languages, $locale)
+    private function isAvilableLocales($locale)
     {
-        $avilableLocales = $this->getAvilableLocales($languages);
-        if (!in_array($locale, $avilableLocales)) {
-            return false;
-        }
-        else {
-            return true;
-        }
+        return (bool)(in_array($locale, $this->getAvilableLocales()));
     }
 
-    /**
-     * Get avilable locales
-     *
-     * @param object $languages
-     * @return array
-     */
-    private function getAvilableLocales($languages)
+    private function getAvilableLocales()
     {
         $avilableLocales = [];
 
+        $languages = $this->getPublicLanguages();
         foreach ($languages as $language) {
             $avilableLocales[] = strtolower($language->getAlias());
         }

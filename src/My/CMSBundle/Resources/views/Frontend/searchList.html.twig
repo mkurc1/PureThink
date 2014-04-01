@@ -6,26 +6,29 @@
 {% endblock stylesheets %}
 
 {% block keywords %}
-    {{ article.SEOData.keyword|default(parent()) }}
+    {{ meta.SEOData.keyword|default(parent()) }}
 {% endblock keywords %}
 
 {% block description %}
-    {{ article.SEOData.description|default(parent()) }}
+    {{ meta.SEOData.description|default(parent()) }}
 {% endblock description %}
 
 {% block title %}
-    {{ article.SEOData.title|default(parent()) }}
+    {{ meta.SEOData.title|default(parent()) }}
 {% endblock title %}
 
 {% block body %}
     {{ parent() }}
 
-    <div id="article">
+    <div id="search">
         <div class="container">
-            <h2 class="header">{{ article.name }}</h2>
-            <h3 class="datetime">{{ article.createdAt|format_datetime('dd MMM Y H:m') }}</h3>
+            <h2 class="header">Znalezione artykuły</h2>
 
-            {{ article.content|raw }}
+            <ul>
+            {% for article in articles %}
+                <li><a href="{{ path('article', {'locale': locale, 'slug': article.slug}) }}">{{ article.name }}</a></li>
+            {% endfor %}
+            </ul>
         </div>
     </div>
 

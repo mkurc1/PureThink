@@ -12,5 +12,5 @@
         {% endif %}
     </div>
 
-    {% include 'MyCMSBundle:Frontend:_language.html.twig' with { 'languages': languages, 'locale': locale } %}
+    {{ render(controller('MyCMSBundle:Frontend:language')) }}
 </div>
