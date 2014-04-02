@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Validator\Constraints as Assert;
+use My\UserBundle\Entity\User;
 
 /**
  * File
@@ -71,6 +72,13 @@ class File
 
     private $temp;
 
+
+    public function __construct(User $user = null)
+    {
+        if (null != $user) {
+            $this->setUser($user);
+        }
+    }
 
     /**
      * Get id

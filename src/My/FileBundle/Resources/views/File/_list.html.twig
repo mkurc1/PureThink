@@ -21,7 +21,7 @@
         <tr list_id="{{ entity.id }}">
             <td class="select"><input type="checkbox" class="multi_check" /></td>
             <td class="lp">{{ i }}.</td>
-            <td class="width_big name"><a class="editMode" href="{{ path('file_edit', { 'id': entity.id }) }}">{{ entity }}</a></td>
+            <td class="width_big name"><a class="editMode" href="{{ path('my_file_file_edit', { 'id': entity.id }) }}">{{ entity }}</a></td>
             <td class="width_small info"><i class="fa fa-info"></i></td>
             <td class="width_small">{{ entity.size|number_format(0, '.', ' ') }}</td>
             <td class="width_small">{{ entity.mimeType }}</td>

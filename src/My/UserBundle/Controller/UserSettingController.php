@@ -85,6 +85,8 @@ class UserSettingController extends Controller
         $moduleId     = (int)$request->get('moduleId');
         $languageId   = (int)$request->get('languageId');
 
+        $em = $this->getDoctrine()->getManager();
+
         $userSetting = $this->getUser()->getUserSetting();
         $userSetting->setRowsOnPage($rowsOnPageId);
         $userSetting->setModule($em->getRepository('MyBackendBundle:Module')->find($moduleId));

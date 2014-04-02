@@ -25,7 +25,7 @@ class FileBrowseController extends Controller
      */
     public function indexAction()
     {
-        return array();
+        return [];
     }
 
     /**
@@ -43,21 +43,20 @@ class FileBrowseController extends Controller
         $filtr = $request->get('filtr');
         $groupId = (int)$request->get('groupId', 0);
 
-        $em = $this->getDoctrine()->getManager();
-
-        $entities = $em->getRepository('MyFileBundle:File')->getFilesQB($order, $sequence, $filtr, $groupId);
+        $entities = $this->getDoctrine()->getRepository('MyFileBundle:File')
+            ->getFilesQB($order, $sequence, $filtr, $groupId);
 
         $pagination = $this->get('my.pagination.service')
             ->setPagination($entities, $page, $rowsOnPage);
 
         $list = $this->renderView('MyFileBundle:FileBrowse:_list.html.twig',
-            array('entities' => $pagination['entities'], 'page' => $page, 'rowsOnPage' => $rowsOnPage));
+            ['entities' => $pagination['entities'], 'page' => $page, 'rowsOnPage' => $rowsOnPage]);
 
-        $response = array(
+        $response = [
             "list"       => $list,
             "pagination" => $pagination,
             "response"   => true
-            );
+            ];
 
         return new Response(json_encode($response));
     }

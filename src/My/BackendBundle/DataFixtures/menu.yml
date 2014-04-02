@@ -32,6 +32,6 @@ fixtures:
         module: module_1
     menu_7:
         name: "Pliki"
-        link: "file"
+        link: "my_file_file_list"
         sequence: 1
         module: module_2

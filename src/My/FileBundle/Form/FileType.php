@@ -8,55 +8,32 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class FileType extends AbstractType
 {
-    /**
-     * @param FormBuilderInterface $builder
-     * @param array $options
-     */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name', 'text', array(
-                'label' => 'Nazwa pliku',
-                'attr' => array(
-                    'class' => 'name'
-                    )
-                )
-            )
-            ->add('series', 'entity', array(
+            ->add('name', 'text', ['label' => 'Nazwa pliku', 'attr' => ['class' => 'name']])
+            ->add('series', 'entity', [
                 'label' => 'Grupa',
                 'class' => 'MyBackendBundle:Series',
                 'query_builder' => function (\Doctrine\ORM\EntityRepository $er) use ($options) {
-                    return $er->getGroupsByMenuIdNoExecute($options['attr']['menuId']);
+                    return $er->getGroupsByMenuIdNoExecute($options['menuId']);
                 },
                 'empty_value' => '',
-                'attr' => array(
-                    'class' => 'sintetic-select'
-                    )
-                )
+                'attr'        => ['class' => 'sintetic-select']
+                ]
             )
-            ->add('file', 'file', array(
-                'label' => 'Wybierz plik',
-                'attr' => array(
-                    'class' => 'hide'
-                    )
-                )
-            )
+            ->add('file', 'file', ['label' => 'Wybierz plik', 'attr' => ['class' => 'hide']])
         ;
     }
 
-    /**
-     * @param OptionsResolverInterface $resolver
-     */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        $resolver->setDefaults(array(
-            'data_class' => 'My\FileBundle\Entity\File'
-        ));
+        $resolver->setDefaults([
+            'data_class' => 'My\FileBundle\Entity\File',
+            'menuId'     => null
+        ]);
     }
 
-    /**
-     * @return string
-     */
     public function getName()
     {
         return 'my_filebundle_file';

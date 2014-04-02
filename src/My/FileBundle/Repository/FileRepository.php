@@ -34,13 +34,7 @@ class FileRepository extends FilterRepository
 		return $qb->getQuery();
 	}
 
-    /**
-     * Get files by ID
-     *
-     * @param  $ids
-     * @return array
-     */
-    public function getFilesById($ids = [])
+    public function getFilesByIds(array $ids)
     {
         $qb = $this->createQueryBuilder('a')
             ->where('a.id IN (:ids)')

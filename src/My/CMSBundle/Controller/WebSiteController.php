@@ -28,49 +28,24 @@ class WebSiteController extends Controller
             $languageId = $this->getDefaultLanguageId();
         }
 
-        $em = $this->getDoctrine()->getManager();
+        $webSite = $this->getDoctrine()->getRepository('MyCMSBundle:WebSite')
+            ->getWebSite($languageId);
 
-        $entity = $em->getRepository('MyCMSBundle:WebSite')->getWebSite($languageId);
-        if (null == $entity) {
-            $entity = $this->createWebSite($languageId);
+        if (null == $webSite) {
+            $webSite = $this->createWebSite($languageId);
         }
 
-        $editForm = $this->createForm(new WebSiteType(), $entity);
+        $form = $this->createForm(new WebSiteType(), $webSite);
 
         $view = $this->renderView('MyCMSBundle:WebSite:_edit.html.twig',
-            array('entity' => $entity, 'form' => $editForm->createView()));
+            array('entity' => $webSite, 'form' => $form->createView()));
 
-        $response = array(
+        $response = [
             "response" => true,
             "view"     => $view
-            );
+            ];
 
         return new Response(json_encode($response));
-    }
-
-    /**
-     * @param integer $languageId
-     * @return WebSite
-     */
-    private function createWebSite($languageId)
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $entity = new WebSite();
-        $entity->setLanguage($em->getRepository('MyCMSBundle:Language')->find($languageId));
-
-        $em->persist($entity);
-        $em->flush();
-
-        return $entity;
-    }
-
-    private function getDefaultLanguageId() {
-        $em = $this->getDoctrine()->getManager();
-
-        $entity = $em->getRepository('MyCMSBundle:Language')->getFirstLanguage();
-
-        return $entity->getId();
     }
 
     /**
@@ -81,34 +56,54 @@ class WebSiteController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('MyCMSBundle:WebSite')->find($id);
+        $webSite = $em->getRepository('MyCMSBundle:WebSite')->find($id);
 
-        if (!$entity) {
+        if (!$webSite) {
             throw $this->createNotFoundException();
         }
 
-        $editForm = $this->createForm(new WebSiteType(), $entity);
-        $editForm->bind($request);
+        $form = $this->createForm(new WebSiteType(), $webSite);
+        $form->bind($request);
 
-        if ($editForm->isValid()) {
-            $em->persist($entity);
+        if ($form->isValid()) {
             $em->flush();
 
-            $response = array(
+            $response = [
                 "response" => true,
-                "id" => $entity->getId(),
-                "message" => 'Edycja witryny zakończyła się powodzeniem'
-                );
+                "id"       => $webSite->getId(),
+                "message"  => 'Edycja witryny zakończyła się powodzeniem'
+                ];
         }
         else {
-            $view = $this->renderView('MyCMSBundle:WebSite:_edit.html.twig', array('entity' => $entity, 'form' => $editForm->createView()));
+            $view = $this->renderView('MyCMSBundle:WebSite:_edit.html.twig',
+                array('entity' => $webSite, 'form' => $form->createView()));
 
-            $response = array(
+            $response = [
                 "response" => false,
-                "view" => $view
-                );
+                "view"     => $view
+                ];
         }
 
         return new Response(json_encode($response));
+    }
+
+    private function createWebSite($languageId)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $webSite = new WebSite();
+        $webSite->setLanguage($em->getRepository('MyCMSBundle:Language')->find($languageId));
+
+        $em->persist($webSite);
+        $em->flush();
+
+        return $webSite;
+    }
+
+    private function getDefaultLanguageId() {
+        $language = $this->getDoctrine()->getRepository('MyCMSBundle:Language')
+            ->getFirstLanguage();
+
+        return $language->getId();
     }
 }
