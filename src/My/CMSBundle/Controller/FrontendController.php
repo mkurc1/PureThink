@@ -78,8 +78,7 @@ class FrontendController extends Controller
     {
         if ($this->isAvilableLocales($locale)) {
             $request->setLocale($locale);
-        }
-        else {
+        } else {
             return $this->getRedirectToMainPage();
         }
 
@@ -107,8 +106,7 @@ class FrontendController extends Controller
     {
         if ($this->isAvilableLocales($locale)) {
             $request->setLocale($locale);
-        }
-        else {
+        } else {
             return $this->getRedirectToMainPage();
         }
 
@@ -131,15 +129,13 @@ class FrontendController extends Controller
     {
         if ($this->isAvilableLocales($locale)) {
             $request->setLocale($locale);
-        }
-        else {
+        } else {
             return $this->getRedirectToMainPage();
         }
 
         if (null == $slug2) {
             $article = $this->getArticleBySlug($slug);
-        }
-        else {
+        } else {
             $article = $this->getArticleBySlug($slug2);
         }
 
@@ -155,7 +151,7 @@ class FrontendController extends Controller
 
     private function incremetArticleViews(Article $article)
     {
-        $article->setViews($article->getViews()+1);
+        $article->setViews($article->getViews() + 1);
 
         $em = $this->getDoctrine()->getManager();
         $em->flush();

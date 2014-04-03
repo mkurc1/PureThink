@@ -27,20 +27,20 @@ class CRUDController extends Controller
             'sublistId'  => (int)$request->get('sublistId')
         ];
 
-        $entities   = $this->getListQB($params);
+        $entities = $this->getListQB($params);
         $pagination = $this->setPagination($entities, $params['page'], $params['rowsOnPage']);
 
         $list = $this->renderView($this->getListTemplate(), [
             'entities'   => $pagination['entities'],
             'page'       => $params['page'],
             'rowsOnPage' => $params['rowsOnPage']
-            ]);
+        ]);
 
         $response = [
             "list"       => $list,
             "pagination" => $pagination,
             "response"   => true
-            ];
+        ];
 
         return new Response(json_encode($response));
     }
@@ -54,7 +54,7 @@ class CRUDController extends Controller
         $params = [
             'menuId'    => (int)$request->get('menuId'),
             'sublistId' => (int)$request->get('sublistId')
-            ];
+        ];
 
         $entity = $this->getNewEntity($params);
         $form = $this->getForm($entity, $params);
@@ -62,12 +62,12 @@ class CRUDController extends Controller
         $view = $this->renderView($this->getNewFormTemplate(), [
             'entity' => $entity,
             'form'   => $form->createView()
-            ]);
+        ]);
 
         $response = [
             "response" => true,
             "view"     => $view
-            ];
+        ];
 
         return new Response(json_encode($response));
     }
@@ -81,7 +81,7 @@ class CRUDController extends Controller
         $params = [
             'menuId'    => (int)$request->get('menuId'),
             'sublistId' => (int)$request->get('sublistId')
-            ];
+        ];
 
         $entity = $this->getNewEntity($params);
         $form = $this->getForm($entity, $params);
@@ -96,18 +96,17 @@ class CRUDController extends Controller
                 "response" => true,
                 "id"       => $entity->getId(),
                 "message"  => 'Dodawanie pozycji zakończyło się powodzeniem'
-                ];
-        }
-        else {
+            ];
+        } else {
             $view = $this->renderView($this->getNewFormTemplate(), [
                 'entity' => $entity,
                 'form'   => $form->createView()
-                ]);
+            ]);
 
             $response = [
                 "response" => false,
                 "view"     => $view
-                ];
+            ];
         }
 
         return new Response(json_encode($response));
@@ -121,7 +120,7 @@ class CRUDController extends Controller
     {
         $params = [
             'menuId' => (int)$request->get('menuId')
-            ];
+        ];
 
         $entity = $this->getEntityById($id);
         if (null == $entity) {
@@ -133,12 +132,12 @@ class CRUDController extends Controller
         $view = $this->renderView($this->getEditFormTemplate(), [
             'entity' => $entity,
             'form'   => $form->createView()
-            ]);
+        ]);
 
         $response = [
             "response" => true,
             "view"     => $view
-            ];
+        ];
 
         return new Response(json_encode($response));
     }
@@ -151,7 +150,7 @@ class CRUDController extends Controller
     {
         $params = [
             'menuId' => (int)$request->get('menuId')
-            ];
+        ];
 
         $entity = $this->getEntityById($id);
         if (null == $entity) {
@@ -169,18 +168,17 @@ class CRUDController extends Controller
                 "response" => true,
                 "id"       => $entity->getId(),
                 "message"  => 'Edycja pozycji zakończyła się powodzeniem'
-                ];
-        }
-        else {
+            ];
+        } else {
             $view = $this->renderView($this->getEditFormTemplate(), [
                 'entity' => $entity,
-                'form' => $form->createView()
-                ]);
+                'form'   => $form->createView()
+            ]);
 
             $response = [
                 "response" => false,
                 "view"     => $view
-                ];
+            ];
         }
 
         return new Response(json_encode($response));
@@ -207,12 +205,12 @@ class CRUDController extends Controller
             $response = [
                 "response" => true,
                 "message"  => 'Usuwanie pozycji zakończyło się powodzeniem'
-                ];
+            ];
         } catch (\Exception $e) {
             $response = [
                 "response" => false,
                 "message"  => 'Usuwanie pozycji zakończyło się niepowodzeniem'
-                ];
+            ];
         }
 
         return new Response(json_encode($response));

@@ -83,12 +83,12 @@ class ArticleController extends CRUDController implements CRUDInterface
             $response = [
                 "response" => true,
                 "message"  => 'Zmiana stanu artykułu zakończyła się powodzeniem'
-                ];
+            ];
         } catch (\Exception $e) {
             $response = [
                 "response" => false,
                 "message"  => 'Zmiana stanu artykułu zakończyła się niepowodzeniem'
-                ];
+            ];
         }
 
         return new Response(json_encode($response));

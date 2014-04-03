@@ -26,18 +26,18 @@ class ComponentOnPageController extends Controller
         $page       = (int)$request->get('page', 1);
         $order      = $request->get('order', 'a.name');
         $sequence   = $request->get('sequence', 'ASC');
-        $filtr      = $request->get('filtr');
+        $filter     = $request->get('filtr');
         $languageId = (int)$request->get('languageId');
         $groupId    = (int)$request->get('groupId');
 
         $entities = $this->getDoctrine()->getRepository('MyCMSBundle:ComponentOnPage')
-            ->getComponentsQB($order, $sequence, $filtr, $languageId, $groupId);
+            ->getComponentsQB($order, $sequence, $filter, $languageId, $groupId);
 
         $pagination = $this->get('my.pagination.service')
             ->setPagination($entities, $page, $rowsOnPage);
 
         $list = $this->renderView('MyCMSBundle:ComponentOnPage:_list.html.twig',
-            array('entities' => $pagination['entities'], 'page' => $page, 'rowsOnPage' => $rowsOnPage));
+        ['entities' => $pagination['entities'], 'page' => $page, 'rowsOnPage' => $rowsOnPage]);
 
         $response = array(
             "list"       => $list,
