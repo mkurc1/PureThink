@@ -67,17 +67,13 @@ class FileController extends CRUDController implements CRUDInterface
     {
         $id = (int)$request->get('id');
 
-        $entity = $this->getDoctrine()->getRepository('MyFileBundle:File')->find($id);
-        if (!$entity) {
-            throw $this->createNotFoundException();
-        }
-
+        $entity = $this->getEntity($id);
         $view = $this->renderView('MyFileBundle:File:_info.html.twig', compact('entity'));
 
         $response = [
-                "response" => true,
-                "view"     => $view
-                ];
+            "response" => true,
+            "view"     => $view
+        ];
 
         return new Response(json_encode($response));
     }

@@ -67,29 +67,10 @@ class ArticleController extends CRUDController implements CRUDInterface
     {
         $id = (int)$request->get('id');
 
-        $em = $this->getDoctrine()->getManager();
-
-        $entity = $em->getRepository('MyCMSBundle:Article')->find($id);
-
-        if (null == $entity) {
-            throw $this->createNotFoundException();
-        }
-
+        $entity = $this->getEntity($id);
         $entity->setIsPublic(!$entity->getIsPublic());
 
-        try {
-            $em->flush();
-
-            $response = [
-                "response" => true,
-                "message"  => 'Zmiana stanu artykułu zakończyła się powodzeniem'
-            ];
-        } catch (\Exception $e) {
-            $response = [
-                "response" => false,
-                "message"  => 'Zmiana stanu artykułu zakończyła się niepowodzeniem'
-            ];
-        }
+        $response = $this->tryFlush();
 
         return new Response(json_encode($response));
     }

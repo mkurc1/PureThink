@@ -171,7 +171,7 @@ abstract class CRUDController extends Controller
         return new Response(json_encode($response));
     }
 
-    private function tryFlush()
+    protected function tryFlush()
     {
         try {
             return $this->flush();
@@ -215,7 +215,7 @@ abstract class CRUDController extends Controller
             ->setPagination($entities, $page, $rowsOnPage);
     }
 
-    private function getEntity($id)
+    protected function getEntity($id)
     {
         $entity = $this->getEntityById($id);
         if (null == $entity) {

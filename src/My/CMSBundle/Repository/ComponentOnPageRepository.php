@@ -33,4 +33,13 @@ class ComponentOnPageRepository extends FilterRepository
 
         return $qb->getQuery();
     }
+
+    public function getComponentsByIds(array $ids)
+    {
+        $qb = $this->createQueryBuilder('a')
+            ->where('a.id IN (:ids)')
+            ->setParameter('ids', $ids);
+
+        return $qb->getQuery()->getResult();
+    }
 }

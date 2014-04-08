@@ -73,7 +73,6 @@ class ExtensionHasFieldController extends CRUDController implements CRUDInterfac
         $em = $this->getDoctrine()->getManager();
 
         $selectedElement = $em->getRepository('MyCMSBundle:ExtensionHasField')->find($id);
-
         if (!$selectedElement) {
             throw $this->createNotFoundException();
         }
@@ -84,25 +83,12 @@ class ExtensionHasFieldController extends CRUDController implements CRUDInterfac
         foreach ($entities as $entity) {
             if ($entity == $selectedElement) {
                 $entity->setIsMainField(true);
-            }
-            else {
+            } else {
                 $entity->setIsMainField(false);
             }
         }
 
-        try {
-            $em->flush();
-
-            $response = array(
-                "response" => true,
-                "message"  => 'Zmiana domyślnej kolumny zakończyła się powodzeniem'
-                );
-        } catch (\Exception $e) {
-            $response = array(
-                "response" => false,
-                "message" => 'Zmiana domyślnej kolumny zakończyła się niepowodzeniem'
-                );
-        }
+        $response = $this->tryFlush();
 
         return new Response(json_encode($response));
     }

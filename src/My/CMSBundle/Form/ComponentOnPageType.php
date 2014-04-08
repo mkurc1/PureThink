@@ -11,51 +11,36 @@ class ComponentOnPageType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name', 'text', array(
-                'label' => 'Nazwa komponentu',
-                'attr' => array(
-                    'class' => 'name'
-                    )
-                )
-            )
-            ->add('component', 'entity', array(
-                'label' => 'Rozszerzenie',
-                'class' => 'MyCMSBundle:Component',
+            ->add('name', 'text', ['label' => 'Nazwa komponentu', 'attr' => ['class' => 'name']])
+            ->add('extension', 'entity', [
+                'label'       => 'Rozszerzenie',
+                'class'       => 'MyCMSBundle:Extension',
                 'empty_value' => '',
-                'attr' => array(
-                    'class' => 'sintetic-select'
-                    )
-                )
-            )
-            ->add('language', 'entity', array(
-                'label' => 'Język',
-                'class' => 'MyCMSBundle:Language',
+                'attr'        => ['class' => 'sintetic-select']
+            ])
+            ->add('language', 'entity', [
+                'label'       => 'Język',
+                'class'       => 'MyCMSBundle:Language',
                 'empty_value' => '',
-                'attr' => array(
-                    'class' => 'sintetic-select'
-                    )
-                )
-            )
-            ->add('series', 'entity', array(
-                'label' => 'Grupa',
-                'class' => 'MyBackendBundle:Series',
+                'attr'        => ['class' => 'sintetic-select']
+            ])
+            ->add('series', 'entity', [
+                'label'         => 'Grupa',
+                'class'         => 'MyBackendBundle:Series',
                 'query_builder' => function (\Doctrine\ORM\EntityRepository $er) use ($options) {
-                    return $er->getGroupsByMenuIdNoExecute($options['attr']['menuId']);
-                },
-                'empty_value' => '',
-                'attr' => array(
-                    'class' => 'sintetic-select'
-                    )
-                )
-            )
-        ;
+                        return $er->getGroupsByMenuIdNoExecute($options['menuId']);
+                    },
+                'empty_value'   => '',
+                'attr'          => ['class' => 'sintetic-select']
+            ]);
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        $resolver->setDefaults(array(
-            'data_class' => 'My\CMSBundle\Entity\ComponentOnPage'
-        ));
+        $resolver->setDefaults([
+            'data_class' => 'My\CMSBundle\Entity\ComponentOnPage',
+            'menuId'     => null
+        ]);
     }
 
     public function getName()

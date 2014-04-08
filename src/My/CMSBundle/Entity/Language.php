@@ -33,6 +33,12 @@ class Language
     private $isPublic = false;
 
 
+    public function __construct($name, $alias)
+    {
+        $this->setName($name);
+        $this->setAlias($alias);
+    }
+
     /**
      * Get name
      *

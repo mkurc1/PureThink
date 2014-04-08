@@ -24,13 +24,9 @@ class LanguageController extends Controller
         $name = $request->get('name');
         $alias = $request->get('alias');
 
+        $entity = new Language($name, $alias);
+
         $em = $this->getDoctrine()->getManager();
-
-        $entity = new Language();
-        $entity->setName($name);
-        $entity->setAlias($alias);
-        $entity->setIsPublic(false);
-
         $em->persist($entity);
 
         try {
@@ -40,12 +36,12 @@ class LanguageController extends Controller
                 "response" => true,
                 "id"       => $entity->getId(),
                 "message"  => "Dodanie języka zakończyło się powodzeniem"
-                );
+            );
         } catch (\Exception $e) {
             $response = array(
                 "response" => false,
                 "message"  => "Dodanie języka zakończyło się niepowodzeniem"
-                );
+            );
         }
 
         return new Response(json_encode($response));
@@ -57,8 +53,8 @@ class LanguageController extends Controller
      */
     public function editLanguageAction(Request $request)
     {
-        $id    = (int)$request->get('id');
-        $name  = $request->get('name');
+        $id = (int)$request->get('id');
+        $name = $request->get('name');
         $alias = $request->get('alias');
 
         $em = $this->getDoctrine()->getManager();
@@ -67,20 +63,18 @@ class LanguageController extends Controller
         $entity->setName($name);
         $entity->setAlias($alias);
 
-        $em->persist($entity);
-
         try {
             $em->flush();
 
             $response = array(
                 "response" => true,
                 "message"  => "Edycja języka zakończyła się powodzeniem"
-                );
+            );
         } catch (\Exception $e) {
             $response = array(
                 "response" => false,
                 "message"  => "Edycja języka zakończyła się niepowodzeniem"
-                );
+            );
         }
 
         return new Response(json_encode($response));
@@ -95,9 +89,9 @@ class LanguageController extends Controller
         $id = (int)$request->get('id');
 
         $em = $this->getDoctrine()->getManager();
-        $entity = $em->getRepository('MyCMSBundle:Language')->find($id);
 
-        if (!$entity) {
+        $entity = $em->getRepository('MyCMSBundle:Language')->find($id);
+        if (null == $entity) {
             throw $this->createNotFoundException();
         }
 
@@ -108,13 +102,13 @@ class LanguageController extends Controller
 
             $response = array(
                 "response" => true,
-                "message" => "Usuwanie języka zakończyło się powodzeniem"
-                );
+                "message"  => "Usuwanie języka zakończyło się powodzeniem"
+            );
         } catch (\Exception $e) {
             $response = array(
                 "response" => false,
-                "message" => "Usuwanie języka zakończyło się niepowodzeniem"
-                );
+                "message"  => "Usuwanie języka zakończyło się niepowodzeniem"
+            );
         }
 
         return new Response(json_encode($response));
@@ -129,33 +123,26 @@ class LanguageController extends Controller
         $id = (int)$request->get('id');
 
         $em = $this->getDoctrine()->getManager();
-        $entity = $em->getRepository('MyCMSBundle:Language')->find($id);
 
+        $entity = $em->getRepository('MyCMSBundle:Language')->find($id);
         if (!$entity) {
             throw $this->createNotFoundException();
         }
 
-        if ($entity->getIsPublic()) {
-            $entity->setIsPublic(false);
-        }
-        else {
-            $entity->setIsPublic(true);
-        }
-
-        $em->persist($entity);
+        $entity->setIsPublic(!$entity->getIsPublic());
 
         try {
             $em->flush();
 
             $response = array(
                 "response" => true,
-                "message" => "Zmiana stanu języka zakończyła się powodzeniem"
-                );
+                "message"  => "Zmiana stanu języka zakończyła się powodzeniem"
+            );
         } catch (\Exception $e) {
             $response = array(
                 "response" => false,
-                "message" => "Zmiana stanu języka zakończyła się niepowodzeniem"
-                );
+                "message"  => "Zmiana stanu języka zakończyła się niepowodzeniem"
+            );
         }
 
         return new Response(json_encode($response));
