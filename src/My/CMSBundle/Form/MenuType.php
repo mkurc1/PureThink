@@ -11,62 +11,41 @@ class MenuType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name', 'text', array(
-                'label' => 'Nazwa menu',
-                'attr' => array(
-                    'class' => 'name'
-                    )
-                )
-            )
-            ->add('article', 'entity', array(
-                'label' => 'Wybierz artykuł',
-                'class' => 'MyCMSBundle:Article',
+            ->add('name', 'text', ['label' => 'Nazwa menu', 'attr' => ['class' => 'name']])
+            ->add('article', 'entity', [
+                'label'       => 'Wybierz artykuł',
+                'class'       => 'MyCMSBundle:Article',
                 'empty_value' => '',
-                'attr' => array(
-                    'class' => 'sintetic-select'
-                    )
-                )
-            )
-            ->add('language', 'entity', array(
-                'label' => 'Język',
-                'class' => 'MyCMSBundle:Language',
+                'attr'        => ['class' => 'sintetic-select']
+            ])
+            ->add('language', 'entity', [
+                'label'       => 'Język',
+                'class'       => 'MyCMSBundle:Language',
                 'empty_value' => '',
-                'attr' => array(
-                    'class' => 'sintetic-select'
-                    )
-                )
-            )
-            ->add('series', 'entity', array(
-                'label' => 'Grupa',
-                'class' => 'MyBackendBundle:Series',
+                'attr'        => ['class' => 'sintetic-select']
+            ])
+            ->add('series', 'entity', [
+                'label'         => 'Grupa',
+                'class'         => 'MyBackendBundle:Series',
                 'query_builder' => function (\Doctrine\ORM\EntityRepository $er) use ($options) {
-                    return $er->getGroupsByMenuIdNoExecute($options['attr']['menuId']);
-                },
-                'empty_value' => '',
-                'attr' => array(
-                    'class' => 'sintetic-select'
-                    )
-                )
-            )
-            ->add('isNewPage', 'choice', array(
-                'label' => 'Otwórz na nowej stronie',
-                'choices' => array(
-                    true => 'Tak',
-                    false => 'Nie'
-                    ),
-                'attr' => array(
-                    'class' => 'sintetic-select'
-                    )
-                )
-            )
-        ;
+                        return $er->getGroupsByMenuIdNoExecute($options['menuId']);
+                    },
+                'empty_value'   => '',
+                'attr'          => ['class' => 'sintetic-select']
+            ])
+            ->add('isNewPage', 'choice', [
+                'label'   => 'Otwórz na nowej stronie',
+                'choices' => [true => 'Tak', false => 'Nie'],
+                'attr'    => ['class' => 'sintetic-select']
+            ]);
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        $resolver->setDefaults(array(
-            'data_class' => 'My\CMSBundle\Entity\Menu'
-        ));
+        $resolver->setDefaults([
+            'data_class' => 'My\CMSBundle\Entity\Menu',
+            'menuId'     => null
+        ]);
     }
 
     /**

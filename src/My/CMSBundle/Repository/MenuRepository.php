@@ -32,6 +32,15 @@ class MenuRepository extends FilterRepository
         return $qb->getQuery()->getResult();
     }
 
+    public function getMenusByIds(array $ids)
+    {
+        $qb = $this->createQueryBuilder('a')
+            ->where('a.id IN (:ids)')
+            ->setParameter('ids', $ids);
+
+        return $qb->getQuery()->getResult();
+    }
+
     public function getActiveMenusBySlugAndLocale($slug, $locale)
     {
         $entities = [];

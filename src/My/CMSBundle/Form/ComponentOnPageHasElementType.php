@@ -10,17 +10,17 @@ class ComponentOnPageHasElementType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('componentOnPageHasValues', 'collection', array(
-            'type' => new ComponentOnPageHasValueType()
-            )
-        );
+        $builder
+            ->add('componentOnPageHasValues', 'collection', [
+                'type' => new ComponentOnPageHasValueType()
+            ]);
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        $resolver->setDefaults(array(
+        $resolver->setDefaults([
             'data_class' => 'My\CMSBundle\Entity\ComponentOnPageHasElement'
-        ));
+        ]);
     }
 
     public function getName()

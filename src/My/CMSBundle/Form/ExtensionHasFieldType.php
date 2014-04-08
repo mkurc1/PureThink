@@ -16,19 +16,17 @@ class ExtensionHasFieldType extends AbstractType
             ->add('labelOfField', 'text', ['label' => 'Etykieta'])
             ->add('class', 'text', ['required' => false, 'label' => 'Class'])
             ->add('isRequired', 'choice', [
-                'label' => 'Czy wymagane',
-                'choices' => [true => 'Tak', false => 'Nie' ],
-                'attr' => ['class' => 'sintetic-select']
+                    'label'   => 'Czy wymagane',
+                    'choices' => [true => 'Tak', false => 'Nie'],
+                    'attr'    => ['class' => 'sintetic-select']
                 ]
             )
             ->add('typeOfField', 'choice', [
-                'label' => 'Wybierz typ',
-                'choices' => ExtensionHasField::$avilableTypeOfField,
+                'label'       => 'Wybierz typ',
+                'choices'     => ExtensionHasField::$avilableTypeOfField,
                 'empty_value' => '',
-                'attr' => ['class' => 'sintetic-select']
-                ]
-            )
-        ;
+                'attr'        => ['class' => 'sintetic-select']
+            ]);
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)

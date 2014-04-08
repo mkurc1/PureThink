@@ -13,16 +13,14 @@ class ExtensionType extends AbstractType
         $builder
             ->add('name', 'text', ['label' => 'Nazwa rozszerzenia', 'attr' => ['class' => 'name']])
             ->add('series', 'entity', [
-                'label' => 'Grupa',
-                'class' => 'MyBackendBundle:Series',
+                'label'         => 'Grupa',
+                'class'         => 'MyBackendBundle:Series',
                 'query_builder' => function (\Doctrine\ORM\EntityRepository $er) use ($options) {
-                    return $er->getGroupsByMenuIdNoExecute($options['menuId']);
-                },
-                'empty_value' => '',
-                'attr' => ['class' => 'sintetic-select']
-                ]
-            )
-        ;
+                        return $er->getGroupsByMenuIdNoExecute($options['menuId']);
+                    },
+                'empty_value'   => '',
+                'attr'          => ['class' => 'sintetic-select']
+            ]);
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)

@@ -12,8 +12,7 @@ class WebSiteType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('metadata', new MetadataType(), ['required' => false])
-        ;
+            ->add('metadata', new MetadataType(), ['required' => false]);
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)

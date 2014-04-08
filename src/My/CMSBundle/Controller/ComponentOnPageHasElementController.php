@@ -6,7 +6,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use My\CMSBundle\Entity\ComponentOnPageHasElement;
 use My\CMSBundle\Entity\ComponentOnPageHasValue;
 use My\CMSBundle\Form\ComponentOnPageHasElementType;
@@ -25,18 +24,18 @@ class ComponentOnPageHasElementController extends Controller
     public function listAction(Request $request)
     {
         $rowsOnPage = (int)$request->get('rowsOnPage', 10);
-        $page       = (int)$request->get('page', 1);
-        $order      = $request->get('order', 'a.name');
-        $sequence   = $request->get('sequence', 'ASC');
-        $filtr      = $request->get('filtr');
-        $sublistId  = (int)$request->get('sublistId');
+        $page = (int)$request->get('page', 1);
+        $order = $request->get('order', 'a.name');
+        $sequence = $request->get('sequence', 'ASC');
+        $filter = $request->get('filtr');
+        $sublistId = (int)$request->get('sublistId');
 
         if ($order == 'a.name') {
             $order = 'a.content';
         }
 
         $entities = $this->getDoctrine()->getRepository('MyCMSBundle:ComponentOnPageHasValue')
-            ->getElementsQB($order, $sequence, $filtr, $sublistId);
+            ->getElementsQB($order, $sequence, $filter, $sublistId);
 
         $pagination = $this->get('my.pagination.service')
             ->setPagination($entities, $page, $rowsOnPage);
@@ -49,7 +48,7 @@ class ComponentOnPageHasElementController extends Controller
             "pagination" => $pagination,
             "response"   => true,
             "order"      => $order
-            );
+        );
 
         return new Response(json_encode($response));
     }
@@ -78,15 +77,14 @@ class ComponentOnPageHasElementController extends Controller
                 "response" => true,
                 "id"       => $entity->getId(),
                 "message"  => 'Dodawanie kolumny zakończyło się powodzeniem'
-                );
-        }
-        else {
+            );
+        } else {
             $view = $this->renderView('MyCMSBundle:ComponentOnPageHasElement:_new.html.twig', array('entity' => $entity, 'form' => $form->createView()));
 
             $response = array(
                 "response" => false,
                 "view"     => $view
-                );
+            );
         }
 
         return new Response(json_encode($response));
@@ -110,19 +108,11 @@ class ComponentOnPageHasElementController extends Controller
         $response = array(
             "response" => true,
             "view"     => $view
-            );
+        );
 
         return new Response(json_encode($response));
     }
 
-    /**
-     * Get columns
-     *
-     * @param ComponentOnPageHasElement $entity
-     * @param integer $CMSComponentOnPageId
-     * @param integer $editedEntityId
-     * @return CMSComponentOnPageHasElement
-     */
     private function getColumns(ComponentOnPageHasElement $entity, $ComponentOnPageId, $editedEntityId = false)
     {
         $em = $this->getDoctrine()->getManager();
@@ -148,15 +138,6 @@ class ComponentOnPageHasElementController extends Controller
         return $entity;
     }
 
-    /**
-     * Add columns
-     *
-     * @param object $form
-     * @param CMSComponentOnPageHasElement $entity
-     * @param integer $CMSComponentOnPageId
-     * @param integer $editedEntityId
-     * @return CMSComponentOnPageHasElementType
-     */
     private function addColumns($form, ComponentOnPageHasElement $entity, $ComponentOnPageId, $editedEntityId = false)
     {
         $columns = $this->getColumns($entity, $ComponentOnPageId, $editedEntityId);
@@ -166,15 +147,12 @@ class ComponentOnPageHasElementController extends Controller
                 $class .= " name";
             }
 
-            $form->get('componentOnPageHasValues')->add('column_'.$key, new ComponentOnPageHasValueType($column), array(
-                'attr' => array(
-                    'class'      => $class,
-                    'type'       => $column->getExtensionHasField()->getTypeOfFieldString(),
-                    'label'      => $column->getExtensionHasField()->getLabelOfField(),
-                    'isRequired' => $column->getExtensionHasField()->getIsRequired()
-                    )
-                )
-            );
+            $form->get('componentOnPageHasValues')->add('column_' . $key, new ComponentOnPageHasValueType($column), [
+                'class'      => $class,
+                'type'       => $column->getExtensionHasField()->getTypeOfFieldString(),
+                'label'      => $column->getExtensionHasField()->getLabelOfField(),
+                'isRequired' => $column->getExtensionHasField()->getIsRequired()
+            ]);
         }
 
         return $form;
@@ -206,7 +184,7 @@ class ComponentOnPageHasElementController extends Controller
         $response = array(
             "response" => true,
             "view"     => $view
-            );
+        );
 
         return new Response(json_encode($response));
     }
@@ -239,7 +217,7 @@ class ComponentOnPageHasElementController extends Controller
             $columnsValue = $em->getRepository('MyCMSBundle:ComponentOnPageHasValue')->findByComponentOnPageHasElement($entity);
 
             foreach ($columnsValue as $key => $columnValue) {
-                $columnValue->setContent($columns['column_'.$key]->get('content')->getData());
+                $columnValue->setContent($columns['column_' . $key]->get('content')->getData());
                 $em->persist($columnValue);
             }
 
@@ -249,16 +227,15 @@ class ComponentOnPageHasElementController extends Controller
             $response = array(
                 "response" => true,
                 "id"       => $entity->getId(),
-                "message" => 'Edycja kolumny zakończyła się powodzeniem'
-                );
-        }
-        else {
+                "message"  => 'Edycja kolumny zakończyła się powodzeniem'
+            );
+        } else {
             $view = $this->renderView('MyCMSBundle:ComponentOnPageHasElement:_edit.html.twig', array('entity' => $entity, 'form' => $form->createView()));
 
             $response = array(
                 "response" => false,
                 "view"     => $view
-                );
+            );
         }
 
         return new Response(json_encode($response));
@@ -276,7 +253,6 @@ class ComponentOnPageHasElementController extends Controller
 
         foreach ($arrayId as $id) {
             $entity = $em->getRepository('MyCMSBundle:ComponentOnPageHasElement')->find((int)$id);
-
             if (!$entity) {
                 throw $this->createNotFoundException();
             }
@@ -284,33 +260,7 @@ class ComponentOnPageHasElementController extends Controller
             $em->remove($entity);
         }
 
-        try {
-            $em->flush();
-
-            if (count($arrayId) > 1) {
-                $message = 'Usuwanie kolumn zakończyło się powodzeniem';
-            }
-            else {
-                $message = 'Usuwanie kolumny zakończyło się powodzeniem';
-            }
-
-            $response = array(
-                "response" => true,
-                "message" => $message
-                );
-        } catch (\Exception $e) {
-            if (count($arrayId) > 1) {
-                $message = 'Usuwanie kolumn zakończyło się niepowodzeniem';
-            }
-            else {
-                $message = 'Usuwanie kolumny zakończyło się niepowodzeniem';
-            }
-
-            $response = array(
-                "response" => false,
-                "message" => $message
-                );
-        }
+        $response = $this->get('my.flush.service')->tryFlush();
 
         return new Response(json_encode($response));
     }
@@ -323,36 +273,14 @@ class ComponentOnPageHasElementController extends Controller
     {
         $id = (int)$request->get('id');
 
-        $em = $this->getDoctrine()->getManager();
-
-        $entity = $em->getRepository('MyCMSBundle:ComponentOnPageHasElement')->find($id);
-
+        $entity = $this->getDoctrine()->getRepository('MyCMSBundle:ComponentOnPageHasElement')->find($id);
         if (!$entity) {
             throw $this->createNotFoundException();
         }
 
-        if ($entity->getIsEnable()) {
-            $entity->setIsEnable(false);
-        }
-        else {
-            $entity->setIsEnable(true);
-        }
+        $entity->setIsEnable(!$entity->getIsEnable());
 
-        $em->persist($entity);
-
-        try {
-            $em->flush();
-
-            $response = array(
-                "response" => true,
-                "message" => 'Zmiana stanu zakończyła się powodzeniem'
-                );
-        } catch (\Exception $e) {
-            $response = array(
-                "response" => false,
-                "message" => 'Zmiana stanu zakończyła się niepowodzeniem'
-                );
-        }
+        $response = $this->get('my.flush.service')->tryFlush();
 
         return new Response(json_encode($response));
     }

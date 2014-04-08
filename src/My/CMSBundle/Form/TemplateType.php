@@ -12,15 +12,14 @@ class TemplateType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('author')
-        ;
+            ->add('author');
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        $resolver->setDefaults(array(
+        $resolver->setDefaults([
             'data_class' => 'My\CMSBundle\Entity\Template'
-        ));
+        ]);
     }
 
     public function getName()

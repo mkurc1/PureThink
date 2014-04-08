@@ -19,8 +19,8 @@ class ComponentOnPageHasValueType extends AbstractType
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $type = $options['attr']['type'];
-        $isRequired = $options['attr']['isRequired'];
+        $type = $options['type'];
+        $isRequired = $options['isRequired'];
         $class = null;
         $required = null;
 
@@ -29,48 +29,42 @@ class ComponentOnPageHasValueType extends AbstractType
                 $type = 'entity';
                 $class = 'MyCMSBundle:Article';
                 if ($isRequired) {
-                    $required = array(new NotNull());
+                    $required = [new NotNull()];
                 }
                 break;
             case 'File':
                 $type = 'entity';
                 $class = 'MyFileBundle:File';
                 if ($isRequired) {
-                    $required = array(new NotNull());
+                    $required = [new NotNull()];
                 }
                 break;
             default:
                 $type = strtolower($type);
                 if ($isRequired) {
-                    $required = array(new NotBlank());
+                    $required = [new NotBlank()];
                 }
-                break;
         }
 
         if ($type == 'entity') {
-            $builder->add('content', $type, array(
-                'required' => $isRequired,
-                'label' => $options['attr']['label'],
-                'class' => $class,
+            $builder->add('content', $type, [
+                'required'    => $isRequired,
+                'label'       => $options['label'],
+                'class'       => $class,
                 'empty_value' => '',
-                'attr' => array(
-                    'class' => $options['attr']['class'],
+                'attr'        => [
+                    'class'       => $options['class'],
                     'selected_id' => $this->column->getContent()
-                    ),
+                ],
                 'constraints' => $required
-                )
-            );
-        }
-        else {
-            $builder->add('content', $type, array(
-                'required' => $isRequired,
-                'label' => $options['attr']['label'],
-                'attr' => array(
-                    'class' => $options['attr']['class']
-                    ),
+            ]);
+        } else {
+            $builder->add('content', $type, [
+                'required'    => $isRequired,
+                'label'       => $options['label'],
+                'attr'        => ['class' => $options['class']],
                 'constraints' => $required
-                )
-            );
+            ]);
         }
 
         if (!is_null($this->column)) {
@@ -80,9 +74,13 @@ class ComponentOnPageHasValueType extends AbstractType
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        $resolver->setDefaults(array(
-            'data_class' => 'My\CMSBundle\Entity\ComponentOnPageHasValue'
-        ));
+        $resolver->setDefaults([
+            'data_class' => 'My\CMSBundle\Entity\ComponentOnPageHasValue',
+            'class'      => null,
+            'type'       => null,
+            'label'      => null,
+            'isRequired' => null
+        ]);
     }
 
     public function getName()

@@ -24,13 +24,12 @@ class ArticleType extends AbstractType
                 'label'         => 'Grupa',
                 'class'         => 'MyBackendBundle:Series',
                 'query_builder' => function (\Doctrine\ORM\EntityRepository $er) use ($options) {
-                    return $er->getGroupsByMenuIdNoExecute($options['menuId']);
-                },
-                'empty_value' => '',
-                'attr'        => ['class' => 'sintetic-select']
+                        return $er->getGroupsByMenuIdNoExecute($options['menuId']);
+                    },
+                'empty_value'   => '',
+                'attr'          => ['class' => 'sintetic-select']
             ])
-            ->add('metadata', new MetadataType(), ['required' => false])
-        ;
+            ->add('metadata', new MetadataType(), ['required' => false]);
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)
