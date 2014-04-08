@@ -10,14 +10,14 @@ class FilterRepository extends EntityRepository
      * Add language alias filter
      *
      * @param QueryBuilde $qb
-     * @param string $languageAlias
-     * @param string $alias
+     * @param string      $languageAlias
+     * @param string      $alias
      */
     protected function addLanguageAliasFilter($qb, $languageAlias = null, $alias = 'l')
     {
         if (null != $alias) {
-            $qb->andWhere($alias.'.alias = :languageAlias')
-               ->setParameter('languageAlias', $languageAlias);
+            $qb->andWhere($alias . '.alias = :languageAlias')
+                ->setParameter('languageAlias', $languageAlias);
         }
     }
 
@@ -25,13 +25,13 @@ class FilterRepository extends EntityRepository
      * Add name filter
      *
      * @param QueryBuilde $qb
-     * @param string $filter
+     * @param string      $filter
      */
     protected function addNameFilterQB($qb, $filter = null)
     {
         if (null != $filter) {
-            $qb->andWhere($qb->getRootAlias().'.name LIKE :filter')
-               ->setParameter('filter', '%'.$filter.'%');
+            $qb->andWhere($qb->getRootAlias() . '.name LIKE :filter')
+                ->setParameter('filter', '%' . $filter . '%');
         }
     }
 
@@ -39,14 +39,14 @@ class FilterRepository extends EntityRepository
      * Add language filter
      *
      * @param QueryBuilde $qb
-     * @param integer $languageId
-     * @param string $filter
+     * @param integer     $languageId
+     * @param string      $alias
      */
     protected function addLanguageIdFilterQB($qb, $languageId = null, $alias = 'l')
     {
         if (null != $languageId) {
-            $qb->andWhere($alias.'.id = :languageId')
-               ->setParameter('languageId', $languageId);
+            $qb->andWhere($alias . '.id = :languageId')
+                ->setParameter('languageId', $languageId);
         }
     }
 
@@ -54,14 +54,14 @@ class FilterRepository extends EntityRepository
      * Add group filter
      *
      * @param QueryBuilde $qb
-     * @param integer $groupId
-     * @param string $filter
+     * @param integer     $groupId
+     * @param string      $alias
      */
     protected function addGroupFilterQB($qb, $groupId = null, $alias = 's')
     {
         if (null != $groupId) {
-            $qb->andWhere($alias.'.id = :groupId')
-               ->setParameter('groupId', $groupId);
+            $qb->andWhere($alias . '.id = :groupId')
+                ->setParameter('groupId', $groupId);
         }
     }
 }

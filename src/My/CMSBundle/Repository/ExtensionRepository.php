@@ -15,9 +15,9 @@ class ExtensionRepository extends FilterRepository
      * @param string $groupId
      * @return array
      */
-	public function getExtensionsQB($order, $sequence, $filter, $groupId)
-	{
-		$qb = $this->createQueryBuilder('a')
+    public function getExtensionsQB($order, $sequence, $filter, $groupId)
+    {
+        $qb = $this->createQueryBuilder('a')
             ->join('a.series', 's');
 
         $this->addNameFilterQB($qb, $filter);
@@ -25,8 +25,8 @@ class ExtensionRepository extends FilterRepository
 
         $qb->orderBy($order, $sequence);
 
-		return $qb->getQuery();
-	}
+        return $qb->getQuery();
+    }
 
     public function getExtensionsByIds(array $ids)
     {

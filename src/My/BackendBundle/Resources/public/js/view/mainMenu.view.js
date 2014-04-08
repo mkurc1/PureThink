@@ -13,7 +13,7 @@ MainMenuView = Backbone.View.extend({
             type     : "post",
             dataType : 'json',
             async    : true,
-            url      : Routing.generate('my_backend_menu_menu'),
+            url      : Routing.generate('my_backend_admin_menu'),
             data: {
                 moduleId: userSettingModel.get('moduleId')
             },

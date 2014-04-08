@@ -6,7 +6,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use My\CMSBundle\Entity\WebSite;
 use My\CMSBundle\Form\WebSiteType;
 use Symfony\Component\HttpFoundation\Response;
@@ -63,7 +62,7 @@ class WebSiteController extends Controller
         }
 
         $form = $this->createForm(new WebSiteType(), $webSite);
-        $form->bind($request);
+        $form->submit($request);
 
         if ($form->isValid()) {
             $em->flush();
@@ -100,7 +99,8 @@ class WebSiteController extends Controller
         return $webSite;
     }
 
-    private function getDefaultLanguageId() {
+    private function getDefaultLanguageId()
+    {
         $language = $this->getDoctrine()->getRepository('MyCMSBundle:Language')
             ->getFirstLanguage();
 

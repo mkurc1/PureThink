@@ -34,14 +34,14 @@ class SeriesController extends Controller
 
             $response = array(
                 "response" => true,
-                "id" => $entity->getId(),
-                "message" => "Dodanie grupy zakończyło się powodzeniem"
-                );
+                "id"       => $entity->getId(),
+                "message"  => "Dodanie grupy zakończyło się powodzeniem"
+            );
         } catch (\Exception $e) {
             $response = array(
                 "response" => false,
-                "message" => "Dodanie grupy zakończyło się niepowodzeniem"
-                );
+                "message"  => "Dodanie grupy zakończyło się niepowodzeniem"
+            );
         }
 
         return new Response(json_encode($response));
@@ -61,20 +61,18 @@ class SeriesController extends Controller
         $entity = $em->getRepository('MyBackendBundle:Series')->find($id);
         $entity->setName($name);
 
-        $em->persist($entity);
-
         try {
             $em->flush();
 
             $response = array(
                 "response" => true,
-                "message" => "Edycja grupy zakończyła się powodzeniem"
-                );
+                "message"  => "Edycja grupy zakończyła się powodzeniem"
+            );
         } catch (\Exception $e) {
             $response = array(
                 "response" => false,
-                "message" => "Edycja grupy zakończyła się niepowodzeniem"
-                );
+                "message"  => "Edycja grupy zakończyła się niepowodzeniem"
+            );
         }
 
         return new Response(json_encode($response));
@@ -102,13 +100,13 @@ class SeriesController extends Controller
 
             $response = array(
                 "response" => true,
-                "message" => "Usuwanie grupy zakończyło się powodzeniem"
-                );
+                "message"  => "Usuwanie grupy zakończyło się powodzeniem"
+            );
         } catch (\Exception $e) {
             $response = array(
                 "response" => false,
-                "message" => "Usuwanie grupy zakończyło się niepowodzeniem"
-                );
+                "message"  => "Usuwanie grupy zakończyło się niepowodzeniem"
+            );
         }
 
         return new Response(json_encode($response));

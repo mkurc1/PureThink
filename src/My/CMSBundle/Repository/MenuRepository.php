@@ -15,9 +15,9 @@ class MenuRepository extends FilterRepository
      * @param string $groupId
      * @return array
      */
-	public function getMenusQB($filter, $languageId, $groupId)
-	{
-		$qb = $this->createQueryBuilder('a')
+    public function getMenusQB($filter, $languageId, $groupId)
+    {
+        $qb = $this->createQueryBuilder('a')
             ->join('a.language', 'l')
             ->join('a.series', 's')
             ->leftJoin('a.article', 'art')
@@ -29,8 +29,8 @@ class MenuRepository extends FilterRepository
 
         $qb->orderBy('a.sequence');
 
-		return $qb->getQuery()->getResult();
-	}
+        return $qb->getQuery()->getResult();
+    }
 
     public function getActiveMenusBySlugAndLocale($slug, $locale)
     {
@@ -39,16 +39,13 @@ class MenuRepository extends FilterRepository
         $menus = $this->getActiveMenusBySlugAndLocaleQb($slug, $locale);
         $menus = $menus->getQuery()->getResult();
 
-        // ldd($menus);
-
         foreach ($menus as $menu) {
             $id = $menu->getId();
 
             if (is_object($menu->getMenu()) && $menu->getMenu()->getIsPublic() && $menu->getMenu()->getArticle()->getIsPublic()) {
                 $parentId = $menu->getMenu()->getId();
-                $entities[$parentId]['childrens'][$id]['parent'] = $menu;
-            }
-            else {
+                $entities[$parentId]['children'][$id]['parent'] = $menu;
+            } else {
                 $entities[$id]['parent'] = $menu;
             }
         }

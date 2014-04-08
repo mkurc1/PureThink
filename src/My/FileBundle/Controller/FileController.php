@@ -67,10 +67,7 @@ class FileController extends CRUDController implements CRUDInterface
     {
         $id = (int)$request->get('id');
 
-        $em = $this->getDoctrine()->getManager();
-
         $entity = $this->getDoctrine()->getRepository('MyFileBundle:File')->find($id);
-
         if (!$entity) {
             throw $this->createNotFoundException();
         }

@@ -7,7 +7,6 @@ use My\BackendBundle\Controller\CRUDInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use My\CMSBundle\Entity\ExtensionHasField;
 use My\CMSBundle\Form\ExtensionHasFieldType;
 use Symfony\Component\HttpFoundation\Response;

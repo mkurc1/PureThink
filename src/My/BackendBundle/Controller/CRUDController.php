@@ -8,7 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Response;
 
-class CRUDController extends Controller
+abstract class CRUDController extends Controller
 {
     /**
      * @Route("/")
@@ -58,11 +58,7 @@ class CRUDController extends Controller
 
         $entity = $this->getNewEntity($params);
         $form = $this->getForm($entity, $params);
-
-        $view = $this->renderView($this->getNewFormTemplate(), [
-            'entity' => $entity,
-            'form'   => $form->createView()
-        ]);
+        $view = $this->renderForm($entity, $form);
 
         $response = [
             "response" => true,
@@ -85,23 +81,15 @@ class CRUDController extends Controller
 
         $entity = $this->getNewEntity($params);
         $form = $this->getForm($entity, $params);
-        $form->bind($request);
 
-        if ($form->isValid()) {
+        if ($form->submit($request) && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
-            $em->flush();
 
-            $response = [
-                "response" => true,
-                "id"       => $entity->getId(),
-                "message"  => 'Dodawanie pozycji zakończyło się powodzeniem'
-            ];
+            $response = $this->tryFlush();
+            $response['id'] = $entity->getId();
         } else {
-            $view = $this->renderView($this->getNewFormTemplate(), [
-                'entity' => $entity,
-                'form'   => $form->createView()
-            ]);
+            $view = $this->renderForm($entity, $form);
 
             $response = [
                 "response" => false,
@@ -122,17 +110,9 @@ class CRUDController extends Controller
             'menuId' => (int)$request->get('menuId')
         ];
 
-        $entity = $this->getEntityById($id);
-        if (null == $entity) {
-            throw $this->createNotFoundException();
-        }
-
+        $entity = $this->getEntity($id);
         $form = $this->getForm($entity, $params);
-
-        $view = $this->renderView($this->getEditFormTemplate(), [
-            'entity' => $entity,
-            'form'   => $form->createView()
-        ]);
+        $view = $this->renderForm($entity, $form);
 
         $response = [
             "response" => true,
@@ -152,28 +132,15 @@ class CRUDController extends Controller
             'menuId' => (int)$request->get('menuId')
         ];
 
-        $entity = $this->getEntityById($id);
-        if (null == $entity) {
-            throw $this->createNotFoundException();
-        }
+        $entity = $this->getEntity($id);
 
         $form = $this->getForm($entity, $params);
-        $form->bind($request);
 
-        if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->flush();
-
-            $response = [
-                "response" => true,
-                "id"       => $entity->getId(),
-                "message"  => 'Edycja pozycji zakończyła się powodzeniem'
-            ];
+        if ($form->submit($request) && $form->isValid()) {
+            $response = $this->tryFlush();
+            $response['id'] = $entity->getId();
         } else {
-            $view = $this->renderView($this->getEditFormTemplate(), [
-                'entity' => $entity,
-                'form'   => $form->createView()
-            ]);
+            $view = $this->renderForm($entity, $form);
 
             $response = [
                 "response" => false,
@@ -199,26 +166,79 @@ class CRUDController extends Controller
             $em->remove($entity);
         }
 
-        try {
-            $em->flush();
-
-            $response = [
-                "response" => true,
-                "message"  => 'Usuwanie pozycji zakończyło się powodzeniem'
-            ];
-        } catch (\Exception $e) {
-            $response = [
-                "response" => false,
-                "message"  => 'Usuwanie pozycji zakończyło się niepowodzeniem'
-            ];
-        }
+        $response = $this->tryFlush();
 
         return new Response(json_encode($response));
+    }
+
+    private function tryFlush()
+    {
+        try {
+            return $this->flush();
+        } catch (\Exception $e) {
+            return $this->fail();
+        }
+    }
+
+    private function flush()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $em->flush();
+
+        return [
+            "response" => true,
+            "message"  => $this->getSuccessMessage()
+        ];
+    }
+
+    private function fail()
+    {
+        return [
+            "response" => false,
+            "message"  => $this->getFailMessage()
+        ];
+    }
+
+    private function getSuccessMessage()
+    {
+        return 'Akcja zakończyła się powodzeniem';
+    }
+
+    private function getFailMessage()
+    {
+        return 'Akcja zakończyła się niepowodzeniem';
     }
 
     private function setPagination($entities, $page = 1, $rowsOnPage = 10)
     {
         return $this->get('my.pagination.service')
             ->setPagination($entities, $page, $rowsOnPage);
+    }
+
+    private function getEntity($id)
+    {
+        $entity = $this->getEntityById($id);
+        if (null == $entity) {
+            throw $this->createNotFoundException();
+        }
+
+        return $entity;
+    }
+
+    private function renderForm($entity, $form)
+    {
+        return $this->renderView($this->getFormTemplate($entity), [
+            'entity' => $entity,
+            'form'   => $form->createView()
+        ]);
+    }
+
+    private function getFormTemplate($entity)
+    {
+        if (null == $entity->getId()) {
+            return $this->getNewFormTemplate();
+        } else {
+            return $this->getEditFormTemplate();
+        }
     }
 }

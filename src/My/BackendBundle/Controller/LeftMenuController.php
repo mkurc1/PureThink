@@ -18,7 +18,7 @@ class LeftMenuController extends Controller
     public function menuAction(Request $request)
     {
         $moduleId = (int)$request->get('moduleId');
-        $menuId   = (int)$request->get('menuId');
+        $menuId = (int)$request->get('menuId');
         $editMode = ($request->get('editMode') == 'true') ? true : false;
 
         $menu = '';
@@ -36,19 +36,13 @@ class LeftMenuController extends Controller
         }
 
         if (!$editMode) {
-            $menu .= $this->getGroups($menuId);
+            $menu .= $this->getGroupsForMenu($menuId);
         }
 
         return new Response(json_encode(["menu" => $menu, "response" => true]));
     }
 
-    /**
-     * Get groups
-     *
-     * @param integer $menuId
-     * @return array
-     */
-    Private function getGroups($menuId)
+    private function getGroupsForMenu($menuId)
     {
         $entities = $this->getDoctrine()->getRepository('MyBackendBundle:Series')
             ->getGroupsByMenuId($menuId);

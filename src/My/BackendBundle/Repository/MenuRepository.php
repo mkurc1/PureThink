@@ -12,20 +12,14 @@ use Doctrine\ORM\EntityRepository;
  */
 class MenuRepository extends EntityRepository
 {
-	/**
-	 * Get menu
-	 *
-	 * @param integer $moduleId
-	 * @return array
-	 */
-	public function getMenus($moduleId)
-	{
-		$qb = $this->createQueryBuilder('m')
-			->join('m.module', 'mod')
-			->where('mod.id = :module_id')
-		    ->setParameter('module_id', $moduleId)
-			->orderBy('m.sequence');
+    public function getMenuForModule($moduleId)
+    {
+        $qb = $this->createQueryBuilder('m')
+            ->join('m.module', 'mod')
+            ->where('mod.id = :moduleId')
+            ->orderBy('m.sequence')
+            ->setParameter('moduleId', $moduleId);
 
-		return $qb->getQuery()->getResult();
-	}
+        return $qb->getQuery()->getResult();
+    }
 }

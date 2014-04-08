@@ -17,9 +17,9 @@ class ArticleRepository extends FilterRepository
      * @param string $groupId
      * @return array
      */
-	public function getArticlesQB($order, $sequence, $filter, $languageId, $groupId)
-	{
-		$qb = $this->createQueryBuilder('a')
+    public function getArticlesQB($order, $sequence, $filter, $languageId, $groupId)
+    {
+        $qb = $this->createQueryBuilder('a')
             ->join('a.language', 'l')
             ->join('a.series', 's');
 
@@ -29,8 +29,8 @@ class ArticleRepository extends FilterRepository
 
         $qb->orderBy($order, $sequence);
 
-		return $qb->getQuery();
-	}
+        return $qb->getQuery();
+    }
 
     /**
      * Get articles by ID
