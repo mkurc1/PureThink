@@ -86,7 +86,7 @@ abstract class CRUDController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
 
-            $response = $this->tryFlush();
+            $response = $this->get('my.flush.service')->tryFlush();
             $response['id'] = $entity->getId();
         } else {
             $view = $this->renderForm($entity, $form);
@@ -137,7 +137,7 @@ abstract class CRUDController extends Controller
         $form = $this->getForm($entity, $params);
 
         if ($form->submit($request) && $form->isValid()) {
-            $response = $this->tryFlush();
+            $response = $this->get('my.flush.service')->tryFlush();
             $response['id'] = $entity->getId();
         } else {
             $view = $this->renderForm($entity, $form);
@@ -166,47 +166,9 @@ abstract class CRUDController extends Controller
             $em->remove($entity);
         }
 
-        $response = $this->tryFlush();
+        $response = $this->get('my.flush.service')->tryFlush();
 
         return new Response(json_encode($response));
-    }
-
-    protected function tryFlush()
-    {
-        try {
-            return $this->flush();
-        } catch (\Exception $e) {
-            return $this->fail();
-        }
-    }
-
-    private function flush()
-    {
-        $em = $this->getDoctrine()->getManager();
-        $em->flush();
-
-        return [
-            "response" => true,
-            "message"  => $this->getSuccessMessage()
-        ];
-    }
-
-    private function fail()
-    {
-        return [
-            "response" => false,
-            "message"  => $this->getFailMessage()
-        ];
-    }
-
-    private function getSuccessMessage()
-    {
-        return 'Akcja zakończyła się powodzeniem';
-    }
-
-    private function getFailMessage()
-    {
-        return 'Akcja zakończyła się niepowodzeniem';
     }
 
     private function setPagination($entities, $page = 1, $rowsOnPage = 10)

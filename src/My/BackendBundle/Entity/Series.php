@@ -30,6 +30,12 @@ class Series
     private $menu;
 
 
+    public function __construct($name, Menu $menu)
+    {
+        $this->setName($name);
+        $this->setMenu($menu);
+    }
+
     /**
      * Get name
      *

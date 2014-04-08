@@ -88,7 +88,7 @@ class ExtensionHasFieldController extends CRUDController implements CRUDInterfac
             }
         }
 
-        $response = $this->tryFlush();
+        $response = $this->get('my.flush.service')->tryFlush();
 
         return new Response(json_encode($response));
     }

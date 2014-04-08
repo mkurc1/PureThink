@@ -23,26 +23,13 @@ class SeriesController extends Controller
 
         $em = $this->getDoctrine()->getManager();
 
-        $entity = new Series();
-        $entity->setName($name);
-        $entity->setMenu($em->getRepository('MyBackendBundle:Menu')->find($menuId));
+        $menu = $em->getRepository('MyBackendBundle:Menu')->find($menuId);
+        $entity = new Series($name, $menu);
 
         $em->persist($entity);
 
-        try {
-            $em->flush();
-
-            $response = array(
-                "response" => true,
-                "id"       => $entity->getId(),
-                "message"  => "Dodanie grupy zakończyło się powodzeniem"
-            );
-        } catch (\Exception $e) {
-            $response = array(
-                "response" => false,
-                "message"  => "Dodanie grupy zakończyło się niepowodzeniem"
-            );
-        }
+        $response = $this->get('my.flush.service')->tryFlush();
+        $response['id'] = $entity->getId();
 
         return new Response(json_encode($response));
     }
@@ -56,24 +43,14 @@ class SeriesController extends Controller
         $id = (int)$request->get('id');
         $name = $request->get('name');
 
-        $em = $this->getDoctrine()->getManager();
+        $entity = $this->getDoctrine()->getRepository('MyBackendBundle:Series')->find($id);
+        if (!$entity) {
+            throw $this->createNotFoundException();
+        }
 
-        $entity = $em->getRepository('MyBackendBundle:Series')->find($id);
         $entity->setName($name);
 
-        try {
-            $em->flush();
-
-            $response = array(
-                "response" => true,
-                "message"  => "Edycja grupy zakończyła się powodzeniem"
-            );
-        } catch (\Exception $e) {
-            $response = array(
-                "response" => false,
-                "message"  => "Edycja grupy zakończyła się niepowodzeniem"
-            );
-        }
+        $response = $this->get('my.flush.service')->tryFlush();
 
         return new Response(json_encode($response));
     }
@@ -90,24 +67,12 @@ class SeriesController extends Controller
         $entity = $em->getRepository('MyBackendBundle:Series')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Serires entity.');
+            throw $this->createNotFoundException();
         }
 
         $em->remove($entity);
 
-        try {
-            $em->flush();
-
-            $response = array(
-                "response" => true,
-                "message"  => "Usuwanie grupy zakończyło się powodzeniem"
-            );
-        } catch (\Exception $e) {
-            $response = array(
-                "response" => false,
-                "message"  => "Usuwanie grupy zakończyło się niepowodzeniem"
-            );
-        }
+        $response = $this->get('my.flush.service')->tryFlush();
 
         return new Response(json_encode($response));
     }

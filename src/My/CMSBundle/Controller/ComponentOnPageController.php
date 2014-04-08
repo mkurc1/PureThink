@@ -70,7 +70,7 @@ class ComponentOnPageController extends CRUDController implements CRUDInterface
         $entity = $this->getEntity($id);
         $entity->setIsEnable(!$entity->getIsEnable());
 
-        $response = $this->tryFlush();
+        $response = $this->get('my.flush.service')->tryFlush();
 
         return new Response(json_encode($response));
     }

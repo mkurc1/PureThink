@@ -37,12 +37,12 @@ class WebSiteController extends Controller
         $form = $this->createForm(new WebSiteType(), $webSite);
 
         $view = $this->renderView('MyCMSBundle:WebSite:_edit.html.twig',
-            array('entity' => $webSite, 'form' => $form->createView()));
+            ['entity' => $webSite, 'form' => $form->createView()]);
 
         $response = [
             "response" => true,
             "view"     => $view
-            ];
+        ];
 
         return new Response(json_encode($response));
     }
@@ -53,34 +53,24 @@ class WebSiteController extends Controller
      */
     public function updateAction(Request $request, $id)
     {
-        $em = $this->getDoctrine()->getManager();
-
-        $webSite = $em->getRepository('MyCMSBundle:WebSite')->find($id);
-
-        if (!$webSite) {
+        $webSite = $this->getDoctrine()->getRepository('MyCMSBundle:WebSite')->find($id);
+        if (null == $webSite) {
             throw $this->createNotFoundException();
         }
 
         $form = $this->createForm(new WebSiteType(), $webSite);
-        $form->submit($request);
 
-        if ($form->isValid()) {
-            $em->flush();
-
-            $response = [
-                "response" => true,
-                "id"       => $webSite->getId(),
-                "message"  => 'Edycja witryny zakończyła się powodzeniem'
-                ];
-        }
-        else {
+        if ($form->submit($request) && $form->isValid()) {
+            $response = $this->get('my.flush.service')->tryFlush();
+            $response['id'] = $webSite->getId();
+        } else {
             $view = $this->renderView('MyCMSBundle:WebSite:_edit.html.twig',
-                array('entity' => $webSite, 'form' => $form->createView()));
+                ['entity' => $webSite, 'form' => $form->createView()]);
 
             $response = [
                 "response" => false,
                 "view"     => $view
-                ];
+            ];
         }
 
         return new Response(json_encode($response));

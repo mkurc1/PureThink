@@ -29,20 +29,8 @@ class LanguageController extends Controller
         $em = $this->getDoctrine()->getManager();
         $em->persist($entity);
 
-        try {
-            $em->flush();
-
-            $response = array(
-                "response" => true,
-                "id"       => $entity->getId(),
-                "message"  => "Dodanie języka zakończyło się powodzeniem"
-            );
-        } catch (\Exception $e) {
-            $response = array(
-                "response" => false,
-                "message"  => "Dodanie języka zakończyło się niepowodzeniem"
-            );
-        }
+        $response = $this->get('my.flush.service')->tryFlush();
+        $response['id'] = $entity->getId();
 
         return new Response(json_encode($response));
     }
@@ -63,19 +51,7 @@ class LanguageController extends Controller
         $entity->setName($name);
         $entity->setAlias($alias);
 
-        try {
-            $em->flush();
-
-            $response = array(
-                "response" => true,
-                "message"  => "Edycja języka zakończyła się powodzeniem"
-            );
-        } catch (\Exception $e) {
-            $response = array(
-                "response" => false,
-                "message"  => "Edycja języka zakończyła się niepowodzeniem"
-            );
-        }
+        $response = $this->get('my.flush.service')->tryFlush();
 
         return new Response(json_encode($response));
     }
@@ -97,19 +73,7 @@ class LanguageController extends Controller
 
         $em->remove($entity);
 
-        try {
-            $em->flush();
-
-            $response = array(
-                "response" => true,
-                "message"  => "Usuwanie języka zakończyło się powodzeniem"
-            );
-        } catch (\Exception $e) {
-            $response = array(
-                "response" => false,
-                "message"  => "Usuwanie języka zakończyło się niepowodzeniem"
-            );
-        }
+        $response = $this->get('my.flush.service')->tryFlush();
 
         return new Response(json_encode($response));
     }
@@ -131,19 +95,7 @@ class LanguageController extends Controller
 
         $entity->setIsPublic(!$entity->getIsPublic());
 
-        try {
-            $em->flush();
-
-            $response = array(
-                "response" => true,
-                "message"  => "Zmiana stanu języka zakończyła się powodzeniem"
-            );
-        } catch (\Exception $e) {
-            $response = array(
-                "response" => false,
-                "message"  => "Zmiana stanu języka zakończyła się niepowodzeniem"
-            );
-        }
+        $response = $this->get('my.flush.service')->tryFlush();
 
         return new Response(json_encode($response));
     }
