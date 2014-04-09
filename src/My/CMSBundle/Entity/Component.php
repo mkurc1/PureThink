@@ -7,10 +7,10 @@ use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ORM\Table(name="cms_component_on_page")
- * @ORM\Entity(repositoryClass="My\CMSBundle\Repository\ComponentOnPageRepository")
+ * @ORM\Table(name="cms_component")
+ * @ORM\Entity(repositoryClass="My\CMSBundle\Repository\ComponentRepository")
  */
-class ComponentOnPage
+class Component
 {
     /**
      * @ORM\Column(type="integer")
@@ -85,7 +85,7 @@ class ComponentOnPage
      * Set name
      *
      * @param string $name
-     * @return ComponentOnPage
+     * @return Component
      */
     public function setName($name)
     {
@@ -118,7 +118,7 @@ class ComponentOnPage
      * Set isEnable
      *
      * @param boolean $isEnable
-     * @return ComponentOnPage
+     * @return Component
      */
     public function setIsEnable($isEnable)
     {
@@ -141,7 +141,7 @@ class ComponentOnPage
      * Set slug
      *
      * @param string $slug
-     * @return ComponentOnPage
+     * @return Component
      */
     public function setSlug($slug)
     {
@@ -164,7 +164,7 @@ class ComponentOnPage
      * Set createdAt
      *
      * @param \DateTime $createdAt
-     * @return ComponentOnPage
+     * @return Component
      */
     public function setCreatedAt($createdAt)
     {
@@ -187,7 +187,7 @@ class ComponentOnPage
      * Set updatedAt
      *
      * @param \DateTime $updatedAt
-     * @return ComponentOnPage
+     * @return Component
      */
     public function setUpdatedAt($updatedAt)
     {
@@ -210,7 +210,7 @@ class ComponentOnPage
      * Set language
      *
      * @param \My\CMSBundle\Entity\Language $language
-     * @return ComponentOnPage
+     * @return Component
      */
     public function setLanguage(\My\CMSBundle\Entity\Language $language)
     {
@@ -233,7 +233,7 @@ class ComponentOnPage
      * Set series
      *
      * @param \My\BackendBundle\Entity\Series $series
-     * @return ComponentOnPage
+     * @return Component
      */
     public function setSeries(\My\BackendBundle\Entity\Series $series)
     {
@@ -256,7 +256,7 @@ class ComponentOnPage
      * Set extension
      *
      * @param \My\CMSBundle\Entity\Extension $extension
-     * @return ComponentOnPage
+     * @return Component
      */
     public function setExtension(\My\CMSBundle\Entity\Extension $extension)
     {

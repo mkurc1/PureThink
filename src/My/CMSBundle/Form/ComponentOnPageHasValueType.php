@@ -2,84 +2,71 @@
 
 namespace My\CMSBundle\Form;
 
+use My\CMSBundle\Entity\ComponentOnPageHasValue;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\NotNull;
 
 class ComponentOnPageHasValueType extends AbstractType
 {
-    private $column = null;
+    private $componentOnPageHasValue = null;
 
-    public function __construct($column = null)
+    public function __construct(ComponentOnPageHasValue $componentOnPageHasValue = null)
     {
-        $this->column = $column;
+        $this->componentOnPageHasValue = $componentOnPageHasValue;
     }
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $type = $options['type'];
-        $isRequired = $options['isRequired'];
-        $class = null;
-        $required = null;
+        $extensionHasField = $this->componentOnPageHasValue->getExtensionHasField();
+
+        $type = strtolower($extensionHasField->getTypeOfFieldString());
+        $class = $extensionHasField->getClass();
+        $label = $extensionHasField->getLabelOfField();
+        $required = $extensionHasField->getIsRequired() ? [new NotNull()] : null;
 
         switch ($type) {
-            case 'Article':
+            case 'article':
                 $type = 'entity';
-                $class = 'MyCMSBundle:Article';
-                if ($isRequired) {
-                    $required = [new NotNull()];
-                }
+                $entityClass = 'MyCMSBundle:Article';
                 break;
-            case 'File':
+            case 'file':
                 $type = 'entity';
-                $class = 'MyFileBundle:File';
-                if ($isRequired) {
-                    $required = [new NotNull()];
-                }
+                $entityClass = 'MyFileBundle:File';
                 break;
-            default:
-                $type = strtolower($type);
-                if ($isRequired) {
-                    $required = [new NotBlank()];
-                }
         }
 
         if ($type == 'entity') {
             $builder->add('content', $type, [
-                'required'    => $isRequired,
-                'label'       => $options['label'],
-                'class'       => $class,
+                'required'    => false,
+                'label'       => $label,
+                'class'       => $entityClass,
                 'empty_value' => '',
                 'attr'        => [
-                    'class'       => $options['class'],
-                    'selected_id' => $this->column->getContent()
+                    'class'       => $class,
+                    'selected_id' => $this->componentOnPageHasValue->getContent()
                 ],
                 'constraints' => $required
             ]);
         } else {
             $builder->add('content', $type, [
-                'required'    => $isRequired,
-                'label'       => $options['label'],
-                'attr'        => ['class' => $options['class']],
+                'required'    => false,
+                'label'       => $label,
+                'attr'        => ['class' => $class],
                 'constraints' => $required
             ]);
         }
 
-        if (!is_null($this->column)) {
-            $builder->setData($this->column);
+        if (null != $this->componentOnPageHasValue) {
+            $builder->setData($this->componentOnPageHasValue);
         }
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => 'My\CMSBundle\Entity\ComponentOnPageHasValue',
-            'class'      => null,
-            'type'       => null,
-            'label'      => null,
-            'isRequired' => null
+            'data_class' => 'My\CMSBundle\Entity\ComponentOnPageHasValue'
         ]);
     }
 

@@ -30,7 +30,7 @@ class Series
     private $menu;
 
 
-    public function __construct($name, Menu $menu)
+    public function __construct($name = null, Menu $menu = null)
     {
         $this->setName($name);
         $this->setMenu($menu);

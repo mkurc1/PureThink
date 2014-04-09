@@ -23,26 +23,27 @@ class ComponentOnPageHasValue
     private $content;
 
     /**
-     * @ORM\ManyToOne(targetEntity="ComponentOnPageHasElement", inversedBy="cmsComponentOnPageHasValues")
-     * @ORM\JoinColumn(onDelete="CASCADE", nullable=false)
+     * @ORM\ManyToOne(targetEntity="ComponentOnPageHasElement", inversedBy="componentOnPageHasValues")
+     * @ORM\JoinColumn(onDelete="CASCADE")
      */
     private $componentOnPageHasElement;
 
     /**
      * @ORM\ManyToOne(targetEntity="ExtensionHasField")
-     * @ORM\JoinColumn(onDelete="CASCADE", nullable=false)
+     * @ORM\JoinColumn(onDelete="CASCADE")
      */
     private $extensionHasField;
 
 
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
+    public function __construct(ComponentOnPageHasElement $componentOnPageHasElement = null, ExtensionHasField $extensionHasField = null)
     {
-        return $this->id;
+        $this->setComponentOnPageHasElement($componentOnPageHasElement);
+        $this->setExtensionHasField($extensionHasField);
+    }
+
+    public function __toString()
+    {
+        return $this->getContent();
     }
 
     /**
@@ -73,6 +74,15 @@ class ComponentOnPageHasValue
         return $this->content;
     }
 
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 
     /**
      * Set componentOnPageHasElement
@@ -80,7 +90,7 @@ class ComponentOnPageHasValue
      * @param \My\CMSBundle\Entity\ComponentOnPageHasElement $componentOnPageHasElement
      * @return ComponentOnPageHasValue
      */
-    public function setComponentOnPageHasElement(\My\CMSBundle\Entity\ComponentOnPageHasElement $componentOnPageHasElement)
+    public function setComponentOnPageHasElement(\My\CMSBundle\Entity\ComponentOnPageHasElement $componentOnPageHasElement = null)
     {
         $this->componentOnPageHasElement = $componentOnPageHasElement;
 
@@ -90,21 +100,11 @@ class ComponentOnPageHasValue
     /**
      * Get componentOnPageHasElement
      *
-     * @return \My\CMSBundle\Entity\ComponentOnPageHasElement
+     * @return \My\CMSBundle\Entity\ComponentOnPageHasElement 
      */
     public function getComponentOnPageHasElement()
     {
         return $this->componentOnPageHasElement;
-    }
-
-    /**
-     * Get content
-     *
-     * @return string
-     */
-    public function __toString()
-    {
-        return $this->getContent();
     }
 
     /**
@@ -113,7 +113,7 @@ class ComponentOnPageHasValue
      * @param \My\CMSBundle\Entity\ExtensionHasField $extensionHasField
      * @return ComponentOnPageHasValue
      */
-    public function setExtensionHasField(\My\CMSBundle\Entity\ExtensionHasField $extensionHasField)
+    public function setExtensionHasField(\My\CMSBundle\Entity\ExtensionHasField $extensionHasField = null)
     {
         $this->extensionHasField = $extensionHasField;
 

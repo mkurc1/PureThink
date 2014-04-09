@@ -36,13 +36,13 @@ class ComponentOnPageHasElement
     private $isEnable = false;
 
     /**
-     * @ORM\ManyToOne(targetEntity="ComponentOnPage")
+     * @ORM\ManyToOne(targetEntity="Component")
      * @ORM\JoinColumn(onDelete="CASCADE", nullable=false)
      */
-    private $componentOnPage;
+    private $component;
 
     /**
-     * @ORM\OneToMany(targetEntity="ComponentOnPageHasValue", mappedBy="cmsComponentOnPageHasElement", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="ComponentOnPageHasValue", mappedBy="componentOnPageHasElement", cascade={"persist"})
      */
     private $componentOnPageHasValues;
 
@@ -101,30 +101,6 @@ class ComponentOnPageHasElement
     public function getUpdatedAt()
     {
         return $this->updatedAt;
-    }
-
-
-    /**
-     * Set componentOnPage
-     *
-     * @param \My\CMSBundle\Entity\ComponentOnPage $componentOnPage
-     * @return ComponentOnPageHasElement
-     */
-    public function setComponentOnPage(\My\CMSBundle\Entity\ComponentOnPage $componentOnPage)
-    {
-        $this->componentOnPage = $componentOnPage;
-
-        return $this;
-    }
-
-    /**
-     * Get componentOnPage
-     *
-     * @return \My\CMSBundle\Entity\ComponentOnPage
-     */
-    public function getComponentOnPage()
-    {
-        return $this->componentOnPage;
     }
 
     /**
@@ -190,5 +166,28 @@ class ComponentOnPageHasElement
     public function getIsEnable()
     {
         return $this->isEnable;
+    }
+
+    /**
+     * Set component
+     *
+     * @param \My\CMSBundle\Entity\Component $component
+     * @return ComponentOnPageHasElement
+     */
+    public function setComponent(\My\CMSBundle\Entity\Component $component)
+    {
+        $this->component = $component;
+
+        return $this;
+    }
+
+    /**
+     * Get component
+     *
+     * @return \My\CMSBundle\Entity\Component 
+     */
+    public function getComponent()
+    {
+        return $this->component;
     }
 }

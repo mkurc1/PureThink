@@ -9,15 +9,15 @@ class ExtensionHasFieldRepository extends FilterRepository
     /**
      * Get fields
      *
-     * @param string $order
-     * @param string $sequence
-     * @param string $filter
+     * @param string  $order
+     * @param string  $sequence
+     * @param string  $filter
      * @param integer $extensionId
      * @return QueryBuilder
      */
-	public function getFieldsQB($order, $sequence, $filter, $extensionId)
-	{
-		$qb = $this->createQueryBuilder('a')
+    public function getFieldsQB($order, $sequence, $filter, $extensionId)
+    {
+        $qb = $this->createQueryBuilder('a')
             ->join('a.extension', 'c')
             ->where('c.id = :extensionId')
             ->setParameter('extensionId', $extensionId);
@@ -26,8 +26,8 @@ class ExtensionHasFieldRepository extends FilterRepository
 
         $qb->orderBy($order, $sequence);
 
-		return $qb->getQuery();
-	}
+        return $qb->getQuery();
+    }
 
     public function getFieldsByIds(array $ids)
     {

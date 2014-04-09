@@ -23,7 +23,7 @@ class ComponentOnPageHasValueRepository extends EntityRepository
             ->addSelect('cophe.id, cophe.createdAt, cophe.updatedAt, cophe.isEnable')
             ->leftJoin('a.componentOnPageHasElement', 'cophe')
             ->leftJoin('a.extensionHasField', 'ehf')
-            ->leftJoin('cophe.componentOnPage', 'cop')
+            ->leftJoin('cophe.component', 'cop')
             ->where('ehf.isMainField = true')
             ->andWhere('a.content LIKE :filter')
             ->setParameter('filter', '%'.$filter.'%');
@@ -114,7 +114,7 @@ class ComponentOnPageHasValueRepository extends EntityRepository
             ->addSelect("f.path AS file")
             ->join('a.componentOnPageHasElement', 'cophe')
             ->join('a.extensionHasField', 'ehf')
-            ->join('cophe.componentOnPage', 'cop')
+            ->join('cophe.component', 'cop')
             ->join('cop.language', 'l')
             ->leftJoin('MyCMSBundle:Article', 'art', 'WITH', 'art.id=CASE WHEN ehf.typeOfField=9 THEN a.content ELSE 0 END')
             ->leftJoin('MyFileBundle:File', 'f', 'WITH', 'f.id=CASE WHEN ehf.typeOfField=10 THEN a.content ELSE 0 END')

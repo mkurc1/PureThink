@@ -1,9 +1,0 @@
-<div class="header">
-    <h2>Dodaj komponent</h2>
-</div>
-
-<div class="container">
-    <form action="{{ path('my_cms_componentonpage_create') }}" method="post" {{ form_enctype(form) }}>
-        {% include 'MyCMSBundle:ComponentOnPage:_form.html.twig' with { 'form': form } %}
-    </form>
-</div>

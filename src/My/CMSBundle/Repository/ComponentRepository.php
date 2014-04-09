@@ -5,7 +5,7 @@ namespace My\CMSBundle\Repository;
 use My\BackendBundle\Repository\FilterRepository;
 
 
-class ComponentOnPageRepository extends FilterRepository
+class ComponentRepository extends FilterRepository
 {
     /**
      * Get components

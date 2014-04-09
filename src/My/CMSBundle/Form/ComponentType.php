@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class ComponentOnPageType extends AbstractType
+class ComponentType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -38,13 +38,13 @@ class ComponentOnPageType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => 'My\CMSBundle\Entity\ComponentOnPage',
+            'data_class' => 'My\CMSBundle\Entity\Component',
             'menuId'     => null
         ]);
     }
 
     public function getName()
     {
-        return 'my_cmsbundle_componentonpage';
+        return 'my_cmsbundle_component';
     }
 }

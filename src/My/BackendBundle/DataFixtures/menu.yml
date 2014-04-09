@@ -17,7 +17,7 @@ fixtures:
         module: module_1
     menu_4:
         name: "Komponenty"
-        link: "my_cms_componentonpage_list"
+        link: "my_cms_component_list"
         sequence: 4
         module: module_1
     menu_5:
