@@ -1,10 +1,10 @@
 <div id="cookie">
     <div class="container">
         {% for key, cookie in entities if key != 'title' %}
-            <h5>{{ cookie['nazwa-3'] }}</h5>
+            <h5>{{ cookie['nazwa'] }}</h5>
             <a class="close"><i class="fa fa-times"></i></a>
 
-            <p>{{ cookie['tresc-1'] }} <a href="{{ path('article', { 'locale': locale, 'slug': cookie['adres-3'] }) }}">Dowiedz się więcej</a>.</p>
+            <p>{{ cookie['tresc'] }} <a href="{{ path('article', { 'locale': locale, 'slug': cookie['adres'] }) }}">Dowiedz się więcej</a>.</p>
         {% endfor %}
     </div>
 </div>

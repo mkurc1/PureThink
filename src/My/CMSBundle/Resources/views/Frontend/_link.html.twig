@@ -3,7 +3,7 @@
         <h3>{{ entities['title'] }}</h3>
         <ul>
             {% for key, link in entities if key != 'title' %}
-                <li><a href="{{ path('article', {'locale': locale, 'slug': link['adres-1']}) }}">{{ link['nazwa-1'] }}</a></li>
+                <li><a href="{{ path('article', {'locale': locale, 'slug': link['adres']}) }}">{{ link['nazwa'] }}</a></li>
             {% endfor %}
         </ul>
     </div>

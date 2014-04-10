@@ -41,8 +41,8 @@ class ExtensionHasField
     private $name;
 
     /**
-     * @Gedmo\Slug(fields={"name"})
-     * @ORM\Column(length=255, unique=true)
+     * @Gedmo\Slug(fields={"name"}, unique=false)
+     * @ORM\Column(length=255, unique=false)
      */
     private $slug;
 
