@@ -1,7 +1,7 @@
 {{ form_start(form) }}
     {{ form_errors(form) }}
 
-    {% for value in form.componentOnPageHasValues %}
+    {% for value in form.componentHasValues %}
         <div class="dane_element">
             {{ form_row(value.content) }}
         </div>

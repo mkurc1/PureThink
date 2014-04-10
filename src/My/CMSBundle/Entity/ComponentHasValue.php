@@ -5,10 +5,10 @@ namespace My\CMSBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Table(name="cms_component_on_page_has_value")
- * @ORM\Entity(repositoryClass="My\CMSBundle\Repository\ComponentOnPageHasValueRepository")
+ * @ORM\Table(name="cms_component_has_value")
+ * @ORM\Entity(repositoryClass="My\CMSBundle\Repository\ComponentHasValueRepository")
  */
-class ComponentOnPageHasValue
+class ComponentHasValue
 {
     /**
      * @ORM\Column(type="integer")
@@ -23,10 +23,10 @@ class ComponentOnPageHasValue
     private $content;
 
     /**
-     * @ORM\ManyToOne(targetEntity="ComponentOnPageHasElement", inversedBy="componentOnPageHasValues")
+     * @ORM\ManyToOne(targetEntity="ComponentHasElement", inversedBy="componentHasValues")
      * @ORM\JoinColumn(onDelete="CASCADE")
      */
-    private $componentOnPageHasElement;
+    private $componentHasElement;
 
     /**
      * @ORM\ManyToOne(targetEntity="ExtensionHasField")
@@ -35,9 +35,9 @@ class ComponentOnPageHasValue
     private $extensionHasField;
 
 
-    public function __construct(ComponentOnPageHasElement $componentOnPageHasElement = null, ExtensionHasField $extensionHasField = null)
+    public function __construct(ComponentHasElement $componentHasElement = null, ExtensionHasField $extensionHasField = null)
     {
-        $this->setComponentOnPageHasElement($componentOnPageHasElement);
+        $this->setComponentHasElement($componentHasElement);
         $this->setExtensionHasField($extensionHasField);
     }
 
@@ -50,7 +50,7 @@ class ComponentOnPageHasValue
      * Set content
      *
      * @param string $content
-     * @return ComponentOnPageHasValue
+     * @return ComponentHasValue
      */
     public function setContent($content)
     {
@@ -85,33 +85,33 @@ class ComponentOnPageHasValue
     }
 
     /**
-     * Set componentOnPageHasElement
+     * Set componentHasElement
      *
-     * @param \My\CMSBundle\Entity\ComponentOnPageHasElement $componentOnPageHasElement
-     * @return ComponentOnPageHasValue
+     * @param \My\CMSBundle\Entity\ComponentHasElement $componentHasElement
+     * @return ComponentHasValue
      */
-    public function setComponentOnPageHasElement(\My\CMSBundle\Entity\ComponentOnPageHasElement $componentOnPageHasElement = null)
+    public function setComponentHasElement(\My\CMSBundle\Entity\ComponentHasElement $componentHasElement = null)
     {
-        $this->componentOnPageHasElement = $componentOnPageHasElement;
+        $this->componentHasElement = $componentHasElement;
 
         return $this;
     }
 
     /**
-     * Get componentOnPageHasElement
+     * Get componentHasElement
      *
-     * @return \My\CMSBundle\Entity\ComponentOnPageHasElement 
+     * @return \My\CMSBundle\Entity\ComponentHasElement
      */
-    public function getComponentOnPageHasElement()
+    public function getComponentHasElement()
     {
-        return $this->componentOnPageHasElement;
+        return $this->componentHasElement;
     }
 
     /**
      * Set extensionHasField
      *
      * @param \My\CMSBundle\Entity\ExtensionHasField $extensionHasField
-     * @return ComponentOnPageHasValue
+     * @return ComponentHasValue
      */
     public function setExtensionHasField(\My\CMSBundle\Entity\ExtensionHasField $extensionHasField = null)
     {

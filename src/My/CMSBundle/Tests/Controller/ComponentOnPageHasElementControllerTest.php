@@ -4,7 +4,7 @@ namespace My\CMSBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class ComponentOnPageHasElementControllerTest extends WebTestCase
+class ComponentHasElementControllerTest extends WebTestCase
 {
     /*
     public function testCompleteScenario()
@@ -13,13 +13,13 @@ class ComponentOnPageHasElementControllerTest extends WebTestCase
         $client = static::createClient();
 
         // Create a new entry in the database
-        $crawler = $client->request('GET', '/cmscomponentonpagehaselement/');
-        $this->assertEquals(200, $client->getResponse()->getStatusCode(), "Unexpected HTTP status code for GET /cmscomponentonpagehaselement/");
+        $crawler = $client->request('GET', '/cmscomponenthaselement/');
+        $this->assertEquals(200, $client->getResponse()->getStatusCode(), "Unexpected HTTP status code for GET /cmscomponenthaselement/");
         $crawler = $client->click($crawler->selectLink('Create a new entry')->link());
 
         // Fill in the form and submit it
         $form = $crawler->selectButton('Create')->form(array(
-            'my_cmsbundle_cmscomponentonpagehaselementtype[field_name]'  => 'Test',
+            'my_cmsbundle_cmscomponenthaselementtype[field_name]'  => 'Test',
             // ... other fields to fill
         ));
 
@@ -33,7 +33,7 @@ class ComponentOnPageHasElementControllerTest extends WebTestCase
         $crawler = $client->click($crawler->selectLink('Edit')->link());
 
         $form = $crawler->selectButton('Edit')->form(array(
-            'my_cmsbundle_cmscomponentonpagehaselementtype[field_name]'  => 'Foo',
+            'my_cmsbundle_cmscomponenthaselementtype[field_name]'  => 'Foo',
             // ... other fields to fill
         ));
 

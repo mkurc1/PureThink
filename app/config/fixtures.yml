@@ -14,8 +14,8 @@ khepin_yaml_fixtures:
         - MyCMSBundle/extension
         - MyCMSBundle/extensionHasField
         - MyCMSBundle/component
-        - MyCMSBundle/componentOnPageHasElement
-        - MyCMSBundle/componentOnPageHasValue
+        - MyCMSBundle/componentHasElement
+        - MyCMSBundle/componentHasValue
         - MyCMSBundle
 
         - MyFileBundle

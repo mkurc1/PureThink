@@ -6,10 +6,10 @@ use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
- * @ORM\Table(name="cms_component_on_page_has_element")
+ * @ORM\Table(name="cms_component_has_element")
  * @ORM\Entity
  */
-class ComponentOnPageHasElement
+class ComponentHasElement
 {
     /**
      * @ORM\Column(type="integer")
@@ -42,9 +42,9 @@ class ComponentOnPageHasElement
     private $component;
 
     /**
-     * @ORM\OneToMany(targetEntity="ComponentOnPageHasValue", mappedBy="componentOnPageHasElement", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="ComponentHasValue", mappedBy="componentHasElement", cascade={"persist"})
      */
-    private $componentOnPageHasValues;
+    private $componentHasValues;
 
 
     /**
@@ -61,7 +61,7 @@ class ComponentOnPageHasElement
      * Set createdAt
      *
      * @param \DateTime $createdAt
-     * @return ComponentOnPageHasElement
+     * @return ComponentHasElement
      */
     public function setCreatedAt($createdAt)
     {
@@ -84,7 +84,7 @@ class ComponentOnPageHasElement
      * Set updatedAt
      *
      * @param \DateTime $updatedAt
-     * @return ComponentOnPageHasElement
+     * @return ComponentHasElement
      */
     public function setUpdatedAt($updatedAt)
     {
@@ -104,36 +104,36 @@ class ComponentOnPageHasElement
     }
 
     /**
-     * Add componentOnPageHasValues
+     * Add componentHasValues
      *
-     * @param \My\CMSBundle\Entity\ComponentOnPageHasValue $componentOnPageHasValues
-     * @return ComponentOnPageHasElement
+     * @param \My\CMSBundle\Entity\ComponentHasValue $componentHasValues
+     * @return ComponentHasElement
      */
-    public function addComponentOnPageHasValue(\My\CMSBundle\Entity\ComponentOnPageHasValue $componentOnPageHasValues)
+    public function addComponentHasValue(\My\CMSBundle\Entity\ComponentHasValue $componentHasValues)
     {
-        $this->componentOnPageHasValues[] = $componentOnPageHasValues;
+        $this->componentHasValues[] = $componentHasValues;
 
         return $this;
     }
 
     /**
-     * Remove componentOnPageHasValues
+     * Remove componentHasValues
      *
-     * @param \My\CMSBundle\Entity\ComponentOnPageHasValue $componentOnPageHasValues
+     * @param \My\CMSBundle\Entity\ComponentHasValue $componentHasValues
      */
-    public function removeComponentOnPageHasValue(\My\CMSBundle\Entity\ComponentOnPageHasValue $componentOnPageHasValues)
+    public function removeComponentHasValue(\My\CMSBundle\Entity\ComponentHasValue $componentHasValues)
     {
-        $this->componentOnPageHasValues->removeElement($componentOnPageHasValues);
+        $this->componentHasValues->removeElement($componentHasValues);
     }
 
     /**
-     * Get componentOnPageHasValues
+     * Get componentHasValues
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getComponentOnPageHasValues()
+    public function getComponentHasValues()
     {
-        return $this->componentOnPageHasValues;
+        return $this->componentHasValues;
     }
 
     /**
@@ -141,7 +141,7 @@ class ComponentOnPageHasElement
      */
     public function __construct()
     {
-        $this->componentOnPageHasValues = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->componentHasValues = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
 
@@ -149,7 +149,7 @@ class ComponentOnPageHasElement
      * Set isEnable
      *
      * @param boolean $isEnable
-     * @return ComponentOnPageHasElement
+     * @return ComponentHasElement
      */
     public function setIsEnable($isEnable)
     {
@@ -172,7 +172,7 @@ class ComponentOnPageHasElement
      * Set component
      *
      * @param \My\CMSBundle\Entity\Component $component
-     * @return ComponentOnPageHasElement
+     * @return ComponentHasElement
      */
     public function setComponent(\My\CMSBundle\Entity\Component $component)
     {

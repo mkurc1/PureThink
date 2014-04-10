@@ -2,24 +2,24 @@
 
 namespace My\CMSBundle\Form;
 
-use My\CMSBundle\Entity\ComponentOnPageHasValue;
+use My\CMSBundle\Entity\ComponentHasValue;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Validator\Constraints\NotNull;
 
-class ComponentOnPageHasValueType extends AbstractType
+class ComponentHasValueType extends AbstractType
 {
-    private $componentOnPageHasValue = null;
+    private $componentHasValue = null;
 
-    public function __construct(ComponentOnPageHasValue $componentOnPageHasValue = null)
+    public function __construct(ComponentHasValue $componentHasValue = null)
     {
-        $this->componentOnPageHasValue = $componentOnPageHasValue;
+        $this->componentHasValue = $componentHasValue;
     }
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $extensionHasField = $this->componentOnPageHasValue->getExtensionHasField();
+        $extensionHasField = $this->componentHasValue->getExtensionHasField();
 
         $type = strtolower($extensionHasField->getTypeOfFieldString());
         $class = $extensionHasField->getClass();
@@ -45,7 +45,7 @@ class ComponentOnPageHasValueType extends AbstractType
                 'empty_value' => '',
                 'attr'        => [
                     'class'       => $class,
-                    'selected_id' => $this->componentOnPageHasValue->getContent()
+                    'selected_id' => $this->componentHasValue->getContent()
                 ],
                 'constraints' => $required
             ]);
@@ -58,15 +58,15 @@ class ComponentOnPageHasValueType extends AbstractType
             ]);
         }
 
-        if (null != $this->componentOnPageHasValue) {
-            $builder->setData($this->componentOnPageHasValue);
+        if (null != $this->componentHasValue) {
+            $builder->setData($this->componentHasValue);
         }
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => 'My\CMSBundle\Entity\ComponentOnPageHasValue'
+            'data_class' => 'My\CMSBundle\Entity\ComponentHasValue'
         ]);
     }
 

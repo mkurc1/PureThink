@@ -5,7 +5,7 @@ namespace My\CMSBundle\Repository;
 use Doctrine\ORM\EntityRepository;
 use My\CMSBundle\Entity\ExtensionHasField;
 
-class ComponentOnPageHasValueRepository extends EntityRepository
+class ComponentHasValueRepository extends EntityRepository
 {
     /**
      * Get elements
@@ -21,7 +21,7 @@ class ComponentOnPageHasValueRepository extends EntityRepository
         $qb = $this->createQueryBuilder('a')
             ->select('a, a.content')
             ->addSelect('cophe.id, cophe.createdAt, cophe.updatedAt, cophe.isEnable')
-            ->leftJoin('a.componentOnPageHasElement', 'cophe')
+            ->leftJoin('a.componentHasElement', 'cophe')
             ->leftJoin('a.extensionHasField', 'ehf')
             ->leftJoin('cophe.component', 'cop')
             ->where('ehf.isMainField = true')
@@ -33,7 +33,7 @@ class ComponentOnPageHasValueRepository extends EntityRepository
                ->setParameter('componentId', $componentId);
         }
 
-        $qb->groupBy('a.componentOnPageHasElement');
+        $qb->groupBy('a.componentHasElement');
 
         $qb->orderBy($order, $sequence);
 
@@ -50,7 +50,7 @@ class ComponentOnPageHasValueRepository extends EntityRepository
     public function getContent($elementId, $typeId)
     {
         $qb = $this->createQueryBuilder('a')
-            ->join('a.componentOnPageHasElement', 'cophe')
+            ->join('a.componentHasElement', 'cophe')
             ->join('a.extensionHasField', 'ehf')
             ->where('cophe.id = :elementId')
             ->setParameter('elementId', $elementId)
@@ -112,7 +112,7 @@ class ComponentOnPageHasValueRepository extends EntityRepository
             ->addSelect('cophe.createdAt, cophe.updatedAt')
             ->addSelect("art.slug AS article")
             ->addSelect("f.path AS file")
-            ->join('a.componentOnPageHasElement', 'cophe')
+            ->join('a.componentHasElement', 'cophe')
             ->join('a.extensionHasField', 'ehf')
             ->join('cophe.component', 'cop')
             ->join('cop.language', 'l')
@@ -137,7 +137,7 @@ class ComponentOnPageHasValueRepository extends EntityRepository
     {
         $qb = $this->createQueryBuilder('a2')
             ->select('a2.id')
-            ->join('a2.componentOnPageHasElement', 'cophe2')
+            ->join('a2.componentHasElement', 'cophe2')
             ->join('a2.extensionHasField', 'ehf2')
             ->andWhere('cophe2.id = '.$elementId)
             ->andWhere('ehf2.isMainField = true')

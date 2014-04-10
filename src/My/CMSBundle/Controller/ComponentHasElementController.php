@@ -6,16 +6,16 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use My\CMSBundle\Entity\ComponentOnPageHasElement;
-use My\CMSBundle\Entity\ComponentOnPageHasValue;
-use My\CMSBundle\Form\ComponentOnPageHasElementType;
-use My\CMSBundle\Form\ComponentOnPageHasValueType;
+use My\CMSBundle\Entity\ComponentHasElement;
+use My\CMSBundle\Entity\ComponentHasValue;
+use My\CMSBundle\Form\ComponentHasElementType;
+use My\CMSBundle\Form\ComponentHasValueType;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
  * @Route("/admin/cms/component/element")
  */
-class ComponentOnPageHasElementController extends Controller
+class ComponentHasElementController extends Controller
 {
     /**
      * @Route("/")
@@ -34,13 +34,13 @@ class ComponentOnPageHasElementController extends Controller
             $order = 'a.content';
         }
 
-        $entities = $this->getDoctrine()->getRepository('MyCMSBundle:ComponentOnPageHasValue')
+        $entities = $this->getDoctrine()->getRepository('MyCMSBundle:ComponentHasValue')
             ->getElementsQB($order, $sequence, $filter, $sublistId);
 
         $pagination = $this->get('my.pagination.service')
             ->setPagination($entities, $page, $rowsOnPage);
 
-        $list = $this->renderView('MyCMSBundle:ComponentOnPageHasElement:_list.html.twig',
+        $list = $this->renderView('MyCMSBundle:ComponentHasElement:_list.html.twig',
             ['entities' => $pagination['entities'], 'page' => $page, 'rowsOnPage' => $rowsOnPage]);
 
         $response = [
@@ -62,10 +62,10 @@ class ComponentOnPageHasElementController extends Controller
         $sublistId = (int)$request->get('sublistId');
         $em = $this->getDoctrine()->getManager();
 
-        $entity = new ComponentOnPageHasElement();
+        $entity = new ComponentHasElement();
         $entity->setComponent($em->getRepository('MyCMSBundle:Component')->find($sublistId));
 
-        $form = $this->createForm(new ComponentOnPageHasElementType($entity));
+        $form = $this->createForm(new ComponentHasElementType($entity));
         $form = $this->addColumns($form, $entity, $sublistId);
 
         if ($form->submit($request) && $form->isValid()) {
@@ -74,7 +74,7 @@ class ComponentOnPageHasElementController extends Controller
             $response = $this->get('my.flush.service')->tryFlush();
             $response['id'] = $entity->getId();
         } else {
-            $view = $this->renderView('MyCMSBundle:ComponentOnPageHasElement:_new.html.twig',
+            $view = $this->renderView('MyCMSBundle:ComponentHasElement:_new.html.twig',
                 ['entity' => $entity, 'form' => $form->createView()]);
 
             $response = [
@@ -94,12 +94,12 @@ class ComponentOnPageHasElementController extends Controller
     {
         $sublistId = (int)$request->get('sublistId');
 
-        $entity = new ComponentOnPageHasElement();
+        $entity = new ComponentHasElement();
 
-        $form = $this->createForm(new ComponentOnPageHasElementType($entity));
+        $form = $this->createForm(new ComponentHasElementType($entity));
         $form = $this->addColumns($form, $entity, $sublistId);
 
-        $view = $this->renderView('MyCMSBundle:ComponentOnPageHasElement:_new.html.twig',
+        $view = $this->renderView('MyCMSBundle:ComponentHasElement:_new.html.twig',
             ['entity' => $entity, 'form' => $form->createView()]);
 
         $response = [
@@ -110,7 +110,7 @@ class ComponentOnPageHasElementController extends Controller
         return new Response(json_encode($response));
     }
 
-    private function getColumns(ComponentOnPageHasElement $entity, $ComponentId, $editedEntityId = false)
+    private function getColumns(ComponentHasElement $entity, $ComponentId, $editedEntityId = false)
     {
         $em = $this->getDoctrine()->getManager();
 
@@ -119,25 +119,25 @@ class ComponentOnPageHasElementController extends Controller
             ->findByExtension($Component->getExtension());
 
         foreach ($columns as $column) {
-            $ComponentOnPageHasValue = new ComponentOnPageHasValue($entity, $column);
+            $ComponentHasValue = new ComponentHasValue($entity, $column);
 
             if ($editedEntityId) {
-                $contentEntity = $em->getRepository('MyCMSBundle:ComponentOnPageHasValue')->getContent($editedEntityId, $column->getId());
+                $contentEntity = $em->getRepository('MyCMSBundle:ComponentHasValue')->getContent($editedEntityId, $column->getId());
 
-                $ComponentOnPageHasValue->setContent($contentEntity->getContent());
+                $ComponentHasValue->setContent($contentEntity->getContent());
             }
 
-            $entity->addComponentOnPageHasValue($ComponentOnPageHasValue);
+            $entity->addComponentHasValue($ComponentHasValue);
         }
 
         return $entity;
     }
 
-    private function addColumns($form, ComponentOnPageHasElement $entity, $ComponentId, $editedEntityId = false)
+    private function addColumns($form, ComponentHasElement $entity, $ComponentId, $editedEntityId = false)
     {
         $columns = $this->getColumns($entity, $ComponentId, $editedEntityId);
-        foreach ($columns->getComponentOnPageHasValues() as $key => $column) {
-            $form->get('componentOnPageHasValues')->add('column_' . $key, new ComponentOnPageHasValueType($column));
+        foreach ($columns->getComponentHasValues() as $key => $column) {
+            $form->get('componentHasValues')->add('column_' . $key, new ComponentHasValueType($column));
         }
 
         return $form;
@@ -151,17 +151,17 @@ class ComponentOnPageHasElementController extends Controller
     {
         $sublistId = (int)$request->get('sublistId');
 
-        $entity = new ComponentOnPageHasElement();
+        $entity = new ComponentHasElement();
 
-        $form = $this->createForm(new ComponentOnPageHasElementType($entity));
+        $form = $this->createForm(new ComponentHasElementType($entity));
         $form = $this->addColumns($form, $entity, $sublistId, $id);
 
-        $entity = $this->getDoctrine()->getRepository('MyCMSBundle:ComponentOnPageHasElement')->find($id);
+        $entity = $this->getDoctrine()->getRepository('MyCMSBundle:ComponentHasElement')->find($id);
         if (!$entity) {
             throw $this->createNotFoundException();
         }
 
-        $view = $this->renderView('MyCMSBundle:ComponentOnPageHasElement:_edit.html.twig', ['entity' => $entity, 'form' => $form->createView()]);
+        $view = $this->renderView('MyCMSBundle:ComponentHasElement:_edit.html.twig', ['entity' => $entity, 'form' => $form->createView()]);
 
         $response = [
             "response" => true,
@@ -181,19 +181,19 @@ class ComponentOnPageHasElementController extends Controller
 
         $em = $this->getDoctrine()->getManager();
 
-        $entity = new ComponentOnPageHasElement();
+        $entity = new ComponentHasElement();
 
-        $form = $this->createForm(new ComponentOnPageHasElementType($entity));
+        $form = $this->createForm(new ComponentHasElementType($entity));
         $form = $this->addColumns($form, $entity, $sublistId, $id);
 
-        $entity = $em->getRepository('MyCMSBundle:ComponentOnPageHasElement')->find($id);
+        $entity = $em->getRepository('MyCMSBundle:ComponentHasElement')->find($id);
         if (!$entity) {
             throw $this->createNotFoundException();
         }
 
         if ($form->submit($request) && $form->isValid()) {
-            $columns = $form->get('componentOnPageHasValues');
-            $columnsValue = $em->getRepository('MyCMSBundle:ComponentOnPageHasValue')->findByComponentOnPageHasElement($entity);
+            $columns = $form->get('componentHasValues');
+            $columnsValue = $em->getRepository('MyCMSBundle:ComponentHasValue')->findByComponentHasElement($entity);
 
             foreach ($columnsValue as $key => $columnValue) {
                 $columnValue->setContent($columns['column_' . $key]->get('content')->getData());
@@ -205,7 +205,7 @@ class ComponentOnPageHasElementController extends Controller
             $response = $this->get('my.flush.service')->tryFlush();
             $response['id'] = $entity->getId();
         } else {
-            $view = $this->renderView('MyCMSBundle:ComponentOnPageHasElement:_edit.html.twig',
+            $view = $this->renderView('MyCMSBundle:ComponentHasElement:_edit.html.twig',
                 ['entity' => $entity, 'form' => $form->createView()]);
 
             $response = array(
@@ -228,7 +228,7 @@ class ComponentOnPageHasElementController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         foreach ($arrayId as $id) {
-            $entity = $em->getRepository('MyCMSBundle:ComponentOnPageHasElement')->find((int)$id);
+            $entity = $em->getRepository('MyCMSBundle:ComponentHasElement')->find((int)$id);
             if (!$entity) {
                 throw $this->createNotFoundException();
             }
@@ -249,7 +249,7 @@ class ComponentOnPageHasElementController extends Controller
     {
         $id = (int)$request->get('id');
 
-        $entity = $this->getDoctrine()->getRepository('MyCMSBundle:ComponentOnPageHasElement')->find($id);
+        $entity = $this->getDoctrine()->getRepository('MyCMSBundle:ComponentHasElement')->find($id);
         if (!$entity) {
             throw $this->createNotFoundException();
         }
