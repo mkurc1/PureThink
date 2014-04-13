@@ -13,18 +13,29 @@ use My\CMSBundle\Entity\Extension;
  */
 class ExtensionHasField
 {
+    const TYPE_TEXT = 1;
+    const TYPE_TEXTAREA = 2;
+    const TYPE_INTEGER = 3;
+    const TYPE_FLOAT = 4;
+    const TYPE_DOUBLE = 5;
+    const TYPE_BOOLEAN = 6;
+    const TYPE_DATE = 7;
+    const TYPE_DATETIME = 8;
+    const TYPE_ARTICLE = 9;
+    const TYPE_FILE = 10;
+
     public static $avilableTypeOfField = [
-                                         1  => "Text",
-                                         2  => "Textarea",
-                                         3  => "Integer",
-                                         4  => "Float",
-                                         5  => "Double",
-                                         6  => "Boolean",
-                                         7  => "Date",
-                                         8  => "Datetime",
-                                         9  => "Article",
-                                         10 => "File"
-                                        ];
+        self::TYPE_TEXT     => "Text",
+        self::TYPE_TEXTAREA => "Textarea",
+        self::TYPE_INTEGER  => "Integer",
+        self::TYPE_FLOAT    => "Float",
+        self::TYPE_DOUBLE   => "Double",
+        self::TYPE_BOOLEAN  => "Boolean",
+        self::TYPE_DATE     => "Date",
+        self::TYPE_DATETIME => "Datetime",
+        self::TYPE_ARTICLE  => "Article",
+        self::TYPE_FILE     => "File"
+    ];
 
     /**
      * @ORM\Column(type="integer")

@@ -6,9 +6,10 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Table(name="cms_component_has_value")
+ * @ORM\InheritanceType("SINGLE_TABLE")
  * @ORM\Entity(repositoryClass="My\CMSBundle\Repository\ComponentHasValueRepository")
  */
-class ComponentHasValue
+abstract class ComponentHasValue
 {
     /**
      * @ORM\Column(type="integer")
@@ -16,11 +17,6 @@ class ComponentHasValue
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-
-    /**
-     * @ORM\Column(type="text", nullable=true)
-     */
-    private $content;
 
     /**
      * @ORM\ManyToOne(targetEntity="ComponentHasElement", inversedBy="componentHasValues")
@@ -35,43 +31,14 @@ class ComponentHasValue
     private $extensionHasField;
 
 
+    abstract public function getContent();
+
+    abstract public function setContent($content);
+
     public function __construct(ComponentHasElement $componentHasElement = null, ExtensionHasField $extensionHasField = null)
     {
         $this->setComponentHasElement($componentHasElement);
         $this->setExtensionHasField($extensionHasField);
-    }
-
-    public function __toString()
-    {
-        return $this->getContent();
-    }
-
-    /**
-     * Set content
-     *
-     * @param string $content
-     * @return ComponentHasValue
-     */
-    public function setContent($content)
-    {
-        if (is_object($content)) {
-            $this->content = $content->getId();
-        }
-        else {
-            $this->content = $content;
-        }
-
-        return $this;
-    }
-
-    /**
-     * Get content
-     *
-     * @return string
-     */
-    public function getContent()
-    {
-        return $this->content;
     }
 
     /**

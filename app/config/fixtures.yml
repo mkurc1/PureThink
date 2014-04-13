@@ -9,13 +9,15 @@ khepin_yaml_fixtures:
         - MyBackendBundle/series
         - MyBackendBundle
 
+        - MyFileBundle
+
         - MyCMSBundle/language
         - MyCMSBundle/article
         - MyCMSBundle/extension
         - MyCMSBundle/extensionHasField
         - MyCMSBundle/component
         - MyCMSBundle/componentHasElement
-        - MyCMSBundle/componentHasValue
+        - MyCMSBundle/componentHasText
+        - MyCMSBundle/componentHasArticle
+        - MyCMSBundle/componentHasFile
         - MyCMSBundle
-
-        - MyFileBundle

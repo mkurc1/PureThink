@@ -3,10 +3,10 @@
         <tr>
             <th class="select"></th>
             <th class="lp">Lp.</th>
-            <th column="a.content" class="name width_big">Nazwa</th>
-            <th column="cophe.isEnable" class="width_small">Aktywne</th>
-            <th column="cophe.createdAt" class="width_small">Data utworzenia</th>
-            <th column="cophe.updatedAt" class="width_small">Data modyfikacji</th>
+            <th column="cc.content" class="name width_big">Nazwa</th>
+            <th column="c.isEnable" class="width_small">Aktywne</th>
+            <th column="c.createdAt" class="width_small">Data utworzenia</th>
+            <th column="c.updatedAt" class="width_small">Data modyfikacji</th>
         </tr>
     </thead>
     <tbody>
@@ -20,7 +20,7 @@
         <tr list_id="{{ entity.id }}">
             <td class="select"><input type="checkbox" class="multi_check" /></td>
             <td class="lp">{{ i }}.</td>
-            <td class="width_big name"><a class="editMode" href="{{ path('my_cms_componenthaselement_edit', { 'id': entity.id }) }}">{{ entity.content }}</a></td>
+            <td class="width_big name"><a class="editMode" href="{{ path('my_cms_componenthaselement_edit', { 'id': entity.id }) }}">{{ entity.componentHasValues|first.content }}</a></td>
             <td class="width_small state">
                 {% if entity.isEnable %}
                     <i class="fa fa-check"></i>

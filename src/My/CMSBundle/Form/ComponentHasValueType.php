@@ -3,6 +3,7 @@
 namespace My\CMSBundle\Form;
 
 use My\CMSBundle\Entity\ComponentHasValue;
+use My\CMSBundle\Entity\ExtensionHasField;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
@@ -21,17 +22,17 @@ class ComponentHasValueType extends AbstractType
     {
         $extensionHasField = $this->componentHasValue->getExtensionHasField();
 
-        $type = strtolower($extensionHasField->getTypeOfFieldString());
+        $type = null;
         $class = $extensionHasField->getClass();
         $label = $extensionHasField->getLabelOfField();
         $required = $extensionHasField->getIsRequired() ? [new NotNull()] : null;
 
-        switch ($type) {
-            case 'article':
+        switch ($extensionHasField->getTypeOfField()) {
+            case ExtensionHasField::TYPE_ARTICLE:
                 $type = 'entity';
                 $entityClass = 'MyCMSBundle:Article';
                 break;
-            case 'file':
+            case ExtensionHasField::TYPE_FILE:
                 $type = 'entity';
                 $entityClass = 'MyFileBundle:File';
                 break;
@@ -45,7 +46,6 @@ class ComponentHasValueType extends AbstractType
                 'empty_value' => '',
                 'attr'        => [
                     'class'       => $class,
-                    'selected_id' => $this->componentHasValue->getContent()
                 ],
                 'constraints' => $required
             ]);

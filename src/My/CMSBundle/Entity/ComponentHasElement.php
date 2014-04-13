@@ -7,7 +7,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * @ORM\Table(name="cms_component_has_element")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="My\CMSBundle\Repository\ComponentHasElementRepository")
  */
 class ComponentHasElement
 {

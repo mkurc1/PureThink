@@ -42,7 +42,7 @@ class FrontendController extends Controller
     {
         $locale = $request->getLocale();
 
-        $entities = $this->getDoctrine()->getRepository('MyCMSBundle:ComponentHasValue')
+        $entities = $this->getDoctrine()->getRepository('MyCMSBundle:ComponentHasElement')
             ->getActiveComponentBySlugAndLocale($slug, $locale);
 
         if (null == $entities) {
