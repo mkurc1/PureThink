@@ -35,10 +35,10 @@ class ComponentHasElementController extends Controller
         $sublistId = (int)$request->get('sublistId');
 
         if ($order == 'a.name') {
-            $order = 'cc.content';
+            $order = 'c.content';
         }
 
-        $entities = $this->getDoctrine()->getRepository('MyCMSBundle:ComponentHasElement')
+        $entities = $this->getDoctrine()->getRepository('MyCMSBundle:ComponentHasText')
             ->getElementsQB($order, $sequence, $filter, $sublistId);
 
         $pagination = $this->get('my.pagination.service')

@@ -29,6 +29,11 @@ class ComponentHasFile extends ComponentHasValue
         return $this->getFile();
     }
 
+    public function getStringContent()
+    {
+        return $this->getContent()->getPath();
+    }
+
     /**
      * Set file
      *

@@ -6,7 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Table()
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="My\CMSBundle\Repository\ComponentHasTextRepository")
  */
 class ComponentHasText extends ComponentHasValue
 {
@@ -37,5 +37,10 @@ class ComponentHasText extends ComponentHasValue
     public function getContent()
     {
         return $this->content;
+    }
+
+    public function getStringContent()
+    {
+        return $this->getContent();
     }
 }

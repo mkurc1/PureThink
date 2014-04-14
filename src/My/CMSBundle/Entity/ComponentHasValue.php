@@ -33,6 +33,8 @@ abstract class ComponentHasValue
 
     abstract public function getContent();
 
+    abstract public function getStringContent();
+
     abstract public function setContent($content);
 
     public function __construct(ComponentHasElement $componentHasElement = null, ExtensionHasField $extensionHasField = null)
