@@ -139,9 +139,13 @@ class ComponentHasElement
     /**
      * Constructor
      */
-    public function __construct()
+    public function __construct(Component $component = null)
     {
         $this->componentHasValues = new \Doctrine\Common\Collections\ArrayCollection();
+
+        if ($component) {
+            $this->setComponent($component);
+        }
     }
 
 

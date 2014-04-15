@@ -81,7 +81,7 @@ class ExtensionHasField
     private $isMainField = false;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Extension")
+     * @ORM\ManyToOne(targetEntity="Extension", inversedBy="fields")
      * @ORM\JoinColumn(onDelete="CASCADE", nullable=false)
      */
     private $extension;

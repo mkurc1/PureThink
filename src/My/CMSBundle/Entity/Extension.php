@@ -45,6 +45,10 @@ class Extension
      */
     private $series;
 
+    /**
+     * @ORM\OneToMany(targetEntity="ExtensionHasField", mappedBy="extension")
+     */
+    private $fields;
 
     /**
      * Get id
@@ -157,5 +161,45 @@ class Extension
     {
         return $this->series;
     }
+    
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->fields = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
+    /**
+     * Add fields
+     *
+     * @param \My\CMSBundle\Entity\Extension $fields
+     * @return Extension
+     */
+    public function addField(\My\CMSBundle\Entity\Extension $fields)
+    {
+        $this->fields[] = $fields;
+
+        return $this;
+    }
+
+    /**
+     * Remove fields
+     *
+     * @param \My\CMSBundle\Entity\Extension $fields
+     */
+    public function removeField(\My\CMSBundle\Entity\Extension $fields)
+    {
+        $this->fields->removeElement($fields);
+    }
+
+    /**
+     * Get fields
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getFields()
+    {
+        return $this->fields;
+    }
 }

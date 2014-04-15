@@ -11,7 +11,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use My\CMSBundle\Entity\ComponentHasElement;
-use My\CMSBundle\Entity\ComponentHasValue;
 use My\CMSBundle\Form\ComponentHasElementType;
 use My\CMSBundle\Form\ComponentHasValueType;
 use Symfony\Component\HttpFoundation\Response;
@@ -64,15 +63,14 @@ class ComponentHasElementController extends Controller
     public function createAction(Request $request)
     {
         $sublistId = (int)$request->get('sublistId');
-        $em = $this->getDoctrine()->getManager();
 
-        $entity = new ComponentHasElement();
-        $entity->setComponent($em->getRepository('MyCMSBundle:Component')->find($sublistId));
+        $entity = new ComponentHasElement($this->getComponent($sublistId));
 
         $form = $this->createForm(new ComponentHasElementType($entity));
-        $form = $this->addColumns($form, $entity, $sublistId);
+        $form = $this->addColumns($form, $entity);
 
         if ($form->submit($request) && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
 
             $response = $this->get('my.flush.service')->tryFlush();
@@ -98,10 +96,10 @@ class ComponentHasElementController extends Controller
     {
         $sublistId = (int)$request->get('sublistId');
 
-        $entity = new ComponentHasElement();
+        $entity = new ComponentHasElement($this->getComponent($sublistId));
 
         $form = $this->createForm(new ComponentHasElementType($entity));
-        $form = $this->addColumns($form, $entity, $sublistId);
+        $form = $this->addColumns($form, $entity);
 
         $view = $this->renderView('MyCMSBundle:ComponentHasElement:_new.html.twig',
             ['entity' => $entity, 'form' => $form->createView()]);
@@ -114,68 +112,19 @@ class ComponentHasElementController extends Controller
         return new Response(json_encode($response));
     }
 
-    private function getColumns(ComponentHasElement $entity, $componentId, $editedEntityId = false)
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $component = $em->getRepository('MyCMSBundle:Component')->find($componentId);
-        $columns = $em->getRepository('MyCMSBundle:ExtensionHasField')
-            ->findByExtension($component->getExtension());
-
-        foreach ($columns as $column) {
-            switch ($column->getTypeOfField()) {
-                case ExtensionHasField::TYPE_ARTICLE:
-                    $componentHasValue = new ComponentHasArticle($entity, $column);
-                    break;
-                case ExtensionHasField::TYPE_FILE:
-                    $componentHasValue = new ComponentHasFile($entity, $column);
-                    break;
-                default:
-                    $componentHasValue = new ComponentHasText($entity, $column);
-            }
-
-            if ($editedEntityId) {
-                $contentEntity = $em->getRepository('MyCMSBundle:ComponentHasValue')
-                    ->getContent($editedEntityId, $column->getId());
-
-                $componentHasValue->setContent($contentEntity->getContent());
-            }
-
-            $entity->addComponentHasValue($componentHasValue);
-        }
-
-        return $entity;
-    }
-
-    private function addColumns($form, ComponentHasElement $entity, $componentId, $editedEntityId = false)
-    {
-        $columns = $this->getColumns($entity, $componentId, $editedEntityId);
-        foreach ($columns->getComponentHasValues() as $key => $column) {
-            $form->get('componentHasValues')->add('column_' . $key, new ComponentHasValueType($column));
-        }
-
-        return $form;
-    }
-
     /**
      * @Route("/{id}/edit")
      * @Method("POST")
      */
     public function editAction(Request $request, $id)
     {
-        $sublistId = (int)$request->get('sublistId');
-
-        $entity = new ComponentHasElement();
+        $entity = $this->getComponentHasElement($id);
 
         $form = $this->createForm(new ComponentHasElementType($entity));
-        $form = $this->addColumns($form, $entity, $sublistId, $id);
+        $form = $this->addColumns($form, $entity);
 
-        $entity = $this->getDoctrine()->getRepository('MyCMSBundle:ComponentHasElement')->find($id);
-        if (!$entity) {
-            throw $this->createNotFoundException();
-        }
-
-        $view = $this->renderView('MyCMSBundle:ComponentHasElement:_edit.html.twig', ['entity' => $entity, 'form' => $form->createView()]);
+        $view = $this->renderView('MyCMSBundle:ComponentHasElement:_edit.html.twig',
+            ['entity' => $entity, 'form' => $form->createView()]);
 
         $response = [
             "response" => true,
@@ -191,31 +140,12 @@ class ComponentHasElementController extends Controller
      */
     public function updateAction(Request $request, $id)
     {
-        $sublistId = (int)$request->get('sublistId');
-
-        $em = $this->getDoctrine()->getManager();
-
-        $entity = new ComponentHasElement();
+        $entity = $this->getComponentHasElement($id);
 
         $form = $this->createForm(new ComponentHasElementType($entity));
-        $form = $this->addColumns($form, $entity, $sublistId, $id);
-
-        $entity = $em->getRepository('MyCMSBundle:ComponentHasElement')->find($id);
-        if (!$entity) {
-            throw $this->createNotFoundException();
-        }
+        $form = $this->addColumns($form, $entity);
 
         if ($form->submit($request) && $form->isValid()) {
-            $columns = $form->get('componentHasValues');
-            $columnsValue = $em->getRepository('MyCMSBundle:ComponentHasValue')->findByComponentHasElement($entity);
-
-            foreach ($columnsValue as $key => $columnValue) {
-                $columnValue->setContent($columns['column_' . $key]->get('content')->getData());
-                $em->persist($columnValue);
-            }
-
-            $em->persist($entity);
-
             $response = $this->get('my.flush.service')->tryFlush();
             $response['id'] = $entity->getId();
         } else {
@@ -273,5 +203,65 @@ class ComponentHasElementController extends Controller
         $response = $this->get('my.flush.service')->tryFlush();
 
         return new Response(json_encode($response));
+    }
+
+    private function getComponentHasElement($id)
+    {
+        $componentHasElement = $this->getDoctrine()->getRepository('MyCMSBundle:ComponentHasElement')->find($id);
+        if (null == $componentHasElement) {
+            throw $this->createNotFoundException();
+        }
+
+        return $componentHasElement;
+    }
+
+    private function getComponent($id)
+    {
+        $component = $this->getDoctrine()->getRepository('MyCMSBundle:Component')->find($id);
+
+        if (null == $component) {
+            throw $this->createNotFoundException();
+        }
+
+        return $component;
+    }
+
+    private function getComponentHasValueType(ComponentHasElement $entity, ExtensionHasField $field)
+    {
+        switch ($field->getTypeOfField()) {
+            case ExtensionHasField::TYPE_ARTICLE:
+                return new ComponentHasArticle($entity, $field);
+                break;
+            case ExtensionHasField::TYPE_FILE:
+                return new ComponentHasFile($entity, $field);
+                break;
+            default:
+                return new ComponentHasText($entity, $field);
+        }
+    }
+
+    private function getColumns(ComponentHasElement $componentHasElement)
+    {
+        $fields = $componentHasElement->getComponent()->getExtension()->getFields();
+        foreach ($fields as $field) {
+            $componentHasValue = $this->getComponentHasValueType($componentHasElement, $field);
+
+            $componentHasElement->addComponentHasValue($componentHasValue);
+        }
+
+        return $componentHasElement;
+    }
+
+    private function addColumns($form, ComponentHasElement $componentHasElement)
+    {
+        if ($componentHasElement->getComponentHasValues()->count() == 0) {
+            $componentHasElement = $this->getColumns($componentHasElement);
+        }
+
+        foreach ($componentHasElement->getComponentHasValues() as $key => $componentHasValue) {
+            $form->get('componentHasValues')->add('column_' . $key, new ComponentHasValueType($componentHasValue));
+        }
+
+        return $form;
     }
 }
