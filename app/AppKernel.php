@@ -27,8 +27,12 @@ class AppKernel extends Kernel
             new Bmatzner\FontAwesomeBundle\BmatznerFontAwesomeBundle(),
             new Sonata\IntlBundle\SonataIntlBundle(),
             new Khepin\YamlFixturesBundle\KhepinYamlFixturesBundle(),
+            new FOS\RestBundle\FOSRestBundle(),
+            new FOS\CommentBundle\FOSCommentBundle(),
+            new JMS\SerializerBundle\JMSSerializerBundle($this),
 
             new My\UserBundle\MyUserBundle(),
+            new My\CommentBundle\MyCommentBundle(),
             new My\CoreBundle\MyCoreBundle(),
             new My\BackendBundle\MyBackendBundle(),
             new My\FileBundle\MyFileBundle(),

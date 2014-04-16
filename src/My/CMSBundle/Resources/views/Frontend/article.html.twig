@@ -26,6 +26,8 @@
             <h3 class="datetime">{{ article.createdAt|format_datetime('dd MMM Y H:m') }}</h3>
 
             {{ article.content|raw }}
+
+            {% include 'FOSCommentBundle:Thread:async.html.twig' with { 'id': article.id } %}
         </div>
     </div>
 

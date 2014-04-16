@@ -65,6 +65,7 @@ assetic:
         - MyCMSBundle
         - MyFileBundle
         - MyUserBundle
+        - FOSCommentBundle
     filters:
         cssembed:
             jar: "/usr/share/cssembed/cssembed-0.4.5.jar"
@@ -152,3 +153,10 @@ fos_user:
             type: my_user_registration
         confirmation:
             enabled: true
+
+fos_comment:
+    db_driver: orm
+    class:
+        model:
+            comment: My\CommentBundle\Entity\Comment
+            thread: My\CommentBundle\Entity\Thread
