@@ -13,18 +13,12 @@ class ComponentHasText extends ComponentHasValue
     /**
      * @ORM\Column(type="text", nullable=true)
      */
-    private $content;
+    private $text;
 
 
-    /**
-     * Set content
-     *
-     * @param string $content
-     * @return ComponentHasText
-     */
     public function setContent($content)
     {
-        $this->content = $content;
+        $this->setText($content);
 
         return $this;
     }
@@ -36,11 +30,34 @@ class ComponentHasText extends ComponentHasValue
      */
     public function getContent()
     {
-        return $this->content;
+        return $this->getText();
     }
 
     public function getStringContent()
     {
         return $this->getContent();
+    }
+
+    /**
+     * Set text
+     *
+     * @param string $text
+     * @return ComponentHasText
+     */
+    public function setText($text)
+    {
+        $this->text = $text;
+
+        return $this;
+    }
+
+    /**
+     * Get text
+     *
+     * @return string 
+     */
+    public function getText()
+    {
+        return $this->text;
     }
 }

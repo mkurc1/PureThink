@@ -1,177 +1,177 @@
 model: My\CMSBundle\Entity\ComponentHasText
 fixtures:
     cms_component_has_text_1:
-        content: "Baner 1"
+        text: "Baner 1"
         componentHasElement: cms_component_has_element_1
         extensionHasField: cms_extension_has_field_1
     cms_component_has_text_4:
-        content: "Baner 2"
+        text: "Baner 2"
         componentHasElement: cms_component_has_element_2
         extensionHasField: cms_extension_has_field_1
     cms_component_has_text_7:
-        content: "Baner 3"
+        text: "Baner 3"
         componentHasElement: cms_component_has_element_3
         extensionHasField: cms_extension_has_field_1
 
     cms_component_has_text_10:
-        content: "Lorem Ipsum Dolom 1"
+        text: "Lorem Ipsum Dolom 1"
         componentHasElement: cms_component_has_element_4
         extensionHasField: cms_extension_has_field_4
     cms_component_has_text_12:
-        content: "Lorem Ipsum Dolom 2"
+        text: "Lorem Ipsum Dolom 2"
         componentHasElement: cms_component_has_element_5
         extensionHasField: cms_extension_has_field_4
     cms_component_has_text_14:
-        content: "Lorem Ipsum Dolom 3"
+        text: "Lorem Ipsum Dolom 3"
         componentHasElement: cms_component_has_element_6
         extensionHasField: cms_extension_has_field_4
     cms_component_has_text_16:
-        content: "Lorem Ipsum Dolom 4"
+        text: "Lorem Ipsum Dolom 4"
         componentHasElement: cms_component_has_element_7
         extensionHasField: cms_extension_has_field_4
     cms_component_has_text_18:
-        content: "Lorem Ipsum Dolom 5"
+        text: "Lorem Ipsum Dolom 5"
         componentHasElement: cms_component_has_element_8
         extensionHasField: cms_extension_has_field_4
     cms_component_has_text_20:
-        content: "Lorem Ipsum Dolom 6"
+        text: "Lorem Ipsum Dolom 6"
         componentHasElement: cms_component_has_element_9
         extensionHasField: cms_extension_has_field_4
     cms_component_has_text_22:
-        content: "Lorem Ipsum Dolom 7"
+        text: "Lorem Ipsum Dolom 7"
         componentHasElement: cms_component_has_element_10
         extensionHasField: cms_extension_has_field_4
     cms_component_has_text_24:
-        content: "Lorem Ipsum Dolom 8"
+        text: "Lorem Ipsum Dolom 8"
         componentHasElement: cms_component_has_element_11
         extensionHasField: cms_extension_has_field_4
     cms_component_has_text_26:
-        content: "Lorem Ipsum Dolom 9"
+        text: "Lorem Ipsum Dolom 9"
         componentHasElement: cms_component_has_element_12
         extensionHasField: cms_extension_has_field_4
     cms_component_has_text_28:
-        content: "Lorem Ipsum Dolom 10"
+        text: "Lorem Ipsum Dolom 10"
         componentHasElement: cms_component_has_element_13
         extensionHasField: cms_extension_has_field_4
     cms_component_has_text_30:
-        content: "Lorem Ipsum Dolom 11"
+        text: "Lorem Ipsum Dolom 11"
         componentHasElement: cms_component_has_element_14
         extensionHasField: cms_extension_has_field_4
     cms_component_has_text_32:
-        content: "Lorem Ipsum Dolom 12"
+        text: "Lorem Ipsum Dolom 12"
         componentHasElement: cms_component_has_element_15
         extensionHasField: cms_extension_has_field_4
     cms_component_has_text_34:
-        content: "Lorem Ipsum Dolom 13"
+        text: "Lorem Ipsum Dolom 13"
         componentHasElement: cms_component_has_element_16
         extensionHasField: cms_extension_has_field_4
     cms_component_has_text_36:
-        content: "Lorem Ipsum Dolom 14"
+        text: "Lorem Ipsum Dolom 14"
         componentHasElement: cms_component_has_element_17
         extensionHasField: cms_extension_has_field_4
     cms_component_has_text_38:
-        content: "Lorem Ipsum Dolom 15"
+        text: "Lorem Ipsum Dolom 15"
         componentHasElement: cms_component_has_element_18
         extensionHasField: cms_extension_has_field_4
     cms_component_has_text_40:
-        content: "Lorem Ipsum Dolom 16"
+        text: "Lorem Ipsum Dolom 16"
         componentHasElement: cms_component_has_element_19
         extensionHasField: cms_extension_has_field_4
     cms_component_has_text_42:
-        content: "Lorem Ipsum Dolom 17"
+        text: "Lorem Ipsum Dolom 17"
         componentHasElement: cms_component_has_element_20
         extensionHasField: cms_extension_has_field_4
     cms_component_has_text_44:
-        content: "Lorem Ipsum Dolom 18"
+        text: "Lorem Ipsum Dolom 18"
         componentHasElement: cms_component_has_element_21
         extensionHasField: cms_extension_has_field_4
     cms_component_has_text_46:
-        content: "Lorem Ipsum Dolom 19"
+        text: "Lorem Ipsum Dolom 19"
         componentHasElement: cms_component_has_element_22
         extensionHasField: cms_extension_has_field_4
     cms_component_has_text_48:
-        content: "Lorem Ipsum Dolom 20"
+        text: "Lorem Ipsum Dolom 20"
         componentHasElement: cms_component_has_element_23
         extensionHasField: cms_extension_has_field_4
 
     cms_component_has_text_50:
-        content: "Lorem Ipsum Dolom 1"
+        text: "Lorem Ipsum Dolom 1"
         componentHasElement: cms_component_has_element_24
         extensionHasField: cms_extension_has_field_6
     cms_component_has_text_53:
-        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tincidunt, ligula in consequat commodo, sapien justo ornare magna."
+        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tincidunt, ligula in consequat commodo, sapien justo ornare magna."
         componentHasElement: cms_component_has_element_24
         extensionHasField: cms_extension_has_field_9
     cms_component_has_text_54:
-        content: "Lorem Ipsum Dolom 2"
+        text: "Lorem Ipsum Dolom 2"
         componentHasElement: cms_component_has_element_25
         extensionHasField: cms_extension_has_field_6
     cms_component_has_text_57:
-        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tincidunt, ligula in consequat commodo, sapien justo ornare magna."
+        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tincidunt, ligula in consequat commodo, sapien justo ornare magna."
         componentHasElement: cms_component_has_element_25
         extensionHasField: cms_extension_has_field_9
     cms_component_has_text_58:
-        content: "Lorem Ipsum Dolom 3"
+        text: "Lorem Ipsum Dolom 3"
         componentHasElement: cms_component_has_element_26
         extensionHasField: cms_extension_has_field_6
     cms_component_has_text_61:
-        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tincidunt, ligula in consequat commodo, sapien justo ornare magna."
+        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tincidunt, ligula in consequat commodo, sapien justo ornare magna."
         componentHasElement: cms_component_has_element_26
         extensionHasField: cms_extension_has_field_9
     cms_component_has_text_62:
-        content: "Lorem Ipsum Dolom 1"
+        text: "Lorem Ipsum Dolom 1"
         componentHasElement: cms_component_has_element_27
         extensionHasField: cms_extension_has_field_6
     cms_component_has_text_65:
-        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tincidunt, ligula in consequat commodo, sapien justo ornare magna."
+        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tincidunt, ligula in consequat commodo, sapien justo ornare magna."
         componentHasElement: cms_component_has_element_27
         extensionHasField: cms_extension_has_field_9
     cms_component_has_text_66:
-        content: "Lorem Ipsum Dolom 2"
+        text: "Lorem Ipsum Dolom 2"
         componentHasElement: cms_component_has_element_28
         extensionHasField: cms_extension_has_field_6
     cms_component_has_text_69:
-        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tincidunt, ligula in consequat commodo, sapien justo ornare magna."
+        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tincidunt, ligula in consequat commodo, sapien justo ornare magna."
         componentHasElement: cms_component_has_element_28
         extensionHasField: cms_extension_has_field_9
     cms_component_has_text_70:
-        content: "Lorem Ipsum Dolom 3"
+        text: "Lorem Ipsum Dolom 3"
         componentHasElement: cms_component_has_element_29
         extensionHasField: cms_extension_has_field_6
     cms_component_has_text_73:
-        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tincidunt, ligula in consequat commodo, sapien justo ornare magna."
+        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tincidunt, ligula in consequat commodo, sapien justo ornare magna."
         componentHasElement: cms_component_has_element_29
         extensionHasField: cms_extension_has_field_9
     cms_component_has_text_74:
-        content: "Lorem Ipsum Dolom 1"
+        text: "Lorem Ipsum Dolom 1"
         componentHasElement: cms_component_has_element_30
         extensionHasField: cms_extension_has_field_6
     cms_component_has_text_77:
-        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tincidunt, ligula in consequat commodo, sapien justo ornare magna."
+        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tincidunt, ligula in consequat commodo, sapien justo ornare magna."
         componentHasElement: cms_component_has_element_30
         extensionHasField: cms_extension_has_field_9
     cms_component_has_text_78:
-        content: "Lorem Ipsum Dolom 2"
+        text: "Lorem Ipsum Dolom 2"
         componentHasElement: cms_component_has_element_31
         extensionHasField: cms_extension_has_field_6
     cms_component_has_text_81:
-        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tincidunt, ligula in consequat commodo, sapien justo ornare magna."
+        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tincidunt, ligula in consequat commodo, sapien justo ornare magna."
         componentHasElement: cms_component_has_element_31
         extensionHasField: cms_extension_has_field_9
     cms_component_has_text_82:
-        content: "Lorem Ipsum Dolom 3"
+        text: "Lorem Ipsum Dolom 3"
         componentHasElement: cms_component_has_element_32
         extensionHasField: cms_extension_has_field_6
     cms_component_has_text_85:
-        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tincidunt, ligula in consequat commodo, sapien justo ornare magna."
+        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tincidunt, ligula in consequat commodo, sapien justo ornare magna."
         componentHasElement: cms_component_has_element_32
         extensionHasField: cms_extension_has_field_9
 
     cms_component_has_text_86:
-        content: "Uwaga ta strona używa COOKIES."
+        text: "Uwaga ta strona używa COOKIES."
         componentHasElement: cms_component_has_element_33
         extensionHasField: cms_extension_has_field_10
     cms_component_has_text_88:
-        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tincidunt, ligula in consequat commodo, sapien justo ornare magna. Duis tincidunt, ligula in consequat commodo, sapien justo ornare magna."
+        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tincidunt, ligula in consequat commodo, sapien justo ornare magna. Duis tincidunt, ligula in consequat commodo, sapien justo ornare magna."
         componentHasElement: cms_component_has_element_33
         extensionHasField: cms_extension_has_field_12

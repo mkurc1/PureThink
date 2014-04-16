@@ -26,6 +26,6 @@ class MetadataType extends AbstractType
 
     public function getName()
     {
-        return 'my_backendbundle_metadatatype';
+        return 'metadata';
     }
 }

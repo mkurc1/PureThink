@@ -27,6 +27,8 @@ abstract class CRUDController extends Controller
             'sublistId'  => (int)$request->get('sublistId')
         ];
 
+        $params = $this->paramsFilter($params);
+
         $entities = $this->getListQB($params);
         $pagination = $this->setPagination($entities, $params['page'], $params['rowsOnPage']);
 
@@ -39,6 +41,7 @@ abstract class CRUDController extends Controller
         $response = [
             "list"       => $list,
             "pagination" => $pagination,
+            "order"      => $params['order'],
             "response"   => true
         ];
 
@@ -185,6 +188,11 @@ abstract class CRUDController extends Controller
         }
 
         return $entity;
+    }
+
+    protected function paramsFilter(array $params)
+    {
+        return $params;
     }
 
     private function renderForm($entity, $form)

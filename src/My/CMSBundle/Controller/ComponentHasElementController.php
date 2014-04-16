@@ -2,12 +2,13 @@
 
 namespace My\CMSBundle\Controller;
 
+use My\BackendBundle\Controller\CRUDController;
+use My\BackendBundle\Controller\CRUDInterface;
 use My\CMSBundle\Entity\ComponentHasArticle;
 use My\CMSBundle\Entity\ComponentHasFile;
 use My\CMSBundle\Entity\ComponentHasText;
 use My\CMSBundle\Entity\ExtensionHasField;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use My\CMSBundle\Entity\ComponentHasElement;
@@ -18,171 +19,60 @@ use Symfony\Component\HttpFoundation\Response;
 /**
  * @Route("/admin/cms/component/element")
  */
-class ComponentHasElementController extends Controller
+class ComponentHasElementController extends CRUDController implements CRUDInterface
 {
-    /**
-     * @Route("/")
-     * @Method("POST")
-     */
-    public function listAction(Request $request)
+    protected function paramsFilter(array $params)
     {
-        $rowsOnPage = (int)$request->get('rowsOnPage', 10);
-        $page = (int)$request->get('page', 1);
-        $order = $request->get('order', 'a.name');
-        $sequence = $request->get('sequence', 'ASC');
-        $filter = $request->get('filtr');
-        $sublistId = (int)$request->get('sublistId');
-
-        if ($order == 'a.name') {
-            $order = 'c.content';
+        if ($params['order'] == 'a.name') {
+            $params['order'] = 'c.text';
         }
 
-        $entities = $this->getDoctrine()->getRepository('MyCMSBundle:ComponentHasText')
-            ->getElementsQB($order, $sequence, $filter, $sublistId);
-
-        $pagination = $this->get('my.pagination.service')
-            ->setPagination($entities, $page, $rowsOnPage);
-
-        $list = $this->renderView('MyCMSBundle:ComponentHasElement:_list.html.twig',
-            ['entities' => $pagination['entities'], 'page' => $page, 'rowsOnPage' => $rowsOnPage]);
-
-        $response = [
-            "list"       => $list,
-            "pagination" => $pagination,
-            "response"   => true,
-            "order"      => $order
-        ];
-
-        return new Response(json_encode($response));
+        return $params;
     }
 
-    /**
-     * @Route("/create")
-     * @Method("POST")
-     */
-    public function createAction(Request $request)
+    public function getListQB(array $params)
     {
-        $sublistId = (int)$request->get('sublistId');
+        return $this->getDoctrine()->getRepository('MyCMSBundle:ComponentHasText')
+            ->getElementsQB($params['order'], $params['sequence'], $params['filter'], $params['sublistId']);
+    }
 
-        $entity = new ComponentHasElement($this->getComponent($sublistId));
+    public function getListTemplate()
+    {
+        return 'MyCMSBundle:ComponentHasElement:_list.html.twig';
+    }
 
+    public function getEntityById($id)
+    {
+        return $this->getDoctrine()->getRepository('MyCMSBundle:ComponentHasElement')
+            ->find($id);
+    }
+
+    public function getEntitiesByIds(array $ids)
+    {
+        return $this->getDoctrine()->getRepository('MyCMSBundle:ComponentHasElement')
+            ->getElementsByIds($ids);
+    }
+
+    public function getNewEntity($params)
+    {
+        return new ComponentHasElement($this->getComponent($params['sublistId']));
+    }
+
+    public function getForm($entity, $params)
+    {
         $form = $this->createForm(new ComponentHasElementType($entity));
-        $form = $this->addColumns($form, $entity);
 
-        if ($form->submit($request) && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($entity);
-
-            $response = $this->get('my.flush.service')->tryFlush();
-            $response['id'] = $entity->getId();
-        } else {
-            $view = $this->renderView('MyCMSBundle:ComponentHasElement:_new.html.twig',
-                ['entity' => $entity, 'form' => $form->createView()]);
-
-            $response = [
-                "response" => false,
-                "view"     => $view
-            ];
-        }
-
-        return new Response(json_encode($response));
+        return $this->addColumns($form, $entity);
     }
 
-    /**
-     * @Route("/new")
-     * @Method("POST")
-     */
-    public function newAction(Request $request)
+    public function getNewFormTemplate()
     {
-        $sublistId = (int)$request->get('sublistId');
-
-        $entity = new ComponentHasElement($this->getComponent($sublistId));
-
-        $form = $this->createForm(new ComponentHasElementType($entity));
-        $form = $this->addColumns($form, $entity);
-
-        $view = $this->renderView('MyCMSBundle:ComponentHasElement:_new.html.twig',
-            ['entity' => $entity, 'form' => $form->createView()]);
-
-        $response = [
-            "response" => true,
-            "view"     => $view
-        ];
-
-        return new Response(json_encode($response));
+        return 'MyCMSBundle:ComponentHasElement:_new.html.twig';
     }
 
-    /**
-     * @Route("/{id}/edit")
-     * @Method("POST")
-     */
-    public function editAction(Request $request, $id)
+    public function getEditFormTemplate()
     {
-        $entity = $this->getComponentHasElement($id);
-
-        $form = $this->createForm(new ComponentHasElementType($entity));
-        $form = $this->addColumns($form, $entity);
-
-        $view = $this->renderView('MyCMSBundle:ComponentHasElement:_edit.html.twig',
-            ['entity' => $entity, 'form' => $form->createView()]);
-
-        $response = [
-            "response" => true,
-            "view"     => $view
-        ];
-
-        return new Response(json_encode($response));
-    }
-
-    /**
-     * @Route("/{id}/update")
-     * @Method("POST")
-     */
-    public function updateAction(Request $request, $id)
-    {
-        $entity = $this->getComponentHasElement($id);
-
-        $form = $this->createForm(new ComponentHasElementType($entity));
-        $form = $this->addColumns($form, $entity);
-
-        if ($form->submit($request) && $form->isValid()) {
-            $response = $this->get('my.flush.service')->tryFlush();
-            $response['id'] = $entity->getId();
-        } else {
-            $view = $this->renderView('MyCMSBundle:ComponentHasElement:_edit.html.twig',
-                ['entity' => $entity, 'form' => $form->createView()]);
-
-            $response = array(
-                "response" => false,
-                "view"     => $view
-            );
-        }
-
-        return new Response(json_encode($response));
-    }
-
-    /**
-     * @Route("/delete")
-     * @Method("POST")
-     */
-    public function deleteAction(Request $request)
-    {
-        $arrayId = $request->get('arrayId');
-
-        $em = $this->getDoctrine()->getManager();
-
-        foreach ($arrayId as $id) {
-            $entity = $em->getRepository('MyCMSBundle:ComponentHasElement')->find((int)$id);
-            if (!$entity) {
-                throw $this->createNotFoundException();
-            }
-
-            $em->remove($entity);
-        }
-
-        $response = $this->get('my.flush.service')->tryFlush();
-
-        return new Response(json_encode($response));
+        return 'MyCMSBundle:ComponentHasElement:_edit.html.twig';
     }
 
     /**
@@ -193,26 +83,12 @@ class ComponentHasElementController extends Controller
     {
         $id = (int)$request->get('id');
 
-        $entity = $this->getDoctrine()->getRepository('MyCMSBundle:ComponentHasElement')->find($id);
-        if (!$entity) {
-            throw $this->createNotFoundException();
-        }
-
+        $entity = $this->getEntityById($id);
         $entity->setIsEnable(!$entity->getIsEnable());
 
         $response = $this->get('my.flush.service')->tryFlush();
 
         return new Response(json_encode($response));
-    }
-
-    private function getComponentHasElement($id)
-    {
-        $componentHasElement = $this->getDoctrine()->getRepository('MyCMSBundle:ComponentHasElement')->find($id);
-        if (null == $componentHasElement) {
-            throw $this->createNotFoundException();
-        }
-
-        return $componentHasElement;
     }
 
     private function getComponent($id)

@@ -2,3 +2,8 @@ services:
     my.cms.leftMenu.service:
         class: My\CMSBundle\Service\LeftMenuService
         arguments: [@doctrine.orm.entity_manager, @templating]
+
+    my.cms.article_type:
+        class: My\CMSBundle\Form\Type\ArticleType
+        tags:
+            - { name: form.type, alias: Article }

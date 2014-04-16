@@ -25,14 +25,14 @@ class ExtensionHasField
     const TYPE_FILE = 10;
 
     public static $avilableTypeOfField = [
-        self::TYPE_TEXT     => "Text",
-        self::TYPE_TEXTAREA => "Textarea",
-        self::TYPE_INTEGER  => "Integer",
-        self::TYPE_FLOAT    => "Float",
-        self::TYPE_DOUBLE   => "Double",
-        self::TYPE_BOOLEAN  => "Boolean",
-        self::TYPE_DATE     => "Date",
-        self::TYPE_DATETIME => "Datetime",
+        self::TYPE_TEXT     => "text",
+        self::TYPE_TEXTAREA => "textarea",
+        self::TYPE_INTEGER  => "integer",
+        self::TYPE_FLOAT    => "float",
+        self::TYPE_DOUBLE   => "double",
+        self::TYPE_BOOLEAN  => "boolean",
+        self::TYPE_DATE     => "date",
+        self::TYPE_DATETIME => "datetime",
         self::TYPE_ARTICLE  => "Article",
         self::TYPE_FILE     => "File"
     ];

@@ -1,1 +1,5 @@
 services:
+    my.cms.file_type:
+        class: My\FileBundle\Form\Type\FileType
+        tags:
+            - { name: form.type, alias: File }

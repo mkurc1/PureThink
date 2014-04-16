@@ -14,7 +14,7 @@ class ComponentHasTextRepository extends EntityRepository
             ->join('c.extensionHasField', 'cf')
             ->join('ce.component', 'cec')
             ->where('cf.isMainField = true')
-            ->andWhere('c.content LIKE :filter')
+            ->andWhere('c.text LIKE :filter')
             ->setParameter('filter', '%' . $filter . '%');
 
         if ($componentId) {

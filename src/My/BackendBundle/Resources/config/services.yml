@@ -2,3 +2,8 @@ services:
     my.pagination.service:
         class: My\BackendBundle\Service\PaginationService
         arguments: [@knp_paginator]
+
+    my.backend.type.metadata:
+        class: My\BackendBundle\Form\MetadataType
+        tags:
+            - { name: form.type, alias: metadata }
