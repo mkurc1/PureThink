@@ -4,6 +4,7 @@
     {{ parent() }}
 
     {% stylesheets
+        '@MyCoreBundle/Resources/public/css/plugin/bootstrap.css'
         '@MyCMSBundle/Resources/public/css/article.css'
         '@FOSCommentBundle/Resources/assets/css/comments.css'
         filter='less,cssrewrite,uglifycss'
@@ -17,6 +18,7 @@
     {{ parent() }}
 
     {% javascripts
+        '@MyCoreBundle/Resources/public/js/plugin/bootstrap.js'
         '@MyCMSBundle/Resources/public/js/cookies.js'
         filter="uglifyjs2"
         output='js/frontend.js' %}

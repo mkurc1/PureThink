@@ -10,7 +10,8 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('bundles/bmatznerfontawesome/css/font-awesome.min.css') }}" />
 
     {% stylesheets
-        '@MyCoreBundle/Resources/public/css/plugin/*'
+        '@MyCoreBundle/Resources/public/css/plugin/alertify.core.css'
+        '@MyCoreBundle/Resources/public/css/plugin/alertify.bootstrap.css'
         '@MyCoreBundle/Resources/public/css/*'
         filter='less,cssrewrite,uglifycss'
         output='css/core.css' %}
@@ -21,7 +22,7 @@
 {% block javascripts %}
     {% javascripts
         '@MyCoreBundle/Resources/public/js/lib/*'
-        '@MyCoreBundle/Resources/public/js/plugin/*'
+        '@MyCoreBundle/Resources/public/js/plugin/alertify.js'
         '@MyCoreBundle/Resources/public/js/*'
         filter="uglifyjs2"
         output='js/core.js' %}

@@ -1,22 +1,24 @@
 <div id="news">
     <div class="container">
-        <div class="left">
-            {{ render(controller('MyCMSBundle:Frontend:component', {
+        <div class="row">
+            <div class="col-md-4">
+                {{ render(controller('MyCMSBundle:Frontend:component', {
                 'slug'    : 'lorem-ipsum-dolom-news-1',
                 'template': 'MyCMSBundle:Frontend:_news.html.twig'
-            })) }}
-        </div>
-        <div class="center">
-            {{ render(controller('MyCMSBundle:Frontend:component', {
+                })) }}
+            </div>
+            <div class="col-md-4">
+                {{ render(controller('MyCMSBundle:Frontend:component', {
                 'slug'    : 'lorem-ipsum-dolom-news-2',
                 'template': 'MyCMSBundle:Frontend:_news.html.twig'
-            })) }}
-        </div>
-        <div class="right">
-            {{ render(controller('MyCMSBundle:Frontend:component', {
+                })) }}
+            </div>
+            <div class="col-md-4">
+                {{ render(controller('MyCMSBundle:Frontend:component', {
                 'slug'    : 'lorem-ipsum-dolom-news-3',
                 'template': 'MyCMSBundle:Frontend:_news.html.twig'
-            })) }}
+                })) }}
+            </div>
         </div>
     </div>
 </div>
