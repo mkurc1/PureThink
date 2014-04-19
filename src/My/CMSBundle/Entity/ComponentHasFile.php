@@ -11,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
 class ComponentHasFile extends ComponentHasValue
 {
     /**
-     * @ORM\ManyToOne(targetEntity="My\FileBundle\Entity\File")
+     * @ORM\ManyToOne(targetEntity="My\FileBundle\Entity\File", inversedBy="componentHasFile", cascade={"persist"})
      * @ORM\JoinColumn(onDelete="CASCADE", nullable=true)
      */
     private $file;

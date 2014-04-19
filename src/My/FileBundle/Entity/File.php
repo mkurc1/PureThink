@@ -7,6 +7,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Validator\Constraints as Assert;
 use My\UserBundle\Entity\User;
+use Doctrine\ORM\Event\LifecycleEventArgs;
 
 /**
  * File
@@ -72,9 +73,28 @@ class File
 
     private $temp;
 
+    /**
+     * @ORM\OneToMany(targetEntity="My\CMSBundle\Entity\ComponentHasFile", mappedBy="file")
+     */
+    private $componentHasFile;
+
+    /**
+     * @ORM\PreRemove
+     */
+    public function preRemove(LifecycleEventArgs $args)
+    {
+        foreach ($this->getComponentHasFile() as $component) {
+            $element = $component->getComponentHasElement();
+
+            $om = $args->getObjectManager();
+            $om->remove($element);
+            $om->flush();
+        }
+    }
 
     public function __construct(User $user = null)
     {
+        $this->componentHasFile = new \Doctrine\Common\Collections\ArrayCollection();
         if (null != $user) {
             $this->setUser($user);
         }
@@ -390,5 +410,38 @@ class File
     public function getMimeType()
     {
         return $this->mimeType;
+    }
+
+    /**
+     * Add componentHasFile
+     *
+     * @param \My\CMSBundle\Entity\ComponentHasFile $componentHasFile
+     * @return File
+     */
+    public function addComponentHasFile(\My\CMSBundle\Entity\ComponentHasFile $componentHasFile)
+    {
+        $this->componentHasFile[] = $componentHasFile;
+
+        return $this;
+    }
+
+    /**
+     * Remove componentHasFile
+     *
+     * @param \My\CMSBundle\Entity\ComponentHasFile $componentHasFile
+     */
+    public function removeComponentHasFile(\My\CMSBundle\Entity\ComponentHasFile $componentHasFile)
+    {
+        $this->componentHasFile->removeElement($componentHasFile);
+    }
+
+    /**
+     * Get componentHasFile
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getComponentHasFile()
+    {
+        return $this->componentHasFile;
     }
 }

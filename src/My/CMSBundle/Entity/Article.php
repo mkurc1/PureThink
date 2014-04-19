@@ -8,10 +8,12 @@ use My\BackendBundle\Entity\Metadata;
 use My\BackendBundle\Entity\MetadataInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 use My\UserBundle\Entity\User;
+use Doctrine\ORM\Event\LifecycleEventArgs;
 
 /**
  * @ORM\Table(name="cms_article")
  * @ORM\Entity(repositoryClass="My\CMSBundle\Repository\ArticleRepository")
+ * @ORM\HasLifecycleCallbacks
  */
 class Article implements MetadataInterface
 {
@@ -87,10 +89,29 @@ class Article implements MetadataInterface
      */
     private $metadata;
 
+    /**
+     * @ORM\OneToMany(targetEntity="ComponentHasArticle", mappedBy="article")
+     */
+    private $componentHasArticle;
+
 
     public function getSEOData()
     {
         return $this->getMetadata();
+    }
+
+    /**
+     * @ORM\PreRemove
+     */
+    public function preRemove(LifecycleEventArgs $args)
+    {
+        foreach ($this->getComponentHasArticle() as $component) {
+            $element = $component->getComponentHasElement();
+
+            $om = $args->getObjectManager();
+            $om->remove($element);
+            $om->flush();
+        }
     }
 
     /**
@@ -325,6 +346,7 @@ class Article implements MetadataInterface
      */
     public function __construct(User $user = null)
     {
+        $this->componentHasArticle = new \Doctrine\Common\Collections\ArrayCollection();
         $this->setMetadata(new Metadata());
 
         if (null != $user) {
@@ -376,5 +398,38 @@ class Article implements MetadataInterface
     public function getViews()
     {
         return $this->views;
+    }
+
+    /**
+     * Add componentHasArticle
+     *
+     * @param \My\CMSBundle\Entity\ComponentHasArticle $componentHasArticle
+     * @return Article
+     */
+    public function addComponentHasArticle(\My\CMSBundle\Entity\ComponentHasArticle $componentHasArticle)
+    {
+        $this->componentHasArticle[] = $componentHasArticle;
+
+        return $this;
+    }
+
+    /**
+     * Remove componentHasArticle
+     *
+     * @param \My\CMSBundle\Entity\ComponentHasArticle $componentHasArticle
+     */
+    public function removeComponentHasArticle(\My\CMSBundle\Entity\ComponentHasArticle $componentHasArticle)
+    {
+        $this->componentHasArticle->removeElement($componentHasArticle);
+    }
+
+    /**
+     * Get componentHasArticle
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getComponentHasArticle()
+    {
+        return $this->componentHasArticle;
     }
 }
