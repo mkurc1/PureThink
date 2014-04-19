@@ -1,9 +1,26 @@
 <div id="baner">
     <div class="container">
-        {% for key, baner in entities if key != 'title' %}
-            <a href="{{ path('article', { 'locale': locale, 'slug': baner['adres'] }) }}">
-                <img src="{{ asset('uploads/' ~ baner['fotografia']) }}" alt="{{ baner['nazwa'] }}" />
+        <div id="baner_a" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                {% for key, baner in entities if key != 'title' %}
+                <li data-target="#baner_a" data-slide-to="{{ key-1 }}" class="{{ (key == 1) ? 'active' : '' }}"></li>
+                {% endfor %}
+            </ol>
+
+            <div class="carousel-inner">
+                {% for key, baner in entities if key != 'title' %}
+                    <div class="item {{ (key == 1) ? 'active' : '' }}">
+                        <a href="{{ path('article', { 'locale': locale, 'slug': baner['adres'] }) }}"><img src="{{ asset('uploads/' ~ baner['fotografia']) }}" alt="{{ baner['nazwa'] }}"/></a>
+                    </div>
+                {% endfor %}
+            </div>
+
+            <a class="left carousel-control" href="#baner_a" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
             </a>
-        {% endfor %}
+            <a class="right carousel-control" href="#baner_a" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+            </a>
+        </div>
     </div>
 </div>

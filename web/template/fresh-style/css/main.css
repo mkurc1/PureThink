@@ -259,46 +259,23 @@ ul#language > li.selected > a {
     width: 100%;
     background-color: #dddddd;
     height: 323px;
-    padding-top: 20px;
+    padding-top: 19px;
 }
 
-#baner > .container {
-    overflow: inherit !important;
+#baner .carousel-inner {
+    height: 287px;
 }
 
-#baner > .container > a {
-    display: none;
+#baner .carousel-control {
+    background: none;
 }
 
-#baner > .container > a:first-child {
-    display: block;
+#baner .carousel-control.left {
+    left: -150px;
 }
 
-#baner > .container > a.slidesjs-navigation {
-    display: block;
-    overflow: hidden;
-    position: absolute;
-    z-index: 100;
-    height: 0;
-    width: 29px;
-    padding-top: 48px;
-    margin-top: -174px;
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
-#baner > .container > a.slidesjs-previous {
-    background-image: url('../images/arrow_left.png');
-    margin-left: -79px;
-}
-
-#baner > .container > a.slidesjs-next {
-    background-image: url('../images/arrow_right.png');
-    margin-left: 1030px;
-}
-
-#baner > .container > .slidesjs-pagination {
-    display: none;
+#baner .carousel-control.right {
+    right: -150px;
 }
 
 #news {
