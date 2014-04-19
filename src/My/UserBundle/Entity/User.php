@@ -4,22 +4,21 @@ namespace My\UserBundle\Entity;
 
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
-use My\UserBundle\Entity\UserSetting;
 
 /**
- * @ORM\Table(name="user")
+ * @ORM\Table(name="user_user")
  * @ORM\Entity
  */
 class User extends BaseUser
 {
-	/**
-	 * @ORM\Id
-	 * @ORM\Column(type="integer")
-	 * @ORM\GeneratedValue(strategy="AUTO")
-	 */
-	protected $id;
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
 
-	/**
+    /**
      * @ORM\Column(type="string", length=255)
      */
     private $firstName;
@@ -35,12 +34,12 @@ class User extends BaseUser
     private $userSetting;
 
 
-	public function __construct()
-	{
-		parent::__construct();
+    public function __construct()
+    {
+        parent::__construct();
 
         $this->setUserSetting(new UserSetting());
-	}
+    }
 
 
     /**

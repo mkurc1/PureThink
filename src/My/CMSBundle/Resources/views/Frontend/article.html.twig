@@ -29,7 +29,7 @@
 
             {{ article.content|raw }}
 
-            {% include 'FOSCommentBundle:Thread:async.html.twig' with { 'id': article.id } %}
+            {% include 'MyCommentBundle:Thread:async.html.twig' with { 'id': article.id } %}
         </div>
     </div>
 

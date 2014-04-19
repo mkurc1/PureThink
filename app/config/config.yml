@@ -65,7 +65,7 @@ assetic:
         - MyCMSBundle
         - MyFileBundle
         - MyUserBundle
-        - FOSCommentBundle
+        - MyCommentBundle
     filters:
         cssembed:
             jar: "/usr/share/cssembed/cssembed-0.4.5.jar"

@@ -12,7 +12,7 @@ class ComponentHasFile extends ComponentHasValue
 {
     /**
      * @ORM\ManyToOne(targetEntity="My\FileBundle\Entity\File")
-     * @ORM\JoinColumn(onDelete="CASCADE")
+     * @ORM\JoinColumn(onDelete="CASCADE", nullable=true)
      */
     private $file;
 

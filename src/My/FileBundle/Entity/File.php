@@ -11,7 +11,7 @@ use My\UserBundle\Entity\User;
 /**
  * File
  *
- * @ORM\Table(name="file")
+ * @ORM\Table(name="file_file")
  * @ORM\Entity(repositoryClass="My\FileBundle\Repository\FileRepository")
  * @ORM\HasLifecycleCallbacks
  */

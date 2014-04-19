@@ -1,11 +1,11 @@
 {% extends "MyCoreBundle::layout.html.twig" %}
 
 {% block title %}
-	PureThink - Admin
+    PureThink - Admin
 {% endblock title %}
 
 {% block stylesheets %}
-	{{ parent() }}
+    {{ parent() }}
 
     {% stylesheets
         '@MyBackendBundle/Resources/public/css/plugins/chosen.css'
@@ -32,7 +32,7 @@
         '@MyBackendBundle/Resources/public/js/model/*'
         '@MyBackendBundle/Resources/public/js/view/*'
         '@MyBackendBundle/Resources/public/js/*'
-        filter="uglifyjs2"
+        filter="?uglifyjs2"
         output='js/backend.js' %}
         <script src="{{ asset_url }}"></script>
     {% endjavascripts %}
@@ -42,35 +42,35 @@
     {{ parent() }}
 
     <div id="top_menu">
-    	{% include 'MyBackendBundle:Admin:_top_menu.html.twig' %}
-	</div>
+        {% include 'MyBackendBundle:Admin:_top_menu.html.twig' %}
+    </div>
 
-	<div id="main_menu">
-		{% include 'MyBackendBundle:Admin:_main_menu.html.twig' with { 'modules': modules } %}
-	</div>
+    <div id="main_menu">
+        {% include 'MyBackendBundle:Admin:_main_menu.html.twig' with { 'modules': modules } %}
+    </div>
 
-	<div id="main_button">
-		{% include 'MyBackendBundle:Admin:_main_button.html.twig' %}
-	</div>
+    <div id="main_button">
+        {% include 'MyBackendBundle:Admin:_main_button.html.twig' %}
+    </div>
 
-	<div id="main_line"></div>
+    <div id="main_line"></div>
 
-	<div id="left_menu">
-		<ul id="left_menu_container"></ul>
-		<div id="author">
-			<span>&copy; 2013 <a target="_blank" href="#">ArtCreation</a></span>
-			<span><a href="#">Pomoc</a></span>
-		</div>
-	</div>
+    <div id="left_menu">
+        <ul id="left_menu_container"></ul>
+        <div id="author">
+            <span>&copy; 2013 <a target="_blank" href="#">ArtCreation</a></span>
+            <span><a href="#">Pomoc</a></span>
+        </div>
+    </div>
 
-	<div id="main">
-		<div id="main_container"></div>
-		<div id="edit_container"></div>
-	</div>
+    <div id="main">
+        <div id="main_container"></div>
+        <div id="edit_container"></div>
+    </div>
 
-	<div id="footer">
-		<div id="left_menu_toggle"></div>
+    <div id="footer">
+        <div id="left_menu_toggle"></div>
 
-		{% include 'MyBackendBundle:Admin:_footer.html.twig' %}
-	</div>
+        {% include 'MyBackendBundle:Admin:_footer.html.twig' %}
+    </div>
 {% endblock body %}

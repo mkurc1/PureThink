@@ -12,7 +12,7 @@ class ComponentHasArticle extends ComponentHasValue
 {
     /**
      * @ORM\ManyToOne(targetEntity="Article")
-     * @ORM\JoinColumn(onDelete="CASCADE")
+     * @ORM\JoinColumn(onDelete="CASCADE", nullable=true)
      */
     private $article;
 
