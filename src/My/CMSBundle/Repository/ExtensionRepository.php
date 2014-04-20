@@ -6,15 +6,6 @@ use My\BackendBundle\Repository\FilterRepository;
 
 class ExtensionRepository extends FilterRepository
 {
-    /**
-     * Get extensions
-     *
-     * @param string $order
-     * @param string $sequence
-     * @param string $filter
-     * @param string $groupId
-     * @return array
-     */
     public function getExtensionsQB($order, $sequence, $filter, $groupId)
     {
         $qb = $this->createQueryBuilder('a')

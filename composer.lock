@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "88c9aec17f1fa3673b1e3debbcc75154",
+    "hash": "9add2ef8d14dd93e2741ae51db3a828e",
     "packages": [
         {
             "name": "bmatzner/fontawesome-bundle",
@@ -3320,11 +3320,11 @@
         "doctrine/data-fixtures": 20,
         "doctrine/migrations": 20,
         "doctrine/doctrine-migrations-bundle": 20,
-        "gedmo/doctrine-extensions": 20,
-        "stof/doctrine-extensions-bundle": 20,
         "friendsofsymfony/user-bundle": 20,
         "friendsofsymfony/jsrouting-bundle": 0,
         "friendsofsymfony/comment-bundle": 20,
+        "gedmo/doctrine-extensions": 20,
+        "stof/doctrine-extensions-bundle": 20,
         "knplabs/knp-paginator-bundle": 20
     },
     "platform": {

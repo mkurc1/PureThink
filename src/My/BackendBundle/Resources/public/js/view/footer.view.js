@@ -4,9 +4,6 @@ FooterView = Backbone.View.extend({
         "change #pagination > .number_of_lines" : "changeRowsOnPage"
     },
 
-    /**
-     * Toggle left menu
-     */
     toggleLeftMenu: function(e) {
         $('#left_menu').toggle();
         $(e.currentTarget).toggleClass('hide_menu');
@@ -14,9 +11,6 @@ FooterView = Backbone.View.extend({
         $('#pagination_count').toggleClass('hide_menu');
     },
 
-    /**
-     * Change rows on page
-     */
     changeRowsOnPage: function(e) {
         listView.paginationModel.set({ 'rowsOnPage': $(e.currentTarget).val() });
         listView.paginationModel.set({ page: 1 });
@@ -24,11 +18,6 @@ FooterView = Backbone.View.extend({
         listView.refresh();
     },
 
-    /**
-     * Get rows on page
-     *
-     * @param integer rowsOnPageId
-     */
     getRowsOnPage: function(rowsOnPageId) {
         var rows = this;
 
@@ -51,9 +40,6 @@ FooterView = Backbone.View.extend({
         });
     },
 
-    /**
-     * Add beautify select
-     */
     addBeautifySelect: function() {
         if (listView.paginationView.isPaginationVisible()) {
             beautifySelects();
@@ -65,9 +51,6 @@ FooterView = Backbone.View.extend({
         }
     },
 
-    /**
-     * Set rows on page
-     */
     setRowsOnPage: function() {
         $.ajax({
             type     : "post",

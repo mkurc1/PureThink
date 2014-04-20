@@ -6,15 +6,6 @@ use My\BackendBundle\Repository\FilterRepository;
 
 class ExtensionHasFieldRepository extends FilterRepository
 {
-    /**
-     * Get fields
-     *
-     * @param string  $order
-     * @param string  $sequence
-     * @param string  $filter
-     * @param integer $extensionId
-     * @return QueryBuilder
-     */
     public function getFieldsQB($order, $sequence, $filter, $extensionId)
     {
         $qb = $this->createQueryBuilder('a')

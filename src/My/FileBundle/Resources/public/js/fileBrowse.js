@@ -18,9 +18,6 @@ $(function() {
     listBrowsView.render();
 });
 
-/**
- * Set action on click browse element
- */
 function setActionOnClickBrowseElement() {
     $('#file_borwse_list .browse_element').click(function() {
         var path = fileCatalog+$(this).attr('path');
@@ -30,9 +27,6 @@ function setActionOnClickBrowseElement() {
     });
 }
 
-/**
- * Get CKEditorFuncNum
- */
 function getCKEditorFuncNum() {
     CKEditorFuncNum = getURLParameter('CKEditorFuncNum');
 }

@@ -7,16 +7,6 @@ use My\BackendBundle\Repository\FilterRepository;
 
 class ArticleRepository extends FilterRepository
 {
-    /**
-     * Get articles
-     *
-     * @param string $order
-     * @param string $sequence
-     * @param string $filter
-     * @param string $languageId
-     * @param string $groupId
-     * @return array
-     */
     public function getArticlesQB($order, $sequence, $filter, $languageId, $groupId)
     {
         $qb = $this->createQueryBuilder('a')
@@ -32,12 +22,6 @@ class ArticleRepository extends FilterRepository
         return $qb->getQuery();
     }
 
-    /**
-     * Get articles by ID
-     *
-     * @param  $ids
-     * @return array
-     */
     public function getArticlesByIds(array $ids)
     {
         $qb = $this->createQueryBuilder('a')
@@ -47,13 +31,6 @@ class ArticleRepository extends FilterRepository
         return $qb->getQuery()->getResult();
     }
 
-    /**
-     * Search
-     *
-     * @param string $locale
-     * @param string $search
-     * @return array
-     */
     public function search($locale, $search)
     {
         $qb = $this->createQueryBuilder('a')

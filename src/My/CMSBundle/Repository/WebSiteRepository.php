@@ -7,12 +7,6 @@ use My\BackendBundle\Repository\FilterRepository;
 
 class WebSiteRepository extends FilterRepository
 {
-    /**
-     * Get web site
-     *
-     * @param integer $languageId
-     * @return object
-     */
     public function getWebSite($languageId)
     {
         $qb = $this->createQueryBuilder('a')

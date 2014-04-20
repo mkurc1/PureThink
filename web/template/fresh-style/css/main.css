@@ -5,8 +5,7 @@
 }
 
 body {
-    background-image: url("../images/background_line.png");
-    background-repeat: repeat-x;
+    background: transparent url("../images/background_line.png") repeat-x;
 }
 
 .container {
@@ -249,7 +248,7 @@ ul#language > li.selected > a {
     position: relative;
     float: right;
     font-size: 14px;
-    margin: 4px 5px 0 0;
+    margin: 3px 5px 0 0;
     color: #7F7F7F;
 }
 
@@ -467,4 +466,5 @@ ul#language > li.selected > a {
     height: 100px;
     border: 1px solid #dcdcdc;
     resize: none;
+    margin-bottom: 10px;
 }

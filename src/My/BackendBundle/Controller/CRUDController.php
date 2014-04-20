@@ -2,6 +2,7 @@
 
 namespace My\BackendBundle\Controller;
 
+use My\BackendBundle\Form\ImportType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -12,7 +13,7 @@ abstract class CRUDController extends Controller
 {
     /**
      * @Route("/")
-     * @Method("POST")
+     * @Method("GET")
      */
     public function listAction(Request $request)
     {
@@ -21,7 +22,7 @@ abstract class CRUDController extends Controller
             'page'       => (int)$request->get('page', 1),
             'order'      => $request->get('order', 'a.name'),
             'sequence'   => $request->get('sequence', 'ASC'),
-            'filter'     => $request->get('filtr', null),
+            'filter'     => $request->get('filter', null),
             'languageId' => (int)$request->get('languageId'),
             'groupId'    => (int)$request->get('groupId'),
             'sublistId'  => (int)$request->get('sublistId')
@@ -50,7 +51,7 @@ abstract class CRUDController extends Controller
 
     /**
      * @Route("/new")
-     * @Method("POST")
+     * @Method("GET|POST")
      */
     public function newAction(Request $request)
     {
@@ -61,33 +62,9 @@ abstract class CRUDController extends Controller
 
         $entity = $this->getNewEntity($params);
         $form = $this->getForm($entity, $params);
-        $view = $this->renderForm($entity, $form);
 
-        $response = [
-            "response" => true,
-            "view"     => $view
-        ];
-
-        return new Response(json_encode($response));
-    }
-
-    /**
-     * @Route("/create")
-     * @Method("POST")
-     */
-    public function createAction(Request $request)
-    {
-        $params = [
-            'menuId'    => (int)$request->get('menuId'),
-            'sublistId' => (int)$request->get('sublistId')
-        ];
-
-        $entity = $this->getNewEntity($params);
-        $form = $this->getForm($entity, $params);
-
-        if ($form->submit($request) && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($entity);
+        if ($request->getMethod() == "POST" && $form->submit($request) && $form->isValid()) {
+            $this->getDoctrine()->getManager()->persist($entity);
 
             $response = $this->get('my.flush.service')->tryFlush();
             $response['id'] = $entity->getId();
@@ -95,7 +72,7 @@ abstract class CRUDController extends Controller
             $view = $this->renderForm($entity, $form);
 
             $response = [
-                "response" => false,
+                "response" => !($request->getMethod() == "POST") && !$form->isValid(),
                 "view"     => $view
             ];
         }
@@ -105,7 +82,7 @@ abstract class CRUDController extends Controller
 
     /**
      * @Route("/{id}/edit")
-     * @Method("POST")
+     * @Method("GET|POST")
      */
     public function editAction(Request $request, $id)
     {
@@ -115,38 +92,15 @@ abstract class CRUDController extends Controller
 
         $entity = $this->getEntity($id);
         $form = $this->getForm($entity, $params);
-        $view = $this->renderForm($entity, $form);
 
-        $response = [
-            "response" => true,
-            "view"     => $view
-        ];
-
-        return new Response(json_encode($response));
-    }
-
-    /**
-     * @Route("/{id}/update")
-     * @Method("POST")
-     */
-    public function updateAction(Request $request, $id)
-    {
-        $params = [
-            'menuId' => (int)$request->get('menuId')
-        ];
-
-        $entity = $this->getEntity($id);
-
-        $form = $this->getForm($entity, $params);
-
-        if ($form->submit($request) && $form->isValid()) {
+        if ($request->getMethod() == "POST" && $form->submit($request) && $form->isValid()) {
             $response = $this->get('my.flush.service')->tryFlush();
             $response['id'] = $entity->getId();
         } else {
             $view = $this->renderForm($entity, $form);
 
             $response = [
-                "response" => false,
+                "response" => !($request->getMethod() == "POST") && !$form->isValid(),
                 "view"     => $view
             ];
         }
@@ -170,6 +124,67 @@ abstract class CRUDController extends Controller
         }
 
         $response = $this->get('my.flush.service')->tryFlush();
+
+        return new Response(json_encode($response));
+    }
+
+    /**
+     * @Route("/export")
+     * @Method("POST")
+     */
+    public function exportAction(Request $request)
+    {
+        $arrayId = $request->get('arrayId');
+
+        $entities = $this->getEntitiesByIds($arrayId);
+
+        $serializer = $this->get('jms_serializer');
+        $entitiesJson = $serializer->serialize($entities, 'json');
+
+        $response = [
+            "response" => true,
+            "json"     => $entitiesJson
+        ];
+
+        return new Response(json_encode($response));
+    }
+
+    /**
+     * @Route("/import")
+     * @Method("GET|POST")
+     */
+    public function importAction(Request $request)
+    {
+        $params = [
+            'menuId'    => (int)$request->get('menuId'),
+            'sublistId' => (int)$request->get('sublistId')
+        ];
+
+        $form = $this->createForm(new ImportType());
+
+        if ($request->getMethod() == "POST" && $form->submit($request) && $form->isValid()) {
+            $file = $form->get('file')->getData();
+
+            $serializer = $this->get('jms_serializer');
+            $entitiesJson = $serializer->deserialize(file_get_contents($file), 'Doctrine\Common\Collections\ArrayCollection', 'json');
+            if (method_exists($this, 'importEntities')) {
+                $this->importEntities($entitiesJson, $params);
+                $response = $this->get('my.flush.service')->tryFlush();
+            } else {
+                $response = [
+                    "response" => true,
+                    "message"  => 'Akcja niedostępna'
+                ];
+            }
+        } else {
+            $response = [
+                "response" => !($request->getMethod() == "POST") && !$form->isValid(),
+                "view"     => $this->renderView('MyBackendBundle:Admin:import.html.twig', [
+                        'form'  => $form->createView(),
+                        'route' => $request->get('_route')
+                    ])
+            ];
+        }
 
         return new Response(json_encode($response));
     }

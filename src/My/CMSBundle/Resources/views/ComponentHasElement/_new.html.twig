@@ -3,7 +3,7 @@
 </div>
 
 <div class="container">
-    <form action="{{ path('my_cms_componenthaselement_create') }}" method="post" {{ form_enctype(form) }}>
+    <form action="{{ path('my_cms_componenthaselement_new') }}" method="post" {{ form_enctype(form) }}>
         {% include 'MyCMSBundle:ComponentHasElement:_form.html.twig' with { 'form': form } %}
     </form>
 </div>

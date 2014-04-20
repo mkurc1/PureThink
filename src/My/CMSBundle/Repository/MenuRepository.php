@@ -7,14 +7,6 @@ use My\BackendBundle\Repository\FilterRepository;
 
 class MenuRepository extends FilterRepository
 {
-    /**
-     * Get menus
-     *
-     * @param string $filter
-     * @param string $languageId
-     * @param string $groupId
-     * @return array
-     */
     public function getMenusQB($filter, $languageId, $groupId)
     {
         $qb = $this->createQueryBuilder('a')

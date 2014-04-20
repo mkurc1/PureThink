@@ -3,9 +3,6 @@ MainMenuView = Backbone.View.extend({
         "click > li > a" : "setMenu"
     },
 
-    /**
-     * Render
-     */
     render: function() {
         var menu = this;
 
@@ -31,25 +28,16 @@ MainMenuView = Backbone.View.extend({
         });
     },
 
-    /**
-     * Empty container
-     */
     emptyContainer: function() {
         this.$el.empty();
     },
 
-    /**
-     * Select first menu
-     */
     selectFirstMenu: function() {
         this.$el.find('> li').eq(0).addClass('selected');
         this.setMenuId();
         this.startMode();
     },
 
-    /**
-     * Start mode
-     */
     startMode: function() {
         var url = this.getMainMenuUrl();
 
@@ -68,21 +56,10 @@ MainMenuView = Backbone.View.extend({
         }
     },
 
-    /**
-     * Get main menu URL
-     *
-     * @return string
-     */
     getMainMenuUrl: function() {
         return this.$el.find('> li.selected > a').attr('href');
     },
 
-    /**
-     * Get mode by menu URL
-     *
-     * @param string url
-     * @return boolean
-     */
     isEditMode: function(url) {
         var pathArray = url.split('/');
         var temp = pathArray[pathArray.length-2];
@@ -95,9 +72,6 @@ MainMenuView = Backbone.View.extend({
         }
     },
 
-    /**
-     * Set menu Id
-     */
     setMenuId: function() {
         var id = this.$el.find('> li.selected > a').attr('menu_id');
 
@@ -105,9 +79,6 @@ MainMenuView = Backbone.View.extend({
         editModel.set({ menuId: id });
     },
 
-    /**
-     * Set menu
-     */
     setMenu: function(e) {
         this.$el.find('> li').removeClass('selected');
         $(e.currentTarget).parent().addClass('selected');

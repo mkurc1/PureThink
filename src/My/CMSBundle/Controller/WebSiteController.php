@@ -17,7 +17,7 @@ class WebSiteController extends Controller
 {
     /**
      * @Route("/edit/")
-     * @Method("POST")
+     * @Method("GET")
      */
     public function editAction(Request $request)
     {

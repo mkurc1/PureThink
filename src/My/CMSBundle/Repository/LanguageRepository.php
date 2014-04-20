@@ -7,24 +7,14 @@ use Doctrine\ORM\EntityRepository;
 
 class LanguageRepository extends EntityRepository
 {
-    /**
-     * Get languages
-     *
-     * @return array
-     */
-	public function getLanguages()
-	{
-		$qb = $this->createQueryBuilder('a')
+    public function getLanguages()
+    {
+        $qb = $this->createQueryBuilder('a')
             ->orderBy('a.name');
 
-		return $qb->getQuery()->getResult();
-	}
+        return $qb->getQuery()->getResult();
+    }
 
-    /**
-     * Get first language
-     *
-     * @return object
-     */
     public function getFirstLanguage()
     {
         $qb = $this->createQueryBuilder('a')
@@ -34,11 +24,6 @@ class LanguageRepository extends EntityRepository
         return $qb->getQuery()->getSingleResult();
     }
 
-    /**
-     * Get public languages
-     *
-     * @return array
-     */
     public function getPublicLanguages()
     {
         $qb = $this->createQueryBuilder('a')

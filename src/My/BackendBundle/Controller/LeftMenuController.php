@@ -19,7 +19,7 @@ class LeftMenuController extends Controller
     {
         $moduleId = (int)$request->get('moduleId');
         $menuId = (int)$request->get('menuId');
-        $editMode = ($request->get('editMode') == 'true') ? true : false;
+        $editMode = $request->get('editMode') == 'true';
 
         $menu = '';
         $menus = [];

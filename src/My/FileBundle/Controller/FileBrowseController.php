@@ -17,8 +17,6 @@ use Symfony\Component\HttpFoundation\Response;
 class FileBrowseController extends Controller
 {
     /**
-     * Lists all File entities.
-     *
      * @Route("/", name="file_browse")
      * @Method("GET")
      * @Template()
@@ -32,7 +30,7 @@ class FileBrowseController extends Controller
      * Lists all File entities.
      *
      * @Route("/list", options={"expose"=true})
-     * @Method("POST")
+     * @Method("GET")
      */
     public function listAction(Request $request)
     {
@@ -40,11 +38,11 @@ class FileBrowseController extends Controller
         $page = (int)$request->get('page', 1);
         $order = $request->get('order', 'a.name');
         $sequence = $request->get('sequence', 'ASC');
-        $filtr = $request->get('filtr');
+        $filter = $request->get('filter');
         $groupId = (int)$request->get('groupId', 0);
 
         $entities = $this->getDoctrine()->getRepository('MyFileBundle:File')
-            ->getFilesQB($order, $sequence, $filtr, $groupId);
+            ->getFilesQB($order, $sequence, $filter, $groupId);
 
         $pagination = $this->get('my.pagination.service')
             ->setPagination($entities, $page, $rowsOnPage);

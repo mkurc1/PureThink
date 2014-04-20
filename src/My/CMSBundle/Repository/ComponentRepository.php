@@ -7,16 +7,6 @@ use My\BackendBundle\Repository\FilterRepository;
 
 class ComponentRepository extends FilterRepository
 {
-    /**
-     * Get components
-     *
-     * @param string $order
-     * @param string $sequence
-     * @param string $filter
-     * @param string $languageId
-     * @param string $groupId
-     * @return array
-     */
     public function getComponentsQB($order, $sequence, $filter, $languageId, $groupId)
     {
         $qb = $this->createQueryBuilder('a')

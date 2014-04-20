@@ -1,11 +1,9 @@
 (function($) {
+
     $.fn.popup = function() {
-        /**
-         * @type string
-         */
+
         var url = this.attr('href');
 
-        // Object
         var editPopupModel = new EditModel();
         var editPopupView;
 
@@ -20,17 +18,11 @@
             return false;
         });
 
-        /**
-         * Render
-         */
         function render() {
             addBackground();
             addPopup();
         }
 
-        /**
-         * Add background
-         */
         function addBackground() {
             var bg = '<div class="popup-overall-bg"></div>';
 
@@ -38,26 +30,17 @@
             addActionOnClickBackground();
         }
 
-        /**
-         * Add action on click background
-         */
         function addActionOnClickBackground() {
             $('.popup-overall-bg').click(function() {
                 close();
             });
         }
 
-        /**
-         * Close
-         */
         function close() {
             $('.popup').remove();
             $('.popup-overall-bg').remove();
         }
 
-        /**
-         * Add popup
-         */
         function addPopup() {
             var popup = $('<div class="popup"><div class="popup-close">X</div><div class="popup-content"></div></div>');
 
@@ -79,11 +62,6 @@
             });
         }
 
-        /**
-         * Add submit button
-         *
-         * @param object popup
-         */
         function addSubmitButton(popup) {
             var container = $('<div class="popup-button-container"></div>');
             var buttonClose = $('<button class="popup-button-close">Zamknij</button>');
@@ -97,35 +75,23 @@
             addActionOnSubmitButton(buttonSubmit);
         }
 
-        /**
-         * Add action on close button
-         *
-         * @param object button
-         */
         function addActionOnCloseButton(button) {
             button.click(function() {
                 close();
             });
         }
 
-        /**
-         * Add action on submit button
-         *
-         * @param object button
-         */
         function addActionOnSubmitButton(button) {
             button.click(function() {
                 editPopupView.submit();
             });
         }
 
-        /**
-         * Add action on click close
-         */
         function addActionOnClickClose() {
             $('.popup-close').click(function() {
                 close();
             });
         }
     };
+
 })(jQuery);

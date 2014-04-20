@@ -9,11 +9,13 @@ use My\BackendBundle\Entity\MetadataInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 use My\UserBundle\Entity\User;
 use Doctrine\ORM\Event\LifecycleEventArgs;
+use JMS\Serializer\Annotation as Serializer;
 
 /**
  * @ORM\Table(name="cms_article")
  * @ORM\Entity(repositoryClass="My\CMSBundle\Repository\ArticleRepository")
  * @ORM\HasLifecycleCallbacks
+ * @Serializer\ExclusionPolicy("all")
  */
 class Article implements MetadataInterface
 {
@@ -26,6 +28,7 @@ class Article implements MetadataInterface
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Serializer\Expose
      * @Assert\NotNull()
      * @Assert\Length(max="255")
      */
@@ -56,6 +59,7 @@ class Article implements MetadataInterface
 
     /**
      * @ORM\Column(type="text", nullable=true)
+     * @Serializer\Expose
      */
     private $content;
 
@@ -67,6 +71,7 @@ class Article implements MetadataInterface
     /**
      * @ORM\ManyToOne(targetEntity="Language")
      * @ORM\JoinColumn(onDelete="CASCADE", nullable=false)
+     * @Serializer\Expose
      * @Assert\NotNull()
      */
     private $language;
@@ -80,6 +85,7 @@ class Article implements MetadataInterface
     /**
      * @ORM\ManyToOne(targetEntity="My\BackendBundle\Entity\Series")
      * @ORM\JoinColumn(onDelete="CASCADE", nullable=false)
+     * @Serializer\Expose
      * @Assert\NotNull()
      */
     private $series;

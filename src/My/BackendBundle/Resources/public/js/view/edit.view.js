@@ -1,8 +1,6 @@
 EditView = Backbone.View.extend({
     initialize: function(options) {
         this.isMainEdit = options.isMainEdit;
-
-        console.log('Initialize Edit View');
     },
 
     events: {
@@ -39,7 +37,7 @@ EditView = Backbone.View.extend({
      * Set focus on first visible input
      */
     setFocusOnFirstInput: function() {
-        this.$el.find('form :input:visible:first')
+        this.$el.find('form :input[type="text"]:visible:first')
             .focus()
             .setCursorToTextEnd();
     },
@@ -164,7 +162,7 @@ EditView = Backbone.View.extend({
         var edit = this;
 
         return $.ajax({
-            type     : "post",
+            type     : "get",
             dataType : 'json',
             async    : true,
             url      : edit.model.get('url'),

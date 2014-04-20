@@ -29,7 +29,7 @@ class Layout
     private $path;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Template", inversedBy="cmsLayouts")
+     * @ORM\ManyToOne(targetEntity="Template", inversedBy="layout")
      * @ORM\JoinColumn(onDelete="CASCADE", nullable=false)
      */
     private $template;
@@ -40,7 +40,7 @@ class Layout
     private $type;
 
 
-    public static function getAvilableType()
+    public static function getAvailableType()
     {
         return self::$avilableType;
     }

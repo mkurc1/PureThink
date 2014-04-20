@@ -29,7 +29,7 @@ class AppKernel extends Kernel
             new Khepin\YamlFixturesBundle\KhepinYamlFixturesBundle(),
             new FOS\RestBundle\FOSRestBundle(),
             new FOS\CommentBundle\FOSCommentBundle(),
-            new JMS\SerializerBundle\JMSSerializerBundle($this),
+            new JMS\SerializerBundle\JMSSerializerBundle(),
 
             new My\UserBundle\MyUserBundle(),
             new My\CommentBundle\MyCommentBundle(),

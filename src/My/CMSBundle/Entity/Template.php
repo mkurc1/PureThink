@@ -52,9 +52,9 @@ class Template
     private $updatedAt;
 
     /**
-     * @ORM\OneToMany(targetEntity="Layout", mappedBy="Template")
+     * @ORM\OneToMany(targetEntity="Layout", mappedBy="template")
      */
-    private $cmsLayouts;
+    private $layout;
 
 
     /**
@@ -147,14 +147,6 @@ class Template
     }
 
     /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->cmsLayouts = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
      * Set createdAt
      *
      * @param \DateTime $createdAt
@@ -201,39 +193,6 @@ class Template
     }
 
     /**
-     * Add cmsLayouts
-     *
-     * @param \My\CMSBundle\Entity\Layout $cmsLayouts
-     * @return Template
-     */
-    public function addCmsLayout(\My\CMSBundle\Entity\Layout $cmsLayouts)
-    {
-        $this->cmsLayouts[] = $cmsLayouts;
-
-        return $this;
-    }
-
-    /**
-     * Remove cmsLayouts
-     *
-     * @param \My\CMSBundle\Entity\Layout $cmsLayouts
-     */
-    public function removeCmsLayout(\My\CMSBundle\Entity\Layout $cmsLayouts)
-    {
-        $this->cmsLayouts->removeElement($cmsLayouts);
-    }
-
-    /**
-     * Get cmsLayouts
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getCmsLayouts()
-    {
-        return $this->cmsLayouts;
-    }
-
-    /**
      * Set slug
      *
      * @param string $slug
@@ -254,5 +213,45 @@ class Template
     public function getSlug()
     {
         return $this->slug;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->layout = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add layout
+     *
+     * @param \My\CMSBundle\Entity\Layout $layout
+     * @return Template
+     */
+    public function addLayout(\My\CMSBundle\Entity\Layout $layout)
+    {
+        $this->layout[] = $layout;
+
+        return $this;
+    }
+
+    /**
+     * Remove layout
+     *
+     * @param \My\CMSBundle\Entity\Layout $layout
+     */
+    public function removeLayout(\My\CMSBundle\Entity\Layout $layout)
+    {
+        $this->layout->removeElement($layout);
+    }
+
+    /**
+     * Get layout
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getLayout()
+    {
+        return $this->layout;
     }
 }

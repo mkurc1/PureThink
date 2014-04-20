@@ -1,7 +1,5 @@
 ListView = Backbone.View.extend({
     initialize: function(options) {
-        console.log('Initialize List View');
-
         this.isMainList = options.isMainList;
 
         this.paginationModel = new PaginationModel();
@@ -21,25 +19,16 @@ ListView = Backbone.View.extend({
         'click .sublist'                    : 'sublist'
     },
 
-    /**
-     * Empty container
-     */
     emptyContainer: function() {
         this.$el.empty();
     },
 
-    /**
-     * Set arrow order
-     */
     arrowOrder: function() {
         var imageContainer = '<img class="order" src="/images/arrow_'+this.model.get('sequence').toLowerCase()+'.png" />';
 
         this.$el.find('table th[column*="'+this.model.get('order')+'"]').append(imageContainer);
     },
 
-    /**
-     * Change order action
-     */
     changeOrder: function(e) {
         var column = $(e.currentTarget).attr('column');
 
@@ -60,9 +49,6 @@ ListView = Backbone.View.extend({
         }
     },
 
-    /**
-     * Change state action
-     */
     changeState: function(e) {
         var selectId = $(e.currentTarget).parent().parent().attr('list_id');
 
@@ -91,9 +77,6 @@ ListView = Backbone.View.extend({
         });
     },
 
-    /**
-     * Checkbox change action
-     */
     checkboxChange: function(e) {
         var selectId = $(e.currentTarget).parent().parent().attr('list_id');
 
@@ -107,9 +90,6 @@ ListView = Backbone.View.extend({
         mainButtonView.toggleListMainButton();
     },
 
-    /**
-     * Sublist click action
-     */
     sublist: function(e) {
         this.model.set({
             url       : $(e.currentTarget).attr('href'),
@@ -121,14 +101,11 @@ ListView = Backbone.View.extend({
         return false;
     },
 
-    /**
-     * Render
-     */
     render: function() {
         var list = this;
 
         $.ajax({
-            type     : 'post',
+            type     : 'get',
             dataType : 'json',
             async    : true,
             url      : list.model.get('url'),
@@ -137,7 +114,7 @@ ListView = Backbone.View.extend({
                 page       : list.paginationModel.get('page'),
                 order      : list.model.get('order'),
                 sequence   : list.model.get('sequence'),
-                filtr      : list.model.get('filtr'),
+                filter      : list.model.get('filter'),
                 languageId : list.model.get('languageId'),
                 groupId    : list.model.get('groupId'),
                 sublistId  : list.model.get('sublistId')
@@ -197,9 +174,6 @@ ListView = Backbone.View.extend({
         });
     },
 
-    /**
-     * Set drag and drop
-     */
     setDragAndDrop: function() {
         var list = this;
 
@@ -208,31 +182,19 @@ ListView = Backbone.View.extend({
         });
     },
 
-    /**
-     * Show loading
-     */
     showLoading: function() {
         this.$el.append('<div class="loading"><i class="fa fa-spinner fa-spin"></i></div>');
     },
 
-    /**
-     * Remove loading
-     */
     removeLoading: function() {
         this.$el.find('.loading').remove();
     },
 
-    /**
-     * Set mode
-     */
     setMode: function() {
         this.$el.show();
         $('#edit_container').empty().hide();
     },
 
-    /**
-     * Remove elements
-     */
     removeElements: function() {
         var list = this;
 
@@ -259,14 +221,41 @@ ListView = Backbone.View.extend({
         });
     },
 
-    /**
-     * Set Default parameters
-     */
+    exportElements: function() {
+        var list = this;
+
+        if (list.select.count() == 0) {
+            return;
+        }
+
+        $.ajax({
+            type     : 'post',
+            dataType : 'json',
+            url      : list.model.get('url')+'export',
+            data: {
+                arrayId: list.select.getAll()
+            },
+            success: function(data) {
+                if (data.response) {
+                    var link = $('<a></a>');
+                    $('body').append(link);
+                    link.attr({
+                        'download': 'data.json',
+                        'href': 'data:text/x-json;charset=utf-8,' + encodeURIComponent(data.json),
+                        'target': '_blank'
+                    }).bind("click", (function () {
+                        this.click();
+                    })).click().remove();
+                }
+            }
+        });
+    },
+
     defaultParameters: function() {
         this.model.set({
             order      : 'a.name',
             sequence   : 'ASC',
-            filtr      : '',
+            filter      : '',
             groupId    : this.getGroupId(),
             languageId : this.getLanguageId()
         });
@@ -275,33 +264,18 @@ ListView = Backbone.View.extend({
         filterView.empty();
     },
 
-    /**
-     * Get group ID
-     *
-     * @return integer
-     */
     getGroupId: function() {
         var groupId = $('#left_menu_container > .group').find('li.selected').find('a').attr('list_id');
 
         return (typeof groupId !== 'undefined') ? groupId : 0;
     },
 
-    /**
-     * Get language ID
-     *
-     * @return integer
-     */
     getLanguageId: function() {
         var languageId = $('#left_menu_container > .language').find('li.selected').find('a').attr('list_id');
 
         return (typeof languageId !== 'undefined') ? languageId : 0;
     },
 
-    /**
-     * Refresh list
-     *
-     * @param boolean withLeftMenu
-     */
     refresh: function(withLeftMenu) {
         var list = this;
 
@@ -322,9 +296,6 @@ ListView = Backbone.View.extend({
         }
     },
 
-    /**
-     * Set action on hover info
-     */
     setActionOnHoverInfo: function() {
         this.$el.find('.info > i').qtip({
             content: {

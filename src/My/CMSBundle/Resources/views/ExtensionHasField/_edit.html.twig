@@ -3,7 +3,7 @@
 </div>
 
 <div class="container">
-    <form action="{{ path('my_cms_extensionhasfield_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(form) }}>
+    <form action="{{ path('my_cms_extensionhasfield_edit', { 'id': entity.id }) }}" method="post" {{ form_enctype(form) }}>
         {% include 'MyCMSBundle:ExtensionHasField:_form.html.twig' with { 'form': form } %}
     </form>
 </div>

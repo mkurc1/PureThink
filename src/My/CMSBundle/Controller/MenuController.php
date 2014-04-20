@@ -18,12 +18,12 @@ class MenuController extends CRUDController implements CRUDInterface
 {
     /**
      * @Route("/")
-     * @Method("POST")
+     * @Method("GET")
      */
     public function listAction(Request $request)
     {
         $params = [
-            'filter'     => $request->get('filtr', null),
+            'filter'     => $request->get('filter', null),
             'languageId' => (int)$request->get('languageId'),
             'groupId'    => (int)$request->get('groupId'),
         ];

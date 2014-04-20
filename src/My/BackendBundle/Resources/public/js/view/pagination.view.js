@@ -1,7 +1,5 @@
 PaginationView = Backbone.View.extend({
     initialize: function(options) {
-        console.log('Initialize Pagination View');
-
         this.list = options.list;
     },
 

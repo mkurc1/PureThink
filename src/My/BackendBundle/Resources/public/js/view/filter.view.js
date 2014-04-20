@@ -3,9 +3,6 @@ FilterView = Backbone.View.extend({
         "keyup input": "search"
     },
 
-    /**
-     * Search
-     */
     search: function(e) {
         var search = this;
         if (search.timer) {
@@ -15,28 +12,19 @@ FilterView = Backbone.View.extend({
         search.timer = setTimeout(function() {
             search.timer = null;
 
-            listModel.set({ filtr: $(e.currentTarget).val() });
+            listModel.set({ filter: $(e.currentTarget).val() });
             listView.render();
         }, 800);
     },
 
-    /**
-     * Empty
-     */
     empty: function() {
         this.$el.find('input').val('');
     },
 
-    /**
-     * Hide element
-     */
     hideEl: function() {
         this.$el.hide();
     },
 
-    /**
-     * Show element
-     */
     showEl: function() {
         this.$el.show();
     }

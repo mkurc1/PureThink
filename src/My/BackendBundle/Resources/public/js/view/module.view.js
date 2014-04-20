@@ -7,9 +7,6 @@ ModuleView = Backbone.View.extend({
         "click #select_container_list > li.module": "changeModule"
     },
 
-    /**
-     * Change module
-     */
     changeModule: function(e) {
         var moduleId = $(e.currentTarget).attr('module_id');
 
@@ -23,9 +20,6 @@ ModuleView = Backbone.View.extend({
         }
     },
 
-    /**
-     * Set active module
-     */
     setActiveModule: function() {
         var module = this.$el.find('#select_container_list > li[module_id="'+userSettingModel.get('moduleId')+'"]');
         this.$el.find('#select').text(module.text());

@@ -3,12 +3,6 @@ LeftMenuView = Backbone.View.extend({
         "click > li > div > ul > li > a": "selectEl"
     },
 
-    /**
-     * Render left menu
-     *
-     * @param boolean editMode
-     * @return object
-     */
     render: function(editMode) {
         var leftMenu = this;
 
@@ -47,32 +41,18 @@ LeftMenuView = Backbone.View.extend({
         });
     },
 
-    /**
-     * Empty container
-     */
     emptyContainer: function() {
         this.$el.empty();
     },
 
-    /**
-     * Show loading
-     */
     showLoading: function() {
         this.$el.append('<div class="loading"><i class="fa fa-spinner fa-spin"></i></div>');
     },
 
-    /**
-     * Remove loading
-     */
     removeLoading: function() {
         this.$el.find('.loading').remove();
     },
 
-    /**
-     * Set dynamic menu
-     *
-     * @param boolean editMode
-     */
     setDynamicMenu: function(editMode) {
         this.$el.find('> li.editable').each(function() {
             $(this).dynamicMenu({
@@ -83,9 +63,6 @@ LeftMenuView = Backbone.View.extend({
         });
     },
 
-    /**
-     * Select element
-     */
     selectEl: function(e) {
         if (!$(e.currentTarget).parent().hasClass('selected')) {
             var url = mainMenuView.getMainMenuUrl();

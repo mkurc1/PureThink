@@ -59,6 +59,20 @@ class ArticleController extends CRUDController implements CRUDInterface
         return 'MyCMSBundle:Article:_edit.html.twig';
     }
 
+    public function importEntities($entitiesJson, $params)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        foreach ($entitiesJson as $entityJson) {
+            $entity = $this->getNewEntity($params);
+            $entity->setName($entityJson['name']);
+            $entity->setContent($entityJson['content']);
+            $entity->setLanguage($em->getRepository('MyCMSBundle:Language')->find($entityJson['language']['id']));
+            $entity->setSeries($em->getRepository('MyBackendBundle:Series')->find($entityJson['series']['id']));
+            $em->persist($entity);
+        }
+    }
+
     /**
      * @Route("/state")
      * @Method("POST")

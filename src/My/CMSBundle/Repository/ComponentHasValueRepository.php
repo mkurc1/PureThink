@@ -6,13 +6,6 @@ use Doctrine\ORM\EntityRepository;
 
 class ComponentHasValueRepository extends EntityRepository
 {
-    /**
-     * Get content
-     *
-     * @param integer $elementId
-     * @param integer $typeId
-     * @return object
-     */
     public function getContent($elementId, $typeId)
     {
         $qb = $this->createQueryBuilder('a')
