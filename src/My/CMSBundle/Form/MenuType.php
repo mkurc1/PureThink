@@ -12,10 +12,7 @@ class MenuType extends AbstractType
     {
         $builder
             ->add('name', 'text', ['label' => 'Nazwa menu', 'attr' => ['class' => 'name']])
-            ->add('article', 'entity', [
-                'label' => 'Wybierz artykuł',
-                'class' => 'MyCMSBundle:Article'
-            ])
+            ->add('article', 'Article')
             ->add('language', 'entity', [
                 'label' => 'Język',
                 'class' => 'MyCMSBundle:Language'

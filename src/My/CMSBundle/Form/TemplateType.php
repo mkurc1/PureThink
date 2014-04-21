@@ -11,8 +11,8 @@ class TemplateType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name')
-            ->add('author');
+            ->add('name', null, ['label' => 'Nazwa szablonu', 'attr' => ['class' => 'name']])
+            ->add('author', null, ['label' => 'Autor']);
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)

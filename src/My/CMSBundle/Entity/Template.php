@@ -4,6 +4,7 @@ namespace My\CMSBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Table(name="cms_template")
@@ -20,6 +21,8 @@ class Template
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotNull()
+     * @Assert\Length(max="255")
      */
     private $name;
 
@@ -31,6 +34,8 @@ class Template
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotNull()
+     * @Assert\Length(max="255")
      */
     private $author;
 

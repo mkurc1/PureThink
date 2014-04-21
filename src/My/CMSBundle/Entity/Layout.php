@@ -10,11 +10,11 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Layout
 {
-    private static $avilableType = [
-                                    1 => 'Main',
-                                    2 => 'Article',
-                                    3 => 'Search'
-                                   ];
+    private static $availableType = [
+        1 => 'Main',
+        2 => 'Article',
+        3 => 'Search'
+    ];
 
     /**
      * @ORM\Column(type="integer")
@@ -42,7 +42,7 @@ class Layout
 
     public static function getAvailableType()
     {
-        return self::$avilableType;
+        return self::$availableType;
     }
 
     /**
