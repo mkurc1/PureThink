@@ -50,6 +50,49 @@ ListView = Backbone.View.extend({
         }
     },
 
+    selectAll: function () {
+        var select = this.select;
+
+        select.empty();
+
+        $.each(this.$el.find('tbody > tr'), function( index, val ) {
+            var $item = $(val);
+
+            select.add($item.attr('list_id'));
+            $item.find('.multi_check').prop('checked', true);
+        });
+
+        mainButtonView.toggleListMainButton();
+    },
+
+    clearSelect: function () {
+        this.select.empty();
+
+        this.$el.find('.multi_check').prop('checked', false);
+
+        mainButtonView.toggleListMainButton();
+    },
+
+    reverseSelect: function () {
+        var select = this.select;
+
+        select.empty();
+
+        $.each(this.$el.find('tbody > tr'), function( index, val ) {
+            var $item = $(val);
+            var $checkbox = $item.find('.multi_check');
+
+            if ($checkbox.is(":checked")) {
+                $checkbox.prop('checked', false);
+            } else {
+                select.add($item.attr('list_id'));
+                $checkbox.prop('checked', true);
+            }
+        });
+
+        mainButtonView.toggleListMainButton();
+    },
+
     changeState: function (e) {
         this.change(e, 'state');
     },

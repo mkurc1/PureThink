@@ -8,7 +8,10 @@ MainButtonView = Backbone.View.extend({
         "click .apply": "apply",
         "click .save": "save",
         "click .data-export": "exportData",
-        "click .data-import": "importData"
+        "click .data-import": "importData",
+        "click .select-all": "selectAll",
+        "click .select-clear": "clearSelect",
+        "click .select-reverse": "reverseSelect"
     },
 
     create: function (e) {
@@ -137,6 +140,18 @@ MainButtonView = Backbone.View.extend({
 
     removeMainButtons: function () {
         this.$el.find('.center').empty();
+    },
+
+    selectAll: function () {
+        listView.selectAll();
+    },
+
+    clearSelect: function () {
+        listView.clearSelect();
+    },
+
+    reverseSelect: function () {
+        listView.reverseSelect();
     },
 
     createListButtons: function () {
