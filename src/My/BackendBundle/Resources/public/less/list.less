@@ -77,7 +77,7 @@ table.list {
         }
 
         > td {
-            ext-align: left;
+            text-align: left;
             font-size: 13px;
             color: #3a3a3a;
             height: 32px;
@@ -95,6 +95,10 @@ table.list {
             > a {
                 color: #3a3a3a;
                 cursor: pointer;
+
+                &.editMode:hover {
+                    text-decoration: underline;
+                }
             }
 
             > i {

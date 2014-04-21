@@ -13,17 +13,18 @@ class MenuType extends AbstractType
         $builder
             ->add('name', 'text', ['label' => 'Nazwa menu', 'attr' => ['class' => 'name']])
             ->add('article', 'entity', [
-                'label'       => 'Wybierz artykuł',
-                'class'       => 'MyCMSBundle:Article'
+                'label' => 'Wybierz artykuł',
+                'class' => 'MyCMSBundle:Article'
             ])
             ->add('language', 'entity', [
-                'label'       => 'Język',
-                'class'       => 'MyCMSBundle:Language'
+                'label' => 'Język',
+                'class' => 'MyCMSBundle:Language'
             ])
             ->add('series', 'series', ['menuId' => $options['menuId']])
             ->add('isNewPage', 'choice', [
                 'label'   => 'Otwórz na nowej stronie',
                 'choices' => [true => 'Tak', false => 'Nie'],
+                'attr'    => ['class' => 'sintetic-select']
             ]);
     }
 

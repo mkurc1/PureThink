@@ -1,0 +1,8 @@
+model: My\CMSBundle\Entity\WebSite
+fixtures:
+    cms_website_1:
+        language: cms_language_1
+        metadata: metadata_1
+    cms_website_2:
+        language: cms_language_2
+        metadata: metadata_2
