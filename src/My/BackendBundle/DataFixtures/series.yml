@@ -30,3 +30,6 @@ fixtures:
     series_10:
         name: "Artykuł"
         menu: menu_7
+    series_11:
+        name: "Ogólna"
+        menu: menu_6

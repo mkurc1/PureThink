@@ -29,7 +29,7 @@ class Layout
     private $path;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Template", inversedBy="layout")
+     * @ORM\ManyToOne(targetEntity="Template")
      * @ORM\JoinColumn(onDelete="CASCADE", nullable=false)
      */
     private $template;

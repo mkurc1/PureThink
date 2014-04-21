@@ -18,7 +18,7 @@ class TemplateController extends CRUDController
     protected function getListQB(array $params)
     {
         return $this->getDoctrine()->getRepository('MyCMSBundle:Template')
-            ->getTemplatesQB($params['order'], $params['sequence'], $params['filter']);
+            ->getTemplatesQB($params['order'], $params['sequence'], $params['filter'], $params['groupId']);
     }
 
     protected function getListTemplate()
@@ -45,7 +45,7 @@ class TemplateController extends CRUDController
 
     protected function getForm($entity, $params)
     {
-        return $this->createForm(new TemplateType(), $entity);
+        return $this->createForm(new TemplateType(), $entity, ['menuId' => $params['menuId']]);
     }
 
     protected function getNewFormTemplate()

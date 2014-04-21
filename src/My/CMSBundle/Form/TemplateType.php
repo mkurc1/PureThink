@@ -12,13 +12,15 @@ class TemplateType extends AbstractType
     {
         $builder
             ->add('name', null, ['label' => 'Nazwa szablonu', 'attr' => ['class' => 'name']])
-            ->add('author', null, ['label' => 'Autor']);
+            ->add('author', null, ['label' => 'Autor'])
+            ->add('series', 'series', ['menuId' => $options['menuId']]);
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => 'My\CMSBundle\Entity\Template'
+            'data_class' => 'My\CMSBundle\Entity\Template',
+            'menuId'     => null
         ]);
     }
 

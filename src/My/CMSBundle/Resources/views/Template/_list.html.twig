@@ -4,6 +4,7 @@
             <th class="select"></th>
             <th class="lp">Lp.</th>
             <th column="a.name" class="name width_big">Nazwa</th>
+            <th column="a.author" class="name width_small">Autor</th>
             <th column="a.isEnable" class="width_small">Aktywne</th>
             <th column="a.createdAt" class="width_small">Data utworzenia</th>
             <th column="a.updatedAt" class="width_small">Data modyfikacji</th>
@@ -21,6 +22,7 @@
             <td class="select"><input type="checkbox" class="multi_check" /></td>
             <td class="lp">{{ i }}.</td>
             <td class="width_big name"><a class="editMode" href="{{ path('my_cms_template_edit', { 'id': entity.id }) }}">{{ entity }}</a></td>
+            <td class="width_small">{{ entity.author }}</td>
             <td class="width_small state">
                 {% if entity.isEnable %}
                     <i class="fa fa-check"></i>

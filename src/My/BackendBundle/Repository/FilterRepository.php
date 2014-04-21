@@ -3,17 +3,11 @@
 namespace My\BackendBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
+use Doctrine\ORM\QueryBuilder;
 
 class FilterRepository extends EntityRepository
 {
-    /**
-     * Add language alias filter
-     *
-     * @param QueryBuilde $qb
-     * @param string      $languageAlias
-     * @param string      $alias
-     */
-    protected function addLanguageAliasFilter($qb, $languageAlias = null, $alias = 'l')
+    protected function addLanguageAliasFilter(QueryBuilder $qb, $languageAlias = null, $alias = 'l')
     {
         if (null != $alias) {
             $qb->andWhere($alias . '.alias = :languageAlias')
@@ -21,28 +15,15 @@ class FilterRepository extends EntityRepository
         }
     }
 
-    /**
-     * Add name filter
-     *
-     * @param QueryBuilde $qb
-     * @param string      $filter
-     */
-    protected function addNameFilterQB($qb, $filter = null)
+    protected function addNameFilterQB(QueryBuilder $qb, $filter = null)
     {
         if (null != $filter) {
-            $qb->andWhere($qb->getRootAlias() . '.name LIKE :filter')
+            $qb->andWhere($qb->getRootAliases() . '.name LIKE :filter')
                 ->setParameter('filter', '%' . $filter . '%');
         }
     }
 
-    /**
-     * Add language filter
-     *
-     * @param QueryBuilde $qb
-     * @param integer     $languageId
-     * @param string      $alias
-     */
-    protected function addLanguageIdFilterQB($qb, $languageId = null, $alias = 'l')
+    protected function addLanguageIdFilterQB(QueryBuilder $qb, $languageId = null, $alias = 'l')
     {
         if (null != $languageId) {
             $qb->andWhere($alias . '.id = :languageId')
@@ -50,14 +31,7 @@ class FilterRepository extends EntityRepository
         }
     }
 
-    /**
-     * Add group filter
-     *
-     * @param QueryBuilde $qb
-     * @param integer     $groupId
-     * @param string      $alias
-     */
-    protected function addGroupFilterQB($qb, $groupId = null, $alias = 's')
+    protected function addGroupFilterQB(QueryBuilder $qb, $groupId = null, $alias = 's')
     {
         if (null != $groupId) {
             $qb->andWhere($alias . '.id = :groupId')

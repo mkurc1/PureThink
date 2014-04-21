@@ -7,11 +7,13 @@ use My\BackendBundle\Repository\FilterRepository;
 
 class TemplateRepository extends FilterRepository
 {
-    public function getTemplatesQB($order, $sequence, $filter)
+    public function getTemplatesQB($order, $sequence, $filter, $groupId)
     {
-        $qb = $this->createQueryBuilder('a');
+        $qb = $this->createQueryBuilder('a')
+            ->join('a.series', 's');
 
         $this->addNameFilterQB($qb, $filter);
+        $this->addGroupFilterQB($qb, $groupId);
 
         $qb->orderBy($order, $sequence);
 

@@ -57,10 +57,12 @@ class Template
     private $updatedAt;
 
     /**
-     * @ORM\OneToMany(targetEntity="Layout", mappedBy="template")
+     * @ORM\ManyToOne(targetEntity="My\BackendBundle\Entity\Series")
+     * @ORM\JoinColumn(onDelete="CASCADE", nullable=false)
+     * @Assert\NotNull()
      */
-    private $layout;
-
+    private $series;
+    
 
     /**
      * Get id
@@ -219,44 +221,27 @@ class Template
     {
         return $this->slug;
     }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->layout = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
     /**
-     * Add layout
+     * Set series
      *
-     * @param \My\CMSBundle\Entity\Layout $layout
+     * @param \My\BackendBundle\Entity\Series $series
      * @return Template
      */
-    public function addLayout(\My\CMSBundle\Entity\Layout $layout)
+    public function setSeries(\My\BackendBundle\Entity\Series $series)
     {
-        $this->layout[] = $layout;
+        $this->series = $series;
 
         return $this;
     }
 
     /**
-     * Remove layout
+     * Get series
      *
-     * @param \My\CMSBundle\Entity\Layout $layout
+     * @return \My\BackendBundle\Entity\Series 
      */
-    public function removeLayout(\My\CMSBundle\Entity\Layout $layout)
+    public function getSeries()
     {
-        $this->layout->removeElement($layout);
-    }
-
-    /**
-     * Get layout
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getLayout()
-    {
-        return $this->layout;
+        return $this->series;
     }
 }
