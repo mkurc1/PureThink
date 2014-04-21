@@ -12,18 +12,9 @@ use My\BackendBundle\Repository\FilterRepository;
  */
 class FileRepository extends FilterRepository
 {
-    /**
-     * Get files
-     *
-     * @param string $order
-     * @param string $sequence
-     * @param string $filter
-     * @param string $groupId
-     * @return array
-     */
-	public function getFilesQB($order, $sequence, $filter, $groupId)
-	{
-		$qb = $this->createQueryBuilder('a')
+    public function getFilesQB($order, $sequence, $filter, $groupId)
+    {
+        $qb = $this->createQueryBuilder('a')
             ->join('a.series', 's');
 
         $this->addNameFilterQB($qb, $filter);
@@ -31,8 +22,8 @@ class FileRepository extends FilterRepository
 
         $qb->orderBy($order, $sequence);
 
-		return $qb->getQuery();
-	}
+        return $qb->getQuery();
+    }
 
     public function getFilesByIds(array $ids)
     {

@@ -1,35 +1,36 @@
 ListView = Backbone.View.extend({
-    initialize: function(options) {
+    initialize: function (options) {
         this.isMainList = options.isMainList;
 
         this.paginationModel = new PaginationModel();
         this.paginationView = new PaginationView({
-            el    : options.paginationEl,
-            model : this.paginationModel,
-            list  : this
+            el: options.paginationEl,
+            model: this.paginationModel,
+            list: this
         });
 
         this.select = new Select();
     },
 
     events: {
-        'click table th'                    : 'changeOrder',
-        'click table tr td.state > i'       : 'changeState',
-        'click td.select input.multi_check' : 'checkboxChange',
-        'click .sublist'                    : 'sublist'
+        'click table th': 'changeOrder',
+        'click table tr td.state > i': 'changeState',
+        'click table tr td.lock > i': 'changeLock',
+        'click td.select input.multi_check': 'checkboxChange',
+        'click .sublist': 'sublist'
     },
 
-    emptyContainer: function() {
+    emptyContainer: function () {
         this.$el.empty();
     },
 
-    arrowOrder: function() {
-        var imageContainer = '<img class="order" src="/images/arrow_'+this.model.get('sequence').toLowerCase()+'.png" />';
+    arrowOrder: function () {
+        var imageContainer = '<img class="order" src="/images/arrow_' + this.model.get('sequence').toLowerCase() + '.png" />';
 
-        this.$el.find('table th[column*="'+this.model.get('order')+'"]').append(imageContainer);
+        this.$el.find('table th[column*="' + this.model.get('order') + '"]').append(imageContainer);
     },
 
-    changeOrder: function(e) {
+    changeOrder: function (e) {
         var column = $(e.currentTarget).attr('column');
 
         if (typeof(column) !== "undefined") {
@@ -49,23 +50,27 @@ ListView = Backbone.View.extend({
         }
     },
 
-    changeState: function(e) {
+    changeState: function (e) {
+        this.change(e, 'state');
+    },
+
+    changeLock: function (e) {
+        this.change(e, 'lock');
+    },
+
+    change: function (e, uri) {
         var selectId = $(e.currentTarget).parent().parent().attr('list_id');
 
         var list = this;
 
         $.ajax({
-            type     : 'post',
-            dataType : 'json',
-            url      : list.model.get('url')+'state',
+            type: 'post',
+            dataType: 'json',
+            url: list.model.get('url') + uri,
             data: {
                 id: selectId
             },
-            beforeSend: function() {
-            },
-            complete: function() {
-            },
-            success: function(data) {
+            success: function (data) {
                 if (data.response) {
                     alertify.success(data.message);
                     list.refresh(false);
@@ -77,7 +82,7 @@ ListView = Backbone.View.extend({
         });
     },
 
-    checkboxChange: function(e) {
+    checkboxChange: function (e) {
         var selectId = $(e.currentTarget).parent().parent().attr('list_id');
 
         if ($(e.currentTarget).is(':checked')) {
@@ -90,10 +95,10 @@ ListView = Backbone.View.extend({
         mainButtonView.toggleListMainButton();
     },
 
-    sublist: function(e) {
+    sublist: function (e) {
         this.model.set({
-            url       : $(e.currentTarget).attr('href'),
-            sublistId : $(e.currentTarget).attr('sublist_id')
+            url: $(e.currentTarget).attr('href'),
+            sublistId: $(e.currentTarget).attr('sublist_id')
         });
 
         this.refresh(true);
@@ -101,25 +106,25 @@ ListView = Backbone.View.extend({
         return false;
     },
 
-    render: function() {
+    render: function () {
         var list = this;
 
         $.ajax({
-            type     : 'get',
-            dataType : 'json',
-            async    : true,
-            url      : list.model.get('url'),
+            type: 'get',
+            dataType: 'json',
+            async: true,
+            url: list.model.get('url'),
             data: {
-                rowsOnPage : list.paginationModel.get('rowsOnPage'),
-                page       : list.paginationModel.get('page'),
-                order      : list.model.get('order'),
-                sequence   : list.model.get('sequence'),
-                filter      : list.model.get('filter'),
-                languageId : list.model.get('languageId'),
-                groupId    : list.model.get('groupId'),
-                sublistId  : list.model.get('sublistId')
+                rowsOnPage: list.paginationModel.get('rowsOnPage'),
+                page: list.paginationModel.get('page'),
+                order: list.model.get('order'),
+                sequence: list.model.get('sequence'),
+                filter: list.model.get('filter'),
+                languageId: list.model.get('languageId'),
+                groupId: list.model.get('groupId'),
+                sublistId: list.model.get('sublistId')
             },
-            beforeSend: function() {
+            beforeSend: function () {
                 if (list.isMainList) {
                     filterView.showEl();
                 }
@@ -128,7 +133,7 @@ ListView = Backbone.View.extend({
                 list.emptyContainer();
                 list.showLoading();
             },
-            complete: function() {
+            complete: function () {
                 list.arrowOrder();
 
                 if (list.isMainList) {
@@ -143,23 +148,23 @@ ListView = Backbone.View.extend({
                 list.setDragAndDrop();
                 list.removeLoading();
             },
-            success: function(data) {
+            success: function (data) {
                 if (data.response) {
                     list.$el.append(data.list.toString());
 
                     if (data.pagination.hide) {
                         list.paginationModel.set({
-                            hide : true
+                            hide: true
                         });
                         list.paginationView.hideEl();
                     }
                     else {
                         list.paginationModel.set({
-                            firstPage    : data.pagination.first_page,
-                            previousPage : data.pagination.previous,
-                            nextPage     : data.pagination.next,
-                            lastPage     : data.pagination.last_page,
-                            hide         : false
+                            firstPage: data.pagination.first_page,
+                            previousPage: data.pagination.previous,
+                            nextPage: data.pagination.next,
+                            lastPage: data.pagination.last_page,
+                            hide: false
                         });
                         list.paginationView.render(data.pagination.pages);
                         list.paginationView.showEl();
@@ -174,42 +179,42 @@ ListView = Backbone.View.extend({
         });
     },
 
-    setDragAndDrop: function() {
+    setDragAndDrop: function () {
         var list = this;
 
         this.$el.find('table.drag-and-drop tbody').multidrag({
-            url: list.model.get('url')+'sequence'
+            url: list.model.get('url') + 'sequence'
         });
     },
 
-    showLoading: function() {
+    showLoading: function () {
         this.$el.append('<div class="loading"><i class="fa fa-spinner fa-spin"></i></div>');
     },
 
-    removeLoading: function() {
+    removeLoading: function () {
         this.$el.find('.loading').remove();
     },
 
-    setMode: function() {
+    setMode: function () {
         this.$el.show();
         $('#edit_container').empty().hide();
     },
 
-    removeElements: function() {
+    removeElements: function () {
         var list = this;
 
         $.ajax({
-            type     : 'post',
-            dataType : 'json',
-            url      : list.model.get('url')+'delete',
+            type: 'post',
+            dataType: 'json',
+            url: list.model.get('url') + 'delete',
             data: {
                 arrayId: list.select.getAll()
             },
-            beforeSend: function() {
+            beforeSend: function () {
             },
-            complete: function() {
+            complete: function () {
             },
-            success: function(data) {
+            success: function (data) {
                 if (data.response) {
                     alertify.success(data.message);
                     list.refresh(false);
@@ -221,7 +226,7 @@ ListView = Backbone.View.extend({
         });
     },
 
-    exportElements: function() {
+    exportElements: function () {
         var list = this;
 
         if (list.select.count() == 0) {
@@ -229,13 +234,13 @@ ListView = Backbone.View.extend({
         }
 
         $.ajax({
-            type     : 'post',
-            dataType : 'json',
-            url      : list.model.get('url')+'export',
+            type: 'post',
+            dataType: 'json',
+            url: list.model.get('url') + 'export',
             data: {
                 arrayId: list.select.getAll()
             },
-            success: function(data) {
+            success: function (data) {
                 if (data.response) {
                     var link = $('<a></a>');
                     $('body').append(link);
@@ -244,39 +249,39 @@ ListView = Backbone.View.extend({
                         'href': 'data:text/x-json;charset=utf-8,' + encodeURIComponent(data.json),
                         'target': '_blank'
                     }).bind("click", (function () {
-                        this.click();
-                    })).click().remove();
+                            this.click();
+                        })).click().remove();
                 }
             }
         });
     },
 
-    defaultParameters: function() {
+    defaultParameters: function () {
         this.model.set({
-            order      : 'a.name',
-            sequence   : 'ASC',
-            filter      : '',
-            groupId    : this.getGroupId(),
-            languageId : this.getLanguageId()
+            order: 'a.name',
+            sequence: 'ASC',
+            filter: '',
+            groupId: this.getGroupId(),
+            languageId: this.getLanguageId()
         });
         this.paginationModel.set({ page: 1 });
 
         filterView.empty();
     },
 
-    getGroupId: function() {
+    getGroupId: function () {
         var groupId = $('#left_menu_container > .group').find('li.selected').find('a').attr('list_id');
 
         return (typeof groupId !== 'undefined') ? groupId : 0;
     },
 
-    getLanguageId: function() {
+    getLanguageId: function () {
         var languageId = $('#left_menu_container > .language').find('li.selected').find('a').attr('list_id');
 
         return (typeof languageId !== 'undefined') ? languageId : 0;
     },
 
-    refresh: function(withLeftMenu) {
+    refresh: function (withLeftMenu) {
         var list = this;
 
         list.select.empty();
@@ -286,7 +291,7 @@ ListView = Backbone.View.extend({
         }
 
         if (withLeftMenu) {
-            $.when(leftMenuView.render()).done(function() {
+            $.when(leftMenuView.render()).done(function () {
                 list.defaultParameters();
                 list.render();
             });
@@ -296,25 +301,25 @@ ListView = Backbone.View.extend({
         }
     },
 
-    setActionOnHoverInfo: function() {
+    setActionOnHoverInfo: function () {
         this.$el.find('.info > i').qtip({
             content: {
-                text: function(event, api) {
+                text: function (event, api) {
                     return $.ajax({
-                        type     : 'POST',
-                        dataType : 'json',
-                        url      : Routing.generate('my_file_file_info'),
+                        type: 'POST',
+                        dataType: 'json',
+                        url: Routing.generate('my_file_file_info'),
                         data: {
                             id: $(this).parent().parent().attr('list_id')
                         }
                     })
-                    .then(function(data) {
-                        var content = data.view.toString();
+                        .then(function (data) {
+                            var content = data.view.toString();
 
-                        api.set('content.text', content);
-                    }, function(xhr, status, error) {
-                        api.set('content.text', status + ': ' + error);
-                    });
+                            api.set('content.text', content);
+                        }, function (xhr, status, error) {
+                            api.set('content.text', status + ': ' + error);
+                        });
                 }
             },
             style: {

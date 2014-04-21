@@ -154,6 +154,8 @@ fos_user:
             type: my_user_registration
         confirmation:
             enabled: true
+    group:
+        group_class: My\UserBundle\Entity\Group
 
 fos_comment:
     db_driver: orm

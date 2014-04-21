@@ -1251,12 +1251,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Atlantic18/DoctrineExtensions.git",
-                "reference": "f2cd33516faa4a773d576ad58d02e283467acdd0"
+                "reference": "47ed3e44d7e9b464c0d3d606a91a4651f8002a2b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Atlantic18/DoctrineExtensions/zipball/f2cd33516faa4a773d576ad58d02e283467acdd0",
-                "reference": "f2cd33516faa4a773d576ad58d02e283467acdd0",
+                "url": "https://api.github.com/repos/Atlantic18/DoctrineExtensions/zipball/47ed3e44d7e9b464c0d3d606a91a4651f8002a2b",
+                "reference": "47ed3e44d7e9b464c0d3d606a91a4651f8002a2b",
                 "shasum": ""
             },
             "require": {
@@ -1323,7 +1323,7 @@
                 "tree",
                 "uploadable"
             ],
-            "time": "2014-04-12 08:05:29"
+            "time": "2014-04-21 07:57:57"
         },
         {
             "name": "incenteev/composer-parameter-handler",
@@ -1898,16 +1898,16 @@
         },
         {
             "name": "monolog/monolog",
-            "version": "1.8.0",
+            "version": "1.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "392ef35fd470638e08d0160d6b1cbab63cb23174"
+                "reference": "1afc39690e7414412face1f8cbf67b73db34485c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/392ef35fd470638e08d0160d6b1cbab63cb23174",
-                "reference": "392ef35fd470638e08d0160d6b1cbab63cb23174",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/1afc39690e7414412face1f8cbf67b73db34485c",
+                "reference": "1afc39690e7414412face1f8cbf67b73db34485c",
                 "shasum": ""
             },
             "require": {
@@ -1935,7 +1935,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.8.x-dev"
+                    "dev-master": "1.9.x-dev"
                 }
             },
             "autoload": {
@@ -1962,7 +1962,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2014-03-23 19:50:26"
+            "time": "2014-04-20 16:41:26"
         },
         {
             "name": "phpcollection/phpcollection",

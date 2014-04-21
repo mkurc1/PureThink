@@ -4,10 +4,11 @@ namespace My\UserBundle\Entity;
 
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Table(name="user_user")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="My\UserBundle\Repository\UserRepository")
  */
 class User extends BaseUser
 {
@@ -20,25 +21,36 @@ class User extends BaseUser
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotNull()
      */
-    private $firstName;
+    protected $firstName;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotNull()
      */
-    private $lastName;
+    protected $lastName;
 
     /**
      * @ORM\OneToOne(targetEntity="UserSetting", cascade={"persist"})
      */
-    private $userSetting;
+    protected $userSetting;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="Group")
+     * @ORM\JoinTable(name="user_has_groups",
+     *      joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="group_id", referencedColumnName="id")}
+     * )
+     */
+    protected $groups;
 
 
     public function __construct()
     {
-        parent::__construct();
-
         $this->setUserSetting(new UserSetting());
+
+        parent::__construct();
     }
 
 
@@ -120,5 +132,14 @@ class User extends BaseUser
     public function getUserSetting()
     {
         return $this->userSetting;
+    }
+
+    public function setGroups($groups)
+    {
+        foreach ($groups as $group) {
+            $this->getGroups()->add($group);
+        }
+
+        return $this;
     }
 }

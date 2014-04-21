@@ -5,3 +5,5 @@ fixtures:
         isDefault: 1
     module_2:
         name: "File"
+    module_3:
+        name: "User"

@@ -9,5 +9,5 @@ fixtures:
         plainPassword: "qwerty123"
         firstName: "Michał"
         lastName: "Kurcewicz"
-        roles:
-            name: ROLE_SUPER_ADMIN
+        groups:
+            - user_group_3

@@ -2,7 +2,8 @@ khepin_yaml_fixtures:
     resources:
         - MyCoreBundle
 
-        - MyUserBundle
+        - MyUserBundle/group
+        - MyUserBundle/user
 
         - MyBackendBundle/module
         - MyBackendBundle/menu

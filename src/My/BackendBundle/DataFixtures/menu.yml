@@ -35,3 +35,8 @@ fixtures:
         link: "my_file_file_list"
         sequence: 1
         module: module_2
+    menu_8:
+        name: "Użytkownicy"
+        link: "my_user_user_list"
+        sequence: 1
+        module: module_3

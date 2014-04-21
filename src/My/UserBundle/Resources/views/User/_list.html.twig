@@ -1,0 +1,48 @@
+<table class="list">
+    <thead>
+        <tr>
+            <th class="select"></th>
+            <th class="lp">Lp.</th>
+            <th column="a.username" class="name width_small">Nazwa</th>
+            <th column="a.email" class="name width_small">Email</th>
+            <th column="a.firstName" class="name width_small">Imię</th>
+            <th column="a.lastName" class="width_small">Nazwisko</th>
+            <th column="a.enabled" class="width_small">Aktywne</th>
+            <th column="a.locked" class="width_small">Zablokowane</th>
+            <th column="a.lastLogin" class="width_small">Ostatnie logowanie</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% if page > 1 %}
+        {% set i = ((page-1)*rowsOnPage) %}
+    {% else %}
+        {% set i = 0 %}
+    {% endif %}
+    {% for entity in entities %}
+    {% set i = i+1 %}
+        <tr list_id="{{ entity.id }}">
+            <td class="select"><input type="checkbox" class="multi_check" /></td>
+            <td class="lp">{{ i }}.</td>
+            <td class="width_small name"><a class="editMode" href="{{ path('my_user_user_edit', { 'id': entity.id }) }}">{{ entity.username }}</a></td>
+            <td class="width_small">{{ entity.email }}</td>
+            <td class="width_small">{{ entity.firstName }}</td>
+            <td class="width_small">{{ entity.lastName }}</td>
+            <td class="width_small state">
+                {% if entity.enabled %}
+                    <i class="fa fa-check"></i>
+                {% else %}
+                    <i class="fa fa-ban"></i>
+                {% endif %}
+            </td>
+            <td class="width_small lock">
+                {% if entity.locked %}
+                    <i class="fa fa-check"></i>
+                {% else %}
+                    <i class="fa fa-ban"></i>
+                {% endif %}
+            </td>
+            <td class="width_small">{{ entity.lastLogin|date('Y-m-d H:s') }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>

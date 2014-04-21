@@ -1,0 +1,14 @@
+model: My\UserBundle\Entity\Group
+fixtures:
+    user_group_1:
+        name: 'User'
+        roles:
+            - ROLE_USER
+    user_group_2:
+        name: 'Admin'
+        roles:
+            - ROLE_ADMIN
+    user_group_3:
+        name: 'Super Admin'
+        roles:
+            - ROLE_SUPER_ADMIN
