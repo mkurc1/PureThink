@@ -3,7 +3,6 @@
 namespace My\CMSBundle\Controller;
 
 use My\BackendBundle\Controller\CRUDController;
-use My\BackendBundle\Controller\CRUDInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -14,47 +13,47 @@ use Symfony\Component\HttpFoundation\Response;
 /**
  * @Route("/admin/cms/component")
  */
-class ComponentController extends CRUDController implements CRUDInterface
+class ComponentController extends CRUDController
 {
-    public function getListQB(array $params)
+    protected function getListQB(array $params)
     {
         return $this->getDoctrine()->getRepository('MyCMSBundle:Component')
             ->getComponentsQB($params['order'], $params['sequence'], $params['filter'], $params['languageId'], $params['groupId']);
     }
 
-    public function getListTemplate()
+    protected function getListTemplate()
     {
         return 'MyCMSBundle:Component:_list.html.twig';
     }
 
-    public function getEntityById($id)
+    protected function getEntityById($id)
     {
         return $this->getDoctrine()->getRepository('MyCMSBundle:Component')
             ->find($id);
     }
 
-    public function getEntitiesByIds(array $ids)
+    protected function getEntitiesByIds(array $ids)
     {
         return $this->getDoctrine()->getRepository('MyCMSBundle:Component')
             ->getComponentsByIds($ids);
     }
 
-    public function getNewEntity($params)
+    protected function getNewEntity($params)
     {
         return new Component();
     }
 
-    public function getForm($entity, $params)
+    protected function getForm($entity, $params)
     {
         return $this->createForm(new ComponentType(), $entity, ['menuId' => $params['menuId']]);
     }
 
-    public function getNewFormTemplate()
+    protected function getNewFormTemplate()
     {
         return 'MyCMSBundle:Component:_new.html.twig';
     }
 
-    public function getEditFormTemplate()
+    protected function getEditFormTemplate()
     {
         return 'MyCMSBundle:Component:_edit.html.twig';
     }

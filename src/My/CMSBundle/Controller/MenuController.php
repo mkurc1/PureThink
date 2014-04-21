@@ -3,7 +3,6 @@
 namespace My\CMSBundle\Controller;
 
 use My\BackendBundle\Controller\CRUDController;
-use My\BackendBundle\Controller\CRUDInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -14,7 +13,7 @@ use Symfony\Component\HttpFoundation\Response;
 /**
  * @Route("/admin/cms/menu")
  */
-class MenuController extends CRUDController implements CRUDInterface
+class MenuController extends CRUDController
 {
     /**
      * @Route("/")
@@ -48,45 +47,45 @@ class MenuController extends CRUDController implements CRUDInterface
         return new Response(json_encode($response));
     }
 
-    public function getListQB(array $params)
+    protected function getListQB(array $params)
     {
         return $this->getDoctrine()->getRepository('MyCMSBundle:Menu')
             ->getMenusQB($params['filter'], $params['languageId'], $params['groupId']);
     }
 
-    public function getListTemplate()
+    protected function getListTemplate()
     {
         return 'MyCMSBundle:Menu:_list.html.twig';
     }
 
-    public function getEntityById($id)
+    protected function getEntityById($id)
     {
         return $this->getDoctrine()->getRepository('MyCMSBundle:Menu')
             ->find($id);
     }
 
-    public function getEntitiesByIds(array $ids)
+    protected function getEntitiesByIds(array $ids)
     {
         return $this->getDoctrine()->getRepository('MyCMSBundle:Menu')
             ->getMenusByIds($ids);
     }
 
-    public function getNewEntity($params)
+    protected function getNewEntity($params)
     {
         return new Menu();
     }
 
-    public function getForm($entity, $params)
+    protected function getForm($entity, $params)
     {
         return $this->createForm(new MenuType(), $entity, ['menuId' => $params['menuId']]);
     }
 
-    public function getNewFormTemplate()
+    protected function getNewFormTemplate()
     {
         return 'MyCMSBundle:Menu:_new.html.twig';
     }
 
-    public function getEditFormTemplate()
+    protected function getEditFormTemplate()
     {
         return 'MyCMSBundle:Menu:_edit.html.twig';
     }

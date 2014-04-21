@@ -3,7 +3,6 @@
 namespace My\CMSBundle\Controller;
 
 use My\BackendBundle\Controller\CRUDController;
-use My\BackendBundle\Controller\CRUDInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -14,47 +13,47 @@ use Symfony\Component\HttpFoundation\Response;
 /**
  * @Route("/admin/cms/article")
  */
-class ArticleController extends CRUDController implements CRUDInterface
+class ArticleController extends CRUDController
 {
-    public function getListQB(array $params)
+    protected function getListQB(array $params)
     {
         return $this->getDoctrine()->getRepository('MyCMSBundle:Article')
             ->getArticlesQB($params['order'], $params['sequence'], $params['filter'], $params['languageId'], $params['groupId']);
     }
 
-    public function getListTemplate()
+    protected function getListTemplate()
     {
         return 'MyCMSBundle:Article:_list.html.twig';
     }
 
-    public function getEntityById($id)
+    protected function getEntityById($id)
     {
         return $this->getDoctrine()->getRepository('MyCMSBundle:Article')
             ->find($id);
     }
 
-    public function getEntitiesByIds(array $ids)
+    protected function getEntitiesByIds(array $ids)
     {
         return $this->getDoctrine()->getRepository('MyCMSBundle:Article')
             ->getArticlesByIds($ids);
     }
 
-    public function getNewEntity($params)
+    protected function getNewEntity($params)
     {
         return new Article($this->getUser());
     }
 
-    public function getForm($entity, $params)
+    protected function getForm($entity, $params)
     {
         return $this->createForm(new ArticleType(), $entity, ['menuId' => $params['menuId']]);
     }
 
-    public function getNewFormTemplate()
+    protected function getNewFormTemplate()
     {
         return 'MyCMSBundle:Article:_new.html.twig';
     }
 
-    public function getEditFormTemplate()
+    protected function getEditFormTemplate()
     {
         return 'MyCMSBundle:Article:_edit.html.twig';
     }

@@ -3,7 +3,6 @@
 namespace My\CMSBundle\Controller;
 
 use My\BackendBundle\Controller\CRUDController;
-use My\BackendBundle\Controller\CRUDInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -14,32 +13,32 @@ use Symfony\Component\HttpFoundation\Response;
 /**
  * @Route("/admin/cms/extension/field")
  */
-class ExtensionHasFieldController extends CRUDController implements CRUDInterface
+class ExtensionHasFieldController extends CRUDController
 {
-    public function getListQB(array $params)
+    protected function getListQB(array $params)
     {
         return $this->getDoctrine()->getRepository('MyCMSBundle:ExtensionHasField')
             ->getFieldsQB($params['order'], $params['sequence'], $params['filter'], $params['sublistId']);
     }
 
-    public function getListTemplate()
+    protected function getListTemplate()
     {
         return 'MyCMSBundle:ExtensionHasField:_list.html.twig';
     }
 
-    public function getEntityById($id)
+    protected function getEntityById($id)
     {
         return $this->getDoctrine()->getRepository('MyCMSBundle:ExtensionHasField')
             ->find($id);
     }
 
-    public function getEntitiesByIds(array $ids)
+    protected function getEntitiesByIds(array $ids)
     {
         return $this->getDoctrine()->getRepository('MyCMSBundle:ExtensionHasField')
             ->getFieldsByIds($ids);
     }
 
-    public function getNewEntity($params)
+    protected function getNewEntity($params)
     {
         $extension = $this->getDoctrine()
             ->getRepository('MyCMSBundle:Extension')->find($params['sublistId']);
@@ -47,17 +46,17 @@ class ExtensionHasFieldController extends CRUDController implements CRUDInterfac
         return new ExtensionHasField($extension);
     }
 
-    public function getForm($entity, $params)
+    protected function getForm($entity, $params)
     {
         return $this->createForm(new ExtensionHasFieldType(), $entity, ['menuId' => $params['menuId']]);
     }
 
-    public function getNewFormTemplate()
+    protected function getNewFormTemplate()
     {
         return 'MyCMSBundle:ExtensionHasField:_new.html.twig';
     }
 
-    public function getEditFormTemplate()
+    protected function getEditFormTemplate()
     {
         return 'MyCMSBundle:ExtensionHasField:_edit.html.twig';
     }

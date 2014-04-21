@@ -7,3 +7,8 @@ services:
         class: My\BackendBundle\Form\MetadataType
         tags:
             - { name: form.type, alias: metadata }
+
+    my.backend.type.series:
+        class: My\BackendBundle\Form\Type\SeriesType
+        tags:
+            - { name: form.type, alias: series }

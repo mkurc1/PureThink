@@ -3,7 +3,6 @@
 namespace My\CMSBundle\Controller;
 
 use My\BackendBundle\Controller\CRUDController;
-use My\BackendBundle\Controller\CRUDInterface;
 use My\CMSBundle\Entity\ComponentHasArticle;
 use My\CMSBundle\Entity\ComponentHasFile;
 use My\CMSBundle\Entity\ComponentHasText;
@@ -19,7 +18,7 @@ use Symfony\Component\HttpFoundation\Response;
 /**
  * @Route("/admin/cms/component/element")
  */
-class ComponentHasElementController extends CRUDController implements CRUDInterface
+class ComponentHasElementController extends CRUDController
 {
     protected function paramsFilter(array $params)
     {
@@ -30,47 +29,47 @@ class ComponentHasElementController extends CRUDController implements CRUDInterf
         return $params;
     }
 
-    public function getListQB(array $params)
+    protected function getListQB(array $params)
     {
         return $this->getDoctrine()->getRepository('MyCMSBundle:ComponentHasText')
             ->getElementsQB($params['order'], $params['sequence'], $params['filter'], $params['sublistId']);
     }
 
-    public function getListTemplate()
+    protected function getListTemplate()
     {
         return 'MyCMSBundle:ComponentHasElement:_list.html.twig';
     }
 
-    public function getEntityById($id)
+    protected function getEntityById($id)
     {
         return $this->getDoctrine()->getRepository('MyCMSBundle:ComponentHasElement')
             ->find($id);
     }
 
-    public function getEntitiesByIds(array $ids)
+    protected function getEntitiesByIds(array $ids)
     {
         return $this->getDoctrine()->getRepository('MyCMSBundle:ComponentHasElement')
             ->getElementsByIds($ids);
     }
 
-    public function getNewEntity($params)
+    protected function getNewEntity($params)
     {
         return new ComponentHasElement($this->getComponent($params['sublistId']));
     }
 
-    public function getForm($entity, $params)
+    protected function getForm($entity, $params)
     {
         $form = $this->createForm(new ComponentHasElementType($entity));
 
         return $this->addColumns($form, $entity);
     }
 
-    public function getNewFormTemplate()
+    protected function getNewFormTemplate()
     {
         return 'MyCMSBundle:ComponentHasElement:_new.html.twig';
     }
 
-    public function getEditFormTemplate()
+    protected function getEditFormTemplate()
     {
         return 'MyCMSBundle:ComponentHasElement:_edit.html.twig';
     }

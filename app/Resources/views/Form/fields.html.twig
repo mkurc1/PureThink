@@ -1,0 +1,5 @@
+{% block entity_widget %}
+    {% spaceless %}
+        {{ form_widget(form, { 'empty_value': '', 'attr': { 'class': 'sintetic-select' } }) }}
+    {% endspaceless %}
+{% endblock %}

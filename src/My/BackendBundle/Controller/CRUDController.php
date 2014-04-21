@@ -11,6 +11,22 @@ use Symfony\Component\HttpFoundation\Response;
 
 abstract class CRUDController extends Controller
 {
+    abstract protected function getListQB(array $params);
+
+    abstract protected function getListTemplate();
+
+    abstract protected function getEntityById($id);
+
+    abstract protected function getEntitiesByIds(array $ids);
+
+    abstract protected function getNewEntity($params);
+
+    abstract protected function getForm($entity, $params);
+
+    abstract protected function getNewFormTemplate();
+
+    abstract protected function getEditFormTemplate();
+
     /**
      * @Route("/")
      * @Method("GET")
@@ -135,7 +151,6 @@ abstract class CRUDController extends Controller
     public function exportAction(Request $request)
     {
         $arrayId = $request->get('arrayId');
-
         $entities = $this->getEntitiesByIds($arrayId);
 
         $serializer = $this->get('jms_serializer');
@@ -167,7 +182,7 @@ abstract class CRUDController extends Controller
 
             $serializer = $this->get('jms_serializer');
             $entitiesJson = $serializer->deserialize(file_get_contents($file), 'Doctrine\Common\Collections\ArrayCollection', 'json');
-            if (method_exists($this, 'importEntities')) {
+            if ($this->hasImportEntitiesMethod()) {
                 $this->importEntities($entitiesJson, $params);
                 $response = $this->get('my.flush.service')->tryFlush();
             } else {
@@ -187,6 +202,11 @@ abstract class CRUDController extends Controller
         }
 
         return new Response(json_encode($response));
+    }
+
+    private function hasImportEntitiesMethod()
+    {
+        return method_exists($this, 'importEntities');
     }
 
     private function setPagination($entities, $page = 1, $rowsOnPage = 10)

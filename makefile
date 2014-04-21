@@ -4,11 +4,17 @@ clean:
 	php app/console cache:clear
 
 cleans: clean
-    php app/console assets:install --symlink
+	php app/console assets:install --symlink
 
 assetic:
 	php app/console assets:install web
 	php app/console assetic:dump -e=prod
+
+assetic_dev:
+	php app/console assetic:dump
+
+assetic_watch:
+	php app/console assetic:dump --watch
 
 install: composer_install do_install create_db update_db cleans
 

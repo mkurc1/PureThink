@@ -12,31 +12,17 @@ use Doctrine\ORM\EntityRepository;
  */
 class SeriesRepository extends EntityRepository
 {
-    /**
-     * Get groups by menu ID no execute
-     *
-     * @param integer $menuId
-     * @return query
-     */
-    public function getGroupsByMenuIdNoExecute($menuId)
+    public function getGroupsByMenuIdQb($menuId)
     {
-        $qb = $this->createQueryBuilder('s')
+        return $this->createQueryBuilder('s')
             ->join('s.menu', 'm')
             ->where('m.id = :menu_id')
-            ->setParameter('menu_id', $menuId)
-            ->orderBy('s.name');
-
-        return $qb;
+            ->orderBy('s.name')
+            ->setParameter('menu_id', $menuId);
     }
 
-    /**
-     * Get groups by menu ID
-     *
-     * @param integer $menuId
-     * @return array
-     */
     public function getGroupsByMenuId($menuId)
     {
-        return $this->getGroupsByMenuIdNoExecute($menuId)->getQuery()->getResult();
+        return $this->getGroupsByMenuIdQb($menuId)->getQuery()->getResult();
     }
 }
