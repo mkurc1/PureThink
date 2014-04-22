@@ -90,7 +90,7 @@ class FrontendController extends Controller
     /**
      * @Template()
      */
-    public function SearchAction(Request $request)
+    public function searchAction(Request $request)
     {
         $locale = $request->getLocale();
 

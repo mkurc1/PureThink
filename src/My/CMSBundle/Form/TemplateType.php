@@ -13,7 +13,21 @@ class TemplateType extends AbstractType
         $builder
             ->add('name', null, ['label' => 'Nazwa szablonu', 'attr' => ['class' => 'name']])
             ->add('author', null, ['label' => 'Autor'])
-            ->add('series', 'series', ['menuId' => $options['menuId']]);
+            ->add('series', 'series', ['menuId' => $options['menuId']])
+            ->add('styles', 'collection', [
+                'type' => new FileType(),
+                'label' => 'Wybierz style',
+                'required' => false,
+                'allow_add' => true,
+                'allow_delete' => true
+            ])
+            ->add('scripts', 'collection', [
+                'type' => new FileType(),
+                'label' => 'Wybierz skrypty',
+                'required' => false,
+                'allow_add' => true,
+                'allow_delete' => true
+            ]);
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)

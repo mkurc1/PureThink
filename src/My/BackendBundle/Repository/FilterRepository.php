@@ -18,7 +18,7 @@ class FilterRepository extends EntityRepository
     protected function addNameFilterQB(QueryBuilder $qb, $filter = null)
     {
         if (null != $filter) {
-            $qb->andWhere($qb->getRootAliases() . '.name LIKE :filter')
+            $qb->andWhere($qb->getRootAlias() . '.name LIKE :filter')
                 ->setParameter('filter', '%' . $filter . '%');
         }
     }

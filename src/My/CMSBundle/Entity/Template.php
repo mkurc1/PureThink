@@ -5,10 +5,12 @@ namespace My\CMSBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
+use My\CoreBundle\Utility\RemoveDirectory;
 
 /**
  * @ORM\Table(name="cms_template")
  * @ORM\Entity(repositoryClass="My\CMSBundle\Repository\TemplateRepository")
+ * @ORM\HasLifecycleCallbacks
  */
 class Template
 {
@@ -62,7 +64,65 @@ class Template
      * @Assert\NotNull()
      */
     private $series;
-    
+
+    /**
+     * @ORM\OneToMany(targetEntity="Script", mappedBy="template", cascade={"persist"})
+     */
+    private $scripts;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Style", mappedBy="template", cascade={"persist"})
+     */
+    private $styles;
+
+
+    /**
+     * @ORM\PostPersist()
+     */
+    public function createDir()
+    {
+        $dir = $this->getUploadRootDir().'/'.$this->getSlug();
+
+        if (is_dir($dir)) {
+            return;
+        }
+
+        $userMask = umask(0);
+        mkdir($dir, 0777);
+        mkdir($dir.'/'.$this->getStylesUploadDir(), 0777);
+        mkdir($dir.'/'.$this->getScriptsUploadDir(), 0777);
+        umask($userMask);
+    }
+
+    /**
+     * @ORM\PostRemove()
+     */
+    public function removeDir()
+    {
+        $dir = $this->getUploadRootDir().'/'.$this->getSlug();
+        RemoveDirectory::rmdir($dir);
+    }
+
+
+    protected function getUploadRootDir()
+    {
+        return __DIR__.'/../../../../web/'.$this->getUploadDir();
+    }
+
+    public function getUploadDir()
+    {
+        return 'template';
+    }
+
+    public function getStylesUploadDir()
+    {
+        return 'css';
+    }
+
+    public function getScriptsUploadDir()
+    {
+        return 'js';
+    }
 
     /**
      * Get id
@@ -243,5 +303,80 @@ class Template
     public function getSeries()
     {
         return $this->series;
+    }
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->scripts = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->styles = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add scripts
+     *
+     * @param \My\CMSBundle\Entity\Script $scripts
+     * @return Template
+     */
+    public function addScript(\My\CMSBundle\Entity\Script $scripts)
+    {
+        $this->scripts[] = $scripts;
+
+        return $this;
+    }
+
+    /**
+     * Remove scripts
+     *
+     * @param \My\CMSBundle\Entity\Script $scripts
+     */
+    public function removeScript(\My\CMSBundle\Entity\Script $scripts)
+    {
+        $this->scripts->removeElement($scripts);
+    }
+
+    /**
+     * Get scripts
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getScripts()
+    {
+        return $this->scripts;
+    }
+
+    /**
+     * Add styles
+     *
+     * @param \My\CMSBundle\Entity\Style $styles
+     * @return Template
+     */
+    public function addStyle(\My\CMSBundle\Entity\Style $styles)
+    {
+        $this->styles[] = $styles;
+
+        return $this;
+    }
+
+    /**
+     * Remove styles
+     *
+     * @param \My\CMSBundle\Entity\Style $styles
+     */
+    public function removeStyle(\My\CMSBundle\Entity\Style $styles)
+    {
+        $this->styles->removeElement($styles);
+    }
+
+    /**
+     * Get styles
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getStyles()
+    {
+        return $this->styles;
     }
 }
