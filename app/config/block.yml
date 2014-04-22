@@ -1,0 +1,6 @@
+sonata_block:
+    default_contexts: [cms]
+    blocks:
+        my.cms.block.language: ~
+        my.cms.block.menu: ~
+        my.cms.block.component: ~

@@ -4,7 +4,7 @@
             <a href="{{ path('localized_frontend', {'locale': locale}) }}">Home</a>
         </li>
     {% endif %}
-    {% for menu in entities %}
+    {% for menu in menus %}
         <li class="{{ menu['children'] is defined ? 'has_submenu' : '' }}">
             {% set slug = menu['parent'].article.slug %}
 
@@ -17,7 +17,7 @@
             {% endif %}
 
             {% if menu['children'] is defined %}
-                {% include 'MyCMSBundle:Frontend:menu.html.twig' with { 'entities': menu['children'], 'locale': locale, 'home': false, 'slug2': menu['parent'].slug } %}
+                {% include 'MyCMSBundle:Block:menu.html.twig' with { 'menus': menu['children'], 'locale': locale, 'home': false, 'slug2': menu['parent'].slug } %}
             {% endif %}
         </li>
     {% endfor %}

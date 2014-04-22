@@ -33,11 +33,11 @@ class MenuRepository extends FilterRepository
         return $qb->getQuery()->getResult();
     }
 
-    public function getActiveMenusBySlugAndLocale($slug, $locale)
+    public function getActiveMenusBySeriesNameAndLocale($seriesName, $locale)
     {
         $entities = [];
 
-        $menus = $this->getActiveMenusBySlugAndLocaleQb($slug, $locale);
+        $menus = $this->getActiveMenusBySeriesNameAndLocaleQb($seriesName, $locale);
         $menus = $menus->getQuery()->getResult();
 
         foreach ($menus as $menu) {
@@ -54,7 +54,7 @@ class MenuRepository extends FilterRepository
         return $entities;
     }
 
-    private function getActiveMenusBySlugAndLocaleQb($slug, $locale)
+    private function getActiveMenusBySeriesNameAndLocaleQb($seriesName, $locale)
     {
         return $this->createQueryBuilder('a')
             ->select('a, s, art')
@@ -65,9 +65,9 @@ class MenuRepository extends FilterRepository
             ->where('a.isPublic = true')
             ->andWhere('UPPER(l.alias) = UPPER(:locale)')
             ->andWhere('art.isPublic = true')
-            ->andWhere('s.name = :slug')
+            ->andWhere('s.name = :seriesName')
             ->orderBy('m.sequence, a.sequence')
-            ->setParameter('slug', $slug)
+            ->setParameter('seriesName', $seriesName)
             ->setParameter('locale', $locale);
     }
 }

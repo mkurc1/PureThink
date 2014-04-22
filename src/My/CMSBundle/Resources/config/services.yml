@@ -7,3 +7,21 @@ services:
         class: My\CMSBundle\Form\Type\ArticleType
         tags:
             - { name: form.type, alias: Article }
+
+    my.cms.block.language:
+        class: My\CMSBundle\Block\LanguageBlock
+        tags:
+            - { name: sonata.block }
+        arguments: ["gamedot.competition.block.platform", @templating, @doctrine.orm.entity_manager]
+
+    my.cms.block.menu:
+        class: My\CMSBundle\Block\MenuBlock
+        tags:
+            - { name: sonata.block }
+        arguments: ["gamedot.competition.block.platform", @templating, @doctrine.orm.entity_manager]
+
+    my.cms.block.component:
+        class: My\CMSBundle\Block\ComponentBlock
+        tags:
+            - { name: sonata.block }
+        arguments: ["gamedot.competition.block.platform", @templating, @doctrine.orm.entity_manager]

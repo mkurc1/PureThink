@@ -1,14 +1,17 @@
-<h3>{{ entities['title'] }}</h3>
+{% if entities != null %}
+    <h3>{{ entities['title'] }}</h3>
 
-{% for key, new in entities if key != 'title' %}
-    <a href="{{ path('article', { 'locale': locale, 'slug': new['adres'] }) }}" class="news">
-        <div class="image">
-            <img src="{{ asset('uploads/' ~ new['fotografia']) }}" alt="" />
-        </div>
-        <div class="content">
-            <h4>{{ new['nazwa'] }}</h4>
-            <span class="date">{{ new['createdAt']|format_datetime('dd MMM Y HH:mm') }}</span>
-            <p>{{ new['tresc'] }}</p>
-        </div>
-    </a>
-{% endfor %}
+    {% for key, new in entities if key != 'title' %}
+        <a href="{{ path('article', { 'locale': locale, 'slug': new['adres'] }) }}" class="news">
+            <div class="image">
+                <img src="{{ asset('uploads/' ~ new['fotografia']) }}" alt=""/>
+            </div>
+            <div class="content">
+                <h4>{{ new['nazwa'] }}</h4>
+                <span class="date">{{ new['createdAt']|format_datetime('dd MMM Y HH:mm') }}</span>
+
+                <p>{{ new['tresc'] }}</p>
+            </div>
+        </a>
+    {% endfor %}
+{% endif %}

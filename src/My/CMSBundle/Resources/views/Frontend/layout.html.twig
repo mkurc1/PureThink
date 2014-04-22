@@ -30,10 +30,7 @@
 {% block body %}
     {{ parent() }}
 
-    {{ render(controller('MyCMSBundle:Frontend:component', {
-        'slug'    : 'cookie',
-        'template': 'MyCMSBundle:Frontend:_cookie.html.twig'
-    })) }}
+    {{ sonata_block_render({ "type": "my.cms.block.component", "settings": { "template": "MyCMSBundle:Frontend:_cookie.html.twig", "slug": "cookie", "locale": locale } }) }}
 
     <div id="top">
         <div class="container">
@@ -43,16 +40,13 @@
                 </a>
             </div>
 
-            {% include 'MyCMSBundle:Frontend:_topmenu.html.twig' %}
+            {% include 'MyCMSBundle:Frontend:_topmenu.html.twig' with {'locale': locale} %}
         </div>
     </div>
 
     <div id="main_menu">
         <div class="container">
-            {{ render(controller('MyCMSBundle:Frontend:menu', {
-                'slug': 'Main',
-                'home': true
-            })) }}
+            {{ sonata_block_render({ "type": "my.cms.block.menu", "settings": { "name": "Main", "locale": locale, "home": true } }) }}
 
             {{ render(controller('MyCMSBundle:Frontend:search')) }}
         </div>

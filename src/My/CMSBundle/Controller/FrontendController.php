@@ -7,7 +7,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use Symfony\Component\HttpFoundation\Response;
 use My\CMSBundle\Entity\Article;
 
 class FrontendController extends Controller
@@ -21,52 +20,10 @@ class FrontendController extends Controller
         $locale = $request->getLocale();
 
         if (null == $locale) {
-            $request->setLocale($request->getPreferredLanguage($this->getAvilableLocales()));
+            $request->setLocale($request->getPreferredLanguage($this->getAvailableLocales()));
         }
 
         return $this->redirect($this->generateUrl('localized_frontend', compact('locale')));
-    }
-
-    /**
-     * @Template()
-     */
-    public function languageAction(Request $request)
-    {
-        $locale = $request->getLocale();
-        $languages = $this->getPublicLanguages();
-
-        return compact('languages', 'locale');
-    }
-
-    public function componentAction(Request $request, $slug, $template)
-    {
-        $locale = $request->getLocale();
-
-        $entities = $this->getDoctrine()->getRepository('MyCMSBundle:ComponentHasElement')
-            ->getActiveComponentBySlugAndLocale($slug, $locale);
-
-        if (null == $entities) {
-            return new Response();
-        }
-
-        return $this->render($template, compact('entities', 'locale'));
-    }
-
-    /**
-     * @Template()
-     */
-    public function menuAction(Request $request, $slug, $home = false, $login = false)
-    {
-        $locale = $request->getLocale();
-
-        $entities = $this->getDoctrine()->getRepository('MyCMSBundle:Menu')
-            ->getActiveMenusBySlugAndLocale($slug, $locale);
-
-        if (null == $entities) {
-            return new Response();
-        }
-
-        return compact('entities', 'locale', 'home', 'login');
     }
 
     /**
@@ -76,7 +33,7 @@ class FrontendController extends Controller
      */
     public function indexAction(Request $request, $locale)
     {
-        if ($this->isAvilableLocales($locale)) {
+        if ($this->isAvailableLocales($locale)) {
             $request->setLocale($locale);
         } else {
             return $this->getRedirectToMainPage();
@@ -104,7 +61,7 @@ class FrontendController extends Controller
      */
     public function searchListAction(Request $request, $locale)
     {
-        if ($this->isAvilableLocales($locale)) {
+        if ($this->isAvailableLocales($locale)) {
             $request->setLocale($locale);
         } else {
             return $this->getRedirectToMainPage();
@@ -127,7 +84,7 @@ class FrontendController extends Controller
      */
     public function articleAction(Request $request, $locale, $slug, $slug2 = null)
     {
-        if ($this->isAvilableLocales($locale)) {
+        if ($this->isAvailableLocales($locale)) {
             $request->setLocale($locale);
         } else {
             return $this->getRedirectToMainPage();
@@ -139,7 +96,7 @@ class FrontendController extends Controller
             $article = $this->getArticleBySlug($slug2);
         }
 
-        $this->incremetArticleViews($article);
+        $this->incrementArticleViews($article);
 
         return compact('locale', 'article');
     }
@@ -149,12 +106,11 @@ class FrontendController extends Controller
         return $this->redirect($this->generateUrl('frontend'));
     }
 
-    private function incremetArticleViews(Article $article)
+    private function incrementArticleViews(Article $article)
     {
         $article->setViews($article->getViews() + 1);
 
-        $em = $this->getDoctrine()->getManager();
-        $em->flush();
+        $this->getDoctrine()->getManager()->flush();
     }
 
     private function getArticleBySlug($slug)
@@ -187,20 +143,20 @@ class FrontendController extends Controller
         return $languages;
     }
 
-    private function isAvilableLocales($locale)
+    private function isAvailableLocales($locale)
     {
-        return (bool)(in_array($locale, $this->getAvilableLocales()));
+        return (bool)(in_array($locale, $this->getAvailableLocales()));
     }
 
-    private function getAvilableLocales()
+    private function getAvailableLocales()
     {
-        $avilableLocales = [];
+        $availableLocales = [];
 
         $languages = $this->getPublicLanguages();
         foreach ($languages as $language) {
-            $avilableLocales[] = strtolower($language->getAlias());
+            $availableLocales[] = strtolower($language->getAlias());
         }
 
-        return $avilableLocales;
+        return $availableLocales;
     }
 }

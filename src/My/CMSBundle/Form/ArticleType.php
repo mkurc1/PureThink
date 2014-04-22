@@ -14,8 +14,8 @@ class ArticleType extends AbstractType
             ->add('name', 'text', ['label' => 'Nazwa artykułu', 'attr' => ['class' => 'name']])
             ->add('content', 'ckeditor', ['label' => 'Treść'])
             ->add('language', 'entity', [
-                'label'       => 'Język',
-                'class'       => 'MyCMSBundle:Language'
+                'label' => 'Język',
+                'class' => 'MyCMSBundle:Language'
             ])
             ->add('series', 'series', ['menuId' => $options['menuId']])
             ->add('metadata', 'metadata', ['required' => false]);
@@ -23,11 +23,11 @@ class ArticleType extends AbstractType
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        $resolver->setDefaults(array(
+        $resolver->setDefaults([
             'data_class'         => 'My\CMSBundle\Entity\Article',
             'cascade_validation' => true,
             'menuId'             => null
-        ));
+        ]);
     }
 
     public function getName()

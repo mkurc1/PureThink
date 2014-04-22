@@ -34,10 +34,7 @@
         </div>
     </div>
 
-    {{ render(controller('MyCMSBundle:Frontend:component', {
-        'slug'    : 'linki',
-        'template': 'MyCMSBundle:Frontend:_link.html.twig'
-    })) }}
+    {{ sonata_block_render({ "type": "my.cms.block.component", "settings": { "template": "MyCMSBundle:Frontend:_link.html.twig", "slug": "linki", "locale": locale } }) }}
 
-    {% include 'MyCMSBundle:Frontend:_footer.html.twig' %}
+    {% include 'MyCMSBundle:Frontend:_footer.html.twig' with {'local': locale} %}
 {% endblock body %}

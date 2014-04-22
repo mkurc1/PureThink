@@ -3,6 +3,7 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: ckeditor.yml }
+    - { resource: block.yml }
     - { resource: fixtures.yml }
 
 framework:

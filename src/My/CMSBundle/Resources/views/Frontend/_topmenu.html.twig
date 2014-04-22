@@ -12,5 +12,5 @@
         {% endif %}
     </div>
 
-    {{ render(controller('MyCMSBundle:Frontend:language')) }}
+    {{ sonata_block_render({ "type": "my.cms.block.language", "settings": { "locale": locale } }) }}
 </div>
