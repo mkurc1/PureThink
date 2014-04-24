@@ -26,6 +26,9 @@ fos_comment_api:
     prefix: /api
     defaults: { _format: html }
 
+kphoen_sitemap:
+    resource: "@KPhoenSitemapBundle/Resources/config/routing.yml"
+
 my_core:
     resource: "@MyCoreBundle/Controller/"
     type:     annotation

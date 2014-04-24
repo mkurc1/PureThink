@@ -18,3 +18,5 @@ parameters:
 
     locale               : en
     secret               : ThisTokenIsNotSoSecretChangeIt
+
+    base_host            : http://www.foo.com

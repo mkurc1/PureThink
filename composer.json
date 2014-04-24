@@ -42,7 +42,9 @@
         "sonata-project/admin-bundle": "*",
         "sonata-project/intl-bundle": "*",
         "sonata-project/core-bundle": "*",
-        "sonata-project/block-bundle": "*"
+        "sonata-project/block-bundle": "*",
+
+        "kphoen/sitemap-bundle": "*"
     },
     "scripts": {
         "post-install-cmd": [

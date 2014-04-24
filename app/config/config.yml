@@ -144,3 +144,6 @@ fos_comment:
         model:
             comment: My\CommentBundle\Entity\Comment
             thread: My\CommentBundle\Entity\Thread
+
+k_phoen_sitemap:
+    base_host: %base_host%

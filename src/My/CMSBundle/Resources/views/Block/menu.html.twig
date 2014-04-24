@@ -6,18 +6,11 @@
     {% endif %}
     {% for menu in menus %}
         <li class="{{ menu['children'] is defined ? 'has_submenu' : '' }}">
-            {% set slug = menu['parent'].article.slug %}
-
-            {% if (slug2 is defined) %}
-                <a {{ menu['parent'].isNewPage ? 'target="_blank"' : '' }}
-                        href="{{ path('article', {'locale': locale, 'slug': slug2, 'slug2': slug}) }}">{{ menu['parent'] }}</a>
-            {% else %}
-                <a {{ menu['parent'].isNewPage ? 'target="_blank"' : '' }}
-                        href="{{ path('article', {'locale': locale, 'slug': slug}) }}">{{ menu['parent'] }}</a>
-            {% endif %}
+            <a {{ menu['parent'].isNewPage ? 'target="_blank"' : '' }}
+                    href="{{ path('article', {'locale': locale, 'slug': menu['parent'].article.slug}) }}">{{ menu['parent'] }}</a>
 
             {% if menu['children'] is defined %}
-                {% include 'MyCMSBundle:Block:menu.html.twig' with { 'menus': menu['children'], 'locale': locale, 'home': false, 'slug2': menu['parent'].slug } %}
+                {% include 'MyCMSBundle:Block:menu.html.twig' with { 'menus': menu['children'], 'locale': locale, 'home': false } %}
             {% endif %}
         </li>
     {% endfor %}

@@ -1,4 +1,10 @@
 services:
+    sitemap_article_provider:
+        class: My\CMSBundle\Sitemap\Article
+        arguments: [@router, @doctrine.orm.entity_manager]
+        tags:
+            -  { name: sitemap.provider }
+
     my.cms.leftMenu.service:
         class: My\CMSBundle\Service\LeftMenuService
         arguments: [@doctrine.orm.entity_manager, @templating]

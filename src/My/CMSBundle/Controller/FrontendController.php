@@ -78,11 +78,11 @@ class FrontendController extends Controller
     }
 
     /**
-     * @Route("/{locale}/{slug}/{slug2}", name="article")
+     * @Route("/{locale}/{slug}", name="article")
      * @Method("GET")
      * @Template()
      */
-    public function articleAction(Request $request, $locale, $slug, $slug2 = null)
+    public function articleAction(Request $request, $locale, $slug)
     {
         if ($this->isAvailableLocales($locale)) {
             $request->setLocale($locale);
@@ -90,11 +90,7 @@ class FrontendController extends Controller
             return $this->getRedirectToMainPage();
         }
 
-        if (null == $slug2) {
-            $article = $this->getArticleBySlug($slug);
-        } else {
-            $article = $this->getArticleBySlug($slug2);
-        }
+        $article = $this->getArticleBySlug($slug);
 
         $this->incrementArticleViews($article);
 

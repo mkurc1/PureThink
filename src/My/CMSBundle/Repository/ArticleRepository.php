@@ -54,4 +54,14 @@ class ArticleRepository extends FilterRepository
 
         return $qb->getQuery()->getOneOrNullResult();
     }
+
+    public function getPublicArticles()
+    {
+        $qb = $this->createQueryBuilder('a')
+            ->addSelect('l')
+            ->join('a.language', 'l')
+            ->where('a.isPublic = true');
+
+        return $qb->getQuery()->getResult();
+    }
 }
