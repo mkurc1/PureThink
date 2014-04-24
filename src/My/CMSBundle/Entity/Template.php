@@ -66,12 +66,12 @@ class Template
     private $series;
 
     /**
-     * @ORM\OneToMany(targetEntity="Script", mappedBy="template", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="Script", mappedBy="template", cascade={"persist"}, orphanRemoval=true)
      */
     private $scripts;
 
     /**
-     * @ORM\OneToMany(targetEntity="Style", mappedBy="template", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="Style", mappedBy="template", cascade={"persist"}, orphanRemoval=true)
      */
     private $styles;
 
@@ -288,7 +288,7 @@ class Template
      * @param \My\BackendBundle\Entity\Series $series
      * @return Template
      */
-    public function setSeries(\My\BackendBundle\Entity\Series $series)
+    public function setSeries(\My\BackendBundle\Entity\Series $series = null)
     {
         $this->series = $series;
 
@@ -322,6 +322,8 @@ class Template
      */
     public function addScript(\My\CMSBundle\Entity\Script $scripts)
     {
+        $scripts->setTemplate($this);
+
         $this->scripts[] = $scripts;
 
         return $this;
@@ -334,6 +336,8 @@ class Template
      */
     public function removeScript(\My\CMSBundle\Entity\Script $scripts)
     {
+        $scripts->removeUpload();
+
         $this->scripts->removeElement($scripts);
     }
 
@@ -355,6 +359,8 @@ class Template
      */
     public function addStyle(\My\CMSBundle\Entity\Style $styles)
     {
+        $styles->setTemplate($this);
+
         $this->styles[] = $styles;
 
         return $this;
@@ -367,6 +373,8 @@ class Template
      */
     public function removeStyle(\My\CMSBundle\Entity\Style $styles)
     {
+        $styles->removeUpload();
+
         $this->styles->removeElement($styles);
     }
 

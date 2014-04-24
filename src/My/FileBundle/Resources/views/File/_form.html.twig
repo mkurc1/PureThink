@@ -12,7 +12,7 @@
     <div class="dane_element">
         {{ form_label(form.file) }}
         {{ form_widget(form.file) }}
-        <div class="input_file">{{ form.vars.value.path }}</div>
+        <div class="input_file">{{ form.vars.value.originalName }}</div>
         <button class="browse">Przeglądaj</button>
         {{ form_errors(form.file) }}
     </div>

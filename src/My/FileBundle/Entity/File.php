@@ -4,7 +4,6 @@ namespace My\FileBundle\Entity;
 
 use My\CoreBundle\Entity\File as BaseFile;
 use Doctrine\ORM\Mapping as ORM;
-use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
 use My\UserBundle\Entity\User;
 use Doctrine\ORM\Event\LifecycleEventArgs;
@@ -26,30 +25,14 @@ class File extends BaseFile
     private $name;
 
     /**
-     * @Gedmo\Timestampable(on="create")
-     * @ORM\Column(type="datetime")
-     */
-    private $createdAt;
-
-    /**
-     * @ORM\Column(type="integer", nullable=true)
-     */
-    private $size;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $mimeType;
-
-    /**
      * @ORM\ManyToOne(targetEntity="My\UserBundle\Entity\User")
-     * @ORM\JoinColumn(onDelete="CASCADE", nullable=false)
+     * @ORM\JoinColumn(onDelete="CASCADE")
      */
     private $user;
 
     /**
      * @ORM\ManyToOne(targetEntity="My\BackendBundle\Entity\Series")
-     * @ORM\JoinColumn(onDelete="CASCADE", nullable=false)
+     * @ORM\JoinColumn(onDelete="CASCADE")
      * @Assert\NotNull()
      */
     private $series;
@@ -102,52 +85,6 @@ class File extends BaseFile
     public function getName()
     {
         return $this->name;
-    }
-
-    /**
-     * Set size
-     *
-     * @param integer $size
-     * @return File
-     */
-    public function setSize($size)
-    {
-        $this->size = $size;
-
-        return $this;
-    }
-
-    /**
-     * Get size
-     *
-     * @return integer
-     */
-    public function getSize()
-    {
-        return $this->size;
-    }
-
-    /**
-     * Set createdAt
-     *
-     * @param \DateTime $createdAt
-     * @return File
-     */
-    public function setCreatedAt($createdAt)
-    {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
-    /**
-     * Get createdAt
-     *
-     * @return \DateTime
-     */
-    public function getCreatedAt()
-    {
-        return $this->createdAt;
     }
 
     /**
@@ -209,45 +146,6 @@ class File extends BaseFile
     public function __toString()
     {
         return $this->getName();
-    }
-
-    /**
-     * Pre upload
-     *
-     * @ORM\PrePersist()
-     * @ORM\PreUpdate()
-     */
-    public function preUpload()
-    {
-        if (null !== $this->getFile()) {
-            $filename = sha1(uniqid(mt_rand(), true));
-            $this->setPath($filename.'.'.$this->getFile()->guessExtension());
-            $this->size = $this->getFile()->getClientSize();
-            $this->mimeType = $this->getFile()->getMimeType();
-        }
-    }
-
-    /**
-     * Set mimeType
-     *
-     * @param string $mimeType
-     * @return File
-     */
-    public function setMimeType($mimeType)
-    {
-        $this->mimeType = $mimeType;
-
-        return $this;
-    }
-
-    /**
-     * Get mimeType
-     *
-     * @return string
-     */
-    public function getMimeType()
-    {
-        return $this->mimeType;
     }
 
     /**

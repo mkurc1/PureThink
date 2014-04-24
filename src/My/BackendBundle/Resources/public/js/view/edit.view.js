@@ -1,78 +1,58 @@
 EditView = Backbone.View.extend({
-    initialize: function(options) {
+    initialize: function (options) {
         this.isMainEdit = options.isMainEdit;
     },
 
     events: {
-        'click button.browse'  : 'uploadFileButton',
-        'click div.input_file' : 'uploadFileButton',
-        'submit'               : 'submit'
+        'click button.browse': 'uploadFileButton',
+        'click div.input_file': 'uploadFileButton',
+        'submit': 'submit'
     },
 
-    /**
-     * Default parameters
-     */
-    defaultParameters: function() {
+    defaultParameters: function () {
         this.model.set({
-            languageId    : 0,
-            isApplyOption : false
+            languageId: 0,
+            isApplyOption: false
         });
     },
 
-    /**
-     * HTML5 validate set off
-     */
-    html5validateOff: function() {
+    html5validateOff: function () {
         this.$el.find('form').attr('novalidate', 'novalidate');
     },
 
-    /**
-     * Empty container
-     */
-    emptyContainer: function() {
+    emptyContainer: function () {
         this.$el.empty();
     },
 
-    /**
-     * Set focus on first visible input
-     */
-    setFocusOnFirstInput: function() {
+    setFocusOnFirstInput: function () {
         this.$el.find('form :input[type="text"]:visible:first')
             .focus()
             .setCursorToTextEnd();
     },
 
-    /**
-     * Upload file button
-     */
-    uploadFileButton: function(e) {
+    uploadFileButton: function (e) {
         var button = $(e.currentTarget);
 
         var upload = button.parent().find('input[type="file"]');
         upload.click();
 
-        upload.change(function() {
+        upload.change(function () {
             button.parent().find('div.input_file').text($(this).val());
         });
 
         return false;
     },
 
-    /**
-     * CKEdit update element
-     */
-    ckeditUpdateElement: function() {
+    ckeditUpdateElement: function () {
         if (this.$el.find('form div.cke').length > 0) {
-            $.each(CKEDITOR.instances, function(index, val) {
+            $.each(CKEDITOR.instances, function (index, val) {
                 CKEDITOR.instances[index].updateElement();
             });
         }
     },
 
-    /**
-     * Helper
-     */
-    helper: function() {
+    helper: function () {
+        this.collectionSupport();
         this.html5validateOff();
         this.addStarToRequiredFields();
         this.defaultSelectValue();
@@ -80,34 +60,36 @@ EditView = Backbone.View.extend({
         this.setFocusOnFirstInput();
     },
 
-    /**
-     * Add star to required fields
-     */
-    addStarToRequiredFields: function() {
+    collectionSupport: function () {
+        $.each(this.$el.find('[data-prototype]'), function (intex, val) {
+            new CollectionView({
+                el : val
+            });
+        });
+    },
+
+    addStarToRequiredFields: function () {
         var star = '<span class="star">*</span>';
 
-        $.each(this.$el.find('label.required'), function(index, val) {
+        $.each(this.$el.find('label.required'), function (index, val) {
             $(val).append(star);
         });
     },
 
-    /**
-     * Submit
-     */
-    submit: function() {
+    submit: function () {
         var edit = this;
 
         this.$el.find('form').ajaxSubmit({
-            type     : "post",
-            dataType : 'json',
+            type: "post",
+            dataType: 'json',
             data: {
-                menuId    : edit.model.get('menuId'),
-                sublistId : listModel.get('sublistId')
+                menuId: edit.model.get('menuId'),
+                sublistId: listModel.get('sublistId')
             },
-            beforeSerialize: function() {
+            beforeSerialize: function () {
                 edit.ckeditUpdateElement();
             },
-            success: function(data) {
+            success: function (data) {
                 if (data.response) {
                     alertify.success(data.message);
 
@@ -140,38 +122,29 @@ EditView = Backbone.View.extend({
         return false;
     },
 
-    /**
-     * Remove errors
-     */
-    removeErrors: function() {
+    removeErrors: function () {
         this.$el.find('ul.error').remove();
     },
 
-    /**
-     * Close popup
-     */
-    closePopup: function() {
+    closePopup: function () {
         $('.popup').remove();
         $('.popup-overall-bg').remove();
     },
 
-    /**
-     * Render
-     */
-    render: function() {
+    render: function () {
         var edit = this;
 
         return $.ajax({
-            type     : "get",
-            dataType : 'json',
-            async    : true,
-            url      : edit.model.get('url'),
+            type: "get",
+            dataType: 'json',
+            async: true,
+            url: edit.model.get('url'),
             data: {
-                languageId : edit.model.get('languageId'),
-                menuId     : edit.model.get('menuId'),
-                sublistId  : listModel.get('sublistId')
+                languageId: edit.model.get('languageId'),
+                menuId: edit.model.get('menuId'),
+                sublistId: listModel.get('sublistId')
             },
-            beforeSend: function() {
+            beforeSend: function () {
                 edit.emptyContainer();
 
                 if (edit.isMainEdit) {
@@ -183,7 +156,7 @@ EditView = Backbone.View.extend({
                 edit.$el.show();
                 edit.showLoading();
             },
-            complete: function() {
+            complete: function () {
                 edit.helper();
 
                 if (edit.isMainEdit) {
@@ -193,7 +166,7 @@ EditView = Backbone.View.extend({
 
                 edit.removeLoading();
             },
-            success: function(data) {
+            success: function (data) {
                 if (data.response) {
                     edit.$el.html(data.view.toString());
                 }
@@ -201,27 +174,21 @@ EditView = Backbone.View.extend({
         });
     },
 
-    /**
-     * Default select value
-     */
-    defaultSelectValue: function() {
-        $.each(this.$el.find('form select'), function(index, val) {
+    defaultSelectValue: function () {
+        $.each(this.$el.find('form select'), function (index, val) {
             if ($(val).attr('selected_id')) {
                 var selected = $(val).attr('selected_id');
 
                 $(val).find('option[selected="selected"]').removeAttr('selected');
-                $(val).find('option[value="'+selected+'"]').attr('selected', 'selected');
+                $(val).find('option[value="' + selected + '"]').attr('selected', 'selected');
             }
         });
     },
 
-    /**
-     * Set edit mode action
-     */
-    setEditModeAction: function() {
+    setEditModeAction: function () {
         var edit = this;
 
-        $('.editMode').click(function(e) {
+        $('.editMode').click(function (e) {
             edit.model.set({url: $(e.currentTarget).attr('href')});
             edit.render();
 
@@ -229,17 +196,11 @@ EditView = Backbone.View.extend({
         });
     },
 
-    /**
-     * Show loading
-     */
-    showLoading: function() {
+    showLoading: function () {
         this.$el.append('<div class="loading"><i class="fa fa-spinner fa-spin"></i></div>');
     },
 
-    /**
-     * Remove loading
-     */
-    removeLoading: function() {
+    removeLoading: function () {
         this.$el.find('.loading').remove();
-    },
+    }
 });

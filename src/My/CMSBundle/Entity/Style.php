@@ -18,6 +18,13 @@ class Style extends File
     private $template;
 
 
+    public function __construct(Template $template = null)
+    {
+        if (null != $template) {
+            $this->setTemplate($template);
+        }
+    }
+
     protected function getUploadDir()
     {
         $template = $this->getTemplate();

@@ -15,18 +15,22 @@ class TemplateType extends AbstractType
             ->add('author', null, ['label' => 'Autor'])
             ->add('series', 'series', ['menuId' => $options['menuId']])
             ->add('styles', 'collection', [
-                'type' => new FileType(),
+                'type' => new StyleType(),
                 'label' => 'Wybierz style',
                 'required' => false,
                 'allow_add' => true,
-                'allow_delete' => true
+                'allow_delete' => true,
+                'by_reference' => false,
+                'label_attr' => ['class' => 'line']
             ])
             ->add('scripts', 'collection', [
-                'type' => new FileType(),
+                'type' => new ScriptType(),
                 'label' => 'Wybierz skrypty',
                 'required' => false,
                 'allow_add' => true,
-                'allow_delete' => true
+                'allow_delete' => true,
+                'by_reference' => false,
+                'label_attr' => ['class' => 'line']
             ]);
     }
 

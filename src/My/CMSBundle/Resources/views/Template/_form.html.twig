@@ -1,24 +1,43 @@
-{{ form_start(form) }}
-    {{ form_errors(form) }}
+{{ form_widget(form._token) }}
 
-    <div class="dane_element">
-        {{ form_row(form.name) }}
-    </div>
+<div class="dane_element">
+    {{ form_row(form.name) }}
+</div>
 
-    <div class="dane_element">
-        {{ form_row(form.author) }}
-    </div>
+<div class="dane_element">
+    {{ form_row(form.author) }}
+</div>
 
-    <div class="dane_element">
-        {{ form_row(form.series) }}
-    </div>
+<div class="dane_element">
+    {{ form_row(form.series) }}
+</div>
 
-    <div class="dane_element">
-        {{ form_row(form.styles) }}
-    </div>
+<div class="dane_element" data-prototype="{{ form_widget(form.styles.vars.prototype)|e }}">
+    {{ form_label(form.styles) }}
 
-    <div class="dane_element">
-        {{ form_row(form.scripts) }}
-    </div>
+    {% for style in form.styles %}
+        <div class="dane_element">
+            {{ form_label(style.file) }}
+            {{ form_widget(style.file) }}
+            <div class="input_file">{{ style.vars.value.originalName }}</div>
+            <button class="browse">Przeglądaj</button>
+            {{ form_errors(style.file) }}
+            <a class="collection remove">x</a>
+        </div>
+    {% endfor %}
+</div>
 
-{{ form_end(form) }}
+<div class="dane_element" data-prototype="{{ form_widget(form.scripts.vars.prototype)|e }}">
+    {{ form_label(form.scripts) }}
+
+    {% for script in form.scripts %}
+        <div class="dane_element">
+            {{ form_label(script.file) }}
+            {{ form_widget(script.file) }}
+            <div class="input_file">{{ script.vars.value.originalName }}</div>
+            <button class="browse">Przeglądaj</button>
+            {{ form_errors(script.file) }}
+            <a class="collection remove">x</a>
+        </div>
+    {% endfor %}
+</div>

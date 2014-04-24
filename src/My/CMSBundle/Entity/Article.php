@@ -70,7 +70,7 @@ class Article implements MetadataInterface
 
     /**
      * @ORM\ManyToOne(targetEntity="Language")
-     * @ORM\JoinColumn(onDelete="CASCADE", nullable=false)
+     * @ORM\JoinColumn(onDelete="CASCADE")
      * @Serializer\Expose
      * @Assert\NotNull()
      */
@@ -84,7 +84,7 @@ class Article implements MetadataInterface
 
     /**
      * @ORM\ManyToOne(targetEntity="My\BackendBundle\Entity\Series")
-     * @ORM\JoinColumn(onDelete="CASCADE", nullable=false)
+     * @ORM\JoinColumn(onDelete="CASCADE")
      * @Serializer\Expose
      * @Assert\NotNull()
      */

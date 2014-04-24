@@ -77,19 +77,23 @@
                 color: #3d3d3d;
                 float: left;
                 position: relative;
-                float: left;
                 width: 100%;
                 margin: 11px 0 2px 0;
+
+                &.line {
+                  border-bottom: 1px dotted #C6C6C6;
+                  padding-bottom: 2px;
+                }
 
                 > span.star {
                     color: #DD4B39;
                 }
             }
 
-            > input[type='text'],
-            > input[type='password'],
-            > input[type='email'],
-            > div.input_file {
+            input[type='text'],
+            input[type='password'],
+            input[type='email'],
+            div.input_file {
                 position: relative;
                 float: left;
                 width: (@dane_element_width - @dane_element_input_width_helper);
@@ -102,7 +106,7 @@
                 font-size: 13px;
             }
 
-            > input[type='text'].name {
+            input[type='text'].name {
                 background-color: @main-field-color;
                 height: 40px;
                 font-size: 18px;
@@ -113,7 +117,7 @@
                 box-shadow: 0 0 10px #E5E5E5;
             }
 
-            > div.input_file {
+            div.input_file {
                 padding: 5px;
                 height: 17px;
             }
@@ -131,7 +135,7 @@
                 padding: 5px;
             }
 
-            > button {
+            button {
                 position: relative;
                 float: right;
                 height: 29px;
@@ -149,7 +153,35 @@
                 }
             }
 
-            > ul.error {
+            .collection.remove {
+                position: absolute;
+                color: #000000;
+                opacity: .2;
+                font-size: 14px;
+                left: -20px;
+                bottom: 7px;
+                font-weight: bold;
+                cursor: pointer;
+
+                &:hover {
+                    opacity: .5;
+                }
+            }
+
+            .collection.add {
+                position: relative;
+                float: left;
+                margin: 8px 0 10px;
+                font-size: 12px;
+                color: #0339E0;
+                cursor: pointer;
+                
+                &:hover {
+                    opacity: .8;
+                }
+            }
+
+            ul.error {
                 float: left;
                 list-style-type: none;
                 margin-top: 2px;
@@ -162,7 +194,7 @@
             }
         }
 
-        .dane_element > div.input_file {
+        .dane_element div.input_file {
             width: 375px;
         }
 
