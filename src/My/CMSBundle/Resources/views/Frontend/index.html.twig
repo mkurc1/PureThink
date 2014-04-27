@@ -15,11 +15,19 @@
 {% block body %}
     {{ parent() }}
 
-    {{ sonata_block_render({ "type": "my.cms.block.component", "settings": { "template": "MyCMSBundle:Frontend:_baner.html.twig", "slug": "baner", "locale": locale } }) }}
+    {{ sonata_block_render({ "type": "my.cms.block.component", "settings": {
+        "template": "MyCMSBundle:Frontend:_baner.html.twig",
+        "slug": "baner",
+        "locale": locale
+    } }) }}
 
     {% include 'MyCMSBundle:Frontend:_news_container.html.twig' with {"locale": locale} %}
 
-    {{ sonata_block_render({ "type": "my.cms.block.component", "settings": { "template": "MyCMSBundle:Frontend:_link.html.twig", "slug": "linki", "locale": locale } }) }}
+    {{ sonata_block_render({ "type": "my.cms.block.component", "settings": {
+        "template": "MyCMSBundle:Frontend:_link.html.twig",
+        "slug": "linki",
+        "locale": locale
+    } }) }}
 
     {% include 'MyCMSBundle:Frontend:_footer.html.twig' with {'local': locale} %}
 {% endblock body %}

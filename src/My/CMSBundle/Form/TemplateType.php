@@ -31,7 +31,17 @@ class TemplateType extends AbstractType
                 'allow_delete' => true,
                 'by_reference' => false,
                 'label_attr' => ['class' => 'line']
+            ])
+            ->add('images', 'collection', [
+                'type' => new ScriptType(),
+                'label' => 'Wybierz zdjęcia',
+                'required' => false,
+                'allow_add' => true,
+                'allow_delete' => true,
+                'by_reference' => false,
+                'label_attr' => ['class' => 'line']
             ]);
+
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)

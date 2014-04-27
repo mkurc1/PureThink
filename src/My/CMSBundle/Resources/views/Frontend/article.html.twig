@@ -33,7 +33,11 @@
         </div>
     </div>
 
-    {{ sonata_block_render({ "type": "my.cms.block.component", "settings": { "template": "MyCMSBundle:Frontend:_link.html.twig", "slug": "linki", "locale": locale } }) }}
+    {{ sonata_block_render({ "type": "my.cms.block.component", "settings": {
+        "template": "MyCMSBundle:Frontend:_link.html.twig",
+        "slug": "linki",
+        "locale": locale
+    } }) }}
 
     {% include 'MyCMSBundle:Frontend:_footer.html.twig' with {'local': locale} %}
 {% endblock body %}

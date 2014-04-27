@@ -43,7 +43,7 @@ class ArticleRepository extends FilterRepository
         return $qb->getQuery()->getResult();
     }
 
-    public function getArticleBySlug($slug)
+    public function getPublicArticleBySlug($slug)
     {
         $qb = $this->createQueryBuilder('a')
             ->addSelect('am')

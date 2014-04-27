@@ -104,7 +104,7 @@ class FrontendController extends Controller
 
     private function incrementArticleViews(Article $article)
     {
-        $article->setViews($article->getViews() + 1);
+        $article->incrementArticleViews();
 
         $this->getDoctrine()->getManager()->flush();
     }
@@ -112,7 +112,7 @@ class FrontendController extends Controller
     private function getArticleBySlug($slug)
     {
         $article = $this->getDoctrine()->getRepository('MyCMSBundle:Article')
-            ->getArticleBySlug($slug);
+            ->getPublicArticleBySlug($slug);
 
         if (null == $article) {
             throw $this->createNotFoundException();

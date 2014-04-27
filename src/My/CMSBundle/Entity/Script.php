@@ -18,6 +18,11 @@ class Script extends File
     private $template;
 
 
+    protected function generateFileName()
+    {
+        return $this->getFile()->getClientOriginalName();
+    }
+
     public function __construct(Template $template = null)
     {
         if (null != $template) {

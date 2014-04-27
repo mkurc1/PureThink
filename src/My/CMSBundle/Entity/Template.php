@@ -75,6 +75,11 @@ class Template
      */
     private $styles;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Image", mappedBy="template", cascade={"persist"}, orphanRemoval=true)
+     */
+    private $images;
+
 
     /**
      * @ORM\PostPersist()
@@ -91,6 +96,7 @@ class Template
         mkdir($dir, 0777);
         mkdir($dir.'/'.$this->getStylesUploadDir(), 0777);
         mkdir($dir.'/'.$this->getScriptsUploadDir(), 0777);
+        mkdir($dir.'/'.$this->getImagesUploadDir(), 0777);
         umask($userMask);
     }
 
@@ -122,6 +128,11 @@ class Template
     public function getScriptsUploadDir()
     {
         return 'js';
+    }
+
+    public function getImagesUploadDir()
+    {
+        return 'images';
     }
 
     /**
@@ -312,6 +323,7 @@ class Template
     {
         $this->scripts = new \Doctrine\Common\Collections\ArrayCollection();
         $this->styles = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->images = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -386,5 +398,42 @@ class Template
     public function getStyles()
     {
         return $this->styles;
+    }
+
+    /**
+     * Add images
+     *
+     * @param \My\CMSBundle\Entity\Image $images
+     * @return Template
+     */
+    public function addImage(\My\CMSBundle\Entity\Image $images)
+    {
+        $images->setTemplate($this);
+
+        $this->images[] = $images;
+
+        return $this;
+    }
+
+    /**
+     * Remove images
+     *
+     * @param \My\CMSBundle\Entity\Image $images
+     */
+    public function removeImage(\My\CMSBundle\Entity\Image $images)
+    {
+        $images->removeUpload();
+
+        $this->images->removeElement($images);
+    }
+
+    /**
+     * Get images
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getImages()
+    {
+        return $this->images;
     }
 }

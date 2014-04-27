@@ -101,6 +101,11 @@ class Article implements MetadataInterface
     private $componentHasArticle;
 
 
+    public function incrementArticleViews()
+    {
+        $this->setViews($this->getViews() + 1);
+    }
+
     public function getSEOData()
     {
         return $this->getMetadata();

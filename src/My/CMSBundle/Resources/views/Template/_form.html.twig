@@ -41,3 +41,18 @@
         </div>
     {% endfor %}
 </div>
+
+<div class="dane_element" data-prototype="{{ form_widget(form.images.vars.prototype)|e }}">
+    {{ form_label(form.images) }}
+
+    {% for image in form.images %}
+        <div class="dane_element">
+            {{ form_label(image.file) }}
+            {{ form_widget(image.file) }}
+            <div class="input_file">{{ image.vars.value.originalName }}</div>
+            <button class="browse">Przeglądaj</button>
+            {{ form_errors(image.file) }}
+            <a class="collection remove">x</a>
+        </div>
+    {% endfor %}
+</div>

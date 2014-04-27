@@ -9,10 +9,10 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table()
  * @ORM\Entity
  */
-class Style extends File
+class Image extends File
 {
     /**
-     * @ORM\ManyToOne(targetEntity="Template", inversedBy="styles")
+     * @ORM\ManyToOne(targetEntity="Template", inversedBy="images")
      * @ORM\JoinColumn(onDelete="CASCADE")
      */
     private $template;
@@ -35,14 +35,14 @@ class Style extends File
         $template = $this->getTemplate();
         $templateDir = $template->getUploadDir().'/'.$template->getSlug();
 
-        return $templateDir.'/'.$template->getStylesUploadDir();
+        return $templateDir.'/'.$template->getImagesUploadDir();
     }
 
     /**
      * Set template
      *
      * @param \My\CMSBundle\Entity\Template $template
-     * @return Style
+     * @return Script
      */
     public function setTemplate(\My\CMSBundle\Entity\Template $template = null)
     {
@@ -54,7 +54,7 @@ class Style extends File
     /**
      * Get template
      *
-     * @return \My\CMSBundle\Entity\Template 
+     * @return \My\CMSBundle\Entity\Template
      */
     public function getTemplate()
     {

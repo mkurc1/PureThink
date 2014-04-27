@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 /**
  * @ORM\Table(name="core_file")
  * @ORM\InheritanceType("SINGLE_TABLE")
- * @ORM\DiscriminatorMap({"file": "My\FileBundle\Entity\File", "script": "My\CMSBundle\Entity\Script", "style": "My\CMSBundle\Entity\Style"})
+ * @ORM\DiscriminatorMap({"file": "My\FileBundle\Entity\File", "script": "My\CMSBundle\Entity\Script", "style": "My\CMSBundle\Entity\Style", "image": "My\CMSBundle\Entity\Image"})
  * @ORM\Entity()
  * @ORM\HasLifecycleCallbacks
  */
@@ -91,13 +91,18 @@ abstract class File
     public function preUpload()
     {
         if (null !== $this->getFile()) {
-            $filename = sha1(uniqid(mt_rand(), true));
-
             $this->setOriginalName($this->getFile()->getClientOriginalName());
-            $this->setPath($filename.'.'.$this->getFile()->getClientOriginalExtension());
+            $this->setPath($this->generateFileName());
             $this->setSize($this->getFile()->getClientSize());
             $this->setMimeType($this->getFile()->getMimeType());
         }
+    }
+
+    protected function generateFileName()
+    {
+        $filename = sha1(uniqid(mt_rand(), true));
+
+        return $filename.'.'.$this->getFile()->getClientOriginalExtension();
     }
 
     /**
