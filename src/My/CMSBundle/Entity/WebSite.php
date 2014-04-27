@@ -3,8 +3,8 @@
 namespace My\CMSBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use My\BackendBundle\Entity\Metadata;
-use My\BackendBundle\Entity\MetadataInterface;
+use My\AdminBundle\Entity\Metadata;
+use My\AdminBundle\Entity\MetadataInterface;
 
 /**
  * @ORM\Table(name="cms_website")
@@ -26,7 +26,7 @@ class WebSite implements MetadataInterface
     private $language;
 
     /**
-     * @ORM\OneToOne(targetEntity="My\BackendBundle\Entity\Metadata", cascade={"persist"})
+     * @ORM\OneToOne(targetEntity="My\AdminBundle\Entity\Metadata", cascade={"persist"})
      */
     private $metadata;
 
@@ -77,10 +77,10 @@ class WebSite implements MetadataInterface
     /**
      * Set metadata
      *
-     * @param \My\BackendBundle\Entity\Metadata $metadata
+     * @param \My\AdminBundle\Entity\Metadata $metadata
      * @return WebSite
      */
-    public function setMetadata(\My\BackendBundle\Entity\Metadata $metadata = null)
+    public function setMetadata(\My\AdminBundle\Entity\Metadata $metadata = null)
     {
         $this->metadata = $metadata;
 
@@ -90,7 +90,7 @@ class WebSite implements MetadataInterface
     /**
      * Get metadata
      *
-     * @return \My\BackendBundle\Entity\Metadata
+     * @return \My\AdminBundle\Entity\Metadata
      */
     public function getMetadata()
     {

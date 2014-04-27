@@ -1,0 +1,76 @@
+{% extends "MyCoreBundle::layout.html.twig" %}
+
+{% block title %}
+    PureThink - Admin
+{% endblock title %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    {% stylesheets
+        '@MyAdminBundle/Resources/public/css/plugins/chosen.css'
+        '@MyAdminBundle/Resources/public/css/plugins/jquery.qtip.css'
+        '@MyAdminBundle/Resources/public/less/purethink.less'
+        filter='less,cssrewrite,uglifycss'
+        output='css/admin.css' %}
+        <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+    {% endstylesheets %}
+{% endblock stylesheets %}
+
+{% block javascripts %}
+
+    {{ parent() }}
+    <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
+
+    {% javascripts
+        '@jquery_ui'
+        '@underscore'
+        '@backbone'
+        '@helper'
+        '@MyAdminBundle/Resources/public/js/plugin/*'
+        '@MyAdminBundle/Resources/public/js/model/*'
+        '@MyAdminBundle/Resources/public/js/view/*'
+        '@MyAdminBundle/Resources/public/js/*'
+        filter="?uglifyjs2"
+        output='js/admin.js' %}
+        <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock javascripts %}
+
+{% block body %}
+    {{ parent() }}
+
+    <div id="top_menu">
+        {% include 'MyAdminBundle:Admin:_top_menu.html.twig' %}
+    </div>
+
+    <div id="main_menu">
+        {% include 'MyAdminBundle:Admin:_main_menu.html.twig' with { 'modules': modules } %}
+    </div>
+
+    <div id="main_button">
+        {% include 'MyAdminBundle:Admin:_main_button.html.twig' %}
+    </div>
+
+    <div id="main_line"></div>
+
+    <div id="left_menu">
+        <ul id="left_menu_container"></ul>
+        <div id="author">
+            <span>&copy; 2013 <a target="_blank" href="#">ArtCreation</a></span>
+            <span><a href="#">Pomoc</a></span>
+        </div>
+    </div>
+
+    <div id="main">
+        <div id="main_container"></div>
+        <div id="edit_container"></div>
+    </div>
+
+    <div id="footer">
+        <div id="left_menu_toggle"></div>
+
+        {% include 'MyAdminBundle:Admin:_footer.html.twig' %}
+    </div>
+{% endblock body %}

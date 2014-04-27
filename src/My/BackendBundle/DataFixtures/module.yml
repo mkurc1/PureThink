@@ -1,9 +1,0 @@
-model: My\BackendBundle\Entity\Module
-fixtures:
-    module_1:
-        name: "CMS"
-        isDefault: 1
-    module_2:
-        name: "File"
-    module_3:
-        name: "User"

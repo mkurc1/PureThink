@@ -1,0 +1,16 @@
+{% include 'MyAdminBundle:Admin:_module.html.twig' with { 'modules': modules } %}
+
+<ul id="main_menu_list"></ul>
+
+<div id="shortcut_container">
+	<a href="#" id="shortcut_option">
+		<i class="fa fa-cog"></i>
+		<img class="arrow" src="{{ asset('images/arrow_down_black.png') }}" alt="arrow" />
+	</a>
+	<a href="{{ path('frontend') }}" target="_blank" id="shortcut_show">
+		<i class="fa fa-desktop"></i>
+	</a>
+	<a href="{{ path('my_file_file_new') }}" id="shortcut_attachment">
+		<i class="fa fa-paperclip"></i>
+	</a>
+</div>

@@ -3,7 +3,7 @@
         {% if app.user is not null %}
             <span>Witaj <a class="user-name" href="{{ path('fos_user_profile_show') }}">{{ app.user.firstName~" "~app.user.lastName }}</a></span>
             {% if is_granted('ROLE_ADMIN') %}
-                <a class="admin" href="{{ path('backend') }}">Admin</a>
+                <a class="admin" href="{{ path('admin') }}">Admin</a>
             {% endif %}
             <a class="logout" href="{{ path('fos_user_security_logout') }}">Wyloguj</a>
         {% else %}

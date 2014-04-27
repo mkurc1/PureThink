@@ -32,13 +32,13 @@ class UserSetting
     private $rowsOnPage;
 
     /**
-     * @ORM\ManyToOne(targetEntity="My\BackendBundle\Entity\Language")
+     * @ORM\ManyToOne(targetEntity="My\AdminBundle\Entity\Language")
      * @ORM\JoinColumn(nullable=true)
      */
     private $language;
 
     /**
-     * @ORM\ManyToOne(targetEntity="My\BackendBundle\Entity\Module")
+     * @ORM\ManyToOne(targetEntity="My\AdminBundle\Entity\Module")
      * @ORM\JoinColumn(nullable=true)
      */
     private $module;
@@ -71,10 +71,10 @@ class UserSetting
     /**
      * Set language
      *
-     * @param \My\BackendBundle\Entity\Language $language
+     * @param \My\AdminBundle\Entity\Language $language
      * @return UserSetting
      */
-    public function setLanguage(\My\BackendBundle\Entity\Language $language = null)
+    public function setLanguage(\My\AdminBundle\Entity\Language $language = null)
     {
         $this->language = $language;
 
@@ -84,7 +84,7 @@ class UserSetting
     /**
      * Get language
      *
-     * @return \My\BackendBundle\Entity\Language
+     * @return \My\AdminBundle\Entity\Language
      */
     public function getLanguage()
     {
@@ -94,10 +94,10 @@ class UserSetting
     /**
      * Set module
      *
-     * @param \My\BackendBundle\Entity\Module $module
+     * @param \My\AdminBundle\Entity\Module $module
      * @return UserSetting
      */
-    public function setModule(\My\BackendBundle\Entity\Module $module = null)
+    public function setModule(\My\AdminBundle\Entity\Module $module = null)
     {
         $this->module = $module;
 
@@ -107,7 +107,7 @@ class UserSetting
     /**
      * Get module
      *
-     * @return \My\BackendBundle\Entity\Module
+     * @return \My\AdminBundle\Entity\Module
      */
     public function getModule()
     {

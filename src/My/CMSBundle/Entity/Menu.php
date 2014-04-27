@@ -66,7 +66,7 @@ class Menu
     private $language;
 
     /**
-     * @ORM\ManyToOne(targetEntity="My\BackendBundle\Entity\Series")
+     * @ORM\ManyToOne(targetEntity="My\AdminBundle\Entity\Series")
      * @ORM\JoinColumn(onDelete="CASCADE", nullable=false)
      * @Assert\NotNull()
      */
@@ -281,10 +281,10 @@ class Menu
     /**
      * Set series
      *
-     * @param \My\BackendBundle\Entity\Series $series
+     * @param \My\AdminBundle\Entity\Series $series
      * @return Menu
      */
-    public function setSeries(\My\BackendBundle\Entity\Series $series)
+    public function setSeries(\My\AdminBundle\Entity\Series $series)
     {
         $this->series = $series;
 
@@ -294,7 +294,7 @@ class Menu
     /**
      * Get series
      *
-     * @return \My\BackendBundle\Entity\Series
+     * @return \My\AdminBundle\Entity\Series
      */
     public function getSeries()
     {

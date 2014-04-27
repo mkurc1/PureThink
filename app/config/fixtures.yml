@@ -5,10 +5,10 @@ khepin_yaml_fixtures:
         - MyUserBundle/group
         - MyUserBundle/user
 
-        - MyBackendBundle/module
-        - MyBackendBundle/menu
-        - MyBackendBundle/series
-        - MyBackendBundle
+        - MyAdminBundle/module
+        - MyAdminBundle/menu
+        - MyAdminBundle/series
+        - MyAdminBundle
 
         - MyFileBundle
 

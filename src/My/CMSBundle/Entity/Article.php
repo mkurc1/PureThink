@@ -4,8 +4,8 @@ namespace My\CMSBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
-use My\BackendBundle\Entity\Metadata;
-use My\BackendBundle\Entity\MetadataInterface;
+use My\AdminBundle\Entity\Metadata;
+use My\AdminBundle\Entity\MetadataInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 use My\UserBundle\Entity\User;
 use Doctrine\ORM\Event\LifecycleEventArgs;
@@ -83,7 +83,7 @@ class Article implements MetadataInterface
     private $user;
 
     /**
-     * @ORM\ManyToOne(targetEntity="My\BackendBundle\Entity\Series")
+     * @ORM\ManyToOne(targetEntity="My\AdminBundle\Entity\Series")
      * @ORM\JoinColumn(onDelete="CASCADE")
      * @Serializer\Expose
      * @Assert\NotNull()
@@ -91,7 +91,7 @@ class Article implements MetadataInterface
     private $series;
 
     /**
-     * @ORM\OneToOne(targetEntity="My\BackendBundle\Entity\Metadata", cascade={"persist"})
+     * @ORM\OneToOne(targetEntity="My\AdminBundle\Entity\Metadata", cascade={"persist"})
      */
     private $metadata;
 
@@ -332,10 +332,10 @@ class Article implements MetadataInterface
     /**
      * Set series
      *
-     * @param \My\BackendBundle\Entity\Series $series
+     * @param \My\AdminBundle\Entity\Series $series
      * @return Article
      */
-    public function setSeries(\My\BackendBundle\Entity\Series $series = null)
+    public function setSeries(\My\AdminBundle\Entity\Series $series = null)
     {
         $this->series = $series;
 
@@ -345,7 +345,7 @@ class Article implements MetadataInterface
     /**
      * Get series
      *
-     * @return \My\BackendBundle\Entity\Series
+     * @return \My\AdminBundle\Entity\Series
      */
     public function getSeries()
     {
@@ -368,10 +368,10 @@ class Article implements MetadataInterface
     /**
      * Set metadata
      *
-     * @param \My\BackendBundle\Entity\Metadata $metadata
+     * @param \My\AdminBundle\Entity\Metadata $metadata
      * @return Article
      */
-    public function setMetadata(\My\BackendBundle\Entity\Metadata $metadata = null)
+    public function setMetadata(\My\AdminBundle\Entity\Metadata $metadata = null)
     {
         $this->metadata = $metadata;
 
@@ -381,7 +381,7 @@ class Article implements MetadataInterface
     /**
      * Get metadata
      *
-     * @return \My\BackendBundle\Entity\Metadata
+     * @return \My\AdminBundle\Entity\Metadata
      */
     public function getMetadata()
     {

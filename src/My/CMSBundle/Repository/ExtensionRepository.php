@@ -1,7 +1,7 @@
 <?php
 namespace My\CMSBundle\Repository;
 
-use My\BackendBundle\Repository\FilterRepository;
+use My\AdminBundle\Repository\FilterRepository;
 
 
 class ExtensionRepository extends FilterRepository

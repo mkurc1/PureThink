@@ -57,7 +57,7 @@ class Component
     private $language;
 
     /**
-     * @ORM\ManyToOne(targetEntity="My\BackendBundle\Entity\Series")
+     * @ORM\ManyToOne(targetEntity="My\AdminBundle\Entity\Series")
      * @ORM\JoinColumn(onDelete="CASCADE", nullable=false)
      * @Assert\NotNull()
      */
@@ -232,10 +232,10 @@ class Component
     /**
      * Set series
      *
-     * @param \My\BackendBundle\Entity\Series $series
+     * @param \My\AdminBundle\Entity\Series $series
      * @return Component
      */
-    public function setSeries(\My\BackendBundle\Entity\Series $series)
+    public function setSeries(\My\AdminBundle\Entity\Series $series)
     {
         $this->series = $series;
 
@@ -245,7 +245,7 @@ class Component
     /**
      * Get series
      *
-     * @return \My\BackendBundle\Entity\Series
+     * @return \My\AdminBundle\Entity\Series
      */
     public function getSeries()
     {

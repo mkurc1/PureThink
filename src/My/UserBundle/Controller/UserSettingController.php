@@ -89,8 +89,8 @@ class UserSettingController extends Controller
 
         $userSetting = $this->getUser()->getUserSetting();
         $userSetting->setRowsOnPage($rowsOnPageId);
-        $userSetting->setModule($em->getRepository('MyBackendBundle:Module')->find($moduleId));
-        $userSetting->setLanguage($em->getRepository('MyBackendBundle:Language')->find($languageId));
+        $userSetting->setModule($em->getRepository('MyAdminBundle:Module')->find($moduleId));
+        $userSetting->setLanguage($em->getRepository('MyAdminBundle:Language')->find($languageId));
 
         $em = $this->getDoctrine()->getManager();
         $em->flush();
@@ -111,13 +111,13 @@ class UserSettingController extends Controller
         }
 
         if (null == $setting->getLanguage()) {
-            $defaultModule = $em->getRepository('MyBackendBundle:Module')
+            $defaultModule = $em->getRepository('MyAdminBundle:Module')
                 ->findOneByIsDefault(true);
             $setting->setModule($defaultModule);
         }
 
         if (null == $setting->getLanguage()) {
-            $defaultLanguage = $em->getRepository('MyBackendBundle:Language')
+            $defaultLanguage = $em->getRepository('MyAdminBundle:Language')
                 ->findOneByIsDefault(true);
             $setting->setLanguage($defaultLanguage);
         }

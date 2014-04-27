@@ -8,8 +8,8 @@
     {{ parent() }}
 
     {% stylesheets
-        '@MyBackendBundle/Resources/public/css/plugins/jquery.qtip.css'
-        '@MyBackendBundle/Resources/public/less/purethink.less'
+        '@MyAdminBundle/Resources/public/css/plugins/jquery.qtip.css'
+        '@MyAdminBundle/Resources/public/less/purethink.less'
         filter='less,cssrewrite,uglifycss'
         output='css/fileBrowse.css' %}
         <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
@@ -27,13 +27,13 @@
         '@underscore'
         '@backbone'
         '@helper'
-        '@MyBackendBundle/Resources/public/js/plugin/jquery.qtip.js'
-        '@MyBackendBundle/Resources/public/js/plugin/jquery.multidrag.table.js'
-        '@MyBackendBundle/Resources/public/js/model/pagination.model.js'
-        '@MyBackendBundle/Resources/public/js/model/list.model.js'
-        '@MyBackendBundle/Resources/public/js/view/pagination.view.js'
-        '@MyBackendBundle/Resources/public/js/view/list.view.js'
-        '@MyBackendBundle/Resources/public/js/select.js'
+        '@MyAdminBundle/Resources/public/js/plugin/jquery.qtip.js'
+        '@MyAdminBundle/Resources/public/js/plugin/jquery.multidrag.table.js'
+        '@MyAdminBundle/Resources/public/js/model/pagination.model.js'
+        '@MyAdminBundle/Resources/public/js/model/list.model.js'
+        '@MyAdminBundle/Resources/public/js/view/pagination.view.js'
+        '@MyAdminBundle/Resources/public/js/view/list.view.js'
+        '@MyAdminBundle/Resources/public/js/select.js'
         '@MyFileBundle/Resources/public/js/fileBrowse.js'
         filter="?uglifyjs2"
         output='js/fileBrowse.js' %}
@@ -48,7 +48,7 @@
         <div id="file_borwse_list"></div>
         <div id="file_borwse_footer">
             <div id="file_borwse_pagination">
-                {% include 'MyBackendBundle:Admin:_pagination.html.twig' %}
+                {% include 'MyAdminBundle:Admin:_pagination.html.twig' %}
             </div>
         </div>
     </div>

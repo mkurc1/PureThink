@@ -2,7 +2,7 @@
 
 namespace My\FileBundle\Repository;
 
-use My\BackendBundle\Repository\FilterRepository;
+use My\AdminBundle\Repository\FilterRepository;
 
 /**
  * FileRepository

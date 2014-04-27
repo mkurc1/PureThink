@@ -59,7 +59,7 @@ class Template
     private $updatedAt;
 
     /**
-     * @ORM\ManyToOne(targetEntity="My\BackendBundle\Entity\Series")
+     * @ORM\ManyToOne(targetEntity="My\AdminBundle\Entity\Series")
      * @ORM\JoinColumn(onDelete="CASCADE", nullable=false)
      * @Assert\NotNull()
      */
@@ -296,10 +296,10 @@ class Template
     /**
      * Set series
      *
-     * @param \My\BackendBundle\Entity\Series $series
+     * @param \My\AdminBundle\Entity\Series $series
      * @return Template
      */
-    public function setSeries(\My\BackendBundle\Entity\Series $series = null)
+    public function setSeries(\My\AdminBundle\Entity\Series $series = null)
     {
         $this->series = $series;
 
@@ -309,7 +309,7 @@ class Template
     /**
      * Get series
      *
-     * @return \My\BackendBundle\Entity\Series 
+     * @return \My\AdminBundle\Entity\Series
      */
     public function getSeries()
     {

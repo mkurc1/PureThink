@@ -2,7 +2,7 @@
 
 namespace My\CMSBundle\Controller;
 
-use My\BackendBundle\Controller\CRUDController;
+use My\AdminBundle\Controller\CRUDController;
 use My\CMSBundle\Entity\ComponentHasArticle;
 use My\CMSBundle\Entity\ComponentHasFile;
 use My\CMSBundle\Entity\ComponentHasText;

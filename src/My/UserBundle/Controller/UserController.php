@@ -2,7 +2,7 @@
 
 namespace My\UserBundle\Controller;
 
-use My\BackendBundle\Controller\CRUDController;
+use My\AdminBundle\Controller\CRUDController;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;

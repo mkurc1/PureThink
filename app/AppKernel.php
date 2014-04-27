@@ -40,7 +40,7 @@ class AppKernel extends Kernel
             new My\UserBundle\MyUserBundle(),
             new My\CommentBundle\MyCommentBundle(),
             new My\CoreBundle\MyCoreBundle(),
-            new My\BackendBundle\MyBackendBundle(),
+            new My\AdminBundle\MyAdminBundle(),
             new My\FileBundle\MyFileBundle(),
             new My\CMSBundle\MyCMSBundle(),
         );

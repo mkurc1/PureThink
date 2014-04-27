@@ -50,6 +50,6 @@ my_cms:
     prefix:   /
 
 my_backend:
-    resource: "@MyBackendBundle/Controller/"
+    resource: "@MyAdminBundle/Controller/"
     type:     annotation
     prefix:   /admin

@@ -2,7 +2,7 @@
 
 namespace My\CMSBundle\Controller;
 
-use My\BackendBundle\Controller\CRUDController;
+use My\AdminBundle\Controller\CRUDController;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -67,7 +67,7 @@ class ArticleController extends CRUDController
             $entity->setName($entityJson['name']);
             $entity->setContent($entityJson['content']);
             $entity->setLanguage($em->getRepository('MyCMSBundle:Language')->find($entityJson['language']['id']));
-            $entity->setSeries($em->getRepository('MyBackendBundle:Series')->find($entityJson['series']['id']));
+            $entity->setSeries($em->getRepository('MyAdminBundle:Series')->find($entityJson['series']['id']));
             $em->persist($entity);
         }
     }

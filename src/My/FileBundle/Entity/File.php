@@ -31,7 +31,7 @@ class File extends BaseFile
     private $user;
 
     /**
-     * @ORM\ManyToOne(targetEntity="My\BackendBundle\Entity\Series")
+     * @ORM\ManyToOne(targetEntity="My\AdminBundle\Entity\Series")
      * @ORM\JoinColumn(onDelete="CASCADE")
      * @Assert\NotNull()
      */
@@ -113,10 +113,10 @@ class File extends BaseFile
     /**
      * Set series
      *
-     * @param \My\BackendBundle\Entity\Series $series
+     * @param \My\AdminBundle\Entity\Series $series
      * @return File
      */
-    public function setSeries(\My\BackendBundle\Entity\Series $series)
+    public function setSeries(\My\AdminBundle\Entity\Series $series)
     {
         $this->series = $series;
 
@@ -126,7 +126,7 @@ class File extends BaseFile
     /**
      * Get series
      *
-     * @return \My\BackendBundle\Entity\Series
+     * @return \My\AdminBundle\Entity\Series
      */
     public function getSeries()
     {

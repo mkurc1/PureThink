@@ -2,7 +2,7 @@
 
 namespace My\CMSBundle\Controller;
 
-use My\BackendBundle\Controller\CRUDController;
+use My\AdminBundle\Controller\CRUDController;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use My\CMSBundle\Entity\Extension;
 use My\CMSBundle\Form\ExtensionType;
