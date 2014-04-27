@@ -36,6 +36,7 @@ class AppKernel extends Kernel
             new FOS\CommentBundle\FOSCommentBundle(),
             new JMS\SerializerBundle\JMSSerializerBundle(),
             new KPhoen\SitemapBundle\KPhoenSitemapBundle(),
+            new Ornicar\GravatarBundle\OrnicarGravatarBundle(),
 
             new My\UserBundle\MyUserBundle(),
             new My\CommentBundle\MyCommentBundle(),

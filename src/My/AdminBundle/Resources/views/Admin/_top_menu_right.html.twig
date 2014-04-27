@@ -1,7 +1,7 @@
 <div id="logout_container">
-	<a id="logout" href="{{ path('fos_user_security_logout') }}">Wyloguj</a>
+    <a id="logout" href="{{ path('fos_user_security_logout') }}">Wyloguj</a>
 </div>
 <div id="person_foto_container">
-	<div id="person_foto" style="background-image: url('{{ asset("images/person_small.png") }}')"></div>
+    <img id="person_foto" src="{{ gravatar(app.user.email, 28) }}" />
 </div>
 <div id="person_name">Witaj <a href="#">{{ app.user.firstName ~ ' ' ~ app.user.lastName }}</a></div>
