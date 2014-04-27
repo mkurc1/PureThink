@@ -72,7 +72,7 @@
                 margin-right: 0;
             }
 
-            label {
+            > label {
                 font-size: 12px;
                 color: #3d3d3d;
                 float: left;
@@ -90,10 +90,10 @@
                 }
             }
 
-            input[type='text'],
-            input[type='password'],
-            input[type='email'],
-            div.input_file {
+            > input[type='text'],
+            > input[type='password'],
+            > input[type='email'],
+            > div.input_file {
                 position: relative;
                 float: left;
                 width: (@dane_element_width - @dane_element_input_width_helper);
@@ -106,7 +106,7 @@
                 font-size: 13px;
             }
 
-            input[type='text'].name {
+            > input[type='text'].name {
                 background-color: @main-field-color;
                 height: 40px;
                 font-size: 18px;
@@ -117,12 +117,12 @@
                 box-shadow: 0 0 10px #E5E5E5;
             }
 
-            div.input_file {
+            > div.input_file {
                 padding: 5px;
                 height: 17px;
             }
 
-            textarea {
+            > textarea {
                 position: relative;
                 float: left;
                 width: (@dane_element_width - @dane_element_input_width_helper);
@@ -135,7 +135,7 @@
                 padding: 5px;
             }
 
-            button {
+            > button {
                 position: relative;
                 float: right;
                 height: 29px;

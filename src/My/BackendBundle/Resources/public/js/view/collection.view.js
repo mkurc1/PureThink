@@ -47,7 +47,7 @@ CollectionView = Backbone.View.extend({
         this.$el.data('index', index + 1);
 
         $(e.currentTarget).before($container);
-        $container.append($newForm);
+        $container.append($newForm.children());
 
         this.insertFileField($container);
         this.insertRemoveButton($container);
