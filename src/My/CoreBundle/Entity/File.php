@@ -31,14 +31,12 @@ abstract class File
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotNull()
      * @Assert\Length(max="255")
      */
     private $originalName;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotNull()
      * @Assert\Length(max="255")
      */
     private $path;
