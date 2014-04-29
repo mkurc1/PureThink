@@ -19,7 +19,7 @@ class ArticleRepository extends FilterRepository
 
         $qb->orderBy($order, $sequence);
 
-        return $qb->getQuery();
+        return $qb;
     }
 
     public function getArticlesByIds(array $ids)

@@ -15,8 +15,7 @@ class MenuRepository extends EntityRepository
     public function getMenuForModule($moduleId)
     {
         $qb = $this->createQueryBuilder('m')
-            ->join('m.module', 'mod')
-            ->where('mod.id = :moduleId')
+            ->where('m.module = :moduleId')
             ->orderBy('m.sequence')
             ->setParameter('moduleId', $moduleId);
 

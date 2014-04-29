@@ -17,7 +17,7 @@ class TemplateRepository extends FilterRepository
 
         $qb->orderBy($order, $sequence);
 
-        return $qb->getQuery();
+        return $qb;
     }
 
     public function getTemplatesByIds(array $ids)

@@ -33,7 +33,7 @@
 
         "gedmo/doctrine-extensions": "dev-master",
         "stof/doctrine-extensions-bundle": "dev-master",
-        "knplabs/knp-paginator-bundle": "dev-master",
+        "knplabs/knp-paginator-bundle": "~2.4",
         "egeloen/ckeditor-bundle": "2.*",
         "raulfraile/ladybug-bundle": "*",
         "bmatzner/fontawesome-bundle": "~4.0",

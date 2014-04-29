@@ -2,7 +2,9 @@
 
 namespace My\AdminBundle\Controller;
 
+use Doctrine\ORM\QueryBuilder;
 use My\AdminBundle\Form\ImportType;
+use Symfony\Component\HttpFoundation\ParameterBag;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -33,36 +35,45 @@ abstract class CRUDController extends Controller
      */
     public function listAction(Request $request)
     {
-        $params = [
-            'rowsOnPage' => (int)$request->get('rowsOnPage', 10),
-            'page'       => (int)$request->get('page', 1),
-            'order'      => $request->get('order', 'a.name'),
-            'sequence'   => $request->get('sequence', 'ASC'),
-            'filter'     => $request->get('filter', null),
-            'languageId' => (int)$request->get('languageId'),
-            'groupId'    => (int)$request->get('groupId'),
-            'sublistId'  => (int)$request->get('sublistId')
-        ];
-
-        $params = $this->paramsFilter($params);
+        $params = $this->getListParameters($request->query);
 
         $entities = $this->getListQB($params);
         $pagination = $this->setPagination($entities, $params['page'], $params['rowsOnPage']);
 
-        $list = $this->renderView($this->getListTemplate(), [
-            'entities'   => $pagination['entities'],
-            'page'       => $params['page'],
-            'rowsOnPage' => $params['rowsOnPage']
-        ]);
+        $list = $this->renderListView($pagination->getEntities(), $params['page'], $params['rowsOnPage']);
 
         $response = [
             "list"       => $list,
-            "pagination" => $pagination,
+            "pagination" => $pagination->toArray(),
             "order"      => $params['order'],
             "response"   => true
         ];
 
         return new Response(json_encode($response));
+    }
+
+    protected function getListParameters(ParameterBag $query)
+    {
+        $params = [
+            'rowsOnPage' => (int)$query->get('rowsOnPage', 10),
+            'page'       => (int)$query->get('page', 1),
+            'order'      => $query->get('order', 'a.name'),
+            'sequence'   => $query->get('sequence', 'ASC'),
+            'filter'     => $query->get('filter', null),
+            'languageId' => (int)$query->get('languageId'),
+            'groupId'    => (int)$query->get('groupId'),
+            'sublistId'  => (int)$query->get('sublistId')
+        ];
+
+        $params = $this->paramsFilter($params);
+
+        return $params;
+    }
+
+    protected function renderListView($entities, $page, $rowsOnPage)
+    {
+        return $this->renderView($this->getListTemplate(),
+            compact('entities', 'page', 'rowsOnPage'));
     }
 
     /**
@@ -85,11 +96,9 @@ abstract class CRUDController extends Controller
             $response = $this->get('my.flush.service')->tryFlush();
             $response['id'] = $entity->getId();
         } else {
-            $view = $this->renderForm($entity, $form);
-
             $response = [
                 "response" => !($request->getMethod() == "POST") && !$form->isValid(),
-                "view"     => $view
+                "view"     => $this->renderForm($entity, $form)
             ];
         }
 
@@ -113,11 +122,9 @@ abstract class CRUDController extends Controller
             $response = $this->get('my.flush.service')->tryFlush();
             $response['id'] = $entity->getId();
         } else {
-            $view = $this->renderForm($entity, $form);
-
             $response = [
                 "response" => !($request->getMethod() == "POST") && !$form->isValid(),
-                "view"     => $view
+                "view"     => $this->renderForm($entity, $form)
             ];
         }
 
@@ -210,10 +217,10 @@ abstract class CRUDController extends Controller
         return method_exists($this, 'importEntities');
     }
 
-    private function setPagination($entities, $page = 1, $rowsOnPage = 10)
+    private function setPagination(QueryBuilder $entitiesQb, $page = 1, $rowsOnPage = 10)
     {
         return $this->get('my.pagination.service')
-            ->setPagination($entities, $page, $rowsOnPage);
+            ->setPagination($entitiesQb, $page, $rowsOnPage);
     }
 
     protected function getEntity($id)

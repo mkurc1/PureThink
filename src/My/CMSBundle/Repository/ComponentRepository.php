@@ -21,7 +21,7 @@ class ComponentRepository extends FilterRepository
 
         $qb->orderBy($order, $sequence);
 
-        return $qb->getQuery();
+        return $qb;
     }
 
     public function getComponentsByIds(array $ids)

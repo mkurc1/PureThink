@@ -17,7 +17,7 @@ class ExtensionHasFieldRepository extends FilterRepository
 
         $qb->orderBy($order, $sequence);
 
-        return $qb->getQuery();
+        return $qb;
     }
 
     public function getFieldsByIds(array $ids)

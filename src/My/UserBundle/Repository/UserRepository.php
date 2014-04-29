@@ -17,7 +17,7 @@ class UserRepository extends EntityRepository
 
         $qb->orderBy($order, $sequence);
 
-        return $qb->getQuery();
+        return $qb;
     }
 
     public function getUsersByIds(array $ids)

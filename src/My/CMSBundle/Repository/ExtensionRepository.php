@@ -16,7 +16,7 @@ class ExtensionRepository extends FilterRepository
 
         $qb->orderBy($order, $sequence);
 
-        return $qb->getQuery();
+        return $qb;
     }
 
     public function getExtensionsByIds(array $ids)

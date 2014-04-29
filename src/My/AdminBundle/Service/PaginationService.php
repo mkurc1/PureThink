@@ -2,29 +2,23 @@
 
 namespace My\AdminBundle\Service;
 
+use Doctrine\ORM\QueryBuilder;
+use Knp\Component\Pager\Paginator;
+use My\AdminBundle\Model\Pagination;
+
 class PaginationService
 {
-    private $knpPaginator;
+    private $paginator;
 
-    public function __construct($knpPaginator)
+    public function __construct(Paginator $paginator)
     {
-        $this->knpPaginator = $knpPaginator;
+        $this->paginator = $paginator;
     }
 
-    public function setPagination($entitiesQB, $page, $rowsOnPage)
+    public function setPagination(QueryBuilder $entitiesQb, $page = 1, $rowsOnPage = 10)
     {
-        $pagination = $this->knpPaginator->paginate($entitiesQB, $page, $rowsOnPage);
+        $pagination = $this->paginator->paginate($entitiesQb, $page, $rowsOnPage);
 
-        $paginationData = $pagination->getPaginationData();
-
-        return [
-            "entities"    => $pagination,
-            "pages"       => $paginationData['pagesInRange'],
-            "previous"    => (isset($paginationData['previous']) ? $paginationData['previous'] : $paginationData['current']),
-            "next"        => (isset($paginationData['next']) ? $paginationData['next'] : $paginationData['current']),
-            "first_page"  => $paginationData['first'],
-            "last_page"   => ($paginationData['last'] != 0) ? $paginationData['last'] : 1,
-            "total_count" => $paginationData['totalCount']
-        ];
+        return new Pagination($pagination);
     }
 }

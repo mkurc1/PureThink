@@ -48,11 +48,11 @@ class FileBrowseController extends Controller
             ->setPagination($entities, $page, $rowsOnPage);
 
         $list = $this->renderView('MyFileBundle:FileBrowse:_list.html.twig',
-            ['entities' => $pagination['entities'], 'page' => $page, 'rowsOnPage' => $rowsOnPage]);
+            ['entities' => $pagination->getEntities(), 'page' => $page, 'rowsOnPage' => $rowsOnPage]);
 
         $response = [
             "list"       => $list,
-            "pagination" => $pagination,
+            "pagination" => $pagination->toArray(),
             "response"   => true
             ];
 

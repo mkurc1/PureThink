@@ -24,6 +24,6 @@ class ComponentHasTextRepository extends EntityRepository
 
         $qb->orderBy($order, $sequence);
 
-        return $qb->getQuery();
+        return $qb;
     }
 }
