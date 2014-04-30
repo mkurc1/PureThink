@@ -38,12 +38,12 @@ class AppKernel extends Kernel
             new KPhoen\SitemapBundle\KPhoenSitemapBundle(),
             new Ornicar\GravatarBundle\OrnicarGravatarBundle(),
 
-            new My\UserBundle\MyUserBundle(),
-            new My\CommentBundle\MyCommentBundle(),
-            new My\CoreBundle\MyCoreBundle(),
-            new My\AdminBundle\MyAdminBundle(),
-            new My\FileBundle\MyFileBundle(),
-            new My\CMSBundle\MyCMSBundle(),
+            new Purethink\UserBundle\PurethinkUserBundle(),
+            new Purethink\CommentBundle\PurethinkCommentBundle(),
+            new Purethink\CoreBundle\PurethinkCoreBundle(),
+            new Purethink\AdminBundle\PurethinkAdminBundle(),
+            new Purethink\FileBundle\PurethinkFileBundle(),
+            new Purethink\CMSBundle\PurethinkCMSBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

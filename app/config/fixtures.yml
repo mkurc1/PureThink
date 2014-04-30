@@ -1,24 +1,24 @@
 khepin_yaml_fixtures:
     resources:
-        - MyCoreBundle
+        - PurethinkCoreBundle
 
-        - MyUserBundle/group
-        - MyUserBundle/user
+        - PurethinkUserBundle/group
+        - PurethinkUserBundle/user
 
-        - MyAdminBundle/module
-        - MyAdminBundle/menu
-        - MyAdminBundle/series
-        - MyAdminBundle
+        - PurethinkAdminBundle/module
+        - PurethinkAdminBundle/menu
+        - PurethinkAdminBundle/series
+        - PurethinkAdminBundle
 
-        - MyFileBundle
+        - PurethinkFileBundle
 
-        - MyCMSBundle/language
-        - MyCMSBundle/article
-        - MyCMSBundle/extension
-        - MyCMSBundle/extensionHasField
-        - MyCMSBundle/component
-        - MyCMSBundle/componentHasElement
-        - MyCMSBundle/componentHasText
-        - MyCMSBundle/componentHasArticle
-        - MyCMSBundle/componentHasFile
-        - MyCMSBundle
+        - PurethinkCMSBundle/language
+        - PurethinkCMSBundle/article
+        - PurethinkCMSBundle/extension
+        - PurethinkCMSBundle/extensionHasField
+        - PurethinkCMSBundle/component
+        - PurethinkCMSBundle/componentHasElement
+        - PurethinkCMSBundle/componentHasText
+        - PurethinkCMSBundle/componentHasArticle
+        - PurethinkCMSBundle/componentHasFile
+        - PurethinkCMSBundle

@@ -1,0 +1,14 @@
+model: Purethink\CMSBundle\Entity\Extension
+fixtures:
+    cms_extension_1:
+        name: "Linki"
+        series: series_6
+    cms_extension_2:
+        name: "Baner"
+        series: series_6
+    cms_extension_3:
+        name: "News"
+        series: series_6
+    cms_extension_4:
+        name: "Cookie"
+        series: series_6

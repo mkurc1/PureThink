@@ -1,0 +1,30 @@
+<?php
+
+namespace Purethink\CMSBundle\Form;
+
+use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+
+class WebSiteType extends AbstractType
+{
+    public function buildForm(FormBuilderInterface $builder, array $options)
+    {
+        $builder
+            ->add('metadata', 'metadata', ['required' => false]);
+    }
+
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    {
+        $resolver->setDefaults([
+            'data_class'         => 'Purethink\CMSBundle\Entity\WebSite',
+            'cascade_validation' => true,
+            'validation_groups'  => ['Default', 'website'],
+        ]);
+    }
+
+    public function getName()
+    {
+        return 'purethink_cmsbundle_websitetype';
+    }
+}

@@ -1,0 +1,62 @@
+{% extends "PurethinkCoreBundle::layout.html.twig" %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    {% stylesheets
+        '@PurethinkCoreBundle/Resources/public/css/plugin/bootstrap.css'
+        '@PurethinkCMSBundle/Resources/public/css/article.css'
+        '@FOSCommentBundle/Resources/assets/css/comments.css'
+        filter='less,cssrewrite,uglifycss'
+        output='css/article.css' %}
+        <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+    {% endstylesheets %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('template/fresh-style/css/main.css') }}">
+{% endblock stylesheets %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    {% javascripts
+        '@PurethinkCoreBundle/Resources/public/js/plugin/bootstrap.js'
+        '@PurethinkCMSBundle/Resources/public/js/cookies.js'
+        filter="?uglifyjs2"
+        output='js/frontend.js' %}
+        <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+    <script src="{{ asset('template/fresh-style/js/main.js') }}"></script>
+{% endblock javascripts %}
+
+{% block body %}
+    {{ parent() }}
+
+    {{ sonata_block_render({ "type": "purethink.cms.block.component", "settings": {
+        "template": "PurethinkCMSBundle:Frontend:_cookie.html.twig",
+        "slug": "cookie",
+        "locale": locale
+    } }) }}
+
+    <div id="top">
+        <div class="container">
+            <div id="logo">
+                <a href="{{ path('localized_frontend', {'locale': locale}) }}">
+                    <img src="{{ asset('template/fresh-style/images/logo.png') }}" alt="logo" />
+                </a>
+            </div>
+
+            {% include 'PurethinkCMSBundle:Frontend:_topmenu.html.twig' with {'locale': locale} %}
+        </div>
+    </div>
+
+    <div id="main_menu">
+        <div class="container">
+            {{ sonata_block_render({ "type": "purethink.cms.block.menu", "settings": {
+                "name": "Main",
+                "locale": locale,
+                "home": true
+            } }) }}
+
+            {{ render(controller('PurethinkCMSBundle:Frontend:search')) }}
+        </div>
+    </div>
+{% endblock body %}

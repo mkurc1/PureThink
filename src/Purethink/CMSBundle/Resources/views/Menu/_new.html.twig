@@ -1,0 +1,9 @@
+<div class="header">
+    <h2>Dodaj menu</h2>
+</div>
+
+<div class="container">
+    <form action="{{ path('purethink_cms_menu_new') }}" method="post" {{ form_enctype(form) }}>
+        {% include 'PurethinkCMSBundle:Menu:_form.html.twig' with { 'form': form } %}
+    </form>
+</div>

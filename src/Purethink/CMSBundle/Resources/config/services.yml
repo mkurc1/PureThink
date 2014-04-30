@@ -1,0 +1,33 @@
+services:
+    sitemap_article_provider:
+        class: Purethink\CMSBundle\Sitemap\Article
+        arguments: [@router, @doctrine.orm.entity_manager]
+        tags:
+            -  { name: sitemap.provider }
+
+    purethink.cms.leftMenu.service:
+        class: Purethink\CMSBundle\Service\LeftMenuService
+        arguments: [@doctrine.orm.entity_manager, @templating]
+
+    purethink.cms.article_type:
+        class: Purethink\CMSBundle\Form\Type\ArticleType
+        tags:
+            - { name: form.type, alias: Article }
+
+    purethink.cms.block.language:
+        class: Purethink\CMSBundle\Block\LanguageBlock
+        tags:
+            - { name: sonata.block }
+        arguments: ["gamedot.competition.block.platform", @templating, @doctrine.orm.entity_manager]
+
+    purethink.cms.block.menu:
+        class: Purethink\CMSBundle\Block\MenuBlock
+        tags:
+            - { name: sonata.block }
+        arguments: ["gamedot.competition.block.platform", @templating, @doctrine.orm.entity_manager]
+
+    purethink.cms.block.component:
+        class: Purethink\CMSBundle\Block\ComponentBlock
+        tags:
+            - { name: sonata.block }
+        arguments: ["gamedot.competition.block.platform", @templating, @doctrine.orm.entity_manager]

@@ -1,9 +1,0 @@
-<div class="header">
-    <h2>Dodaj użytkownika</h2>
-</div>
-
-<div class="container">
-    <form action="{{ path('my_user_user_new') }}" method="post" {{ form_enctype(form) }}>
-        {% include 'MyUserBundle:User:_form.html.twig' with { 'form': form } %}
-    </form>
-</div>

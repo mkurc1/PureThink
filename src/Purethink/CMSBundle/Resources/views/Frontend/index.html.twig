@@ -1,0 +1,33 @@
+{% extends "PurethinkCMSBundle:Frontend:layout.html.twig" %}
+
+{% block keywords %}
+    {{ meta.SEOData.keyword|default(parent()) }}
+{% endblock keywords %}
+
+{% block description %}
+    {{ meta.SEOData.description|default(parent()) }}
+{% endblock description %}
+
+{% block title %}
+    {{ meta.SEOData.title|default(parent()) }}
+{% endblock title %}
+
+{% block body %}
+    {{ parent() }}
+
+    {{ sonata_block_render({ "type": "purethink.cms.block.component", "settings": {
+        "template": "PurethinkCMSBundle:Frontend:_baner.html.twig",
+        "slug": "baner",
+        "locale": locale
+    } }) }}
+
+    {% include 'PurethinkCMSBundle:Frontend:_news_container.html.twig' with {"locale": locale} %}
+
+    {{ sonata_block_render({ "type": "purethink.cms.block.component", "settings": {
+        "template": "PurethinkCMSBundle:Frontend:_link.html.twig",
+        "slug": "linki",
+        "locale": locale
+    } }) }}
+
+    {% include 'PurethinkCMSBundle:Frontend:_footer.html.twig' with {'local': locale} %}
+{% endblock body %}

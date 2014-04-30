@@ -1,0 +1,43 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}PureThink{% endblock %}
+
+{% block icon %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('purethink.ico') }}" />
+{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/bmatznerfontawesome/css/font-awesome.min.css') }}" />
+
+    {% stylesheets
+        '@PurethinkCoreBundle/Resources/public/css/plugin/alertify.core.css'
+        '@PurethinkCoreBundle/Resources/public/css/plugin/alertify.bootstrap.css'
+        '@PurethinkCoreBundle/Resources/public/css/*'
+        filter='less,cssrewrite,uglifycss'
+        output='css/core.css' %}
+        <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+    {% endstylesheets %}
+{% endblock stylesheets %}
+
+{% block javascripts %}
+    {% javascripts
+        '@PurethinkCoreBundle/Resources/public/js/lib/*'
+        '@PurethinkCoreBundle/Resources/public/js/plugin/alertify.js'
+        '@PurethinkCoreBundle/Resources/public/js/*'
+        filter="?uglifyjs2"
+        output='js/core.js' %}
+        <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock javascripts %}
+
+{% block body %}
+    <div class="flash-message">
+        {% for type, messages in app.session.flashbag.all() %}
+            {% for message in messages %}
+                <div type="{{ type }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+    </div>
+{% endblock body %}

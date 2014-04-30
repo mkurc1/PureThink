@@ -1,0 +1,28 @@
+<table class="list">
+    <thead>
+        <tr>
+            <th class="select"></th>
+            <th class="lp">Lp.</th>
+            <th column="a.name" class="name width_big">Nazwa</th>
+            <th column="a.createdAt" class="width_small">Data utworzenia</th>
+            <th column="a.updatedAt" class="width_small">Data modyfikacji</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% if page > 1 %}
+        {% set i = ((page-1)*rowsOnPage) %}
+    {% else %}
+        {% set i = 0 %}
+    {% endif %}
+    {% for entity in entities %}
+    {% set i = i+1 %}
+        <tr list_id="{{ entity.id }}">
+            <td class="select"><input type="checkbox" class="multi_check" /></td>
+            <td class="lp">{{ i }}.</td>
+            <td class="width_big name"><a class="sublist" sublist_id="{{ entity.id }}" href="{{ path('purethink_cms_extensionhasfield_list') }}">{{ entity }}</a></td>
+            <td class="width_small">{{ entity.createdAt|date('Y-m-d') }}</td>
+            <td class="width_small">{{ entity.updatedAt|date('Y-m-d') }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>

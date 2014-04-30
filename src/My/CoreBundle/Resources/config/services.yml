@@ -1,4 +1,0 @@
-services:
-    my.flush.service:
-        class: My\CoreBundle\Service\FlushService
-        arguments: [@doctrine.orm.entity_manager]

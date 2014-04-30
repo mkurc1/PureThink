@@ -29,27 +29,27 @@ fos_comment_api:
 kphoen_sitemap:
     resource: "@KPhoenSitemapBundle/Resources/config/routing.yml"
 
-my_core:
-    resource: "@MyCoreBundle/Controller/"
+purethink_core:
+    resource: "@PurethinkCoreBundle/Controller/"
     type:     annotation
     prefix:   /
 
-my_user:
-    resource: "@MyUserBundle/Controller/"
+purethink_user:
+    resource: "@PurethinkUserBundle/Controller/"
     type:     annotation
     prefix:   /
 
-my_file:
-    resource: "@MyFileBundle/Controller/"
+purethink_file:
+    resource: "@PurethinkFileBundle/Controller/"
     type:     annotation
     prefix:   /admin/file
 
-my_cms:
-    resource: "@MyCMSBundle/Controller/"
+purethink_cms:
+    resource: "@PurethinkCMSBundle/Controller/"
     type:     annotation
     prefix:   /
 
-my_backend:
-    resource: "@MyAdminBundle/Controller/"
+purethink_backend:
+    resource: "@PurethinkAdminBundle/Controller/"
     type:     annotation
     prefix:   /admin

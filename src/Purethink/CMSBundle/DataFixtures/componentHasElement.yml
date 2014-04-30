@@ -1,0 +1,101 @@
+model: Purethink\CMSBundle\Entity\ComponentHasElement
+fixtures:
+    cms_component_has_element_1:
+        component: cms_component_1
+        isEnable: 1
+    cms_component_has_element_2:
+        component: cms_component_1
+        isEnable: 1
+    cms_component_has_element_3:
+        component: cms_component_1
+        isEnable: 1
+    cms_component_has_element_4:
+        component: cms_component_2
+        isEnable: 1
+    cms_component_has_element_5:
+        component: cms_component_2
+        isEnable: 1
+    cms_component_has_element_6:
+        component: cms_component_2
+        isEnable: 1
+    cms_component_has_element_7:
+        component: cms_component_2
+        isEnable: 1
+    cms_component_has_element_8:
+        component: cms_component_2
+        isEnable: 1
+    cms_component_has_element_9:
+        component: cms_component_2
+        isEnable: 1
+    cms_component_has_element_10:
+        component: cms_component_2
+        isEnable: 1
+    cms_component_has_element_11:
+        component: cms_component_2
+        isEnable: 1
+    cms_component_has_element_12:
+        component: cms_component_2
+        isEnable: 1
+    cms_component_has_element_13:
+        component: cms_component_2
+        isEnable: 1
+    cms_component_has_element_14:
+        component: cms_component_2
+        isEnable: 1
+    cms_component_has_element_15:
+        component: cms_component_2
+        isEnable: 1
+    cms_component_has_element_16:
+        component: cms_component_2
+        isEnable: 1
+    cms_component_has_element_17:
+        component: cms_component_2
+        isEnable: 1
+    cms_component_has_element_18:
+        component: cms_component_2
+        isEnable: 1
+    cms_component_has_element_19:
+        component: cms_component_2
+        isEnable: 1
+    cms_component_has_element_20:
+        component: cms_component_2
+        isEnable: 1
+    cms_component_has_element_21:
+        component: cms_component_2
+        isEnable: 1
+    cms_component_has_element_22:
+        component: cms_component_2
+        isEnable: 1
+    cms_component_has_element_23:
+        component: cms_component_2
+        isEnable: 1
+    cms_component_has_element_24:
+        component: cms_component_3
+        isEnable: 1
+    cms_component_has_element_25:
+        component: cms_component_3
+        isEnable: 1
+    cms_component_has_element_26:
+        component: cms_component_3
+        isEnable: 1
+    cms_component_has_element_27:
+        component: cms_component_4
+        isEnable: 1
+    cms_component_has_element_28:
+        component: cms_component_4
+        isEnable: 1
+    cms_component_has_element_29:
+        component: cms_component_4
+        isEnable: 1
+    cms_component_has_element_30:
+        component: cms_component_5
+        isEnable: 1
+    cms_component_has_element_31:
+        component: cms_component_5
+        isEnable: 1
+    cms_component_has_element_32:
+        component: cms_component_5
+        isEnable: 1
+    cms_component_has_element_33:
+        component: cms_component_6
+        isEnable: 1

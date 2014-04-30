@@ -1,0 +1,51 @@
+model: Purethink\CMSBundle\Entity\ComponentHasFile
+fixtures:
+    cms_component_has_text_3:
+        file: file_1
+        componentHasElement: cms_component_has_element_1
+        extensionHasField: cms_extension_has_field_3
+    cms_component_has_text_6:
+        file: file_2
+        componentHasElement: cms_component_has_element_2
+        extensionHasField: cms_extension_has_field_3
+    cms_component_has_text_9:
+        file: file_3
+        componentHasElement: cms_component_has_element_3
+        extensionHasField: cms_extension_has_field_3
+
+    cms_component_has_text_52:
+        file: file_4
+        componentHasElement: cms_component_has_element_24
+        extensionHasField: cms_extension_has_field_8
+    cms_component_has_text_56:
+        file: file_5
+        componentHasElement: cms_component_has_element_25
+        extensionHasField: cms_extension_has_field_8
+    cms_component_has_text_60:
+        file: file_6
+        componentHasElement: cms_component_has_element_26
+        extensionHasField: cms_extension_has_field_8
+    cms_component_has_text_64:
+        file: file_7
+        componentHasElement: cms_component_has_element_27
+        extensionHasField: cms_extension_has_field_8
+    cms_component_has_text_68:
+        file: file_8
+        componentHasElement: cms_component_has_element_28
+        extensionHasField: cms_extension_has_field_8
+    cms_component_has_text_72:
+        file: file_9
+        componentHasElement: cms_component_has_element_29
+        extensionHasField: cms_extension_has_field_8
+    cms_component_has_text_76:
+        file: file_10
+        componentHasElement: cms_component_has_element_30
+        extensionHasField: cms_extension_has_field_8
+    cms_component_has_text_80:
+        file: file_11
+        componentHasElement: cms_component_has_element_31
+        extensionHasField: cms_extension_has_field_8
+    cms_component_has_text_84:
+        file: file_12
+        componentHasElement: cms_component_has_element_32
+        extensionHasField: cms_extension_has_field_8

@@ -1,0 +1,44 @@
+{% extends "PurethinkCMSBundle:Frontend:layout.html.twig" %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" type="text/css" href="{{ asset('template/fresh-style/css/article.css') }}">
+{% endblock stylesheets %}
+
+{% block keywords %}
+    {{ meta.SEOData.keyword|default(parent()) }}
+{% endblock keywords %}
+
+{% block description %}
+    {{ meta.SEOData.description|default(parent()) }}
+{% endblock description %}
+
+{% block title %}
+    {{ meta.SEOData.title|default(parent()) }}
+{% endblock title %}
+
+{% block body %}
+    {{ parent() }}
+
+    <div id="search">
+        <div class="container">
+            <div class="page-header">
+                <h3>Znalezione artykuły</h3>
+            </div>
+
+            <ul>
+            {% for article in articles %}
+                <li><a href="{{ path('article', {'locale': locale, 'slug': article.slug}) }}">{{ article.name }}</a></li>
+            {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    {{ sonata_block_render({ "type": "purethink.cms.block.component", "settings": {
+        "template": "PurethinkCMSBundle:Frontend:_link.html.twig",
+        "slug": "linki",
+        "locale": locale
+    } }) }}
+
+    {% include 'PurethinkCMSBundle:Frontend:_footer.html.twig' with {'local': locale} %}
+{% endblock body %}

@@ -1,0 +1,14 @@
+<table class="list drag-and-drop">
+    <thead>
+        <tr>
+            <th class="select"></th>
+            <th class="lp">Lp.</th>
+            <th class="name width_big">Nazwa</th>
+            <th class="width_small">Aktywne</th>
+            <th class="width_small">Artykuł</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% include 'PurethinkCMSBundle:Menu:_sublist.html.twig' with { 'i': 0, 'entities': entities } %}
+    </tbody>
+</table>

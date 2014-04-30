@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "a3345845106ec9a15e8d65c88e9773b9",
+    "hash": "b884d652926c6feafec3443fd8065bcb",
     "packages": [
         {
             "name": "bmatzner/fontawesome-bundle",

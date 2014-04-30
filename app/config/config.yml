@@ -55,12 +55,12 @@ assetic:
         helper:
             inputs: "%kernel.root_dir%/Resources/public/js/helper.js"
     bundles:
-        - MyCoreBundle
-        - MyAdminBundle
-        - MyCMSBundle
-        - MyFileBundle
-        - MyUserBundle
-        - MyCommentBundle
+        - PurethinkCoreBundle
+        - PurethinkAdminBundle
+        - PurethinkCMSBundle
+        - PurethinkFileBundle
+        - PurethinkUserBundle
+        - PurethinkCommentBundle
     filters:
         cssembed:
             jar: "/usr/share/cssembed/cssembed-0.4.5.jar"
@@ -94,8 +94,8 @@ doctrine:
         auto_mapping: true
         dql:
             string_functions:
-                if: My\CoreBundle\Doctrine\IfFunction
-                cast: My\CoreBundle\Doctrine\CastFunction
+                if: Purethink\CoreBundle\Doctrine\IfFunction
+                cast: Purethink\CoreBundle\Doctrine\CastFunction
 
 # Swiftmailer Configuration
 swiftmailer:
@@ -126,24 +126,24 @@ stof_doctrine_extensions:
 fos_user:
     db_driver: orm
     firewall_name: main
-    user_class: My\UserBundle\Entity\User
+    user_class: Purethink\UserBundle\Entity\User
     from_email:
         address: "%mailer_user%"
         sender_name: PureThink
     registration:
         form:
-            type: my_user_registration
+            type: purethink_user_registration
         confirmation:
             enabled: true
     group:
-        group_class: My\UserBundle\Entity\Group
+        group_class: Purethink\UserBundle\Entity\Group
 
 fos_comment:
     db_driver: orm
     class:
         model:
-            comment: My\CommentBundle\Entity\Comment
-            thread: My\CommentBundle\Entity\Thread
+            comment: Purethink\CommentBundle\Entity\Comment
+            thread: Purethink\CommentBundle\Entity\Thread
 
 k_phoen_sitemap:
     base_host: %base_host%

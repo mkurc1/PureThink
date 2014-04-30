@@ -1,0 +1,14 @@
+services:
+    purethink.pagination.service:
+        class: Purethink\AdminBundle\Service\PaginationService
+        arguments: [@knp_paginator]
+
+    purethink.admin.type.metadata:
+        class: Purethink\AdminBundle\Form\MetadataType
+        tags:
+            - { name: form.type, alias: metadata }
+
+    purethink.admin.type.series:
+        class: Purethink\AdminBundle\Form\Type\SeriesType
+        tags:
+            - { name: form.type, alias: series }

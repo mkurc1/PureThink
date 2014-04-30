@@ -1,0 +1,12 @@
+model: Purethink\AdminBundle\Entity\Language
+fixtures:
+    language_1:
+        name: "Angielski"
+        alias: "EN"
+    language_2:
+        name: "Polski"
+        alias: "PL"
+        isDefault: 1
+    language_3:
+        name: "Czeski"
+        alias: "CZ"

@@ -1,6 +1,6 @@
 sonata_block:
     default_contexts: [cms]
     blocks:
-        my.cms.block.language: ~
-        my.cms.block.menu: ~
-        my.cms.block.component: ~
+        purethink.cms.block.language: ~
+        purethink.cms.block.menu: ~
+        purethink.cms.block.component: ~
