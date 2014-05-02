@@ -27,22 +27,27 @@
         "doctrine/migrations": "dev-master",
         "doctrine/doctrine-migrations-bundle": "dev-master",
 
-        "friendsofsymfony/user-bundle": "~2.0@dev",
+        "friendsofsymfony/user-bundle": "*",
         "friendsofsymfony/jsrouting-bundle": "@stable",
         "friendsofsymfony/comment-bundle": "dev-master",
 
         "gedmo/doctrine-extensions": "dev-master",
         "stof/doctrine-extensions-bundle": "dev-master",
         "knplabs/knp-paginator-bundle": "~2.4",
-        "egeloen/ckeditor-bundle": "2.*",
+        "knplabs/knp-menu-bundle": "1.1.*",
         "raulfraile/ladybug-bundle": "*",
         "bmatzner/fontawesome-bundle": "~4.0",
         "khepin/yaml-fixtures-bundle": "~0.8.1",
 
         "sonata-project/admin-bundle": "*",
+        "sonata-project/doctrine-orm-admin-bundle": "*",
         "sonata-project/intl-bundle": "*",
         "sonata-project/core-bundle": "*",
         "sonata-project/block-bundle": "*",
+        "sonata-project/user-bundle": "*",
+        "sonata-project/notification-bundle": "*",
+        "sonata-project/media-bundle": "*",
+        "sonata-project/formatter-bundle": "*",
 
         "kphoen/sitemap-bundle": "*",
         "ornicar/gravatar-bundle" : "dev-master"

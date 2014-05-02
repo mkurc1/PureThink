@@ -1,17 +1,12 @@
 khepin_yaml_fixtures:
     resources:
+        - ApplicationSonataUserBundle/user
+
         - PurethinkCoreBundle
-
-        - PurethinkUserBundle/group
-        - PurethinkUserBundle/user
-
-        - PurethinkAdminBundle/module
-        - PurethinkAdminBundle/menu
-        - PurethinkAdminBundle/series
-        - PurethinkAdminBundle
 
         - PurethinkFileBundle
 
+        - PurethinkCMSBundle/Metadata
         - PurethinkCMSBundle/language
         - PurethinkCMSBundle/article
         - PurethinkCMSBundle/extension
@@ -21,4 +16,6 @@ khepin_yaml_fixtures:
         - PurethinkCMSBundle/componentHasText
         - PurethinkCMSBundle/componentHasArticle
         - PurethinkCMSBundle/componentHasFile
+        - PurethinkCMSBundle/menuType
+        - PurethinkCMSBundle/menu
         - PurethinkCMSBundle

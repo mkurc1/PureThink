@@ -1,0 +1,80 @@
+services:
+    purethink_cms.admin.website:
+        tags:
+          - { name: sonata.admin, manager_type: orm, group: CMS, label: Websites }
+        class: Purethink\CMSBundle\Admin\Website
+        arguments: [null, Purethink\CMSBundle\Entity\Website, SonataAdminBundle:CRUD]
+
+    purethink_cms.admin.article:
+        tags:
+          - { name: sonata.admin, manager_type: orm, group: CMS, label: Articles }
+        class: Purethink\CMSBundle\Admin\Article
+        arguments: [null, Purethink\CMSBundle\Entity\Article, SonataAdminBundle:CRUD]
+        calls:
+            - [ setSecurityContext, [ @security.context ] ]
+
+    purethink_cms.admin.language:
+        tags:
+          - { name: sonata.admin, manager_type: orm, group: CMS, label: Languages }
+        class: Purethink\CMSBundle\Admin\Language
+        arguments: [null, Purethink\CMSBundle\Entity\Language, SonataAdminBundle:CRUD]
+
+    purethink_cms.admin.menuType:
+        tags:
+          - { name: sonata.admin, manager_type: orm, group: CMS, label: Types of menu }
+        class: Purethink\CMSBundle\Admin\MenuType
+        arguments: [null, Purethink\CMSBundle\Entity\MenuType, SonataAdminBundle:CRUD]
+
+    purethink_cms.admin.menu:
+        tags:
+          - { name: sonata.admin, manager_type: orm, group: CMS, label: Menus }
+        class: Purethink\CMSBundle\Admin\Menu
+        arguments: [null, Purethink\CMSBundle\Entity\Menu, SonataAdminBundle:CRUD]
+
+    purethink_cms.admin.template:
+        tags:
+          - { name: sonata.admin, manager_type: orm, group: CMS, label: Templates }
+        class: Purethink\CMSBundle\Admin\Template
+        arguments: [null, Purethink\CMSBundle\Entity\Template, SonataAdminBundle:CRUD]
+
+    purethink_cms.admin.style:
+        tags:
+          - { name: sonata.admin, manager_type: orm, show_in_dashboard: false }
+        class: Purethink\CMSBundle\Admin\Style
+        arguments: [null, Purethink\CMSBundle\Entity\Style, SonataAdminBundle:CRUD]
+
+    purethink_cms.admin.script:
+        tags:
+          - { name: sonata.admin, manager_type: orm, show_in_dashboard: false }
+        class: Purethink\CMSBundle\Admin\Script
+        arguments: [null, Purethink\CMSBundle\Entity\Script, SonataAdminBundle:CRUD]
+
+    purethink_cms.admin.image:
+        tags:
+          - { name: sonata.admin, manager_type: orm, show_in_dashboard: false }
+        class: Purethink\CMSBundle\Admin\Image
+        arguments: [null, Purethink\CMSBundle\Entity\Image, SonataAdminBundle:CRUD]
+
+    purethink_cms.admin.extension:
+        tags:
+          - { name: sonata.admin, manager_type: orm, group: CMS, label: Extensions }
+        class: Purethink\CMSBundle\Admin\Extension
+        arguments: [null, Purethink\CMSBundle\Entity\Extension, SonataAdminBundle:CRUD]
+
+    purethink_cms.admin.extensionHasField:
+        tags:
+          - { name: sonata.admin, manager_type: orm, show_in_dashboard: false }
+        class: Purethink\CMSBundle\Admin\ExtensionHasField
+        arguments: [null, Purethink\CMSBundle\Entity\ExtensionHasField, SonataAdminBundle:CRUD]
+
+    purethink_cms.admin.component:
+        tags:
+          - { name: sonata.admin, manager_type: orm, group: CMS, label: Components }
+        class: Purethink\CMSBundle\Admin\Component
+        arguments: [null, Purethink\CMSBundle\Entity\Component, SonataAdminBundle:CRUD]
+
+    purethink_cms.admin.componentHasElement:
+        tags:
+          - { name: sonata.admin, manager_type: orm, show_in_dashboard: false }
+        class: Purethink\CMSBundle\Admin\ComponentHasElement
+        arguments: [null, Purethink\CMSBundle\Entity\ComponentHasElement, SonataAdminBundle:CRUD]

@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 /**
  * @ORM\Table(name="core_file")
  * @ORM\InheritanceType("SINGLE_TABLE")
- * @ORM\DiscriminatorMap({"file": "Purethink\FileBundle\Entity\File", "script": "Purethink\CMSBundle\Entity\Script", "style": "Purethink\CMSBundle\Entity\Style", "image": "Purethink\CMSBundle\Entity\Image"})
+ * @ORM\DiscriminatorMap({"file": "Purethink\FileBundle\Entity\File"})
  * @ORM\Entity()
  * @ORM\HasLifecycleCallbacks
  */

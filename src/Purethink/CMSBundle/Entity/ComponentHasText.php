@@ -6,7 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="Purethink\CMSBundle\Repository\ComponentHasTextRepository")
+ * @ORM\Entity
  */
 class ComponentHasText extends ComponentHasValue
 {

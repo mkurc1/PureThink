@@ -23,13 +23,23 @@ class AppKernel extends Kernel
             new FOS\UserBundle\FOSUserBundle(),
             new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
+            new Knp\Bundle\MenuBundle\KnpMenuBundle(),
             new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
             new Bmatzner\FontAwesomeBundle\BmatznerFontAwesomeBundle(),
 
+            new Sonata\MarkItUpBundle\SonataMarkItUpBundle(),
+            new Knp\Bundle\MarkdownBundle\KnpMarkdownBundle(),
+            new Sonata\FormatterBundle\SonataFormatterBundle(),
+            new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
             new Sonata\CoreBundle\SonataCoreBundle(),
             new Sonata\BlockBundle\SonataBlockBundle(),
             new Sonata\IntlBundle\SonataIntlBundle(),
             new Sonata\AdminBundle\SonataAdminBundle(),
+            new Sonata\NotificationBundle\SonataNotificationBundle(),
+            new Sonata\UserBundle\SonataUserBundle('FOSUserBundle'),
+            new Sonata\jQueryBundle\SonatajQueryBundle(),
+            new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle(),
+            new Sonata\MediaBundle\SonataMediaBundle(),
 
             new Khepin\YamlFixturesBundle\KhepinYamlFixturesBundle(),
             new FOS\RestBundle\FOSRestBundle(),
@@ -38,10 +48,11 @@ class AppKernel extends Kernel
             new KPhoen\SitemapBundle\KPhoenSitemapBundle(),
             new Ornicar\GravatarBundle\OrnicarGravatarBundle(),
 
-            new Purethink\UserBundle\PurethinkUserBundle(),
+            new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
+            new Application\Sonata\MediaBundle\ApplicationSonataMediaBundle(),
+
             new Purethink\CommentBundle\PurethinkCommentBundle(),
             new Purethink\CoreBundle\PurethinkCoreBundle(),
-            new Purethink\AdminBundle\PurethinkAdminBundle(),
             new Purethink\FileBundle\PurethinkFileBundle(),
             new Purethink\CMSBundle\PurethinkCMSBundle(),
         );

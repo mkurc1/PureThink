@@ -123,7 +123,7 @@ class FrontendController extends Controller
 
     private function getMetadataByLocale($locale)
     {
-        return $this->getDoctrine()->getRepository('PurethinkCMSBundle:WebSite')
+        return $this->getDoctrine()->getRepository('PurethinkCMSBundle:Website')
             ->getWebsiteByLocale($locale);
     }
 

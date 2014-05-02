@@ -32,7 +32,7 @@ class Comment extends BaseComment implements SignedCommentInterface
     /**
      * Author of the comment
      *
-     * @ORM\ManyToOne(targetEntity="Purethink\UserBundle\Entity\User")
+     * @ORM\ManyToOne(targetEntity="Application\Sonata\UserBundle\Entity\User")
      * @var User
      */
     protected $author;

@@ -4,10 +4,8 @@ namespace Purethink\CMSBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
-use Purethink\AdminBundle\Entity\Metadata;
-use Purethink\AdminBundle\Entity\MetadataInterface;
 use Symfony\Component\Validator\Constraints as Assert;
-use Purethink\UserBundle\Entity\User;
+use Application\Sonata\UserBundle\Entity\User;
 use Doctrine\ORM\Event\LifecycleEventArgs;
 use JMS\Serializer\Annotation as Serializer;
 
@@ -77,21 +75,13 @@ class Article implements MetadataInterface
     private $language;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Purethink\UserBundle\Entity\User")
+     * @ORM\ManyToOne(targetEntity="Application\Sonata\UserBundle\Entity\User")
      * @ORM\JoinColumn(onDelete="CASCADE", nullable=false)
      */
     private $user;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Purethink\AdminBundle\Entity\Series")
-     * @ORM\JoinColumn(onDelete="CASCADE")
-     * @Serializer\Expose
-     * @Assert\NotNull()
-     */
-    private $series;
-
-    /**
-     * @ORM\OneToOne(targetEntity="Purethink\AdminBundle\Entity\Metadata", cascade={"persist"})
+     * @ORM\OneToOne(targetEntity="Metadata", cascade={"persist"})
      */
     private $metadata;
 
@@ -303,16 +293,16 @@ class Article implements MetadataInterface
      */
     public function __toString()
     {
-        return $this->getName();
+        return (string)$this->getName();
     }
 
     /**
      * Set user
      *
-     * @param \Purethink\UserBundle\Entity\User $user
+     * @param \Application\Sonata\UserBundle\Entity\User $user
      * @return Article
      */
-    public function setUser(\Purethink\UserBundle\Entity\User $user = null)
+    public function setUser(\Application\Sonata\UserBundle\Entity\User $user = null)
     {
         $this->user = $user;
 
@@ -322,34 +312,11 @@ class Article implements MetadataInterface
     /**
      * Get user
      *
-     * @return \Purethink\UserBundle\Entity\User
+     * @return \Application\Sonata\UserBundle\Entity\User
      */
     public function getUser()
     {
         return $this->user;
-    }
-
-    /**
-     * Set series
-     *
-     * @param \Purethink\AdminBundle\Entity\Series $series
-     * @return Article
-     */
-    public function setSeries(\Purethink\AdminBundle\Entity\Series $series = null)
-    {
-        $this->series = $series;
-
-        return $this;
-    }
-
-    /**
-     * Get series
-     *
-     * @return \Purethink\AdminBundle\Entity\Series
-     */
-    public function getSeries()
-    {
-        return $this->series;
     }
 
     /**
@@ -363,29 +330,6 @@ class Article implements MetadataInterface
         if (null != $user) {
             $this->setUser($user);
         }
-    }
-
-    /**
-     * Set metadata
-     *
-     * @param \Purethink\AdminBundle\Entity\Metadata $metadata
-     * @return Article
-     */
-    public function setMetadata(\Purethink\AdminBundle\Entity\Metadata $metadata = null)
-    {
-        $this->metadata = $metadata;
-
-        return $this;
-    }
-
-    /**
-     * Get metadata
-     *
-     * @return \Purethink\AdminBundle\Entity\Metadata
-     */
-    public function getMetadata()
-    {
-        return $this->metadata;
     }
 
     /**
@@ -442,5 +386,28 @@ class Article implements MetadataInterface
     public function getComponentHasArticle()
     {
         return $this->componentHasArticle;
+    }
+
+    /**
+     * Set metadata
+     *
+     * @param \Purethink\CMSBundle\Entity\Metadata $metadata
+     * @return Article
+     */
+    public function setMetadata(\Purethink\CMSBundle\Entity\Metadata $metadata = null)
+    {
+        $this->metadata = $metadata;
+
+        return $this;
+    }
+
+    /**
+     * Get metadata
+     *
+     * @return \Purethink\CMSBundle\Entity\Metadata 
+     */
+    public function getMetadata()
+    {
+        return $this->metadata;
     }
 }

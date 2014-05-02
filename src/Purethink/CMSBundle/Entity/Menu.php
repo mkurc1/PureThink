@@ -66,11 +66,11 @@ class Menu
     private $language;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Purethink\AdminBundle\Entity\Series")
+     * @ORM\ManyToOne(targetEntity="MenuType")
      * @ORM\JoinColumn(onDelete="CASCADE", nullable=false)
      * @Assert\NotNull()
      */
-    private $series;
+    private $type;
 
     /**
      * @ORM\ManyToOne(targetEntity="Article")
@@ -279,29 +279,6 @@ class Menu
     }
 
     /**
-     * Set series
-     *
-     * @param \Purethink\AdminBundle\Entity\Series $series
-     * @return Menu
-     */
-    public function setSeries(\Purethink\AdminBundle\Entity\Series $series)
-    {
-        $this->series = $series;
-
-        return $this;
-    }
-
-    /**
-     * Get series
-     *
-     * @return \Purethink\AdminBundle\Entity\Series
-     */
-    public function getSeries()
-    {
-        return $this->series;
-    }
-
-    /**
      * Set isNewPage
      *
      * @param boolean $isNewPage
@@ -345,5 +322,28 @@ class Menu
     public function getArticle()
     {
         return $this->article;
+    }
+
+    /**
+     * Set type
+     *
+     * @param \Purethink\CMSBundle\Entity\MenuType $type
+     * @return Menu
+     */
+    public function setType(\Purethink\CMSBundle\Entity\MenuType $type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return \Purethink\CMSBundle\Entity\MenuType 
+     */
+    public function getType()
+    {
+        return $this->type;
     }
 }

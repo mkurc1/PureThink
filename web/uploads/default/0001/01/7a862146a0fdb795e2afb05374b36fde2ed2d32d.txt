@@ -1,0 +1,28 @@
+#main_menu {
+    background-color: #579BF0;
+    background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(20%, #2B9BEE), color-stop(50%, #518ded), color-stop(52%, #3b82f5), color-stop(100%, #347AEF));
+    background: -webkit-linear-gradient(top, #2B9BEE 20%, #518ded 50%, #3b82f5 52%, #347AEF 100%);
+    background: -moz-linear-gradient(top, #2B9BEE 20%, #518ded 50%, #3b82f5 52%, #347AEF 100%);
+    background: -o-linear-gradient(top, #2B9BEE 20%, #518ded 50%, #3b82f5 52%, #347AEF 100%);
+    background: linear-gradient(top, #2B9BEE 20%, #518ded 50%, #3b82f5 52%, #347AEF 100%);
+}
+
+#main_menu > .container > #search-form > #search_box {
+    margin-top: 5px;
+}
+
+#main_menu > .container > ul > li {
+    padding: 9px 10px 8px;
+}
+
+#main_menu > .container > ul > li > a {
+    color: #F8F8F8;
+}
+
+#main_menu > .container > ul > li.selected > a {
+    color: #E1E1E1;
+}
+
+#main_menu > .container > ul > li.has_submenu:hover > a {
+    color: #303030;
+}

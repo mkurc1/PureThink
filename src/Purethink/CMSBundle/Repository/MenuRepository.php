@@ -2,42 +2,16 @@
 
 namespace Purethink\CMSBundle\Repository;
 
-use Purethink\AdminBundle\Repository\FilterRepository;
+use Doctrine\ORM\EntityRepository;
 
 
-class MenuRepository extends FilterRepository
+class MenuRepository extends EntityRepository
 {
-    public function getMenusQB($filter, $languageId, $groupId)
-    {
-        $qb = $this->createQueryBuilder('a')
-            ->join('a.language', 'l')
-            ->join('a.series', 's')
-            ->leftJoin('a.article', 'art')
-            ->Where('a.menu IS NULL');
-
-        $this->addNameFilterQB($qb, $filter);
-        $this->addLanguageIdFilterQB($qb, $languageId);
-        $this->addGroupFilterQB($qb, $groupId);
-
-        $qb->orderBy('a.sequence');
-
-        return $qb->getQuery()->getResult();
-    }
-
-    public function getMenusByIds(array $ids)
-    {
-        $qb = $this->createQueryBuilder('a')
-            ->where('a.id IN (:ids)')
-            ->setParameter('ids', $ids);
-
-        return $qb->getQuery()->getResult();
-    }
-
-    public function getActiveMenusBySeriesNameAndLocale($seriesName, $locale)
+    public function getActiveMenusBySeriesNameAndLocale($type, $locale)
     {
         $entities = [];
 
-        $menus = $this->getActiveMenusBySeriesNameAndLocaleQb($seriesName, $locale);
+        $menus = $this->getActiveMenusBySeriesNameAndLocaleQb($type, $locale);
         $menus = $menus->getQuery()->getResult();
 
         foreach ($menus as $menu) {
@@ -54,20 +28,20 @@ class MenuRepository extends FilterRepository
         return $entities;
     }
 
-    private function getActiveMenusBySeriesNameAndLocaleQb($seriesName, $locale)
+    private function getActiveMenusBySeriesNameAndLocaleQb($type, $locale)
     {
         return $this->createQueryBuilder('a')
-            ->select('a, s, art')
+            ->select('a, t, art')
             ->join('a.language', 'l')
-            ->join('a.series', 's')
+            ->join('a.type', 't')
             ->leftJoin('a.article', 'art')
             ->leftJoin('a.menu', 'm')
             ->where('a.isPublic = true')
             ->andWhere('UPPER(l.alias) = UPPER(:locale)')
             ->andWhere('art.isPublic = true')
-            ->andWhere('s.name = :seriesName')
+            ->andWhere('t.name = :type')
             ->orderBy('m.sequence, a.sequence')
-            ->setParameter('seriesName', $seriesName)
+            ->setParameter('type', $type)
             ->setParameter('locale', $locale);
     }
 }

@@ -4,17 +4,9 @@ namespace Purethink\CMSBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
 
+
 class ComponentHasElementRepository extends EntityRepository
 {
-    public function getElementsByIds(array $ids)
-    {
-        $qb = $this->createQueryBuilder('a')
-            ->where('a.id IN (:ids)')
-            ->setParameter('ids', $ids);
-
-        return $qb->getQuery()->getResult();
-    }
-
     public function getActiveComponentBySlugAndLocale($slug, $locale)
     {
         $entities = [];

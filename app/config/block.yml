@@ -1,6 +1,12 @@
 sonata_block:
     default_contexts: [cms]
     blocks:
+        sonata.admin.block.admin_list:
+            contexts: [admin]
+        sonata.admin.block.search_result:
+            contexts: [admin]
+        sonata.block.service.text: ~
+
         purethink.cms.block.language: ~
         purethink.cms.block.menu: ~
         purethink.cms.block.component: ~

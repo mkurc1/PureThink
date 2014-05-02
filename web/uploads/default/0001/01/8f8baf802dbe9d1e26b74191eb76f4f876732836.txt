@@ -1,0 +1,470 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0 none;
+}
+
+body {
+    background: transparent url("../images/background_line.png") repeat-x;
+}
+
+.container {
+    position: relative;
+    margin: 0 auto;
+    width: 1000px;
+}
+
+#cookie {
+    position: relative;
+    width: 100%;
+    display: none;
+}
+
+#cookie > .container {
+    background-color: #E7EBED;
+    border-radius: 5px;
+    margin-top: 25px;
+    padding: 10px;
+    width: 980px;
+}
+
+#cookie > .container h5 {
+    font-size: 17px;
+    font-weight: normal;
+    color: #3E3E3E;
+    margin-bottom: 10px;
+}
+
+#cookie > .container p {
+    font-size: 13px;
+    color: #3E3E3E;
+}
+
+#cookie > .container a {
+    color: #000;
+}
+
+#cookie > .container a:hover {
+    text-decoration: underline;
+}
+
+#cookie > .container a.close {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    cursor: pointer;
+}
+
+#cookie > .container a.close i {
+    color: #2D2D2D;
+}
+
+#cookie > .container a.close:hover i {
+    color: #000;
+}
+
+#top {
+    position: relative;
+    width: 100%;
+    height: 121px;
+    margin-top: 35px;
+}
+
+#top > .container > #logo {
+    position: relative;
+    float: left;
+    margin-top: 20px;
+}
+
+div.top-menu {
+    position: relative;
+    float: right;
+    font-size: 13px;
+}
+
+div.user-container {
+    position: relative;
+    float: left;
+    color: #444444;
+}
+
+div.user-container > span {
+    border-right: 1px solid #959595;
+    padding-right: 8px;
+    margin-right: 8px;
+    float: left;
+}
+
+div.user-container span a.user-name {
+    font-weight: bold;
+    color: #5C5C5C;
+}
+
+div.user-container > a {
+    color: #444444;
+    border-right: 1px solid #959595;
+    padding-right: 8px;
+    margin-right: 8px;
+    float: left;
+}
+
+div.user-container > a:last-child {
+    padding-right: 0;
+    border-right: 0;
+    margin-right: 0;
+}
+
+ul#language {
+    position: relative;
+    float: right;
+    list-style-type: none;
+    border-left: 1px solid #959595;
+    margin-left: 8px;
+}
+
+ul#language > li {
+    position: relative;
+    float: left;
+    margin-left: 8px;
+}
+
+ul#language > li > a {
+    position: relative;
+    float: left;
+    font-size: 13px;
+    color: #121212;
+}
+
+ul#language > li.selected > a {
+    color: #A5A5A5;
+}
+
+#main_menu {
+    position: relative;
+    width: 100%;
+    height: 33px;
+    border-bottom: 1px solid #579bf0;
+}
+
+#main_menu > .container > ul {
+    position: relative;
+    float: left;
+    list-style-type: none;
+    height: 33px;
+    margin-bottom: 0;
+}
+
+#main_menu > .container > ul > li {
+    position: relative;
+    float: left;
+    height: 100%;
+    padding: 10px 10px 8px 10px;
+}
+
+#main_menu > .container > ul > li:first-child {
+    padding-left: 0;
+}
+
+#main_menu > .container > ul > li > a {
+    color: #111111;
+    position: relative;
+    float: left;
+    font-size: 13px;
+    text-transform: uppercase;
+}
+
+#main_menu > .container > ul > li.selected > a {
+    color: #666666;
+}
+
+#main_menu > .container > ul > li > ul {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    padding: 10px 10px 10px 15px;
+    z-index: 200;
+    width: 180px;
+    list-style-position: inside;
+    color: #579bf0;
+    margin: 23px 0 0 -10px;
+    border: 1px solid #579bf0;
+    border-width: 0 1px 1px 1px;
+}
+
+#main_menu > .container > ul > li > ul > li {
+    position: relative;
+    float: left;
+    width: 100%;
+    font-size: 12px;
+    margin-bottom: 3px;
+}
+
+#main_menu > .container > ul > li > ul > li > a {
+    color: #303030;
+}
+
+#main_menu > .container > ul > li.has_submenu:hover {
+    border: 1px solid #579bf0;
+    border-width: 1px 1px 0 1px;
+    padding: 9px;
+    background-color: #ffffff;
+}
+
+#main_menu > .container > ul > li:hover > ul {
+    display: block;
+}
+
+#main_menu > .container > #search-form {
+    position: relative;
+    float: right;
+}
+
+#main_menu > .container > #search-form > #search_box {
+    position: relative;
+    float: right;
+    margin-top: 3px;
+    background-color: #FFFFFF;
+    border: 1px solid #C5C5C5;
+    border-radius: 4px;
+    height: 22px;
+    width: 240px;
+}
+
+#main_menu > .container > #search-form > #search_box > input {
+    position: relative;
+    float: left;
+    border: 0;
+    font-size: 11px;
+    font-weight: normal;
+    color: #4b4b4b;
+    height: 20px;
+    width: 192px;
+    padding: 0 13px;
+    background-color: #FFFFFF;
+    border-radius: 4px;
+}
+
+#main_menu > .container > #search-form > #search_box > i {
+    position: relative;
+    float: right;
+    font-size: 14px;
+    margin: 3px 5px 0 0;
+    color: #7F7F7F;
+}
+
+#baner {
+    position: relative;
+    float: left;
+    width: 100%;
+    background-color: #dddddd;
+    height: 323px;
+    padding-top: 19px;
+}
+
+#baner .carousel-inner {
+    height: 287px;
+}
+
+#baner .carousel-control {
+    background: none;
+}
+
+#baner .carousel-control.left {
+    left: -150px;
+}
+
+#baner .carousel-control.right {
+    right: -150px;
+}
+
+#news {
+    position: relative;
+    float: left;
+    width: 100%;
+    margin-top: 40px;
+}
+
+#news > .container div > h3 {
+    color: #444444;
+    position: relative;
+    float: left;
+    width: 100%;
+    border-bottom: 1px solid #579bf0;
+    font-size: 14px;
+    font-weight: normal;
+    padding-bottom: 2px;
+}
+
+#news > .container div > a.news {
+    position: relative;
+    float: left;
+    height: 113px;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+#news > .container div > a.news > div.image {
+    position: relative;
+    float: left;
+    height: 100%;
+    width: 105px;
+}
+
+#news > .container div > a.news > div.content {
+    position: relative;
+    float: right;
+    width: 177px;
+}
+
+#news > .container div > a.news > div.content > h4 {
+    position: relative;
+    float: left;
+    width: 100%;
+    font-weight: bold;
+    color: #444444;
+    font-size: 12px;
+    margin: 0 0 3px 0;
+}
+
+#news > .container div > a.news > div.content > span {
+    position: relative;
+    float: left;
+    width: 100%;
+    color: #747474;
+    font-size: 11px;
+    margin-bottom: 3px;
+}
+
+#news > .container div > a.news > div.content > p {
+    position: relative;
+    float: left;
+    width: 100%;
+    color: #444444;
+    font-size: 12px;
+    text-align: justify;
+}
+
+#links {
+    position: relative;
+    float: left;
+    width: 100%;
+    margin-top: 40px;
+}
+
+#links > .container > h3 {
+    color: #444444;
+    position: relative;
+    float: left;
+    width: 100%;
+    border-bottom: 1px solid #579bf0;
+    font-size: 14px;
+    font-weight: normal;
+    padding-bottom: 2px;
+}
+
+#links > .container > ul {
+    position: relative;
+    float: left;
+    width: 100%;
+    list-style-position: inside;
+    margin: 30px 0 25px 0;
+}
+
+#links > .container > ul > li {
+    position: relative;
+    float: left;
+    width: 25%;
+    margin-bottom: 5px;
+    font-size: 12px;
+    color: #818181;
+}
+
+#links > .container > ul > li > a {
+    color: #1e60b4;
+    font-size: 12px;
+}
+
+#article, #search {
+    position: relative;
+    float: left;
+    width: 100%;
+    margin: 0 0 30px 0;
+}
+
+#article {
+    margin-bottom: 0;
+}
+
+#article > .container h5.datetime {
+    color: #999999;
+}
+
+#search > .container ul {
+    list-style-position: inside;
+}
+
+#search > .container ul li {
+    line-height: 1.6em;
+    font-size: 12px;
+}
+
+#search > .container ul li a {
+    font-size: 12px;
+    color: #136CD9;
+}
+
+#search > .container ul li a:hover {
+    color: #333333;
+}
+
+#footer {
+    position: relative;
+    float: left;
+    width: 100%;
+    margin-bottom: 8px;
+}
+
+#footer > .container {
+    border-top: 1px solid #579bf0;
+    padding-top: 8px;
+}
+
+#footer > .container > .left {
+    position: relative;
+    float: left;
+}
+
+#footer > .container > .left > ul {
+    position: relative;
+    float: left;
+    list-style-type: none;
+}
+
+#footer > .container > .left > ul > li {
+    position: relative;
+    float: left;
+}
+
+#footer > .container > .left > ul > li > a {
+    position: relative;
+    float: left;
+    color: #111111;
+    font-size: 12px;
+    margin-right: 15px;
+}
+
+#footer > .container > .right {
+    position: relative;
+    float: right;
+    font-size: 12px;
+    color: #111111;
+}
+
+#fos_comment_comment_body {
+    width: 100%;
+    height: 100px;
+    border: 1px solid #dcdcdc;
+    resize: none;
+    margin-bottom: 10px;
+}

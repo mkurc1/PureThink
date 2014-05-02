@@ -2,43 +2,20 @@
 
 namespace Purethink\CMSBundle\Repository;
 
-use Purethink\AdminBundle\Repository\FilterRepository;
+use Doctrine\ORM\EntityRepository;
 
 
-class ArticleRepository extends FilterRepository
+class ArticleRepository extends EntityRepository
 {
-    public function getArticlesQB($order, $sequence, $filter, $languageId, $groupId)
+    public function search($alias, $search)
     {
         $qb = $this->createQueryBuilder('a')
-            ->join('a.language', 'l')
-            ->join('a.series', 's');
-
-        $this->addNameFilterQB($qb, $filter);
-        $this->addLanguageIdFilterQB($qb, $languageId);
-        $this->addGroupFilterQB($qb, $groupId);
-
-        $qb->orderBy($order, $sequence);
-
-        return $qb;
-    }
-
-    public function getArticlesByIds(array $ids)
-    {
-        $qb = $this->createQueryBuilder('a')
-            ->where('a.id IN (:ids)')
-            ->setParameter('ids', $ids);
-
-        return $qb->getQuery()->getResult();
-    }
-
-    public function search($locale, $search)
-    {
-        $qb = $this->createQueryBuilder('a')
-            ->join('a.language', 'l')
-            ->where('a.isPublic = true');
-
-        $this->addLanguageAliasFilter($qb, $locale);
-        $this->addNameFilterQB($qb, $search);
+            ->join('a.language', 'al')
+            ->where('a.isPublic = true')
+            ->andWhere('UPPER(al.alias) = UPPER(:alias)')
+            ->andWhere('a.name LIKE :search')
+            ->setParameter('alias', $alias)
+            ->setParameter('search', '%'.$search.'%');
 
         return $qb->getQuery()->getResult();
     }

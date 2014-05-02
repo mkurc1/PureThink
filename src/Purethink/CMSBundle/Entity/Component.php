@@ -8,7 +8,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Table(name="cms_component")
- * @ORM\Entity(repositoryClass="Purethink\CMSBundle\Repository\ComponentRepository")
+ * @ORM\Entity()
  */
 class Component
 {
@@ -57,19 +57,16 @@ class Component
     private $language;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Purethink\AdminBundle\Entity\Series")
-     * @ORM\JoinColumn(onDelete="CASCADE", nullable=false)
-     * @Assert\NotNull()
-     */
-    private $series;
-
-    /**
      * @ORM\ManyToOne(targetEntity="Extension")
      * @ORM\JoinColumn(onDelete="CASCADE", nullable=false)
      * @Assert\NotNull()
      */
     private $extension;
 
+    /**
+     * @ORM\OneToMany(targetEntity="ComponentHasElement", mappedBy="component", cascade={"persist"}, orphanRemoval=true)
+     */
+    private $elements;
 
     /**
      * Get id
@@ -111,7 +108,7 @@ class Component
      */
     public function __toString()
     {
-        return $this->getName();
+        return (string)$this->getName();
     }
 
     /**
@@ -230,29 +227,6 @@ class Component
     }
 
     /**
-     * Set series
-     *
-     * @param \Purethink\AdminBundle\Entity\Series $series
-     * @return Component
-     */
-    public function setSeries(\Purethink\AdminBundle\Entity\Series $series)
-    {
-        $this->series = $series;
-
-        return $this;
-    }
-
-    /**
-     * Get series
-     *
-     * @return \Purethink\AdminBundle\Entity\Series
-     */
-    public function getSeries()
-    {
-        return $this->series;
-    }
-
-    /**
      * Set extension
      *
      * @param \Purethink\CMSBundle\Entity\Extension $extension
@@ -273,5 +247,47 @@ class Component
     public function getExtension()
     {
         return $this->extension;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->elements = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add elements
+     *
+     * @param \Purethink\CMSBundle\Entity\ComponentHasElement $elements
+     * @return Component
+     */
+    public function addElement(\Purethink\CMSBundle\Entity\ComponentHasElement $elements)
+    {
+        $elements->setComponent($this);
+
+        $this->elements[] = $elements;
+
+        return $this;
+    }
+
+    /**
+     * Remove elements
+     *
+     * @param \Purethink\CMSBundle\Entity\ComponentHasElement $elements
+     */
+    public function removeElement(\Purethink\CMSBundle\Entity\ComponentHasElement $elements)
+    {
+        $this->elements->removeElement($elements);
+    }
+
+    /**
+     * Get elements
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getElements()
+    {
+        return $this->elements;
     }
 }

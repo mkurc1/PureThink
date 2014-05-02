@@ -1,0 +1,6 @@
+model: Purethink\CMSBundle\Entity\MenuType
+fixtures:
+    cms_menu_type_1:
+        name: 'Main'
+    cms_menu_type_2:
+        name: 'Footer'

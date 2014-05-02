@@ -5,12 +5,10 @@ namespace Purethink\CMSBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
-use Purethink\CoreBundle\Utility\RemoveDirectory;
 
 /**
  * @ORM\Table(name="cms_template")
- * @ORM\Entity(repositoryClass="Purethink\CMSBundle\Repository\TemplateRepository")
- * @ORM\HasLifecycleCallbacks
+ * @ORM\Entity()
  */
 class Template
 {
@@ -59,13 +57,6 @@ class Template
     private $updatedAt;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Purethink\AdminBundle\Entity\Series")
-     * @ORM\JoinColumn(onDelete="CASCADE", nullable=false)
-     * @Assert\NotNull()
-     */
-    private $series;
-
-    /**
      * @ORM\OneToMany(targetEntity="Script", mappedBy="template", cascade={"persist"}, orphanRemoval=true)
      */
     private $scripts;
@@ -80,60 +71,6 @@ class Template
      */
     private $images;
 
-
-    /**
-     * @ORM\PostPersist()
-     */
-    public function createDir()
-    {
-        $dir = $this->getUploadRootDir().'/'.$this->getSlug();
-
-        if (is_dir($dir)) {
-            return;
-        }
-
-        $userMask = umask(0);
-        mkdir($dir, 0777);
-        mkdir($dir.'/'.$this->getStylesUploadDir(), 0777);
-        mkdir($dir.'/'.$this->getScriptsUploadDir(), 0777);
-        mkdir($dir.'/'.$this->getImagesUploadDir(), 0777);
-        umask($userMask);
-    }
-
-    /**
-     * @ORM\PostRemove()
-     */
-    public function removeDir()
-    {
-        $dir = $this->getUploadRootDir().'/'.$this->getSlug();
-        RemoveDirectory::rmdir($dir);
-    }
-
-
-    protected function getUploadRootDir()
-    {
-        return __DIR__.'/../../../../web/'.$this->getUploadDir();
-    }
-
-    public function getUploadDir()
-    {
-        return 'template';
-    }
-
-    public function getStylesUploadDir()
-    {
-        return 'css';
-    }
-
-    public function getScriptsUploadDir()
-    {
-        return 'js';
-    }
-
-    public function getImagesUploadDir()
-    {
-        return 'images';
-    }
 
     /**
      * Get id
@@ -221,7 +158,7 @@ class Template
      */
     public function __toString()
     {
-        return $this->getName();
+        return (string)$this->getName();
     }
 
     /**
@@ -294,29 +231,6 @@ class Template
     }
 
     /**
-     * Set series
-     *
-     * @param \Purethink\AdminBundle\Entity\Series $series
-     * @return Template
-     */
-    public function setSeries(\Purethink\AdminBundle\Entity\Series $series = null)
-    {
-        $this->series = $series;
-
-        return $this;
-    }
-
-    /**
-     * Get series
-     *
-     * @return \Purethink\AdminBundle\Entity\Series
-     */
-    public function getSeries()
-    {
-        return $this->series;
-    }
-
-    /**
      * Constructor
      */
     public function __construct()
@@ -348,8 +262,6 @@ class Template
      */
     public function removeScript(\Purethink\CMSBundle\Entity\Script $scripts)
     {
-        $scripts->removeUpload();
-
         $this->scripts->removeElement($scripts);
     }
 
@@ -385,8 +297,6 @@ class Template
      */
     public function removeStyle(\Purethink\CMSBundle\Entity\Style $styles)
     {
-        $styles->removeUpload();
-
         $this->styles->removeElement($styles);
     }
 
@@ -422,8 +332,6 @@ class Template
      */
     public function removeImage(\Purethink\CMSBundle\Entity\Image $images)
     {
-        $images->removeUpload();
-
         $this->images->removeElement($images);
     }
 

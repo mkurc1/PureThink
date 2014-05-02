@@ -3,5 +3,4 @@ fixtures:
     cms_template_1:
         name: "PureThink Standard"
         author: "Michał Kurcewicz"
-        series: series_11
         isEnable: 1

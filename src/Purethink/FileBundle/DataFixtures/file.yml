@@ -3,7 +3,6 @@ fixtures:
     file_1:
         name: "Baner 1"
         user: user_1
-        series: series_7
         size: 222669
         mimeType: "image/png"
         originalName: "baner.png"
@@ -11,7 +10,6 @@ fixtures:
     file_2:
         name: "Baner 2"
         user: user_1
-        series: series_7
         size: 222669
         mimeType: "image/png"
         originalName: "baner.png"
@@ -19,7 +17,6 @@ fixtures:
     file_3:
         name: "Baner 3"
         user: user_1
-        series: series_7
         size: 222669
         mimeType: "image/png"
         originalName: "baner.png"
@@ -27,7 +24,6 @@ fixtures:
     file_4:
         name: "News 1"
         user: user_1
-        series: series_9
         size: 22192
         mimeType: "image/jpeg"
         originalName: "news.jpeg"
@@ -35,7 +31,6 @@ fixtures:
     file_5:
         name: "News 2"
         user: user_1
-        series: series_9
         size: 22192
         mimeType: "image/jpeg"
         originalName: "news.jpeg"
@@ -43,7 +38,6 @@ fixtures:
     file_6:
         name: "News 3"
         user: user_1
-        series: series_9
         size: 22192
         mimeType: "image/jpeg"
         originalName: "news.jpeg"
@@ -51,7 +45,6 @@ fixtures:
     file_7:
         name: "News 4"
         user: user_1
-        series: series_9
         size: 22192
         mimeType: "image/jpeg"
         originalName: "news.jpeg"
@@ -59,7 +52,6 @@ fixtures:
     file_8:
         name: "News 5"
         user: user_1
-        series: series_9
         size: 22192
         mimeType: "image/jpeg"
         originalName: "news.jpeg"
@@ -67,7 +59,6 @@ fixtures:
     file_9:
         name: "News 6"
         user: user_1
-        series: series_9
         size: 22192
         mimeType: "image/jpeg"
         originalName: "news.jpeg"
@@ -75,7 +66,6 @@ fixtures:
     file_10:
         name: "News 7"
         user: user_1
-        series: series_9
         size: 22192
         mimeType: "image/jpeg"
         originalName: "news.jpeg"
@@ -83,7 +73,6 @@ fixtures:
     file_11:
         name: "News 8"
         user: user_1
-        series: series_9
         size: 22192
         mimeType: "image/jpeg"
         originalName: "news.jpeg"
@@ -91,7 +80,6 @@ fixtures:
     file_12:
         name: "News 9"
         user: user_1
-        series: series_9
         size: 22192
         mimeType: "image/jpeg"
         originalName: "news.jpeg"
@@ -99,7 +87,6 @@ fixtures:
     file_13:
         name: "Apollo 11"
         user: user_1
-        series: series_10
         size: 17932
         mimeType: "image/jpeg"
         originalName: "apollo.jpeg"

@@ -1,14 +1,19 @@
 ivory_ck_editor:
-    default_config: cke_config
+    default_config: default
     configs:
-        cke_config:
+        default:
             toolbar: "cke_toolbar"
-            # skin: moonocolor
-            uiColor: "#E7E7E7"
             height: "400px"
-            filebrowserImageBrowseRoute: "file_browse"
-            filebrowserWindowWidth  : 800
-            filebrowserWindowHeight : 500
+            filebrowserBrowseRoute: admin_sonata_media_media_ckeditor_browser
+            filebrowserImageBrowseRoute: admin_sonata_media_media_ckeditor_browser
+            filebrowserImageBrowseRouteParameters:
+                provider: sonata.media.provider.image
+            filebrowserUploadRoute: admin_sonata_media_media_ckeditor_upload
+            filebrowserUploadRouteParameters:
+                provider: sonata.media.provider.file
+            filebrowserImageUploadRoute: admin_sonata_media_media_ckeditor_upload
+            filebrowserImageUploadRouteParameters:
+                provider: sonata.media.provider.image
     toolbars:
         configs:
             cke_toolbar : ['@clipboard', '@editing', '@links', '@insert', '@tools', '@document', '/', '@basicstyles', '@paragraph', '@styles', '@colors']

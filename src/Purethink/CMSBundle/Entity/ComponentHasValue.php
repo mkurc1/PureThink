@@ -37,6 +37,11 @@ abstract class ComponentHasValue
 
     abstract public function setContent($content);
 
+    public function __toString()
+    {
+        return (string)$this->getStringContent();
+    }
+
     public function __construct(ComponentHasElement $componentHasElement = null, ExtensionHasField $extensionHasField = null)
     {
         $this->setComponentHasElement($componentHasElement);

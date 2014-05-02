@@ -1,9 +1,0 @@
-<div class="header">
-    <h2>Dodaj rozszerzenie</h2>
-</div>
-
-<div class="container">
-    <form action="{{ path('purethink_cms_extension_new') }}" method="post" {{ form_enctype(form) }}>
-        {% include 'PurethinkCMSBundle:Extension:_form.html.twig' with { 'form': form } %}
-    </form>
-</div>

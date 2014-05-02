@@ -1,0 +1,10 @@
+model: Purethink\CMSBundle\Entity\Metadata
+fixtures:
+    cms_metadata_1:
+        title: "PureThink - website - en"
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tincidunt, ligula in consequat commodo, sapien justo ornare magna. Duis tincidunt, ligula in consequat commodo, sapien justo ornare magna."
+        keyword: "Lorem, ipsum, dolor, sit, amet, consectetur"
+    cms_metadata_2:
+        title: "PureThink - website - pl"
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tincidunt, ligula in consequat commodo, sapien justo ornare magna. Duis tincidunt, ligula in consequat commodo, sapien justo ornare magna."
+        keyword: "Lorem, ipsum, dolor, sit, amet, consectetur"

@@ -4,6 +4,7 @@ namespace Purethink\CMSBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
 
+
 class ComponentHasValueRepository extends EntityRepository
 {
     public function getContent($elementId, $typeId)

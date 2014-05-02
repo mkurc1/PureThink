@@ -36,7 +36,7 @@ class ComponentHasElement
     private $isEnable = false;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Component")
+     * @ORM\ManyToOne(targetEntity="Component", inversedBy="elements")
      * @ORM\JoinColumn(onDelete="CASCADE", nullable=false)
      */
     private $component;

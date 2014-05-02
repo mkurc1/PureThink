@@ -8,7 +8,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Table(name="cms_extension")
- * @ORM\Entity(repositoryClass="Purethink\CMSBundle\Repository\ExtensionRepository")
+ * @ORM\Entity()
  */
 class Extension
 {
@@ -39,14 +39,7 @@ class Extension
     private $updatedAt;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Purethink\AdminBundle\Entity\Series")
-     * @ORM\JoinColumn(onDelete="CASCADE", nullable=false)
-     * @Assert\NotNull()
-     */
-    private $series;
-
-    /**
-     * @ORM\OneToMany(targetEntity="ExtensionHasField", mappedBy="extension")
+     * @ORM\OneToMany(targetEntity="ExtensionHasField", mappedBy="extension", cascade={"persist"}, orphanRemoval=true)
      */
     private $fields;
 
@@ -90,7 +83,7 @@ class Extension
      */
     public function __toString()
     {
-        return $this->getName();
+        return (string)$this->getName();
     }
 
     /**
@@ -140,29 +133,6 @@ class Extension
     }
 
     /**
-     * Set series
-     *
-     * @param \Purethink\AdminBundle\Entity\Series $series
-     * @return Extension
-     */
-    public function setSeries(\Purethink\AdminBundle\Entity\Series $series)
-    {
-        $this->series = $series;
-
-        return $this;
-    }
-
-    /**
-     * Get series
-     *
-     * @return \Purethink\AdminBundle\Entity\Series
-     */
-    public function getSeries()
-    {
-        return $this->series;
-    }
-    
-    /**
      * Constructor
      */
     public function __construct()
@@ -173,11 +143,13 @@ class Extension
     /**
      * Add fields
      *
-     * @param \Purethink\CMSBundle\Entity\Extension $fields
+     * @param \Purethink\CMSBundle\Entity\ExtensionHasField $fields
      * @return Extension
      */
-    public function addField(\Purethink\CMSBundle\Entity\Extension $fields)
+    public function addField(\Purethink\CMSBundle\Entity\ExtensionHasField $fields)
     {
+        $fields->setExtension($this);
+
         $this->fields[] = $fields;
 
         return $this;
@@ -186,9 +158,9 @@ class Extension
     /**
      * Remove fields
      *
-     * @param \Purethink\CMSBundle\Entity\Extension $fields
+     * @param \Purethink\CMSBundle\Entity\ExtensionHasField $fields
      */
-    public function removeField(\Purethink\CMSBundle\Entity\Extension $fields)
+    public function removeField(\Purethink\CMSBundle\Entity\ExtensionHasField $fields)
     {
         $this->fields->removeElement($fields);
     }

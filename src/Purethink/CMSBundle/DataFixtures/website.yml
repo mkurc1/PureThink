@@ -1,0 +1,8 @@
+model: Purethink\CMSBundle\Entity\Website
+fixtures:
+    cms_website_1:
+        language: cms_language_1
+        metadata: cms_metadata_1
+    cms_website_2:
+        language: cms_language_2
+        metadata: cms_metadata_2

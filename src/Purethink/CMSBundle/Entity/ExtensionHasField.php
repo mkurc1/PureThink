@@ -9,7 +9,7 @@ use Purethink\CMSBundle\Entity\Extension;
 
 /**
  * @ORM\Table(name="cms_extension_has_field")
- * @ORM\Entity(repositoryClass="Purethink\CMSBundle\Repository\ExtensionHasFieldRepository")
+ * @ORM\Entity()
  */
 class ExtensionHasField
 {
@@ -92,13 +92,6 @@ class ExtensionHasField
      */
     private $typeOfField;
 
-
-    public function __construct(Extension $extension = null)
-    {
-        if (null != $extension) {
-            $this->setExtension($extension);
-        }
-    }
 
     public static function getTypeOfFieldStringById($id)
     {

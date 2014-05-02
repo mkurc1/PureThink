@@ -8,7 +8,7 @@ imports:
 
 framework:
     #esi:             ~
-    translator:      ~
+    translator:      { fallback: %locale% }
     secret:          "%secret%"
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
@@ -37,6 +37,7 @@ twig:
             - ':Form:form_errors.html.twig'
             - ':Form:form_row.html.twig'
             - ':Form:fields.html.twig'
+            - 'SonataMediaBundle:Form:media_widgets.html.twig'
 
 # Assetic Configuration
 assetic:
@@ -56,10 +57,8 @@ assetic:
             inputs: "%kernel.root_dir%/Resources/public/js/helper.js"
     bundles:
         - PurethinkCoreBundle
-        - PurethinkAdminBundle
         - PurethinkCMSBundle
         - PurethinkFileBundle
-        - PurethinkUserBundle
         - PurethinkCommentBundle
     filters:
         cssembed:
@@ -88,6 +87,8 @@ doctrine:
         # if using pdo_sqlite as your database driver, add the path in parameters.yml
         # e.g. database_path: %kernel.root_dir%/data/data.db3
         # path:     %database_path%
+        types:
+            json: Sonata\Doctrine\Types\JsonType
 
     orm:
         auto_generate_proxy_classes: "%kernel.debug%"
@@ -126,17 +127,20 @@ stof_doctrine_extensions:
 fos_user:
     db_driver: orm
     firewall_name: main
-    user_class: Purethink\UserBundle\Entity\User
-    from_email:
-        address: "%mailer_user%"
-        sender_name: PureThink
-    registration:
-        form:
-            type: purethink_user_registration
-        confirmation:
-            enabled: true
+    user_class:     Application\Sonata\UserBundle\Entity\User
+#    from_email:
+#        address: "%mailer_user%"
+#        sender_name: PureThink
+#    registration:
+#        form:
+#            type: purethink_user_registration
+#        confirmation:
+#            enabled: true
     group:
-        group_class: Purethink\UserBundle\Entity\Group
+        group_class:   Application\Sonata\UserBundle\Entity\Group
+        group_manager: sonata.user.orm.group_manager
+    service:
+        user_manager: sonata.user.orm.user_manager
 
 fos_comment:
     db_driver: orm
@@ -147,3 +151,92 @@ fos_comment:
 
 k_phoen_sitemap:
     base_host: %base_host%
+
+sonata_user:
+#    security_acl: true
+    manager_type: orm
+
+sonata_notification:
+    admin:
+        enabled: false
+
+sonata_media:
+    default_context: default
+    db_driver: doctrine_orm
+    contexts:
+        default:
+            providers:
+                - sonata.media.provider.dailymotion
+                - sonata.media.provider.youtube
+                - sonata.media.provider.image
+                - sonata.media.provider.file
+
+            formats:
+                small: { width: 100 , quality: 70}
+                big:   { width: 500 , quality: 70}
+    cdn:
+        server:
+            path: /uploads
+    filesystem:
+        local:
+            directory:  %kernel.root_dir%/../web/uploads
+            create:     false
+
+sonata_formatter:
+    formatters:
+        markdown:
+            service: sonata.formatter.text.markdown
+            extensions:
+                - sonata.formatter.twig.control_flow
+                - sonata.formatter.twig.gist
+                - sonata.media.formatter.twig #keep this commented unless you are using media bundle.
+
+
+        text:
+            service: sonata.formatter.text.text
+            extensions:
+                - sonata.formatter.twig.control_flow
+                - sonata.formatter.twig.gist
+                - sonata.media.formatter.twig
+
+
+        rawhtml:
+            service: sonata.formatter.text.raw
+            extensions:
+                - sonata.formatter.twig.control_flow
+                - sonata.formatter.twig.gist
+                - sonata.media.formatter.twig
+
+
+        richhtml:
+            service: sonata.formatter.text.raw
+            extensions:
+                - sonata.formatter.twig.control_flow
+                - sonata.formatter.twig.gist
+                - sonata.media.formatter.twig
+
+
+        twig:
+            service: sonata.formatter.text.twigengine
+            extensions: [] # Twig formatter cannot have extensions
+
+sonata_admin:
+    title: PureThink
+    templates:
+        layout: SonataAdminBundle::layout.html.twig
+        dashboard: SonataAdminBundle:Core:dashboard.html.twig
+    dashboard:
+        blocks:
+            -
+                position: left
+                type: sonata.admin.block.admin_list
+            -
+                position: right
+                type: sonata.block.service.text
+                settings:
+                    content: >
+                        <h2>Welcome to the PureThink Admin</h2>
+                        <p>This is a <code>sonata.block.service.text</code> from the Block
+                        Bundle, you can create and add new block in these area by configuring
+                        the <code>sonata_admin</code> section.</p> <br /> For instance, here
+                        a RSS feed parser (<code>sonata.block.service.rss</code>):

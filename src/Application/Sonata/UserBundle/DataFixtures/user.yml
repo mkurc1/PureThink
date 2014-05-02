@@ -1,0 +1,15 @@
+model: Application\Sonata\UserBundle\Entity\User
+fixtures:
+    user_1:
+        username: "admin"
+        usernameCanonical: "admin"
+        email: "mkurc1@gmail.com"
+        emailCanonical: "mkurc1@gmail.com"
+        enabled: 1
+        plainPassword: "qwerty123"
+        firstname: "Michał"
+        lastname: "Kurcewicz"
+        roles:
+            - ROLE_SONATA_ADMIN
+            - ROLE_SUPER_ADMIN
+            - ROLE_ALLOWED_TO_SWITCH
