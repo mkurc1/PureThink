@@ -11,6 +11,10 @@ use Sonata\AdminBundle\Form\FormMapper;
 
 class Template extends Admin
 {
+    protected $datagridValues = [
+        '_sort_by' => 'name'
+    ];
+
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
@@ -52,6 +56,7 @@ class Template extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
+            ->add('id')
             ->add('name')
             ->add('slug')
             ->add('author')
@@ -61,6 +66,7 @@ class Template extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
+            ->addIdentifier('id')
             ->addIdentifier('name')
             ->addIdentifier('slug')
             ->add('author')

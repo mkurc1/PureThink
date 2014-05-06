@@ -20,6 +20,7 @@ class Website extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
+            ->add('id')
             ->add('metadata')
             ->add('language');
     }
@@ -27,6 +28,7 @@ class Website extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
+            ->addIdentifier('id')
             ->addIdentifier('metadata')
             ->add('language');
     }

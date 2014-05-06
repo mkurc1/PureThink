@@ -3,6 +3,9 @@ security:
         fos_userbundle:
             id: fos_user.user_provider.username_email
 
+    acl:
+        connection: default
+
     encoders:
         FOS\UserBundle\Model\UserInterface: sha512
 
@@ -10,6 +13,9 @@ security:
         strategy: consensus
 
     firewalls:
+        dev:
+              pattern:  ^/(_(profiler|wdt)|css|images|js)/
+              security: false
         admin:
               pattern:            /admin(.*)
               context:            user
@@ -21,18 +27,19 @@ security:
                   failure_path:   null
               logout:
                   path:           /admin/logout
-                  invalidate_session: false
               anonymous:          true
         main:
             pattern: ^/
             switch_user: true
             context:     user
-            logout:
-                invalidate_session: false
+            logout: true
             anonymous: true
             form_login:
-                provider: fos_userbundle
-                csrf_provider: form.csrf_provider
+                  provider:       fos_userbundle
+                  login_path:     /login
+                  use_forward:    false
+                  check_path:     /login_check
+                  failure_path:   null
 
     access_control:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
@@ -42,7 +49,9 @@ security:
         - { path: ^/admin/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/logout$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/login_check$, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/admin/, role: ROLE_ADMIN }
+
+        - { path: ^/admin/, role: [ROLE_ADMIN, ROLE_SONATA_ADMIN] }
+        - { path: ^/.*, role: IS_AUTHENTICATED_ANONYMOUSLY }
 
     role_hierarchy:
         ROLE_ADMIN:       [ROLE_USER, ROLE_SONATA_ADMIN]

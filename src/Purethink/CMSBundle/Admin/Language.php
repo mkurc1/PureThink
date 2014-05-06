@@ -8,19 +8,24 @@ use Sonata\AdminBundle\Form\FormMapper;
 
 class Language extends Admin
 {
+    protected $datagridValues = [
+        '_sort_by' => 'name'
+    ];
+
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
             ->with('General')
                 ->add('name')
                 ->add('alias')
-                ->add('isPublic')
+                ->add('isPublic', null, ['required' => false])
             ->end();
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
+            ->add('id')
             ->add('name')
             ->add('alias')
             ->add('isPublic');
@@ -29,6 +34,7 @@ class Language extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
+            ->addIdentifier('id')
             ->addIdentifier('name')
             ->add("alias")
             ->add('isPublic', null, ['editable' => true]);

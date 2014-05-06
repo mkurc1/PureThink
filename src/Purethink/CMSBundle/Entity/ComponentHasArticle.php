@@ -31,7 +31,11 @@ class ComponentHasArticle extends ComponentHasValue
 
     public function getStringContent()
     {
-        return $this->getContent()->getSlug();
+        if ($this->getContent()) {
+            return $this->getContent()->getSlug();
+        } else {
+            return '';
+        }
     }
 
     /**

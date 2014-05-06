@@ -49,6 +49,11 @@
         "sonata-project/media-bundle": "*",
         "sonata-project/formatter-bundle": "*",
 
+        "mopa/bootstrap-bundle": "v3.0.0-beta3",
+        "twbs/bootstrap": "v3.0.0",
+
+        "simplethings/entity-audit-bundle": "*",
+
         "kphoen/sitemap-bundle": "*",
         "ornicar/gravatar-bundle" : "dev-master"
     },

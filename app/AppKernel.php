@@ -47,9 +47,12 @@ class AppKernel extends Kernel
             new JMS\SerializerBundle\JMSSerializerBundle(),
             new KPhoen\SitemapBundle\KPhoenSitemapBundle(),
             new Ornicar\GravatarBundle\OrnicarGravatarBundle(),
+            new Mopa\Bundle\BootstrapBundle\MopaBootstrapBundle(),
 
             new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
             new Application\Sonata\MediaBundle\ApplicationSonataMediaBundle(),
+
+            new SimpleThings\EntityAudit\SimpleThingsEntityAuditBundle(),
 
             new Purethink\CommentBundle\PurethinkCommentBundle(),
             new Purethink\CoreBundle\PurethinkCoreBundle(),

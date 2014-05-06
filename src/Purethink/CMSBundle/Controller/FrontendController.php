@@ -12,7 +12,7 @@ use Purethink\CMSBundle\Entity\Article;
 class FrontendController extends Controller
 {
     /**
-     * @Route("/", name="frontend")
+     * @Route("/", name="")
      * @Method("GET")
      */
     public function mainAction(Request $request)

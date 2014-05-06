@@ -1,9 +1,6 @@
 <?php
 namespace Purethink\CMSBundle\Admin;
 
-use Purethink\CMSBundle\Form\ImageType;
-use Purethink\CMSBundle\Form\ScriptType;
-use Purethink\CMSBundle\Form\StyleType;
 use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
@@ -11,6 +8,10 @@ use Sonata\AdminBundle\Form\FormMapper;
 
 class Extension extends Admin
 {
+    protected $datagridValues = [
+        '_sort_by' => 'name'
+    ];
+
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
@@ -31,6 +32,7 @@ class Extension extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
+            ->add('id')
             ->add('name')
             ->add('createdAt')
             ->add('updatedAt');
@@ -39,6 +41,7 @@ class Extension extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
+            ->addIdentifier('id')
             ->addIdentifier('name')
             ->add('createdAt')
             ->add('updatedAt');

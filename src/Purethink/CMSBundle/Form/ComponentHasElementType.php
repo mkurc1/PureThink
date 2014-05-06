@@ -9,7 +9,7 @@ class ComponentHasElementType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('componentHasValues', 'collection', ['type' => new ComponentHasValueType()]);
+        $builder->add('componentHasValues', 'sonata_type_collection', ['type' => new ComponentHasValueType()]);
     }
 
     public function getName()

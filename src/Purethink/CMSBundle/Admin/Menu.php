@@ -8,6 +8,10 @@ use Sonata\AdminBundle\Form\FormMapper;
 
 class Menu extends Admin
 {
+    protected $datagridValues = [
+        '_sort_by' => 'name'
+    ];
+
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
@@ -16,7 +20,7 @@ class Menu extends Admin
                 ->add('slug', null, ['required' => false])
                 ->add('article')
                 ->add('language')
-                ->add('type')
+                ->add('type', 'sonata_type_model')
                 ->add('sequence')
                 ->add('menu')
                 ->add('isPublic')
@@ -27,6 +31,7 @@ class Menu extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
+            ->add('id')
             ->add('name')
             ->add('slug')
             ->add('type')
@@ -39,6 +44,7 @@ class Menu extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
+            ->addIdentifier('id')
             ->addIdentifier('name')
             ->addIdentifier('slug')
             ->add('type')

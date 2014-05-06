@@ -6,6 +6,8 @@ sonata_block:
         sonata.admin.block.search_result:
             contexts: [admin]
         sonata.block.service.text: ~
+        sonata.user.block.menu:
+        sonata.user.block.account:
 
         purethink.cms.block.language: ~
         purethink.cms.block.menu: ~

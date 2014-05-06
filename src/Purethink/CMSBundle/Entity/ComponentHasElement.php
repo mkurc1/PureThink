@@ -47,6 +47,22 @@ class ComponentHasElement
     private $componentHasValues;
 
 
+    public function __toString()
+    {
+        return (string)$this->getTitle();
+    }
+
+    public function getTitle()
+    {
+        foreach ($this->getComponentHasValues() as $value) {
+            if ($value->getExtensionHasField()->getIsMainField()) {
+                return $value;
+            }
+        }
+
+        return '';
+    }
+
     /**
      * Get id
      *
@@ -111,6 +127,8 @@ class ComponentHasElement
      */
     public function addComponentHasValue(\Purethink\CMSBundle\Entity\ComponentHasValue $componentHasValues)
     {
+        $componentHasValues->setComponentHasElement($this);
+
         $this->componentHasValues[] = $componentHasValues;
 
         return $this;
@@ -139,13 +157,9 @@ class ComponentHasElement
     /**
      * Constructor
      */
-    public function __construct(Component $component = null)
+    public function __construct()
     {
         $this->componentHasValues = new \Doctrine\Common\Collections\ArrayCollection();
-
-        if ($component) {
-            $this->setComponent($component);
-        }
     }
 
 
