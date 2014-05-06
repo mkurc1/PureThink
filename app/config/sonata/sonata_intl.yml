@@ -1,0 +1,7 @@
+sonata_intl:
+    locale: ~
+    timezone:
+        service: ~
+        detectors:
+            - sonata.intl.timezone_detector.user
+            - sonata.intl.timezone_detector.locale

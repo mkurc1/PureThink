@@ -7,13 +7,11 @@ use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
 use Application\Sonata\UserBundle\Entity\User;
 use Doctrine\ORM\Event\LifecycleEventArgs;
-use JMS\Serializer\Annotation as Serializer;
 
 /**
  * @ORM\Table(name="cms_article")
  * @ORM\Entity(repositoryClass="Purethink\CMSBundle\Repository\ArticleRepository")
  * @ORM\HasLifecycleCallbacks
- * @Serializer\ExclusionPolicy("all")
  */
 class Article implements MetadataInterface
 {
@@ -26,7 +24,6 @@ class Article implements MetadataInterface
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Serializer\Expose
      * @Assert\NotNull()
      * @Assert\Length(max="255")
      */
@@ -57,7 +54,6 @@ class Article implements MetadataInterface
 
     /**
      * @ORM\Column(type="text", nullable=true)
-     * @Serializer\Expose
      */
     private $content;
 
@@ -69,7 +65,6 @@ class Article implements MetadataInterface
     /**
      * @ORM\ManyToOne(targetEntity="Language")
      * @ORM\JoinColumn(onDelete="CASCADE")
-     * @Serializer\Expose
      * @Assert\NotNull()
      */
     private $language;

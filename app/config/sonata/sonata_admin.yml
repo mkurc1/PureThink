@@ -1,0 +1,25 @@
+sonata_admin:
+    title: %sonata_admin.title%
+    title_logo: %sonata_admin.logo_title%
+
+    security:
+        handler: sonata.admin.security.handler.acl
+
+    templates:
+        layout: SonataAdminBundle::layout.html.twig
+        dashboard: SonataAdminBundle:Core:dashboard.html.twig
+    dashboard:
+        blocks:
+            -
+                position: left
+                type: sonata.admin.block.admin_list
+            -
+                position: right
+                type: sonata.block.service.text
+                settings:
+                    content: >
+                        <h2>Welcome to the PureThink Admin</h2>
+                        <p>This is a <code>sonata.block.service.text</code> from the Block
+                        Bundle, you can create and add new block in these area by configuring
+                        the <code>sonata_admin</code> section.</p> <br /> For instance, here
+                        a RSS feed parser (<code>sonata.block.service.rss</code>):

@@ -4,21 +4,11 @@ namespace Purethink\CMSBundle\Admin;
 use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
-use Sonata\AdminBundle\Form\FormMapper;
 
 class ComponentHasElement extends Admin
 {
     protected $parentAssociationMapping = 'component';
 
-
-//    protected function configureFormFields(FormMapper $formMapper)
-//    {
-//        $formMapper
-//            ->with('General')
-//                ->add('isEnable')
-//                ->add('componentHasValues', 'collection', ['type' => new ComponentHasValueType()])
-//            ->end();
-//    }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {

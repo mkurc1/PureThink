@@ -12,7 +12,11 @@ class Website extends Admin
     {
         $formMapper
             ->with('General')
-                ->add('metadata', 'metadata')
+                ->add('metadata', 'sonata_type_admin', [
+                    'label' => false,
+                    'delete' => false,
+                    'btn_add' => false
+                ])
                 ->add('language')
             ->end();
     }
@@ -29,7 +33,7 @@ class Website extends Admin
     {
         $listMapper
             ->addIdentifier('id')
-            ->addIdentifier('metadata')
+            ->addIdentifier('metadata.title')
             ->add('language');
     }
 

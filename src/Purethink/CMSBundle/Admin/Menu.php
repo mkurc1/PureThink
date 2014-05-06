@@ -8,6 +8,8 @@ use Sonata\AdminBundle\Form\FormMapper;
 
 class Menu extends Admin
 {
+    protected $parentAssociationMapping = 'type';
+
     protected $datagridValues = [
         '_sort_by' => 'name'
     ];
@@ -17,14 +19,20 @@ class Menu extends Admin
         $formMapper
             ->with('General')
                 ->add('name')
-                ->add('slug', null, ['required' => false])
-                ->add('article')
+                ->add('article', 'sonata_type_model_list', [
+                    'btn_add' => false
+                ])
                 ->add('language')
-                ->add('type', 'sonata_type_model')
                 ->add('sequence')
-                ->add('menu')
+                ->add('menu', 'sonata_type_model_list', [
+                    'required' => false,
+                    'btn_add' => false
+                ])
                 ->add('isPublic')
                 ->add('isNewPage')
+            ->end()
+            ->with('Set only when needed')
+                ->add('slug', null, ["required" => false])
             ->end();
     }
 
@@ -34,7 +42,6 @@ class Menu extends Admin
             ->add('id')
             ->add('name')
             ->add('slug')
-            ->add('type')
             ->add('article')
             ->add('language')
             ->add('isPublic')
@@ -47,7 +54,6 @@ class Menu extends Admin
             ->addIdentifier('id')
             ->addIdentifier('name')
             ->addIdentifier('slug')
-            ->add('type')
             ->add('menu')
             ->add('sequence', null, ['editable' => true])
             ->add('article')

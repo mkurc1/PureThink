@@ -2,9 +2,30 @@
 imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
-    - { resource: ckeditor.yml }
-    - { resource: block.yml }
-    - { resource: fixtures.yml }
+
+    # Mopa Bootstrap
+    - { resource: mopa/mopa_bootstrap.yml }
+
+    # FriendOfSymfony Bundles
+    - { resource: fos/fos_comment.yml }
+    - { resource: fos/fos_user.yml }
+
+    # Sonata Core Bundles
+    - { resource: sonata/sonata_block.yml }
+    - { resource: sonata/sonata_formatter.yml }
+    - { resource: sonata/sonata_intl.yml }
+
+    # Sonata Feature Bundles
+    - { resource: sonata/sonata_admin.yml }
+    - { resource: sonata/sonata_media.yml }
+    - { resource: sonata/sonata_user.yml }
+    - { resource: sonata/sonata_notification.yml }
+
+    # Khepin Fixtures
+    - { resource: khepin/khepin_yaml_fixtures.yml }
+
+    # Ivory CKEditor
+    - { resource: ivory/ivory_ck_editor.yml }
 
 framework:
     #esi:             ~
@@ -121,147 +142,5 @@ stof_doctrine_extensions:
             sluggable: true
             translatable: false
 
-fos_user:
-    db_driver:      orm # can be orm or odm
-    firewall_name:  main
-    user_class:     Application\Sonata\UserBundle\Entity\User
-    from_email:
-        address: "%mailer_user%"
-        sender_name: PureThink
-
-    group:
-        group_class:   Application\Sonata\UserBundle\Entity\Group
-        group_manager: sonata.user.orm.group_manager
-
-    service:
-        user_manager: sonata.user.orm.user_manager
-
-fos_comment:
-    db_driver: orm
-    class:
-        model:
-            comment: Purethink\CommentBundle\Entity\Comment
-            thread: Purethink\CommentBundle\Entity\Thread
-
 k_phoen_sitemap:
     base_host: %base_host%
-
-sonata_user:
-    security_acl:     true
-    impersonating:
-           route:  frontend
-    class:
-        user:         Application\Sonata\UserBundle\Entity\User
-        group:        Application\Sonata\UserBundle\Entity\Group
-
-    profile:  # Profile Form (firstname, lastname, etc ...)
-        form:
-            type:               sonata_user_profile
-            handler:            sonata.user.profile.form.handler.default
-            name:               sonata_user_profile_form
-            validation_groups:  [Profile]
-
-sonata_notification:
-    admin:
-        enabled: false
-
-sonata_media:
-    default_context: default
-    db_driver: doctrine_orm
-    contexts:
-        default:
-            providers:
-                - sonata.media.provider.dailymotion
-                - sonata.media.provider.youtube
-                - sonata.media.provider.image
-                - sonata.media.provider.file
-
-            formats:
-                small: { width: 100 , quality: 70}
-                big:   { width: 500 , quality: 70}
-    cdn:
-        server:
-            path: /uploads
-    filesystem:
-        local:
-            directory:  %kernel.root_dir%/../web/uploads
-            create:     false
-
-sonata_formatter:
-    formatters:
-        markdown:
-            service: sonata.formatter.text.markdown
-            extensions:
-                - sonata.formatter.twig.control_flow
-                - sonata.formatter.twig.gist
-                - sonata.media.formatter.twig #keep this commented unless you are using media bundle.
-
-
-        text:
-            service: sonata.formatter.text.text
-            extensions:
-                - sonata.formatter.twig.control_flow
-                - sonata.formatter.twig.gist
-                - sonata.media.formatter.twig
-
-
-        rawhtml:
-            service: sonata.formatter.text.raw
-            extensions:
-                - sonata.formatter.twig.control_flow
-                - sonata.formatter.twig.gist
-                - sonata.media.formatter.twig
-
-
-        richhtml:
-            service: sonata.formatter.text.raw
-            extensions:
-                - sonata.formatter.twig.control_flow
-                - sonata.formatter.twig.gist
-                - sonata.media.formatter.twig
-
-
-        twig:
-            service: sonata.formatter.text.twigengine
-            extensions: [] # Twig formatter cannot have extensions
-
-sonata_admin:
-    title: PureThink
-    title_logo: images/logo_big.png
-
-    security:
-        handler: sonata.admin.security.handler.acl
-
-    templates:
-        layout: SonataAdminBundle::layout.html.twig
-        dashboard: SonataAdminBundle:Core:dashboard.html.twig
-    dashboard:
-        blocks:
-            -
-                position: left
-                type: sonata.admin.block.admin_list
-            -
-                position: right
-                type: sonata.block.service.text
-                settings:
-                    content: >
-                        <h2>Welcome to the PureThink Admin</h2>
-                        <p>This is a <code>sonata.block.service.text</code> from the Block
-                        Bundle, you can create and add new block in these area by configuring
-                        the <code>sonata_admin</code> section.</p> <br /> For instance, here
-                        a RSS feed parser (<code>sonata.block.service.rss</code>):
-
-sonata_user:
-    profile:
-        # Profile show page is a dashboard as in SonataAdminBundle
-        dashboard:
-            blocks:
-                - { position: left, type: sonata.block.service.text, settings: { content: "<h2>Welcome!</h2> This is a sample user profile dashboard, feel free to override it in the configuration! Want to make this text dynamic? For instance display the user's name? Create a dedicated block and edit the configuration!"} }
-        menu:
-            - { route: 'sonata_user_profile_show', label: 'sonata_profile_title', domain: 'SonataUserBundle'}
-            - { route: 'sonata_user_profile_edit', label: 'link_edit_profile', domain: 'SonataUserBundle'}
-            - { route: 'sonata_user_profile_edit_authentication', label: 'link_edit_authentication', domain: 'SonataUserBundle'}
-
-mopa_bootstrap:
-    form: ~  # Adds twig form theme  support
-    menu: ~

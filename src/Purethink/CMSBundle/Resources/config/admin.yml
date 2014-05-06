@@ -1,4 +1,10 @@
 services:
+    purethink_cms.admin.metadata:
+        tags:
+            - { name: sonata.admin, manager_type: orm, audit: false, show_in_dashboard: false }
+        class: Purethink\CMSBundle\Admin\Metadata
+        arguments: [null, Purethink\CMSBundle\Entity\Metadata, SonataAdminBundle:CRUD]
+
     purethink_cms.admin.language:
         tags:
             - { name: sonata.admin, manager_type: orm, audit: false, group: CMS, label: Languages }
@@ -21,13 +27,15 @@ services:
 
     purethink_cms.admin.menuType:
         tags:
-            - { name: sonata.admin, manager_type: orm, audit: false, group: CMS, label: Types of menu }
+            - { name: sonata.admin, manager_type: orm, audit: false, group: CMS, label: Menus }
         class: Purethink\CMSBundle\Admin\MenuType
         arguments: [null, Purethink\CMSBundle\Entity\MenuType, SonataAdminBundle:CRUD]
+        calls:
+            - [ addChild, [@purethink_cms.admin.menu] ]
 
     purethink_cms.admin.menu:
         tags:
-            - { name: sonata.admin, manager_type: orm, audit: false, group: CMS, label: Menus }
+            - { name: sonata.admin, manager_type: orm, audit: false, show_in_dashboard: false }
         class: Purethink\CMSBundle\Admin\Menu
         arguments: [null, Purethink\CMSBundle\Entity\Menu, SonataAdminBundle:CRUD]
 

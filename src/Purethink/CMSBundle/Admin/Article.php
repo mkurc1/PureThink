@@ -24,8 +24,14 @@ class Article extends Admin
                 ->add('content', 'ckeditor')
                 ->add('isPublic')
             ->with('SEO')
-                ->add('slug', null, ['required' => false])
-                ->add('metadata', 'metadata', ['required' => false])
+                ->add('metadata', 'sonata_type_admin', [
+                    'label' => false,
+                    'delete' => false,
+                    'btn_add' => false
+                ])
+            ->end()
+            ->with('Set only when needed')
+                ->add('slug', null, ["required" => false])
             ->end();
     }
 

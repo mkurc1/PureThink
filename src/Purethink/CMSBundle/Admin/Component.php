@@ -32,7 +32,6 @@ class Component extends Admin
             "Elements",
             ['uri' => $admin->generateUrl('purethink_cms.admin.componenthaselement.list', compact('id'))]
         );
-
     }
 
     protected function configureFormFields(FormMapper $formMapper)
@@ -40,10 +39,12 @@ class Component extends Admin
         $formMapper
             ->with('General')
                 ->add('name')
-                ->add('slug', null, ['required' => false])
                 ->add('isEnable')
                 ->add('language')
                 ->add('extension')
+            ->end()
+            ->with('Set only when needed')
+                ->add('slug', null, ["required" => false])
             ->end();
     }
 

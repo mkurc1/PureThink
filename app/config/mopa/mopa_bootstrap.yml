@@ -1,0 +1,4 @@
+mopa_bootstrap:
+    form:
+        show_legend: false
+        render_optional_text: false

@@ -20,7 +20,6 @@ class Template extends Admin
         $formMapper
             ->with('General')
                 ->add('name')
-                ->add('slug', null, ['required' => false])
                 ->add('author')
                 ->add('isEnable')
             ->end()
@@ -50,6 +49,9 @@ class Template extends Admin
                     'inline' => 'table',
                     'sortable' => 'position',
                 ])
+            ->end()
+            ->with('Set only when needed')
+                ->add('slug', null, ["required" => false])
             ->end();
     }
 
