@@ -40,6 +40,10 @@ class AppKernel extends Kernel
             new Sonata\jQueryBundle\SonatajQueryBundle(),
             new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle(),
             new Sonata\MediaBundle\SonataMediaBundle(),
+            new Sonata\ClassificationBundle\SonataClassificationBundle(),
+            new Application\Sonata\ClassificationBundle\ApplicationSonataClassificationBundle(),
+            new Sonata\CommentBundle\SonataCommentBundle(),
+            new Application\Sonata\CommentBundle\ApplicationSonataCommentBundle(),
 
             new Khepin\YamlFixturesBundle\KhepinYamlFixturesBundle(),
             new FOS\RestBundle\FOSRestBundle(),
@@ -54,7 +58,6 @@ class AppKernel extends Kernel
 
             new SimpleThings\EntityAudit\SimpleThingsEntityAuditBundle(),
 
-            new Purethink\CommentBundle\PurethinkCommentBundle(),
             new Purethink\CoreBundle\PurethinkCoreBundle(),
             new Purethink\FileBundle\PurethinkFileBundle(),
             new Purethink\CMSBundle\PurethinkCMSBundle(),

@@ -29,7 +29,7 @@
 
             {{ article.content|raw }}
 
-            {% include 'PurethinkCommentBundle:Thread:async.html.twig' with { 'id': article.id } %}
+            {{ sonata_block_render_event('sonata.comment', {'id': article.id}) }}
         </div>
     </div>
 
