@@ -63,7 +63,15 @@ services:
         tags:
             - { name: sonata.admin, manager_type: orm, audit: false, show_in_dashboard: false }
         class: Purethink\CMSBundle\Admin\ComponentHasElement
-        arguments: [null, Purethink\CMSBundle\Entity\ComponentHasElement, PurethinkCMSBundle:ComponentHasElementAdmin]
+        arguments: [null, Purethink\CMSBundle\Entity\ComponentHasElement, SonataAdminBundle:CRUD]
+        calls:
+            - [ addChild, [@purethink_cms.admin.componentHasValue] ]
+
+    purethink_cms.admin.componentHasValue:
+        tags:
+            - { name: sonata.admin, manager_type: orm, audit: false, show_in_dashboard: false }
+        class: Purethink\CMSBundle\Admin\ComponentHasValue
+        arguments: [null, Purethink\CMSBundle\Entity\ComponentHasValue, SonataAdminBundle:CRUD]
 
     purethink_cms.admin.template:
         tags:
