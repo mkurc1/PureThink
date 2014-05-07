@@ -24,6 +24,10 @@ class Article extends Admin
                 ->add('name')
                 ->add('language')
                 ->add('content', 'ckeditor')
+                ->add('tags', 'sonata_type_model', [
+                    'required' => false,
+                    'multiple' => true
+                ])
                 ->add('isPublic')
             ->with('SEO')
                 ->add('metadata', 'sonata_type_admin', [
@@ -64,6 +68,7 @@ class Article extends Admin
             ->add('name')
             ->add('language')
             ->add('content', null, ['safe' => true])
+            ->add('tags')
             ->add('isPublic');
     }
 

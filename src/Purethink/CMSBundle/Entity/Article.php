@@ -85,6 +85,12 @@ class Article implements MetadataInterface
      */
     private $componentHasArticle;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="Application\Sonata\ClassificationBundle\Entity\Tag", cascade={"persist"})
+     * @ORM\JoinTable(name="cms_article_tag")
+     */
+    private $tags;
+
 
     public function incrementArticleViews()
     {
@@ -320,6 +326,7 @@ class Article implements MetadataInterface
     public function __construct(User $user = null)
     {
         $this->componentHasArticle = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->tags = new \Doctrine\Common\Collections\ArrayCollection();
         $this->setMetadata(new Metadata());
 
         if (null != $user) {
@@ -404,5 +411,38 @@ class Article implements MetadataInterface
     public function getMetadata()
     {
         return $this->metadata;
+    }
+
+    /**
+     * Add tags
+     *
+     * @param \Application\Sonata\ClassificationBundle\Entity\Tag $tags
+     * @return Article
+     */
+    public function addTag(\Application\Sonata\ClassificationBundle\Entity\Tag $tags)
+    {
+        $this->tags[] = $tags;
+
+        return $this;
+    }
+
+    /**
+     * Remove tags
+     *
+     * @param \Application\Sonata\ClassificationBundle\Entity\Tag $tags
+     */
+    public function removeTag(\Application\Sonata\ClassificationBundle\Entity\Tag $tags)
+    {
+        $this->tags->removeElement($tags);
+    }
+
+    /**
+     * Get tags
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getTags()
+    {
+        return $this->tags;
     }
 }

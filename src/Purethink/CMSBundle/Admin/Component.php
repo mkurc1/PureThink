@@ -39,9 +39,9 @@ class Component extends Admin
         $formMapper
             ->with('General')
                 ->add('name')
-                ->add('isEnable')
                 ->add('language')
                 ->add('extension')
+                ->add('isEnable')
             ->end()
             ->with('Set only when needed')
                 ->add('slug', null, ["required" => false])
