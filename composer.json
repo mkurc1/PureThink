@@ -38,6 +38,8 @@
         "raulfraile/ladybug-bundle": "*",
         "bmatzner/fontawesome-bundle": "~4.0",
         "khepin/yaml-fixtures-bundle": "~0.8.1",
+        "stephpy/TimelineBundle": "~2.0@dev",
+        "stephpy/timeline": "~1.0@dev",
 
         "sonata-project/admin-bundle": "*",
         "sonata-project/doctrine-orm-admin-bundle": "*",
@@ -50,6 +52,7 @@
         "sonata-project/formatter-bundle": "*",
         "sonata-project/comment-bundle": "~2.2@dev",
         "sonata-project/classification-bundle": "~2.2",
+        "sonata-project/timeline-bundle": "~2.2@dev",
 
         "mopa/bootstrap-bundle": "v3.0.0-beta3",
         "twbs/bootstrap": "v3.0.0",

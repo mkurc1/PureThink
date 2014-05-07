@@ -27,6 +27,9 @@ class AppKernel extends Kernel
             new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
             new Bmatzner\FontAwesomeBundle\BmatznerFontAwesomeBundle(),
 
+            new Spy\TimelineBundle\SpyTimelineBundle(),
+            new Sonata\TimelineBundle\SonataTimelineBundle(),
+
             new Sonata\MarkItUpBundle\SonataMarkItUpBundle(),
             new Knp\Bundle\MarkdownBundle\KnpMarkdownBundle(),
             new Sonata\FormatterBundle\SonataFormatterBundle(),
@@ -41,9 +44,7 @@ class AppKernel extends Kernel
             new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle(),
             new Sonata\MediaBundle\SonataMediaBundle(),
             new Sonata\ClassificationBundle\SonataClassificationBundle(),
-            new Application\Sonata\ClassificationBundle\ApplicationSonataClassificationBundle(),
             new Sonata\CommentBundle\SonataCommentBundle(),
-            new Application\Sonata\CommentBundle\ApplicationSonataCommentBundle(),
 
             new Khepin\YamlFixturesBundle\KhepinYamlFixturesBundle(),
             new FOS\RestBundle\FOSRestBundle(),
@@ -55,6 +56,9 @@ class AppKernel extends Kernel
 
             new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
             new Application\Sonata\MediaBundle\ApplicationSonataMediaBundle(),
+            new Application\Sonata\TimelineBundle\ApplicationSonataTimelineBundle(),
+            new Application\Sonata\ClassificationBundle\ApplicationSonataClassificationBundle(),
+            new Application\Sonata\CommentBundle\ApplicationSonataCommentBundle(),
 
             new SimpleThings\EntityAudit\SimpleThingsEntityAuditBundle(),
 

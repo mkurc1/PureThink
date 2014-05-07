@@ -5,6 +5,8 @@ sonata_block:
             contexts: [admin]
         sonata.admin.block.search_result:
             contexts: [admin]
+        sonata.timeline.block.timeline:
+            contexts: [admin]
 
         sonata.block.service.text: ~
         sonata.user.block.menu:

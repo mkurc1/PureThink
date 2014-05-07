@@ -11,4 +11,5 @@ sonata_admin:
     dashboard:
         blocks:
             - { position: left, type: sonata.admin.block.admin_list }
+            - { position: center, type: sonata.timeline.block.timeline, settings: { context: SONATA_ADMIN, max_per_page: 25 }}
             - { position: right, type: sonata.block.service.text, settings: { content: "<h2>Welcome!</h2> You can customize this dashboard by editing the sonata_admin.yml file. The current dashboard presents the recent items from the NewsBundle and a timeline with the latest action"} }

@@ -9,6 +9,8 @@ use Sonata\AdminBundle\Show\ShowMapper;
 
 class Article extends Admin
 {
+    public $supportsPreviewMode = true;
+
     private $securityContext;
 
     protected $datagridValues = [
