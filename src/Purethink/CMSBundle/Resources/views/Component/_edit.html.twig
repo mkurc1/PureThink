@@ -1,9 +1,0 @@
-<div class="header">
-    <h2>Edycja komponentu</h2>
-</div>
-
-<div class="container">
-    <form action="{{ path('purethink_cms_component_edit', { 'id': entity.id }) }}" method="post" {{ form_enctype(form) }}>
-        {% include 'PurethinkCMSBundle:Component:_form.html.twig' with { 'form': form } %}
-    </form>
-</div>

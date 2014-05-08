@@ -17,5 +17,7 @@
             <generator strategy="AUTO"/>
         </id>
 
+        <field name="color" type="string" />
+
     </entity>
 </doctrine-mapping>

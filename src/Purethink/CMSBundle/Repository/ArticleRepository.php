@@ -23,8 +23,9 @@ class ArticleRepository extends EntityRepository
     public function getPublicArticleBySlug($slug)
     {
         $qb = $this->createQueryBuilder('a')
-            ->addSelect('am')
+            ->addSelect('am, at')
             ->join('a.metadata', 'am')
+            ->leftJoin('a.tags', 'at', 'WITH', 'at.enabled = true')
             ->where('a.isPublic = true')
             ->andWhere('a.slug = :slug')
             ->setParameter('slug', $slug);

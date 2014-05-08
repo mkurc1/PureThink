@@ -5,7 +5,6 @@ namespace Purethink\CMSBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
-use Purethink\CMSBundle\Entity\Extension;
 
 /**
  * @ORM\Table(name="cms_extension_has_field")
