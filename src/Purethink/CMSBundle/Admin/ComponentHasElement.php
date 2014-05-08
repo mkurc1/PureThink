@@ -18,7 +18,7 @@ class ComponentHasElement extends Admin
 
     protected function configureFormFields(FormMapper $formMapper)
     {
-        $this->getRequest()->getSession()->remove('adminCollection');
+        ComponentHasValue::$adminCollection = 0;
 
         $formMapper
             ->with('General')

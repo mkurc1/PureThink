@@ -7,6 +7,8 @@ use Symfony\Component\Validator\Constraints\NotNull;
 
 class ComponentHasValue extends Admin
 {
+    public static $adminCollection = 0;
+
     protected $parentAssociationMapping = 'componentHasElement';
 
 
@@ -20,14 +22,10 @@ class ComponentHasValue extends Admin
         $collection = $parent->$getter();
         $collectionCount = $collection->count() - 1;
 
-        $session = $componentHasValue->getRequest()->getSession();
-
-        $number = $session->get('adminCollection', 0);
-
-        $session->set('adminCollection', $number + 1);
+        $number = self::$adminCollection++;
 
         if ($number == $collectionCount) {
-            $session->remove('adminCollection');
+            self::$adminCollection = 0;
         }
 
         return $collection[$number];
