@@ -8,7 +8,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * Metadata
  *
- * @ORM\Table(name="metadata")
+ * @ORM\Table(name="cms_metadata")
  * @ORM\Entity
  */
 class Metadata
