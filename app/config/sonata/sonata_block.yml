@@ -8,10 +8,13 @@ sonata_block:
         sonata.timeline.block.timeline:
             contexts: [admin]
 
-        sonata.block.service.text: ~
+        sonata.block.service.text:
         sonata.user.block.menu:
         sonata.user.block.account:
+            contexts: [user]
+        sonata.user.block.menu:
+            contexts: [user]
 
-        purethink.cms.block.language: ~
-        purethink.cms.block.menu: ~
-        purethink.cms.block.component: ~
+        purethink.cms.block.language:
+        purethink.cms.block.menu:
+        purethink.cms.block.component:

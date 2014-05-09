@@ -1310,12 +1310,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Atlantic18/DoctrineExtensions.git",
-                "reference": "6120bd01592a8d7d5dc48b51b7087cbc3e701e09"
+                "reference": "352a5a87a78be9691ef53353b81866ac0151637c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Atlantic18/DoctrineExtensions/zipball/6120bd01592a8d7d5dc48b51b7087cbc3e701e09",
-                "reference": "6120bd01592a8d7d5dc48b51b7087cbc3e701e09",
+                "url": "https://api.github.com/repos/Atlantic18/DoctrineExtensions/zipball/352a5a87a78be9691ef53353b81866ac0151637c",
+                "reference": "352a5a87a78be9691ef53353b81866ac0151637c",
                 "shasum": ""
             },
             "require": {
@@ -1382,7 +1382,7 @@
                 "tree",
                 "uploadable"
             ],
-            "time": "2014-05-04 14:19:39"
+            "time": "2014-05-09 19:18:50"
         },
         {
             "name": "imagine/imagine",
@@ -3401,16 +3401,16 @@
         },
         {
             "name": "simplethings/entity-audit-bundle",
-            "version": "v0.5.1",
+            "version": "v0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/simplethings/EntityAudit.git",
-                "reference": "c35fffda82dbb6f60099efa0e20067ca856b3b47"
+                "reference": "c8f3fc50a7384c0c44798de4675f870890097e26"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/simplethings/EntityAudit/zipball/c35fffda82dbb6f60099efa0e20067ca856b3b47",
-                "reference": "c35fffda82dbb6f60099efa0e20067ca856b3b47",
+                "url": "https://api.github.com/repos/simplethings/EntityAudit/zipball/c8f3fc50a7384c0c44798de4675f870890097e26",
+                "reference": "c8f3fc50a7384c0c44798de4675f870890097e26",
                 "shasum": ""
             },
             "require": {
@@ -3440,7 +3440,7 @@
                 "database",
                 "persistence"
             ],
-            "time": "2013-07-08 08:18:28"
+            "time": "2014-05-09 09:58:26"
         },
         {
             "name": "sonata-project/admin-bundle",

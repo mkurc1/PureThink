@@ -54,6 +54,7 @@ class AppKernel extends Kernel
             new Ornicar\GravatarBundle\OrnicarGravatarBundle(),
             new Mopa\Bundle\BootstrapBundle\MopaBootstrapBundle(),
 
+            new Application\Sonata\AdminBundle\ApplicationSonataAdminBundle(),
             new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
             new Application\Sonata\MediaBundle\ApplicationSonataMediaBundle(),
             new Application\Sonata\TimelineBundle\ApplicationSonataTimelineBundle(),

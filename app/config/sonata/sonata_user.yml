@@ -7,6 +7,8 @@ sonata_user:
         route: frontend
         parameters: { path: / }
 
+    manager_type:             orm
+
     profile:
         dashboard:
             blocks:
@@ -19,3 +21,7 @@ sonata_user:
             type: sonata_user_profile
             handler: sonata.user.profile.form.handler.default
             name: sonata_user_profile_form
+            validation_groups:
+                # Defaults:
+                - Profile
+                - Default

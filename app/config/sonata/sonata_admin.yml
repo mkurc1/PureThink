@@ -6,10 +6,36 @@ sonata_admin:
         handler: sonata.admin.security.handler.acl
 
     templates:
-        layout: SonataAdminBundle::layout.html.twig
+        layout: ApplicationSonataAdminBundle::layout.html.twig
         dashboard: SonataAdminBundle:Core:dashboard.html.twig
     dashboard:
         blocks:
             - { position: left, type: sonata.admin.block.admin_list }
             - { position: center, type: sonata.timeline.block.timeline, settings: { context: SONATA_ADMIN, max_per_page: 25 }}
             - { position: right, type: sonata.block.service.text, settings: { content: "<h2>Welcome!</h2> You can customize this dashboard by editing the sonata_admin.yml file. The current dashboard presents the recent items from the NewsBundle and a timeline with the latest action"} }
+        groups:
+            sonata.admin.group.cms:
+                label: CMS
+                label_catalogue: PurethinkCMSBundle
+                items:
+                    - purethink_cms.admin.language
+                    - purethink_cms.admin.website
+                    - purethink_cms.admin.article
+                    - purethink_cms.admin.menuType
+                    - purethink_cms.admin.extension
+                    - purethink_cms.admin.component
+                    - purethink_cms.admin.template
+                    - sonata.comment.admin.thread
+                    - sonata.media.admin.media
+            sonata.admin.group.classification:
+                label: sonata_classification
+                label_catalogue: SonataClassificationBundle
+                items:
+                    - sonata.classification.admin.category
+                    - sonata.classification.admin.tag
+            sonata.admin.group.administration:
+                label: sonata_administration
+                label_catalogue: SonataAdminBundle
+                items:
+                    - sonata.user.admin.user
+                    - sonata.user.admin.group
