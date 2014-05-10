@@ -14,4 +14,6 @@ khepin_yaml_fixtures:
         - PurethinkCMSBundle/componentHasFile
         - PurethinkCMSBundle/menuType
         - PurethinkCMSBundle/menu
+        - PurethinkCMSBundle/template
+        - PurethinkCMSBundle/layout
         - PurethinkCMSBundle

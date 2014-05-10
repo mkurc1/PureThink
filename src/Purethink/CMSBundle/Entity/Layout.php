@@ -3,17 +3,22 @@
 namespace Purethink\CMSBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Table(name="cms_layout")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Purethink\CMSBundle\Repository\LayoutRepository")
  */
 class Layout
 {
+    const LAYOUT_MAIN = 1;
+    const LAYOUT_ARTICLE = 2;
+    const LAYOUT_SEARCH = 3;
+
     public static $availableType = [
-        1 => 'Main',
-        2 => 'Article',
-        3 => 'Search'
+        self::LAYOUT_MAIN    => 'Main',
+        self::LAYOUT_ARTICLE => 'Article',
+        self::LAYOUT_SEARCH  => 'Search'
     ];
 
     /**
@@ -38,6 +43,16 @@ class Layout
      * @ORM\Column(type="integer")
      */
     private $type;
+
+    /**
+     * @ORM\OneToMany(targetEntity="TemplateScript", mappedBy="layout", cascade={"persist"}, orphanRemoval=true)
+     */
+    private $scripts;
+
+    /**
+     * @ORM\OneToMany(targetEntity="TemplateStyle", mappedBy="layout", cascade={"persist"}, orphanRemoval=true)
+     */
+    private $styles;
 
 
     /**
@@ -76,10 +91,10 @@ class Layout
     /**
      * Set template
      *
-     * @param \Purethink\CMSBundle\Entity\Template $template
+     * @param Template $template
      * @return Layout
      */
-    public function setTemplate(\Purethink\CMSBundle\Entity\Template $template)
+    public function setTemplate(Template $template)
     {
         $this->template = $template;
 
@@ -89,7 +104,7 @@ class Layout
     /**
      * Get template
      *
-     * @return \Purethink\CMSBundle\Entity\Template
+     * @return Template
      */
     public function getTemplate()
     {
@@ -117,5 +132,83 @@ class Layout
     public function getType()
     {
         return $this->type;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->scripts = new ArrayCollection;
+        $this->styles = new ArrayCollection;
+    }
+
+    /**
+     * Add scripts
+     *
+     * @param TemplateScript $scripts
+     * @return Layout
+     */
+    public function addScript(TemplateScript $scripts)
+    {
+        $scripts->setLayout($this);
+
+        $this->scripts[] = $scripts;
+
+        return $this;
+    }
+
+    /**
+     * Remove scripts
+     *
+     * @param TemplateScript $scripts
+     */
+    public function removeScript(TemplateScript $scripts)
+    {
+        $this->scripts->removeElement($scripts);
+    }
+
+    /**
+     * Get scripts
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getScripts()
+    {
+        return $this->scripts;
+    }
+
+    /**
+     * Add styles
+     *
+     * @param TemplateStyle $styles
+     * @return Layout
+     */
+    public function addStyle(TemplateStyle $styles)
+    {
+        $styles->setLayout($this);
+
+        $this->styles[] = $styles;
+
+        return $this;
+    }
+
+    /**
+     * Remove styles
+     *
+     * @param TemplateStyle $styles
+     */
+    public function removeStyle(TemplateStyle $styles)
+    {
+        $this->styles->removeElement($styles);
+    }
+
+    /**
+     * Get styles
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getStyles()
+    {
+        return $this->styles;
     }
 }

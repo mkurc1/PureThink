@@ -12,6 +12,10 @@ class Extension extends Admin
         '_sort_by' => 'name'
     ];
 
+    protected $formOptions = [
+        'cascade_validation' => true
+    ];
+
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper

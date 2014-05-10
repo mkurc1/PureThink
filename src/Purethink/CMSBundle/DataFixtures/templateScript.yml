@@ -1,0 +1,5 @@
+model: Purethink\CMSBundle\Entity\TemplateScript
+fixtures:
+    cms_template_script_1:
+        template: cms_template_1
+        path: main.js

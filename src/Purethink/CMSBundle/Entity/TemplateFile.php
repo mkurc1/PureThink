@@ -26,6 +26,12 @@ class TemplateFile
      */
     private $path;
 
+
+    public function __toString()
+    {
+        return (string)$this->getPath();
+    }
+
     /**
      * Get id
      *

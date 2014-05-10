@@ -1,0 +1,14 @@
+model: Purethink\CMSBundle\Entity\Layout
+fixtures:
+    cms_layout_1:
+        template: cms_template_1
+        path: index.html.twig
+        type: 1
+    cms_layout_2:
+        template: cms_template_1
+        path: article.html.twig
+        type: 2
+    cms_layout_3:
+        template: cms_template_1
+        path: searchList.html.twig
+        type: 3

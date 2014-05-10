@@ -11,7 +11,10 @@
         output='css/article.css' %}
         <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
     {% endstylesheets %}
-    <link rel="stylesheet" type="text/css" href="{{ asset('template/fresh-style/css/main.css') }}">
+
+    {% for templateStyle in template.styles %}
+        <link rel="stylesheet" type="text/css" href="{{ asset('template/'~template.slug~'/css/'~templateStyle) }}">
+    {% endfor %}
 {% endblock stylesheets %}
 
 {% block javascripts %}
@@ -24,7 +27,10 @@
         output='js/frontend.js' %}
         <script src="{{ asset_url }}"></script>
     {% endjavascripts %}
-    <script src="{{ asset('template/fresh-style/js/main.js') }}"></script>
+
+    {% for templateScript in template.scripts %}
+        <script src="{{ asset('template/'~template.slug~'/js/'~templateScript) }}"></script>
+    {% endfor %}
 {% endblock javascripts %}
 
 {% block body %}
@@ -40,7 +46,7 @@
         <div class="container">
             <div id="logo">
                 <a href="{{ path('localized_frontend', {'locale': locale}) }}">
-                    <img src="{{ asset('template/fresh-style/images/logo.png') }}" alt="logo" />
+                    <img src="{{ asset('template/purethink-standard/images/logo.png') }}" alt="logo" />
                 </a>
             </div>
 

@@ -39,9 +39,10 @@ class FrontendController extends Controller
             return $this->getRedirectToMainPage();
         }
 
+        $template = $this->getEnabledTemplate();
         $meta = $this->getMetadataByLocale($locale);
 
-        return compact('locale', 'meta');
+        return compact('locale', 'meta', 'template');
     }
 
     /**
@@ -67,14 +68,16 @@ class FrontendController extends Controller
             return $this->getRedirectToMainPage();
         }
 
+        $template = $this->getEnabledTemplate();
         $meta = $this->getMetadataByLocale($locale);
 
         $search = $request->get('query');
 
-        $articles = $this->getDoctrine()->getRepository('PurethinkCMSBundle:Article')
+        $articles = $this->getDoctrine()
+            ->getRepository('PurethinkCMSBundle:Article')
             ->search($locale, $search);
 
-        return compact('locale', 'meta', 'articles');
+        return compact('locale', 'meta', 'articles', 'template');
     }
 
     /**
@@ -90,11 +93,12 @@ class FrontendController extends Controller
             return $this->getRedirectToMainPage();
         }
 
+        $template = $this->getEnabledTemplate();
         $article = $this->getArticleBySlug($slug);
 
         $this->incrementArticleViews($article);
 
-        return compact('locale', 'article');
+        return compact('locale', 'article', 'template');
     }
 
     private function getRedirectToMainPage()
@@ -111,7 +115,8 @@ class FrontendController extends Controller
 
     private function getArticleBySlug($slug)
     {
-        $article = $this->getDoctrine()->getRepository('PurethinkCMSBundle:Article')
+        $article = $this->getDoctrine()
+            ->getRepository('PurethinkCMSBundle:Article')
             ->getPublicArticleBySlug($slug);
 
         if (null == $article) {
@@ -123,13 +128,15 @@ class FrontendController extends Controller
 
     private function getMetadataByLocale($locale)
     {
-        return $this->getDoctrine()->getRepository('PurethinkCMSBundle:Website')
+        return $this->getDoctrine()
+            ->getRepository('PurethinkCMSBundle:Website')
             ->getWebsiteByLocale($locale);
     }
 
     private function getPublicLanguages()
     {
-        $languages = $this->getDoctrine()->getRepository('PurethinkCMSBundle:Language')
+        $languages = $this->getDoctrine()
+            ->getRepository('PurethinkCMSBundle:Language')
             ->getPublicLanguages();
 
         if (null == $languages) {
@@ -154,5 +161,18 @@ class FrontendController extends Controller
         }
 
         return $availableLocales;
+    }
+
+    private function getEnabledTemplate()
+    {
+        $template = $this->getDoctrine()
+            ->getRepository('PurethinkCMSBundle:Template')
+            ->getEnabledTemplate();
+
+        if (null == $template) {
+            throw $this->createNotFoundException();
+        }
+
+        return $template;
     }
 }

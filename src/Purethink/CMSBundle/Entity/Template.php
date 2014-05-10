@@ -9,7 +9,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Table(name="cms_template")
- * @ORM\Entity()
+ * @ORM\Entity(repositoryClass="Purethink\CMSBundle\Repository\TemplateRepository")
  */
 class Template
 {

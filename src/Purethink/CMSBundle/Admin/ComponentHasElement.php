@@ -13,6 +13,10 @@ use Purethink\CMSBundle\Entity\ExtensionHasField as Field;
 
 class ComponentHasElement extends Admin
 {
+    protected $formOptions = [
+        'cascade_validation' => true
+    ];
+
     protected $parentAssociationMapping = 'component';
 
 
