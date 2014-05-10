@@ -11,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
 class ComponentHasFile extends ComponentHasValue
 {
     /**
-     * @ORM\ManyToOne(targetEntity="Purethink\FileBundle\Entity\File", inversedBy="componentHasFile", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media", cascade={"persist"})
      * @ORM\JoinColumn(onDelete="CASCADE", nullable=true)
      */
     private $file;
@@ -32,7 +32,7 @@ class ComponentHasFile extends ComponentHasValue
     public function getStringContent()
     {
         if ($this->getContent()) {
-            return $this->getContent()->getPath();
+            return $this->getContent();
         } else {
             return '';
         }
@@ -41,10 +41,10 @@ class ComponentHasFile extends ComponentHasValue
     /**
      * Set file
      *
-     * @param \Purethink\FileBundle\Entity\File $file
+     * @param \Application\Sonata\MediaBundle\Entity\Media $file
      * @return ComponentHasFile
      */
-    public function setFile(\Purethink\FileBundle\Entity\File $file = null)
+    public function setFile(\Application\Sonata\MediaBundle\Entity\Media $file = null)
     {
         $this->file = $file;
 
@@ -54,7 +54,7 @@ class ComponentHasFile extends ComponentHasValue
     /**
      * Get file
      *
-     * @return \Purethink\FileBundle\Entity\File
+     * @return \Application\Sonata\MediaBundle\Entity\Media
      */
     public function getFile()
     {

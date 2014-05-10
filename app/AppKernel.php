@@ -58,7 +58,6 @@ class AppKernel extends Kernel
             new SimpleThings\EntityAudit\SimpleThingsEntityAuditBundle(),
 
             new Purethink\CoreBundle\PurethinkCoreBundle(),
-            new Purethink\FileBundle\PurethinkFileBundle(),
             new Purethink\CMSBundle\PurethinkCMSBundle(),
         );
 

@@ -14,20 +14,7 @@ services:
         tags:
             - { name: form.type, alias: Article }
 
-    purethink.cms.block.language:
-        class: Purethink\CMSBundle\Block\LanguageBlock
+    purethink.cms.file_type:
+        class: Purethink\CMSBundle\Form\Type\FileType
         tags:
-            - { name: sonata.block }
-        arguments: ["gamedot.competition.block.platform", @templating, @doctrine.orm.entity_manager]
-
-    purethink.cms.block.menu:
-        class: Purethink\CMSBundle\Block\MenuBlock
-        tags:
-            - { name: sonata.block }
-        arguments: ["gamedot.competition.block.platform", @templating, @doctrine.orm.entity_manager]
-
-    purethink.cms.block.component:
-        class: Purethink\CMSBundle\Block\ComponentBlock
-        tags:
-            - { name: sonata.block }
-        arguments: ["gamedot.competition.block.platform", @templating, @doctrine.orm.entity_manager]
+            - { name: form.type, alias: File }

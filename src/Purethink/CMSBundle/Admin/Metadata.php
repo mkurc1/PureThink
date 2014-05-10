@@ -1,4 +1,5 @@
 <?php
+
 namespace Purethink\CMSBundle\Admin;
 
 use Sonata\AdminBundle\Admin\Admin;

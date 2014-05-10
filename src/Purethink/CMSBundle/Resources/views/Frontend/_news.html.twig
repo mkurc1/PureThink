@@ -4,7 +4,7 @@
     {% for key, new in entities if key != 'title' %}
         <a href="{{ path('article', { 'locale': locale, 'slug': new['adres'] }) }}" class="news">
             <div class="image">
-                <img src="{{ asset('uploads/' ~ new['fotografia']) }}" alt=""/>
+                {% media new['fotografia'], 'reference' %}
             </div>
             <div class="content">
                 <h4>{{ new['nazwa'] }}</h4>

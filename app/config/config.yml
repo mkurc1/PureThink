@@ -76,7 +76,6 @@ assetic:
     bundles:
         - PurethinkCoreBundle
         - PurethinkCMSBundle
-        - PurethinkFileBundle
     filters:
         cssembed:
             jar: "/usr/share/cssembed/cssembed-0.4.5.jar"
@@ -110,10 +109,6 @@ doctrine:
     orm:
         auto_generate_proxy_classes: "%kernel.debug%"
         auto_mapping: true
-        dql:
-            string_functions:
-                if: Purethink\CoreBundle\Doctrine\IfFunction
-                cast: Purethink\CoreBundle\Doctrine\CastFunction
 
 # Swiftmailer Configuration
 swiftmailer:

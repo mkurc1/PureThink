@@ -1,5 +1,0 @@
-services:
-    purethink.cms.file_type:
-        class: Purethink\FileBundle\Form\Type\FileType
-        tags:
-            - { name: form.type, alias: File }

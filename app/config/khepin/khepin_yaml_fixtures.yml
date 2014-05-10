@@ -1,12 +1,8 @@
 khepin_yaml_fixtures:
     resources:
         - ApplicationSonataUserBundle/user
-
-        - PurethinkCoreBundle
-
-        - PurethinkFileBundle
-
-        - PurethinkCMSBundle/Metadata
+        - ApplicationSonataMediaBundle/media
+        - PurethinkCMSBundle/metadata
         - PurethinkCMSBundle/language
         - PurethinkCMSBundle/article
         - PurethinkCMSBundle/extension

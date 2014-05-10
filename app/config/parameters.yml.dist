@@ -1,6 +1,5 @@
 parameters:
     database_driver         : pdo_mysql
-    database_driver_short   : mysql
     database_host           : 127.0.0.1
     database_port           : ~
     database_name           : symfony
@@ -23,5 +22,3 @@ parameters:
 
     sonata_admin.title      : PureThink
     sonata_admin.logo_title : images/logo_big.png
-
-    sonata_media.cdn.host   : /uploads

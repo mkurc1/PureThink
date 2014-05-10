@@ -1,6 +1,6 @@
 <?php
 
-namespace Purethink\FileBundle\Form\Type;
+namespace Purethink\CMSBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
@@ -20,7 +20,7 @@ class FileType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults([
-            'class'       => 'PurethinkFileBundle:File',
+            'class'       => 'ApplicationSonataMediaBundle:Media',
             'empty_value' => ''
         ]);
     }

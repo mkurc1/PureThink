@@ -12,8 +12,9 @@
                 <div class="carousel-inner">
                     {% for key, baner in entities if key != 'title' %}
                         <div class="item {{ (key == 1) ? 'active' : '' }}">
-                            <a href="{{ path('article', { 'locale': locale, 'slug': baner['adres'] }) }}"><img
-                                        src="{{ asset('uploads/' ~ baner['fotografia']) }}" alt="{{ baner['nazwa'] }}"/></a>
+                            <a href="{{ path('article', { 'locale': locale, 'slug': baner['adres'] }) }}">
+                                {% media baner['fotografia'], 'reference' %}
+                            </a>
                         </div>
                     {% endfor %}
                 </div>
