@@ -20,8 +20,6 @@ imports:
     - { resource: sonata/sonata_media.yml }
     - { resource: sonata/sonata_user.yml }
     - { resource: sonata/sonata_classification.yml }
-    - { resource: sonata/sonata_notification.yml }
-    - { resource: sonata/sonata_timeline.yml }
 
     # Khepin Fixtures
     - { resource: khepin/khepin_yaml_fixtures.yml }
