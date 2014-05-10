@@ -13,6 +13,10 @@ class Article extends Admin
 
     private $securityContext;
 
+    protected $formOptions = [
+        'cascade_validation' => true
+    ];
+
     protected $datagridValues = [
         '_sort_by' => 'name'
     ];

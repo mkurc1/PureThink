@@ -3,13 +3,14 @@
 namespace Purethink\CMSBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ORM\Table(name="cms_file")
+ * @ORM\Table(name="cms_template_file")
  * @ORM\InheritanceType("SINGLE_TABLE")
  * @ORM\Entity()
  */
-class File
+class TemplateFile
 {
     /**
      * @ORM\Column(type="integer")
@@ -19,9 +20,11 @@ class File
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media", cascade={"persist"})
+     * @ORM\Column(type="string", length=255)
+     * @Assert\NotNull()
+     * @Assert\Length(max="255")
      */
-    private $file;
+    private $path;
 
     /**
      * Get id
@@ -34,25 +37,25 @@ class File
     }
 
     /**
-     * Set file
+     * Set path
      *
-     * @param \Application\Sonata\MediaBundle\Entity\Media $file
+     * @param string $path
      * @return TemplateFile
      */
-    public function setFile(\Application\Sonata\MediaBundle\Entity\Media $file = null)
+    public function setPath($path)
     {
-        $this->file = $file;
+        $this->path = $path;
 
         return $this;
     }
 
     /**
-     * Get file
+     * Get path
      *
-     * @return \Application\Sonata\MediaBundle\Entity\Media 
+     * @return string 
      */
-    public function getFile()
+    public function getPath()
     {
-        return $this->file;
+        return $this->path;
     }
 }

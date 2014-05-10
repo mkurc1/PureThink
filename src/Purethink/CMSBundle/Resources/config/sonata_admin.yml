@@ -79,20 +79,14 @@ services:
         class: Purethink\CMSBundle\Admin\Template
         arguments: [null, Purethink\CMSBundle\Entity\Template, SonataAdminBundle:CRUD]
 
-    purethink_cms.admin.style:
+    purethink_cms.admin.templateStyle:
         tags:
             - { name: sonata.admin, manager_type: orm, audit: false, show_in_dashboard: false }
-        class: Purethink\CMSBundle\Admin\Style
-        arguments: [null, Purethink\CMSBundle\Entity\Style, SonataAdminBundle:CRUD]
+        class: Purethink\CMSBundle\Admin\TemplateStyle
+        arguments: [null, Purethink\CMSBundle\Entity\TemplateStyle, SonataAdminBundle:CRUD]
 
-    purethink_cms.admin.script:
+    purethink_cms.admin.templateScript:
         tags:
             - { name: sonata.admin, manager_type: orm, audit: false, show_in_dashboard: false }
-        class: Purethink\CMSBundle\Admin\Script
-        arguments: [null, Purethink\CMSBundle\Entity\Script, SonataAdminBundle:CRUD]
-
-    purethink_cms.admin.image:
-        tags:
-            - { name: sonata.admin, manager_type: orm, audit: false, show_in_dashboard: false }
-        class: Purethink\CMSBundle\Admin\Image
-        arguments: [null, Purethink\CMSBundle\Entity\Image, SonataAdminBundle:CRUD]
+        class: Purethink\CMSBundle\Admin\TemplateScript
+        arguments: [null, Purethink\CMSBundle\Entity\TemplateScript, SonataAdminBundle:CRUD]

@@ -8,13 +8,18 @@ use Sonata\AdminBundle\Form\FormMapper;
 
 class Website extends Admin
 {
+    protected $formOptions = [
+        'cascade_validation' => true,
+        'validation_groups'  => ['website', 'default']
+    ];
+
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
             ->with('General')
                 ->add('metadata', 'sonata_type_admin', [
-                    'label' => false,
-                    'delete' => false,
+                    'label'   => false,
+                    'delete'  => false,
                     'btn_add' => false
                 ])
                 ->add('language')

@@ -5,6 +5,7 @@ namespace Purethink\CMSBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Table(name="cms_template")
@@ -42,7 +43,7 @@ class Template
     /**
      * @ORM\Column(type="boolean", nullable=true)
      */
-    private $isEnable = false;
+    private $enabled = false;
 
     /**
      * @Gedmo\Timestampable(on="create")
@@ -51,25 +52,14 @@ class Template
     private $createdAt;
 
     /**
-     * @Gedmo\Timestampable(on="update")
-     * @ORM\Column(type="datetime")
-     */
-    private $updatedAt;
-
-    /**
-     * @ORM\OneToMany(targetEntity="Script", mappedBy="template", cascade={"persist"}, orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="TemplateScript", mappedBy="template", cascade={"persist"}, orphanRemoval=true)
      */
     private $scripts;
 
     /**
-     * @ORM\OneToMany(targetEntity="Style", mappedBy="template", cascade={"persist"}, orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="TemplateStyle", mappedBy="template", cascade={"persist"}, orphanRemoval=true)
      */
     private $styles;
-
-    /**
-     * @ORM\OneToMany(targetEntity="Image", mappedBy="template", cascade={"persist"}, orphanRemoval=true)
-     */
-    private $images;
 
 
     /**
@@ -129,29 +119,6 @@ class Template
     }
 
     /**
-     * Set isEnable
-     *
-     * @param boolean $isEnable
-     * @return Template
-     */
-    public function setIsEnable($isEnable)
-    {
-        $this->isEnable = $isEnable;
-
-        return $this;
-    }
-
-    /**
-     * Get isEnable
-     *
-     * @return boolean
-     */
-    public function getIsEnable()
-    {
-        return $this->isEnable;
-    }
-
-    /**
      * Get name
      *
      * @return string
@@ -185,29 +152,6 @@ class Template
     }
 
     /**
-     * Set updatedAt
-     *
-     * @param \DateTime $updatedAt
-     * @return Template
-     */
-    public function setUpdatedAt($updatedAt)
-    {
-        $this->updatedAt = $updatedAt;
-
-        return $this;
-    }
-
-    /**
-     * Get updatedAt
-     *
-     * @return \DateTime
-     */
-    public function getUpdatedAt()
-    {
-        return $this->updatedAt;
-    }
-
-    /**
      * Set slug
      *
      * @param string $slug
@@ -235,21 +179,19 @@ class Template
      */
     public function __construct()
     {
-        $this->scripts = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->styles = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->images = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->scripts = new ArrayCollection;
+        $this->styles = new ArrayCollection;
     }
 
     /**
      * Add scripts
      *
-     * @param \Purethink\CMSBundle\Entity\Script $scripts
+     * @param TemplateScript $scripts
      * @return Template
      */
-    public function addScript(\Purethink\CMSBundle\Entity\Script $scripts)
+    public function addScript(TemplateScript $scripts)
     {
         $scripts->setTemplate($this);
-
         $this->scripts[] = $scripts;
 
         return $this;
@@ -258,9 +200,9 @@ class Template
     /**
      * Remove scripts
      *
-     * @param \Purethink\CMSBundle\Entity\Script $scripts
+     * @param TemplateScript $scripts
      */
-    public function removeScript(\Purethink\CMSBundle\Entity\Script $scripts)
+    public function removeScript(TemplateScript $scripts)
     {
         $this->scripts->removeElement($scripts);
     }
@@ -278,13 +220,12 @@ class Template
     /**
      * Add styles
      *
-     * @param \Purethink\CMSBundle\Entity\Style $styles
+     * @param TemplateStyle $styles
      * @return Template
      */
-    public function addStyle(\Purethink\CMSBundle\Entity\Style $styles)
+    public function addStyle(TemplateStyle $styles)
     {
         $styles->setTemplate($this);
-
         $this->styles[] = $styles;
 
         return $this;
@@ -293,9 +234,9 @@ class Template
     /**
      * Remove styles
      *
-     * @param \Purethink\CMSBundle\Entity\Style $styles
+     * @param TemplateStyle $styles
      */
-    public function removeStyle(\Purethink\CMSBundle\Entity\Style $styles)
+    public function removeStyle(TemplateStyle $styles)
     {
         $this->styles->removeElement($styles);
     }
@@ -311,37 +252,25 @@ class Template
     }
 
     /**
-     * Add images
+     * Set enabled
      *
-     * @param \Purethink\CMSBundle\Entity\Image $images
+     * @param boolean $enabled
      * @return Template
      */
-    public function addImage(\Purethink\CMSBundle\Entity\Image $images)
+    public function setEnabled($enabled)
     {
-        $images->setTemplate($this);
-
-        $this->images[] = $images;
+        $this->enabled = $enabled;
 
         return $this;
     }
 
     /**
-     * Remove images
+     * Get enabled
      *
-     * @param \Purethink\CMSBundle\Entity\Image $images
+     * @return boolean 
      */
-    public function removeImage(\Purethink\CMSBundle\Entity\Image $images)
+    public function getEnabled()
     {
-        $this->images->removeElement($images);
-    }
-
-    /**
-     * Get images
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getImages()
-    {
-        return $this->images;
+        return $this->enabled;
     }
 }

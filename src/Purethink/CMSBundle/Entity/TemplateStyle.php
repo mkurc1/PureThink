@@ -8,20 +8,21 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table()
  * @ORM\Entity
  */
-class Style extends File
+class TemplateStyle extends TemplateFile
 {
     /**
      * @ORM\ManyToOne(targetEntity="Template", inversedBy="styles", cascade={"persist"})
+     * @ORM\JoinColumn(onDelete="CASCADE", nullable=false)
      */
     private $template;
 
     /**
      * Set template
      *
-     * @param \Purethink\CMSBundle\Entity\Template $template
-     * @return Style
+     * @param Template $template
+     * @return TemplateStyle
      */
-    public function setTemplate(\Purethink\CMSBundle\Entity\Template $template = null)
+    public function setTemplate(Template $template)
     {
         $this->template = $template;
 
@@ -31,7 +32,7 @@ class Style extends File
     /**
      * Get template
      *
-     * @return \Purethink\CMSBundle\Entity\Template 
+     * @return Template
      */
     public function getTemplate()
     {

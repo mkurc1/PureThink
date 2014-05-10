@@ -11,6 +11,10 @@ use Sonata\AdminBundle\Form\FormMapper;
 
 class Template extends Admin
 {
+    protected $formOptions = [
+        'cascade_validation' => true
+    ];
+
     protected $datagridValues = [
         '_sort_by' => 'name'
     ];
@@ -21,7 +25,7 @@ class Template extends Admin
             ->with('General')
                 ->add('name')
                 ->add('author')
-                ->add('isEnable')
+                ->add('enabled')
             ->end()
             ->with('Style')
                 ->add('styles', 'sonata_type_collection', [
@@ -41,15 +45,6 @@ class Template extends Admin
                     'sortable' => 'position',
                 ])
             ->end()
-            ->with('Image')
-                ->add('images', 'sonata_type_collection', [
-                    'required' => false
-                ], [
-                    'edit' => 'inline',
-                    'inline' => 'table',
-                    'sortable' => 'position',
-                ])
-            ->end()
             ->with('Set only when needed')
                 ->add('slug', null, ["required" => false])
             ->end();
@@ -62,7 +57,7 @@ class Template extends Admin
             ->add('name')
             ->add('slug')
             ->add('author')
-            ->add('isEnable');
+            ->add('enabled');
     }
 
     protected function configureListFields(ListMapper $listMapper)
@@ -72,7 +67,7 @@ class Template extends Admin
             ->addIdentifier('name')
             ->addIdentifier('slug')
             ->add('author')
-            ->add('isEnable', null, ['editable' => true]);
+            ->add('enabled', null, ['editable' => true]);
     }
 
     public function prePersist($object)
@@ -85,6 +80,9 @@ class Template extends Admin
         $this->setTemplateForCollections($object);
     }
 
+    /**
+     * @param \Purethink\CMSBundle\Entity\Template $object
+     */
     private function setTemplateForCollections($object)
     {
         foreach ($object->getStyles() as $image) {
@@ -92,10 +90,6 @@ class Template extends Admin
         }
 
         foreach ($object->getScripts() as $image) {
-            $image->setTemplate($object);
-        }
-
-        foreach ($object->getImages() as $image) {
             $image->setTemplate($object);
         }
     }
