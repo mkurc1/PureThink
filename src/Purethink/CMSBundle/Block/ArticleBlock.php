@@ -3,15 +3,17 @@
 namespace Purethink\CMSBundle\Block;
 
 use Doctrine\ORM\EntityManager;
+use Purethink\CMSBundle\Entity\Article;
 use Sonata\BlockBundle\Block\BlockContextInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Sonata\BlockBundle\Model\BlockInterface;
 
 use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
 use Purethink\CoreBundle\Block\AbstractBlock;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class MenuBlock extends AbstractBlock
+class ArticleBlock extends AbstractBlock
 {
     const CACHE_TIME = 0;
 
@@ -25,11 +27,8 @@ class MenuBlock extends AbstractBlock
     public function setDefaultSettings(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults([
-            'template' => 'PurethinkCMSBundle:Block:menu.html.twig',
-            'name'     => null,
-            'locale'   => null,
-            'home'     => false,
-            'login'    => false
+            'template' => 'PurethinkCMSBundle:Block:article.html.twig',
+            'slug'     => null
         ]);
     }
 
@@ -42,20 +41,31 @@ class MenuBlock extends AbstractBlock
 
     public function execute(BlockContextInterface $blockContext, Response $response = null)
     {
-        $locale = $blockContext->getSetting('locale');
-
         return $this->renderResponse($blockContext->getTemplate(), [
-                'menus'  => $this->getActiveMenu($blockContext->getSetting('name'), $locale),
-                'locale' => $locale,
-                'home'   => $blockContext->getSetting('home'),
-                'login'  => $blockContext->getSetting('login')
+                'article' => $this->getArticleBySlug($blockContext->getSetting('slug')),
             ],
             $response)->setTtl(self::CACHE_TIME);
     }
 
-    private function getActiveMenu($groupName, $locale)
+    private function getArticleBySlug($slug)
     {
-        return $this->em->getRepository('PurethinkCMSBundle:Menu')
-            ->getActiveMenusBySeriesNameAndLocale($groupName, $locale);
+        $article = $this->em
+            ->getRepository('PurethinkCMSBundle:Article')
+            ->getPublicArticleBySlug($slug);
+
+        if (null == $article) {
+            throw new NotFoundHttpException();
+        }
+
+        $this->incrementArticleViews($article);
+
+        return $article;
+    }
+
+    private function incrementArticleViews(Article $article)
+    {
+        $article->incrementArticleViews();
+
+        $this->em->flush();
     }
 }

@@ -17,22 +17,9 @@
 
     <div id="article">
         <div class="container">
-            <div class="page-header">
-                <h3>{{ article.name }}</h3>
-                <h5 class="datetime">{{ article.createdAt|format_datetime('dd MMM Y HH:mm') }}</h5>
-
-                {% if (article.tags|length > 0) %}
-                    <div class="tags">
-                        {% for tag in article.tags %}
-                            <span class="label label-{{ tag.color }}">{{ tag }}</span>
-                        {% endfor %}
-                    </div>
-                {% endif %}
-            </div>
-
-            {{ article.content|raw }}
-
-            {{ sonata_block_render_event('sonata.comment', {'id': article.id}) }}
+            {{ sonata_block_render({ "type": "purethink.cms.block.article", "settings": {
+                "slug": article.slug
+            } }) }}
         </div>
     </div>
 

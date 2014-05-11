@@ -15,3 +15,4 @@ sonata_block:
         purethink.cms.block.language:
         purethink.cms.block.menu:
         purethink.cms.block.component:
+        purethink.cms.block.article:

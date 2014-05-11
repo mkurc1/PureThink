@@ -101,21 +101,12 @@ class FrontendController extends Controller
         $layout = $this->getLayoutForTypeOfTemplate($template, Layout::LAYOUT_ARTICLE);
         $article = $this->getArticleBySlug($slug);
 
-        $this->incrementArticleViews($article);
-
         return compact('locale', 'article', 'template', 'layout');
     }
 
     private function getRedirectToMainPage()
     {
         return $this->redirect($this->generateUrl('frontend'));
-    }
-
-    private function incrementArticleViews(Article $article)
-    {
-        $article->incrementArticleViews();
-
-        $this->getDoctrine()->getManager()->flush();
     }
 
     private function getArticleBySlug($slug)

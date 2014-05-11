@@ -13,6 +13,8 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class LanguageBlock extends AbstractBlock
 {
+    const CACHE_TIME = 0;
+
     public function __construct($name, EngineInterface $templating, EntityManager $em)
     {
         parent::__construct($name, $templating);
@@ -41,7 +43,7 @@ class LanguageBlock extends AbstractBlock
                 'languages' => $this->getPublicLanguages(),
                 'locale'    => $blockContext->getSetting('locale'),
             ],
-            $response);
+            $response)->setTtl(self::CACHE_TIME);
     }
 
     private function getPublicLanguages()

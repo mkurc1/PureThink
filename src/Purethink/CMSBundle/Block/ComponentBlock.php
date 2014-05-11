@@ -13,6 +13,8 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class ComponentBlock extends AbstractBlock
 {
+    const CACHE_TIME = 0;
+
     public function __construct($name, EngineInterface $templating, EntityManager $em)
     {
         parent::__construct($name, $templating);
@@ -44,7 +46,7 @@ class ComponentBlock extends AbstractBlock
                 'entities' => $this->getComponent($blockContext->getSetting('slug'), $locale),
                 'locale'   => $locale
             ],
-            $response);
+            $response)->setTtl(self::CACHE_TIME);
     }
 
     private function getComponent($slug, $locale)

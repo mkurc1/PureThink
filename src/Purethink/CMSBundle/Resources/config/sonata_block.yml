@@ -16,3 +16,9 @@ services:
         tags:
             - { name: sonata.block }
         arguments: ["gamedot.competition.block.platform", @templating, @doctrine.orm.entity_manager]
+
+    purethink.cms.block.article:
+        class: Purethink\CMSBundle\Block\ArticleBlock
+        tags:
+            - { name: sonata.block }
+        arguments: ["purethink.cms.block.article", @templating, @doctrine.orm.entity_manager]
