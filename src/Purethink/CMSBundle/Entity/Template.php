@@ -41,6 +41,12 @@ class Template
     private $author;
 
     /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\Length(max="255")
+     */
+    private $icon;
+
+    /**
      * @ORM\Column(type="boolean", nullable=true)
      */
     private $enabled = false;
@@ -272,5 +278,28 @@ class Template
     public function getEnabled()
     {
         return $this->enabled;
+    }
+
+    /**
+     * Set icon
+     *
+     * @param string $icon
+     * @return Template
+     */
+    public function setIcon($icon)
+    {
+        $this->icon = $icon;
+
+        return $this;
+    }
+
+    /**
+     * Get icon
+     *
+     * @return string 
+     */
+    public function getIcon()
+    {
+        return $this->icon;
     }
 }

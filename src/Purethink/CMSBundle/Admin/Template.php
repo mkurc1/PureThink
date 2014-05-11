@@ -45,6 +45,7 @@ class Template extends Admin
             ->with('General')
                 ->add('name')
                 ->add('author')
+                ->add('icon')
                 ->add('enabled')
             ->end()
             ->with('Style')

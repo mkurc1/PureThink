@@ -1,5 +1,13 @@
 {% extends "PurethinkCoreBundle::layout.html.twig" %}
 
+{% block icon %}
+    {% if template.icon is not null %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('template/'~template.slug~'/'~template.icon) }}" />
+    {% else %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('purethink.ico') }}" />
+    {% endif %}
+{% endblock %}
+
 {% block stylesheets %}
     {{ parent() }}
 
