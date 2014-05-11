@@ -1,13 +1,12 @@
 <?php
 namespace Purethink\CMSBundle\Admin;
 
-use Purethink\CMSBundle\Form\ImageType;
-use Purethink\CMSBundle\Form\ScriptType;
-use Purethink\CMSBundle\Form\StyleType;
 use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
+use Knp\Menu\ItemInterface as MenuItemInterface;
+use Sonata\AdminBundle\Admin\AdminInterface;
 
 class Template extends Admin
 {
@@ -18,6 +17,27 @@ class Template extends Admin
     protected $datagridValues = [
         '_sort_by' => 'name'
     ];
+
+
+    protected function configureSideMenu(MenuItemInterface $menu, $action, AdminInterface $childAdmin = null)
+    {
+        if (!$childAdmin && !in_array($action, ['edit'])) {
+            return;
+        }
+
+        $admin = $this->isChild() ? $this->getParent() : $this;
+        $id = $admin->getRequest()->get('id');
+
+        $menu->addChild(
+            "Template",
+            ['uri' => $admin->generateUrl('edit', compact('id'))]
+        );
+
+        $menu->addChild(
+            "Layouts",
+            ['uri' => $admin->generateUrl('purethink_cms.admin.layout.list', compact('id'))]
+        );
+    }
 
     protected function configureFormFields(FormMapper $formMapper)
     {

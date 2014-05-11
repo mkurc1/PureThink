@@ -55,6 +55,16 @@ class Layout
     private $styles;
 
 
+    public function __toString()
+    {
+        return (string)$this->getStringType();
+    }
+
+    public function getStringType()
+    {
+        return self::$availableType[$this->getType()];
+    }
+
     /**
      * Get id
      *

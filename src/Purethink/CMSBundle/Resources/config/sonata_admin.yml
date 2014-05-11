@@ -78,6 +78,8 @@ services:
             - { name: sonata.admin, manager_type: orm, audit: false, group: CMS, label: Templates }
         class: Purethink\CMSBundle\Admin\Template
         arguments: [null, Purethink\CMSBundle\Entity\Template, SonataAdminBundle:CRUD]
+        calls:
+            - [ addChild, [@purethink_cms.admin.layout] ]
 
     purethink_cms.admin.templateStyle:
         tags:
@@ -90,3 +92,9 @@ services:
             - { name: sonata.admin, manager_type: orm, audit: false, show_in_dashboard: false }
         class: Purethink\CMSBundle\Admin\TemplateScript
         arguments: [null, Purethink\CMSBundle\Entity\TemplateScript, SonataAdminBundle:CRUD]
+
+    purethink_cms.admin.layout:
+        tags:
+            - { name: sonata.admin, manager_type: orm, audit: false, show_in_dashboard: false }
+        class: Purethink\CMSBundle\Admin\Layout
+        arguments: [null, Purethink\CMSBundle\Entity\Layout, SonataAdminBundle:CRUD]

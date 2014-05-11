@@ -2,12 +2,14 @@
 
 namespace Purethink\CMSBundle\Controller;
 
+use Purethink\CMSBundle\Entity\Layout;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Purethink\CMSBundle\Entity\Article;
+use Purethink\CMSBundle\Entity\Template as CMSTemplate;
 
 class FrontendController extends Controller
 {
@@ -40,9 +42,10 @@ class FrontendController extends Controller
         }
 
         $template = $this->getEnabledTemplate();
+        $layout = $this->getLayoutForTypeOfTemplate($template, Layout::LAYOUT_MAIN);
         $meta = $this->getMetadataByLocale($locale);
 
-        return compact('locale', 'meta', 'template');
+        return compact('locale', 'meta', 'template', 'layout');
     }
 
     /**
@@ -69,6 +72,7 @@ class FrontendController extends Controller
         }
 
         $template = $this->getEnabledTemplate();
+        $layout = $this->getLayoutForTypeOfTemplate($template, Layout::LAYOUT_SEARCH);
         $meta = $this->getMetadataByLocale($locale);
 
         $search = $request->get('query');
@@ -77,7 +81,7 @@ class FrontendController extends Controller
             ->getRepository('PurethinkCMSBundle:Article')
             ->search($locale, $search);
 
-        return compact('locale', 'meta', 'articles', 'template');
+        return compact('locale', 'meta', 'articles', 'template', 'layout');
     }
 
     /**
@@ -94,11 +98,12 @@ class FrontendController extends Controller
         }
 
         $template = $this->getEnabledTemplate();
+        $layout = $this->getLayoutForTypeOfTemplate($template, Layout::LAYOUT_ARTICLE);
         $article = $this->getArticleBySlug($slug);
 
         $this->incrementArticleViews($article);
 
-        return compact('locale', 'article', 'template');
+        return compact('locale', 'article', 'template', 'layout');
     }
 
     private function getRedirectToMainPage()
@@ -161,6 +166,13 @@ class FrontendController extends Controller
         }
 
         return $availableLocales;
+    }
+
+    private function getLayoutForTypeOfTemplate(CMSTemplate $template, $type)
+    {
+        return $this->getDoctrine()
+            ->getRepository('PurethinkCMSBundle:Layout')
+            ->getLayoutForTypeOfTemplate($template, $type);
     }
 
     private function getEnabledTemplate()
