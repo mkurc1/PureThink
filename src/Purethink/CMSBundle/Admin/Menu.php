@@ -30,9 +30,6 @@ class Menu extends Admin
                 ])
                 ->add('isPublic')
                 ->add('isNewPage')
-            ->end()
-            ->with('Set only when needed')
-                ->add('slug', null, ["required" => false])
             ->end();
     }
 
@@ -41,7 +38,6 @@ class Menu extends Admin
         $datagridMapper
             ->add('id')
             ->add('name')
-            ->add('slug')
             ->add('article')
             ->add('language')
             ->add('isPublic')
@@ -53,7 +49,6 @@ class Menu extends Admin
         $listMapper
             ->addIdentifier('id')
             ->addIdentifier('name')
-            ->addIdentifier('slug')
             ->add('menu')
             ->add('sequence', null, ['editable' => true])
             ->add('article')

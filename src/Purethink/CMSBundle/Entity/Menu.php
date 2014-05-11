@@ -3,7 +3,6 @@
 namespace Purethink\CMSBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -25,12 +24,6 @@ class Menu
      * @Assert\Length(max="128")
      */
     private $name;
-
-    /**
-     * @Gedmo\Slug(fields={"name"})
-     * @ORM\Column(length=128, unique=true)
-     */
-    private $slug;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
@@ -136,28 +129,6 @@ class Menu
         return $this->sequence;
     }
 
-    /**
-     * Set slug
-     *
-     * @param string $slug
-     * @return Menu
-     */
-    public function setSlug($slug)
-    {
-        $this->slug = $slug;
-
-        return $this;
-    }
-
-    /**
-     * Get slug
-     *
-     * @return string
-     */
-    public function getSlug()
-    {
-        return $this->slug;
-    }
     /**
      * Constructor
      */
