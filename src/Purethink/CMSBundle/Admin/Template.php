@@ -78,7 +78,8 @@ class Template extends Admin
             ->add('name')
             ->add('slug')
             ->add('author')
-            ->add('enabled');
+            ->add('enabled')
+            ->add('created');
     }
 
     protected function configureListFields(ListMapper $listMapper)
@@ -88,7 +89,8 @@ class Template extends Admin
             ->addIdentifier('name')
             ->addIdentifier('slug')
             ->add('author')
-            ->add('enabled', null, ['editable' => true]);
+            ->add('enabled', null, ['editable' => true])
+            ->add('created');
     }
 
     public function prePersist($object)

@@ -55,7 +55,7 @@ class Template
      * @Gedmo\Timestampable(on="create")
      * @ORM\Column(type="datetime")
      */
-    private $createdAt;
+    private $created;
 
     /**
      * @ORM\OneToMany(targetEntity="TemplateScript", mappedBy="template", cascade={"persist"}, orphanRemoval=true)
@@ -132,29 +132,6 @@ class Template
     public function __toString()
     {
         return (string)$this->getName();
-    }
-
-    /**
-     * Set createdAt
-     *
-     * @param \DateTime $createdAt
-     * @return Template
-     */
-    public function setCreatedAt($createdAt)
-    {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
-    /**
-     * Get createdAt
-     *
-     * @return \DateTime
-     */
-    public function getCreatedAt()
-    {
-        return $this->createdAt;
     }
 
     /**
@@ -301,5 +278,28 @@ class Template
     public function getIcon()
     {
         return $this->icon;
+    }
+
+    /**
+     * Set created
+     *
+     * @param \DateTime $created
+     * @return Template
+     */
+    public function setCreated($created)
+    {
+        $this->created = $created;
+
+        return $this;
+    }
+
+    /**
+     * Get created
+     *
+     * @return \DateTime 
+     */
+    public function getCreated()
+    {
+        return $this->created;
     }
 }

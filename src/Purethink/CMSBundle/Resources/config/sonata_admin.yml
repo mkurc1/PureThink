@@ -7,13 +7,13 @@ services:
 
     purethink_cms.admin.language:
         tags:
-            - { name: sonata.admin, manager_type: orm, audit: false, group: CMS, label: Languages }
+            - { name: sonata.admin, manager_type: orm, audit: false, group: CMS, label: Language }
         class: Purethink\CMSBundle\Admin\Language
         arguments: [null, Purethink\CMSBundle\Entity\Language, SonataAdminBundle:CRUD]
 
     purethink_cms.admin.website:
         tags:
-            - { name: sonata.admin, manager_type: orm, audit: false, group: CMS, label: Websites }
+            - { name: sonata.admin, manager_type: orm, audit: false, group: CMS, label: Website }
         class: Purethink\CMSBundle\Admin\Website
         arguments: [null, Purethink\CMSBundle\Entity\Website, SonataAdminBundle:CRUD]
 
@@ -27,7 +27,7 @@ services:
 
     purethink_cms.admin.menuType:
         tags:
-            - { name: sonata.admin, manager_type: orm, audit: false, group: CMS, label: Menus }
+            - { name: sonata.admin, manager_type: orm, audit: false, group: CMS, label: Menu }
         class: Purethink\CMSBundle\Admin\MenuType
         arguments: [null, Purethink\CMSBundle\Entity\MenuType, SonataAdminBundle:CRUD]
         calls:
@@ -41,7 +41,7 @@ services:
 
     purethink_cms.admin.extension:
         tags:
-            - { name: sonata.admin, manager_type: orm, audit: false, group: CMS, label: Extensions }
+            - { name: sonata.admin, manager_type: orm, audit: false, group: CMS, label: Extension }
         class: Purethink\CMSBundle\Admin\Extension
         arguments: [null, Purethink\CMSBundle\Entity\Extension, SonataAdminBundle:CRUD]
 
@@ -53,7 +53,7 @@ services:
 
     purethink_cms.admin.component:
         tags:
-            - { name: sonata.admin, manager_type: orm, audit: false, group: CMS, label: Components }
+            - { name: sonata.admin, manager_type: orm, audit: false, group: CMS, label: Component }
         class: Purethink\CMSBundle\Admin\Component
         arguments: [null, Purethink\CMSBundle\Entity\Component, SonataAdminBundle:CRUD]
         calls:
@@ -75,7 +75,7 @@ services:
 
     purethink_cms.admin.template:
         tags:
-            - { name: sonata.admin, manager_type: orm, audit: false, group: CMS, label: Templates }
+            - { name: sonata.admin, manager_type: orm, audit: false, group: CMS, label: Template }
         class: Purethink\CMSBundle\Admin\Template
         arguments: [null, Purethink\CMSBundle\Entity\Template, SonataAdminBundle:CRUD]
         calls:
