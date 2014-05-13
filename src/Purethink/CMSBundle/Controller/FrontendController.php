@@ -73,13 +73,16 @@ class FrontendController extends Controller
         $layout = $this->getLayoutForTypeOfTemplate($template, Layout::LAYOUT_SEARCH);
         $meta = $this->getMetadataByLocale($locale);
 
-        $search = $request->get('query');
+        if ($search = $request->query->get('query')) {
+            $entities = $this->getDoctrine()
+                ->getRepository('PurethinkCMSBundle:Article')
+                ->searchResults($locale, $search);
+        } else {
+            $entities = null;
+        }
 
-        $articles = $this->getDoctrine()
-            ->getRepository('PurethinkCMSBundle:Article')
-            ->search($locale, $search);
 
-        return compact('meta', 'articles', 'template', 'layout');
+        return compact('meta', 'entities', 'template', 'layout');
     }
 
     /**

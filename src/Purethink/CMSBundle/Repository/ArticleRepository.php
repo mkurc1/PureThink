@@ -7,15 +7,15 @@ use Doctrine\ORM\EntityRepository;
 
 class ArticleRepository extends EntityRepository
 {
-    public function search($alias, $search)
+    public function searchResults($locale, $search)
     {
         $qb = $this->createQueryBuilder('a')
             ->join('a.language', 'al')
             ->where('a.isPublic = true')
-            ->andWhere('UPPER(al.alias) = UPPER(:alias)')
-            ->andWhere('a.name LIKE :search')
-            ->setParameter('alias', $alias)
-            ->setParameter('search', '%'.$search.'%');
+            ->andWhere('UPPER(al.alias) = UPPER(:locale)')
+            ->andWhere('UPPER(a.name) LIKE UPPER(:search)')
+            ->setParameter('locale', $locale)
+            ->setParameter('search', '%' . $search . '%');
 
         return $qb->getQuery()->getResult();
     }
