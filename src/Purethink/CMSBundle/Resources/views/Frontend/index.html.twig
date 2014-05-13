@@ -5,17 +5,15 @@
 
     {{ sonata_block_render({ "type": "purethink.cms.block.component", "settings": {
         "template": "PurethinkCMSBundle:Frontend:_baner.html.twig",
-        "slug": "baner",
-        "locale": locale
+        "slug": "baner"
     } }) }}
 
-    {% include 'PurethinkCMSBundle:Frontend:_news_container.html.twig' with {"locale": locale} %}
+    {% include 'PurethinkCMSBundle:Frontend:_news_container.html.twig' %}
 
     {{ sonata_block_render({ "type": "purethink.cms.block.component", "settings": {
         "template": "PurethinkCMSBundle:Frontend:_link.html.twig",
-        "slug": "linki",
-        "locale": locale
+        "slug": "linki"
     } }) }}
 
-    {% include 'PurethinkCMSBundle:Frontend:_footer.html.twig' with {'local': locale} %}
+    {% include 'PurethinkCMSBundle:Frontend:_footer.html.twig' %}
 {% endblock body %}

@@ -2,7 +2,7 @@
     <h3>{{ entities['title'] }}</h3>
 
     {% for key, new in entities if key != 'title' %}
-        <a href="{{ path('article', { 'locale': locale, 'slug': new['adres'] }) }}" class="news">
+        <a href="{{ path('article', { 'locale': app.request.locale, 'slug': new['adres'] }) }}" class="news">
             <div class="image">
                 {% media new['fotografia'], 'reference' %}
             </div>

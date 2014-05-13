@@ -45,17 +45,15 @@ class FrontendController extends Controller
         $layout = $this->getLayoutForTypeOfTemplate($template, Layout::LAYOUT_MAIN);
         $meta = $this->getMetadataByLocale($locale);
 
-        return compact('locale', 'meta', 'template', 'layout');
+        return compact('meta', 'template', 'layout');
     }
 
     /**
      * @Template()
      */
-    public function searchAction(Request $request)
+    public function searchAction()
     {
-        $locale = $request->getLocale();
-
-        return compact('locale');
+        return [];
     }
 
     /**
@@ -81,7 +79,7 @@ class FrontendController extends Controller
             ->getRepository('PurethinkCMSBundle:Article')
             ->search($locale, $search);
 
-        return compact('locale', 'meta', 'articles', 'template', 'layout');
+        return compact('meta', 'articles', 'template', 'layout');
     }
 
     /**
@@ -101,7 +99,7 @@ class FrontendController extends Controller
         $layout = $this->getLayoutForTypeOfTemplate($template, Layout::LAYOUT_ARTICLE);
         $article = $this->getArticleBySlug($slug);
 
-        return compact('locale', 'article', 'template', 'layout');
+        return compact('article', 'template', 'layout');
     }
 
     private function getRedirectToMainPage()

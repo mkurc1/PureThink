@@ -5,7 +5,7 @@
             <ul>
                 {% for key, link in entities if key != 'title' %}
                     <li>
-                        <a href="{{ path('article', {'locale': locale, 'slug': link['adres']}) }}">{{ link['nazwa'] }}</a>
+                        <a href="{{ path('article', {'locale': app.request.locale, 'slug': link['adres']}) }}">{{ link['nazwa'] }}</a>
                     </li>
                 {% endfor %}
             </ul>

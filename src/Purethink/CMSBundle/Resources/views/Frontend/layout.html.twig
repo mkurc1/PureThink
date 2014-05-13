@@ -70,19 +70,18 @@
 
     {{ sonata_block_render({ "type": "purethink.cms.block.component", "settings": {
         "template": "PurethinkCMSBundle:Frontend:_cookie.html.twig",
-        "slug": "cookie",
-        "locale": locale
+        "slug": "cookie"
     } }) }}
 
     <div id="top">
         <div class="container">
             <div id="logo">
-                <a href="{{ path('localized_frontend', {'locale': locale}) }}">
+                <a href="{{ path('localized_frontend', {'locale': app.request.locale}) }}">
                     <img src="{{ asset('template/purethink-standard/images/logo.png') }}" alt="logo" />
                 </a>
             </div>
 
-            {% include 'PurethinkCMSBundle:Frontend:_topmenu.html.twig' with {'locale': locale} %}
+            {% include 'PurethinkCMSBundle:Frontend:_topmenu.html.twig' %}
         </div>
     </div>
 
@@ -90,7 +89,6 @@
         <div class="container">
             {{ sonata_block_render({ "type": "purethink.cms.block.menu", "settings": {
                 "name": "Main",
-                "locale": locale,
                 "home": true
             } }) }}
 

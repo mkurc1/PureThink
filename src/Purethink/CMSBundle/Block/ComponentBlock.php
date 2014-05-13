@@ -4,6 +4,7 @@ namespace Purethink\CMSBundle\Block;
 
 use Doctrine\ORM\EntityManager;
 use Sonata\BlockBundle\Block\BlockContextInterface;
+use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Response;
 use Sonata\BlockBundle\Model\BlockInterface;
 
@@ -15,11 +16,12 @@ class ComponentBlock extends AbstractBlock
 {
     const CACHE_TIME = 0;
 
-    public function __construct($name, EngineInterface $templating, EntityManager $em)
+    public function __construct($name, EngineInterface $templating, EntityManager $em, RequestStack $requestStack)
     {
         parent::__construct($name, $templating);
 
         $this->em = $em;
+        $this->requestStack = $requestStack;
     }
 
     public function setDefaultSettings(OptionsResolverInterface $resolver)
@@ -27,7 +29,6 @@ class ComponentBlock extends AbstractBlock
         $resolver->setDefaults([
             'template' => null,
             'slug'     => null,
-            'locale'   => null
         ]);
     }
 
@@ -40,18 +41,18 @@ class ComponentBlock extends AbstractBlock
 
     public function execute(BlockContextInterface $blockContext, Response $response = null)
     {
-        $locale = $blockContext->getSetting('locale');
-
         return $this->renderResponse($blockContext->getTemplate(), [
-                'entities' => $this->getComponent($blockContext->getSetting('slug'), $locale),
-                'locale'   => $locale
+                'entities' => $this->getComponent($blockContext->getSetting('slug'))
             ],
             $response)->setTtl(self::CACHE_TIME);
     }
 
-    private function getComponent($slug, $locale)
+    private function getComponent($slug)
     {
-        return $this->em->getRepository('PurethinkCMSBundle:ComponentHasElement')
+        $locale = $this->requestStack->getCurrentRequest()->getLocale();
+
+        return $this->em
+            ->getRepository('PurethinkCMSBundle:ComponentHasElement')
             ->getActiveComponentBySlugAndLocale($slug, $locale);
     }
 }

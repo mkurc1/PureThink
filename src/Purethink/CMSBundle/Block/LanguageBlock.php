@@ -25,8 +25,7 @@ class LanguageBlock extends AbstractBlock
     public function setDefaultSettings(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults([
-            'template' => 'PurethinkCMSBundle:Block:language.html.twig',
-            'locale'   => null
+            'template' => 'PurethinkCMSBundle:Block:language.html.twig'
         ]);
     }
 
@@ -40,15 +39,15 @@ class LanguageBlock extends AbstractBlock
     public function execute(BlockContextInterface $blockContext, Response $response = null)
     {
         return $this->renderResponse($blockContext->getTemplate(), [
-                'languages' => $this->getPublicLanguages(),
-                'locale'    => $blockContext->getSetting('locale'),
+                'languages' => $this->getPublicLanguages()
             ],
             $response)->setTtl(self::CACHE_TIME);
     }
 
     private function getPublicLanguages()
     {
-        return $this->em->getRepository('PurethinkCMSBundle:Language')
+        return $this->em
+            ->getRepository('PurethinkCMSBundle:Language')
             ->getPublicLanguages();
     }
 }

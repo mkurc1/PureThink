@@ -1,16 +1,16 @@
 <ul>
     {% if home %}
         <li>
-            <a href="{{ path('localized_frontend', {'locale': locale}) }}">Home</a>
+            <a href="{{ path('localized_frontend', {'locale': app.request.locale}) }}">Home</a>
         </li>
     {% endif %}
     {% for menu in menus %}
         <li class="{{ menu['children'] is defined ? 'has_submenu' : '' }}">
             <a {{ menu['parent'].isNewPage ? 'target="_blank"' : '' }}
-                    href="{{ path('article', {'locale': locale, 'slug': menu['parent'].article.slug}) }}">{{ menu['parent'] }}</a>
+                    href="{{ path('article', {'locale': app.request.locale, 'slug': menu['parent'].article.slug}) }}">{{ menu['parent'] }}</a>
 
             {% if menu['children'] is defined %}
-                {% include 'PurethinkCMSBundle:Block:menu.html.twig' with { 'menus': menu['children'], 'locale': locale, 'home': false } %}
+                {% include 'PurethinkCMSBundle:Block:menu.html.twig' with { 'menus': menu['children'], 'home': false } %}
             {% endif %}
         </li>
     {% endfor %}

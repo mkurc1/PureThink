@@ -1,7 +1,7 @@
 {% if languages|length > 1 %}
     <ul id="language">
         {% for language in languages %}
-            <li class="{{ language.alias|upper == locale|upper ? 'selected' : '' }}">
+            <li class="{{ language.alias|upper == app.request.locale|upper ? 'selected' : '' }}">
                 <a href="{{ path('localized_frontend', { 'locale': language.alias|lower }) }}">{{ language.alias|upper }}</a>
             </li>
         {% endfor %}
