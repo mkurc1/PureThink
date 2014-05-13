@@ -1,5 +1,17 @@
 {% extends "PurethinkCoreBundle::layout.html.twig" %}
 
+{% block keywords %}
+    {{ meta.SEOData.keyword|default(parent()) }}
+{% endblock keywords %}
+
+{% block description %}
+    {{ meta.SEOData.description|default(parent()) }}
+{% endblock description %}
+
+{% block title %}
+    {{ meta.SEOData.title|default(parent()) }}
+{% endblock title %}
+
 {% block icon %}
     {% if template.icon is not null %}
         <link rel="icon" type="image/x-icon" href="{{ asset('template/'~template.slug~'/'~template.icon) }}" />

@@ -1,17 +1,5 @@
 {% extends "PurethinkCMSBundle:Frontend:layout.html.twig" %}
 
-{% block keywords %}
-    {{ meta.SEOData.keyword|default(parent()) }}
-{% endblock keywords %}
-
-{% block description %}
-    {{ meta.SEOData.description|default(parent()) }}
-{% endblock description %}
-
-{% block title %}
-    {{ meta.SEOData.title|default(parent()) }}
-{% endblock title %}
-
 {% block body %}
     {{ parent() }}
 
