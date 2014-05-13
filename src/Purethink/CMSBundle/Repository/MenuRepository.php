@@ -7,17 +7,19 @@ use Doctrine\ORM\EntityRepository;
 
 class MenuRepository extends EntityRepository
 {
-    public function getActiveMenusBySeriesNameAndLocale($type, $locale)
+    public function getActiveMenusByTypeAndLocale($type, $locale)
     {
         $entities = [];
 
-        $menus = $this->getActiveMenusBySeriesNameAndLocaleQb($type, $locale);
+        $menus = $this->getActiveMenusByTypeAndLocaleQb($type, $locale);
         $menus = $menus->getQuery()->getResult();
 
         foreach ($menus as $menu) {
             $id = $menu->getId();
 
-            if (is_object($menu->getMenu()) && $menu->getMenu()->getIsPublic() && $menu->getMenu()->getArticle()->getIsPublic()) {
+            if (is_object($menu->getMenu()) &&
+                $menu->getMenu()->getIsPublic() &&
+                $menu->getMenu()->getArticle()->getIsPublic()) {
                 $parentId = $menu->getMenu()->getId();
                 $entities[$parentId]['children'][$id]['parent'] = $menu;
             } else {
@@ -28,7 +30,7 @@ class MenuRepository extends EntityRepository
         return $entities;
     }
 
-    private function getActiveMenusBySeriesNameAndLocaleQb($type, $locale)
+    private function getActiveMenusByTypeAndLocaleQb($type, $locale)
     {
         return $this->createQueryBuilder('a')
             ->select('a, t, art')

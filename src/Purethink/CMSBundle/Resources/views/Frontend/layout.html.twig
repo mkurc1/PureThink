@@ -92,7 +92,7 @@
                 "home": true
             } }) }}
 
-            {{ render(controller('PurethinkCMSBundle:Frontend:search')) }}
+            {% include 'PurethinkCMSBundle:Frontend:_search.html.twig' %}
         </div>
     </div>
 {% endblock body %}

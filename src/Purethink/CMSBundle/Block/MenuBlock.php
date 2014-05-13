@@ -55,7 +55,8 @@ class MenuBlock extends AbstractBlock
     {
         $locale = $this->requestStack->getCurrentRequest()->getLocale();
 
-        return $this->em->getRepository('PurethinkCMSBundle:Menu')
-            ->getActiveMenusBySeriesNameAndLocale($groupName, $locale);
+        return $this->em
+            ->getRepository('PurethinkCMSBundle:Menu')
+            ->getActiveMenusByTypeAndLocale($groupName, $locale);
     }
 }

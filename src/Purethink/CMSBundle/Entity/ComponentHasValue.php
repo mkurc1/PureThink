@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Table(name="cms_component_has_value")
  * @ORM\InheritanceType("SINGLE_TABLE")
- * @ORM\Entity(repositoryClass="Purethink\CMSBundle\Repository\ComponentHasValueRepository")
+ * @ORM\Entity()
  */
 abstract class ComponentHasValue
 {

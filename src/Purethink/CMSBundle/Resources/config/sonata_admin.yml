@@ -7,13 +7,13 @@ services:
 
     purethink_cms.admin.language:
         tags:
-            - { name: sonata.admin, manager_type: orm, audit: false, group: CMS, label: Language }
+            - { name: sonata.admin, manager_type: orm, audit: false, group: CMS, label: Languages }
         class: Purethink\CMSBundle\Admin\Language
         arguments: [null, Purethink\CMSBundle\Entity\Language, SonataAdminBundle:CRUD]
 
     purethink_cms.admin.website:
         tags:
-            - { name: sonata.admin, manager_type: orm, audit: false, group: CMS, label: Website }
+            - { name: sonata.admin, manager_type: orm, audit: false, group: CMS, label: Websites }
         class: Purethink\CMSBundle\Admin\Website
         arguments: [null, Purethink\CMSBundle\Entity\Website, SonataAdminBundle:CRUD]
 
@@ -41,7 +41,7 @@ services:
 
     purethink_cms.admin.extension:
         tags:
-            - { name: sonata.admin, manager_type: orm, audit: false, group: CMS, label: Extension }
+            - { name: sonata.admin, manager_type: orm, audit: false, group: CMS, label: Extensions }
         class: Purethink\CMSBundle\Admin\Extension
         arguments: [null, Purethink\CMSBundle\Entity\Extension, SonataAdminBundle:CRUD]
 
@@ -53,7 +53,7 @@ services:
 
     purethink_cms.admin.component:
         tags:
-            - { name: sonata.admin, manager_type: orm, audit: false, group: CMS, label: Component }
+            - { name: sonata.admin, manager_type: orm, audit: false, group: CMS, label: Components }
         class: Purethink\CMSBundle\Admin\Component
         arguments: [null, Purethink\CMSBundle\Entity\Component, SonataAdminBundle:CRUD]
         calls:
@@ -75,7 +75,7 @@ services:
 
     purethink_cms.admin.template:
         tags:
-            - { name: sonata.admin, manager_type: orm, audit: false, group: CMS, label: Template }
+            - { name: sonata.admin, manager_type: orm, audit: false, group: CMS, label: Templates }
         class: Purethink\CMSBundle\Admin\Template
         arguments: [null, Purethink\CMSBundle\Entity\Template, SonataAdminBundle:CRUD]
         calls:

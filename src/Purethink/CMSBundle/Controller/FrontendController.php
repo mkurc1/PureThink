@@ -49,14 +49,6 @@ class FrontendController extends Controller
     }
 
     /**
-     * @Template()
-     */
-    public function searchAction()
-    {
-        return [];
-    }
-
-    /**
      * @Route("/{locale}/search")
      * @Method("GET")
      * @Template()
