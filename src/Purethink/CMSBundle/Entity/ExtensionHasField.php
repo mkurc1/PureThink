@@ -23,7 +23,7 @@ class ExtensionHasField
     const TYPE_ARTICLE = 9;
     const TYPE_FILE = 10;
 
-    public static $avilableTypeOfField = [
+    public static $availableTypeOfField = [
         self::TYPE_TEXT     => "text",
         self::TYPE_TEXTAREA => "textarea",
         self::TYPE_INTEGER  => "integer",
@@ -94,12 +94,12 @@ class ExtensionHasField
 
     public static function getTypeOfFieldStringById($id)
     {
-        return self::$avilableTypeOfField[$id];
+        return self::$availableTypeOfField[$id];
     }
 
     public function getTypeOfFieldString()
     {
-        return self::$avilableTypeOfField[$this->getTypeOfField()];
+        return self::$availableTypeOfField[$this->getTypeOfField()];
     }
 
     /**

@@ -16,7 +16,7 @@ class ExtensionHasField extends Admin
             ->add('isRequired', null, ['required' => false])
             ->add('isMainField', null, ['required' => false])
             ->add('typeOfField', 'choice', [
-                'choices' => Field::$avilableTypeOfField
+                'choices' => Field::$availableTypeOfField
             ]);
     }
 }

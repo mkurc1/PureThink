@@ -26,13 +26,23 @@ class ComponentHasElement extends Admin
 
         $formMapper
             ->with('General')
-                ->add('isEnable')
                 ->add('componentHasValues', 'sonata_type_collection', [
                     'label'        => false,
                     'btn_add'      => false,
                     'type_options' => [ 'delete' => false ]
+                    ], [
+                    'sortable' => 'position'
                 ])
+                ->add('isEnable')
             ->end();
+    }
+
+    public function getFormTheme()
+    {
+        return array_merge(
+            parent::getFormTheme(),
+            ['PurethinkCMSBundle:Form:admin.componentHasValues.html.twig']
+        );
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
