@@ -14,7 +14,7 @@
 
 {% block icon %}
     {% if template.icon is not null %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('template/'~template.slug~'/'~template.icon) }}" />
+        <link rel="icon" type="image/x-icon" href="{{ asset(template.assetPath ~ '/' ~ template.icon) }}" />
     {% else %}
         <link rel="icon" type="image/x-icon" href="{{ asset('purethink.ico') }}" />
     {% endif %}
@@ -33,12 +33,12 @@
     {% endstylesheets %}
 
     {% for templateStyle in template.styles %}
-        <link rel="stylesheet" type="text/css" href="{{ asset('template/'~template.slug~'/css/'~templateStyle) }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset(templateStyle.allPath) }}">
     {% endfor %}
 
     {% if layout is not null %}
         {% for layoutStyle in layout.styles %}
-            <link rel="stylesheet" type="text/css" href="{{ asset('template/'~layout.template.slug~'/css/'~layoutStyle) }}">
+            <link rel="stylesheet" type="text/css" href="{{ asset(layoutStyle.allPath) }}">
         {% endfor %}
     {% endif %}
 {% endblock stylesheets %}
@@ -55,44 +55,16 @@
     {% endjavascripts %}
 
     {% for templateScript in template.scripts %}
-        <script src="{{ asset('template/'~template.slug~'/js/'~templateScript) }}"></script>
+        <script src="{{ asset(templateScript.allPath) }}"></script>
     {% endfor %}
 
     {% if layout is not null %}
         {% for layoutScript in layout.scripts %}
-            <script src="{{ asset('template/'~layout.template.slug~'/js/'~layoutScript) }}"></script>
+            <script src="{{ asset(layoutScript.allPath) }}"></script>
         {% endfor %}
     {% endif %}
 {% endblock javascripts %}
 
 {% block body %}
     {{ parent() }}
-
-    {{ sonata_block_render({ "type": "purethink.cms.block.component", "settings": {
-        "template": "PurethinkCMSBundle:Frontend:_cookie.html.twig",
-        "slug": "cookie"
-    } }) }}
-
-    <div id="top">
-        <div class="container">
-            <div id="logo">
-                <a href="{{ path('localized_frontend', {'locale': app.request.locale}) }}">
-                    <img src="{{ asset('template/purethink-standard/images/logo.png') }}" alt="logo" />
-                </a>
-            </div>
-
-            {% include 'PurethinkCMSBundle:Frontend:_topmenu.html.twig' %}
-        </div>
-    </div>
-
-    <div id="main_menu">
-        <div class="container">
-            {{ sonata_block_render({ "type": "purethink.cms.block.menu", "settings": {
-                "name": "Main",
-                "home": true
-            } }) }}
-
-            {% include 'PurethinkCMSBundle:Frontend:_search.html.twig' %}
-        </div>
-    </div>
 {% endblock body %}

@@ -1,0 +1,19 @@
+{% extends template.scriptPath~":layout.html.twig" %}
+
+{% block body %}
+    {{ parent() }}
+
+    {{ sonata_block_render({ "type": "purethink.cms.block.component", "settings": {
+        "template": template.scriptPath~":_baner.html.twig",
+        "slug": "baner"
+    } }) }}
+
+    {% include template.scriptPath~':_news_container.html.twig' %}
+
+    {{ sonata_block_render({ "type": "purethink.cms.block.component", "settings": {
+        "template": template.scriptPath~":_link.html.twig",
+        "slug": "linki"
+    } }) }}
+
+    {% include template.scriptPath~':_footer.html.twig' %}
+{% endblock body %}

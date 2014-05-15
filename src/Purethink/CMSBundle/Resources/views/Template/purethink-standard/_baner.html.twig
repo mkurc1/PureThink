@@ -3,15 +3,19 @@
         <div class="container">
             <div id="baner_a" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
+                    {% set i = 0 %}
                     {% for key, baner in entities if key != 'title' %}
-                        <li data-target="#baner_a" data-slide-to="{{ key-1 }}"
-                            class="{{ (key == 1) ? 'active' : '' }}"></li>
+                        {% set i = i + 1 %}
+                        <li data-target="#baner_a" data-slide-to="{{ i - 1 }}"
+                            class="{{ (i == 1) ? 'active' : '' }}"></li>
                     {% endfor %}
                 </ol>
 
                 <div class="carousel-inner">
+                    {% set i = 0 %}
                     {% for key, baner in entities if key != 'title' %}
-                        <div class="item {{ (key == 1) ? 'active' : '' }}">
+                        {% set i = i + 1 %}
+                        <div class="item {{ (i == 1) ? 'active' : '' }}">
                             <a href="{{ path('article', { 'locale': app.request.locale, 'slug': baner['adres'] }) }}">
                                 {% media baner['fotografia'], 'reference' %}
                             </a>

@@ -1,4 +1,0 @@
-services:
-    purethink.flush.service:
-        class: Purethink\CoreBundle\Service\FlushService
-        arguments: [@doctrine.orm.entity_manager]

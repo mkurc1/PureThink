@@ -10,7 +10,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\InheritanceType("SINGLE_TABLE")
  * @ORM\Entity()
  */
-class TemplateFile
+abstract class TemplateFile
 {
     /**
      * @ORM\Column(type="integer")
@@ -26,6 +26,8 @@ class TemplateFile
      */
     private $path;
 
+
+    abstract public function getAllPath();
 
     public function __toString()
     {

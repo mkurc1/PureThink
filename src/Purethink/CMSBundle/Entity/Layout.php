@@ -55,6 +55,11 @@ class Layout
     private $styles;
 
 
+    public function getAllPath()
+    {
+        return $this->getTemplate()->getScriptPath() . ':' . $this->getPath();
+    }
+
     public function __toString()
     {
         return (string)$this->getStringType();

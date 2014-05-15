@@ -13,6 +13,10 @@ use Doctrine\Common\Collections\ArrayCollection;
  */
 class Template
 {
+    const BUNDLE_NAME = 'PurethinkCMSBundle';
+    const ASSET_DIRECTOR_NAME = 'template';
+    const SCRIPT_DIRECTOR_NAME = 'Template';
+
     /**
      * @ORM\Column(type="integer")
      * @ORM\Id
@@ -67,6 +71,16 @@ class Template
      */
     private $styles;
 
+
+    public function getScriptPath()
+    {
+        return self::BUNDLE_NAME . ':' . self::SCRIPT_DIRECTOR_NAME . DIRECTORY_SEPARATOR . $this->getSlug();
+    }
+
+    public function getAssetPath()
+    {
+        return self::ASSET_DIRECTOR_NAME . DIRECTORY_SEPARATOR . $this->getSlug();
+    }
 
     /**
      * Get id

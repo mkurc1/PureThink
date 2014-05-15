@@ -10,6 +10,8 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class TemplateScript extends TemplateFile
 {
+    const DIRECTORY_NAME = 'js';
+
     /**
      * @ORM\ManyToOne(targetEntity="Template", inversedBy="scripts", cascade={"persist"})
      * @ORM\JoinColumn(onDelete="CASCADE")
@@ -21,6 +23,21 @@ class TemplateScript extends TemplateFile
      * @ORM\JoinColumn(onDelete="CASCADE")
      */
     private $layout;
+
+
+    private function getParentPath()
+    {
+        if ($this->getTemplate()) {
+            return $this->getTemplate()->getAssetPath();
+        } else {
+            return$this->getLayout()->getTemplate()->getAssetPath();
+        }
+    }
+
+    public function getAllPath()
+    {
+        return $this->getParentPath() . DIRECTORY_SEPARATOR . self::DIRECTORY_NAME . DIRECTORY_SEPARATOR . $this->getPath();
+    }
 
     /**
      * Set template

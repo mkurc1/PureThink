@@ -6,6 +6,7 @@ use SitemapGenerator\Provider\ProviderInterface;
 use SitemapGenerator\Sitemap\Sitemap;
 use Symfony\Component\Routing\RouterInterface;
 use Doctrine\ORM\EntityManager;
+use Purethink\CMSBundle\Entity\Article as ArticleEntity;
 
 class Article implements ProviderInterface
 {
@@ -15,26 +16,28 @@ class Article implements ProviderInterface
         $this->em = $em;
     }
 
-    public function populate(Sitemap $sitemap)
+    public function populate(Sitemap $siteMap)
     {
         $articles = $this->em->getRepository('PurethinkCMSBundle:Article')
             ->getPublicArticles();
+
+        /** @var ArticleEntity $article */
         foreach ($articles as $article) {
             $routeParams = [
                 'locale' => strtolower($article->getLanguage()->getAlias()),
                 'slug'   => $article->getSlug()
             ];
 
-            $this->addUrl($sitemap, 'article', $routeParams);
+            $this->addUrl($siteMap, 'article', $routeParams);
         }
 
     }
 
-    protected function addUrl(Sitemap $sitemap, $route, array $routeParams)
+    protected function addUrl(Sitemap $siteMap, $route, array $routeParams)
     {
         $url = new Url();
         $url->setLoc($this->getLocation($route, $routeParams));
-        $sitemap->add($url);
+        $siteMap->add($url);
     }
 
     private function getLocation($route, array $params)

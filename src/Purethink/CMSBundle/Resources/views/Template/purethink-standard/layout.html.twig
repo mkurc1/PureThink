@@ -1,0 +1,33 @@
+{% extends "PurethinkCMSBundle:Page:layout.html.twig" %}
+
+{% block body %}
+    {{ parent() }}
+
+    {{ sonata_block_render({ "type": "purethink.cms.block.component", "settings": {
+        "template": template.scriptPath~":_cookie.html.twig",
+        "slug": "cookie"
+    } }) }}
+
+    <div id="top">
+        <div class="container">
+            <div id="logo">
+                <a href="{{ path('localized_page', {'locale': app.request.locale}) }}">
+                    <img src="{{ asset('template/purethink-standard/images/logo.png') }}" alt="logo" />
+                </a>
+            </div>
+
+            {% include template.scriptPath~':_topmenu.html.twig' %}
+        </div>
+    </div>
+
+    <div id="main_menu">
+        <div class="container">
+            {{ sonata_block_render({ "type": "purethink.cms.block.menu", "settings": {
+                "name": "Main",
+                "home": true
+            } }) }}
+
+            {% include template.scriptPath~':_search.html.twig' %}
+        </div>
+    </div>
+{% endblock body %}

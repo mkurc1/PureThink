@@ -7,14 +7,16 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Purethink\CMSBundle\Entity\Article;
-use Purethink\CMSBundle\Entity\Template as CMSTemplate;
+use Purethink\CMSBundle\Entity\Template;
+use Purethink\CMSBundle\Entity\Language;
+use Purethink\CMSBundle\Entity\Website;
+use Symfony\Component\HttpFoundation\Response;
 
-class FrontendController extends Controller
+class PageController extends Controller
 {
     /**
-     * @Route("/", name="frontend")
+     * @Route("/", name="page")
      * @Method("GET")
      */
     public function mainAction(Request $request)
@@ -25,13 +27,12 @@ class FrontendController extends Controller
             $request->setLocale($request->getPreferredLanguage($this->getAvailableLocales()));
         }
 
-        return $this->redirect($this->generateUrl('localized_frontend', compact('locale')));
+        return $this->redirect($this->generateUrl('localized_page', compact('locale')));
     }
 
     /**
-     * @Route("/{locale}", name="localized_frontend")
+     * @Route("/{locale}", name="localized_page")
      * @Method("GET")
-     * @Template()
      */
     public function indexAction(Request $request, $locale)
     {
@@ -41,17 +42,22 @@ class FrontendController extends Controller
             return $this->getRedirectToMainPage();
         }
 
+        /** @var Template $template */
         $template = $this->getEnabledTemplate();
+        /** @var Layout $layout */
         $layout = $this->getLayoutForTypeOfTemplate($template, Layout::LAYOUT_MAIN);
+        /** @var Website $meta */
         $meta = $this->getMetadataByLocale($locale);
 
-        return compact('meta', 'template', 'layout');
+        $content = $this->renderView($layout->getAllPath(),
+            compact('meta', 'template', 'layout'));
+
+        return new Response($content);
     }
 
     /**
      * @Route("/{locale}/search")
      * @Method("GET")
-     * @Template()
      */
     public function searchListAction(Request $request, $locale)
     {
@@ -61,8 +67,11 @@ class FrontendController extends Controller
             return $this->getRedirectToMainPage();
         }
 
+        /** @var Template $template */
         $template = $this->getEnabledTemplate();
+        /** @var Layout $layout */
         $layout = $this->getLayoutForTypeOfTemplate($template, Layout::LAYOUT_SEARCH);
+        /** @var Website $meta */
         $meta = $this->getMetadataByLocale($locale);
 
         if ($search = $request->query->get('query')) {
@@ -73,14 +82,15 @@ class FrontendController extends Controller
             $entities = null;
         }
 
+        $content = $this->renderView($layout->getAllPath(),
+            compact('meta', 'entities', 'template', 'layout'));
 
-        return compact('meta', 'entities', 'template', 'layout');
+        return new Response($content);
     }
 
     /**
      * @Route("/{locale}/{slug}", name="article")
      * @Method("GET")
-     * @Template()
      */
     public function articleAction(Request $request, $locale, $slug)
     {
@@ -90,16 +100,22 @@ class FrontendController extends Controller
             return $this->getRedirectToMainPage();
         }
 
+        /** @var Template $template */
         $template = $this->getEnabledTemplate();
+        /** @var Layout $layout */
         $layout = $this->getLayoutForTypeOfTemplate($template, Layout::LAYOUT_ARTICLE);
+        /** @var Article $article */
         $article = $this->getArticleBySlug($slug);
 
-        return compact('article', 'template', 'layout');
+        $content = $this->renderView($layout->getAllPath(),
+            compact('article', 'template', 'layout'));
+
+        return new Response($content);
     }
 
     private function getRedirectToMainPage()
     {
-        return $this->redirect($this->generateUrl('frontend'));
+        return $this->redirect($this->generateUrl('page'));
     }
 
     private function getArticleBySlug($slug)
@@ -145,6 +161,7 @@ class FrontendController extends Controller
         $availableLocales = [];
 
         $languages = $this->getPublicLanguages();
+        /** @var Language $language */
         foreach ($languages as $language) {
             $availableLocales[] = strtolower($language->getAlias());
         }
@@ -152,11 +169,17 @@ class FrontendController extends Controller
         return $availableLocales;
     }
 
-    private function getLayoutForTypeOfTemplate(CMSTemplate $template, $type)
+    private function getLayoutForTypeOfTemplate(Template $template, $type)
     {
-        return $this->getDoctrine()
+        $layout =  $this->getDoctrine()
             ->getRepository('PurethinkCMSBundle:Layout')
             ->getLayoutForTypeOfTemplate($template, $type);
+
+        if (null == $layout) {
+            throw $this->createNotFoundException();
+        }
+
+        return $layout;
     }
 
     private function getEnabledTemplate()

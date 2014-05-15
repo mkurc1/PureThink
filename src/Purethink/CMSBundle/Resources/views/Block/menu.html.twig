@@ -1,7 +1,7 @@
 <ul>
     {% if home %}
         <li>
-            <a href="{{ path('localized_frontend', {'locale': app.request.locale}) }}">Home</a>
+            <a href="{{ path('localized_page', {'locale': app.request.locale}) }}">Home</a>
         </li>
     {% endif %}
     {% for menu in menus %}
