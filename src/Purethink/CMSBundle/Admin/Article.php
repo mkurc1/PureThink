@@ -27,12 +27,12 @@ class Article extends Admin
             ->with('General')
                 ->add('name')
                 ->add('language')
-                ->add('content', 'ckeditor')
                 ->add('tags', 'sonata_type_model', [
                     'required' => false,
                     'multiple' => true
                 ])
-                ->add('isPublic')
+                ->add('content', 'ckeditor')
+                ->add('published')
             ->with('SEO')
                 ->add('metadata', 'sonata_type_admin', [
                     'label' => false,
@@ -51,8 +51,8 @@ class Article extends Admin
             ->add('id')
             ->add('name')
             ->add('slug')
-            ->add('createdAt')
-            ->add('updatedAt');
+            ->add('created')
+            ->add('updated');
     }
 
     protected function configureListFields(ListMapper $listMapper)
@@ -61,9 +61,9 @@ class Article extends Admin
             ->addIdentifier('id')
             ->addIdentifier('name')
             ->addIdentifier("slug")
-            ->add('isPublic', null, ['editable' => true])
-            ->add("createdAt")
-            ->add('updatedAt');
+            ->add('published', null, ['editable' => true])
+            ->add("created")
+            ->add('updated');
     }
 
     protected function configureShowFields(ShowMapper $showMapper)
@@ -73,7 +73,7 @@ class Article extends Admin
             ->add('language')
             ->add('content', null, ['safe' => true])
             ->add('tags')
-            ->add('isPublic');
+            ->add('published');
     }
 
     public function setSecurityContext($securityContext)

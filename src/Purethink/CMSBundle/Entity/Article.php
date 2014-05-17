@@ -39,18 +39,18 @@ class Article implements MetadataInterface
      * @Gedmo\Timestampable(on="create")
      * @ORM\Column(type="datetime")
      */
-    private $createdAt;
+    private $created;
 
     /**
      * @Gedmo\Timestampable(on="update")
      * @ORM\Column(type="datetime")
      */
-    private $updatedAt;
+    private $updated;
 
     /**
      * @ORM\Column(type="boolean", nullable=true)
      */
-    private $isPublic = false;
+    private $published = false;
 
     /**
      * @ORM\Column(type="text", nullable=true)
@@ -150,29 +150,6 @@ class Article implements MetadataInterface
     }
 
     /**
-     * Set isPublic
-     *
-     * @param boolean $isPublic
-     * @return Article
-     */
-    public function setIsPublic($isPublic)
-    {
-        $this->isPublic = $isPublic;
-
-        return $this;
-    }
-
-    /**
-     * Get isPublic
-     *
-     * @return boolean
-     */
-    public function getIsPublic()
-    {
-        return $this->isPublic;
-    }
-
-    /**
      * Set content
      *
      * @param string $content
@@ -216,52 +193,6 @@ class Article implements MetadataInterface
     public function getSlug()
     {
         return $this->slug;
-    }
-
-    /**
-     * Set createdAt
-     *
-     * @param \DateTime $createdAt
-     * @return Article
-     */
-    public function setCreatedAt($createdAt)
-    {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
-    /**
-     * Get createdAt
-     *
-     * @return \DateTime
-     */
-    public function getCreatedAt()
-    {
-        return $this->createdAt;
-    }
-
-    /**
-     * Set updatedAt
-     *
-     * @param \DateTime $updatedAt
-     * @return Article
-     */
-    public function setUpdatedAt($updatedAt)
-    {
-        $this->updatedAt = $updatedAt;
-
-        return $this;
-    }
-
-    /**
-     * Get updatedAt
-     *
-     * @return \DateTime
-     */
-    public function getUpdatedAt()
-    {
-        return $this->updatedAt;
     }
 
     /**
@@ -444,5 +375,74 @@ class Article implements MetadataInterface
     public function getTags()
     {
         return $this->tags;
+    }
+
+    /**
+     * Set created
+     *
+     * @param \DateTime $created
+     * @return Article
+     */
+    public function setCreated($created)
+    {
+        $this->created = $created;
+
+        return $this;
+    }
+
+    /**
+     * Get created
+     *
+     * @return \DateTime 
+     */
+    public function getCreated()
+    {
+        return $this->created;
+    }
+
+    /**
+     * Set updated
+     *
+     * @param \DateTime $updated
+     * @return Article
+     */
+    public function setUpdated($updated)
+    {
+        $this->updated = $updated;
+
+        return $this;
+    }
+
+    /**
+     * Get updated
+     *
+     * @return \DateTime 
+     */
+    public function getUpdated()
+    {
+        return $this->updated;
+    }
+
+    /**
+     * Set published
+     *
+     * @param boolean $published
+     * @return Article
+     */
+    public function setPublished($published)
+    {
+        $this->published = $published;
+
+        return $this;
+    }
+
+    /**
+     * Get published
+     *
+     * @return boolean 
+     */
+    public function getPublished()
+    {
+        return $this->published;
     }
 }

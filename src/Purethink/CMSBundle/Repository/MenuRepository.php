@@ -19,7 +19,7 @@ class MenuRepository extends EntityRepository
 
             if (is_object($menu->getMenu()) &&
                 $menu->getMenu()->getIsPublic() &&
-                $menu->getMenu()->getArticle()->getIsPublic()) {
+                $menu->getMenu()->getArticle()->getPublished()) {
                 $parentId = $menu->getMenu()->getId();
                 $entities[$parentId]['children'][$id]['parent'] = $menu;
             } else {
@@ -40,7 +40,7 @@ class MenuRepository extends EntityRepository
             ->leftJoin('a.menu', 'm')
             ->where('a.isPublic = true')
             ->andWhere('UPPER(l.alias) = UPPER(:locale)')
-            ->andWhere('art.isPublic = true')
+            ->andWhere('art.published = true')
             ->andWhere('t.name = :type')
             ->orderBy('m.sequence, a.sequence')
             ->setParameter('type', $type)

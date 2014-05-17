@@ -11,7 +11,7 @@ class ArticleRepository extends EntityRepository
     {
         $qb = $this->createQueryBuilder('a')
             ->join('a.language', 'al')
-            ->where('a.isPublic = true')
+            ->where('a.published = true')
             ->andWhere('UPPER(al.alias) = UPPER(:locale)')
             ->andWhere('UPPER(a.name) LIKE UPPER(:search)')
             ->setParameter('locale', $locale)
@@ -26,7 +26,7 @@ class ArticleRepository extends EntityRepository
             ->addSelect('am, at')
             ->join('a.metadata', 'am')
             ->leftJoin('a.tags', 'at', 'WITH', 'at.enabled = true')
-            ->where('a.isPublic = true')
+            ->where('a.published = true')
             ->andWhere('a.slug = :slug')
             ->setParameter('slug', $slug);
 
@@ -38,7 +38,7 @@ class ArticleRepository extends EntityRepository
         $qb = $this->createQueryBuilder('a')
             ->addSelect('l')
             ->join('a.language', 'l')
-            ->where('a.isPublic = true');
+            ->where('a.published = true');
 
         return $qb->getQuery()->getResult();
     }
