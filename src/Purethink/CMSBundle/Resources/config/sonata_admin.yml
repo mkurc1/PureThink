@@ -63,9 +63,11 @@ services:
         tags:
             - { name: sonata.admin, manager_type: orm, audit: false, show_in_dashboard: false }
         class: Purethink\CMSBundle\Admin\ComponentHasElement
-        arguments: [null, Purethink\CMSBundle\Entity\ComponentHasElement, SonataAdminBundle:CRUD]
+        arguments: [null, Purethink\CMSBundle\Entity\ComponentHasElement, 'PurethinkCMSBundle:ComponentHasElementAdmin']
         calls:
             - [ addChild, [@purethink_cms.admin.componentHasValue] ]
+            - [ setContainer, [ @service_container ] ]
+            - [ setPositionService, [@pix_sortable_behavior.position]]
 
     purethink_cms.admin.componentHasValue:
         tags:

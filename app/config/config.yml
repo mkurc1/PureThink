@@ -134,6 +134,7 @@ stof_doctrine_extensions:
             loggable: false
             timestampable: true
             sluggable: true
+            sortable: true
             translatable: false
 
 k_phoen_sitemap:

@@ -50,6 +50,8 @@
         "sonata-project/comment-bundle": "~2.2@dev",
         "sonata-project/classification-bundle": "~2.2",
 
+        "pixassociates/sortable-behavior-bundle": "dev-master",
+
         "mopa/bootstrap-bundle": "v3.0.0-beta3",
         "twbs/bootstrap": "v3.0.0",
 

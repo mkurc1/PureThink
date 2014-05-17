@@ -3,21 +3,21 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "5bad37c835f5faba5ca846fa5292fd03",
+    "hash": "5f585d3c9ab7802391472904a10df3a9",
     "packages": [
         {
             "name": "bmatzner/fontawesome-bundle",
-            "version": "4.0.3",
+            "version": "4.1.0",
             "target-dir": "Bmatzner/FontAwesomeBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bmatzner/BmatznerFontAwesomeBundle.git",
-                "reference": "e72d1a6198231dc0eb8a691a5cf42b8a7f590fe4"
+                "reference": "4cbf7e5b567be0831f4a7d8f30bb9d2736211165"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bmatzner/BmatznerFontAwesomeBundle/zipball/e72d1a6198231dc0eb8a691a5cf42b8a7f590fe4",
-                "reference": "e72d1a6198231dc0eb8a691a5cf42b8a7f590fe4",
+                "url": "https://api.github.com/repos/bmatzner/BmatznerFontAwesomeBundle/zipball/4cbf7e5b567be0831f4a7d8f30bb9d2736211165",
+                "reference": "4cbf7e5b567be0831f4a7d8f30bb9d2736211165",
                 "shasum": ""
             },
             "require": {
@@ -50,7 +50,7 @@
                 "typography",
                 "webfonts"
             ],
-            "time": "2013-11-22 10:28:03"
+            "time": "2014-05-15 12:48:36"
         },
         {
             "name": "dflydev/markdown",
@@ -969,27 +969,29 @@
         },
         {
             "name": "egeloen/ckeditor-bundle",
-            "version": "2.2.1",
+            "version": "2.3.0",
             "target-dir": "Ivory/CKEditorBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/egeloen/IvoryCKEditorBundle.git",
-                "reference": "8f7ce17be05e649c2a7f3a2e2577836631de7c83"
+                "reference": "12c81a2320168e05a6042bf3b3c03b80307e0b02"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/egeloen/IvoryCKEditorBundle/zipball/8f7ce17be05e649c2a7f3a2e2577836631de7c83",
-                "reference": "8f7ce17be05e649c2a7f3a2e2577836631de7c83",
+                "url": "https://api.github.com/repos/egeloen/IvoryCKEditorBundle/zipball/12c81a2320168e05a6042bf3b3c03b80307e0b02",
+                "reference": "12c81a2320168e05a6042bf3b3c03b80307e0b02",
                 "shasum": ""
             },
             "require": {
+                "egeloen/json-builder": "~1.0",
                 "php": ">=5.3.0",
-                "symfony/form": ">=2.1",
-                "symfony/framework-bundle": ">=2.1"
+                "symfony/form": "~2.1",
+                "symfony/framework-bundle": "~2.1"
             },
             "require-dev": {
-                "phpunit/phpunit": "3.7.*",
-                "twig/twig": "1.*"
+                "phpunit/phpunit": "~3.7",
+                "satooshi/php-coveralls": "~0.6",
+                "twig/twig": "~1.0"
             },
             "suggest": {
                 "helios-ag/fm-elfinder-bundle": "Allows to use the elfinder as CKEditor file manager",
@@ -998,7 +1000,7 @@
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.2-dev"
+                    "dev-master": "2.3-dev"
                 }
             },
             "autoload": {
@@ -1020,7 +1022,58 @@
             "keywords": [
                 "CKEditor"
             ],
-            "time": "2014-01-31 15:15:28"
+            "time": "2014-05-16 10:00:06"
+        },
+        {
+            "name": "egeloen/json-builder",
+            "version": "1.0.0",
+            "target-dir": "Ivory/JsonBuilder",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/egeloen/ivory-json-builder.git",
+                "reference": "873454440f6a84867fb2908d86254b0dabf8644b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/egeloen/ivory-json-builder/zipball/873454440f6a84867fb2908d86254b0dabf8644b",
+                "reference": "873454440f6a84867fb2908d86254b0dabf8644b",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0",
+                "symfony/property-access": "2.*"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Ivory\\JsonBuilder": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Eric GELOEN",
+                    "email": "geloen.eric@gmail.com"
+                }
+            ],
+            "description": "JSON builder with escaping control for PHP 5.3+",
+            "keywords": [
+                "Escape",
+                "builder",
+                "json"
+            ],
+            "time": "2014-02-02 13:54:43"
         },
         {
             "name": "friendsofsymfony/comment-bundle",
@@ -2638,17 +2691,17 @@
         },
         {
             "name": "nelmio/api-doc-bundle",
-            "version": "2.5.1",
+            "version": "2.5.2",
             "target-dir": "Nelmio/ApiDocBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nelmio/NelmioApiDocBundle.git",
-                "reference": "eddba56c66dd740b541d3f4f80dc16b6ab8b098f"
+                "reference": "fa920111260e350ea17942c77c811762e965cbdc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nelmio/NelmioApiDocBundle/zipball/eddba56c66dd740b541d3f4f80dc16b6ab8b098f",
-                "reference": "eddba56c66dd740b541d3f4f80dc16b6ab8b098f",
+                "url": "https://api.github.com/repos/nelmio/NelmioApiDocBundle/zipball/fa920111260e350ea17942c77c811762e965cbdc",
+                "reference": "fa920111260e350ea17942c77c811762e965cbdc",
                 "shasum": ""
             },
             "require": {
@@ -2709,7 +2762,7 @@
                 "documentation",
                 "rest"
             ],
-            "time": "2014-03-12 13:46:04"
+            "time": "2014-05-16 09:33:58"
         },
         {
             "name": "ornicar/gravatar-bundle",
@@ -2870,6 +2923,63 @@
                 "type"
             ],
             "time": "2014-01-09 22:37:17"
+        },
+        {
+            "name": "pixassociates/sortable-behavior-bundle",
+            "version": "dev-master",
+            "target-dir": "Pix/SortableBehaviorBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pix-digital/pixSortableBehaviorBundle.git",
+                "reference": "673a7f02ed7a829420f7c53729ecd5c6f393793b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pix-digital/pixSortableBehaviorBundle/zipball/673a7f02ed7a829420f7c53729ecd5c6f393793b",
+                "reference": "673a7f02ed7a829420f7c53729ecd5c6f393793b",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0",
+                "symfony/form": ">=2.1",
+                "symfony/framework-bundle": ">=2.1"
+            },
+            "require-dev": {
+                "gedmo/doctrine-extensions": ">=2.2"
+            },
+            "suggest": {
+                "sonata-project/admin-bundle": "Can be easily integrated with Sonata Admin bundle",
+                "stof/doctrine-extensions-bundle": "1.1.*@dev"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Pix\\SortableBehaviorBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Ricci",
+                    "email": "nr@pix-digital.com"
+                }
+            ],
+            "description": "Provides a way to sort your admin listing",
+            "homepage": "https://github.com/pix-digital/pixSortableBehaviorBundle",
+            "keywords": [
+                "admin",
+                "sonata",
+                "sortable"
+            ],
+            "time": "2014-04-15 16:31:34"
         },
         {
             "name": "psr/log",
@@ -3588,22 +3698,22 @@
         },
         {
             "name": "sonata-project/cache",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/cache.git",
-                "reference": "3bd8c266c6184ebcf82846d659292e9680b979eb"
+                "reference": "7c91e7fd1ca5be4273b09388650709bff31d8966"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/cache/zipball/3bd8c266c6184ebcf82846d659292e9680b979eb",
-                "reference": "3bd8c266c6184ebcf82846d659292e9680b979eb",
+                "url": "https://api.github.com/repos/sonata-project/cache/zipball/7c91e7fd1ca5be4273b09388650709bff31d8966",
+                "reference": "7c91e7fd1ca5be4273b09388650709bff31d8966",
                 "shasum": ""
             },
             "require-dev": {
                 "doctrine/orm": "~2.2",
                 "doctrine/phpcr-odm": "~1.0",
-                "predis/predis": "~0.8",
+                "predis/predis": "~0.8,<1.0",
                 "psr/log": "~1.0"
             },
             "suggest": {
@@ -3644,7 +3754,7 @@
                 "mongodb",
                 "redis"
             ],
-            "time": "2014-02-13 15:12:33"
+            "time": "2014-05-12 08:55:48"
         },
         {
             "name": "sonata-project/classification-bundle",
@@ -3709,12 +3819,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataCommentBundle.git",
-                "reference": "c96315bbe68955dbe1320cccc2c6162dc1b5e4d0"
+                "reference": "601075c45eaa1df964e54f81b081eeedca78e386"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataCommentBundle/zipball/c96315bbe68955dbe1320cccc2c6162dc1b5e4d0",
-                "reference": "c96315bbe68955dbe1320cccc2c6162dc1b5e4d0",
+                "url": "https://api.github.com/repos/sonata-project/SonataCommentBundle/zipball/601075c45eaa1df964e54f81b081eeedca78e386",
+                "reference": "601075c45eaa1df964e54f81b081eeedca78e386",
                 "shasum": ""
             },
             "require": {
@@ -3766,7 +3876,7 @@
                 "comment",
                 "sonata"
             ],
-            "time": "2014-04-07 14:55:02"
+            "time": "2014-05-14 16:30:38"
         },
         {
             "name": "sonata-project/core-bundle",
@@ -4574,12 +4684,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/stof/StofDoctrineExtensionsBundle.git",
-                "reference": "f1c7993863f83f22f187f11d2a8eb462b836701e"
+                "reference": "7370d18f511653d39c33d75c2190caaafdebb492"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stof/StofDoctrineExtensionsBundle/zipball/f1c7993863f83f22f187f11d2a8eb462b836701e",
-                "reference": "f1c7993863f83f22f187f11d2a8eb462b836701e",
+                "url": "https://api.github.com/repos/stof/StofDoctrineExtensionsBundle/zipball/7370d18f511653d39c33d75c2190caaafdebb492",
+                "reference": "7370d18f511653d39c33d75c2190caaafdebb492",
                 "shasum": ""
             },
             "require": {
@@ -4627,7 +4737,7 @@
                 "translatable",
                 "tree"
             ],
-            "time": "2014-04-09 14:29:58"
+            "time": "2014-05-14 08:12:32"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -5213,16 +5323,16 @@
         },
         {
             "name": "willdurand/negotiation",
-            "version": "1.3.2",
+            "version": "1.3.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/willdurand/Negotiation.git",
-                "reference": "cda64e26a980f433ce98200ba1b2301850489aab"
+                "reference": "a98fb6b9808610c1aa326c736893d3d77d9383b6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/willdurand/Negotiation/zipball/cda64e26a980f433ce98200ba1b2301850489aab",
-                "reference": "cda64e26a980f433ce98200ba1b2301850489aab",
+                "url": "https://api.github.com/repos/willdurand/Negotiation/zipball/a98fb6b9808610c1aa326c736893d3d77d9383b6",
+                "reference": "a98fb6b9808610c1aa326c736893d3d77d9383b6",
                 "shasum": ""
             },
             "require": {
@@ -5259,7 +5369,7 @@
                 "header",
                 "negotiation"
             ],
-            "time": "2014-02-26 13:56:25"
+            "time": "2014-05-16 12:34:51"
         }
     ],
     "packages-dev": [
@@ -5279,6 +5389,7 @@
         "gedmo/doctrine-extensions": 20,
         "stof/doctrine-extensions-bundle": 20,
         "sonata-project/comment-bundle": 20,
+        "pixassociates/sortable-behavior-bundle": 20,
         "mopa/bootstrap-bundle": 10,
         "ornicar/gravatar-bundle": 20
     },

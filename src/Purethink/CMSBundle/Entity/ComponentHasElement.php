@@ -36,6 +36,7 @@ class ComponentHasElement
     private $isEnable = false;
 
     /**
+     * @Gedmo\SortableGroup
      * @ORM\ManyToOne(targetEntity="Component", inversedBy="elements")
      * @ORM\JoinColumn(onDelete="CASCADE", nullable=false)
      */
@@ -46,6 +47,12 @@ class ComponentHasElement
      */
     private $componentHasValues;
 
+    /**
+     * @Gedmo\SortablePosition
+     * @ORM\Column(type="integer")
+     */
+    private $position;
+
 
     public function __toString()
     {
@@ -54,6 +61,7 @@ class ComponentHasElement
 
     public function getTitle()
     {
+        /** @var ComponentHasValue $value */
         foreach ($this->getComponentHasValues() as $value) {
             if ($value->getExtensionHasField()->getIsMainField()) {
                 return $value;
@@ -207,5 +215,28 @@ class ComponentHasElement
     public function getComponent()
     {
         return $this->component;
+    }
+
+    /**
+     * Set position
+     *
+     * @param integer $position
+     * @return ComponentHasElement
+     */
+    public function setPosition($position)
+    {
+        $this->position = $position;
+
+        return $this;
+    }
+
+    /**
+     * Get position
+     *
+     * @return integer 
+     */
+    public function getPosition()
+    {
+        return $this->position;
     }
 }

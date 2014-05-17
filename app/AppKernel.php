@@ -42,6 +42,7 @@ class AppKernel extends Kernel
             new Sonata\ClassificationBundle\SonataClassificationBundle(),
             new Sonata\CommentBundle\SonataCommentBundle(),
 
+            new Pix\SortableBehaviorBundle\PixSortableBehaviorBundle(),
             new Khepin\YamlFixturesBundle\KhepinYamlFixturesBundle(),
             new FOS\RestBundle\FOSRestBundle(),
             new FOS\CommentBundle\FOSCommentBundle(),

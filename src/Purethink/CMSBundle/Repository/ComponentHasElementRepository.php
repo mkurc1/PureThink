@@ -46,7 +46,7 @@ class ComponentHasElementRepository extends EntityRepository
             ->andWhere('c.isEnable = true')
             ->andWhere('UPPER(l.alias) = UPPER(:locale)')
             ->andWhere('cop.slug = :slug')
-            ->orderBy('cop.slug', 'ASC')
+            ->orderBy('c.position', 'ASC')
             ->setParameter('slug', $slug)
             ->setParameter('locale', $locale);
     }

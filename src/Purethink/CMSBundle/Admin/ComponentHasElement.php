@@ -10,6 +10,9 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Purethink\CMSBundle\Entity\ComponentHasElement as Element;
 use Purethink\CMSBundle\Entity\ExtensionHasField as Field;
+use Sonata\AdminBundle\Route\RouteCollection;
+use Symfony\Component\DependencyInjection\ContainerInterface;
+use Pix\SortableBehaviorBundle\Services\PositionHandler;
 
 class ComponentHasElement extends Admin
 {
@@ -19,6 +22,32 @@ class ComponentHasElement extends Admin
 
     protected $parentAssociationMapping = 'component';
 
+    public $last_position = 0;
+
+    private $container;
+    /** @var PositionHandler */
+    private $positionService;
+
+    public function setContainer(ContainerInterface $container)
+    {
+        $this->container = $container;
+    }
+
+    protected $datagridValues = array(
+        '_page' => 1,
+        '_sort_order' => 'ASC',
+        '_sort_by' => 'position',
+    );
+
+    public function setPositionService(PositionHandler $positionHandler)
+    {
+        $this->positionService = $positionHandler;
+    }
+
+    protected function configureRoutes(RouteCollection $collection)
+    {
+        $collection->add('move', $this->getRouterIdParameter() . '/move/{position}');
+    }
 
     protected function configureFormFields(FormMapper $formMapper)
     {
@@ -54,10 +83,20 @@ class ComponentHasElement extends Admin
 
     protected function configureListFields(ListMapper $listMapper)
     {
+        if ($this->getParentObject()) {
+            $this->last_position = $this->getParentObject()->getElements()->count() - 1;
+        }
+
         $listMapper
             ->addIdentifier('id')
             ->addIdentifier('title')
-            ->add('isEnable', null, ['editable' => true]);
+            ->add('position', null)
+            ->add('isEnable', null, ['editable' => true])
+            ->add('_action', 'actions', [
+                'actions' => [
+                    'move' => ['template' => 'PurethinkCMSBundle:Admin:_sort.html.twig'],
+                ]
+            ]);
     }
 
     public function getNewInstance()
@@ -90,6 +129,10 @@ class ComponentHasElement extends Admin
 
     protected function getParentObject()
     {
-        return $this->getParent()->getObject($this->getParent()->getRequest()->get('id'));
+        if ($this->getParent()) {
+            return $this->getParent()->getObject($this->getParent()->getRequest()->get('id'));
+        }
+
+        return null;
     }
 }
