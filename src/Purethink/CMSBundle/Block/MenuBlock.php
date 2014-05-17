@@ -28,9 +28,7 @@ class MenuBlock extends AbstractBlock
     {
         $resolver->setDefaults([
             'template' => 'PurethinkCMSBundle:Block:menu.html.twig',
-            'name'     => null,
-            'home'     => false,
-            'login'    => false
+            'name'     => null
         ]);
     }
 
@@ -44,9 +42,8 @@ class MenuBlock extends AbstractBlock
     public function execute(BlockContextInterface $blockContext, Response $response = null)
     {
         return $this->renderResponse($blockContext->getTemplate(), [
-                'menus'  => $this->getActiveMenu($blockContext->getSetting('name')),
-                'home'   => $blockContext->getSetting('home'),
-                'login'  => $blockContext->getSetting('login')
+                'menus' => $this->getActiveMenu($blockContext->getSetting('name')),
+                'home'  => true
             ],
             $response)->setTtl(self::CACHE_TIME);
     }
