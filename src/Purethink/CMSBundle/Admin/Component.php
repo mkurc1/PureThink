@@ -7,6 +7,8 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Knp\Menu\ItemInterface as MenuItemInterface;
 use Sonata\AdminBundle\Admin\AdminInterface;
+use Purethink\CMSBundle\Entity\ComponentHasElement as ComponentHasElementEntity;
+use Purethink\CMSBundle\Entity\Component as ComponentEntity;
 
 class Component extends Admin
 {
@@ -41,7 +43,7 @@ class Component extends Admin
                 ->add('name')
                 ->add('language')
                 ->add('extension')
-                ->add('isEnable')
+                ->add('enabled')
             ->end()
             ->with('Set only when needed')
                 ->add('slug', null, ["required" => false])
@@ -56,9 +58,9 @@ class Component extends Admin
             ->add('slug')
             ->add('extension')
             ->add('language')
-            ->add('isEnable')
-            ->add('createdAt')
-            ->add('updatedAt');
+            ->add('enabled')
+            ->add('created')
+            ->add('updated');
     }
 
     protected function configureListFields(ListMapper $listMapper)
@@ -69,14 +71,14 @@ class Component extends Admin
             ->addIdentifier("slug")
             ->add('extension')
             ->add('language')
-            ->add('isEnable', null, ['editable' => true])
-            ->add("createdAt")
-            ->add('updatedAt');
+            ->add('enabled', null, ['editable' => true])
+            ->add("created")
+            ->add('updated');
     }
 
     public function prePersist($object)
     {
-        $this->setExtensionForCollections($object);
+        $this->preUpdate($object);
     }
 
     public function preUpdate($object)
@@ -84,10 +86,12 @@ class Component extends Admin
         $this->setExtensionForCollections($object);
     }
 
+    /** @var ComponentEntity $object */
     private function setExtensionForCollections($object)
     {
-        foreach ($object->getElements() as $image) {
-            $image->setComponent($object);
+        /** @var ComponentHasElementEntity $element */
+        foreach ($object->getElements() as $element) {
+            $element->setComponent($object);
         }
     }
 }
