@@ -72,7 +72,7 @@ class ExtensionHasField
     /**
      * @ORM\Column(type="boolean", nullable=true)
      */
-    private $isRequired = false;
+    private $required = false;
 
     /**
      * @ORM\Column(type="boolean", nullable=true)
@@ -166,29 +166,6 @@ class ExtensionHasField
     public function getClass()
     {
         return $this->class;
-    }
-
-    /**
-     * Set isRequired
-     *
-     * @param boolean $isRequired
-     * @return ExtensionHasField
-     */
-    public function setIsRequired($isRequired)
-    {
-        $this->isRequired = $isRequired;
-
-        return $this;
-    }
-
-    /**
-     * Get isRequired
-     *
-     * @return boolean
-     */
-    public function getIsRequired()
-    {
-        return $this->isRequired;
     }
 
     /**
@@ -304,5 +281,28 @@ class ExtensionHasField
     public function getTypeOfField()
     {
         return $this->typeOfField;
+    }
+
+    /**
+     * Set required
+     *
+     * @param boolean $required
+     * @return ExtensionHasField
+     */
+    public function setRequired($required)
+    {
+        $this->required = $required;
+
+        return $this;
+    }
+
+    /**
+     * Get required
+     *
+     * @return boolean 
+     */
+    public function getRequired()
+    {
+        return $this->required;
     }
 }

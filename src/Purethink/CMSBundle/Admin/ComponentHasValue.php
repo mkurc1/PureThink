@@ -4,6 +4,7 @@ namespace Purethink\CMSBundle\Admin;
 use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Form\FormMapper;
 use Symfony\Component\Validator\Constraints\NotNull;
+use Purethink\CMSBundle\Entity\ComponentHasValue as ComponentHasValueEntity;
 
 class ComponentHasValue extends Admin
 {
@@ -37,13 +38,14 @@ class ComponentHasValue extends Admin
 
         $this->setSubject($object);
 
+        /** @var ComponentHasValueEntity $object */
         $field = $object->getExtensionHasField();
 
         $formMapper->add('content', $field->getTypeOfFieldString(), [
-            'required'    => $field->getIsRequired(),
+            'required'    => $field->getRequired(),
             'label'       => $field->getLabelOfField(),
             'attr'        => ['class' => $field->getClass()],
-            'constraints' => $field->getIsRequired() ? [new NotNull()] : null
+            'constraints' => $field->getRequired() ? [new NotNull()] : null
         ]);
     }
 }
