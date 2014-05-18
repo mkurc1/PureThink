@@ -10,7 +10,7 @@ class LanguageRepository extends EntityRepository
     public function getPublicLanguages()
     {
         $qb = $this->createQueryBuilder('a')
-            ->where('a.isPublic = true')
+            ->where('a.enabled = true')
             ->orderBy('a.name');
 
         return $qb->getQuery()->getResult();

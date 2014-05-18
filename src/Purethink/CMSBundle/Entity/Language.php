@@ -30,7 +30,7 @@ class Language
     /**
      * @ORM\Column(type="boolean")
      */
-    private $isPublic = false;
+    private $enabled = false;
 
 
     public function __construct($name = null, $alias = null)
@@ -106,25 +106,25 @@ class Language
     }
 
     /**
-     * Set isPublic
+     * Set enabled
      *
-     * @param boolean $isPublic
+     * @param boolean $enabled
      * @return Language
      */
-    public function setIsPublic($isPublic)
+    public function setEnabled($enabled)
     {
-        $this->isPublic = $isPublic;
+        $this->enabled = $enabled;
 
         return $this;
     }
 
     /**
-     * Get isPublic
+     * Get enabled
      *
-     * @return boolean
+     * @return boolean 
      */
-    public function getIsPublic()
+    public function getEnabled()
     {
-        return $this->isPublic;
+        return $this->enabled;
     }
 }

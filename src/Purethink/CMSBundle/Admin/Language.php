@@ -18,7 +18,7 @@ class Language extends Admin
             ->with('General')
                 ->add('name')
                 ->add('alias')
-                ->add('isPublic', null, ['required' => false])
+                ->add('enabled', null, ['required' => false])
             ->end();
     }
 
@@ -28,7 +28,7 @@ class Language extends Admin
             ->add('id')
             ->add('name')
             ->add('alias')
-            ->add('isPublic');
+            ->add('enabled');
     }
 
     protected function configureListFields(ListMapper $listMapper)
@@ -37,7 +37,7 @@ class Language extends Admin
             ->addIdentifier('id')
             ->addIdentifier('name')
             ->add("alias")
-            ->add('isPublic', null, ['editable' => true]);
+            ->add('enabled', null, ['editable' => true]);
     }
 
 }

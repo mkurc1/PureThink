@@ -3,12 +3,12 @@ fixtures:
     cms_language_1:
         name: "Angielski"
         alias: "EN"
-        isPublic: 1
+        enabled: 1
     cms_language_2:
         name: "Polski"
         alias: "PL"
-        isPublic: 1
+        enabled: 1
     cms_language_3:
         name: "Czeski"
         alias: "CZ"
-        isPublic: 1
+        enabled: 1
