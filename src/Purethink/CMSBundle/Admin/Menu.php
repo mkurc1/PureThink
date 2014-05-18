@@ -23,12 +23,11 @@ class Menu extends Admin
                     'btn_add' => false
                 ])
                 ->add('language')
-                ->add('sequence')
                 ->add('menu', 'sonata_type_model_list', [
                     'required' => false,
                     'btn_add' => false
                 ])
-                ->add('isPublic')
+                ->add('published')
                 ->add('isNewPage')
             ->end();
     }
@@ -40,7 +39,7 @@ class Menu extends Admin
             ->add('name')
             ->add('article')
             ->add('language')
-            ->add('isPublic')
+            ->add('published')
             ->add('isNewPage');
     }
 
@@ -50,10 +49,10 @@ class Menu extends Admin
             ->addIdentifier('id')
             ->addIdentifier('name')
             ->add('menu')
-            ->add('sequence', null, ['editable' => true])
+            ->add('position', null, ['editable' => true])
             ->add('article')
             ->add('language')
-            ->add('isPublic', null, ['editable' => true])
+            ->add('published', null, ['editable' => true])
             ->add('isNewPage', null, ['editable' => true]);
     }
 

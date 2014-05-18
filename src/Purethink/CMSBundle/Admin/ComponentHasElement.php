@@ -90,7 +90,7 @@ class ComponentHasElement extends Admin
         $listMapper
             ->addIdentifier('id')
             ->addIdentifier('title')
-            ->add('position', null)
+            ->add('position', null, ['editable' => true])
             ->add('created')
             ->add('updated')
             ->add('enabled', null, ['editable' => true])

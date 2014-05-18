@@ -4,6 +4,7 @@ namespace Purethink\CMSBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * @ORM\Table(name="cms_menu")
@@ -26,14 +27,15 @@ class Menu
     private $name;
 
     /**
+     * @Gedmo\SortablePosition
      * @ORM\Column(type="integer", nullable=true)
      */
-    private $sequence;
+    private $position;
 
     /**
      * @ORM\Column(type="boolean", nullable=true)
      */
-    private $isPublic = false;
+    private $published = false;
 
     /**
      * @ORM\Column(type="boolean", nullable=true)
@@ -41,6 +43,7 @@ class Menu
     private $isNewPage = false;
 
     /**
+     * @Gedmo\SortableGroup
      * @ORM\ManyToOne(targetEntity="Menu", inversedBy="menus")
      * @ORM\JoinColumn(onDelete="CASCADE", nullable=true)
      */
@@ -59,6 +62,7 @@ class Menu
     private $language;
 
     /**
+     * @Gedmo\SortableGroup
      * @ORM\ManyToOne(targetEntity="MenuType")
      * @ORM\JoinColumn(onDelete="CASCADE", nullable=false)
      * @Assert\NotNull()
@@ -104,29 +108,6 @@ class Menu
     public function getName()
     {
         return $this->name;
-    }
-
-    /**
-     * Set sequence
-     *
-     * @param integer $sequence
-     * @return Menu
-     */
-    public function setSequence($sequence)
-    {
-        $this->sequence = $sequence;
-
-        return $this;
-    }
-
-    /**
-     * Get sequence
-     *
-     * @return integer
-     */
-    public function getSequence()
-    {
-        return $this->sequence;
     }
 
     /**
@@ -191,29 +172,6 @@ class Menu
     public function getMenus()
     {
         return $this->menus;
-    }
-
-    /**
-     * Set isPublic
-     *
-     * @param boolean $isPublic
-     * @return Menu
-     */
-    public function setIsPublic($isPublic)
-    {
-        $this->isPublic = $isPublic;
-
-        return $this;
-    }
-
-    /**
-     * Get isPublic
-     *
-     * @return boolean
-     */
-    public function getIsPublic()
-    {
-        return $this->isPublic;
     }
 
     /**
@@ -316,5 +274,51 @@ class Menu
     public function getType()
     {
         return $this->type;
+    }
+
+    /**
+     * Set position
+     *
+     * @param integer $position
+     * @return Menu
+     */
+    public function setPosition($position)
+    {
+        $this->position = $position;
+
+        return $this;
+    }
+
+    /**
+     * Get position
+     *
+     * @return integer 
+     */
+    public function getPosition()
+    {
+        return $this->position;
+    }
+
+    /**
+     * Set published
+     *
+     * @param boolean $published
+     * @return Menu
+     */
+    public function setPublished($published)
+    {
+        $this->published = $published;
+
+        return $this;
+    }
+
+    /**
+     * Get published
+     *
+     * @return boolean 
+     */
+    public function getPublished()
+    {
+        return $this->published;
     }
 }

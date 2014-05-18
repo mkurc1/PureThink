@@ -3,6 +3,7 @@
 namespace Purethink\CMSBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
+use Purethink\CMSBundle\Entity\Menu;
 
 
 class MenuRepository extends EntityRepository
@@ -14,11 +15,12 @@ class MenuRepository extends EntityRepository
         $menus = $this->getActiveMenusByTypeAndLocaleQb($type, $locale);
         $menus = $menus->getQuery()->getResult();
 
+        /** @var Menu $menu */
         foreach ($menus as $menu) {
             $id = $menu->getId();
 
             if (is_object($menu->getMenu()) &&
-                $menu->getMenu()->getIsPublic() &&
+                $menu->getMenu()->getPublished() &&
                 $menu->getMenu()->getArticle()->getPublished()) {
                 $parentId = $menu->getMenu()->getId();
                 $entities[$parentId]['children'][$id]['parent'] = $menu;
@@ -38,11 +40,11 @@ class MenuRepository extends EntityRepository
             ->join('a.type', 't')
             ->leftJoin('a.article', 'art')
             ->leftJoin('a.menu', 'm')
-            ->where('a.isPublic = true')
+            ->where('a.published = true')
             ->andWhere('UPPER(l.alias) = UPPER(:locale)')
             ->andWhere('art.published = true')
             ->andWhere('t.name = :type')
-            ->orderBy('m.sequence, a.sequence')
+            ->orderBy('m.position, a.position')
             ->setParameter('type', $type)
             ->setParameter('locale', $locale);
     }
