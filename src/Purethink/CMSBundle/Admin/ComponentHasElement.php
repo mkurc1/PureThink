@@ -62,7 +62,7 @@ class ComponentHasElement extends Admin
                     ], [
                     'sortable' => 'position'
                 ])
-                ->add('isEnable')
+                ->add('enabled')
             ->end();
     }
 
@@ -78,7 +78,7 @@ class ComponentHasElement extends Admin
     {
         $datagridMapper
             ->add('id')
-            ->add('isEnable');
+            ->add('enabled');
     }
 
     protected function configureListFields(ListMapper $listMapper)
@@ -91,7 +91,9 @@ class ComponentHasElement extends Admin
             ->addIdentifier('id')
             ->addIdentifier('title')
             ->add('position', null)
-            ->add('isEnable', null, ['editable' => true])
+            ->add('created')
+            ->add('updated')
+            ->add('enabled', null, ['editable' => true])
             ->add('_action', 'actions', [
                 'actions' => [
                     'move' => ['template' => 'PurethinkCMSBundle:Admin:_sort.html.twig'],

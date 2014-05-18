@@ -22,18 +22,18 @@ class ComponentHasElement
      * @Gedmo\Timestampable(on="create")
      * @ORM\Column(type="datetime")
      */
-    private $createdAt;
+    private $created;
 
     /**
      * @Gedmo\Timestampable(on="update")
      * @ORM\Column(type="datetime")
      */
-    private $updatedAt;
+    private $updated;
 
     /**
      * @ORM\Column(type="boolean", nullable=true)
      */
-    private $isEnable = false;
+    private $enabled = false;
 
     /**
      * @Gedmo\SortableGroup
@@ -82,52 +82,6 @@ class ComponentHasElement
     }
 
     /**
-     * Set createdAt
-     *
-     * @param \DateTime $createdAt
-     * @return ComponentHasElement
-     */
-    public function setCreatedAt($createdAt)
-    {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
-    /**
-     * Get createdAt
-     *
-     * @return \DateTime
-     */
-    public function getCreatedAt()
-    {
-        return $this->createdAt;
-    }
-
-    /**
-     * Set updatedAt
-     *
-     * @param \DateTime $updatedAt
-     * @return ComponentHasElement
-     */
-    public function setUpdatedAt($updatedAt)
-    {
-        $this->updatedAt = $updatedAt;
-
-        return $this;
-    }
-
-    /**
-     * Get updatedAt
-     *
-     * @return \DateTime
-     */
-    public function getUpdatedAt()
-    {
-        return $this->updatedAt;
-    }
-
-    /**
      * Add componentHasValues
      *
      * @param \Purethink\CMSBundle\Entity\ComponentHasValue $componentHasValues
@@ -168,30 +122,6 @@ class ComponentHasElement
     public function __construct()
     {
         $this->componentHasValues = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-
-    /**
-     * Set isEnable
-     *
-     * @param boolean $isEnable
-     * @return ComponentHasElement
-     */
-    public function setIsEnable($isEnable)
-    {
-        $this->isEnable = $isEnable;
-
-        return $this;
-    }
-
-    /**
-     * Get isEnable
-     *
-     * @return boolean
-     */
-    public function getIsEnable()
-    {
-        return $this->isEnable;
     }
 
     /**
@@ -238,5 +168,74 @@ class ComponentHasElement
     public function getPosition()
     {
         return $this->position;
+    }
+
+    /**
+     * Set created
+     *
+     * @param \DateTime $created
+     * @return ComponentHasElement
+     */
+    public function setCreated($created)
+    {
+        $this->created = $created;
+
+        return $this;
+    }
+
+    /**
+     * Get created
+     *
+     * @return \DateTime 
+     */
+    public function getCreated()
+    {
+        return $this->created;
+    }
+
+    /**
+     * Set updated
+     *
+     * @param \DateTime $updated
+     * @return ComponentHasElement
+     */
+    public function setUpdated($updated)
+    {
+        $this->updated = $updated;
+
+        return $this;
+    }
+
+    /**
+     * Get updated
+     *
+     * @return \DateTime 
+     */
+    public function getUpdated()
+    {
+        return $this->updated;
+    }
+
+    /**
+     * Set enabled
+     *
+     * @param boolean $enabled
+     * @return ComponentHasElement
+     */
+    public function setEnabled($enabled)
+    {
+        $this->enabled = $enabled;
+
+        return $this;
+    }
+
+    /**
+     * Get enabled
+     *
+     * @return boolean 
+     */
+    public function getEnabled()
+    {
+        return $this->enabled;
     }
 }

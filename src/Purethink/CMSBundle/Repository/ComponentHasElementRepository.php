@@ -47,7 +47,7 @@ class ComponentHasElementRepository extends EntityRepository
             ->join('c.component', 'cop')
             ->join('cop.language', 'l')
             ->where('cop.enabled = true')
-            ->andWhere('c.isEnable = true')
+            ->andWhere('c.enabled = true')
             ->andWhere('UPPER(l.alias) = UPPER(:locale)')
             ->andWhere('cop.slug = :slug')
             ->orderBy('c.position', 'ASC')
