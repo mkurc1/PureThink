@@ -38,8 +38,8 @@ class Extension extends Admin
         $datagridMapper
             ->add('id')
             ->add('name')
-            ->add('createdAt')
-            ->add('updatedAt');
+            ->add('created')
+            ->add('updated');
     }
 
     protected function configureListFields(ListMapper $listMapper)
@@ -47,8 +47,8 @@ class Extension extends Admin
         $listMapper
             ->addIdentifier('id')
             ->addIdentifier('name')
-            ->add('createdAt')
-            ->add('updatedAt');
+            ->add('created')
+            ->add('updated');
     }
 
     public function prePersist($object)
@@ -63,8 +63,8 @@ class Extension extends Admin
 
     private function setExtensionForCollections($object)
     {
-        foreach ($object->getFields() as $image) {
-            $image->setExtension($object);
+        foreach ($object->getFields() as $field) {
+            $field->setExtension($object);
         }
     }
 }
