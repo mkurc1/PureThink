@@ -5,6 +5,7 @@ use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Form\FormMapper;
 use Symfony\Component\Validator\Constraints\NotNull;
 use Purethink\CMSBundle\Entity\ComponentHasValue as ComponentHasValueEntity;
+use Doctrine\Common\Collections\ArrayCollection;
 
 class ComponentHasValue extends Admin
 {
@@ -20,6 +21,7 @@ class ComponentHasValue extends Admin
         $getter = 'get' . $parentFieldDescription->getFieldName();
         $parent = $parentFieldDescription->getAdmin()->getSubject();
 
+        /** @var ArrayCollection $collection */
         $collection = $parent->$getter();
         $collectionCount = $collection->count() - 1;
 

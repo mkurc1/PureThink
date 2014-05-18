@@ -51,6 +51,7 @@ class Article extends Admin
             ->add('id')
             ->add('name')
             ->add('slug')
+            ->add('user')
             ->add('created')
             ->add('updated');
     }
@@ -61,6 +62,8 @@ class Article extends Admin
             ->addIdentifier('id')
             ->addIdentifier('name')
             ->addIdentifier("slug")
+            ->add('user.username', null, ['label' => 'User'])
+            ->add('view.views', null, ['label' => 'Views'])
             ->add('published', null, ['editable' => true])
             ->add("created")
             ->add('updated');

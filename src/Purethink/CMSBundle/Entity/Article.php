@@ -13,7 +13,7 @@ use Doctrine\ORM\Event\LifecycleEventArgs;
  * @ORM\Entity(repositoryClass="Purethink\CMSBundle\Repository\ArticleRepository")
  * @ORM\HasLifecycleCallbacks
  */
-class Article implements MetadataInterface
+class Article implements MetadataInterface, ArticleViewInterface
 {
     /**
      * @ORM\Column(type="integer")
@@ -58,11 +58,6 @@ class Article implements MetadataInterface
     private $content;
 
     /**
-     * @ORM\Column(type="integer")
-     */
-    private $views = 0;
-
-    /**
      * @ORM\ManyToOne(targetEntity="Language")
      * @ORM\JoinColumn(onDelete="CASCADE")
      * @Assert\NotNull()
@@ -77,8 +72,15 @@ class Article implements MetadataInterface
 
     /**
      * @ORM\OneToOne(targetEntity="Metadata", cascade={"persist"})
+     * @ORM\JoinColumn(onDelete="CASCADE", nullable=false)
      */
     private $metadata;
+
+    /**
+     * @ORM\OneToOne(targetEntity="ArticleView", cascade={"persist"})
+     * @ORM\JoinColumn(onDelete="CASCADE", nullable=false)
+     */
+    private $view;
 
     /**
      * @ORM\OneToMany(targetEntity="ComponentHasArticle", mappedBy="article")
@@ -92,9 +94,9 @@ class Article implements MetadataInterface
     private $tags;
 
 
-    public function incrementArticleViews()
+    public function getViews()
     {
-        $this->setViews($this->getViews() + 1);
+        return $this->getView();
     }
 
     public function getSEOData()
@@ -107,6 +109,7 @@ class Article implements MetadataInterface
      */
     public function preRemove(LifecycleEventArgs $args)
     {
+        /** @var ComponentHasArticle $component */
         foreach ($this->getComponentHasArticle() as $component) {
             $element = $component->getComponentHasElement();
 
@@ -259,33 +262,11 @@ class Article implements MetadataInterface
         $this->componentHasArticle = new \Doctrine\Common\Collections\ArrayCollection();
         $this->tags = new \Doctrine\Common\Collections\ArrayCollection();
         $this->setMetadata(new Metadata());
+        $this->setView(new ArticleView());
 
         if (null != $user) {
             $this->setUser($user);
         }
-    }
-
-    /**
-     * Set views
-     *
-     * @param integer $views
-     * @return Article
-     */
-    public function setViews($views)
-    {
-        $this->views = $views;
-
-        return $this;
-    }
-
-    /**
-     * Get views
-     *
-     * @return integer
-     */
-    public function getViews()
-    {
-        return $this->views;
     }
 
     /**
@@ -327,7 +308,7 @@ class Article implements MetadataInterface
      * @param \Purethink\CMSBundle\Entity\Metadata $metadata
      * @return Article
      */
-    public function setMetadata(\Purethink\CMSBundle\Entity\Metadata $metadata = null)
+    public function setMetadata(\Purethink\CMSBundle\Entity\Metadata $metadata)
     {
         $this->metadata = $metadata;
 
@@ -444,5 +425,28 @@ class Article implements MetadataInterface
     public function getPublished()
     {
         return $this->published;
+    }
+
+    /**
+     * Set view
+     *
+     * @param ArticleView $view
+     * @return Article
+     */
+    public function setView(ArticleView $view)
+    {
+        $this->view = $view;
+
+        return $this;
+    }
+
+    /**
+     * Get view
+     *
+     * @return ArticleView
+     */
+    public function getView()
+    {
+        return $this->view;
     }
 }

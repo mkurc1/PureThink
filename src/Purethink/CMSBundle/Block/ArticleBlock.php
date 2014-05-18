@@ -4,6 +4,7 @@ namespace Purethink\CMSBundle\Block;
 
 use Doctrine\ORM\EntityManager;
 use Purethink\CMSBundle\Entity\Article;
+use Purethink\CMSBundle\Entity\ArticleView;
 use Sonata\BlockBundle\Block\BlockContextInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Response;
@@ -53,6 +54,7 @@ class ArticleBlock extends AbstractBlock
     {
         $slug = $this->requestStack->getCurrentRequest()->attributes->get('slug');
 
+        /** @var Article $article */
         $article = $this->em
             ->getRepository('PurethinkCMSBundle:Article')
             ->getPublicArticleBySlug($slug);
@@ -61,12 +63,12 @@ class ArticleBlock extends AbstractBlock
             throw new NotFoundHttpException();
         }
 
-        $this->incrementArticleViews($article);
+        $this->incrementArticleViews($article->getViews());
 
         return $article;
     }
 
-    private function incrementArticleViews(Article $article)
+    private function incrementArticleViews(ArticleView $article)
     {
         $article->incrementArticleViews();
 
