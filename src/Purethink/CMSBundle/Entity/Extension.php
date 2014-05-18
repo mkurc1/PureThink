@@ -40,6 +40,7 @@ class Extension
 
     /**
      * @ORM\OneToMany(targetEntity="ExtensionHasField", mappedBy="extension", cascade={"persist"}, orphanRemoval=true)
+     * @ORM\OrderBy({"position" = "ASC"})
      */
     private $fields;
 

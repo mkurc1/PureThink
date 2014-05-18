@@ -11,9 +11,10 @@ class ExtensionHasField extends Admin
     {
         $formMapper
             ->add('name')
+            ->add('position', 'hidden', ['attr'=>["hidden" => true]])
             ->add('labelOfField')
             ->add('class', null, ['required' => false])
-            ->add('isRequired', null, ['required' => false])
+            ->add('required', null, ['required' => false])
             ->add('isMainField', null, ['required' => false])
             ->add('typeOfField', 'choice', [
                 'choices' => Field::$availableTypeOfField

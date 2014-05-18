@@ -80,6 +80,13 @@ class ExtensionHasField
     private $isMainField = false;
 
     /**
+     * @Gedmo\SortablePosition
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $position;
+
+    /**
+     * @Gedmo\SortableGroup
      * @ORM\ManyToOne(targetEntity="Extension", inversedBy="fields")
      * @ORM\JoinColumn(onDelete="CASCADE", nullable=false)
      */
@@ -304,5 +311,28 @@ class ExtensionHasField
     public function getRequired()
     {
         return $this->required;
+    }
+
+    /**
+     * Set position
+     *
+     * @param integer $position
+     * @return ExtensionHasField
+     */
+    public function setPosition($position)
+    {
+        $this->position = $position;
+
+        return $this;
+    }
+
+    /**
+     * Get position
+     *
+     * @return integer 
+     */
+    public function getPosition()
+    {
+        return $this->position;
     }
 }
