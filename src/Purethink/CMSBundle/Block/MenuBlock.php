@@ -28,7 +28,7 @@ class MenuBlock extends AbstractBlock
     {
         $resolver->setDefaults([
             'template' => 'PurethinkCMSBundle:Block:menu.html.twig',
-            'name'     => null
+            'slug'     => null
         ]);
     }
 
@@ -42,7 +42,7 @@ class MenuBlock extends AbstractBlock
     public function execute(BlockContextInterface $blockContext, Response $response = null)
     {
         return $this->renderResponse($blockContext->getTemplate(), [
-                'menus' => $this->getActiveMenu($blockContext->getSetting('name')),
+                'menus' => $this->getActiveMenu($blockContext->getSetting('slug')),
                 'home'  => true
             ],
             $response)->setTtl(self::CACHE_TIME);
@@ -54,6 +54,6 @@ class MenuBlock extends AbstractBlock
 
         return $this->em
             ->getRepository('PurethinkCMSBundle:Menu')
-            ->getActiveMenusByTypeAndLocale($groupName, $locale);
+            ->getActiveMenusBySlugAndLocale($groupName, $locale);
     }
 }

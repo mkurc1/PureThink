@@ -54,6 +54,11 @@ class Layout
      */
     private $styles;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Position", mappedBy="layout", cascade={"persist"}, orphanRemoval=true)
+     */
+    private $positions;
+
 
     public function getAllPath()
     {
@@ -225,5 +230,38 @@ class Layout
     public function getStyles()
     {
         return $this->styles;
+    }
+
+    /**
+     * Add positions
+     *
+     * @param \Purethink\CMSBundle\Entity\Position $positions
+     * @return Layout
+     */
+    public function addPosition(\Purethink\CMSBundle\Entity\Position $positions)
+    {
+        $this->positions[] = $positions;
+
+        return $this;
+    }
+
+    /**
+     * Remove positions
+     *
+     * @param \Purethink\CMSBundle\Entity\Position $positions
+     */
+    public function removePosition(\Purethink\CMSBundle\Entity\Position $positions)
+    {
+        $this->positions->removeElement($positions);
+    }
+
+    /**
+     * Get positions
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getPositions()
+    {
+        return $this->positions;
     }
 }

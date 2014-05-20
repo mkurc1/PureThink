@@ -55,7 +55,8 @@ class Layout extends Admin
     {
         $listMapper
             ->addIdentifier('id')
-            ->addIdentifier('stringType');
+            ->addIdentifier('stringType')
+            ->add('path');
     }
 
     public function prePersist($object)

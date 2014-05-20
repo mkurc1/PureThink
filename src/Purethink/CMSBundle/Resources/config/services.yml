@@ -5,10 +5,6 @@ services:
         tags:
             -  { name: sitemap.provider }
 
-    purethink.cms.leftMenu.service:
-        class: Purethink\CMSBundle\Service\LeftMenuService
-        arguments: [@doctrine.orm.entity_manager, @templating]
-
     purethink.cms.article_type:
         class: Purethink\CMSBundle\Form\Type\ArticleType
         tags:

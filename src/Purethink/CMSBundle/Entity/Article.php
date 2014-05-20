@@ -237,7 +237,7 @@ class Article implements MetadataInterface, ArticleViewInterface
      * @param \Application\Sonata\UserBundle\Entity\User $user
      * @return Article
      */
-    public function setUser(\Application\Sonata\UserBundle\Entity\User $user = null)
+    public function setUser(\Application\Sonata\UserBundle\Entity\User $user)
     {
         $this->user = $user;
 

@@ -1,0 +1,5 @@
+model: Purethink\CMSBundle\Entity\PositionArticle
+fixtures:
+    cms_position_article_1:
+        layout: cms_layout_2
+        position: 0

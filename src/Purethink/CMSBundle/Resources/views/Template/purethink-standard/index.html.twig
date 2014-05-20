@@ -3,17 +3,11 @@
 {% block body %}
     {{ parent() }}
 
-    {{ sonata_block_render({ "type": "purethink.cms.block.component", "settings": {
-        "template": template.scriptPath~":_baner.html.twig",
-        "slug": "baner"
-    } }) }}
+    {{ component['position-4']|raw }}
 
     {% include template.scriptPath~':_news_container.html.twig' %}
 
-    {{ sonata_block_render({ "type": "purethink.cms.block.component", "settings": {
-        "template": template.scriptPath~":_link.html.twig",
-        "slug": "linki"
-    } }) }}
+    {{ component['position-5']|raw }}
 
     {% include template.scriptPath~':_footer.html.twig' %}
 {% endblock body %}

@@ -30,8 +30,7 @@ class ArticleBlock extends AbstractBlock
     public function setDefaultSettings(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults([
-            'template' => 'PurethinkCMSBundle:Block:article.html.twig',
-            'slug'     => null
+            'template' => 'PurethinkCMSBundle:Block:article.html.twig'
         ]);
     }
 
@@ -45,7 +44,7 @@ class ArticleBlock extends AbstractBlock
     public function execute(BlockContextInterface $blockContext, Response $response = null)
     {
         return $this->renderResponse($blockContext->getTemplate(), [
-                'article' => $this->getArticle($blockContext->getSetting('slug')),
+                'article' => $this->getArticle(),
             ],
             $response)->setTtl(self::CACHE_TIME);
     }

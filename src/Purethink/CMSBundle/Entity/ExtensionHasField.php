@@ -81,7 +81,7 @@ class ExtensionHasField
 
     /**
      * @Gedmo\SortablePosition
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="integer")
      */
     private $position;
 

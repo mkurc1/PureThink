@@ -68,3 +68,21 @@
 {% block body %}
     {{ parent() }}
 {% endblock body %}
+
+{% set component = {} %}
+
+{% for position in layout.positions %}
+    {% set componentSettings = {} %}
+
+    {% if (position.positionSlug) %}
+        {% set componentSettings = componentSettings | merge({ ('slug') : position.positionSlug}) %}
+    {% endif %}
+
+    {% if (position.path) %}
+        {% set componentSettings = componentSettings | merge({ ('template') : template.scriptPath~":"~position.path}) %}
+    {% endif %}
+
+    {% set componentHelper = sonata_block_render({ "type": position.service, "settings": componentSettings }) %}
+
+    {% set component = component | merge({ (position.slug) : componentHelper|raw}) %}
+{% endfor %}

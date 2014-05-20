@@ -21,6 +21,7 @@ sonata_admin:
                     - purethink_cms.admin.extension
                     - purethink_cms.admin.component
                     - purethink_cms.admin.template
+                    - purethink_cms.admin.position
                     - sonata.comment.admin.thread
                     - sonata.media.admin.media
             sonata.admin.group.classification:

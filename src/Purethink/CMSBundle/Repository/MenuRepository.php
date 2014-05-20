@@ -8,11 +8,11 @@ use Purethink\CMSBundle\Entity\Menu;
 
 class MenuRepository extends EntityRepository
 {
-    public function getActiveMenusByTypeAndLocale($type, $locale)
+    public function getActiveMenusBySlugAndLocale($slug, $locale)
     {
         $entities = [];
 
-        $menus = $this->getActiveMenusByTypeAndLocaleQb($type, $locale);
+        $menus = $this->getActiveMenusBySlugAndLocaleQb($slug, $locale);
         $menus = $menus->getQuery()->getResult();
 
         /** @var Menu $menu */
@@ -32,7 +32,7 @@ class MenuRepository extends EntityRepository
         return $entities;
     }
 
-    private function getActiveMenusByTypeAndLocaleQb($type, $locale)
+    private function getActiveMenusBySlugAndLocaleQb($slug, $locale)
     {
         return $this->createQueryBuilder('a')
             ->select('a, t, art')
@@ -43,9 +43,9 @@ class MenuRepository extends EntityRepository
             ->where('a.published = true')
             ->andWhere('UPPER(l.alias) = UPPER(:locale)')
             ->andWhere('art.published = true')
-            ->andWhere('t.name = :type')
+            ->andWhere('t.slug = :slug')
             ->orderBy('m.position, a.position')
-            ->setParameter('type', $type)
+            ->setParameter('slug', $slug)
             ->setParameter('locale', $locale);
     }
 }
