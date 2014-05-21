@@ -22,4 +22,11 @@ class LayoutRepository extends EntityRepository
 
         return $qb->getQuery()->getOneOrNullResult();
     }
+
+    public function getLayoutsQb(Template $template)
+    {
+        return $this->createQueryBuilder('l')
+            ->where('l.template = :template')
+            ->setParameter('template', $template);
+    }
 }

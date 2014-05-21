@@ -37,6 +37,11 @@ class Template extends Admin
             "Layouts",
             ['uri' => $admin->generateUrl('purethink_cms.admin.layout.list', compact('id'))]
         );
+
+        $menu->addChild(
+            "Positions",
+            ['uri' => $admin->generateUrl('purethink_cms.admin.position.list', compact('id'))]
+        );
     }
 
     protected function configureFormFields(FormMapper $formMapper)

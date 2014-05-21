@@ -82,6 +82,7 @@ services:
         arguments: [null, Purethink\CMSBundle\Entity\Template, SonataAdminBundle:CRUD]
         calls:
             - [ addChild, [@purethink_cms.admin.layout] ]
+            - [ addChild, [@purethink_cms.admin.position] ]
 
     purethink_cms.admin.templateStyle:
         tags:
@@ -103,8 +104,9 @@ services:
 
     purethink_cms.admin.position:
         tags:
-            - { name: sonata.admin, manager_type: orm, audit: false, group: CMS, label: Positions }
+            - { name: sonata.admin, manager_type: orm, audit: false, show_in_dashboard: false }
         class: Purethink\CMSBundle\Admin\Position
-        arguments: [null, Purethink\CMSBundle\Entity\Position, SonataAdminBundle:CRUD]
+        arguments: [null, Purethink\CMSBundle\Entity\Position, 'PurethinkCMSBundle:PositionAdmin']
         calls:
             - [ setSubClasses, [{'Menu': Purethink\CMSBundle\Entity\PositionMenuType, 'Component': Purethink\CMSBundle\Entity\PositionComponent, 'Article': Purethink\CMSBundle\Entity\PositionArticle, 'Language': Purethink\CMSBundle\Entity\PositionLanguage}] ]
+            - [ setTemplate, [list, PurethinkCMSBundle:Admin:_positionList.html.twig] ]

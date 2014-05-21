@@ -3,3 +3,4 @@ fixtures:
     cms_position_article_1:
         layout: cms_layout_2
         position: 0
+        template: cms_template_1

@@ -25,6 +25,12 @@ abstract class Position
     private $id;
 
     /**
+     * @ORM\ManyToOne(targetEntity="Template")
+     * @ORM\JoinColumn(onDelete="CASCADE", nullable=false)
+     */
+    private $template;
+
+    /**
      * @Gedmo\SortableGroup
      * @ORM\ManyToOne(targetEntity="Layout", inversedBy="positions")
      * @ORM\JoinColumn(onDelete="CASCADE", nullable=false)

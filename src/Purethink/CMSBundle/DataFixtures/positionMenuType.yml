@@ -4,23 +4,29 @@ fixtures:
         layout: cms_layout_1
         position: 2
         menuType: cms_menu_type_1
+        template: cms_template_1
     cms_position_menu_type_2:
         layout: cms_layout_1
         position: 3
         menuType: cms_menu_type_2
+        template: cms_template_1
     cms_position_menu_type_3:
         layout: cms_layout_2
         position: 2
         menuType: cms_menu_type_1
+        template: cms_template_1
     cms_position_menu_type_4:
         layout: cms_layout_2
         position: 3
         menuType: cms_menu_type_2
+        template: cms_template_1
     cms_position_menu_type_5:
         layout: cms_layout_3
         position: 2
         menuType: cms_menu_type_1
+        template: cms_template_1
     cms_position_menu_type_6:
         layout: cms_layout_3
         position: 3
         menuType: cms_menu_type_2
+        template: cms_template_1

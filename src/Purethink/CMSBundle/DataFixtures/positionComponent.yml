@@ -5,51 +5,61 @@ fixtures:
         position: 4
         path: _baner.html.twig
         component: cms_component_1
+        template: cms_template_1
 
     cms_position_comonent_2:
         layout: cms_layout_1
         position: 5
         path: _link.html.twig
         component: cms_component_2
+        template: cms_template_1
     cms_position_comonent_3:
         layout: cms_layout_2
         position: 5
         path: _link.html.twig
         component: cms_component_2
+        template: cms_template_1
     cms_position_comonent_4:
         layout: cms_layout_3
         position: 5
         path: _link.html.twig
         component: cms_component_2
+        template: cms_template_1
 
     cms_position_comonent_5:
         layout: cms_layout_1
         position: 6
         path: _news.html.twig
         component: cms_component_3
+        template: cms_template_1
     cms_position_comonent_6:
         layout: cms_layout_1
         position: 7
         path: _news.html.twig
         component: cms_component_4
+        template: cms_template_1
     cms_position_comonent_7:
         layout: cms_layout_1
         position: 8
         path: _news.html.twig
         component: cms_component_5
+        template: cms_template_1
 
     cms_position_comonent_8:
         layout: cms_layout_1
         position: 9
         path: _cookie.html.twig
         component: cms_component_6
+        template: cms_template_1
     cms_position_comonent_9:
         layout: cms_layout_2
         position: 9
         path: _cookie.html.twig
         component: cms_component_6
+        template: cms_template_1
     cms_position_comonent_10:
         layout: cms_layout_3
         position: 9
         path: _cookie.html.twig
         component: cms_component_6
+        template: cms_template_1
