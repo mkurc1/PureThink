@@ -36,7 +36,6 @@
         "knplabs/knp-paginator-bundle": "~2.4",
         "knplabs/knp-menu-bundle": "1.1.*",
         "raulfraile/ladybug-bundle": "*",
-        "bmatzner/fontawesome-bundle": "~4.0",
         "khepin/yaml-fixtures-bundle": "~0.8.1",
 
         "sonata-project/admin-bundle": "*",

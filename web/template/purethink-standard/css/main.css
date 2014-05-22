@@ -244,7 +244,7 @@ ul#language > li.selected > a {
     border-radius: 4px;
 }
 
-#main_menu > .container > #search-form > #search_box > i {
+#main_menu > .container > #search-form > #search_box > span {
     position: relative;
     float: right;
     font-size: 14px;
