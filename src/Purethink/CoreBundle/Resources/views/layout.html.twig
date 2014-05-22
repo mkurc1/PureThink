@@ -29,13 +29,5 @@
 {% endblock javascripts %}
 
 {% block body %}
-    <div class="flash-message">
-        {% for type, messages in app.session.flashbag.all() %}
-            {% for message in messages %}
-                <div type="{{ type }}">
-                    {{ message }}
-                </div>
-            {% endfor %}
-        {% endfor %}
-    </div>
+    {% include "PurethinkCoreBundle::_message.html.twig" %}
 {% endblock body %}

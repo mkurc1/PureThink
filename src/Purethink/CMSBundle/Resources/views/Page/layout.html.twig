@@ -84,5 +84,5 @@
 
     {% set componentHelper = sonata_block_render({ "type": position.service, "settings": componentSettings }) %}
 
-    {% set component = component | merge({ (position.slug) : componentHelper|raw}) %}
+    {% set component = component | merge({ (position.slug) : componentHelper}) %}
 {% endfor %}

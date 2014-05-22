@@ -46,7 +46,7 @@
         "sonata-project/user-bundle": "*",
         "sonata-project/media-bundle": "*",
         "sonata-project/formatter-bundle": "*",
-        "sonata-project/comment-bundle": "~2.2@dev",
+        "sonata-project/comment-bundle": "2.2.x-dev",
         "sonata-project/classification-bundle": "~2.2",
 
         "pixassociates/sortable-behavior-bundle": "dev-master",
@@ -55,9 +55,7 @@
         "twbs/bootstrap": "v3.0.0",
 
         "simplethings/entity-audit-bundle": "*",
-
-        "kphoen/sitemap-bundle": "*",
-        "ornicar/gravatar-bundle" : "dev-master"
+        "kphoen/sitemap-bundle": "*"
     },
     "scripts": {
         "post-install-cmd": [

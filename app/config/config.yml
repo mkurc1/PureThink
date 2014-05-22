@@ -11,6 +11,7 @@ imports:
     - { resource: fos/fos_user.yml }
 
     # Sonata Core Bundles
+    - { resource: sonata/sonata_core.yml }
     - { resource: sonata/sonata_block.yml }
     - { resource: sonata/sonata_formatter.yml }
     - { resource: sonata/sonata_intl.yml }
@@ -64,15 +65,6 @@ assetic:
     #java: /usr/bin/java
     node: "/usr/bin/nodejs"
     node_paths: ["/usr/local/lib/node_modules"]
-    assets:
-        jquery_ui:
-            inputs: "%kernel.root_dir%/Resources/public/js/jquery-ui.js"
-        underscore:
-            inputs: "%kernel.root_dir%/Resources/public/js/underscore.js"
-        backbone:
-            inputs: "%kernel.root_dir%/Resources/public/js/backbone.js"
-        helper:
-            inputs: "%kernel.root_dir%/Resources/public/js/helper.js"
     bundles:
         - PurethinkCoreBundle
         - PurethinkCMSBundle

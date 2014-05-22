@@ -47,7 +47,6 @@ class AppKernel extends Kernel
             new FOS\CommentBundle\FOSCommentBundle(),
             new JMS\SerializerBundle\JMSSerializerBundle(),
             new KPhoen\SitemapBundle\KPhoenSitemapBundle(),
-            new Ornicar\GravatarBundle\OrnicarGravatarBundle(),
             new Mopa\Bundle\BootstrapBundle\MopaBootstrapBundle(),
 
             new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
