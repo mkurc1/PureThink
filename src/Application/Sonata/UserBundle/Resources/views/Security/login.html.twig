@@ -1,0 +1,43 @@
+{% extends "ApplicationSonataUserBundle::layout.html.twig" %}
+
+{% block title %}
+    PureThink - Login
+{% endblock title %}
+
+{% block body %}
+    {{ parent() }}
+
+    <div id="login_container">
+        {% if error %}
+            <div class="error_list">{{ error|trans({}, 'FOSUserBundle') }}</div>
+        {% endif %}
+
+        <div id="login">
+            <form action="{{ path("fos_user_security_check") }}" method="post">
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token }}"/>
+
+                <label for="username">{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}</label>
+                <input type="text" id="username" name="_username" value="{{ last_username }}"/>
+
+                <label for="password">{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}</label>
+                <input type="password" id="password" name="_password"/>
+
+                <div id="remember_me_container">
+                    <input type="checkbox" id="remember_me" name="_remember_me" value="on"/>
+                    <label for="remember_me">{{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}</label>
+                </div>
+
+                <div id="submit_container">
+                    <input type="submit" id="_submit" name="_submit"
+                           value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}"/>
+                </div>
+            </form>
+        </div>
+
+        <ul class="links">
+            <li><a href="{{ path("fos_user_registration_register") }}">Zarejestruj się</a></li>
+            <li><a href="{{ path("fos_user_resetting_request") }}">Zgubiłeś swoje hasło?</a></li>
+            <li><a href="{{ path("page") }}">Wróć na stronę główną</a></li>
+        </ul>
+    </div>
+{% endblock body %}

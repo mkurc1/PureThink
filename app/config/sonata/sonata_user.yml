@@ -7,7 +7,7 @@ sonata_user:
         route: frontend
         parameters: { path: / }
 
-    manager_type:             orm
+    manager_type: orm
 
     profile:
         dashboard:

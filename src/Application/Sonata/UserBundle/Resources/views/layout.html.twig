@@ -1,0 +1,28 @@
+{% extends "PurethinkCoreBundle::layout.html.twig" %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    {% stylesheets
+    '@ApplicationSonataUserBundle/Resources/public/less/user.less'
+    filter='less,cssrewrite,uglifycss'
+    output='css/user.css' %}
+    <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+    {% endstylesheets %}
+{% endblock stylesheets %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    {#{% javascripts#}
+    {#'@helper'#}
+    {#'@PurethinkUserBundle/Resources/public/js/*'#}
+    {#filter="uglifyjs2"#}
+    {#output='js/login.js' %}#}
+    {#<script src="{{ asset_url }}"></script>#}
+    {#{% endjavascripts %}#}
+{% endblock javascripts %}
+
+{% block body %}
+    {{ parent() }}
+{% endblock body %}

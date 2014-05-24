@@ -1,0 +1,10 @@
+{% extends "ApplicationSonataUserBundle::layout.html.twig" %}
+
+{% block title %}
+    PureThink - Registration
+{% endblock title %}
+
+{% block body %}
+    {{ parent() }}
+    {% include "FOSUserBundle:Registration:register_content.html.twig" %}
+{% endblock body %}

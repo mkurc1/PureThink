@@ -1,0 +1,10 @@
+{% extends "ApplicationSonataUserBundle::layout.html.twig" %}
+
+{% block title %}
+    PureThink - Resetting
+{% endblock title %}
+
+{% block body %}
+    {{ parent() }}
+    {% include "FOSUserBundle:Resetting:request_content.html.twig" %}
+{% endblock body %}
