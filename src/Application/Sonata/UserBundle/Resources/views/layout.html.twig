@@ -2,13 +2,6 @@
 
 {% block stylesheets %}
     {{ parent() }}
-
-    {% stylesheets
-    '@ApplicationSonataUserBundle/Resources/public/less/user.less'
-    filter='less,cssrewrite,uglifycss'
-    output='css/user.css' %}
-    <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
-    {% endstylesheets %}
 {% endblock stylesheets %}
 
 {% block javascripts %}
@@ -17,4 +10,7 @@
 
 {% block body %}
     {{ parent() }}
+
+    {% block fos_user_content %}
+    {% endblock fos_user_content %}
 {% endblock body %}

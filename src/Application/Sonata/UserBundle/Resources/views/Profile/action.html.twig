@@ -1,6 +1,6 @@
 {% extends "ApplicationSonataUserBundle::layout.html.twig" %}
 
-{% block body %}
+{% block fos_user_content %}
     {{ parent() }}
     {% block sonata_page_breadcrumb %}
         {% if breadcrumb_context is not defined %}
@@ -28,4 +28,4 @@
         </div>
 
         </div>
-{% endblock body %}
+{% endblock fos_user_content %}

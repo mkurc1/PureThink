@@ -69,6 +69,7 @@ assetic:
         - PurethinkCoreBundle
         - PurethinkCMSBundle
         - ApplicationSonataUserBundle
+        - FOSUserBundle
     filters:
         cssembed:
             jar: "/usr/share/cssembed/cssembed-0.4.5.jar"

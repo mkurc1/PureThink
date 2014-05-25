@@ -1,10 +1,16 @@
-{% extends "ApplicationSonataUserBundle::layout.html.twig" %}
+{% extends "ApplicationSonataUserBundle:Security:base_login.html.twig" %}
 
-{% block title %}
-    PureThink - Registration
-{% endblock title %}
-
-{% block body %}
+{% block stylesheets %}
     {{ parent() }}
-    {% include "FOSUserBundle:Registration:register_content.html.twig" %}
-{% endblock body %}
+
+    {% stylesheets
+    '@ApplicationSonataUserBundle/Resources/public/css/login.css'
+    filter='cssrewrite,uglifycss'
+    output='css/register.css' %}
+    <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+    {% endstylesheets %}
+{% endblock stylesheets %}
+
+{% block fos_user_content %}
+    {% include "ApplicationSonataUserBundle:Registration:register_content.html.twig" %}
+{% endblock fos_user_content %}
