@@ -1,31 +1,67 @@
 {% extends "ApplicationSonataUserBundle::layout.html.twig" %}
 
-{% block fos_user_content %}
+{% block stylesheets %}
     {{ parent() }}
-    {% block sonata_page_breadcrumb %}
-        {% if breadcrumb_context is not defined %}
-            {% set breadcrumb_context = 'user_index' %}
-        {% endif %}
-        <div class="row-fluid clearfix">
-            {{ sonata_block_render_event('breadcrumb', { 'context': breadcrumb_context, 'current_uri': app.request.requestUri }) }}
+
+    {% stylesheets
+    '@ApplicationSonataUserBundle/Resources/public/css/profile.css'
+    filter='cssrewrite,uglifycss'
+    output='css/profile.css' %}
+    <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+    {% endstylesheets %}
+{% endblock stylesheets %}
+
+
+{% block fos_user_content %}
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">{% block sonata_profile_title %}{% trans from 'SonataUserBundle' %}sonata_profile_title{% endtrans %}{% endblock %}</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="{{ path('page') }}">Homepage</a></li>
+                    <li><a href="{{ path('fos_user_security_logout') }}">Logout</a></li>
+                </ul>
+            </div>
         </div>
-    {% endblock %}
-
-    <h2>{% block sonata_profile_title %}{% trans from 'SonataUserBundle' %}sonata_profile_title{% endtrans %}{% endblock %}</h2>
-
-    <div class="sonata-user-show row row-fluid">
-
-    <div class="span2 col-lg-2" style="padding: 8px 0;">
-        {% block sonata_profile_menu %}
-            {{ sonata_block_render({'type': 'sonata.user.block.menu'}, {'current_uri': app.request.requestUri}) }}
-        {% endblock %}
     </div>
 
-    <div class="span10 col-lg-10">
-    {% include 'SonataCoreBundle:FlashMessage:render.html.twig' %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-3 col-md-2 sidebar">
+                {% block sonata_profile_menu %}
+                    {{ sonata_block_render({'type': 'sonata.user.block.menu', 'settings': {'menu_template': 'ApplicationSonataUserBundle:Block:profile_menu.html.twig'}}, {'current_uri': app.request.requestUri}) }}
+                {% endblock %}
+            </div>
+            <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+                <div class="flash-message">
+                    {% for type, messages in app.session.flashbag.all() %}
+                        {% for message in messages %}
+                            <div type="{{ type }}">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    {% endfor %}
+                </div>
 
-    {% block sonata_profile_content '' %}
-        </div>
+                {% block sonata_page_breadcrumb %}
+                    {% if breadcrumb_context is not defined %}
+                        {% set breadcrumb_context = 'user_index' %}
+                    {% endif %}
+                    <div class="row-fluid clearfix">
+                        {{ sonata_block_render_event('breadcrumb', { 'context': breadcrumb_context, 'current_uri': app.request.requestUri }) }}
+                    </div>
+                {% endblock %}
 
+                {% block sonata_profile_content '' %}
+            </div>
         </div>
+    </div>
 {% endblock fos_user_content %}
