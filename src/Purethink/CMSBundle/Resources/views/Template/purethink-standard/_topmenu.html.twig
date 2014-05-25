@@ -1,7 +1,7 @@
 <div class="top-menu">
     <div class="user-container">
         {% if app.user is not null %}
-            <span>Witaj <a class="user-name" href="{{ path('fos_user_profile_show') }}">{{ app.user.firstName~" "~app.user.lastName }}</a></span>
+            <span>Witaj <a class="user-name" href="{{ path('fos_user_profile_show') }}">{{ app.user }}</a></span>
             {% if is_granted('ROLE_ADMIN') %}
                 <a class="admin" href="{{ path('sonata_admin_dashboard') }}">Admin</a>
             {% endif %}

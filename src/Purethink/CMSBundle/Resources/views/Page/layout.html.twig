@@ -24,7 +24,6 @@
     {{ parent() }}
 
     {% stylesheets
-        '@PurethinkCoreBundle/Resources/public/css/plugin/bootstrap.css'
         '@PurethinkCMSBundle/Resources/public/css/article.css'
         '@FOSCommentBundle/Resources/assets/css/comments.css'
         filter='less,cssrewrite,uglifycss'
@@ -47,7 +46,6 @@
     {{ parent() }}
 
     {% javascripts
-        '@PurethinkCoreBundle/Resources/public/js/plugin/bootstrap.js'
         '@PurethinkCMSBundle/Resources/public/js/cookies.js'
         filter="?uglifyjs2"
         output='js/frontend.js' %}
