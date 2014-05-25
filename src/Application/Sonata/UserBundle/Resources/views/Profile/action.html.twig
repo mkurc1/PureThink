@@ -11,7 +11,6 @@
     {% endstylesheets %}
 {% endblock stylesheets %}
 
-
 {% block fos_user_content %}
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container-fluid">
@@ -26,8 +25,8 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="{{ path('page') }}">Homepage</a></li>
-                    <li><a href="{{ path('fos_user_security_logout') }}">Logout</a></li>
+                    <li><a href="{{ path('page') }}">Homepage <span class="glyphicon glyphicon-home"></span></a></li>
+                    <li><a href="{{ path('fos_user_security_logout') }}">Logout <span class="glyphicon glyphicon-off"></span></a></li>
                 </ul>
             </div>
         </div>
@@ -41,23 +40,11 @@
                 {% endblock %}
             </div>
             <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-                <div class="flash-message">
-                    {% for type, messages in app.session.flashbag.all() %}
-                        {% for message in messages %}
-                            <div type="{{ type }}">
-                                {{ message }}
-                            </div>
-                        {% endfor %}
-                    {% endfor %}
-                </div>
-
                 {% block sonata_page_breadcrumb %}
-                    {% if breadcrumb_context is not defined %}
-                        {% set breadcrumb_context = 'user_index' %}
-                    {% endif %}
-                    <div class="row-fluid clearfix">
-                        {{ sonata_block_render_event('breadcrumb', { 'context': breadcrumb_context, 'current_uri': app.request.requestUri }) }}
-                    </div>
+                    <ol class="breadcrumb">
+                        <li><a href="{{ path('page') }}">Homepage</a></li>
+                        <li class="active">Profile</li>
+                    </ol>
                 {% endblock %}
 
                 {% block sonata_profile_content '' %}

@@ -4,6 +4,14 @@
     {{ "title_user_account" | trans({}, 'SonataUserBundle')}} - {{ "title_user_edit_profile" | trans({}, 'SonataUserBundle')}}
 {% endblock %}
 
+{% block sonata_page_breadcrumb %}
+    <ol class="breadcrumb">
+        <li><a href="{{ path('page') }}">Homepage</a></li>
+        <li><a href="{{ path('sonata_user_profile_show') }}">Profile</a></li>
+        <li class="active">Edit profile</li>
+    </ol>
+{% endblock %}
+
 {% block sonata_profile_content %}
 
     {{ form_errors(form) }}
