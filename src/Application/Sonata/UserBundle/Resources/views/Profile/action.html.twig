@@ -21,7 +21,12 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">{% block sonata_profile_title %}{% trans from 'SonataUserBundle' %}sonata_profile_title{% endtrans %}{% endblock %}</a>
+                <a class="navbar-brand" href="{{ path('page') }}">
+                    <img src="{{ asset('images/logo_small.png') }}" />
+                </a>
+                <a class="navbar-brand" href="{{ path('sonata_user_profile_show') }}">
+                    Dashboard - {{ app.user }}
+                </a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">

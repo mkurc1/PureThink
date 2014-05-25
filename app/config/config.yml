@@ -28,6 +28,9 @@ imports:
     # Ivory CKEditor
     - { resource: ivory/ivory_ck_editor.yml }
 
+    # Gravatar
+    - { resource: ornicar/ornicar_gravatar.yml }
+
 framework:
     #esi:             ~
     translator:      { fallback: %locale% }

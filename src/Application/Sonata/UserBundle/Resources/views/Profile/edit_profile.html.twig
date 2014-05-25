@@ -1,9 +1,5 @@
 {% extends "ApplicationSonataUserBundle:Profile:action.html.twig" %}
 
-{% block sonata_profile_title %}
-    {{ "title_user_account" | trans({}, 'SonataUserBundle')}} - {{ "title_user_edit_profile" | trans({}, 'SonataUserBundle')}}
-{% endblock %}
-
 {% block sonata_page_breadcrumb %}
     <ol class="breadcrumb">
         <li><a href="{{ path('page') }}">Homepage</a></li>
