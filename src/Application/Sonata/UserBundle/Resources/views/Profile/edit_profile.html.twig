@@ -12,8 +12,6 @@
 
     {{ form_errors(form) }}
 
-    {% form_theme form "MopaBootstrapBundle:Form:fields.html.twig" %}
-
     <form action="{{ path('sonata_user_profile_edit') }}" method="POST" class="form-horizontal">
         <fieldset>
             <legend>{{ "title_user_account" | trans({}, 'SonataUserBundle')}}</legend>
