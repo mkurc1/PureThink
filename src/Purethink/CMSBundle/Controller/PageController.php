@@ -7,7 +7,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Purethink\CMSBundle\Entity\Article;
 use Purethink\CMSBundle\Entity\Template;
 use Purethink\CMSBundle\Entity\Website;
 use Symfony\Component\HttpFoundation\Response;
@@ -103,7 +102,6 @@ class PageController extends Controller
         $template = $this->getEnabledTemplate();
         /** @var Layout $layout */
         $layout = $this->getLayoutForTypeOfTemplate($template, Layout::LAYOUT_ARTICLE);
-        /** @var Article $article */
         $article = $this->get('purethink.cms.article_service')->getArticleBySlug($slug);
 
         $content = $this->renderView($layout->getAllPath(),
