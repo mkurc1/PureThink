@@ -1,6 +1,6 @@
 <?php
 
-namespace Purethink\CoreBundle\Block;
+namespace Purethink\CMSBundle\Block;
 
 use Sonata\BlockBundle\Block\BlockContextInterface;
 use Symfony\Component\HttpFoundation\Response;
@@ -33,10 +33,14 @@ abstract class AbstractBlock extends BaseBlockService
     public function execute(BlockContextInterface $blockContext, Response $response = null)
     {
         return $this->renderResponse($blockContext->getTemplate(),
-            ['settings'  => $blockContext->getSettings()], $response)->setTtl(3600);
+            ['settings' => $blockContext->getSettings()], $response)->setTtl(3600);
     }
 
-    public function validateBlock(ErrorElement $errorElement, BlockInterface $block){}
+    public function validateBlock(ErrorElement $errorElement, BlockInterface $block)
+    {
+    }
 
-    public function buildEditForm(FormMapper $formMapper, BlockInterface $block){}
+    public function buildEditForm(FormMapper $formMapper, BlockInterface $block)
+    {
+    }
 }

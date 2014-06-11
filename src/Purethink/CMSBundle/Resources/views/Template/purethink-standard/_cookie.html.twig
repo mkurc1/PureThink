@@ -2,7 +2,7 @@
     <div class="container">
         {% for key, cookie in entities if key != 'title' %}
             <h5>{{ cookie['nazwa'] }}</h5>
-            <a class="close"><i class="fa fa-times"></i></a>
+            <a class="close"><i class="glyphicon glyphicon-remove"></i></a>
 
             <p>{{ cookie['tresc'] }} <a href="{{ path('article', { 'locale': app.request.locale, 'slug': cookie['adres'] }) }}">Dowiedz się więcej</a>.</p>
         {% endfor %}

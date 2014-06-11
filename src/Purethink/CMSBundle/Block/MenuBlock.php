@@ -9,7 +9,6 @@ use Symfony\Component\HttpFoundation\Response;
 use Sonata\BlockBundle\Model\BlockInterface;
 
 use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
-use Purethink\CoreBundle\Block\AbstractBlock;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class MenuBlock extends AbstractBlock

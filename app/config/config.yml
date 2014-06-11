@@ -28,9 +28,6 @@ imports:
     # Ivory CKEditor
     - { resource: ivory/ivory_ck_editor.yml }
 
-    # Gravatar
-    - { resource: ornicar/ornicar_gravatar.yml }
-
 framework:
     #esi:             ~
     translator:      { fallback: %locale% }
@@ -44,7 +41,7 @@ framework:
     templating:
         engines: ['twig']
         #assets_version: SomeVersionScheme
-    default_locale:  pl
+    default_locale:  %locale%
     trusted_hosts:   ~
     trusted_proxies: ~
     session:
@@ -60,6 +57,7 @@ twig:
     form:
         resources:
             - 'SonataMediaBundle:Form:media_widgets.html.twig'
+            - 'SonataCoreBundle:Form:datepicker.html.twig'
 
 # Assetic Configuration
 assetic:
@@ -69,7 +67,6 @@ assetic:
     node: "/usr/bin/nodejs"
     node_paths: ["/usr/local/lib/node_modules"]
     bundles:
-        - PurethinkCoreBundle
         - PurethinkCMSBundle
         - ApplicationSonataUserBundle
         - FOSUserBundle

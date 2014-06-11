@@ -35,7 +35,6 @@ class AppKernel extends Kernel
             new Sonata\IntlBundle\SonataIntlBundle(),
             new Sonata\AdminBundle\SonataAdminBundle(),
             new Sonata\UserBundle\SonataUserBundle('FOSUserBundle'),
-            new Sonata\jQueryBundle\SonatajQueryBundle(),
             new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle(),
             new Sonata\MediaBundle\SonataMediaBundle(),
             new Sonata\ClassificationBundle\SonataClassificationBundle(),
@@ -48,17 +47,13 @@ class AppKernel extends Kernel
             new JMS\SerializerBundle\JMSSerializerBundle(),
             new KPhoen\SitemapBundle\KPhoenSitemapBundle(),
             new Mopa\Bundle\BootstrapBundle\MopaBootstrapBundle(),
-            new Ornicar\GravatarBundle\OrnicarGravatarBundle(),
 
             new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
             new Application\Sonata\MediaBundle\ApplicationSonataMediaBundle(),
             new Application\Sonata\ClassificationBundle\ApplicationSonataClassificationBundle(),
             new Application\Sonata\CommentBundle\ApplicationSonataCommentBundle(),
 
-            new SimpleThings\EntityAudit\SimpleThingsEntityAuditBundle(),
-
-            new Purethink\CoreBundle\PurethinkCoreBundle(),
-            new Purethink\CMSBundle\PurethinkCMSBundle(),
+            new Purethink\CMSBundle\PurethinkCMSBundle()
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

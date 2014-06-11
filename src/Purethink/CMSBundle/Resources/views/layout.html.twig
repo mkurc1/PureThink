@@ -8,10 +8,10 @@
 
 {% block stylesheets %}
     {% stylesheets
-        '@PurethinkCoreBundle/Resources/public/css/plugin/bootstrap.css'
-        '@PurethinkCoreBundle/Resources/public/css/plugin/alertify.core.css'
-        '@PurethinkCoreBundle/Resources/public/css/plugin/alertify.bootstrap.css'
-        '@PurethinkCoreBundle/Resources/public/css/*'
+        '@PurethinkCMSBundle/Resources/public/css/plugin/bootstrap.css'
+        '@PurethinkCMSBundle/Resources/public/css/plugin/alertify.core.css'
+        '@PurethinkCMSBundle/Resources/public/css/plugin/alertify.bootstrap.css'
+        '@PurethinkCMSBundle/Resources/public/css/core.css'
         filter='less,cssrewrite,uglifycss'
         output='css/core.css' %}
         <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
@@ -20,10 +20,10 @@
 
 {% block javascripts %}
     {% javascripts
-        '@PurethinkCoreBundle/Resources/public/js/lib/jquery.js'
-        '@PurethinkCoreBundle/Resources/public/js/plugin/bootstrap.js'
-        '@PurethinkCoreBundle/Resources/public/js/plugin/alertify.js'
-        '@PurethinkCoreBundle/Resources/public/js/*'
+        '@PurethinkCMSBundle/Resources/public/js/lib/jquery.js'
+        '@PurethinkCMSBundle/Resources/public/js/plugin/bootstrap.js'
+        '@PurethinkCMSBundle/Resources/public/js/plugin/alertify.js'
+        '@PurethinkCMSBundle/Resources/public/js/core.js'
         filter="uglifyjs2"
         output='js/core.js' %}
         <script src="{{ asset_url }}"></script>
@@ -31,5 +31,5 @@
 {% endblock javascripts %}
 
 {% block body %}
-    {% include "PurethinkCoreBundle::_message.html.twig" %}
+    {% include "PurethinkCMSBundle::_message.html.twig" %}
 {% endblock body %}

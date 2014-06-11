@@ -38,10 +38,10 @@
         "raulfraile/ladybug-bundle": "*",
         "khepin/yaml-fixtures-bundle": "~0.8.1",
 
-        "sonata-project/admin-bundle": "*",
-        "sonata-project/doctrine-orm-admin-bundle": "*",
+        "sonata-project/admin-bundle": "dev-master",
+        "sonata-project/doctrine-orm-admin-bundle": "dev-master",
         "sonata-project/intl-bundle": "*",
-        "sonata-project/core-bundle": "*",
+        "sonata-project/core-bundle": "~2.2@dev",
         "sonata-project/block-bundle": "*",
         "sonata-project/user-bundle": "*",
         "sonata-project/media-bundle": "*",
@@ -54,9 +54,7 @@
         "mopa/bootstrap-bundle": "v3.0.0-beta3",
         "twbs/bootstrap": "v3.0.0",
 
-        "simplethings/entity-audit-bundle": "*",
-        "kphoen/sitemap-bundle": "*",
-        "ornicar/gravatar-bundle" : "dev-master"
+        "kphoen/sitemap-bundle": "*"
     },
     "scripts": {
         "post-install-cmd": [
