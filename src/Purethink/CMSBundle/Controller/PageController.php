@@ -9,7 +9,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Purethink\CMSBundle\Entity\Article;
 use Purethink\CMSBundle\Entity\Template;
-use Purethink\CMSBundle\Entity\Language;
 use Purethink\CMSBundle\Entity\Website;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -24,7 +23,7 @@ class PageController extends Controller
         $locale = $request->getLocale();
 
         if (null == $locale) {
-            $request->setLocale($request->getPreferredLanguage($this->getAvailableLocales()));
+            $request->setLocale($request->getPreferredLanguage($this->get('purethink.cms.language_service')->getAvailableLocales()));
         }
 
         return $this->redirect($this->generateUrl('localized_page', compact('locale')));
@@ -36,7 +35,7 @@ class PageController extends Controller
      */
     public function indexAction(Request $request, $locale)
     {
-        if ($this->isAvailableLocales($locale)) {
+        if ($this->get('purethink.cms.language_service')->hasAvailableLocales($locale)) {
             $request->setLocale($locale);
         } else {
             return $this->getRedirectToMainPage();
@@ -61,7 +60,7 @@ class PageController extends Controller
      */
     public function searchListAction(Request $request, $locale)
     {
-        if ($this->isAvailableLocales($locale)) {
+        if ($this->get('purethink.cms.language_service')->hasAvailableLocales($locale)) {
             $request->setLocale($locale);
         } else {
             return $this->getRedirectToMainPage();
@@ -94,7 +93,7 @@ class PageController extends Controller
      */
     public function articleAction(Request $request, $locale, $slug)
     {
-        if ($this->isAvailableLocales($locale)) {
+        if ($this->get('purethink.cms.language_service')->hasAvailableLocales($locale)) {
             $request->setLocale($locale);
         } else {
             return $this->getRedirectToMainPage();
@@ -105,7 +104,7 @@ class PageController extends Controller
         /** @var Layout $layout */
         $layout = $this->getLayoutForTypeOfTemplate($template, Layout::LAYOUT_ARTICLE);
         /** @var Article $article */
-        $article = $this->getArticleBySlug($slug);
+        $article = $this->get('purethink.cms.article_service')->getArticleBySlug($slug);
 
         $content = $this->renderView($layout->getAllPath(),
             compact('article', 'template', 'layout'));
@@ -118,55 +117,11 @@ class PageController extends Controller
         return $this->redirect($this->generateUrl('page'));
     }
 
-    private function getArticleBySlug($slug)
-    {
-        $article = $this->getDoctrine()
-            ->getRepository('PurethinkCMSBundle:Article')
-            ->getPublicArticleBySlug($slug);
-
-        if (null == $article) {
-            throw $this->createNotFoundException();
-        }
-
-        return $article;
-    }
-
     private function getMetadataByLocale($locale)
     {
         return $this->getDoctrine()
             ->getRepository('PurethinkCMSBundle:Website')
             ->getWebsiteByLocale($locale);
-    }
-
-    private function getPublicLanguages()
-    {
-        $languages = $this->getDoctrine()
-            ->getRepository('PurethinkCMSBundle:Language')
-            ->getPublicLanguages();
-
-        if (null == $languages) {
-            throw $this->createNotFoundException();
-        }
-
-        return $languages;
-    }
-
-    private function isAvailableLocales($locale)
-    {
-        return (bool)(in_array($locale, $this->getAvailableLocales()));
-    }
-
-    private function getAvailableLocales()
-    {
-        $availableLocales = [];
-
-        $languages = $this->getPublicLanguages();
-        /** @var Language $language */
-        foreach ($languages as $language) {
-            $availableLocales[] = strtolower($language->getAlias());
-        }
-
-        return $availableLocales;
     }
 
     private function getLayoutForTypeOfTemplate(Template $template, $type)

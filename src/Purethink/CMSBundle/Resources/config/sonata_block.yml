@@ -3,7 +3,7 @@ services:
         class: Purethink\CMSBundle\Block\LanguageBlock
         tags:
             - { name: sonata.block }
-        arguments: ["gamedot.competition.block.platform", @templating, @doctrine.orm.entity_manager]
+        arguments: ["gamedot.competition.block.platform", @templating, @purethink.cms.language_service]
 
     purethink.cms.block.menu:
         class: Purethink\CMSBundle\Block\MenuBlock
@@ -21,4 +21,4 @@ services:
         class: Purethink\CMSBundle\Block\ArticleBlock
         tags:
             - { name: sonata.block }
-        arguments: ["purethink.cms.block.article", @templating, @doctrine.orm.entity_manager, @request_stack]
+        arguments: ["purethink.cms.block.article", @templating, @purethink.cms.article_service, @request_stack]

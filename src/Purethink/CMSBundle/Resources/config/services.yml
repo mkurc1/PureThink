@@ -14,3 +14,11 @@ services:
         class: Purethink\CMSBundle\Form\Type\FileType
         tags:
             - { name: form.type, alias: File }
+
+    purethink.cms.language_service:
+        class: Purethink\CMSBundle\Service\Language
+        arguments: [@doctrine.orm.entity_manager]
+
+    purethink.cms.article_service:
+        class: Purethink\CMSBundle\Service\Article
+        arguments: [@doctrine.orm.entity_manager]

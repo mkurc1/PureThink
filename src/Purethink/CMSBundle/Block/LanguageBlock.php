@@ -2,7 +2,7 @@
 
 namespace Purethink\CMSBundle\Block;
 
-use Doctrine\ORM\EntityManager;
+use Purethink\CMSBundle\Service\Language;
 use Sonata\BlockBundle\Block\BlockContextInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Sonata\BlockBundle\Model\BlockInterface;
@@ -14,11 +14,13 @@ class LanguageBlock extends AbstractBlock
 {
     const CACHE_TIME = 0;
 
-    public function __construct($name, EngineInterface $templating, EntityManager $em)
+    private $language;
+
+    public function __construct($name, EngineInterface $templating, Language $language)
     {
         parent::__construct($name, $templating);
 
-        $this->em = $em;
+        $this->language = $language;
     }
 
     public function setDefaultSettings(OptionsResolverInterface $resolver)
@@ -39,15 +41,8 @@ class LanguageBlock extends AbstractBlock
     public function execute(BlockContextInterface $blockContext, Response $response = null)
     {
         return $this->renderResponse($blockContext->getTemplate(), [
-                'languages' => $this->getPublicLanguages()
+                'languages' => $this->language->getPublicLanguages()
             ],
             $response)->setTtl(self::CACHE_TIME);
-    }
-
-    private function getPublicLanguages()
-    {
-        return $this->em
-            ->getRepository('PurethinkCMSBundle:Language')
-            ->getPublicLanguages();
     }
 }
