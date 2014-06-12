@@ -6,7 +6,6 @@ sonata_block:
         sonata.admin.block.search_result:
             contexts: [admin]
         sonata.block.service.text:
-        sonata.user.block.menu:
         sonata.user.block.account:
         sonata.user.block.menu:
             contexts: [user]

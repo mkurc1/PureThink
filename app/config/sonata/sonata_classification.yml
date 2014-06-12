@@ -1,4 +1,1 @@
-sonata_classification:
-    admin:
-        tag:
-            class: Application\Sonata\ClassificationBundle\Admin\TagAdmin
+sonata_classification: ~

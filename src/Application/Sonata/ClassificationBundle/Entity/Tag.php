@@ -23,32 +23,10 @@ use Sonata\ClassificationBundle\Entity\BaseTag as BaseTag;
  */
 class Tag extends BaseTag
 {
-    const COLOR_GRAY = 'default';
-    const COLOR_BLUE = 'primary';
-    const COLOR_GREEN = 'success';
-    const COLOR_SKY = 'info';
-    const COLOR_ORANGE = 'warning';
-    const COLOR_RED = 'danger';
-
-    public static $colors = [
-        self::COLOR_GRAY   => 'gray',
-        self::COLOR_BLUE   => 'blue',
-        self::COLOR_GREEN  => 'green',
-        self::COLOR_SKY    => 'sky',
-        self::COLOR_ORANGE => 'orange',
-        self::COLOR_RED    => 'red'
-    ];
-
     /**
      * @var integer $id
      */
     protected $id;
-
-
-    public function getColorString()
-    {
-        return self::$colors[$this->getColor()];
-    }
 
     /**
      * Get id
@@ -58,22 +36,5 @@ class Tag extends BaseTag
     public function getId()
     {
         return $this->id;
-    }
-    /**
-     * @var integer
-     */
-    private $color;
-
-
-    public function setColor($color)
-    {
-        $this->color = $color;
-
-        return $this;
-    }
-
-    public function getColor()
-    {
-        return $this->color;
     }
 }
