@@ -27,16 +27,19 @@ class ArticleTest extends \PHPUnit_Framework_TestCase
 
         $article->setContent('Article content');
 
-        $language = new Language('English', 'EN');
+        $language = new Language('Article language', 'EN');
         $article->setLanguage($language);
 
         $user = new User();
+        $user->setFirstname('Article owner name');
         $article->setUser($user);
 
         $articleView = new ArticleView();
+        $articleView->setViews(3);
         $article->setView($articleView);
 
         $metadata = new Metadata();
+        $metadata->setTitle('Article title');
         $article->setMetadata($metadata);
 
         $tag1 = new Tag();
@@ -51,5 +54,10 @@ class ArticleTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($date, $article->getUpdated(), 'Should return correct modification date');
         $this->assertTrue($article->getPublished(), 'Should return that article is flagged as published');
         $this->assertEquals('Article content', $article->getContent(), 'Should return correct article content');
+        $this->assertEquals('Article language', $article->getLanguage()->getName(), 'Should return correct article language name');
+        $this->assertEquals('Article owner name', $article->getUser()->getFirstname(), 'Should return correct article owner name');
+        $this->assertEquals(3, $article->getViews()->getViews(), 'Should return correct article views');
+        $this->assertEquals('Article title', $article->getMetadata()->getTitle(), 'Should return correct article title');
+        $this->assertEquals(2, $article->getTags()->count(), 'Should return correct article count of tags');
     }
 }
