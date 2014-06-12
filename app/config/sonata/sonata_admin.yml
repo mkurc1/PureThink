@@ -17,6 +17,7 @@ sonata_admin:
                     - purethink_cms.admin.language
                     - purethink_cms.admin.website
                     - purethink_cms.admin.article
+                    - purethink_cms.admin.tag
                     - purethink_cms.admin.menuType
                     - purethink_cms.admin.extension
                     - purethink_cms.admin.component

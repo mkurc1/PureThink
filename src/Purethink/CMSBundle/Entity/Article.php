@@ -88,8 +88,8 @@ class Article implements MetadataInterface, ArticleViewInterface
     private $componentHasArticle;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Application\Sonata\ClassificationBundle\Entity\Tag", cascade={"persist"})
-     * @ORM\JoinTable(name="cms_article_tag")
+     * @ORM\ManyToMany(targetEntity="Tag", cascade={"persist"})
+     * @ORM\JoinTable(name="cms_article_has_tag")
      */
     private $tags;
 
@@ -328,10 +328,10 @@ class Article implements MetadataInterface, ArticleViewInterface
     /**
      * Add tags
      *
-     * @param \Application\Sonata\ClassificationBundle\Entity\Tag $tags
+     * @param Tag $tags
      * @return Article
      */
-    public function addTag(\Application\Sonata\ClassificationBundle\Entity\Tag $tags)
+    public function addTag(Tag $tags)
     {
         $this->tags[] = $tags;
 
@@ -341,9 +341,9 @@ class Article implements MetadataInterface, ArticleViewInterface
     /**
      * Remove tags
      *
-     * @param \Application\Sonata\ClassificationBundle\Entity\Tag $tags
+     * @param Tag $tags
      */
-    public function removeTag(\Application\Sonata\ClassificationBundle\Entity\Tag $tags)
+    public function removeTag(Tag $tags)
     {
         $this->tags->removeElement($tags);
     }

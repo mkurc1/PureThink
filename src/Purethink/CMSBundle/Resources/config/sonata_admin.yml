@@ -110,3 +110,9 @@ services:
         calls:
             - [ setSubClasses, [{'Menu': Purethink\CMSBundle\Entity\PositionMenuType, 'Component': Purethink\CMSBundle\Entity\PositionComponent, 'Article': Purethink\CMSBundle\Entity\PositionArticle, 'Language': Purethink\CMSBundle\Entity\PositionLanguage}] ]
             - [ setTemplate, [list, PurethinkCMSBundle:Admin:_positionList.html.twig] ]
+
+    purethink_cms.admin.tag:
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: CMS, label: Tags }
+        class: Purethink\CMSBundle\Admin\Tag
+        arguments: [null, Purethink\CMSBundle\Entity\Tag, SonataAdminBundle:CRUD]

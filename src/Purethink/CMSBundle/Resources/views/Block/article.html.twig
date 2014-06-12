@@ -6,7 +6,7 @@
         {% if (article.tags|length > 0) %}
             <div class="tags">
                 {% for tag in article.tags %}
-                    <span class="label label-{{ tag.color }}">{{ tag }}</span>
+                    <span class="label label-{{ tag.slug }}">{{ tag }}</span>
                 {% endfor %}
             </div>
         {% endif %}
