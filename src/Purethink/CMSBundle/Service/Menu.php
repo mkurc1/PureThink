@@ -36,10 +36,12 @@ class Menu
         /** @var MenuEntity $menu */
         foreach ($menus as $menu) {
             $id = $menu->getId();
+            $parent = $menu->getMenu();
 
-            if (is_object($menu->getMenu()) &&
-                $menu->getMenu()->getPublished() &&
-                $menu->getMenu()->getArticle()->getPublished()) {
+            if (is_object($parent) &&
+                $parent->getPublished() &&
+                $parent->getArticle()->getPublished()
+            ) {
                 $parentId = $menu->getMenu()->getId();
                 $entities[$parentId]['children'][$id]['parent'] = $menu;
             } else {
