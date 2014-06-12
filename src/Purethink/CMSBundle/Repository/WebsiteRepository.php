@@ -4,7 +4,6 @@ namespace Purethink\CMSBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
 
-
 class WebsiteRepository extends EntityRepository
 {
     public function getWebsiteByLocale($alias)

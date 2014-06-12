@@ -1,9 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
     ],
-    "hash": "fab9d26f66fbd0e8bb871f3f69f34856",
+    "hash": "9fe14870db35b61fc0a35aab16c07a6c",
     "packages": [
         {
             "name": "dflydev/markdown",
@@ -611,67 +612,6 @@
             "time": "2014-03-05 01:11:31"
         },
         {
-            "name": "doctrine/doctrine-migrations-bundle",
-            "version": "dev-master",
-            "target-dir": "Doctrine/Bundle/MigrationsBundle",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/doctrine/DoctrineMigrationsBundle.git",
-                "reference": "f7138381aa884c0f679da4de41e369b94ead9cd3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/DoctrineMigrationsBundle/zipball/f7138381aa884c0f679da4de41e369b94ead9cd3",
-                "reference": "f7138381aa884c0f679da4de41e369b94ead9cd3",
-                "shasum": ""
-            },
-            "require": {
-                "doctrine/doctrine-bundle": "~1.0",
-                "doctrine/migrations": "~1.0@dev",
-                "php": ">=5.3.2",
-                "symfony/framework-bundle": "~2.1"
-            },
-            "type": "symfony-bundle",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.1.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Doctrine\\Bundle\\MigrationsBundle": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com",
-                    "homepage": "http://fabien.potencier.org",
-                    "role": "Lead Developer"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "http://symfony.com/contributors"
-                },
-                {
-                    "name": "Doctrine Project",
-                    "homepage": "http://www.doctrine-project.org"
-                }
-            ],
-            "description": "Symfony DoctrineMigrationsBundle",
-            "homepage": "http://www.doctrine-project.org",
-            "keywords": [
-                "dbal",
-                "migrations",
-                "schema"
-            ],
-            "time": "2014-03-20 14:48:55"
-        },
-        {
             "name": "doctrine/inflector",
             "version": "v1.0",
             "source": {
@@ -786,66 +726,6 @@
                 "parser"
             ],
             "time": "2013-01-12 18:59:04"
-        },
-        {
-            "name": "doctrine/migrations",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/doctrine/migrations.git",
-                "reference": "46a031ddaea47d0685200027cfe8c83b02aee6f6"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/migrations/zipball/46a031ddaea47d0685200027cfe8c83b02aee6f6",
-                "reference": "46a031ddaea47d0685200027cfe8c83b02aee6f6",
-                "shasum": ""
-            },
-            "require": {
-                "doctrine/dbal": "~2.0",
-                "php": ">=5.3.2"
-            },
-            "require-dev": {
-                "symfony/console": "2.*",
-                "symfony/yaml": "2.*"
-            },
-            "suggest": {
-                "symfony/console": "to run the migration from the console"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Doctrine\\DBAL\\Migrations": "lib"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "LGPL"
-            ],
-            "authors": [
-                {
-                    "name": "Jonathan Wage",
-                    "email": "jonwage@gmail.com",
-                    "homepage": "http://www.jwage.com/",
-                    "role": "Creator"
-                },
-                {
-                    "name": "Benjamin Eberlei",
-                    "email": "kontakt@beberlei.de"
-                }
-            ],
-            "description": "Database Schema migrations using Doctrine DBAL",
-            "homepage": "http://www.doctrine-project.org",
-            "keywords": [
-                "database",
-                "migrations"
-            ],
-            "time": "2014-03-16 19:02:43"
         },
         {
             "name": "doctrine/orm",
@@ -3411,12 +3291,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataAdminBundle.git",
-                "reference": "95d0bca2cd054ff5436197b0d6bf1b20c9cd7725"
+                "reference": "f3e49a32cdb354667b0693f1d893e96d80c69526"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/95d0bca2cd054ff5436197b0d6bf1b20c9cd7725",
-                "reference": "95d0bca2cd054ff5436197b0d6bf1b20c9cd7725",
+                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/f3e49a32cdb354667b0693f1d893e96d80c69526",
+                "reference": "f3e49a32cdb354667b0693f1d893e96d80c69526",
                 "shasum": ""
             },
             "require": {
@@ -3482,7 +3362,7 @@
                 "bootstrap",
                 "sonata"
             ],
-            "time": "2014-06-10 12:24:59"
+            "time": "2014-06-12 09:47:42"
         },
         {
             "name": "sonata-project/block-bundle",
@@ -4315,36 +4195,38 @@
         },
         {
             "name": "sonata-project/media-bundle",
-            "version": "2.2.8",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataMediaBundle.git",
-                "reference": "a04a7a8aa9e04c106b034d74af3700ab3c64934b"
+                "reference": "769a12fb8e3335e2e179480bbd6e3818336272fb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataMediaBundle/zipball/a04a7a8aa9e04c106b034d74af3700ab3c64934b",
-                "reference": "a04a7a8aa9e04c106b034d74af3700ab3c64934b",
+                "url": "https://api.github.com/repos/sonata-project/SonataMediaBundle/zipball/769a12fb8e3335e2e179480bbd6e3818336272fb",
+                "reference": "769a12fb8e3335e2e179480bbd6e3818336272fb",
                 "shasum": ""
             },
             "require": {
                 "friendsofsymfony/rest-bundle": "~1.1",
                 "imagine/imagine": "*@stable",
+                "jms/serializer-bundle": "~0.11",
                 "knplabs/gaufrette": ">=0.1.4",
                 "kriswallsmith/buzz": "0.*",
                 "nelmio/api-doc-bundle": "~2.4",
-                "sonata-project/core-bundle": "~2.2@dev",
+                "sonata-project/core-bundle": "~2.2",
                 "sonata-project/doctrine-extensions": "~1.0",
                 "sonata-project/easy-extends-bundle": "~2.1",
+                "sonata-project/intl-bundle": "~2.2",
                 "sonata-project/notification-bundle": "~2.2",
-                "symfony/symfony": "~2.2"
+                "symfony/symfony": "~2.3"
             },
             "require-dev": {
                 "amazonwebservices/aws-sdk-for-php": "~1.5",
                 "doctrine/mongodb-odm": "~1.0@dev",
-                "friendsofsymfony/rest-bundle": "~1.2",
-                "sonata-project/doctrine-orm-admin-bundle": "~2.2@dev,>=2.2.1",
-                "sonata-project/doctrine-phpcr-admin-bundle": "~1.0",
+                "sonata-project/admin-bundle": "~2.3@dev",
+                "sonata-project/core-bundle": "~2.2@dev",
+                "sonata-project/doctrine-orm-admin-bundle": "~2.3@dev",
                 "sonata-project/formatter-bundle": "~2.2@dev",
                 "sonata-project/seo-bundle": "~1.1"
             },
@@ -4352,14 +4234,14 @@
                 "amazonwebservices/aws-sdk-for-php": "~1.5",
                 "liip/imagine-bundle": "~0.9",
                 "rackspace/php-opencloud": "~1.6",
-                "sonata-project/doctrine-orm-admin-bundle": "~2.2,>=2.2.1",
+                "sonata-project/doctrine-orm-admin-bundle": "~2.3",
                 "sonata-project/seo-bundle": "~1.1",
                 "tilleuls/ckeditor-sonata-mediabundle": "~1.0"
             },
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.2.x-dev"
+                    "dev-master": "2.3.x-dev"
                 }
             },
             "autoload": {
@@ -4394,7 +4276,7 @@
                 "vimeo",
                 "youtube"
             ],
-            "time": "2014-02-14 14:28:01"
+            "time": "2014-06-10 20:53:19"
         },
         {
             "name": "sonata-project/notification-bundle",
@@ -5244,8 +5126,6 @@
     "stability-flags": {
         "doctrine/doctrine-fixtures-bundle": 20,
         "doctrine/data-fixtures": 20,
-        "doctrine/migrations": 20,
-        "doctrine/doctrine-migrations-bundle": 20,
         "friendsofsymfony/jsrouting-bundle": 0,
         "friendsofsymfony/comment-bundle": 20,
         "gedmo/doctrine-extensions": 20,
@@ -5253,6 +5133,7 @@
         "sonata-project/admin-bundle": 20,
         "sonata-project/doctrine-orm-admin-bundle": 20,
         "sonata-project/core-bundle": 20,
+        "sonata-project/media-bundle": 20,
         "sonata-project/comment-bundle": 20,
         "pixassociates/sortable-behavior-bundle": 20,
         "mopa/bootstrap-bundle": 10

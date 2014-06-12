@@ -6,7 +6,6 @@ use Doctrine\ORM\EntityRepository;
 use Purethink\CMSBundle\Entity\ComponentHasElement;
 use Purethink\CMSBundle\Entity\ComponentHasValue;
 
-
 class ComponentHasElementRepository extends EntityRepository
 {
     public function getActiveComponentBySlugAndLocale($slug, $locale)

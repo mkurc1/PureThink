@@ -5,7 +5,6 @@ namespace Purethink\CMSBundle\Repository;
 use Doctrine\ORM\EntityRepository;
 use Purethink\CMSBundle\Entity\Menu;
 
-
 class MenuRepository extends EntityRepository
 {
     public function getActiveMenusBySlugAndLocale($slug, $locale)
@@ -35,7 +34,7 @@ class MenuRepository extends EntityRepository
     private function getActiveMenusBySlugAndLocaleQb($slug, $locale)
     {
         return $this->createQueryBuilder('a')
-            ->select('a, t, art')
+            ->addSelect('t, art')
             ->join('a.language', 'l')
             ->join('a.type', 't')
             ->leftJoin('a.article', 'art')

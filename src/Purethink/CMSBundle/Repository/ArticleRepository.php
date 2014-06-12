@@ -4,7 +4,6 @@ namespace Purethink\CMSBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
 
-
 class ArticleRepository extends EntityRepository
 {
     public function searchResults($locale, $search)

@@ -4,7 +4,6 @@ namespace Purethink\CMSBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
 
-
 class LanguageRepository extends EntityRepository
 {
     public function getPublicLanguages()
