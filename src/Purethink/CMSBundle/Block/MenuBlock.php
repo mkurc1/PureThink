@@ -2,7 +2,7 @@
 
 namespace Purethink\CMSBundle\Block;
 
-use Doctrine\ORM\EntityManager;
+use Purethink\CMSBundle\Service\Menu;
 use Sonata\BlockBundle\Block\BlockContextInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,11 +15,16 @@ class MenuBlock extends AbstractBlock
 {
     const CACHE_TIME = 0;
 
-    public function __construct($name, EngineInterface $templating, EntityManager $em, RequestStack $requestStack)
+    /** @var Menu */
+    private $menu;
+    /** @var RequestStack */
+    private $requestStack;
+
+    public function __construct($name, EngineInterface $templating, Menu $menu, RequestStack $requestStack)
     {
         parent::__construct($name, $templating);
 
-        $this->em = $em;
+        $this->menu = $menu;
         $this->requestStack = $requestStack;
     }
 
@@ -40,19 +45,13 @@ class MenuBlock extends AbstractBlock
 
     public function execute(BlockContextInterface $blockContext, Response $response = null)
     {
+        $locale = $this->requestStack->getCurrentRequest()->getLocale();
+        $slug = $blockContext->getSetting('slug');
+
         return $this->renderResponse($blockContext->getTemplate(), [
-                'menus' => $this->getActiveMenu($blockContext->getSetting('slug')),
+                'menus' => $this->menu->getActiveMenusBySlugAndLocale($slug, $locale),
                 'home'  => true
             ],
             $response)->setTtl(self::CACHE_TIME);
-    }
-
-    private function getActiveMenu($groupName)
-    {
-        $locale = $this->requestStack->getCurrentRequest()->getLocale();
-
-        return $this->em
-            ->getRepository('PurethinkCMSBundle:Menu')
-            ->getActiveMenusBySlugAndLocale($groupName, $locale);
     }
 }

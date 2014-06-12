@@ -22,3 +22,7 @@ services:
     purethink.cms.article_service:
         class: Purethink\CMSBundle\Service\Article
         arguments: [@doctrine.orm.entity_manager]
+
+    purethink.cms.menu_service:
+        class: Purethink\CMSBundle\Service\Menu
+        arguments: [@doctrine.orm.entity_manager]
