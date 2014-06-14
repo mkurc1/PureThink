@@ -2886,8 +2886,8 @@ input[type="button"].btn-block {
 @font-face {
     font-family: 'Glyphicons Halflings';
 
-    src: url('/bundles/purethinkcore/fonts/glyphicons-halflings-regular.eot');
-    src: url('/bundles/purethinkcore/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('/bundles/purethinkcore/fonts/glyphicons-halflings-regular.woff') format('woff'), url('/bundles/purethinkcore/fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('/bundles/purethinkcore/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+    src: url('/bundles/purethinkcms/fonts/glyphicons-halflings-regular.eot');
+    src: url('/bundles/purethinkcms/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('/bundles/purethinkcms/fonts/glyphicons-halflings-regular.woff') format('woff'), url('/bundles/purethinkcms/fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('/bundles/purethinkcms/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
 }
 
 .glyphicon {
