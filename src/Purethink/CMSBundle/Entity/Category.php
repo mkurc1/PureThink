@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table
  * @ORM\Entity
  */
-class Tag extends AbstractTag
+class Category extends AbstractTag
 {
 
 }

@@ -1,0 +1,10 @@
+model: Purethink\CMSBundle\Entity\Category
+fixtures:
+    cms_category_1:
+        name: news
+    cms_category_2:
+        name: hardware
+    cms_category_3:
+        name: sport
+    cms_category_4:
+        name: fun

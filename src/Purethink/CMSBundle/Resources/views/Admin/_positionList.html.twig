@@ -15,6 +15,6 @@
             {% endif %}
         {% endfor %}
         <li {{ app.request.query.get('layout') == null ? 'class="active"' : "" }}><a
-                    href="{{ admin.generateUrl('list', {"layout": null}) }}">{{ "Wszystko" }}</a></li>
+                    href="{{ admin.generateUrl('list', {"layout": null}) }}">{{ "All" }}</a></li>
     </ul>
 {% endblock %}

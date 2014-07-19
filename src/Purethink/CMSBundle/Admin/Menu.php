@@ -17,16 +17,18 @@ class Menu extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->with('General')
+            ->with('General', ['class' => 'col-md-8'])
                 ->add('name')
                 ->add('article', 'sonata_type_model_list', [
                     'btn_add' => false
                 ])
-                ->add('language')
                 ->add('menu', 'sonata_type_model_list', [
                     'required' => false,
                     'btn_add' => false
                 ])
+            ->end()
+            ->with('Setting', ['class' => 'col-md-4'])
+                ->add('language')
                 ->add('published')
                 ->add('isNewPage')
             ->end();

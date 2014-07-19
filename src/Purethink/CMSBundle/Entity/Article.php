@@ -7,6 +7,8 @@ use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
 use Application\Sonata\UserBundle\Entity\User;
 use Doctrine\ORM\Event\LifecycleEventArgs;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Table(name="cms_article")
@@ -54,11 +56,13 @@ class Article implements MetadataInterface, ArticleViewInterface
 
     /**
      * @ORM\Column(type="text", nullable=true)
+     * @Assert\NotNull()
      */
     private $content;
 
     /**
      * @ORM\Column(type="text", nullable=true)
+     * @Assert\NotNull()
      */
     private $excerpt;
 
@@ -98,6 +102,13 @@ class Article implements MetadataInterface, ArticleViewInterface
      */
     private $tags;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Category", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=false)
+     * @Assert\NotNull()
+     */
+    private $category;
+
 
     public function getViews()
     {
@@ -111,6 +122,8 @@ class Article implements MetadataInterface, ArticleViewInterface
 
     /**
      * @ORM\PreRemove
+     *
+     * @param LifecycleEventArgs $args
      */
     public function preRemove(LifecycleEventArgs $args)
     {
@@ -229,10 +242,10 @@ class Article implements MetadataInterface, ArticleViewInterface
     /**
      * Set language
      *
-     * @param \Purethink\CMSBundle\Entity\Language $language
+     * @param Language $language
      * @return Article
      */
-    public function setLanguage(\Purethink\CMSBundle\Entity\Language $language = null)
+    public function setLanguage(Language $language = null)
     {
         $this->language = $language;
 
@@ -242,7 +255,7 @@ class Article implements MetadataInterface, ArticleViewInterface
     /**
      * Get language
      *
-     * @return \Purethink\CMSBundle\Entity\Language
+     * @return Language
      */
     public function getLanguage()
     {
@@ -262,10 +275,10 @@ class Article implements MetadataInterface, ArticleViewInterface
     /**
      * Set user
      *
-     * @param \Application\Sonata\UserBundle\Entity\User $user
+     * @param User $user
      * @return Article
      */
-    public function setUser(\Application\Sonata\UserBundle\Entity\User $user)
+    public function setUser(User $user)
     {
         $this->user = $user;
 
@@ -275,7 +288,7 @@ class Article implements MetadataInterface, ArticleViewInterface
     /**
      * Get user
      *
-     * @return \Application\Sonata\UserBundle\Entity\User
+     * @return User
      */
     public function getUser()
     {
@@ -284,11 +297,13 @@ class Article implements MetadataInterface, ArticleViewInterface
 
     /**
      * Constructor
+     *
+     * @param User $user
      */
     public function __construct(User $user = null)
     {
-        $this->componentHasArticle = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->tags = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->componentHasArticle = new ArrayCollection();
+        $this->tags = new ArrayCollection();
         $this->setMetadata(new Metadata());
         $this->setView(new ArticleView());
 
@@ -300,10 +315,10 @@ class Article implements MetadataInterface, ArticleViewInterface
     /**
      * Add componentHasArticle
      *
-     * @param \Purethink\CMSBundle\Entity\ComponentHasArticle $componentHasArticle
+     * @param ComponentHasArticle $componentHasArticle
      * @return Article
      */
-    public function addComponentHasArticle(\Purethink\CMSBundle\Entity\ComponentHasArticle $componentHasArticle)
+    public function addComponentHasArticle(ComponentHasArticle $componentHasArticle)
     {
         $this->componentHasArticle[] = $componentHasArticle;
 
@@ -313,9 +328,9 @@ class Article implements MetadataInterface, ArticleViewInterface
     /**
      * Remove componentHasArticle
      *
-     * @param \Purethink\CMSBundle\Entity\ComponentHasArticle $componentHasArticle
+     * @param ComponentHasArticle $componentHasArticle
      */
-    public function removeComponentHasArticle(\Purethink\CMSBundle\Entity\ComponentHasArticle $componentHasArticle)
+    public function removeComponentHasArticle(ComponentHasArticle $componentHasArticle)
     {
         $this->componentHasArticle->removeElement($componentHasArticle);
     }
@@ -323,7 +338,7 @@ class Article implements MetadataInterface, ArticleViewInterface
     /**
      * Get componentHasArticle
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return Collection
      */
     public function getComponentHasArticle()
     {
@@ -333,10 +348,10 @@ class Article implements MetadataInterface, ArticleViewInterface
     /**
      * Set metadata
      *
-     * @param \Purethink\CMSBundle\Entity\Metadata $metadata
+     * @param Metadata $metadata
      * @return Article
      */
-    public function setMetadata(\Purethink\CMSBundle\Entity\Metadata $metadata)
+    public function setMetadata(Metadata $metadata)
     {
         $this->metadata = $metadata;
 
@@ -346,7 +361,7 @@ class Article implements MetadataInterface, ArticleViewInterface
     /**
      * Get metadata
      *
-     * @return \Purethink\CMSBundle\Entity\Metadata 
+     * @return Metadata
      */
     public function getMetadata()
     {
@@ -379,7 +394,7 @@ class Article implements MetadataInterface, ArticleViewInterface
     /**
      * Get tags
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return Collection
      */
     public function getTags()
     {
@@ -476,5 +491,28 @@ class Article implements MetadataInterface, ArticleViewInterface
     public function getView()
     {
         return $this->view;
+    }
+
+    /**
+     * Set category
+     *
+     * @param Category $category
+     * @return Article
+     */
+    public function setCategory(Category $category)
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * Get category
+     *
+     * @return Category
+     */
+    public function getCategory()
+    {
+        return $this->category;
     }
 }

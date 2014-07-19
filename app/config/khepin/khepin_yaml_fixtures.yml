@@ -4,6 +4,7 @@ khepin_yaml_fixtures:
         - ApplicationSonataMediaBundle/media
         - PurethinkCMSBundle/metadata
         - PurethinkCMSBundle/language
+        - PurethinkCMSBundle/category
         - PurethinkCMSBundle/article
         - PurethinkCMSBundle/extension
         - PurethinkCMSBundle/extensionHasField

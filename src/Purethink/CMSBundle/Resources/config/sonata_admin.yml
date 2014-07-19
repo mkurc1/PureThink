@@ -21,9 +21,10 @@ services:
         tags:
             - { name: sonata.admin, manager_type: orm, group: CMS, label: Articles }
         class: Purethink\CMSBundle\Admin\Article
-        arguments: [null, Purethink\CMSBundle\Entity\Article, SonataAdminBundle:CRUD]
+        arguments: [null, Purethink\CMSBundle\Entity\Article, 'PurethinkCMSBundle:ArticleAdmin']
         calls:
             - [ setSecurityContext, [ @security.context ] ]
+            - [ setTemplate, [list, PurethinkCMSBundle:Admin:_articleList.html.twig] ]
 
     purethink_cms.admin.menuType:
         tags:
@@ -116,3 +117,9 @@ services:
             - { name: sonata.admin, manager_type: orm, group: CMS, label: Tags }
         class: Purethink\CMSBundle\Admin\Tag
         arguments: [null, Purethink\CMSBundle\Entity\Tag, SonataAdminBundle:CRUD]
+
+    purethink_cms.admin.category:
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: CMS, label: Cateogries }
+        class: Purethink\CMSBundle\Admin\Category
+        arguments: [null, Purethink\CMSBundle\Entity\Category, SonataAdminBundle:CRUD]
