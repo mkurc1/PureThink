@@ -38,9 +38,9 @@
 
         "sonata-project/admin-bundle": "dev-master",
         "sonata-project/doctrine-orm-admin-bundle": "dev-master",
-        "sonata-project/intl-bundle": "*",
-        "sonata-project/core-bundle": "~2.2@dev",
-        "sonata-project/block-bundle": "*",
+        "sonata-project/intl-bundle": "dev-master",
+        "sonata-project/core-bundle": "dev-master",
+        "sonata-project/block-bundle": "dev-master",
         "sonata-project/user-bundle": "*",
         "sonata-project/media-bundle": "dev-master",
         "sonata-project/formatter-bundle": "*",

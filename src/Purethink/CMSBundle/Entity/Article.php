@@ -58,6 +58,11 @@ class Article implements MetadataInterface, ArticleViewInterface
     private $content;
 
     /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $excerpt;
+
+    /**
      * @ORM\ManyToOne(targetEntity="Language")
      * @ORM\JoinColumn(onDelete="CASCADE")
      * @Assert\NotNull()
@@ -173,6 +178,29 @@ class Article implements MetadataInterface, ArticleViewInterface
     public function getContent()
     {
         return $this->content;
+    }
+
+    /**
+     * Set excerpt
+     *
+     * @param string $excerpt
+     * @return Article
+     */
+    public function setExcerpt($excerpt)
+    {
+        $this->excerpt = $excerpt;
+
+        return $this;
+    }
+
+    /**
+     * Get excerpt
+     *
+     * @return string
+     */
+    public function getExcerpt()
+    {
+        return $this->excerpt;
     }
 
     /**

@@ -24,24 +24,30 @@ class Article extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->with('General')
+            ->with('General', ['class' => 'col-md-8'])
                 ->add('name')
+                ->add('content', 'ckeditor', ['config_name' => 'default'])
+                ->add('excerpt', 'ckeditor', ['config_name' => 'excerpt'])
+
+            ->with('Setting', ['class' => 'col-md-4'])
+                ->add('user', 'sonata_type_model_list', [
+                    'btn_add' => false,
+                    'btn_delete' => false
+                ])
                 ->add('language')
                 ->add('tags', 'sonata_type_model', [
                     'required' => false,
                     'multiple' => true
                 ])
-                ->add('content', 'ckeditor')
                 ->add('published')
-            ->with('SEO')
+                ->add('slug', null, ["required" => false])
+            ->end()
+            ->with('SEO', ['class' => 'col-md-4'])
                 ->add('metadata', 'sonata_type_admin', [
                     'label' => false,
                     'delete' => false,
                     'btn_add' => false
                 ])
-            ->end()
-            ->with('Set only when needed')
-                ->add('slug', null, ["required" => false])
             ->end();
     }
 
@@ -79,6 +85,16 @@ class Article extends Admin
             ->add('published');
     }
 
+    public function getNewInstance()
+    {
+        $article = parent::getNewInstance();
+
+        $user = $this->getSecurityContext()->getToken()->getUser();
+        $article->setUser($user);
+
+        return $article;
+    }
+
     public function setSecurityContext($securityContext)
     {
         $this->securityContext = $securityContext;
@@ -87,11 +103,5 @@ class Article extends Admin
     protected function getSecurityContext()
     {
         return $this->securityContext;
-    }
-
-    public function prePersist($article)
-    {
-        $user = $this->getSecurityContext()->getToken()->getUser();
-        $article->setUser($user);
     }
 }
