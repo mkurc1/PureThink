@@ -87,10 +87,10 @@ class PageController extends Controller
     }
 
     /**
-     * @Route("/{locale}/{slug}", name="article")
+     * @Route("/{locale}/{category}/{slug}", name="article")
      * @Method("GET")
      */
-    public function articleAction(Request $request, $locale, $slug)
+    public function articleAction(Request $request, $locale, $category, $slug)
     {
         if ($this->get('purethink.cms.language_service')->hasAvailableLocales($locale)) {
             $request->setLocale($locale);

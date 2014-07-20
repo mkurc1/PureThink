@@ -15,6 +15,17 @@ class ComponentBlock extends AbstractBlock
 {
     const CACHE_TIME = 0;
 
+    /** @var EntityManager */
+    protected $em;
+    /** @var RequestStack */
+    protected $requestStack;
+
+    /**
+     * @param string          $name
+     * @param EngineInterface $templating
+     * @param EntityManager   $em
+     * @param RequestStack    $requestStack
+     */
     public function __construct($name, EngineInterface $templating, EntityManager $em, RequestStack $requestStack)
     {
         parent::__construct($name, $templating);
@@ -23,6 +34,9 @@ class ComponentBlock extends AbstractBlock
         $this->requestStack = $requestStack;
     }
 
+    /**
+     * @param OptionsResolverInterface $resolver
+     */
     public function setDefaultSettings(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults([
@@ -31,6 +45,10 @@ class ComponentBlock extends AbstractBlock
         ]);
     }
 
+    /**
+     * @param BlockInterface $block
+     * @return array|void
+     */
     public function getCacheKeys(BlockInterface $block)
     {
         return [
@@ -38,6 +56,11 @@ class ComponentBlock extends AbstractBlock
         ];
     }
 
+    /**
+     * @param BlockContextInterface $blockContext
+     * @param Response              $response
+     * @return Response
+     */
     public function execute(BlockContextInterface $blockContext, Response $response = null)
     {
         return $this->renderResponse($blockContext->getTemplate(), [
@@ -46,6 +69,10 @@ class ComponentBlock extends AbstractBlock
             $response)->setTtl(self::CACHE_TIME);
     }
 
+    /**
+     * @param string $slug
+     * @return array
+     */
     private function getComponent($slug)
     {
         $locale = $this->requestStack->getCurrentRequest()->getLocale();

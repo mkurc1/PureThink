@@ -4,7 +4,7 @@
             <h5>{{ cookie['nazwa'] }}</h5>
             <a class="close"><i class="glyphicon glyphicon-remove"></i></a>
 
-            <p>{{ cookie['tresc'] }} <a href="{{ path('article', { 'locale': app.request.locale, 'slug': cookie['adres'] }) }}">Dowiedz się więcej</a>.</p>
+            <p>{{ cookie['tresc'] }} <a href="{{ path('article', { 'locale': app.request.locale, 'category': cookie['adres'].category, 'slug': cookie['adres'].slug }) }}">Dowiedz się więcej</a>.</p>
         {% endfor %}
     </div>
 </div>

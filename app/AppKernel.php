@@ -52,6 +52,7 @@ class AppKernel extends Kernel
             new Application\Sonata\ClassificationBundle\ApplicationSonataClassificationBundle(),
             new Application\Sonata\CommentBundle\ApplicationSonataCommentBundle(),
 
+            new Purethink\CoreBundle\PurethinkCoreBundle(),
             new Purethink\CMSBundle\PurethinkCMSBundle()
         );
 

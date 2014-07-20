@@ -16,7 +16,7 @@
                     {% for key, baner in entities if key != 'title' %}
                         {% set i = i + 1 %}
                         <div class="item {{ (i == 1) ? 'active' : '' }}">
-                            <a href="{{ path('article', { 'locale': app.request.locale, 'slug': baner['adres'] }) }}">
+                            <a href="{{ path('article', { 'locale': app.request.locale, 'category': baner['adres'].category, 'slug': baner['adres'].slug }) }}">
                                 {% media baner['fotografia'], 'reference' %}
                             </a>
                         </div>

@@ -28,9 +28,7 @@ class ComponentHasElementRepository extends EntityRepository
             /** @var ComponentHasValue $value */
             foreach ($component->getComponentHasValues() as $value) {
                 $slug = $value->getExtensionHasField()->getSlug();
-                $content = $value->getStringContent();
-
-                $entities[$elementId][$slug] = $content;
+                $entities[$elementId][$slug] = $value->getContent();
             }
         }
 
