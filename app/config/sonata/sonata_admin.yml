@@ -1,6 +1,6 @@
 sonata_admin:
     title: %sonata_admin.title%
-#    title_logo: %sonata_admin.logo_title%
+    title_logo: %sonata_admin.logo_title%
 
     security:
         handler: sonata.admin.security.handler.acl
