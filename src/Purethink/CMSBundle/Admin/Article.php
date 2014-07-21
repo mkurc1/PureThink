@@ -28,12 +28,13 @@ class Article extends Admin
                 ->add('name')
                 ->add('content', 'ckeditor', ['config_name' => 'default'])
                 ->add('excerpt', 'ckeditor', ['config_name' => 'excerpt'])
-            ->with('Setting', ['class' => 'col-md-4'])
+            ->end()
+            ->with('Options', ['class' => 'col-md-4'])
                 ->add('user', 'sonata_type_model_list', [
                     'btn_add' => false,
                     'btn_delete' => false
                 ])
-                ->add('language')
+                ->add('language', null, ['attr' => ['class' => 'col-md-12']])
                 ->add('category', 'sonata_type_model_list', [
                     'btn_delete' => false
                 ])

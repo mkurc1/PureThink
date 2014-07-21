@@ -27,7 +27,7 @@ class Menu extends Admin
                     'btn_add' => false
                 ])
             ->end()
-            ->with('Setting', ['class' => 'col-md-4'])
+            ->with('Options', ['class' => 'col-md-4'])
                 ->add('language')
                 ->add('published')
                 ->add('isNewPage')

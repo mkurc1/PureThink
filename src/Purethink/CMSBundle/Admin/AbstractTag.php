@@ -16,8 +16,8 @@ class AbstractTag extends Admin
     {
         $formMapper
             ->with('General')
-            ->add('name')
-            ->add('enabled')
+                ->add('name')
+                ->add('enabled')
             ->end();
     }
 

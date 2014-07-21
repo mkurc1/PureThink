@@ -16,12 +16,14 @@ class Website extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->with('General')
+            ->with('General', ['class' => 'col-md-8'])
                 ->add('metadata', 'sonata_type_admin', [
                     'label'   => false,
                     'delete'  => false,
                     'btn_add' => false
                 ])
+            ->end()
+            ->with('Options', ['class' => 'col-md-4'])
                 ->add('language')
             ->end();
     }

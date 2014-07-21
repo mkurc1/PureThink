@@ -5,6 +5,15 @@ sonata_admin:
     security:
         handler: sonata.admin.security.handler.acl
 
+        information:
+            GUEST: [VIEW, LIST]
+            STAFF: [EDIT, LIST, CREATE]
+            EDITOR: [OPERATOR, EXPORT]
+            ADMIN: [MASTER]
+
+        admin_permissions: [CREATE, LIST, DELETE, UNDELETE, EXPORT, OPERATOR, MASTER]
+        object_permissions: [VIEW, EDIT, DELETE, UNDELETE, OPERATOR, MASTER, OWNER]
+
     dashboard:
         blocks:
             - { position: left, type: sonata.admin.block.admin_list }
