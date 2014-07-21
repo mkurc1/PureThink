@@ -10,6 +10,8 @@ use Sonata\AdminBundle\Admin\AdminInterface;
 
 class Template extends Admin
 {
+    protected $translationDomain = 'PurethinkCMSBundle';
+
     protected $formOptions = [
         'cascade_validation' => true
     ];
@@ -29,17 +31,17 @@ class Template extends Admin
         $id = $admin->getRequest()->get('id');
 
         $menu->addChild(
-            "Template",
+            $this->trans('Template'),
             ['uri' => $admin->generateUrl('edit', compact('id'))]
         );
 
         $menu->addChild(
-            "Layouts",
+            $this->trans('Layouts'),
             ['uri' => $admin->generateUrl('purethink_cms.admin.layout.list', compact('id'))]
         );
 
         $menu->addChild(
-            "Positions",
+            $this->trans('Positions'),
             ['uri' => $admin->generateUrl('purethink_cms.admin.position.list', compact('id'))]
         );
     }

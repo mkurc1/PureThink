@@ -8,6 +8,8 @@ use Sonata\AdminBundle\Form\FormMapper;
 
 class Website extends Admin
 {
+    protected $translationDomain = 'PurethinkCMSBundle';
+
     protected $formOptions = [
         'cascade_validation' => true,
         'validation_groups'  => ['website', 'default']
@@ -32,7 +34,7 @@ class Website extends Admin
     {
         $datagridMapper
             ->add('id')
-            ->add('metadata')
+            ->add('metadata.title', null, ['label' => 'Name'])
             ->add('language');
     }
 
@@ -40,7 +42,7 @@ class Website extends Admin
     {
         $listMapper
             ->addIdentifier('id')
-            ->addIdentifier('metadata.title')
+            ->addIdentifier('metadata.title', null, ['label' => 'Name'])
             ->add('language');
     }
 

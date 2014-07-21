@@ -9,6 +9,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 
 class ComponentHasValue extends Admin
 {
+    protected $translationDomain = 'PurethinkCMSBundle';
+
     public static $adminCollection = 0;
 
     protected $parentAssociationMapping = 'componentHasElement';

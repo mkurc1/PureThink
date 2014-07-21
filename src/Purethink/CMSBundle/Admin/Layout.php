@@ -9,6 +9,8 @@ use Purethink\CMSBundle\Entity\Layout as TemplateLayout;
 
 class Layout extends Admin
 {
+    protected $translationDomain = 'PurethinkCMSBundle';
+
     protected $parentAssociationMapping = 'template';
 
     protected $formOptions = [
@@ -55,7 +57,7 @@ class Layout extends Admin
     {
         $listMapper
             ->addIdentifier('id')
-            ->addIdentifier('stringType')
+            ->addIdentifier('stringType', null, ['label' => 'Name'])
             ->add('path');
     }
 

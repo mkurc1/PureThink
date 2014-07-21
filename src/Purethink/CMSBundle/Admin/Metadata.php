@@ -7,6 +7,8 @@ use Sonata\AdminBundle\Form\FormMapper;
 
 class Metadata extends Admin
 {
+    protected $translationDomain = 'PurethinkCMSBundle';
+
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper

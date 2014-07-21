@@ -8,6 +8,8 @@ use Sonata\AdminBundle\Form\FormMapper;
 
 class Language extends Admin
 {
+    protected $translationDomain = 'PurethinkCMSBundle';
+
     protected $datagridValues = [
         '_sort_by' => 'name'
     ];

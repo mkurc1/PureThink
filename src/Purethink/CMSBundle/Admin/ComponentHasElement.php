@@ -16,6 +16,8 @@ use Pix\SortableBehaviorBundle\Services\PositionHandler;
 
 class ComponentHasElement extends Admin
 {
+    protected $translationDomain = 'PurethinkCMSBundle';
+
     protected $formOptions = [
         'cascade_validation' => true
     ];

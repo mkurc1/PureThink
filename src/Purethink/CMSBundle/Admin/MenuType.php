@@ -10,6 +10,8 @@ use Sonata\AdminBundle\Admin\AdminInterface;
 
 class MenuType extends Admin
 {
+    protected $translationDomain = 'PurethinkCMSBundle';
+
     protected $datagridValues = [
         '_sort_by' => 'name'
     ];
@@ -24,12 +26,12 @@ class MenuType extends Admin
         $id = $admin->getRequest()->get('id');
 
         $menu->addChild(
-            "Menu",
+            $this->trans('Menu'),
             ['uri' => $admin->generateUrl('edit', compact('id'))]
         );
 
         $menu->addChild(
-            "Elements",
+            $this->trans('Elements'),
             ['uri' => $admin->generateUrl('purethink_cms.admin.menu.list', compact('id'))]
         );
     }

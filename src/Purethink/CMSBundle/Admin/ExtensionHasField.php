@@ -7,6 +7,8 @@ use Purethink\CMSBundle\Entity\ExtensionHasField as Field;
 
 class ExtensionHasField extends Admin
 {
+    protected $translationDomain = 'PurethinkCMSBundle';
+
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper

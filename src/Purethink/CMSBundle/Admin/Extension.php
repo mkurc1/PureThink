@@ -8,6 +8,8 @@ use Sonata\AdminBundle\Form\FormMapper;
 
 class Extension extends Admin
 {
+    protected $translationDomain = 'PurethinkCMSBundle';
+
     protected $datagridValues = [
         '_sort_by' => 'name'
     ];
@@ -21,8 +23,6 @@ class Extension extends Admin
         $formMapper
             ->with('General')
                 ->add('name')
-            ->end()
-            ->with('Fields')
                 ->add('fields', 'sonata_type_collection', [
                     'required' => true
                 ], [

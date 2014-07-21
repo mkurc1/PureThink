@@ -8,6 +8,8 @@ use Sonata\AdminBundle\Form\FormMapper;
 
 class Menu extends Admin
 {
+    protected $translationDomain = 'PurethinkCMSBundle';
+
     protected $parentAssociationMapping = 'type';
 
     protected $datagridValues = [

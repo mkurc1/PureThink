@@ -120,6 +120,6 @@ services:
 
     purethink_cms.admin.category:
         tags:
-            - { name: sonata.admin, manager_type: orm, group: CMS, label: Cateogries }
+            - { name: sonata.admin, manager_type: orm, group: CMS, label: Categories }
         class: Purethink\CMSBundle\Admin\Category
         arguments: [null, Purethink\CMSBundle\Entity\Category, SonataAdminBundle:CRUD]

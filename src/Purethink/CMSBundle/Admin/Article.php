@@ -13,6 +13,8 @@ class Article extends Admin
 
     private $securityContext;
 
+    protected $translationDomain = 'PurethinkCMSBundle';
+
     protected $formOptions = [
         'cascade_validation' => true
     ];
@@ -34,7 +36,7 @@ class Article extends Admin
                     'btn_add' => false,
                     'btn_delete' => false
                 ])
-                ->add('language', null, ['attr' => ['class' => 'col-md-12']])
+                ->add('language')
                 ->add('category', 'sonata_type_model_list', [
                     'btn_delete' => false
                 ])

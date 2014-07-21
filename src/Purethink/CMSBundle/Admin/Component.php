@@ -12,6 +12,8 @@ use Purethink\CMSBundle\Entity\Component as ComponentEntity;
 
 class Component extends Admin
 {
+    protected $translationDomain = 'PurethinkCMSBundle';
+
     protected $datagridValues = [
         '_sort_by' => 'name'
     ];
@@ -26,12 +28,12 @@ class Component extends Admin
         $id = $admin->getRequest()->get('id');
 
         $menu->addChild(
-            "Component",
+            $this->trans('Component'),
             ['uri' => $admin->generateUrl('edit', compact('id'))]
         );
 
         $menu->addChild(
-            "Elements",
+            $this->trans('Elements'),
             ['uri' => $admin->generateUrl('purethink_cms.admin.componenthaselement.list', compact('id'))]
         );
     }

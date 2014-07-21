@@ -10,6 +10,8 @@ use Sonata\AdminBundle\Form\FormMapper;
 
 class Position extends Admin
 {
+    protected $translationDomain = 'PurethinkCMSBundle';
+
     protected $parentAssociationMapping = 'template';
 
     protected $datagridValues = [

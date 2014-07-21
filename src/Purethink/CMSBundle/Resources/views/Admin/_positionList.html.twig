@@ -2,7 +2,7 @@
 
 {% block preview %}
     <ul class="nav nav-pills">
-        <li><a><strong>Layout</strong></a></li>
+        <li><a><strong>{{ admin.trans('Layout') }}</strong></a></li>
         {% for layout in layouts %}
             {% if layout.type == app.request.query.get('layout') %}
                 <li class="active">
@@ -15,6 +15,6 @@
             {% endif %}
         {% endfor %}
         <li {{ app.request.query.get('layout') == null ? 'class="active"' : "" }}><a
-                    href="{{ admin.generateUrl('list', {"layout": null}) }}">{{ "All" }}</a></li>
+                    href="{{ admin.generateUrl('list', {"layout": null}) }}">{{ admin.trans('All') }}</a></li>
     </ul>
 {% endblock %}

@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "9b97757a7eab2de62070e7fb98be57c7",
+    "hash": "f57cf73832d4338a853d06833be3b0bb",
     "packages": [
         {
             "name": "dflydev/markdown",
@@ -3295,12 +3295,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataAdminBundle.git",
-                "reference": "3945b5794000e22b25e7c66774d8ea63eb919aa5"
+                "reference": "9dd850c3fe3b7a2bd3b02cfe31399804fad1a497"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/3945b5794000e22b25e7c66774d8ea63eb919aa5",
-                "reference": "3945b5794000e22b25e7c66774d8ea63eb919aa5",
+                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/9dd850c3fe3b7a2bd3b02cfe31399804fad1a497",
+                "reference": "9dd850c3fe3b7a2bd3b02cfe31399804fad1a497",
                 "shasum": ""
             },
             "require": {
@@ -3366,7 +3366,7 @@
                 "bootstrap",
                 "sonata"
             ],
-            "time": "2014-07-18 14:00:40"
+            "time": "2014-07-21 11:37:00"
         },
         {
             "name": "sonata-project/block-bundle",
@@ -4203,12 +4203,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataMediaBundle.git",
-                "reference": "88053012a9d2108e18b34456ca55e538ff17de6a"
+                "reference": "e840645788d6f19e09fe18a34d964c6e20710d82"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataMediaBundle/zipball/88053012a9d2108e18b34456ca55e538ff17de6a",
-                "reference": "88053012a9d2108e18b34456ca55e538ff17de6a",
+                "url": "https://api.github.com/repos/sonata-project/SonataMediaBundle/zipball/e840645788d6f19e09fe18a34d964c6e20710d82",
+                "reference": "e840645788d6f19e09fe18a34d964c6e20710d82",
                 "shasum": ""
             },
             "require": {
@@ -4280,7 +4280,7 @@
                 "vimeo",
                 "youtube"
             ],
-            "time": "2014-07-17 12:36:55"
+            "time": "2014-07-21 10:33:58"
         },
         {
             "name": "sonata-project/notification-bundle",
@@ -4653,17 +4653,16 @@
         },
         {
             "name": "symfony/monolog-bundle",
-            "version": "v2.6.0",
-            "target-dir": "Symfony/Bundle/MonologBundle",
+            "version": "v2.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/MonologBundle.git",
-                "reference": "e1d4aa99c7440b11e9dfbfef7ed63084401dbc6a"
+                "reference": "227bbeefe30f2d95e3fe5fbd1ccda414287a957a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/MonologBundle/zipball/e1d4aa99c7440b11e9dfbfef7ed63084401dbc6a",
-                "reference": "e1d4aa99c7440b11e9dfbfef7ed63084401dbc6a",
+                "url": "https://api.github.com/repos/symfony/MonologBundle/zipball/227bbeefe30f2d95e3fe5fbd1ccda414287a957a",
+                "reference": "227bbeefe30f2d95e3fe5fbd1ccda414287a957a",
                 "shasum": ""
             },
             "require": {
@@ -4685,8 +4684,8 @@
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "Symfony\\Bundle\\MonologBundle": ""
+                "psr-4": {
+                    "Symfony\\Bundle\\MonologBundle\\": ""
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -4695,14 +4694,12 @@
             ],
             "authors": [
                 {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com",
-                    "homepage": "http://fabien.potencier.org",
-                    "role": "Lead Developer"
-                },
-                {
                     "name": "Symfony Community",
                     "homepage": "http://symfony.com/contributors"
+                },
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
                 }
             ],
             "description": "Symfony MonologBundle",
@@ -4711,7 +4708,7 @@
                 "log",
                 "logging"
             ],
-            "time": "2014-06-04 16:49:13"
+            "time": "2014-07-21 00:36:06"
         },
         {
             "name": "symfony/swiftmailer-bundle",

@@ -2,7 +2,7 @@
 
 {% block preview %}
     <ul class="nav nav-pills">
-        <li><a><strong>Category</strong></a></li>
+        <li><a><strong>{{ admin.trans('Category') }}</strong></a></li>
         {% for category in categories %}
             {% if category.id == app.request.query.get('category') %}
                 <li class="active">
@@ -15,6 +15,6 @@
             {% endif %}
         {% endfor %}
         <li {{ app.request.query.get('category') == null ? 'class="active"' : "" }}><a
-                    href="{{ admin.generateUrl('list', {"category": null}) }}">{{ "All" }}</a></li>
+                    href="{{ admin.generateUrl('list', {"category": null}) }}">{{ admin.trans('All') }}</a></li>
     </ul>
 {% endblock %}

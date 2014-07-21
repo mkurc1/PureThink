@@ -6,6 +6,8 @@ use Sonata\AdminBundle\Form\FormMapper;
 
 class TemplateScript extends Admin
 {
+    protected $translationDomain = 'PurethinkCMSBundle';
+
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper

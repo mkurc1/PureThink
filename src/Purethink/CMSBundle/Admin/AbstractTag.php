@@ -8,6 +8,8 @@ use Sonata\AdminBundle\Form\FormMapper;
 
 class AbstractTag extends Admin
 {
+    protected $translationDomain = 'PurethinkCMSBundle';
+
     protected $datagridValues = [
         '_sort_by' => 'name'
     ];
