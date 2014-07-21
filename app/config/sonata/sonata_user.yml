@@ -4,7 +4,7 @@ sonata_user:
         group:        Application\Sonata\UserBundle\Entity\Group
 
     impersonating:
-        route: frontend
+        route: page
         parameters: { path: / }
 
     manager_type: orm
