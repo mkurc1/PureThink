@@ -22,6 +22,7 @@ sonata_admin:
         groups:
             sonata.admin.group.content:
                 label: CMS
+                icon: <i class="fa fa-th"></i>
                 label_catalogue: PurethinkCMSBundle
                 items:
                     - purethink_cms.admin.article
@@ -33,6 +34,7 @@ sonata_admin:
                     - sonata.comment.admin.thread
             sonata.admin.group.administration:
                 label: sonata_administration
+                icon: <i class="fa fa-cogs"></i>
                 label_catalogue: SonataAdminBundle
                 items:
                     - sonata.user.admin.user
