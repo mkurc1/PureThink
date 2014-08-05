@@ -1,16 +1,16 @@
 <ul>
     {% if home %}
         <li>
-            <a href="{{ path('localized_page', {'locale': app.request.locale}) }}">Home</a>
+            <a href="{{ path('localized_page', { 'locale': app.request.locale }) }}">Home</a>
         </li>
     {% endif %}
-    {% for menu in menus %}
-        <li class="{{ menu['children'] is defined ? 'has_submenu' : '' }}">
-            <a {{ menu['parent'].isNewPage ? 'target="_blank"' : '' }}
-                    href="{{ path('article', {'locale': app.request.locale, 'category': menu['parent'].article.category.slug, 'slug': menu['parent'].article.slug}) }}">{{ menu['parent'] }}</a>
+    {% for entity in menu %}
+        <li class="{{ entity.activeChildren | length > 0 ? 'has_submenu' : '' }}">
+            <a {{ entity.isNewPage ? 'target="_blank"' : '' }}
+                    href="{{ path('article', { 'locale': app.request.locale, 'category': entity.article.category.slug, 'slug': entity.article.slug }) }}">{{ entity }}</a>
 
-            {% if menu['children'] is defined %}
-                {% include 'PurethinkCMSBundle:Block:menu.html.twig' with { 'menus': menu['children'], 'home': false } %}
+            {% if entity.activeChildren | length > 0 %}
+                {% include 'PurethinkCMSBundle:Block:menu.html.twig' with { 'menu': entity.activeChildren, 'home': false } %}
             {% endif %}
         </li>
     {% endfor %}

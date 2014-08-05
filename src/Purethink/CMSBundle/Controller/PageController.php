@@ -10,6 +10,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Purethink\CMSBundle\Entity\Template;
 use Purethink\CMSBundle\Entity\Website;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class PageController extends Controller
 {
@@ -110,11 +111,18 @@ class PageController extends Controller
         return new Response($content);
     }
 
+    /**
+     * @return RedirectResponse
+     */
     private function getRedirectToMainPage()
     {
         return $this->redirect($this->generateUrl('page'));
     }
 
+    /**
+     * @param string $locale
+     * @return Website
+     */
     private function getMetadataByLocale($locale)
     {
         return $this->getDoctrine()
@@ -122,9 +130,15 @@ class PageController extends Controller
             ->getWebsiteByLocale($locale);
     }
 
+    /**
+     * @param Template $template
+     * @param string   $type
+     * @return Layout
+     */
     private function getLayoutForTypeOfTemplate(Template $template, $type)
     {
-        $layout =  $this->getDoctrine()
+        /** @var Layout $layout */
+        $layout = $this->getDoctrine()
             ->getRepository('PurethinkCMSBundle:Layout')
             ->getLayoutForTypeOfTemplate($template, $type);
 
@@ -135,8 +149,12 @@ class PageController extends Controller
         return $layout;
     }
 
+    /**
+     * @return Template
+     */
     private function getEnabledTemplate()
     {
+        /** @var Template $template */
         $template = $this->getDoctrine()
             ->getRepository('PurethinkCMSBundle:Template')
             ->getEnabledTemplate();

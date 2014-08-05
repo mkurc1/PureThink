@@ -1,4 +1,5 @@
 <?php
+
 namespace Purethink\CMSBundle\Admin;
 
 use Sonata\AdminBundle\Admin\Admin;
@@ -39,11 +40,11 @@ class MenuType extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->with('General')
+            ->with('General', ['class' => 'col-md-8'])
                 ->add('name')
                 ->add('description', 'textarea')
             ->end()
-            ->with('Set only when needed')
+            ->with('Options', ['class' => 'col-md-4'])
                 ->add('slug', null, ["required" => false])
             ->end();
     }

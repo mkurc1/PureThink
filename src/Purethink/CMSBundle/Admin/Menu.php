@@ -43,8 +43,7 @@ class Menu extends Admin
             ->add('name')
             ->add('article')
             ->add('language')
-            ->add('published')
-            ->add('isNewPage');
+            ->add('published');
     }
 
     protected function configureListFields(ListMapper $listMapper)

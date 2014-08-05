@@ -5,6 +5,8 @@ namespace Purethink\CMSBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 
 /**
  * @ORM\Table(name="cms_menu")
@@ -51,6 +53,7 @@ class Menu
 
     /**
      * @ORM\OneToMany(targetEntity="Menu", mappedBy="menu")
+     * @ORM\OrderBy({"position" = "ASC"})
      */
     private $menus;
 
@@ -76,6 +79,20 @@ class Menu
      */
     private $article;
 
+
+    public function getActiveChildren()
+    {
+        $result = new ArrayCollection();
+        $menus = $this->getMenus();
+        /** @var Menu $menu */
+        foreach ($menus as $menu) {
+            if ($menu->getPublished() && $menu->getArticle() && $menu->getArticle()->getPublished()) {
+                $result->add($menu);
+            }
+        }
+
+        return $result;
+    }
 
     /**
      * Get id
@@ -115,16 +132,16 @@ class Menu
      */
     public function __construct()
     {
-        $this->menus = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->menus = new ArrayCollection();
     }
 
     /**
      * Set menu
      *
-     * @param \Purethink\CMSBundle\Entity\Menu $menu
+     * @param Menu $menu
      * @return Menu
      */
-    public function setMenu(\Purethink\CMSBundle\Entity\Menu $menu = null)
+    public function setMenu(Menu $menu = null)
     {
         $this->menu = $menu;
 
@@ -134,7 +151,7 @@ class Menu
     /**
      * Get menu
      *
-     * @return \Purethink\CMSBundle\Entity\Menu
+     * @return Menu
      */
     public function getMenu()
     {
@@ -144,10 +161,10 @@ class Menu
     /**
      * Add menus
      *
-     * @param \Purethink\CMSBundle\Entity\Menu $menus
+     * @param Menu $menus
      * @return Menu
      */
-    public function addMenu(\Purethink\CMSBundle\Entity\Menu $menus)
+    public function addMenu(Menu $menus)
     {
         $this->menus[] = $menus;
 
@@ -157,9 +174,9 @@ class Menu
     /**
      * Remove menus
      *
-     * @param \Purethink\CMSBundle\Entity\Menu $menus
+     * @param Menu $menus
      */
-    public function removeMenu(\Purethink\CMSBundle\Entity\Menu $menus)
+    public function removeMenu(Menu $menus)
     {
         $this->menus->removeElement($menus);
     }
@@ -167,7 +184,7 @@ class Menu
     /**
      * Get menus
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return Collection
      */
     public function getMenus()
     {
@@ -187,10 +204,10 @@ class Menu
     /**
      * Set language
      *
-     * @param \Purethink\CMSBundle\Entity\Language $language
+     * @param Language $language
      * @return Menu
      */
-    public function setLanguage(\Purethink\CMSBundle\Entity\Language $language)
+    public function setLanguage(Language $language)
     {
         $this->language = $language;
 
@@ -200,7 +217,7 @@ class Menu
     /**
      * Get language
      *
-     * @return \Purethink\CMSBundle\Entity\Language
+     * @return Language
      */
     public function getLanguage()
     {
@@ -233,10 +250,10 @@ class Menu
     /**
      * Set article
      *
-     * @param \Purethink\CMSBundle\Entity\Article $article
+     * @param Article $article
      * @return Menu
      */
-    public function setArticle(\Purethink\CMSBundle\Entity\Article $article)
+    public function setArticle(Article $article)
     {
         $this->article = $article;
 
@@ -246,7 +263,7 @@ class Menu
     /**
      * Get article
      *
-     * @return \Purethink\CMSBundle\Entity\Article
+     * @return Article
      */
     public function getArticle()
     {
@@ -256,10 +273,10 @@ class Menu
     /**
      * Set type
      *
-     * @param \Purethink\CMSBundle\Entity\MenuType $type
+     * @param MenuType $type
      * @return Menu
      */
-    public function setType(\Purethink\CMSBundle\Entity\MenuType $type)
+    public function setType(MenuType $type)
     {
         $this->type = $type;
 
@@ -269,7 +286,7 @@ class Menu
     /**
      * Get type
      *
-     * @return \Purethink\CMSBundle\Entity\MenuType 
+     * @return MenuType
      */
     public function getType()
     {

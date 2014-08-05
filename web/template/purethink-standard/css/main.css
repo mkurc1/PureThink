@@ -4,10 +4,6 @@
     border: 0 none;
 }
 
-body {
-    background: transparent url("../images/background_line.png") repeat-x;
-}
-
 .container {
     position: relative;
     margin: 0 auto;
