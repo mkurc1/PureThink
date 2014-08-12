@@ -55,7 +55,7 @@ class Article implements MetadataInterface, ArticleViewInterface
     private $published = false;
 
     /**
-     * @ORM\Column(type="text", nullable=true)
+     * @ORM\Column(type="text")
      * @Assert\NotNull()
      */
     private $content;
@@ -68,7 +68,7 @@ class Article implements MetadataInterface, ArticleViewInterface
 
     /**
      * @ORM\ManyToOne(targetEntity="Language")
-     * @ORM\JoinColumn(onDelete="CASCADE")
+     * @ORM\JoinColumn(onDelete="CASCADE", nullable=false)
      * @Assert\NotNull()
      */
     private $language;
@@ -245,7 +245,7 @@ class Article implements MetadataInterface, ArticleViewInterface
      * @param Language $language
      * @return Article
      */
-    public function setLanguage(Language $language = null)
+    public function setLanguage(Language $language)
     {
         $this->language = $language;
 

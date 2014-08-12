@@ -9,55 +9,70 @@ use Purethink\CMSBundle\Entity\Metadata;
 use Purethink\CMSBundle\Entity\Tag;
 use Purethink\CMSBundle\Entity\ArticleView;
 
-
 class ArticleTest extends \PHPUnit_Framework_TestCase
 {
+    /** @var Article */
+    private $article;
+
+    public function setUp()
+    {
+        $this->article = new Article();
+    }
+
     public function testGetters()
     {
         // Given
-        $article = new Article();
-        $article->setName('Article name');
-        $article->setSlug('article-slug');
+        $this->article->setName('Article name');
+        $this->article->setSlug('article-slug');
 
         $date = new \DateTime();
-        $article->setCreated($date);
-        $article->setUpdated($date);
+        $this->article->setCreated($date);
+        $this->article->setUpdated($date);
 
-        $article->setPublished(true);
+        $this->article->setPublished(true);
 
-        $article->setContent('Article content');
+        $this->article->setContent('Article content');
 
         $language = new Language('Article language', 'EN');
-        $article->setLanguage($language);
+        $this->article->setLanguage($language);
 
         $user = new User();
         $user->setFirstname('Article owner name');
-        $article->setUser($user);
+        $this->article->setUser($user);
 
         $articleView = new ArticleView();
         $articleView->setViews(3);
-        $article->setView($articleView);
+        $this->article->setView($articleView);
 
         $metadata = new Metadata();
         $metadata->setTitle('Article title');
-        $article->setMetadata($metadata);
+        $this->article->setMetadata($metadata);
 
         $tag1 = new Tag();
         $tag2 = new Tag();
-        $article->addTag($tag1);
-        $article->addTag($tag2);
+        $this->article->addTag($tag1);
+        $this->article->addTag($tag2);
 
         // Then
-        $this->assertEquals('Article name', $article->getName(), 'Should return correct article name');
-        $this->assertEquals('article-slug', $article->getSlug(), 'Should return correct article slug');
-        $this->assertEquals($date, $article->getCreated(), 'Should return correct creation date');
-        $this->assertEquals($date, $article->getUpdated(), 'Should return correct modification date');
-        $this->assertTrue($article->getPublished(), 'Should return that article is flagged as published');
-        $this->assertEquals('Article content', $article->getContent(), 'Should return correct article content');
-        $this->assertEquals('Article language', $article->getLanguage()->getName(), 'Should return correct article language name');
-        $this->assertEquals('Article owner name', $article->getUser()->getFirstname(), 'Should return correct article owner name');
-        $this->assertEquals(3, $article->getViews()->getViews(), 'Should return correct article views');
-        $this->assertEquals('Article title', $article->getMetadata()->getTitle(), 'Should return correct article title');
-        $this->assertEquals(2, $article->getTags()->count(), 'Should return correct article count of tags');
+        $this->assertEquals('Article name', $this->article->getName());
+        $this->assertEquals('article-slug', $this->article->getSlug());
+        $this->assertEquals($date, $this->article->getCreated());
+        $this->assertEquals($date, $this->article->getUpdated());
+        $this->assertTrue($this->article->getPublished());
+        $this->assertEquals('Article content', $this->article->getContent());
+        $this->assertEquals('Article language', $this->article->getLanguage()->getName());
+        $this->assertEquals('Article owner name', $this->article->getUser()->getFirstname());
+        $this->assertEquals(3, $this->article->getViews()->getViews());
+        $this->assertEquals('Article title', $this->article->getMetadata()->getTitle());
+        $this->assertEquals(2, $this->article->getTags()->count());
+    }
+
+    public function testToString()
+    {
+        $this->article->setName(null);
+        $this->assertEquals('', $this->article);
+
+        $this->article->setName('zz');
+        $this->assertEquals('zz', $this->article);
     }
 }
