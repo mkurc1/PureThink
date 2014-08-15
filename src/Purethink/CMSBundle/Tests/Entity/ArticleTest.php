@@ -48,10 +48,8 @@ class ArticleTest extends \PHPUnit_Framework_TestCase
         $metadata->setTitle('Article title');
         $this->article->setMetadata($metadata);
 
-        $tag1 = new Tag();
-        $tag2 = new Tag();
-        $this->article->addTag($tag1);
-        $this->article->addTag($tag2);
+        $this->article->addTag(new Tag());
+        $this->article->addTag(new Tag());
 
         // Then
         $this->assertEquals('Article name', $this->article->getName());

@@ -25,7 +25,6 @@
         "doctrine/doctrine-fixtures-bundle": "dev-master",
         "doctrine/data-fixtures": "dev-master",
 
-        "friendsofsymfony/user-bundle": "*",
         "friendsofsymfony/jsrouting-bundle": "@stable",
         "friendsofsymfony/comment-bundle": "dev-master",
 
@@ -41,7 +40,8 @@
         "sonata-project/intl-bundle": "dev-master",
         "sonata-project/core-bundle": "dev-master",
         "sonata-project/block-bundle": "dev-master",
-        "sonata-project/user-bundle": "*",
+        "sonata-project/user-bundle": "dev-master",
+        "sonata-project/datagrid-bundle": "dev-master",
         "sonata-project/media-bundle": "dev-master",
         "sonata-project/formatter-bundle": "*",
         "sonata-project/comment-bundle": "2.2.x-dev",
