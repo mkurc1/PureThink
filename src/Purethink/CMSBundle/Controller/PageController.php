@@ -11,6 +11,7 @@ use Purethink\CMSBundle\Entity\Template;
 use Purethink\CMSBundle\Entity\Website;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class PageController extends Controller
 {
@@ -23,7 +24,8 @@ class PageController extends Controller
         $locale = $request->getLocale();
 
         if (null == $locale) {
-            $request->setLocale($request->getPreferredLanguage($this->get('purethink.cms.language_service')->getAvailableLocales()));
+            $availableLocales = $this->get('purethink.cms.language_service')->getAvailableLocales();
+            $request->setLocale($request->getPreferredLanguage($availableLocales));
         }
 
         return $this->redirect($this->generateUrl('localized_page', compact('locale')));
@@ -48,8 +50,10 @@ class PageController extends Controller
         /** @var Website $meta */
         $meta = $this->getMetadataByLocale($locale);
 
-        $content = $this->renderView($layout->getAllPath(),
-            compact('meta', 'template', 'layout'));
+        $content = $this->renderView(
+            $layout->getAllPath(),
+            compact('meta', 'template', 'layout')
+        );
 
         return new Response($content);
     }
@@ -81,8 +85,10 @@ class PageController extends Controller
             $entities = null;
         }
 
-        $content = $this->renderView($layout->getAllPath(),
-            compact('meta', 'entities', 'template', 'layout'));
+        $content = $this->renderView(
+            $layout->getAllPath(),
+            compact('meta', 'entities', 'template', 'layout')
+        );
 
         return new Response($content);
     }
@@ -105,8 +111,10 @@ class PageController extends Controller
         $layout = $this->getLayoutForTypeOfTemplate($template, Layout::LAYOUT_ARTICLE);
         $article = $this->get('purethink.cms.article_service')->getArticleBySlug($slug);
 
-        $content = $this->renderView($layout->getAllPath(),
-            compact('article', 'template', 'layout'));
+        $content = $this->renderView(
+            $layout->getAllPath(),
+            compact('article', 'template', 'layout')
+        );
 
         return new Response($content);
     }
@@ -132,8 +140,9 @@ class PageController extends Controller
 
     /**
      * @param Template $template
-     * @param string   $type
+     * @param string $type
      * @return Layout
+     * @throws NotFoundHttpException
      */
     private function getLayoutForTypeOfTemplate(Template $template, $type)
     {
@@ -151,6 +160,7 @@ class PageController extends Controller
 
     /**
      * @return Template
+     * @throws NotFoundHttpException
      */
     private function getEnabledTemplate()
     {

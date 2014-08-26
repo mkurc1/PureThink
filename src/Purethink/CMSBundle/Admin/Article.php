@@ -66,7 +66,7 @@ class Article extends Admin
             ->add('created')
             ->add('updated')
             ->add('category', 'doctrine_orm_callback', [
-                'callback' => function($queryBuilder, $alias, $field, $value) {
+                'callback' => function ($queryBuilder, $alias, $field, $value) {
                     if (!$value || !$value['value']) {
                         return false;
                     } else {

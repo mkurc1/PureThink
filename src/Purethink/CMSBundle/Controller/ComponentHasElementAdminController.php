@@ -9,7 +9,8 @@ class ComponentHasElementAdminController extends CRUDController
 {
     public function moveAction($id, $position)
     {
-        $id = $this->get('request')->get($this->admin->getIdParameter());
+        $request = $this->container->get('request_stack')->getCurrentRequest();
+        $id = $request->get($this->admin->getIdParameter());
         $object = $this->admin->getObject($id);
 
         $position_service = $this->get('pix_sortable_behavior.position');
@@ -25,8 +26,10 @@ class ComponentHasElementAdminController extends CRUDController
                 'objectId' => $this->admin->getNormalizedIdentifier($object)
             ]);
         }
+
         $translator = $this->get('translator');
-        $this->get('session')->getFlashBag()->set('sonata_flash_info', $translator->trans('Position updated'));
+        $message = $translator->trans('Position updated', [], 'PurethinkCMSBundle');
+        $this->get('session')->getFlashBag()->set('sonata_flash_info', $message);
 
         return new RedirectResponse($this->admin->generateUrl('list', $this->admin->getFilterParameters()));
     }

@@ -3,6 +3,7 @@
 namespace Purethink\CMSBundle\Controller;
 
 use Sonata\AdminBundle\Controller\CRUDController;
+use Symfony\Bridge\Twig\Extension\FormExtension;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
 class PositionAdminController extends CRUDController
@@ -13,23 +14,27 @@ class PositionAdminController extends CRUDController
             throw new AccessDeniedException();
         }
 
+        $request = $this->container->get('request_stack')->getCurrentRequest();
         $datagrid = $this->admin->getDatagrid();
-        if ($this->getRequest()->query->get('layout')) {
-            $datagrid->setValue('layout', null, $this->getRequest()->query->get('layout'));
+        if ($layout = $request->query->get('layout')) {
+            $datagrid->setValue('layout', null, $layout);
         }
 
         $formView = $datagrid->getForm()->createView();
 
         $layouts = $this->getDoctrine()
-            ->getRepository('PurethinkCMSBundle:Layout')->findBy(['template' => $this->getRequest()->attributes->get('id')]);
+            ->getRepository('PurethinkCMSBundle:Layout')
+            ->findBy(['template' => $request->attributes->get('id')]);
 
-        $this->get('twig')->getExtension('form')->renderer->setTheme($formView, $this->admin->getFilterTheme());
+        /** @var FormExtension $form */
+        $form = $this->get('twig')->getExtension('form');
+        $form->renderer->setTheme($formView, $this->admin->getFilterTheme());
 
         return $this->render($this->admin->getTemplate('list'), [
             'action'     => 'list',
             'form'       => $formView,
             'datagrid'   => $datagrid,
-            'layouts'       => $layouts,
+            'layouts'    => $layouts,
             'csrf_token' => $this->getCsrfToken('sonata.batch')
         ]);
     }

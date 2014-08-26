@@ -3,6 +3,7 @@
 namespace Purethink\CMSBundle\Controller;
 
 use Sonata\AdminBundle\Controller\CRUDController;
+use Symfony\Bridge\Twig\Extension\FormExtension;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
 class ArticleAdminController extends CRUDController
@@ -13,9 +14,10 @@ class ArticleAdminController extends CRUDController
             throw new AccessDeniedException();
         }
 
+        $request = $this->container->get('request_stack')->getCurrentRequest();
         $datagrid = $this->admin->getDatagrid();
-        if ($this->getRequest()->query->get('category')) {
-            $datagrid->setValue('category', null, $this->getRequest()->query->get('category'));
+        if ($category = $request->get('category')) {
+            $datagrid->setValue('category', null, $category);
         }
 
         $formView = $datagrid->getForm()->createView();
@@ -23,7 +25,9 @@ class ArticleAdminController extends CRUDController
         $categories = $this->getDoctrine()
             ->getRepository('PurethinkCMSBundle:Category')->findAll();
 
-        $this->get('twig')->getExtension('form')->renderer->setTheme($formView, $this->admin->getFilterTheme());
+        /** @var FormExtension $form */
+        $form = $this->get('twig')->getExtension('form');
+        $form->renderer->setTheme($formView, $this->admin->getFilterTheme());
 
         return $this->render($this->admin->getTemplate('list'), [
             'action'     => 'list',
