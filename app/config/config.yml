@@ -103,6 +103,10 @@ doctrine:
     orm:
         auto_generate_proxy_classes: "%kernel.debug%"
         auto_mapping: true
+        filters:
+            softdeleteable:
+                class: Gedmo\SoftDeleteable\Filter\SoftDeleteableFilter
+                enabled: true
 
 # Swiftmailer Configuration
 swiftmailer:
@@ -130,6 +134,7 @@ stof_doctrine_extensions:
             sluggable: true
             sortable: true
             translatable: false
+            softdeleteable: true
 
 k_phoen_sitemap:
     base_host: %base_host%

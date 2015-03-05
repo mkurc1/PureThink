@@ -8,6 +8,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
 /**
  * @ORM\Table(name="cms_component_has_element")
  * @ORM\Entity(repositoryClass="Purethink\CMSBundle\Repository\ComponentHasElementRepository")
+ * @Gedmo\SoftDeleteable(fieldName="deletedAt")
  */
 class ComponentHasElement
 {
@@ -29,6 +30,11 @@ class ComponentHasElement
      * @ORM\Column(type="datetime")
      */
     private $updated;
+
+    /**
+     * @ORM\Column(name="deletedAt", type="datetime", nullable=true)
+     */
+    private $deletedAt;
 
     /**
      * @ORM\Column(type="boolean", nullable=true)
@@ -237,5 +243,21 @@ class ComponentHasElement
     public function getEnabled()
     {
         return $this->enabled;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDeletedAt()
+    {
+        return $this->deletedAt;
+    }
+
+    /**
+     * @param mixed $deletedAt
+     */
+    public function setDeletedAt($deletedAt)
+    {
+        $this->deletedAt = $deletedAt;
     }
 }

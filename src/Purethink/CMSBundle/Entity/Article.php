@@ -14,6 +14,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  * @ORM\Table(name="cms_article")
  * @ORM\Entity(repositoryClass="Purethink\CMSBundle\Repository\ArticleRepository")
  * @ORM\HasLifecycleCallbacks
+ * @Gedmo\SoftDeleteable(fieldName="deletedAt")
  */
 class Article implements MetadataInterface, ArticleViewInterface
 {
@@ -48,6 +49,11 @@ class Article implements MetadataInterface, ArticleViewInterface
      * @ORM\Column(type="datetime")
      */
     private $updated;
+
+        /**
+         * @ORM\Column(name="deletedAt", type="datetime", nullable=true)
+         */
+        private $deletedAt;
 
     /**
      * @ORM\Column(type="boolean", nullable=true)
@@ -514,5 +520,21 @@ class Article implements MetadataInterface, ArticleViewInterface
     public function getCategory()
     {
         return $this->category;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDeletedAt()
+    {
+        return $this->deletedAt;
+    }
+
+    /**
+     * @param mixed $deletedAt
+     */
+    public function setDeletedAt($deletedAt)
+    {
+        $this->deletedAt = $deletedAt;
     }
 }

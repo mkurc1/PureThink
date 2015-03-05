@@ -3,11 +3,13 @@
 namespace Purethink\CMSBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * @ORM\Table(name="cms_component_has_value")
  * @ORM\InheritanceType("SINGLE_TABLE")
  * @ORM\Entity()
+ * @Gedmo\SoftDeleteable(fieldName="deletedAt")
  */
 abstract class ComponentHasValue
 {
@@ -29,6 +31,11 @@ abstract class ComponentHasValue
      * @ORM\JoinColumn(onDelete="CASCADE")
      */
     private $extensionHasField;
+
+    /**
+     * @ORM\Column(name="deletedAt", type="datetime", nullable=true)
+     */
+    private $deletedAt;
 
 
     abstract public function getContent();
@@ -102,5 +109,21 @@ abstract class ComponentHasValue
     public function getExtensionHasField()
     {
         return $this->extensionHasField;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDeletedAt()
+    {
+        return $this->deletedAt;
+    }
+
+    /**
+     * @param mixed $deletedAt
+     */
+    public function setDeletedAt($deletedAt)
+    {
+        $this->deletedAt = $deletedAt;
     }
 }

@@ -11,6 +11,7 @@ use Doctrine\Common\Collections\Collection;
 /**
  * @ORM\Table(name="cms_menu")
  * @ORM\Entity(repositoryClass="Purethink\CMSBundle\Repository\MenuRepository")
+ * @Gedmo\SoftDeleteable(fieldName="deletedAt")
  */
 class Menu
 {
@@ -100,6 +101,10 @@ class Menu
      */
     private $article;
 
+    /**
+     * @ORM\Column(name="deletedAt", type="datetime", nullable=true)
+     */
+    private $deletedAt;
 
     public function getActiveChildren()
     {
@@ -390,5 +395,21 @@ class Menu
     public function setUrl($url)
     {
         $this->url = $url;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDeletedAt()
+    {
+        return $this->deletedAt;
+    }
+
+    /**
+     * @param mixed $deletedAt
+     */
+    public function setDeletedAt($deletedAt)
+    {
+        $this->deletedAt = $deletedAt;
     }
 }
