@@ -64,7 +64,7 @@ assetic:
     debug:          "%kernel.debug%"
     use_controller: false
     #java: /usr/bin/java
-    node: "/usr/bin/nodejs"
+    node: "%node.js%"
     node_paths: ["/usr/local/lib/node_modules"]
     bundles:
         - PurethinkCMSBundle

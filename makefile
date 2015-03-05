@@ -26,8 +26,8 @@ composer_update:
 
 do_install:
 	mkdir -p app/cache app/logs app/config web/uploads/media web/js web/css web/template
-	setfacl -R -m u:www-data:rwx -m u:`whoami`:rwx app/cache app/logs app/config web/uploads/media web/js web/css web/template
-	setfacl -dR -m u:www-data:rwx -m u:`whoami`:rwx app/cache app/logs app/config web/uploads/media web/js web/css web/template
+	-setfacl -R -m u:www-data:rwx -m u:`whoami`:rwx app/cache app/logs app/config web/uploads/media web/js web/css web/template
+	-setfacl -dR -m u:www-data:rwx -m u:`whoami`:rwx app/cache app/logs app/config web/uploads/media web/js web/css web/template
 
 update: composer_update do_install rebuild_db assetic clean
 

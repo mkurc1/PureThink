@@ -20,5 +20,7 @@ parameters:
 
     base_host               : http://www.foo.com
 
+    node.js: /usr/local/bin/node
+
     sonata_admin.title      : PureThink
     sonata_admin.logo_title : images/logo_big.png

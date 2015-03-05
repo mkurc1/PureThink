@@ -26,7 +26,7 @@ sonata_admin:
                 label_catalogue: PurethinkCMSBundle
                 items:
                     - purethink_cms.admin.article
-                    - purethink_cms.admin.menuType
+                    - purethink_cms.admin.menu_type
                     - purethink_cms.admin.extension
                     - purethink_cms.admin.component
                     - purethink_cms.admin.template

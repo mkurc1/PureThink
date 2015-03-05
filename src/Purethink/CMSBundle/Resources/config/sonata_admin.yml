@@ -26,7 +26,7 @@ services:
             - [ setSecurityContext, [ @security.context ] ]
             - [ setTemplate, [list, PurethinkCMSBundle:Admin:_articleList.html.twig] ]
 
-    purethink_cms.admin.menuType:
+    purethink_cms.admin.menu_type:
         tags:
             - { name: sonata.admin, manager_type: orm, group: CMS, label: Menu }
         class: Purethink\CMSBundle\Admin\MenuType
