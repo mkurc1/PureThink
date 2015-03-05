@@ -14,6 +14,14 @@ use Doctrine\Common\Collections\Collection;
  */
 class Menu
 {
+    const ARTICLE_LINK = 1;
+    const STRING_LINK = 2;
+
+    public static $linkTypes = [
+        self::ARTICLE_LINK => 'Article',
+        self::STRING_LINK => 'Url'
+    ];
+
     /**
      * @ORM\Column(type="integer")
      * @ORM\Id
@@ -43,6 +51,19 @@ class Menu
      * @ORM\Column(type="boolean", nullable=true)
      */
     private $isNewPage = false;
+
+    /**
+     * @var int
+     * @ORM\Column(type="integer")
+     */
+    private $typeOfLink = self::ARTICLE_LINK;
+
+    /**
+     * @var string
+     * @Assert\Url()
+     * @ORM\Column(type="string", nullable=true)
+     */
+    private $url;
 
     /**
      * @Gedmo\SortableGroup
@@ -337,5 +358,37 @@ class Menu
     public function getPublished()
     {
         return $this->published;
+    }
+
+    /**
+     * @return int
+     */
+    public function getTypeOfLink()
+    {
+        return $this->typeOfLink;
+    }
+
+    /**
+     * @param int $typeOfLink
+     */
+    public function setTypeOfLink($typeOfLink)
+    {
+        $this->typeOfLink = $typeOfLink;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUrl()
+    {
+        return $this->url;
+    }
+
+    /**
+     * @param string $url
+     */
+    public function setUrl($url)
+    {
+        $this->url = $url;
     }
 }
