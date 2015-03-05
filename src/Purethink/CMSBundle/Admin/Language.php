@@ -17,9 +17,11 @@ class Language extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->with('General')
+            ->with('General', ['class' => 'col-md-8'])
                 ->add('name')
                 ->add('alias')
+            ->end()
+            ->with('Options', ['class' => 'col-md-4'])
                 ->add('enabled', null, ['required' => false])
             ->end();
     }
