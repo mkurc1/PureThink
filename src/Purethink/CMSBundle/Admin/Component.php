@@ -41,13 +41,13 @@ class Component extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->with('General')
+            ->with('General', ['class' => 'col-md-8'])
                 ->add('name')
                 ->add('language')
                 ->add('extension')
                 ->add('enabled')
             ->end()
-            ->with('Set only when needed')
+            ->with('Set only when needed', ['class' => 'col-md-4'])
                 ->add('slug', null, ["required" => false])
             ->end();
     }
