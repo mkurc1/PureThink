@@ -3,6 +3,7 @@
 namespace Purethink\CMSBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Table(name="cms_website")
@@ -28,6 +29,11 @@ class Website implements MetadataInterface
      */
     private $metadata;
 
+    /**
+     * @ORM\Column(type="string", nullable=true, length=30)
+     * @Assert\Length(max="30")
+     */
+    private $analytics;
 
     public function __toString()
     {
@@ -98,5 +104,21 @@ class Website implements MetadataInterface
     public function getMetadata()
     {
         return $this->metadata;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAnalytics()
+    {
+        return $this->analytics;
+    }
+
+    /**
+     * @param mixed $analytics
+     */
+    public function setAnalytics($analytics)
+    {
+        $this->analytics = $analytics;
     }
 }

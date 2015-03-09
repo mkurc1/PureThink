@@ -49,10 +49,11 @@ class PageController extends Controller
         $layout = $this->getLayoutForTypeOfTemplate($template, Layout::LAYOUT_MAIN);
         /** @var Website $meta */
         $meta = $this->getMetadataByLocale($locale);
+        $analytics = $meta->getAnalytics();
 
         $content = $this->renderView(
             $layout->getAllPath(),
-            compact('meta', 'template', 'layout')
+            compact('meta', 'template', 'layout', 'analytics')
         );
 
         return new Response($content);
@@ -76,6 +77,7 @@ class PageController extends Controller
         $layout = $this->getLayoutForTypeOfTemplate($template, Layout::LAYOUT_SEARCH);
         /** @var Website $meta */
         $meta = $this->getMetadataByLocale($locale);
+        $analytics = $meta->getAnalytics();
 
         if ($search = $request->query->get('query')) {
             $entities = $this->getDoctrine()
@@ -87,7 +89,7 @@ class PageController extends Controller
 
         $content = $this->renderView(
             $layout->getAllPath(),
-            compact('meta', 'entities', 'template', 'layout')
+            compact('meta', 'entities', 'template', 'layout', 'analytics')
         );
 
         return new Response($content);
@@ -110,10 +112,11 @@ class PageController extends Controller
         /** @var Layout $layout */
         $layout = $this->getLayoutForTypeOfTemplate($template, Layout::LAYOUT_ARTICLE);
         $article = $this->get('purethink.cms.article_service')->getArticleBySlug($slug);
+        $analytics = $this->getMetadataByLocale($locale)->getAnalytics();
 
         $content = $this->renderView(
             $layout->getAllPath(),
-            compact('article', 'template', 'layout')
+            compact('article', 'template', 'layout', 'analytics')
         );
 
         return new Response($content);
