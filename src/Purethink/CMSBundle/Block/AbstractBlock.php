@@ -27,7 +27,7 @@ abstract class AbstractBlock extends BaseBlockService
 
     public function setDefaultSettings(OptionsResolverInterface $resolver)
     {
-        $resolver->setDefaults(['template' => "GamedotCoreBundle:Block:base_block.html.twig"]);
+        $resolver->setDefaults(['template' => null]);
     }
 
     public function execute(BlockContextInterface $blockContext, Response $response = null)
