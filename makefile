@@ -42,7 +42,7 @@ update_db:
 	php app/console sonata:admin:setup-acl
 
 remove_db:
-	php app/console doctrine:database:drop --force
+	-php app/console doctrine:database:drop --force
 
 upgrade: update
 	php composer.phar update

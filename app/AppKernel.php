@@ -18,7 +18,6 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
-            new RaulFraile\Bundle\LadybugBundle\RaulFraileLadybugBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
@@ -33,7 +32,6 @@ class AppKernel extends Kernel
             new Sonata\IntlBundle\SonataIntlBundle(),
             new Sonata\AdminBundle\SonataAdminBundle(),
             new Sonata\UserBundle\SonataUserBundle('FOSUserBundle'),
-            new Sonata\DatagridBundle\SonataDatagridBundle(),
             new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle(),
             new Sonata\MediaBundle\SonataMediaBundle(),
             new Sonata\ClassificationBundle\SonataClassificationBundle(),
@@ -60,6 +58,7 @@ class AppKernel extends Kernel
             $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
             $bundles[] = new Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
             $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();
+            $bundles[] = new RaulFraile\Bundle\LadybugBundle\RaulFraileLadybugBundle();
         }
 
         return $bundles;

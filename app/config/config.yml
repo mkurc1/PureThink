@@ -138,3 +138,6 @@ stof_doctrine_extensions:
 
 k_phoen_sitemap:
     base_host: %base_host%
+
+pix_sortable_behavior:
+    position_field: ~
