@@ -1,17 +1,20 @@
 {% if entities != null %}
-    <h3>{{ entities['title'] }}</h3>
+    <div class="col-xs-12 col-sm-6 col-md-4">
+        <h3>{{ entities['title'] }}</h3>
 
-    {% for key, new in entities if key != 'title' %}
-        <a href="{{ path('article', { 'locale': app.request.locale, 'category': new['adres'].category, 'slug': new['adres'].slug }) }}" class="news">
-            <div class="image">
-                {% media new['fotografia'], 'reference' %}
-            </div>
-            <div class="content">
-                <h4>{{ new['nazwa'] }}</h4>
-                <span class="date">{{ new['created']|format_datetime('dd MMM Y HH:mm') }}</span>
+        {% for key, new in entities if key != 'title' %}
+            <div class="media">
+                <div class="media-left">
+                    <a href="{{ path('article', { 'locale': app.request.locale, 'category': new['adres'].category, 'slug': new['adres'].slug }) }}">
+                        {% media new['fotografia'], 'reference' with {'class': 'media-object'}  %}
+                    </a>
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">{{ new['nazwa'] }} <small class="date">{{ new['created']|format_datetime('dd MMM Y HH:mm') }}</small></h4>
 
-                <p>{{ new['tresc'] }}</p>
+                    <p>{{ new['tresc'] }}</p>
+                </div>
             </div>
-        </a>
-    {% endfor %}
+        {% endfor %}
+    </div>
 {% endif %}

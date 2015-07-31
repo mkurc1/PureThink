@@ -2,9 +2,9 @@
     <div id="links">
         <div class="container">
             <h3>{{ entities['title'] }}</h3>
-            <ul>
+            <ul class="row">
                 {% for key, link in entities if key != 'title' %}
-                    <li>
+                    <li class="col-xs-6 col-sm-4 col-md-3">
                         <a href="{{ path('article', { 'locale': app.request.locale, 'category': link['adres'].category, 'slug': link['adres'].slug }) }}">{{ link['nazwa'] }}</a>
                     </li>
                 {% endfor %}

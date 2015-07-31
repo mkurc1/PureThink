@@ -7,8 +7,9 @@
 {% endblock %}
 
 {% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" type="text/css" />
+
     {% stylesheets
-        '@PurethinkCMSBundle/Resources/public/css/plugin/bootstrap.css'
         '@PurethinkCMSBundle/Resources/public/css/plugin/alertify.core.css'
         '@PurethinkCMSBundle/Resources/public/css/plugin/alertify.bootstrap.css'
         '@PurethinkCMSBundle/Resources/public/css/core.css'
@@ -21,13 +22,14 @@
 {% block javascripts %}
     {% javascripts
         '@PurethinkCMSBundle/Resources/public/js/lib/jquery.js'
-        '@PurethinkCMSBundle/Resources/public/js/plugin/bootstrap.js'
         '@PurethinkCMSBundle/Resources/public/js/plugin/alertify.js'
         '@PurethinkCMSBundle/Resources/public/js/core.js'
         filter="uglifyjs2"
         output='js/core.js' %}
         <script src="{{ asset_url }}"></script>
     {% endjavascripts %}
+
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
 {% endblock javascripts %}
 
 {% block body %}

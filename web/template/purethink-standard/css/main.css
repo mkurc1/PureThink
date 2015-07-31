@@ -1,13 +1,5 @@
-* {
-    margin: 0;
-    padding: 0;
-    border: 0 none;
-}
-
 .container {
-    position: relative;
-    margin: 0 auto;
-    width: 1000px;
+    max-width: 1000px;
 }
 
 #cookie {
@@ -60,16 +52,8 @@
 }
 
 #top {
-    position: relative;
-    width: 100%;
-    height: 121px;
     margin-top: 35px;
-}
-
-#top > .container > #logo {
-    position: relative;
-    float: left;
-    margin-top: 20px;
+    margin-bottom: 40px;
 }
 
 div.top-menu {
@@ -116,6 +100,7 @@ ul#language {
     list-style-type: none;
     border-left: 1px solid #959595;
     margin-left: 8px;
+    padding-left: 0;
 }
 
 ul#language > li {
@@ -138,245 +123,217 @@ ul#language > li.selected > a {
 #main_menu {
     position: relative;
     width: 100%;
-    height: 33px;
     border-bottom: 1px solid #579bf0;
 }
 
-#main_menu > .container > ul {
-    position: relative;
-    float: left;
-    list-style-type: none;
-    height: 33px;
+
+#main_menu .container-fluid,
+#main_menu .navbar-collapse {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+#main_menu .navbar {
     margin-bottom: 0;
 }
 
-#main_menu > .container > ul > li {
-    position: relative;
-    float: left;
-    height: 100%;
-    padding: 10px 10px 8px 10px;
+#main_menu .navbar-default {
+    background-color: transparent;
+    border-color: transparent;
 }
 
-#main_menu > .container > ul > li:first-child {
+.nav > li:first-child > a {
     padding-left: 0;
 }
 
-#main_menu > .container > ul > li > a {
-    color: #111111;
-    position: relative;
-    float: left;
-    font-size: 13px;
-    text-transform: uppercase;
-}
+/*#main_menu > .container > ul {*/
+    /*position: relative;*/
+    /*float: left;*/
+    /*list-style-type: none;*/
+    /*height: 33px;*/
+    /*margin-bottom: 0;*/
+    /*padding-left: 0;*/
+/*}*/
 
-#main_menu > .container > ul > li.selected > a {
-    color: #666666;
-}
+/*#main_menu > .container > ul > li {*/
+    /*position: relative;*/
+    /*float: left;*/
+    /*height: 100%;*/
+    /*padding: 10px 10px 8px 10px;*/
+/*}*/
 
-#main_menu > .container > ul > li > ul {
-    display: none;
-    position: absolute;
-    background-color: #fff;
-    padding: 10px 10px 10px 15px;
-    z-index: 200;
-    width: 180px;
-    list-style-position: inside;
-    color: #579bf0;
-    margin: 23px 0 0 -10px;
-    border: 1px solid #579bf0;
-    border-width: 0 1px 1px 1px;
-}
+/*#main_menu > .container > ul > li:first-child {*/
+    /*padding-left: 0;*/
+/*}*/
 
-#main_menu > .container > ul > li > ul > li {
-    position: relative;
-    float: left;
-    width: 100%;
-    font-size: 12px;
-    margin-bottom: 3px;
-}
+/*#main_menu > .container > ul > li > a {*/
+    /*color: #111111;*/
+    /*position: relative;*/
+    /*float: left;*/
+    /*font-size: 13px;*/
+    /*text-transform: uppercase;*/
+/*}*/
 
-#main_menu > .container > ul > li > ul > li > a {
-    color: #303030;
-}
+/*#main_menu > .container > ul > li.selected > a {*/
+    /*color: #666666;*/
+/*}*/
 
-#main_menu > .container > ul > li.has_submenu:hover {
-    border: 1px solid #579bf0;
-    border-width: 1px 1px 0 1px;
-    padding: 9px;
-    background-color: #ffffff;
-}
+/*#main_menu > .container > ul > li > ul {*/
+    /*display: none;*/
+    /*position: absolute;*/
+    /*background-color: #fff;*/
+    /*padding: 10px 10px 10px 15px;*/
+    /*z-index: 200;*/
+    /*width: 180px;*/
+    /*list-style-position: inside;*/
+    /*color: #579bf0;*/
+    /*margin: 23px 0 0 -10px;*/
+    /*border: 1px solid #579bf0;*/
+    /*border-width: 0 1px 1px 1px;*/
+/*}*/
 
-#main_menu > .container > ul > li:hover > ul {
-    display: block;
-}
+/*#main_menu > .container > ul > li > ul > li {*/
+    /*position: relative;*/
+    /*float: left;*/
+    /*width: 100%;*/
+    /*font-size: 12px;*/
+    /*margin-bottom: 3px;*/
+/*}*/
 
-#main_menu > .container > #search-form {
-    position: relative;
-    float: right;
-}
+/*#main_menu > .container > ul > li > ul > li > a {*/
+    /*color: #303030;*/
+/*}*/
 
-#main_menu > .container > #search-form > #search_box {
-    position: relative;
-    float: right;
-    margin-top: 3px;
-    background-color: #FFFFFF;
-    border: 1px solid #C5C5C5;
-    border-radius: 4px;
-    height: 22px;
-    width: 240px;
-}
+/*#main_menu > .container > ul > li.has_submenu:hover {*/
+    /*border: 1px solid #579bf0;*/
+    /*border-width: 1px 1px 0 1px;*/
+    /*padding: 9px;*/
+    /*background-color: #ffffff;*/
+/*}*/
 
-#main_menu > .container > #search-form > #search_box > input {
-    position: relative;
-    float: left;
-    border: 0;
-    font-size: 11px;
-    font-weight: normal;
-    color: #4b4b4b;
-    height: 20px;
-    width: 192px;
-    padding: 0 13px;
-    background-color: #FFFFFF;
-    border-radius: 4px;
-}
+/*#main_menu > .container > ul > li:hover > ul {*/
+    /*display: block;*/
+/*}*/
 
-#main_menu > .container > #search-form > #search_box > span {
-    position: relative;
-    float: right;
-    font-size: 14px;
-    margin: 3px 5px 0 0;
-    color: #7F7F7F;
-}
+/*#main_menu > .container > #search-form {*/
+    /*position: relative;*/
+    /*float: right;*/
+/*}*/
 
-#baner {
-    position: relative;
-    float: left;
-    width: 100%;
+/*#main_menu > .container > #search-form > #search_box {*/
+    /*position: relative;*/
+    /*float: right;*/
+    /*margin-top: 3px;*/
+    /*background-color: #FFFFFF;*/
+    /*border: 1px solid #C5C5C5;*/
+    /*border-radius: 4px;*/
+    /*height: 22px;*/
+    /*width: 240px;*/
+/*}*/
+
+/*#main_menu > .container > #search-form > #search_box > input {*/
+    /*position: relative;*/
+    /*float: left;*/
+    /*border: 0;*/
+    /*font-size: 11px;*/
+    /*font-weight: normal;*/
+    /*color: #4b4b4b;*/
+    /*height: 20px;*/
+    /*width: 192px;*/
+    /*padding: 0 13px;*/
+    /*background-color: #FFFFFF;*/
+    /*border-radius: 4px;*/
+/*}*/
+
+/*#main_menu > .container > #search-form > #search_box > span {*/
+    /*position: relative;*/
+    /*float: right;*/
+    /*font-size: 14px;*/
+    /*margin: 3px 5px 0 0;*/
+    /*color: #7F7F7F;*/
+/*}*/
+
+#banner {
     background-color: #dddddd;
-    height: 323px;
     padding-top: 19px;
 }
 
-#baner .carousel-inner {
-    height: 287px;
-}
-
-#baner .carousel-control {
+#banner .carousel-control {
     background: none;
 }
 
-#baner .carousel-control.left {
-    left: -150px;
+@media (min-width: 1300px) {
+    #banner .carousel-control.left {
+        left: -150px;
+    }
+
+    #banner .carousel-control.right {
+        right: -150px;
+    }
 }
 
-#baner .carousel-control.right {
-    right: -150px;
+@media (max-width: 1000px) {
+    #search-form {
+        display: none;
+    }
 }
 
 #news {
-    position: relative;
-    float: left;
-    width: 100%;
     margin-top: 40px;
 }
 
-#news > .container div > h3 {
+#news h3 {
     color: #444444;
-    position: relative;
-    float: left;
-    width: 100%;
     border-bottom: 1px solid #579bf0;
     font-size: 14px;
     font-weight: normal;
     padding-bottom: 2px;
 }
 
-#news > .container div > a.news {
-    position: relative;
-    float: left;
-    height: 113px;
-    width: 100%;
-    margin-top: 20px;
-    margin-bottom: 10px;
-}
-
-#news > .container div > a.news > div.image {
-    position: relative;
-    float: left;
-    height: 100%;
-    width: 105px;
-}
-
-#news > .container div > a.news > div.content {
-    position: relative;
-    float: right;
-    width: 177px;
-}
-
-#news > .container div > a.news > div.content > h4 {
-    position: relative;
-    float: left;
-    width: 100%;
+#news h4 {
     font-weight: bold;
     color: #444444;
     font-size: 12px;
-    margin: 0 0 3px 0;
 }
 
-#news > .container div > a.news > div.content > span {
-    position: relative;
-    float: left;
+#news small {
+    display: block;
     width: 100%;
     color: #747474;
     font-size: 11px;
-    margin-bottom: 3px;
+    margin: 3px 0;
 }
 
-#news > .container div > a.news > div.content > p {
-    position: relative;
-    float: left;
-    width: 100%;
+#news p {
     color: #444444;
     font-size: 12px;
     text-align: justify;
 }
 
 #links {
-    position: relative;
-    float: left;
-    width: 100%;
     margin-top: 40px;
 }
 
-#links > .container > h3 {
+#links h3 {
     color: #444444;
-    position: relative;
-    float: left;
-    width: 100%;
     border-bottom: 1px solid #579bf0;
     font-size: 14px;
     font-weight: normal;
     padding-bottom: 2px;
 }
 
-#links > .container > ul {
-    position: relative;
-    float: left;
-    width: 100%;
+#links ul {
     list-style-position: inside;
     margin: 30px 0 25px 0;
 }
 
-#links > .container > ul > li {
-    position: relative;
-    float: left;
-    width: 25%;
+#links li {
     margin-bottom: 5px;
     font-size: 12px;
     color: #818181;
 }
 
-#links > .container > ul > li > a {
+#links a {
     color: #1e60b4;
     font-size: 12px;
 }
@@ -435,6 +392,7 @@ ul#language > li.selected > a {
     position: relative;
     float: left;
     list-style-type: none;
+    padding-left: 0;
 }
 
 #footer > .container > .left > ul > li {

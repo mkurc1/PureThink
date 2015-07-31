@@ -1,38 +1,38 @@
 #article {
-	font-family: sans-serif, Arial, Verdana, "Trebuchet MS";
-	font-size: 13px;
-	color: #333;
+    font-family: sans-serif, Arial, Verdana, "Trebuchet MS";
+    font-size: 13px;
+    color: #333;
     line-height: 1.6em;
 }
 
 #article .cke_editable {
-	font-size: 13px;
-	line-height: 1.6em;
+    font-size: 13px;
+    line-height: 1.6em;
 }
 
 #article blockquote {
-	font-style: italic;
-	font-family: Georgia, Times, "Times New Roman", serif;
-	padding: 2px 0;
-	border-style: solid;
-	border-color: #ccc;
-	border-width: 0;
+    font-style: italic;
+    font-family: Georgia, Times, "Times New Roman", serif;
+    padding: 2px 0;
+    border-style: solid;
+    border-color: #ccc;
+    border-width: 0;
 }
 
 #article .cke_contents_ltr blockquote {
-	padding-left: 20px;
-	padding-right: 8px;
-	border-left-width: 5px;
+    padding-left: 20px;
+    padding-right: 8px;
+    border-left-width: 5px;
 }
 
 #article .cke_contents_rtl blockquote {
-	padding-left: 8px;
-	padding-right: 20px;
-	border-right-width: 5px;
+    padding-left: 8px;
+    padding-right: 20px;
+    border-right-width: 5px;
 }
 
 #article a {
-	color: #0782C1;
+    color: #0782C1;
 }
 
 #article p {
@@ -51,8 +51,8 @@
 }
 
 #article ol, #article ul, #article dl {
-	*margin-right: 0px;
-	padding: 0 40px;
+    *margin-right: 0px;
+    padding: 0 40px;
     margin-bottom: 5px;
 }
 
@@ -62,14 +62,14 @@
 }
 
 #article h1, #article h2, #article h3, #article h4, #article h5, #article h6 {
-	font-weight: normal;
-	line-height: 1.2em;
+    font-weight: normal;
+    line-height: 1.2em;
     margin: 15px 0;
 }
 
 #article hr {
-	border: 0px;
-	border-top: 1px solid #ccc;
+    border: 0px;
+    border-top: 1px solid #ccc;
 }
 
 #article img.right {
@@ -87,12 +87,12 @@
 }
 
 #article img:hover {
-	opacity: 0.9;
+    opacity: 0.9;
 }
 
 #article pre {
-	white-space: pre-wrap; /* CSS 2.1 */
-	word-wrap: break-word; /* IE7 */
+    white-space: pre-wrap; /* CSS 2.1 */
+    word-wrap: break-word; /* IE7 */
 }
 
 #article .marker {

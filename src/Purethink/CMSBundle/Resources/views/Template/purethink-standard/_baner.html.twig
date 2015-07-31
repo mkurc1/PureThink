@@ -1,32 +1,32 @@
 {% if entities != null %}
-    <div id="baner">
+    <div id="banner">
         <div class="container">
-            <div id="baner_a" class="carousel slide" data-ride="carousel">
+            <div id="banner_a" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
                     {% set i = 0 %}
-                    {% for key, baner in entities if key != 'title' %}
+                    {% for key, banner in entities if key != 'title' %}
                         {% set i = i + 1 %}
-                        <li data-target="#baner_a" data-slide-to="{{ i - 1 }}"
+                        <li data-target="#banner_a" data-slide-to="{{ i - 1 }}"
                             class="{{ (i == 1) ? 'active' : '' }}"></li>
                     {% endfor %}
                 </ol>
 
                 <div class="carousel-inner">
                     {% set i = 0 %}
-                    {% for key, baner in entities if key != 'title' %}
+                    {% for key, banner in entities if key != 'title' %}
                         {% set i = i + 1 %}
                         <div class="item {{ (i == 1) ? 'active' : '' }}">
-                            <a href="{{ path('article', { 'locale': app.request.locale, 'category': baner['adres'].category, 'slug': baner['adres'].slug }) }}">
-                                {% media baner['fotografia'], 'reference' %}
+                            <a href="{{ path('article', { 'locale': app.request.locale, 'category': banner['adres'].category, 'slug': banner['adres'].slug }) }}">
+                                {% media banner['fotografia'], 'reference' %}
                             </a>
                         </div>
                     {% endfor %}
                 </div>
 
-                <a class="left carousel-control" href="#baner_a" data-slide="prev">
+                <a class="left carousel-control" href="#banner_a" data-slide="prev">
                     <span class="glyphicon glyphicon-chevron-left"></span>
                 </a>
-                <a class="right carousel-control" href="#baner_a" data-slide="next">
+                <a class="right carousel-control" href="#banner_a" data-slide="next">
                     <span class="glyphicon glyphicon-chevron-right"></span>
                 </a>
             </div>

@@ -1,0 +1,35 @@
+<ul class="nav navbar-nav">
+    {% for entity in menu %}
+        {% if entity.activeChildren | length > 0 %}
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+                   aria-expanded="false">
+                    {{ entity }} <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    {% for child in entity.activeChildren %}
+                        <li>
+                            <a {{ child.isNewPage ? 'target="_blank"' : '' }} href="
+                    {% if child.typeOfLink == constant('Purethink\\CMSBundle\\Entity\\Menu::ARTICLE_LINK') %}
+                        {{ path('article', { 'locale': app.request.locale, 'category': child.article.category.slug, 'slug': child.article.slug }) }}
+                    {% elseif child.typeOfLink == constant('Purethink\\CMSBundle\\Entity\\Menu::STRING_LINK') %}
+                        {{ child.url }}
+                    {% endif %}
+                        ">{{ child }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% else %}
+            <li>
+                <a {{ entity.isNewPage ? 'target="_blank"' : '' }} href="
+                    {% if entity.typeOfLink == constant('Purethink\\CMSBundle\\Entity\\Menu::ARTICLE_LINK') %}
+                        {{ path('article', { 'locale': app.request.locale, 'category': entity.article.category.slug, 'slug': entity.article.slug }) }}
+                    {% elseif entity.typeOfLink == constant('Purethink\\CMSBundle\\Entity\\Menu::STRING_LINK') %}
+                        {{ entity.url }}
+                    {% endif %}
+                        ">{{ entity }}</a>
+            </li>
+        {% endif %}
+    {% endfor %}
+</ul>
