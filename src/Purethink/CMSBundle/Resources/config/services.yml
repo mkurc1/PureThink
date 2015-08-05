@@ -6,12 +6,6 @@ services:
         calls:
             - [ setAnnotationReader, [ @annotation_reader ] ]
 
-    sitemap_article_provider:
-        class: Purethink\CMSBundle\Sitemap\Article
-        arguments: [@router, @doctrine.orm.entity_manager]
-        tags:
-            -  { name: sitemap.provider }
-
     purethink.cms.article_type:
         class: Purethink\CMSBundle\Form\Type\ArticleType
         tags:

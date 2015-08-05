@@ -4,7 +4,6 @@ imports:
     - { resource: security.yml }
 
     # FriendOfSymfony Bundles
-    - { resource: fos/fos_comment.yml }
     - { resource: fos/fos_user.yml }
 
     # Sonata Bundles
@@ -118,9 +117,6 @@ stof_doctrine_extensions:
             sluggable: true
             sortable: true
             softdeleteable: true
-
-k_phoen_sitemap:
-    base_host: %base_host%
 
 pix_sortable_behavior:
     position_field: ~

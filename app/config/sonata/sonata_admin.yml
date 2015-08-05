@@ -17,7 +17,6 @@ sonata_admin:
                     - purethink_cms.admin.component
                     - purethink_cms.admin.template
                     - sonata.media.admin.media
-                    - sonata.comment.admin.thread
             sonata.admin.group.administration:
                 label: sonata_administration
                 icon: <i class="fa fa-cogs"></i>

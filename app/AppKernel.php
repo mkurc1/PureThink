@@ -19,7 +19,6 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new FOS\UserBundle\FOSUserBundle(),
-            new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
             new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
@@ -34,20 +33,14 @@ class AppKernel extends Kernel
             new Sonata\UserBundle\SonataUserBundle('FOSUserBundle'),
             new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle(),
             new Sonata\MediaBundle\SonataMediaBundle(),
-            new Sonata\ClassificationBundle\SonataClassificationBundle(),
-            new Sonata\CommentBundle\SonataCommentBundle(),
 
             new Pix\SortableBehaviorBundle\PixSortableBehaviorBundle(),
             new Khepin\YamlFixturesBundle\KhepinYamlFixturesBundle(),
             new FOS\RestBundle\FOSRestBundle(),
-            new FOS\CommentBundle\FOSCommentBundle(),
             new JMS\SerializerBundle\JMSSerializerBundle(),
-            new KPhoen\SitemapBundle\KPhoenSitemapBundle(),
 
             new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
             new Application\Sonata\MediaBundle\ApplicationSonataMediaBundle(),
-            new Application\Sonata\ClassificationBundle\ApplicationSonataClassificationBundle(),
-            new Application\Sonata\CommentBundle\ApplicationSonataCommentBundle(),
 
             new Purethink\CMSBundle\PurethinkCMSBundle()
         ];

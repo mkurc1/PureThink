@@ -50,10 +50,10 @@ class Article implements MetadataInterface, ArticleViewInterface
      */
     private $updated;
 
-        /**
-         * @ORM\Column(name="deletedAt", type="datetime", nullable=true)
-         */
-        private $deletedAt;
+    /**
+     * @ORM\Column(name="deletedAt", type="datetime", nullable=true)
+     */
+    private $deletedAt;
 
     /**
      * @ORM\Column(type="boolean", nullable=true)
