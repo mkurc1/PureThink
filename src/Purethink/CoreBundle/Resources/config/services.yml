@@ -1,6 +1,0 @@
-services:
-    ladybug.twig.extension:
-        class: Purethink\CoreBundle\Twig\LadybugExtension
-        tags:
-            - { name: twig.extension }
-        arguments: [@service_container]
