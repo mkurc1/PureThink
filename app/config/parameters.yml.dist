@@ -18,5 +18,3 @@ parameters:
     secret                  : ThisTokenIsNotSoSecretChangeIt
 
     base_host               : http://www.foo.com
-
-    node.js: /usr/local/bin/node

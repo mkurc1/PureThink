@@ -1,14 +1,9 @@
-{% extends "ApplicationSonataUserBundle:Security:base_login.html.twig" %}
+{% extends "ApplicationSonataUserBundle:Security:login.html.twig" %}
 
 {% block stylesheets %}
     {{ parent() }}
 
-    {% stylesheets
-    '@ApplicationSonataUserBundle/Resources/public/css/login.css'
-    filter='cssrewrite,uglifycss'
-    output='css/register.css' %}
-    <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
-    {% endstylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/login.css') }}" type="text/css" />
 {% endblock stylesheets %}
 
 {% block fos_user_content %}

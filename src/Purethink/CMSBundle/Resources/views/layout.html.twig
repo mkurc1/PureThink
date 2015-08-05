@@ -8,27 +8,15 @@
 
 {% block stylesheets %}
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" type="text/css" />
-
-    {% stylesheets
-        '@PurethinkCMSBundle/Resources/public/css/plugin/alertify.core.css'
-        '@PurethinkCMSBundle/Resources/public/css/plugin/alertify.bootstrap.css'
-        '@PurethinkCMSBundle/Resources/public/css/core.css'
-        filter='less,cssrewrite,uglifycss'
-        output='css/core.css' %}
-        <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
-    {% endstylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/alertify.core.css') }}" type="text/css" />
+    <link rel="stylesheet" href="{{ asset('css/alertify.bootstrap.css') }}" type="text/css" />
+    <link rel="stylesheet" href="{{ asset('css/core.css') }}" type="text/css" />
 {% endblock stylesheets %}
 
 {% block javascripts %}
-    {% javascripts
-        '@PurethinkCMSBundle/Resources/public/js/lib/jquery.js'
-        '@PurethinkCMSBundle/Resources/public/js/plugin/alertify.js'
-        '@PurethinkCMSBundle/Resources/public/js/core.js'
-        filter="uglifyjs2"
-        output='js/core.js' %}
-        <script src="{{ asset_url }}"></script>
-    {% endjavascripts %}
-
+    <script src="{{ asset('js/jquery-1.11.3.min.js') }}"></script>
+    <script src="{{ asset('js/alertify.js') }}"></script>
+    <script src="{{ asset('js/core.js') }}"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
 {% endblock javascripts %}
 
