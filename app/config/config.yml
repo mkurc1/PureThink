@@ -3,9 +3,6 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
 
-    # Mopa Bootstrap
-    - { resource: mopa/mopa_bootstrap.yml }
-
     # FriendOfSymfony Bundles
     - { resource: fos/fos_comment.yml }
     - { resource: fos/fos_user.yml }
@@ -125,15 +122,11 @@ services:
             - { name: twig.extension }
 
 stof_doctrine_extensions:
-    default_locale: en_US
     orm:
         default:
-            tree: false
-            loggable: false
             timestampable: true
             sluggable: true
             sortable: true
-            translatable: false
             softdeleteable: true
 
 k_phoen_sitemap:

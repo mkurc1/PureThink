@@ -43,7 +43,6 @@ class AppKernel extends Kernel
             new FOS\CommentBundle\FOSCommentBundle(),
             new JMS\SerializerBundle\JMSSerializerBundle(),
             new KPhoen\SitemapBundle\KPhoenSitemapBundle(),
-            new Mopa\Bundle\BootstrapBundle\MopaBootstrapBundle(),
 
             new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
             new Application\Sonata\MediaBundle\ApplicationSonataMediaBundle(),
