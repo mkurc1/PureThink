@@ -1,6 +1,10 @@
-_admin:
-    resource: routing_admin.yml
-    prefix: /admin
+_main:
+    resource: routing_main.yml
+    host: "%base_host%"
+    prefix:   /
 
-_front:
-    resource: routing_front.yml
+_security_check:
+    pattern:  /login_check
+
+_security_logout:
+    pattern:  /logout

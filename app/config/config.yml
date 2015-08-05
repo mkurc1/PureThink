@@ -7,17 +7,11 @@ imports:
     - { resource: fos/fos_comment.yml }
     - { resource: fos/fos_user.yml }
 
-    # Sonata Core Bundles
-    - { resource: sonata/sonata_core.yml }
+    # Sonata Bundles
     - { resource: sonata/sonata_block.yml }
-    - { resource: sonata/sonata_formatter.yml }
-    - { resource: sonata/sonata_intl.yml }
-
-    # Sonata Feature Bundles
     - { resource: sonata/sonata_admin.yml }
     - { resource: sonata/sonata_media.yml }
     - { resource: sonata/sonata_user.yml }
-    - { resource: sonata/sonata_classification.yml }
 
     # Khepin Fixtures
     - { resource: khepin/khepin_yaml_fixtures.yml }
@@ -84,7 +78,7 @@ assetic:
 # Doctrine Configuration
 doctrine:
     dbal:
-        driver:   "%database_driver%"
+        driver:   pdo_mysql
         host:     "%database_host%"
         port:     "%database_port%"
         dbname:   "%database_name%"
@@ -99,6 +93,7 @@ doctrine:
 
     orm:
         auto_generate_proxy_classes: "%kernel.debug%"
+        naming_strategy: doctrine.orm.naming_strategy.underscore
         auto_mapping: true
         filters:
             softdeleteable:
@@ -115,13 +110,8 @@ swiftmailer:
     port:       "%mailer_port%"
     spool:     { type: memory }
 
-services:
-    twig.extension.txt:
-        class: Twig_Extensions_Extension_Text
-        tags:
-            - { name: twig.extension }
-
 stof_doctrine_extensions:
+    default_locale: "%locale%"
     orm:
         default:
             timestampable: true

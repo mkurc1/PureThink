@@ -1,16 +1,10 @@
 security:
+    encoders:
+            FOS\UserBundle\Model\UserInterface: sha512
+
     providers:
         fos_userbundle:
             id: fos_user.user_provider.username_email
-
-    acl:
-        connection: default
-
-    encoders:
-        FOS\UserBundle\Model\UserInterface: sha512
-
-    access_decision_manager:
-        strategy: consensus
 
     firewalls:
         dev:

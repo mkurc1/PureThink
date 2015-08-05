@@ -1,22 +1,9 @@
 sonata_admin:
     title: PureThink
 
-    security:
-        handler: sonata.admin.security.handler.acl
-
-        information:
-            GUEST: [VIEW, LIST]
-            STAFF: [EDIT, LIST, CREATE]
-            EDITOR: [OPERATOR, EXPORT]
-            ADMIN: [MASTER]
-
-        admin_permissions: [CREATE, LIST, DELETE, UNDELETE, EXPORT, OPERATOR, MASTER]
-        object_permissions: [VIEW, EDIT, DELETE, UNDELETE, OPERATOR, MASTER, OWNER]
-
     dashboard:
         blocks:
             - { position: left, type: sonata.admin.block.admin_list }
-            - { position: right, type: sonata.block.service.text, settings: { content: "<h2>Welcome!</h2> You can customize this dashboard by editing the sonata_admin.yml file. The current dashboard presents the recent items from the NewsBundle and a timeline with the latest action"} }
 
         groups:
             sonata.admin.group.content:

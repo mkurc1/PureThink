@@ -39,7 +39,6 @@ create_db:
 update_db:
 	php app/console doctrine:schema:update --force
 	php app/console khepin:yamlfixtures:load
-	php app/console sonata:admin:setup-acl
 
 remove_db:
 	-php app/console doctrine:database:drop --force
