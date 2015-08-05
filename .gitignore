@@ -3,8 +3,6 @@
 /app/bootstrap*
 /app/cache/*
 /app/logs/*
-/web/js/*
-/web/css/*
 /vendor/
 /bin/
 /app/config/parameters.yml
