@@ -1,6 +1,6 @@
 <?php
 
-namespace Purethink\CMSBundle\Controller;
+namespace Purethink\CMSBundle\Controller\Admin;
 
 use Sonata\AdminBundle\Controller\CRUDController;
 use Symfony\Bridge\Twig\Extension\FormExtension;

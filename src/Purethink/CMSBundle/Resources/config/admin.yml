@@ -21,7 +21,7 @@ services:
         tags:
             - { name: sonata.admin, manager_type: orm, group: CMS, label: Articles }
         class: Purethink\CMSBundle\Admin\Article
-        arguments: [null, Purethink\CMSBundle\Entity\Article, 'PurethinkCMSBundle:ArticleAdmin']
+        arguments: [null, Purethink\CMSBundle\Entity\Article, 'PurethinkCMSBundle:Admin\ArticleAdmin']
         calls:
             - [ setSecurityContext, [ @security.context ] ]
             - [ setTemplate, [list, PurethinkCMSBundle:Admin:_articleList.html.twig] ]
@@ -64,7 +64,7 @@ services:
         tags:
             - { name: sonata.admin, manager_type: orm, show_in_dashboard: false }
         class: Purethink\CMSBundle\Admin\ComponentHasElement
-        arguments: [null, Purethink\CMSBundle\Entity\ComponentHasElement, 'PurethinkCMSBundle:ComponentHasElementAdmin']
+        arguments: [null, Purethink\CMSBundle\Entity\ComponentHasElement, 'PurethinkCMSBundle:Admin\ComponentHasElementAdmin']
         calls:
             - [ addChild, [@purethink_cms.admin.componentHasValue] ]
             - [ setContainer, [ @service_container ] ]
@@ -107,7 +107,7 @@ services:
         tags:
             - { name: sonata.admin, manager_type: orm, show_in_dashboard: false }
         class: Purethink\CMSBundle\Admin\Position
-        arguments: [null, Purethink\CMSBundle\Entity\Position, 'PurethinkCMSBundle:PositionAdmin']
+        arguments: [null, Purethink\CMSBundle\Entity\Position, 'PurethinkCMSBundle:Admin\PositionAdmin']
         calls:
             - [ setSubClasses, [{'Menu': Purethink\CMSBundle\Entity\PositionMenuType, 'Component': Purethink\CMSBundle\Entity\PositionComponent, 'Article': Purethink\CMSBundle\Entity\PositionArticle, 'Language': Purethink\CMSBundle\Entity\PositionLanguage}] ]
             - [ setTemplate, [list, PurethinkCMSBundle:Admin:_positionList.html.twig] ]
