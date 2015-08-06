@@ -27,32 +27,25 @@ class Article extends Admin
     {
         $formMapper
             ->with('General', ['class' => 'col-md-8'])
-                ->add('name')
-                ->add('content', 'ckeditor', ['config_name' => 'default'])
-                ->add('excerpt', 'ckeditor', ['config_name' => 'excerpt'])
+            ->add('name')
+            ->add('content', 'ckeditor', ['config_name' => 'default'])
+            ->add('excerpt', 'ckeditor', ['config_name' => 'excerpt'])
             ->end()
             ->with('Options', ['class' => 'col-md-4'])
-                ->add('user', 'sonata_type_model_list', [
-                    'btn_add' => false,
-                    'btn_delete' => false
-                ])
-                ->add('language')
-                ->add('category', 'sonata_type_model_list', [
-                    'btn_delete' => false
-                ])
-                ->add('tags', 'sonata_type_model', [
-                    'required' => false,
-                    'multiple' => true
-                ])
-                ->add('published')
-                ->add('slug', null, ["required" => false])
+            ->add('user', 'sonata_type_model_list', [
+                'btn_add'    => false,
+                'btn_delete' => false
+            ])
+            ->add('language')
+            ->add('published')
+            ->add('slug', null, ["required" => false])
             ->end()
             ->with('SEO', ['class' => 'col-md-4'])
-                ->add('metadata', 'sonata_type_admin', [
-                    'label' => false,
-                    'delete' => false,
-                    'btn_add' => false
-                ])
+            ->add('metadata', 'sonata_type_admin', [
+                'label'   => false,
+                'delete'  => false,
+                'btn_add' => false
+            ])
             ->end();
     }
 
@@ -64,19 +57,7 @@ class Article extends Admin
             ->add('slug')
             ->add('user')
             ->add('created')
-            ->add('updated')
-            ->add('category', 'doctrine_orm_callback', [
-                'callback' => function ($queryBuilder, $alias, $field, $value) {
-                    if (!$value || !$value['value']) {
-                        return false;
-                    } else {
-                        $queryBuilder->andWhere($alias . '.category = :category');
-                        $queryBuilder->setParameter('category', $value['value']);
-
-                        return true;
-                    }
-                }
-            ]);
+            ->add('updated');
     }
 
     protected function configureListFields(ListMapper $listMapper)
@@ -85,7 +66,6 @@ class Article extends Admin
             ->addIdentifier('id')
             ->addIdentifier('name')
             ->addIdentifier("slug")
-            ->add("category")
             ->add('user')
             ->add('view.views', null, ['label' => 'Views'])
             ->add('published', null, ['editable' => true])
@@ -99,7 +79,6 @@ class Article extends Admin
             ->add('name')
             ->add('language')
             ->add('content', null, ['safe' => true])
-            ->add('tags')
             ->add('published');
     }
 

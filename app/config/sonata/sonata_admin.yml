@@ -26,5 +26,3 @@ sonata_admin:
                     - sonata.user.admin.group
                     - purethink_cms.admin.language
                     - purethink_cms.admin.website
-                    - purethink_cms.admin.tag
-                    - purethink_cms.admin.category

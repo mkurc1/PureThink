@@ -12,7 +12,7 @@
 
                 <ul>
                 {% for entity in entities %}
-                    <li><a href="{{ path('article', {'locale': app.request.locale, 'category': entity.category, 'slug': entity.slug}) }}">{{ entity }}</a></li>
+                    <li><a href="{{ path('article', {'locale': app.request.locale, 'slug': entity.slug}) }}">{{ entity }}</a></li>
                 {% endfor %}
                 </ul>
             </div>

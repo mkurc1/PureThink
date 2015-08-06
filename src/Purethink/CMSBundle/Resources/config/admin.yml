@@ -21,10 +21,9 @@ services:
         tags:
             - { name: sonata.admin, manager_type: orm, group: CMS, label: Articles }
         class: Purethink\CMSBundle\Admin\Article
-        arguments: [null, Purethink\CMSBundle\Entity\Article, 'PurethinkCMSBundle:Admin\ArticleAdmin']
+        arguments: [null, Purethink\CMSBundle\Entity\Article, SonataAdminBundle:CRUD]
         calls:
             - [ setSecurityContext, [ @security.context ] ]
-            - [ setTemplate, [list, PurethinkCMSBundle:Admin:_articleList.html.twig] ]
 
     purethink_cms.admin.menu_type:
         tags:
@@ -111,15 +110,3 @@ services:
         calls:
             - [ setSubClasses, [{'Menu': Purethink\CMSBundle\Entity\PositionMenuType, 'Component': Purethink\CMSBundle\Entity\PositionComponent, 'Article': Purethink\CMSBundle\Entity\PositionArticle, 'Language': Purethink\CMSBundle\Entity\PositionLanguage}] ]
             - [ setTemplate, [list, PurethinkCMSBundle:Admin:_positionList.html.twig] ]
-
-    purethink_cms.admin.tag:
-        tags:
-            - { name: sonata.admin, manager_type: orm, group: CMS, label: Tags }
-        class: Purethink\CMSBundle\Admin\Tag
-        arguments: [null, Purethink\CMSBundle\Entity\Tag, SonataAdminBundle:CRUD]
-
-    purethink_cms.admin.category:
-        tags:
-            - { name: sonata.admin, manager_type: orm, group: CMS, label: Categories }
-        class: Purethink\CMSBundle\Admin\Category
-        arguments: [null, Purethink\CMSBundle\Entity\Category, SonataAdminBundle:CRUD]

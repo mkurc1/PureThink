@@ -11,7 +11,7 @@
                         <li>
                             <a {{ child.isNewPage ? 'target="_blank"' : '' }} href="
                     {% if child.typeOfLink == constant('Purethink\\CMSBundle\\Entity\\Menu::ARTICLE_LINK') %}
-                        {{ path('article', { 'locale': app.request.locale, 'category': child.article.category.slug, 'slug': child.article.slug }) }}
+                        {{ path('article', { 'locale': app.request.locale, 'slug': child.article.slug }) }}
                     {% elseif child.typeOfLink == constant('Purethink\\CMSBundle\\Entity\\Menu::STRING_LINK') %}
                         {{ child.url }}
                     {% endif %}
@@ -24,7 +24,7 @@
             <li>
                 <a {{ entity.isNewPage ? 'target="_blank"' : '' }} href="
                     {% if entity.typeOfLink == constant('Purethink\\CMSBundle\\Entity\\Menu::ARTICLE_LINK') %}
-                        {{ path('article', { 'locale': app.request.locale, 'category': entity.article.category.slug, 'slug': entity.article.slug }) }}
+                        {{ path('article', { 'locale': app.request.locale, 'slug': entity.article.slug }) }}
                     {% elseif entity.typeOfLink == constant('Purethink\\CMSBundle\\Entity\\Menu::STRING_LINK') %}
                         {{ entity.url }}
                     {% endif %}

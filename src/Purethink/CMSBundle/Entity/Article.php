@@ -102,19 +102,6 @@ class Article implements MetadataInterface, ArticleViewInterface
      */
     private $componentHasArticle;
 
-    /**
-     * @ORM\ManyToMany(targetEntity="Tag", cascade={"persist"})
-     * @ORM\JoinTable(name="cms_article_has_tag")
-     */
-    private $tags;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="Category", cascade={"persist"})
-     * @ORM\JoinColumn(nullable=false)
-     * @Assert\NotNull()
-     */
-    private $category;
-
 
     public function getViews()
     {
@@ -309,7 +296,6 @@ class Article implements MetadataInterface, ArticleViewInterface
     public function __construct(User $user = null)
     {
         $this->componentHasArticle = new ArrayCollection();
-        $this->tags = new ArrayCollection();
         $this->setMetadata(new Metadata());
         $this->setView(new ArticleView());
 
@@ -372,39 +358,6 @@ class Article implements MetadataInterface, ArticleViewInterface
     public function getMetadata()
     {
         return $this->metadata;
-    }
-
-    /**
-     * Add tags
-     *
-     * @param Tag $tags
-     * @return Article
-     */
-    public function addTag(Tag $tags)
-    {
-        $this->tags[] = $tags;
-
-        return $this;
-    }
-
-    /**
-     * Remove tags
-     *
-     * @param Tag $tags
-     */
-    public function removeTag(Tag $tags)
-    {
-        $this->tags->removeElement($tags);
-    }
-
-    /**
-     * Get tags
-     *
-     * @return Collection
-     */
-    public function getTags()
-    {
-        return $this->tags;
     }
 
     /**
@@ -497,29 +450,6 @@ class Article implements MetadataInterface, ArticleViewInterface
     public function getView()
     {
         return $this->view;
-    }
-
-    /**
-     * Set category
-     *
-     * @param Category $category
-     * @return Article
-     */
-    public function setCategory(Category $category)
-    {
-        $this->category = $category;
-
-        return $this;
-    }
-
-    /**
-     * Get category
-     *
-     * @return Category
-     */
-    public function getCategory()
-    {
-        return $this->category;
     }
 
     /**

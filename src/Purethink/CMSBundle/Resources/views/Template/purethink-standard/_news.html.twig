@@ -5,7 +5,7 @@
         {% for key, new in entities if key != 'title' %}
             <div class="media">
                 <div class="media-left">
-                    <a href="{{ path('article', { 'locale': app.request.locale, 'category': new['adres'].category, 'slug': new['adres'].slug }) }}">
+                    <a href="{{ path('article', { 'locale': app.request.locale, 'slug': new['adres'].slug }) }}">
                         {% media new['fotografia'], 'reference' with {'class': 'media-object'}  %}
                     </a>
                 </div>
