@@ -28,7 +28,7 @@ class PageController extends Controller
             $request->setLocale($request->getPreferredLanguage($availableLocales));
         }
 
-        return $this->redirect($this->generateUrl('localized_page', compact('locale')));
+        return $this->redirectToRoute('localized_page', compact('locale'));
     }
 
     /**

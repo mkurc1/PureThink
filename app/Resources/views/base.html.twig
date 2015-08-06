@@ -1,18 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-        <meta name="Keywords" content="{% block keywords %}{% endblock %}" />
-        <meta name="Description" content="{% block description %}{% endblock %}" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-        {% block icon %}{% endblock %}
-        <title>{% block title %}{% endblock %}</title>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="Keywords" content="{% block keywords %}{% endblock %}" />
+    <meta name="Description" content="{% block description %}{% endblock %}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    {% block icon %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('purethink.ico') }}" />
+    {% endblock %}
+    <title>{% block title %}PureThink{% endblock %}</title>
 
-        {% block stylesheets %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" type="text/css" />
+        <link rel="stylesheet" href="{{ asset('css/alertify.core.css') }}" type="text/css" />
+        <link rel="stylesheet" href="{{ asset('css/alertify.bootstrap.css') }}" type="text/css" />
+        <link rel="stylesheet" href="{{ asset('css/core.css') }}" type="text/css" />
+    {% endblock %}
+    {% block javascripts %}
+        <script src="{{ asset('js/jquery-1.11.3.min.js') }}"></script>
+        <script src="{{ asset('js/alertify.js') }}"></script>
+        <script src="{{ asset('js/core.js') }}"></script>
+        <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    {% endblock %}
+</head>
+<body>
+    {% block body %}
+        <div class="flash-message">
+            {% for type, messages in app.session.flashbag.all() %}
+                {% for message in messages %}
+                    <div type="{{ type }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endfor %}
+        </div>
+    {% endblock %}
+</body>
 </html>
