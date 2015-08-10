@@ -6,7 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Table(name="cms_article_view")
- * @ORM\Entity()
+ * @ORM\Entity(repositoryClass="Purethink\CMSBundle\Repository\ArticleViewRepository")
  */
 class ArticleView
 {
@@ -26,11 +26,6 @@ class ArticleView
     public function __toString()
     {
         return (string)$this->getViews();
-    }
-
-    public function incrementArticleViews()
-    {
-        $this->setViews($this->getViews() + 1);
     }
 
     /**

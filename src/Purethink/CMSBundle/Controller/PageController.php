@@ -86,7 +86,7 @@ class PageController extends Controller
             return $this->getRedirectToMainPage();
         }
 
-        $this->get('purethink.cms.article_service')->incrementArticleViews($article->getViews());
+        $this->getDoctrine()->getRepository('PurethinkCMSBundle:ArticleView')->incrementViews($article->getViews());
 
         return $this->render('@PurethinkCMS/Page/article.html.twig', compact('article'));
     }

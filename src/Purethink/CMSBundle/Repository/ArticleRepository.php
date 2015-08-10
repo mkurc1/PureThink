@@ -30,14 +30,4 @@ class ArticleRepository extends EntityRepository
 
         return $qb->getQuery()->getOneOrNullResult();
     }
-
-    public function getPublicArticles()
-    {
-        $qb = $this->createQueryBuilder('a')
-            ->addSelect('l')
-            ->join('a.language', 'l')
-            ->where('a.published = true');
-
-        return $qb->getQuery()->getResult();
-    }
 }
