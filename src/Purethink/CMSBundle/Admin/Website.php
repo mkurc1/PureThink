@@ -27,7 +27,6 @@ class Website extends Admin
             ->end()
             ->with('Options', ['class' => 'col-md-4'])
                 ->add('language')
-                ->add('analytics', null, ['label' => 'Google Analytics code'])
             ->end();
     }
 

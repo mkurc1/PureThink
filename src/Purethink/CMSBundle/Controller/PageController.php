@@ -7,9 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Purethink\CMSBundle\Entity\Website;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\RedirectResponse;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class PageController extends Controller
 {
@@ -43,15 +41,8 @@ class PageController extends Controller
 
         /** @var Website $meta */
         $meta = $this->getMetadataByLocale($locale);
-        if ($meta) {
-            $analytics = $meta->getAnalytics();
-        }
 
-        $content = $this->renderView('@PurethinkCMS/Page/index.html.twig',
-            compact('meta', 'analytics')
-        );
-
-        return new Response($content);
+        return $this->render('@PurethinkCMS/Page/index.html.twig', compact('meta'));
     }
 
     /**
@@ -68,9 +59,6 @@ class PageController extends Controller
 
         /** @var Website $meta */
         $meta = $this->getMetadataByLocale($locale);
-        if ($meta) {
-            $analytics = $meta->getAnalytics();
-        }
 
         if ($search = $request->query->get('query')) {
             $entities = $this->getDoctrine()
@@ -80,11 +68,7 @@ class PageController extends Controller
             $entities = null;
         }
 
-        $content = $this->renderView('@PurethinkCMS/Page/searchList.html.twig',
-            compact('meta', 'entities', 'analytics')
-        );
-
-        return new Response($content);
+        return $this->render('@PurethinkCMS/Page/searchList.html.twig', compact('meta', 'entities'));
     }
 
     /**
@@ -100,17 +84,8 @@ class PageController extends Controller
         }
 
         $article = $this->get('purethink.cms.article_service')->getArticleBySlug($slug);
-        /** @var Website $meta */
-        $meta = $this->getMetadataByLocale($locale);
-        if ($meta) {
-            $analytics = $meta->getAnalytics();
-        }
 
-        $content = $this->renderView('@PurethinkCMS/Page/article.html.twig',
-            compact('article', 'analytics')
-        );
-
-        return new Response($content);
+        return $this->render('@PurethinkCMS/Page/article.html.twig', compact('article'));
     }
 
     /**

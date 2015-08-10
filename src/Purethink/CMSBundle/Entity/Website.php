@@ -29,11 +29,6 @@ class Website implements MetadataInterface
      */
     private $metadata;
 
-    /**
-     * @ORM\Column(type="string", nullable=true, length=30)
-     * @Assert\Length(max="30")
-     */
-    private $analytics;
 
     public function __toString()
     {
@@ -63,10 +58,10 @@ class Website implements MetadataInterface
     /**
      * Set language
      *
-     * @param \Purethink\CMSBundle\Entity\Language $language
+     * @param Language $language
      * @return Website
      */
-    public function setLanguage(\Purethink\CMSBundle\Entity\Language $language)
+    public function setLanguage(Language $language)
     {
         $this->language = $language;
 
@@ -76,7 +71,7 @@ class Website implements MetadataInterface
     /**
      * Get language
      *
-     * @return \Purethink\CMSBundle\Entity\Language 
+     * @return Language
      */
     public function getLanguage()
     {
@@ -86,10 +81,10 @@ class Website implements MetadataInterface
     /**
      * Set metadata
      *
-     * @param \Purethink\CMSBundle\Entity\Metadata $metadata
+     * @param Metadata $metadata
      * @return Website
      */
-    public function setMetadata(\Purethink\CMSBundle\Entity\Metadata $metadata = null)
+    public function setMetadata(Metadata $metadata = null)
     {
         $this->metadata = $metadata;
 
@@ -99,26 +94,10 @@ class Website implements MetadataInterface
     /**
      * Get metadata
      *
-     * @return \Purethink\CMSBundle\Entity\Metadata 
+     * @return Metadata
      */
     public function getMetadata()
     {
         return $this->metadata;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getAnalytics()
-    {
-        return $this->analytics;
-    }
-
-    /**
-     * @param mixed $analytics
-     */
-    public function setAnalytics($analytics)
-    {
-        $this->analytics = $analytics;
     }
 }
