@@ -16,9 +16,3 @@ services:
         tags:
             - { name: sonata.block }
         arguments: ["purethink.cms.block.componet", @templating, @doctrine.orm.entity_manager, @request_stack]
-
-    purethink.cms.block.article:
-        class: Purethink\CMSBundle\Block\ArticleBlock
-        tags:
-            - { name: sonata.block }
-        arguments: ["purethink.cms.block.article", @templating, @purethink.cms.article_service, @request_stack]

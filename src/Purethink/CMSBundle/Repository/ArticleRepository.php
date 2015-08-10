@@ -19,14 +19,14 @@ class ArticleRepository extends EntityRepository
         return $qb->getQuery()->getResult();
     }
 
-    public function getPublicArticleBySlug($slug)
+    public function articleBySlug($params)
     {
         $qb = $this->createQueryBuilder('a')
             ->addSelect('am')
             ->join('a.metadata', 'am')
             ->where('a.published = true')
             ->andWhere('a.slug = :slug')
-            ->setParameter('slug', $slug);
+            ->setParameters($params);
 
         return $qb->getQuery()->getOneOrNullResult();
     }

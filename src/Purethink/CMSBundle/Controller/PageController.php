@@ -2,6 +2,8 @@
 
 namespace Purethink\CMSBundle\Controller;
 
+use Purethink\CMSBundle\Entity\Article;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -73,9 +75,10 @@ class PageController extends Controller
 
     /**
      * @Route("/{locale}/{slug}", name="article")
+     * @ParamConverter("article", class="PurethinkCMSBundle:Article", options={"mapping": {"slug": "slug"}, "repository_method" = "articleBySlug"})
      * @Method("GET")
      */
-    public function articleAction(Request $request, $locale, $slug)
+    public function articleAction(Request $request, $locale, Article $article)
     {
         if ($this->get('purethink.cms.language_service')->hasAvailableLocales($locale)) {
             $request->setLocale($locale);
@@ -83,7 +86,7 @@ class PageController extends Controller
             return $this->getRedirectToMainPage();
         }
 
-        $article = $this->get('purethink.cms.article_service')->getArticleBySlug($slug);
+        $this->get('purethink.cms.article_service')->incrementArticleViews($article->getViews());
 
         return $this->render('@PurethinkCMS/Page/article.html.twig', compact('article'));
     }
