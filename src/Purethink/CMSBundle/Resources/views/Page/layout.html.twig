@@ -12,44 +12,18 @@
     {{ meta.SEOData.title|default(parent()) }}
 {% endblock title %}
 
-{% block icon %}
-    {% if template.icon is not null %}
-        <link rel="icon" type="image/x-icon" href="{{ asset(template.assetPath ~ '/' ~ template.icon) }}" />
-    {% else %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('purethink.ico') }}" />
-    {% endif %}
-{% endblock %}
-
 {% block stylesheets %}
     {{ parent() }}
 
     <link rel="stylesheet" type="text/css" href="{{ asset('css/article.css') }}">
-
-    {% for templateStyle in template.styles %}
-        <link rel="stylesheet" type="text/css" href="{{ asset(templateStyle.allPath) }}">
-    {% endfor %}
-
-    {% if layout is not null %}
-        {% for layoutStyle in layout.styles %}
-            <link rel="stylesheet" type="text/css" href="{{ asset(layoutStyle.allPath) }}">
-        {% endfor %}
-    {% endif %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}">
 {% endblock stylesheets %}
 
 {% block javascripts %}
     {{ parent() }}
 
     <script src="{{ asset('js/cookies.js') }}"></script>
-
-    {% for templateScript in template.scripts %}
-        <script src="{{ asset(templateScript.allPath) }}"></script>
-    {% endfor %}
-
-    {% if layout is not null %}
-        {% for layoutScript in layout.scripts %}
-            <script src="{{ asset(layoutScript.allPath) }}"></script>
-        {% endfor %}
-    {% endif %}
+    <script src="{{ asset('js/main.js') }}"></script>
 
     {% if analytics is defined and analytics is not null %}
         <script>
@@ -66,22 +40,50 @@
 
 {% block body %}
     {{ parent() }}
+
+    {{ sonata_block_render({ "type": 'purethink.cms.block.component', 'settings': {'slug': 'cookie', 'template': '@PurethinkCMS/Page/_cookie.html.twig'}}) }}
+
+    <div id="top">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-xs-12" id="logo">
+                    <a href="{{ path('localized_page', {'locale': app.request.locale}) }}">
+                        <img src="{{ asset('images/logo.png') }}" alt="logo" />
+                    </a>
+                </div>
+
+                <div class="col-md-6 col-xs-12">
+                    {% include '@PurethinkCMS/Page/_topmenu.html.twig' %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="main_menu">
+        <div class="container">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                                data-target="#main-menu-container" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="main-menu-container">
+                        {{ sonata_block_render({ "type": 'purethink.cms.block.menu', 'settings': {'slug': 'main', 'template': '@PurethinkCMS/Page/_main_menu.html.twig'} }) }}
+
+                        {% include '@PurethinkCMS/Page/_search.html.twig' %}
+                    </div>
+                    <!-- /.navbar-collapse -->
+                </div>
+                <!-- /.container-fluid -->
+            </nav>
+        </div>
+    </div>
 {% endblock body %}
-
-{% set component = {} %}
-
-{% for position in layout.positions %}
-    {% set componentSettings = {} %}
-
-    {% if (position.positionSlug) %}
-        {% set componentSettings = componentSettings | merge({ ('slug') : position.positionSlug}) %}
-    {% endif %}
-
-    {% if (position.path) %}
-        {% set componentSettings = componentSettings | merge({ ('template') : template.scriptPath~":"~position.path}) %}
-    {% endif %}
-
-    {% set componentHelper = sonata_block_render({ "type": position.service, "settings": componentSettings }) %}
-
-    {% set component = component | merge({ (position.slug) : componentHelper}) %}
-{% endfor %}

@@ -1,0 +1,17 @@
+{% extends "@PurethinkCMS/Page/layout.html.twig" %}
+
+{% set meta = article %}
+
+{% block body %}
+    {{ parent() }}
+
+    <div id="article">
+        <div class="container">
+            {{ sonata_block_render({ "type": 'purethink.cms.block.article' }) }}
+        </div>
+    </div>
+
+    {{ sonata_block_render({ "type": 'purethink.cms.block.component', 'settings': {'template': '@PurethinkCMS/Page/_link.html.twig', 'slug': 'linki'} }) }}
+
+    {% include '@PurethinkCMS/Page/_footer.html.twig' %}
+{% endblock body %}

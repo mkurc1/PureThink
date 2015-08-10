@@ -15,7 +15,6 @@ sonata_admin:
                     - purethink_cms.admin.menu_type
                     - purethink_cms.admin.extension
                     - purethink_cms.admin.component
-                    - purethink_cms.admin.template
                     - sonata.media.admin.media
             sonata.admin.group.administration:
                 label: sonata_administration

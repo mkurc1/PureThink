@@ -1,7 +1,0 @@
-model: Purethink\CMSBundle\Entity\Template
-fixtures:
-    cms_template_1:
-        name: PureThink Standard
-        author: Michał Kurcewicz
-        icon: purethink-standard.ico
-        enabled: 1

@@ -2,12 +2,10 @@
 
 namespace Purethink\CMSBundle\Controller;
 
-use Purethink\CMSBundle\Entity\Layout;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Purethink\CMSBundle\Entity\Template;
 use Purethink\CMSBundle\Entity\Website;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -43,19 +41,14 @@ class PageController extends Controller
             return $this->getRedirectToMainPage();
         }
 
-        /** @var Template $template */
-        $template = $this->getEnabledTemplate();
-        /** @var Layout $layout */
-        $layout = $this->getLayoutForTypeOfTemplate($template, Layout::LAYOUT_MAIN);
         /** @var Website $meta */
         $meta = $this->getMetadataByLocale($locale);
         if ($meta) {
             $analytics = $meta->getAnalytics();
         }
 
-        $content = $this->renderView(
-            $layout->getAllPath(),
-            compact('meta', 'template', 'layout', 'analytics')
+        $content = $this->renderView('@PurethinkCMS/Page/index.html.twig',
+            compact('meta', 'analytics')
         );
 
         return new Response($content);
@@ -73,10 +66,6 @@ class PageController extends Controller
             return $this->getRedirectToMainPage();
         }
 
-        /** @var Template $template */
-        $template = $this->getEnabledTemplate();
-        /** @var Layout $layout */
-        $layout = $this->getLayoutForTypeOfTemplate($template, Layout::LAYOUT_SEARCH);
         /** @var Website $meta */
         $meta = $this->getMetadataByLocale($locale);
         if ($meta) {
@@ -91,9 +80,8 @@ class PageController extends Controller
             $entities = null;
         }
 
-        $content = $this->renderView(
-            $layout->getAllPath(),
-            compact('meta', 'entities', 'template', 'layout', 'analytics')
+        $content = $this->renderView('@PurethinkCMS/Page/searchList.html.twig',
+            compact('meta', 'entities', 'analytics')
         );
 
         return new Response($content);
@@ -111,10 +99,6 @@ class PageController extends Controller
             return $this->getRedirectToMainPage();
         }
 
-        /** @var Template $template */
-        $template = $this->getEnabledTemplate();
-        /** @var Layout $layout */
-        $layout = $this->getLayoutForTypeOfTemplate($template, Layout::LAYOUT_ARTICLE);
         $article = $this->get('purethink.cms.article_service')->getArticleBySlug($slug);
         /** @var Website $meta */
         $meta = $this->getMetadataByLocale($locale);
@@ -122,9 +106,8 @@ class PageController extends Controller
             $analytics = $meta->getAnalytics();
         }
 
-        $content = $this->renderView(
-            $layout->getAllPath(),
-            compact('article', 'template', 'layout', 'analytics')
+        $content = $this->renderView('@PurethinkCMS/Page/article.html.twig',
+            compact('article', 'analytics')
         );
 
         return new Response($content);
@@ -147,43 +130,5 @@ class PageController extends Controller
         return $this->getDoctrine()
             ->getRepository('PurethinkCMSBundle:Website')
             ->getWebsiteByLocale($locale);
-    }
-
-    /**
-     * @param Template $template
-     * @param string $type
-     * @return Layout
-     * @throws NotFoundHttpException
-     */
-    private function getLayoutForTypeOfTemplate(Template $template, $type)
-    {
-        /** @var Layout $layout */
-        $layout = $this->getDoctrine()
-            ->getRepository('PurethinkCMSBundle:Layout')
-            ->getLayoutForTypeOfTemplate($template, $type);
-
-        if (null == $layout) {
-            throw $this->createNotFoundException();
-        }
-
-        return $layout;
-    }
-
-    /**
-     * @return Template
-     * @throws NotFoundHttpException
-     */
-    private function getEnabledTemplate()
-    {
-        /** @var Template $template */
-        $template = $this->getDoctrine()
-            ->getRepository('PurethinkCMSBundle:Template')
-            ->getEnabledTemplate();
-
-        if (null == $template) {
-            throw $this->createNotFoundException();
-        }
-
-        return $template;
     }
 }

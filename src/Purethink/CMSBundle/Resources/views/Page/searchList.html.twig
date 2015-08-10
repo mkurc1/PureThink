@@ -1,4 +1,4 @@
-{% extends template.scriptPath~":layout.html.twig" %}
+{% extends "@PurethinkCMS/Page/layout.html.twig" %}
 
 {% block body %}
     {{ parent() }}
@@ -19,7 +19,7 @@
         </div>
     </div>
 
-    {{ component['position-5']|raw }}
+    {{ sonata_block_render({ "type": 'purethink.cms.block.component', 'settings': {'template': '@PurethinkCMS/Page/_link.html.twig', 'slug': 'linki'} }) }}
 
-    {% include template.scriptPath~':_footer.html.twig' %}
+    {% include '@PurethinkCMS/Page/_footer.html.twig' %}
 {% endblock body %}
