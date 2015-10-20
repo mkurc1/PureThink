@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="cms_article_view")
  * @ORM\Entity(repositoryClass="Purethink\CMSBundle\Repository\ArticleViewRepository")
  */
-class ArticleView
+class ArticleView implements ArticleViewInterface
 {
     /**
      * @ORM\Column(type="integer")

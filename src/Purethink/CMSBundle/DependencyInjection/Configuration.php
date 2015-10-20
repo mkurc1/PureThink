@@ -20,6 +20,15 @@ class Configuration implements ConfigurationInterface
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('purethink_cms');
 
+        $rootNode
+            ->children()
+                ->arrayNode('class')
+                    ->children()
+                        ->scalarNode('user')->cannotBeEmpty()->end()
+                    ->end()
+                ->end()
+            ->end();
+
         // Here you should define the parameters that are allowed to
         // configure your bundle. See the documentation linked above for
         // more information on that topic.

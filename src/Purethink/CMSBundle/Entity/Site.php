@@ -6,10 +6,10 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ORM\Table(name="cms_website")
- * @ORM\Entity(repositoryClass="Purethink\CMSBundle\Repository\WebsiteRepository")
+ * @ORM\Table(name="cms_site")
+ * @ORM\Entity(repositoryClass="Purethink\CMSBundle\Repository\SiteRepository")
  */
-class Website implements MetadataInterface
+class Site implements MetadataInterface
 {
     /**
      * @ORM\Column(type="integer")
@@ -59,7 +59,7 @@ class Website implements MetadataInterface
      * Set language
      *
      * @param Language $language
-     * @return Website
+     * @return Site
      */
     public function setLanguage(Language $language)
     {
@@ -82,7 +82,7 @@ class Website implements MetadataInterface
      * Set metadata
      *
      * @param Metadata $metadata
-     * @return Website
+     * @return Site
      */
     public function setMetadata(Metadata $metadata = null)
     {

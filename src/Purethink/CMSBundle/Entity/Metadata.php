@@ -22,7 +22,7 @@ class Metadata
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Assert\NotNull(groups={"website"})
+     * @Assert\NotBlank(groups={"site"})
      * @Assert\Length(max="255")
      */
     private $title;

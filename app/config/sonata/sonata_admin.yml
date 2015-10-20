@@ -24,4 +24,4 @@ sonata_admin:
                     - sonata.user.admin.user
                     - sonata.user.admin.group
                     - purethink_cms.admin.language
-                    - purethink_cms.admin.website
+                    - purethink_cms.admin.site

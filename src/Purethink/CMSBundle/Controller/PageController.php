@@ -8,7 +8,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Purethink\CMSBundle\Entity\Website;
+use Purethink\CMSBundle\Entity\Site;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class PageController extends Controller
@@ -41,7 +41,7 @@ class PageController extends Controller
             return $this->getRedirectToMainPage();
         }
 
-        /** @var Website $meta */
+        /** @var Site $meta */
         $meta = $this->getMetadataByLocale($locale);
 
         return $this->render('@PurethinkCMS/Page/index.html.twig', compact('meta'));
@@ -59,7 +59,7 @@ class PageController extends Controller
             return $this->getRedirectToMainPage();
         }
 
-        /** @var Website $meta */
+        /** @var Site $meta */
         $meta = $this->getMetadataByLocale($locale);
 
         if ($search = $request->query->get('query')) {
@@ -101,12 +101,12 @@ class PageController extends Controller
 
     /**
      * @param string $locale
-     * @return Website
+     * @return Site
      */
     private function getMetadataByLocale($locale)
     {
         return $this->getDoctrine()
-            ->getRepository('PurethinkCMSBundle:Website')
-            ->getWebsiteByLocale($locale);
+            ->getRepository('PurethinkCMSBundle:Site')
+            ->getSiteByLocale($locale);
     }
 }

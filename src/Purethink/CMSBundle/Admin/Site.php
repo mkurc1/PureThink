@@ -6,13 +6,13 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 
-class Website extends Admin
+class Site extends Admin
 {
     protected $translationDomain = 'PurethinkCMSBundle';
 
     protected $formOptions = [
         'cascade_validation' => true,
-        'validation_groups'  => ['website', 'default']
+        'validation_groups'  => ['site', 'default']
     ];
 
     protected function configureFormFields(FormMapper $formMapper)

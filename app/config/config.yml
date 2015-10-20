@@ -108,3 +108,7 @@ stof_doctrine_extensions:
 
 pix_sortable_behavior:
     position_field: ~
+
+purethink_cms:
+    class:
+        user: Application\Sonata\UserBundle\Entity\User

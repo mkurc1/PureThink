@@ -44,6 +44,7 @@ class Extension
      */
     private $fields;
 
+
     /**
      * Get id
      *

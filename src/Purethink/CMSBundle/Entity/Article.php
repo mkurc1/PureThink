@@ -2,10 +2,11 @@
 
 namespace Purethink\CMSBundle\Entity;
 
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
-use Application\Sonata\UserBundle\Entity\User;
 use Doctrine\ORM\Event\LifecycleEventArgs;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -19,6 +20,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 class Article implements MetadataInterface, ArticleViewInterface
 {
     /**
+     * @var int
+     *
      * @ORM\Column(type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
@@ -26,53 +29,71 @@ class Article implements MetadataInterface, ArticleViewInterface
     private $id;
 
     /**
+     * @var string
+     *
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotNull()
+     * @Assert\NotBlank()
      * @Assert\Length(max="255")
      */
     private $name;
 
     /**
+     * @var string
+     *
      * @Gedmo\Slug(fields={"name"})
      * @ORM\Column(length=255, unique=true)
      */
     private $slug;
 
     /**
+     * @var DateTime
+     *
      * @Gedmo\Timestampable(on="create")
      * @ORM\Column(type="datetime")
      */
     private $created;
 
     /**
+     * @var DateTime
+     *
      * @Gedmo\Timestampable(on="update")
      * @ORM\Column(type="datetime")
      */
     private $updated;
 
     /**
+     * @var DateTime
+     *
      * @ORM\Column(name="deletedAt", type="datetime", nullable=true)
      */
     private $deletedAt;
 
     /**
+     * @var boolean
+     *
      * @ORM\Column(type="boolean", nullable=true)
      */
     private $published = false;
 
     /**
+     * @var string
+     *
      * @ORM\Column(type="text")
-     * @Assert\NotNull()
+     * @Assert\NotBlank()
      */
     private $content;
 
     /**
+     * @var string
+     *
      * @ORM\Column(type="text", nullable=true)
-     * @Assert\NotNull()
+     * @Assert\NotBlank()
      */
     private $excerpt;
 
     /**
+     * @var Language
+     *
      * @ORM\ManyToOne(targetEntity="Language")
      * @ORM\JoinColumn(onDelete="CASCADE", nullable=false)
      * @Assert\NotNull()
@@ -80,18 +101,24 @@ class Article implements MetadataInterface, ArticleViewInterface
     private $language;
 
     /**
+     * @var UserInterface
+     *
      * @ORM\ManyToOne(targetEntity="Application\Sonata\UserBundle\Entity\User")
      * @ORM\JoinColumn(onDelete="CASCADE", nullable=false)
      */
     private $user;
 
     /**
+     * @var Metadata
+     *
      * @ORM\OneToOne(targetEntity="Metadata", cascade={"persist"})
      * @ORM\JoinColumn(onDelete="CASCADE", nullable=false)
      */
     private $metadata;
 
     /**
+     * @var ArticleViewInterface
+     *
      * @ORM\OneToOne(targetEntity="ArticleView", cascade={"persist"})
      * @ORM\JoinColumn(onDelete="CASCADE", nullable=false)
      */
@@ -124,9 +151,9 @@ class Article implements MetadataInterface, ArticleViewInterface
         foreach ($this->getComponentHasArticle() as $component) {
             $element = $component->getComponentHasElement();
 
-            $om = $args->getObjectManager();
-            $om->remove($element);
-            $om->flush();
+            $em = $args->getEntityManager();
+            $em->remove($element);
+            $em->flush();
         }
     }
 
@@ -268,10 +295,10 @@ class Article implements MetadataInterface, ArticleViewInterface
     /**
      * Set user
      *
-     * @param User $user
+     * @param UserInterface $user
      * @return Article
      */
-    public function setUser(User $user)
+    public function setUser(UserInterface $user)
     {
         $this->user = $user;
 
@@ -281,7 +308,7 @@ class Article implements MetadataInterface, ArticleViewInterface
     /**
      * Get user
      *
-     * @return User
+     * @return UserInterface
      */
     public function getUser()
     {
@@ -291,9 +318,9 @@ class Article implements MetadataInterface, ArticleViewInterface
     /**
      * Constructor
      *
-     * @param User $user
+     * @param UserInterface $user
      */
-    public function __construct(User $user = null)
+    public function __construct(UserInterface $user = null)
     {
         $this->componentHasArticle = new ArrayCollection();
         $this->setMetadata(new Metadata());
@@ -363,7 +390,7 @@ class Article implements MetadataInterface, ArticleViewInterface
     /**
      * Set created
      *
-     * @param \DateTime $created
+     * @param DateTime $created
      * @return Article
      */
     public function setCreated($created)
@@ -376,7 +403,7 @@ class Article implements MetadataInterface, ArticleViewInterface
     /**
      * Get created
      *
-     * @return \DateTime 
+     * @return DateTime
      */
     public function getCreated()
     {
@@ -386,7 +413,7 @@ class Article implements MetadataInterface, ArticleViewInterface
     /**
      * Set updated
      *
-     * @param \DateTime $updated
+     * @param DateTime $updated
      * @return Article
      */
     public function setUpdated($updated)
@@ -399,7 +426,7 @@ class Article implements MetadataInterface, ArticleViewInterface
     /**
      * Get updated
      *
-     * @return \DateTime 
+     * @return DateTime
      */
     public function getUpdated()
     {
@@ -422,7 +449,7 @@ class Article implements MetadataInterface, ArticleViewInterface
     /**
      * Get published
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPublished()
     {
@@ -432,10 +459,10 @@ class Article implements MetadataInterface, ArticleViewInterface
     /**
      * Set view
      *
-     * @param ArticleView $view
+     * @param ArticleViewInterface $view
      * @return Article
      */
-    public function setView(ArticleView $view)
+    public function setView(ArticleViewInterface $view)
     {
         $this->view = $view;
 
@@ -445,7 +472,7 @@ class Article implements MetadataInterface, ArticleViewInterface
     /**
      * Get view
      *
-     * @return ArticleView
+     * @return ArticleViewInterface
      */
     public function getView()
     {

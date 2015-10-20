@@ -20,7 +20,7 @@ class Menu
 
     public static $linkTypes = [
         self::ARTICLE_LINK => 'Article',
-        self::STRING_LINK => 'Url'
+        self::STRING_LINK  => 'Url'
     ];
 
     /**
@@ -105,6 +105,7 @@ class Menu
      * @ORM\Column(name="deletedAt", type="datetime", nullable=true)
      */
     private $deletedAt;
+
 
     public function getActiveChildren()
     {
@@ -335,7 +336,7 @@ class Menu
     /**
      * Get position
      *
-     * @return integer 
+     * @return integer
      */
     public function getPosition()
     {
@@ -358,7 +359,7 @@ class Menu
     /**
      * Get published
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getPublished()
     {

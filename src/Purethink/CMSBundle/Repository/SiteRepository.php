@@ -4,9 +4,9 @@ namespace Purethink\CMSBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
 
-class WebsiteRepository extends EntityRepository
+class SiteRepository extends EntityRepository
 {
-    public function getWebsiteByLocale($alias)
+    public function getSiteByLocale($alias)
     {
         $qb = $this->createQueryBuilder('w')
             ->addSelect('wm')
