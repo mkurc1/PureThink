@@ -5,6 +5,7 @@ namespace Purethink\CMSBundle\Entity;
 use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Gedmo\SoftDeleteable\SoftDeleteable;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Event\LifecycleEventArgs;
@@ -17,7 +18,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  * @ORM\HasLifecycleCallbacks
  * @Gedmo\SoftDeleteable(fieldName="deletedAt")
  */
-class Article implements MetadataInterface, ArticleViewInterface
+class Article implements MetadataInterface, ArticleViewInterface, SoftDeleteable
 {
     /**
      * @var int
@@ -103,7 +104,7 @@ class Article implements MetadataInterface, ArticleViewInterface
     /**
      * @var UserInterface
      *
-     * @ORM\ManyToOne(targetEntity="Application\Sonata\UserBundle\Entity\User")
+     * @ORM\ManyToOne(targetEntity="User")
      * @ORM\JoinColumn(onDelete="CASCADE", nullable=false)
      */
     private $user;

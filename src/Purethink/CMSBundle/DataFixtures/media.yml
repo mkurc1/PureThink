@@ -1,0 +1,35 @@
+model: Purethink\CMSBundle\Entity\Media
+fixtures:
+    media_1:
+        name: apolo.jpeg
+        providerName: sonata.media.provider.image
+        providerStatus: 1
+        providerReference: f1f1b0e88b80d205f55af135b31b1b2fb97a85b4.jpeg
+        providerMetadata: {"filename":"apolo.jpeg"}
+        width: 160
+        height: 200
+        contentType: image/jpeg
+        size: 17932
+        context: default
+    media_2:
+        name: baner.png
+        providerName: sonata.media.provider.image
+        providerStatus: 1
+        providerReference: c8fbd4bbd6ad1e7f2262d47041918abc0206f0fd.png
+        providerMetadata: {"filename":"baner.png"}
+        width: 1000
+        height: 296
+        contentType: image/png
+        size: 222669
+        context: default
+    media_3:
+        name: news.jpeg
+        providerName: sonata.media.provider.image
+        providerStatus: 1
+        providerReference: eab1d07b48ad8ba519be4a435ddc705a5def134a.jpeg
+        providerMetadata: {"filename":"news.jpeg"}
+        width: 104
+        height: 113
+        contentType: image/jpeg
+        size: 22192
+        context: default

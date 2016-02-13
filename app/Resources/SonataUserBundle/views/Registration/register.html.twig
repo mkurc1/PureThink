@@ -1,0 +1,11 @@
+{% extends "SonataUserBundle:Security:login.html.twig" %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    <link rel="stylesheet" href="{{ asset('css/login.css') }}" type="text/css" />
+{% endblock stylesheets %}
+
+{% block fos_user_content %}
+    {% include "SonataUserBundle:Registration:register_content.html.twig" %}
+{% endblock fos_user_content %}

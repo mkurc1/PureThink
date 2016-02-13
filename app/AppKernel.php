@@ -38,9 +38,6 @@ class AppKernel extends Kernel
             new FOS\RestBundle\FOSRestBundle(),
             new JMS\SerializerBundle\JMSSerializerBundle(),
 
-            new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
-            new Application\Sonata\MediaBundle\ApplicationSonataMediaBundle(),
-
             new Purethink\CMSBundle\PurethinkCMSBundle()
         ];
 
