@@ -16,7 +16,7 @@
                         ">{{ entity }}</a>
 
             {% if entity.activeChildren | length > 0 %}
-                {% include 'PurethinkCMSBundle:Block:menu.html.twig' with { 'menu': entity.activeChildren, 'home': false } %}
+                {% include ':Block:menu.html.twig' with { 'menu': entity.activeChildren, 'home': false } %}
             {% endif %}
         </li>
     {% endfor %}

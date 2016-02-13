@@ -1,0 +1,13 @@
+{% extends ":Page:layout.html.twig" %}
+
+{% block body %}
+    {{ parent() }}
+
+    {{ sonata_block_render({ "type": 'purethink.cms.block.component', 'settings': {'slug': 'baner', 'template': ':Page:_banner.html.twig'}}) }}
+
+    {% include ':Page:_news_container.html.twig' %}
+
+    {{ sonata_block_render({ "type": 'purethink.cms.block.component', 'settings': {'template': ':Page:_link.html.twig', 'slug': 'linki'} }) }}
+
+    {% include ':Page:_footer.html.twig' %}
+{% endblock body %}

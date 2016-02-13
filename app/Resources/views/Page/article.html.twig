@@ -1,4 +1,4 @@
-{% extends "@PurethinkCMS/Page/layout.html.twig" %}
+{% extends ":Page:layout.html.twig" %}
 
 {% set meta = article %}
 
@@ -18,7 +18,7 @@
         </div>
     </div>
 
-    {{ sonata_block_render({ "type": 'purethink.cms.block.component', 'settings': {'template': '@PurethinkCMS/Page/_link.html.twig', 'slug': 'linki'} }) }}
+    {{ sonata_block_render({ "type": 'purethink.cms.block.component', 'settings': {'template': ':Page:_link.html.twig', 'slug': 'linki'} }) }}
 
-    {% include '@PurethinkCMS/Page/_footer.html.twig' %}
+    {% include ':Page:_footer.html.twig' %}
 {% endblock body %}

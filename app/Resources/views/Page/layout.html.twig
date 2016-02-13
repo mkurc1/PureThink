@@ -1,4 +1,4 @@
-{% extends "@PurethinkCMS/base.html.twig" %}
+{% extends "::layout.html.twig" %}
 
 {% block keywords %}
     {{ meta.SEOData.keyword|default(parent()) }}
@@ -29,7 +29,7 @@
 {% block body %}
     {{ parent() }}
 
-    {{ sonata_block_render({ "type": 'purethink.cms.block.component', 'settings': {'slug': 'cookie', 'template': '@PurethinkCMS/Page/_cookie.html.twig'}}) }}
+    {{ sonata_block_render({ "type": 'purethink.cms.block.component', 'settings': {'slug': 'cookie', 'template': ':Page:_cookie.html.twig'}}) }}
 
     <div id="top">
         <div class="container">
@@ -41,7 +41,7 @@
                 </div>
 
                 <div class="col-md-6 col-xs-12">
-                    {% include '@PurethinkCMS/Page/_topmenu.html.twig' %}
+                    {% include ':Page:_topmenu.html.twig' %}
                 </div>
             </div>
         </div>
@@ -64,9 +64,9 @@
 
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="main-menu-container">
-                        {{ sonata_block_render({ "type": 'purethink.cms.block.menu', 'settings': {'slug': 'main', 'template': '@PurethinkCMS/Page/_main_menu.html.twig'} }) }}
+                        {{ sonata_block_render({ "type": 'purethink.cms.block.menu', 'settings': {'slug': 'main', 'template': ':Page:_main_menu.html.twig'} }) }}
 
-                        {% include '@PurethinkCMS/Page/_search.html.twig' %}
+                        {% include ':Page:_search.html.twig' %}
                     </div>
                     <!-- /.navbar-collapse -->
                 </div>

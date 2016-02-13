@@ -41,7 +41,7 @@ class MenuBlock extends AbstractBlock
     public function setDefaultSettings(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults([
-            'template' => 'PurethinkCMSBundle:Block:menu.html.twig',
+            'template' => ':Block:menu.html.twig',
             'slug'     => null
         ]);
     }

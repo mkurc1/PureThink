@@ -44,7 +44,7 @@ class PageController extends Controller
         /** @var Site $meta */
         $meta = $this->getMetadataByLocale($locale);
 
-        return $this->render('@PurethinkCMS/Page/index.html.twig', compact('meta'));
+        return $this->render(':Page:index.html.twig', compact('meta'));
     }
 
     /**
@@ -70,7 +70,7 @@ class PageController extends Controller
             $entities = null;
         }
 
-        return $this->render('@PurethinkCMS/Page/searchList.html.twig', compact('meta', 'entities'));
+        return $this->render(':Page:searchList.html.twig', compact('meta', 'entities'));
     }
 
     /**
@@ -88,7 +88,7 @@ class PageController extends Controller
 
         $this->getDoctrine()->getRepository('PurethinkCMSBundle:ArticleView')->incrementViews($article->getViews());
 
-        return $this->render('@PurethinkCMS/Page/article.html.twig', compact('article'));
+        return $this->render(':Page:article.html.twig', compact('article'));
     }
 
     /**
