@@ -2,10 +2,11 @@
 
 namespace AppBundle\Entity;
 
-use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Gedmo\SoftDeleteable\SoftDeleteable;
+use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
+use Gedmo\Timestampable\Traits\TimestampableEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Event\LifecycleEventArgs;
@@ -20,6 +21,9 @@ use Doctrine\Common\Collections\ArrayCollection;
  */
 class Article implements MetadataInterface, ArticleViewInterface, SoftDeleteable
 {
+    use SoftDeleteableEntity;
+    use TimestampableEntity;
+
     /**
      * @var int
      *
@@ -47,32 +51,9 @@ class Article implements MetadataInterface, ArticleViewInterface, SoftDeleteable
     private $slug;
 
     /**
-     * @var DateTime
-     *
-     * @Gedmo\Timestampable(on="create")
-     * @ORM\Column(type="datetime")
-     */
-    private $created;
-
-    /**
-     * @var DateTime
-     *
-     * @Gedmo\Timestampable(on="update")
-     * @ORM\Column(type="datetime")
-     */
-    private $updated;
-
-    /**
-     * @var DateTime
-     *
-     * @ORM\Column(name="deletedAt", type="datetime", nullable=true)
-     */
-    private $deletedAt;
-
-    /**
      * @var boolean
      *
-     * @ORM\Column(type="boolean", nullable=true)
+     * @ORM\Column(type="boolean")
      */
     private $published = false;
 
@@ -389,52 +370,6 @@ class Article implements MetadataInterface, ArticleViewInterface, SoftDeleteable
     }
 
     /**
-     * Set created
-     *
-     * @param DateTime $created
-     * @return Article
-     */
-    public function setCreated($created)
-    {
-        $this->created = $created;
-
-        return $this;
-    }
-
-    /**
-     * Get created
-     *
-     * @return DateTime
-     */
-    public function getCreated()
-    {
-        return $this->created;
-    }
-
-    /**
-     * Set updated
-     *
-     * @param DateTime $updated
-     * @return Article
-     */
-    public function setUpdated($updated)
-    {
-        $this->updated = $updated;
-
-        return $this;
-    }
-
-    /**
-     * Get updated
-     *
-     * @return DateTime
-     */
-    public function getUpdated()
-    {
-        return $this->updated;
-    }
-
-    /**
      * Set published
      *
      * @param boolean $published
@@ -478,21 +413,5 @@ class Article implements MetadataInterface, ArticleViewInterface, SoftDeleteable
     public function getView()
     {
         return $this->view;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getDeletedAt()
-    {
-        return $this->deletedAt;
-    }
-
-    /**
-     * @param mixed $deletedAt
-     */
-    public function setDeletedAt($deletedAt)
-    {
-        $this->deletedAt = $deletedAt;
     }
 }

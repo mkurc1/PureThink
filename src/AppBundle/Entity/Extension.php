@@ -5,7 +5,7 @@ namespace AppBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Gedmo\Mapping\Annotation as Gedmo;
+use Gedmo\Timestampable\Traits\TimestampableEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -14,6 +14,8 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Extension
 {
+    use TimestampableEntity;
+
     /**
      * @ORM\Column(type="integer")
      * @ORM\Id
@@ -27,18 +29,6 @@ class Extension
      * @Assert\Length(max="255")
      */
     private $name;
-
-    /**
-     * @Gedmo\Timestampable(on="create")
-     * @ORM\Column(type="datetime")
-     */
-    private $created;
-
-    /**
-     * @Gedmo\Timestampable(on="update")
-     * @ORM\Column(type="datetime")
-     */
-    private $updated;
 
     /**
      * @ORM\OneToMany(targetEntity="ExtensionHasField", mappedBy="extension", cascade={"persist"}, orphanRemoval=true)
@@ -131,51 +121,5 @@ class Extension
     public function getFields()
     {
         return $this->fields;
-    }
-
-    /**
-     * Set created
-     *
-     * @param \DateTime $created
-     * @return Extension
-     */
-    public function setCreated($created)
-    {
-        $this->created = $created;
-
-        return $this;
-    }
-
-    /**
-     * Get created
-     *
-     * @return \DateTime
-     */
-    public function getCreated()
-    {
-        return $this->created;
-    }
-
-    /**
-     * Set updated
-     *
-     * @param \DateTime $updated
-     * @return Extension
-     */
-    public function setUpdated($updated)
-    {
-        $this->updated = $updated;
-
-        return $this;
-    }
-
-    /**
-     * Get updated
-     *
-     * @return \DateTime
-     */
-    public function getUpdated()
-    {
-        return $this->updated;
     }
 }

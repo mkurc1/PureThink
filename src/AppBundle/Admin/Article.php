@@ -6,6 +6,7 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
+use Sonata\AdminBundle\Form\Type\Filter\DateType;
 
 class Article extends Admin
 {
@@ -20,8 +21,11 @@ class Article extends Admin
     ];
 
     protected $datagridValues = [
-        '_sort_by' => 'name'
+        '_sort_by'  => 'name',
+        'createdAt' => ['type' => DateType::TYPE_GREATER_THAN],
+        'updatedAt' => ['type' => DateType::TYPE_GREATER_THAN]
     ];
+
 
     protected function configureFormFields(FormMapper $formMapper)
     {
@@ -56,8 +60,18 @@ class Article extends Admin
             ->add('name')
             ->add('slug')
             ->add('user')
-            ->add('created')
-            ->add('updated');
+            ->add('createdAt', 'doctrine_orm_datetime', [
+                'field_type'    => 'sonata_type_datetime_picker',
+                'field_options' => [
+                    'format' => 'dd MMM yyyy, HH:mm',
+                ]
+            ])
+            ->add('updatedAt', 'doctrine_orm_datetime', [
+                'field_type'    => 'sonata_type_datetime_picker',
+                'field_options' => [
+                    'format' => 'dd MMM yyyy, HH:mm',
+                ]
+            ]);
     }
 
     protected function configureListFields(ListMapper $listMapper)
@@ -69,8 +83,8 @@ class Article extends Admin
             ->add('user')
             ->add('view.views', null, ['label' => 'Views'])
             ->add('published', null, ['editable' => true])
-            ->add("created")
-            ->add('updated');
+            ->add("createdAt")
+            ->add('updatedAt');
     }
 
     protected function configureShowFields(ShowMapper $showMapper)

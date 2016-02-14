@@ -3,8 +3,10 @@
 namespace AppBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Gedmo\Timestampable\Traits\TimestampableEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -13,6 +15,8 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Component
 {
+    use TimestampableEntity;
+
     /**
      * @ORM\Column(type="integer")
      * @ORM\Id
@@ -32,18 +36,6 @@ class Component
      * @ORM\Column(length=255, unique=true)
      */
     private $slug;
-
-    /**
-     * @Gedmo\Timestampable(on="create")
-     * @ORM\Column(type="datetime")
-     */
-    private $created;
-
-    /**
-     * @Gedmo\Timestampable(on="update")
-     * @ORM\Column(type="datetime")
-     */
-    private $updated;
 
     /**
      * @ORM\Column(type="boolean", nullable=true)
@@ -139,10 +131,10 @@ class Component
     /**
      * Set language
      *
-     * @param \AppBundle\Entity\Language $language
+     * @param Language $language
      * @return Component
      */
-    public function setLanguage(\AppBundle\Entity\Language $language)
+    public function setLanguage(Language $language)
     {
         $this->language = $language;
 
@@ -152,7 +144,7 @@ class Component
     /**
      * Get language
      *
-     * @return \AppBundle\Entity\Language
+     * @return Language
      */
     public function getLanguage()
     {
@@ -162,10 +154,10 @@ class Component
     /**
      * Set extension
      *
-     * @param \AppBundle\Entity\Extension $extension
+     * @param Extension $extension
      * @return Component
      */
-    public function setExtension(\AppBundle\Entity\Extension $extension)
+    public function setExtension(Extension $extension)
     {
         $this->extension = $extension;
 
@@ -175,7 +167,7 @@ class Component
     /**
      * Get extension
      *
-     * @return \AppBundle\Entity\Extension
+     * @return Extension
      */
     public function getExtension()
     {
@@ -218,57 +210,11 @@ class Component
     /**
      * Get elements
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return Collection
      */
     public function getElements()
     {
         return $this->elements;
-    }
-
-    /**
-     * Set created
-     *
-     * @param \DateTime $created
-     * @return Component
-     */
-    public function setCreated($created)
-    {
-        $this->created = $created;
-
-        return $this;
-    }
-
-    /**
-     * Get created
-     *
-     * @return \DateTime
-     */
-    public function getCreated()
-    {
-        return $this->created;
-    }
-
-    /**
-     * Set updated
-     *
-     * @param \DateTime $updated
-     * @return Component
-     */
-    public function setUpdated($updated)
-    {
-        $this->updated = $updated;
-
-        return $this;
-    }
-
-    /**
-     * Get updated
-     *
-     * @return \DateTime
-     */
-    public function getUpdated()
-    {
-        return $this->updated;
     }
 
     /**

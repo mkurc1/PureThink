@@ -3,6 +3,9 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\SoftDeleteable\SoftDeleteable;
+use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
+use Gedmo\Timestampable\Traits\TimestampableEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -13,10 +16,13 @@ use Doctrine\Common\Collections\Collection;
  * @ORM\Entity(repositoryClass="AppBundle\Repository\MenuRepository")
  * @Gedmo\SoftDeleteable(fieldName="deletedAt")
  */
-class Menu
+class Menu implements SoftDeleteable
 {
     const ARTICLE_LINK = 1;
     const STRING_LINK = 2;
+
+    use SoftDeleteableEntity;
+    use TimestampableEntity;
 
     public static $linkTypes = [
         self::ARTICLE_LINK => 'Article',
@@ -100,11 +106,6 @@ class Menu
      * @Assert\NotNull()
      */
     private $article;
-
-    /**
-     * @ORM\Column(name="deletedAt", type="datetime", nullable=true)
-     */
-    private $deletedAt;
 
 
     public function getActiveChildren()
@@ -396,21 +397,5 @@ class Menu
     public function setUrl($url)
     {
         $this->url = $url;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getDeletedAt()
-    {
-        return $this->deletedAt;
-    }
-
-    /**
-     * @param mixed $deletedAt
-     */
-    public function setDeletedAt($deletedAt)
-    {
-        $this->deletedAt = $deletedAt;
     }
 }

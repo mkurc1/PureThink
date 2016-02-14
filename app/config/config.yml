@@ -91,7 +91,8 @@ fos_user:
 
 sonata_admin:
     title: PureThink
-
+    templates:
+        layout: :Admin:layout.html.twig
     dashboard:
         blocks:
             - { position: left, type: sonata.admin.block.admin_list }

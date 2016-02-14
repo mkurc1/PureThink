@@ -13,6 +13,7 @@ use AppBundle\Entity\ExtensionHasField as Field;
 use Sonata\AdminBundle\Route\RouteCollection;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Pix\SortableBehaviorBundle\Services\PositionHandler;
+use Sonata\AdminBundle\Form\Type\Filter\DateType;
 
 class ComponentHasElement extends Admin
 {
@@ -39,6 +40,8 @@ class ComponentHasElement extends Admin
         '_page'       => 1,
         '_sort_order' => 'ASC',
         '_sort_by'    => 'position',
+        'createdAt'     => ['type' => DateType::TYPE_GREATER_THAN],
+        'updatedAt'     => ['type' => DateType::TYPE_GREATER_THAN]
     ];
 
     public function setPositionService(PositionHandler $positionHandler)
@@ -78,7 +81,19 @@ class ComponentHasElement extends Admin
     {
         $datagridMapper
             ->add('id')
-            ->add('enabled');
+            ->add('enabled')
+            ->add('createdAt', 'doctrine_orm_datetime', [
+                'field_type'    => 'sonata_type_datetime_picker',
+                'field_options' => [
+                    'format' => 'dd MMM yyyy, HH:mm',
+                ]
+            ])
+            ->add('updatedAt', 'doctrine_orm_datetime', [
+                'field_type'    => 'sonata_type_datetime_picker',
+                'field_options' => [
+                    'format' => 'dd MMM yyyy, HH:mm',
+                ]
+            ]);
     }
 
     protected function configureListFields(ListMapper $listMapper)
@@ -91,8 +106,8 @@ class ComponentHasElement extends Admin
             ->addIdentifier('id')
             ->addIdentifier('title')
             ->add('position', null, ['editable' => true])
-            ->add('created')
-            ->add('updated')
+            ->add('createdAt')
+            ->add('updatedAt')
             ->add('enabled', null, ['editable' => true])
             ->add('_action', 'actions', [
                 'actions' => [

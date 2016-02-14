@@ -9,13 +9,16 @@ use Knp\Menu\ItemInterface as MenuItemInterface;
 use Sonata\AdminBundle\Admin\AdminInterface;
 use AppBundle\Entity\ComponentHasElement as ComponentHasElementEntity;
 use AppBundle\Entity\Component as ComponentEntity;
+use Sonata\AdminBundle\Form\Type\Filter\DateType;
 
 class Component extends Admin
 {
     protected $translationDomain = 'AppBundle';
 
     protected $datagridValues = [
-        '_sort_by' => 'name'
+        '_sort_by' => 'name',
+        'createdAt'  => ['type' => DateType::TYPE_GREATER_THAN],
+        'updatedAt'  => ['type' => DateType::TYPE_GREATER_THAN]
     ];
 
     protected function configureSideMenu(MenuItemInterface $menu, $action, AdminInterface $childAdmin = null)
@@ -42,13 +45,13 @@ class Component extends Admin
     {
         $formMapper
             ->with('General', ['class' => 'col-md-8'])
-                ->add('name')
-                ->add('language')
-                ->add('extension')
-                ->add('enabled')
+            ->add('name')
+            ->add('language')
+            ->add('extension')
+            ->add('enabled')
             ->end()
             ->with('Set only when needed', ['class' => 'col-md-4'])
-                ->add('slug', null, ["required" => false])
+            ->add('slug', null, ["required" => false])
             ->end();
     }
 
@@ -61,8 +64,18 @@ class Component extends Admin
             ->add('extension')
             ->add('language')
             ->add('enabled')
-            ->add('created')
-            ->add('updated');
+            ->add('createdAt', 'doctrine_orm_datetime', [
+                'field_type'    => 'sonata_type_datetime_picker',
+                'field_options' => [
+                    'format' => 'dd MMM yyyy, HH:mm',
+                ]
+            ])
+            ->add('updatedAt', 'doctrine_orm_datetime', [
+                'field_type'    => 'sonata_type_datetime_picker',
+                'field_options' => [
+                    'format' => 'dd MMM yyyy, HH:mm',
+                ]
+            ]);
     }
 
     protected function configureListFields(ListMapper $listMapper)
@@ -74,8 +87,8 @@ class Component extends Admin
             ->add('extension')
             ->add('language')
             ->add('enabled', null, ['editable' => true])
-            ->add("created")
-            ->add('updated');
+            ->add("createdAt")
+            ->add('updatedAt');
     }
 
     public function prePersist($object)
