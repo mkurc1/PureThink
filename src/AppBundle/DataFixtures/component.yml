@@ -1,0 +1,32 @@
+model: AppBundle\Entity\Component
+fixtures:
+    cms_component_1:
+        name: "Baner"
+        language: cms_language_2
+        extension: cms_extension_2
+        enabled: 1
+    cms_component_2:
+        name: "Linki"
+        language: cms_language_2
+        extension: cms_extension_1
+        enabled: 1
+    cms_component_3:
+        name: "Lorem Ipsum Dolom - news 1"
+        language: cms_language_2
+        extension: cms_extension_3
+        enabled: 1
+    cms_component_4:
+        name: "Lorem Ipsum Dolom - news 2"
+        language: cms_language_2
+        extension: cms_extension_3
+        enabled: 1
+    cms_component_5:
+        name: "Lorem Ipsum Dolom - news 3"
+        language: cms_language_2
+        extension: cms_extension_3
+        enabled: 1
+    cms_component_6:
+        name: "Cookie"
+        language: cms_language_2
+        extension: cms_extension_4
+        enabled: 1

@@ -82,9 +82,9 @@ pix_sortable_behavior:
 fos_user:
     db_driver:      orm
     firewall_name:  main
-    user_class:     Purethink\CMSBundle\Entity\User
+    user_class:     AppBundle\Entity\User
     group:
-        group_class:   Purethink\CMSBundle\Entity\Group
+        group_class:   AppBundle\Entity\Group
     from_email:
         address: "%mailer_user%"
         sender_name: PureThink
@@ -100,12 +100,12 @@ sonata_admin:
             sonata.admin.group.content:
                 label: CMS
                 icon: <i class="fa fa-th"></i>
-                label_catalogue: PurethinkCMSBundle
+                label_catalogue: AppBundle
                 items:
-                    - purethink_cms.admin.article
-                    - purethink_cms.admin.menu_type
-                    - purethink_cms.admin.extension
-                    - purethink_cms.admin.component
+                    - app.admin.article
+                    - app.admin.menu_type
+                    - app.admin.extension
+                    - app.admin.component
                     - sonata.media.admin.media
             sonata.admin.group.administration:
                 label: sonata_administration
@@ -114,8 +114,8 @@ sonata_admin:
                 items:
                     - sonata.user.admin.user
                     - sonata.user.admin.group
-                    - purethink_cms.admin.language
-                    - purethink_cms.admin.site
+                    - app.admin.language
+                    - app.admin.site
 
 sonata_block:
     default_contexts: [cms]
@@ -128,9 +128,9 @@ sonata_block:
         sonata.user.block.account:
         sonata.user.block.menu:
             contexts: [user]
-        purethink.cms.block.language:
-        purethink.cms.block.menu:
-        purethink.cms.block.component:
+        app.block.language:
+        app.block.menu:
+        app.block.component:
 
 sonata_media:
     class:
@@ -159,8 +159,8 @@ sonata_media:
 
 sonata_user:
     class:
-        user: Purethink\CMSBundle\Entity\User
-        group: Purethink\CMSBundle\Entity\Group
+        user: AppBundle\Entity\User
+        group: AppBundle\Entity\Group
 
     impersonating:
         route: page
@@ -190,27 +190,27 @@ ivory_ck_editor:
         default:
             toolbar: "cke_toolbar"
             height: "400px"
-            filebrowserBrowseRoute: admin_sonata_media_media_ckeditor_browser
-            filebrowserImageBrowseRoute: admin_sonata_media_media_ckeditor_browser
+            filebrowserBrowseRoute: admin_app_media_ckeditor_browser
+            filebrowserImageBrowseRoute: admin_app_media_ckeditor_browser
             filebrowserImageBrowseRouteParameters:
                 provider: sonata.media.provider.image
-            filebrowserUploadRoute: admin_sonata_media_media_ckeditor_upload
+            filebrowserUploadRoute: admin_app_media_ckeditor_upload
             filebrowserUploadRouteParameters:
                 provider: sonata.media.provider.file
-            filebrowserImageUploadRoute: admin_sonata_media_media_ckeditor_upload
+            filebrowserImageUploadRoute: admin_app_media_ckeditor_upload
             filebrowserImageUploadRouteParameters:
                 provider: sonata.media.provider.image
         excerpt:
             toolbar: "cke_toolbar"
             height: "200px"
-            filebrowserBrowseRoute: admin_sonata_media_media_ckeditor_browser
-            filebrowserImageBrowseRoute: admin_sonata_media_media_ckeditor_browser
+            filebrowserBrowseRoute: admin_app_media_ckeditor_browser
+            filebrowserImageBrowseRoute: admin_app_media_ckeditor_browser
             filebrowserImageBrowseRouteParameters:
                 provider: sonata.media.provider.image
-            filebrowserUploadRoute: admin_sonata_media_media_ckeditor_upload
+            filebrowserUploadRoute: admin_app_media_ckeditor_upload
             filebrowserUploadRouteParameters:
                 provider: sonata.media.provider.file
-            filebrowserImageUploadRoute: admin_sonata_media_media_ckeditor_upload
+            filebrowserImageUploadRoute: admin_app_media_ckeditor_upload
             filebrowserImageUploadRouteParameters:
                 provider: sonata.media.provider.image
     toolbars:
@@ -230,22 +230,22 @@ ivory_ck_editor:
 
 khepin_yaml_fixtures:
     resources:
-        - PurethinkCMSBundle/user
-        - PurethinkCMSBundle/media
-        - PurethinkCMSBundle/metadata
-        - PurethinkCMSBundle/language
-        - PurethinkCMSBundle/article
-        - PurethinkCMSBundle/extension
-        - PurethinkCMSBundle/extensionHasField
-        - PurethinkCMSBundle/component
-        - PurethinkCMSBundle/componentHasElement
-        - PurethinkCMSBundle/componentHasText
-        - PurethinkCMSBundle/componentHasArticle
-        - PurethinkCMSBundle/componentHasFile
-        - PurethinkCMSBundle/menuType
-        - PurethinkCMSBundle/menu
-        - PurethinkCMSBundle
+        - AppBundle/user
+        - AppBundle/media
+        - AppBundle/metadata
+        - AppBundle/language
+        - AppBundle/article
+        - AppBundle/extension
+        - AppBundle/extensionHasField
+        - AppBundle/component
+        - AppBundle/componentHasElement
+        - AppBundle/componentHasText
+        - AppBundle/componentHasArticle
+        - AppBundle/componentHasFile
+        - AppBundle/menuType
+        - AppBundle/menu
+        - AppBundle
 
-purethink_cms:
+app:
     class:
-        user: Purethink\CMSBundle\Entity\User
+        user: AppBundle\Entity\User

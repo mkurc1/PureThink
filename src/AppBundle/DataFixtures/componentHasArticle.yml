@@ -1,0 +1,137 @@
+model: AppBundle\Entity\ComponentHasArticle
+fixtures:
+    cms_component_has_text_2:
+        article: cms_article_1
+        componentHasElement: cms_component_has_element_1
+        extensionHasField: cms_extension_has_field_2
+    cms_component_has_text_5:
+        article: cms_article_5
+        componentHasElement: cms_component_has_element_2
+        extensionHasField: cms_extension_has_field_2
+    cms_component_has_text_8:
+        article: cms_article_4
+        componentHasElement: cms_component_has_element_3
+        extensionHasField: cms_extension_has_field_2
+
+    cms_component_has_text_11:
+        article: cms_article_1
+        componentHasElement: cms_component_has_element_4
+        extensionHasField: cms_extension_has_field_5
+    cms_component_has_text_13:
+        article: cms_article_1
+        componentHasElement: cms_component_has_element_5
+        extensionHasField: cms_extension_has_field_5
+    cms_component_has_text_15:
+        article: cms_article_1
+        componentHasElement: cms_component_has_element_6
+        extensionHasField: cms_extension_has_field_5
+    cms_component_has_text_17:
+        article: cms_article_1
+        componentHasElement: cms_component_has_element_7
+        extensionHasField: cms_extension_has_field_5
+    cms_component_has_text_19:
+        article: cms_article_1
+        componentHasElement: cms_component_has_element_8
+        extensionHasField: cms_extension_has_field_5
+    cms_component_has_text_21:
+        article: cms_article_2
+        componentHasElement: cms_component_has_element_9
+        extensionHasField: cms_extension_has_field_5
+    cms_component_has_text_23:
+        article: cms_article_1
+        componentHasElement: cms_component_has_element_10
+        extensionHasField: cms_extension_has_field_5
+    cms_component_has_text_25:
+        article: cms_article_5
+        componentHasElement: cms_component_has_element_11
+        extensionHasField: cms_extension_has_field_5
+    cms_component_has_text_27:
+        article: cms_article_1
+        componentHasElement: cms_component_has_element_12
+        extensionHasField: cms_extension_has_field_5
+    cms_component_has_text_29:
+        article: cms_article_10
+        componentHasElement: cms_component_has_element_13
+        extensionHasField: cms_extension_has_field_5
+    cms_component_has_text_31:
+        article: cms_article_1
+        componentHasElement: cms_component_has_element_14
+        extensionHasField: cms_extension_has_field_5
+    cms_component_has_text_33:
+        article: cms_article_1
+        componentHasElement: cms_component_has_element_15
+        extensionHasField: cms_extension_has_field_5
+    cms_component_has_text_35:
+        article: cms_article_1
+        componentHasElement: cms_component_has_element_16
+        extensionHasField: cms_extension_has_field_5
+    cms_component_has_text_37:
+        article: cms_article_2
+        componentHasElement: cms_component_has_element_17
+        extensionHasField: cms_extension_has_field_5
+    cms_component_has_text_39:
+        article: cms_article_1
+        componentHasElement: cms_component_has_element_18
+        extensionHasField: cms_extension_has_field_5
+    cms_component_has_text_41:
+        article: cms_article_7
+        componentHasElement: cms_component_has_element_19
+        extensionHasField: cms_extension_has_field_5
+    cms_component_has_text_43:
+        article: cms_article_1
+        componentHasElement: cms_component_has_element_20
+        extensionHasField: cms_extension_has_field_5
+    cms_component_has_text_45:
+        article: cms_article_1
+        componentHasElement: cms_component_has_element_21
+        extensionHasField: cms_extension_has_field_5
+    cms_component_has_text_47:
+        article: cms_article_1
+        componentHasElement: cms_component_has_element_22
+        extensionHasField: cms_extension_has_field_5
+    cms_component_has_text_49:
+        article: cms_article_1
+        componentHasElement: cms_component_has_element_23
+        extensionHasField: cms_extension_has_field_5
+
+    cms_component_has_text_51:
+        article: cms_article_1
+        componentHasElement: cms_component_has_element_24
+        extensionHasField: cms_extension_has_field_7
+    cms_component_has_text_55:
+        article: cms_article_1
+        componentHasElement: cms_component_has_element_25
+        extensionHasField: cms_extension_has_field_7
+    cms_component_has_text_59:
+        article: cms_article_2
+        componentHasElement: cms_component_has_element_26
+        extensionHasField: cms_extension_has_field_7
+    cms_component_has_text_63:
+        article: cms_article_4
+        componentHasElement: cms_component_has_element_27
+        extensionHasField: cms_extension_has_field_7
+    cms_component_has_text_67:
+        article: cms_article_7
+        componentHasElement: cms_component_has_element_28
+        extensionHasField: cms_extension_has_field_7
+    cms_component_has_text_71:
+        article: cms_article_9
+        componentHasElement: cms_component_has_element_29
+        extensionHasField: cms_extension_has_field_7
+    cms_component_has_text_75:
+        article: cms_article_1
+        componentHasElement: cms_component_has_element_30
+        extensionHasField: cms_extension_has_field_7
+    cms_component_has_text_79:
+        article: cms_article_2
+        componentHasElement: cms_component_has_element_31
+        extensionHasField: cms_extension_has_field_7
+    cms_component_has_text_83:
+        article: cms_article_14
+        componentHasElement: cms_component_has_element_32
+        extensionHasField: cms_extension_has_field_7
+
+    cms_component_has_text_87:
+        article: cms_article_12
+        componentHasElement: cms_component_has_element_33
+        extensionHasField: cms_extension_has_field_11

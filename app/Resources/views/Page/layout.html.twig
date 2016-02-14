@@ -29,7 +29,7 @@
 {% block body %}
     {{ parent() }}
 
-    {{ sonata_block_render({ "type": 'purethink.cms.block.component', 'settings': {'slug': 'cookie', 'template': ':Page:_cookie.html.twig'}}) }}
+    {{ sonata_block_render({ "type": 'app.block.component', 'settings': {'slug': 'cookie', 'template': ':Page:_cookie.html.twig'}}) }}
 
     <div id="top">
         <div class="container">
@@ -64,7 +64,7 @@
 
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="main-menu-container">
-                        {{ sonata_block_render({ "type": 'purethink.cms.block.menu', 'settings': {'slug': 'main', 'template': ':Page:_main_menu.html.twig'} }) }}
+                        {{ sonata_block_render({ "type": 'app.block.menu', 'settings': {'slug': 'main', 'template': ':Page:_main_menu.html.twig'} }) }}
 
                         {% include ':Page:_search.html.twig' %}
                     </div>

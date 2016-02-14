@@ -39,6 +39,6 @@ sonata_media:
     prefix: /media
 
 app:
-    resource: "@PurethinkCMSBundle/Controller/"
+    resource: "@AppBundle/Controller/"
     type:     annotation
     prefix:   /

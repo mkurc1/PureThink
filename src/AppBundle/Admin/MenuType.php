@@ -1,0 +1,69 @@
+<?php
+
+namespace AppBundle\Admin;
+
+use Sonata\AdminBundle\Admin\Admin;
+use Sonata\AdminBundle\Datagrid\ListMapper;
+use Sonata\AdminBundle\Datagrid\DatagridMapper;
+use Sonata\AdminBundle\Form\FormMapper;
+use Knp\Menu\ItemInterface as MenuItemInterface;
+use Sonata\AdminBundle\Admin\AdminInterface;
+
+class MenuType extends Admin
+{
+    protected $translationDomain = 'AppBundle';
+
+    protected $datagridValues = [
+        '_sort_by' => 'name'
+    ];
+
+    protected function configureSideMenu(MenuItemInterface $menu, $action, AdminInterface $childAdmin = null)
+    {
+        if (!$childAdmin && !in_array($action, ['edit'])) {
+            return;
+        }
+
+        $admin = $this->isChild() ? $this->getParent() : $this;
+        $id = $admin->getRequest()->get('id');
+
+        $menu->addChild(
+            $this->trans('Menu'),
+            ['uri' => $admin->generateUrl('edit', compact('id'))]
+        );
+
+        $menu->addChild(
+            $this->trans('Elements'),
+            ['uri' => $admin->generateUrl('app.admin.menu.list', compact('id'))]
+        );
+    }
+
+    protected function configureFormFields(FormMapper $formMapper)
+    {
+        $formMapper
+            ->with('General', ['class' => 'col-md-8'])
+                ->add('name')
+                ->add('description', 'textarea')
+            ->end()
+            ->with('Options', ['class' => 'col-md-4'])
+                ->add('slug', null, ["required" => false])
+            ->end();
+    }
+
+    protected function configureDatagridFilters(DatagridMapper $datagridMapper)
+    {
+        $datagridMapper
+            ->add('id')
+            ->add('name')
+            ->add('slug');
+    }
+
+    protected function configureListFields(ListMapper $listMapper)
+    {
+        $listMapper
+            ->addIdentifier('id')
+            ->addIdentifier('name')
+            ->addIdentifier('slug')
+            ->add('description');
+    }
+
+}
