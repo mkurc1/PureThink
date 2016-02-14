@@ -8,17 +8,15 @@ use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
-use AppBundle\Entity\ComponentHasElement as Element;
-use AppBundle\Entity\ExtensionHasField as Field;
+use AppBundle\Entity\ComponentHasElement;
+use AppBundle\Entity\ExtensionHasField;
 use Sonata\AdminBundle\Route\RouteCollection;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Pix\SortableBehaviorBundle\Services\PositionHandler;
 use Sonata\AdminBundle\Form\Type\Filter\DateType;
 
-class ComponentHasElement extends Admin
+class ComponentHasElementAdmin extends Admin
 {
-    protected $translationDomain = 'AppBundle';
-
     protected $formOptions = [
         'cascade_validation' => true
     ];
@@ -40,8 +38,8 @@ class ComponentHasElement extends Admin
         '_page'       => 1,
         '_sort_order' => 'ASC',
         '_sort_by'    => 'position',
-        'createdAt'     => ['type' => DateType::TYPE_GREATER_THAN],
-        'updatedAt'     => ['type' => DateType::TYPE_GREATER_THAN]
+        'createdAt'   => ['type' => DateType::TYPE_GREATER_THAN],
+        'updatedAt'   => ['type' => DateType::TYPE_GREATER_THAN]
     ];
 
     public function setPositionService(PositionHandler $positionHandler)
@@ -57,7 +55,7 @@ class ComponentHasElement extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->with('General', ['class' => 'col-md-6'])
+            ->with('admin.general', ['class' => 'col-md-6'])
             ->add('componentHasValues', 'sonata_type_collection', [
                 'label'        => false,
                 'btn_add'      => false,
@@ -65,7 +63,9 @@ class ComponentHasElement extends Admin
             ], [
                 'sortable' => 'position'
             ])
-            ->add('enabled')
+            ->add('enabled', null, [
+                'label' => 'admin.component_has_element.enabled'
+            ])
             ->end();
     }
 
@@ -80,15 +80,21 @@ class ComponentHasElement extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('id')
-            ->add('enabled')
+            ->add('id', null, [
+                'label' => 'admin.id'
+            ])
+            ->add('enabled', null, [
+                'label' => 'admin.component_has_element.enabled'
+            ])
             ->add('createdAt', 'doctrine_orm_datetime', [
+                'label'         => 'admin.created_at',
                 'field_type'    => 'sonata_type_datetime_picker',
                 'field_options' => [
                     'format' => 'dd MMM yyyy, HH:mm',
                 ]
             ])
             ->add('updatedAt', 'doctrine_orm_datetime', [
+                'label'         => 'admin.updated_at',
                 'field_type'    => 'sonata_type_datetime_picker',
                 'field_options' => [
                     'format' => 'dd MMM yyyy, HH:mm',
@@ -103,13 +109,28 @@ class ComponentHasElement extends Admin
         }
 
         $listMapper
-            ->addIdentifier('id')
-            ->addIdentifier('title')
-            ->add('position', null, ['editable' => true])
-            ->add('createdAt')
-            ->add('updatedAt')
-            ->add('enabled', null, ['editable' => true])
+            ->addIdentifier('id', null, [
+                'label' => 'admin.id'
+            ])
+            ->addIdentifier('title', null, [
+                'label' => 'admin.component_has_element.title'
+            ])
+            ->add('position', null, [
+                'label'    => 'admin.component_has_element.position',
+                'editable' => true
+            ])
+            ->add('createdAt', null, [
+                'label' => 'admin.created_at'
+            ])
+            ->add('updatedAt', null, [
+                'label' => 'admin.updated_at'
+            ])
+            ->add('enabled', null, [
+                'label'    => 'admin.component_has_element.enabled',
+                'editable' => true
+            ])
             ->add('_action', 'actions', [
+                'label' => 'admin.action',
                 'actions' => [
                     'move' => ['template' => ':Admin:_sort.html.twig'],
                 ]
@@ -130,13 +151,13 @@ class ComponentHasElement extends Admin
         return $element;
     }
 
-    private function getComponentHasValueType(Element $entity, Field $field)
+    private function getComponentHasValueType(ComponentHasElement $entity, ExtensionHasField $field)
     {
         switch ($field->getTypeOfField()) {
-            case Field::TYPE_ARTICLE:
+            case ExtensionHasField::TYPE_ARTICLE:
                 return new ComponentHasArticle($entity, $field);
                 break;
-            case Field::TYPE_FILE:
+            case ExtensionHasField::TYPE_FILE:
                 return new ComponentHasFile($entity, $field);
                 break;
             default:

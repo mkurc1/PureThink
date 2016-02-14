@@ -28,7 +28,7 @@ class ComponentHasElementAdminController extends CRUDController
         }
 
         $translator = $this->get('translator');
-        $message = $translator->trans('Position updated', [], 'AppBundle');
+        $message = $translator->trans('admin.position_updated');
         $this->get('session')->getFlashBag()->set('sonata_flash_info', $message);
 
         return new RedirectResponse($this->admin->generateUrl('list', $this->admin->getFilterParameters()));

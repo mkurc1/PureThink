@@ -1,0 +1,99 @@
+Article List: Lista artykułów
+Component List: Lista komponentów
+Extension List: Lista rozszerzeń
+Component Has Element List: Lista elementów przypisanych do komponentu
+Language List: Lista języków
+Menu List: Lista elementów przypisanych do menu
+Menu Type List: Lista menu
+Site List: Lista stron internetowych
+
+admin:
+    created_at: Data utworzenia
+    updated_at: Data utworzenia
+    action: Akcje
+    position_updated: Pozycja została uaktualniona
+
+    general: Ogólne
+    seo: SEO
+    options: Opcje
+    id: ID
+
+    sidebar:
+        language: Języki
+        site: Strony internetowe
+        artice: Artykuły
+        menu: Menu
+        extension: Rozszerzenie
+        component: Komponenty
+
+    article:
+        name: Tytuł
+        slug: Nazwa w URL
+        user: Użytkownik
+        views: Liczba odwiedzin
+        published: Opublikowany
+        content: Treść
+        excerpt: Fragment
+        language: Język
+
+    component:
+        name: Nazwa
+        slug: Nazwa w URL
+        extension: Rozszerzenie
+        language: Języki
+        enabled: Aktywne
+        side_menu:
+            component: Komponent
+            elements: Elementy
+
+    component_has_element:
+        enabled: Aktywne
+        title: Nazwa
+        position: Pozycja
+
+    metadata:
+        title: Tytuł
+        description: Opis
+        keyword: Słowa kluczowe
+
+    extension:
+        name: Nazwa
+        fields: Pola
+
+    extension_has_field:
+        name: Nazwa
+        position: Pozycja
+        label_of_field: Etykieta pola
+        class: Klasa CSS
+        required: Wymagane
+        is_main_field: Główne pole
+        type_of_field: Typ pola
+
+    language:
+        name: Nazwa
+        alias: Alias
+        enabled: Aktywne
+
+    menu:
+        name: Nazwa
+        menu: Menu
+        menu_help: Proszę usawić w przypadku jeżeli to ma być podmenu wybranego elementu.
+        position: Pozycja
+        type_of_link: Typ linku
+        article: Artykuł
+        url: Adres URL
+        language: Język
+        published: Opublikowane
+        is_new_page: Otwórz w nowej zakłądce
+
+    menu_type:
+        name: Nazwa
+        description: Opis
+        slug: Nazwa w URL
+        side_menu:
+            menu: Menu
+            elements: Elementy
+
+    site:
+        title: Tytuł
+        language: Język

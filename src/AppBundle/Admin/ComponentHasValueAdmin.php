@@ -4,16 +4,14 @@ namespace AppBundle\Admin;
 use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Form\FormMapper;
 use Symfony\Component\Validator\Constraints\NotNull;
-use AppBundle\Entity\ComponentHasValue as ComponentHasValueEntity;
+use AppBundle\Entity\ComponentHasValue;
 
-class ComponentHasValue extends Admin
+class ComponentHasValueAdmin extends Admin
 {
-    protected $translationDomain = 'AppBundle';
-
     protected function configureFormFields(FormMapper $formMapper)
     {
         $object = $this->getSubject();
-        /** @var ComponentHasValueEntity $object */
+        /** @var ComponentHasValue $object */
         $field = $object->getExtensionHasField();
 
         $formMapper->add('content', $field->getTypeOfFieldString(), [

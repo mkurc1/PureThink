@@ -248,7 +248,3 @@ khepin_yaml_fixtures:
         - AppBundle/menuType
         - AppBundle/menu
         - AppBundle
-
-app:
-    class:
-        user: AppBundle\Entity\User

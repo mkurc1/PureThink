@@ -2,33 +2,33 @@ services:
     app.admin.metadata:
         tags:
             - { name: sonata.admin, manager_type: orm, show_in_dashboard: false }
-        class: AppBundle\Admin\Metadata
+        class: AppBundle\Admin\MetadataAdmin
         arguments: [null, AppBundle\Entity\Metadata, SonataAdminBundle:CRUD]
 
     app.admin.language:
         tags:
-            - { name: sonata.admin, manager_type: orm, group: CMS, label: Languages }
-        class: AppBundle\Admin\Language
+            - { name: sonata.admin, manager_type: orm, group: CMS, label: "admin.sidebar.language" }
+        class: AppBundle\Admin\LanguageAdmin
         arguments: [null, AppBundle\Entity\Language, SonataAdminBundle:CRUD]
 
     app.admin.site:
         tags:
-            - { name: sonata.admin, manager_type: orm, group: CMS, label: Sites }
-        class: AppBundle\Admin\Site
+            - { name: sonata.admin, manager_type: orm, group: CMS, label: "admin.sidebar.site" }
+        class: AppBundle\Admin\SiteAdmin
         arguments: [null, AppBundle\Entity\Site, SonataAdminBundle:CRUD]
 
     app.admin.article:
         tags:
-            - { name: sonata.admin, manager_type: orm, group: CMS, label: Articles }
-        class: AppBundle\Admin\Article
+            - { name: sonata.admin, manager_type: orm, group: CMS, label: "admin.sidebar.artice" }
+        class: AppBundle\Admin\ArticleAdmin
         arguments: [null, AppBundle\Entity\Article, SonataAdminBundle:CRUD]
         calls:
             - [ setSecurityContext, [ @security.context ] ]
 
     app.admin.menu_type:
         tags:
-            - { name: sonata.admin, manager_type: orm, group: CMS, label: Menu }
-        class: AppBundle\Admin\MenuType
+            - { name: sonata.admin, manager_type: orm, group: CMS, label: "admin.sidebar.menu" }
+        class: AppBundle\Admin\MenuTypeAdmin
         arguments: [null, AppBundle\Entity\MenuType, SonataAdminBundle:CRUD]
         calls:
             - [ addChild, [@app.admin.menu] ]
@@ -36,25 +36,25 @@ services:
     app.admin.menu:
         tags:
             - { name: sonata.admin, manager_type: orm, show_in_dashboard: false }
-        class: AppBundle\Admin\Menu
+        class: AppBundle\Admin\MenuAdmin
         arguments: [null, AppBundle\Entity\Menu, SonataAdminBundle:CRUD]
 
     app.admin.extension:
         tags:
-            - { name: sonata.admin, manager_type: orm, group: CMS, label: Extensions }
-        class: AppBundle\Admin\Extension
+            - { name: sonata.admin, manager_type: orm, group: CMS, label: "admin.sidebar.extension" }
+        class: AppBundle\Admin\ExtensionAdmin
         arguments: [null, AppBundle\Entity\Extension, SonataAdminBundle:CRUD]
 
     app.admin.extension_has_field:
         tags:
             - { name: sonata.admin, manager_type: orm, show_in_dashboard: false }
-        class: AppBundle\Admin\ExtensionHasField
+        class: AppBundle\Admin\ExtensionHasFieldAdmin
         arguments: [null, AppBundle\Entity\ExtensionHasField, SonataAdminBundle:CRUD]
 
     app.admin.component:
         tags:
-            - { name: sonata.admin, manager_type: orm, group: CMS, label: Components }
-        class: AppBundle\Admin\Component
+            - { name: sonata.admin, manager_type: orm, group: CMS, label: "admin.sidebar.component" }
+        class: AppBundle\Admin\ComponentAdmin
         arguments: [null, AppBundle\Entity\Component, SonataAdminBundle:CRUD]
         calls:
             - [ addChild, [@app.admin.component_has_element] ]
@@ -62,7 +62,7 @@ services:
     app.admin.component_has_element:
         tags:
             - { name: sonata.admin, manager_type: orm, show_in_dashboard: false }
-        class: AppBundle\Admin\ComponentHasElement
+        class: AppBundle\Admin\ComponentHasElementAdmin
         arguments: [null, AppBundle\Entity\ComponentHasElement, 'AppBundle:Admin\ComponentHasElementAdmin']
         calls:
             - [ addChild, [@app.admin.component_has_value] ]
@@ -72,5 +72,5 @@ services:
     app.admin.component_has_value:
         tags:
             - { name: sonata.admin, manager_type: orm, show_in_dashboard: false }
-        class: AppBundle\Admin\ComponentHasValue
+        class: AppBundle\Admin\ComponentHasValueAdmin
         arguments: [null, AppBundle\Entity\ComponentHasValue, SonataAdminBundle:CRUD]
