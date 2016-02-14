@@ -72,17 +72,25 @@ class MenuTypeAdmin extends Admin
     {
         $listMapper
             ->addIdentifier('id', null, [
-                'label' => 'admin.id'
+                'label' => 'admin.id',
+                'route' => ['name' => 'app.admin.menu.list']
             ])
             ->addIdentifier('name', null, [
-                'label' => 'admin.menu_type.name'
+                'label' => 'admin.menu_type.name',
+                'route' => ['name' => 'app.admin.menu.list']
             ])
-            ->addIdentifier('slug', null, [
+            ->add('slug', null, [
                 'label' => 'admin.menu_type.slug'
             ])
             ->add('description', null, [
                 'label' => 'admin.menu_type.description'
-            ]);
+            ])
+            ->add('_action', 'actions', [
+                'label'   => 'admin.actions',
+                'actions' => [
+                    'edit' => []
+                ]
+            ]);;
     }
 
 }

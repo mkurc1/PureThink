@@ -4,14 +4,21 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Gedmo\SoftDeleteable\SoftDeleteable;
+use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
+use Gedmo\Timestampable\Traits\TimestampableEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Table(name="cms_extension_has_field")
  * @ORM\Entity()
+ * @Gedmo\SoftDeleteable(fieldName="deletedAt")
  */
-class ExtensionHasField
+class ExtensionHasField implements SoftDeleteable
 {
+    use TimestampableEntity;
+    use SoftDeleteableEntity;
+
     const TYPE_TEXT = 1;
     const TYPE_TEXTAREA = 2;
     const TYPE_INTEGER = 3;

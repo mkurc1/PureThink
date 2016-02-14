@@ -4,14 +4,20 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
+use Gedmo\Timestampable\Traits\TimestampableEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Table(name="cms_menu_type")
  * @ORM\Entity()
+ * @Gedmo\SoftDeleteable(fieldName="deletedAt")
  */
 class MenuType
 {
+    use TimestampableEntity;
+    use SoftDeleteableEntity;
+
     /**
      * @ORM\Column(type="integer")
      * @ORM\Id

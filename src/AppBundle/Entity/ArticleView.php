@@ -3,13 +3,19 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
+use Gedmo\SoftDeleteable\SoftDeleteable;
+use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
 
 /**
  * @ORM\Table(name="cms_article_view")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\ArticleViewRepository")
+ * @Gedmo\SoftDeleteable(fieldName="deletedAt")
  */
-class ArticleView implements ArticleViewInterface
+class ArticleView implements ArticleViewInterface, SoftDeleteable
 {
+    use SoftDeleteableEntity;
+
     /**
      * @ORM\Column(type="integer")
      * @ORM\Id

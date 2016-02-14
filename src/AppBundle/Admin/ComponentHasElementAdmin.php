@@ -130,7 +130,7 @@ class ComponentHasElementAdmin extends Admin
                 'editable' => true
             ])
             ->add('_action', 'actions', [
-                'label' => 'admin.action',
+                'label' => 'admin.actions',
                 'actions' => [
                     'move' => ['template' => ':Admin:_sort.html.twig'],
                 ]

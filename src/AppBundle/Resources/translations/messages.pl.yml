@@ -10,7 +10,7 @@ Site List: Lista stron internetowych
 admin:
     created_at: Data utworzenia
     updated_at: Data utworzenia
-    action: Akcje
+    actions: Akcje
     position_updated: Pozycja została uaktualniona
 
     general: Ogólne

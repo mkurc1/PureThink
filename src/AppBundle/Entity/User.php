@@ -2,15 +2,21 @@
 
 namespace AppBundle\Entity;
 
+use Gedmo\SoftDeleteable\SoftDeleteable;
+use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
 use Sonata\UserBundle\Entity\BaseUser as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="cms_user")
+ * @Gedmo\SoftDeleteable(fieldName="deletedAt")
  */
-class User extends BaseUser
+class User extends BaseUser implements SoftDeleteable
 {
+    use SoftDeleteableEntity;
+
     /**
      * @var integer
      *

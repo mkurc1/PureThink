@@ -3,16 +3,24 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\SoftDeleteable\SoftDeleteable;
+use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
+use Gedmo\Timestampable\Traits\TimestampableEntity;
 use Symfony\Component\Validator\Constraints as Assert;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Metadata
  *
  * @ORM\Table(name="cms_metadata")
  * @ORM\Entity
+ * @Gedmo\SoftDeleteable(fieldName="deletedAt")
  */
-class Metadata
+class Metadata implements SoftDeleteable
 {
+    use TimestampableEntity;
+    use SoftDeleteableEntity;
+
     /**
      * @ORM\Column(type="integer")
      * @ORM\Id

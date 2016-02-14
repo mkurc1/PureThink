@@ -3,13 +3,20 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
+use Gedmo\Timestampable\Traits\TimestampableEntity;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * @ORM\Table(name="cms_language")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\LanguageRepository")
+ * @Gedmo\SoftDeleteable(fieldName="deletedAt")
  */
 class Language
 {
+    use TimestampableEntity;
+    use SoftDeleteableEntity;
+
     /**
      * @ORM\Column(type="integer")
      * @ORM\Id
