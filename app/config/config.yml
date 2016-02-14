@@ -116,7 +116,6 @@ sonata_admin:
                 label_catalogue: SonataAdminBundle
                 items:
                     - sonata.user.admin.user
-                    - sonata.user.admin.group
                     - app.admin.language
                     - app.admin.site
 
@@ -164,7 +163,9 @@ sonata_user:
     class:
         user: AppBundle\Entity\User
         group: AppBundle\Entity\Group
-
+    admin:
+        user:
+            class: AppBundle\Admin\UserAdmin
     impersonating:
         route: page
         parameters: { path: / }
