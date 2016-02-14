@@ -130,8 +130,3 @@ fixtures:
         article: cms_article_14
         componentHasElement: cms_component_has_element_32
         extensionHasField: cms_extension_has_field_7
-
-    cms_component_has_text_87:
-        article: cms_article_12
-        componentHasElement: cms_component_has_element_33
-        extensionHasField: cms_extension_has_field_11

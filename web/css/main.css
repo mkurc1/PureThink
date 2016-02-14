@@ -2,56 +2,6 @@
     max-width: 1000px;
 }
 
-#cookie {
-    position: relative;
-    width: 100%;
-    display: none;
-}
-
-#cookie > .container {
-    background-color: #E7EBED;
-    border-radius: 5px;
-    margin-top: 25px;
-    padding: 10px;
-    width: 980px;
-    position: relative;
-}
-
-#cookie > .container h5 {
-    font-size: 17px;
-    font-weight: normal;
-    color: #3E3E3E;
-    margin-bottom: 10px;
-}
-
-#cookie > .container p {
-    font-size: 13px;
-    color: #3E3E3E;
-}
-
-#cookie > .container a {
-    color: #000;
-}
-
-#cookie > .container a:hover {
-    text-decoration: underline;
-}
-
-#cookie > .container a.close {
-    position: absolute;
-    top: 5px;
-    right: 10px;
-    cursor: pointer;
-}
-
-#cookie > .container a.close i {
-    color: #2D2D2D;
-}
-
-#cookie > .container a.close:hover i {
-    color: #000;
-}
-
 #top {
     margin-top: 35px;
     margin-bottom: 40px;

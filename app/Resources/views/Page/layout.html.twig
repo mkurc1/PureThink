@@ -22,14 +22,11 @@
 {% block javascripts %}
     {{ parent() }}
 
-    <script src="{{ asset('js/cookies.js') }}"></script>
     <script src="{{ asset('js/main.js') }}"></script>
 {% endblock javascripts %}
 
 {% block body %}
     {{ parent() }}
-
-    {{ sonata_block_render({ "type": 'app.block.component', 'settings': {'slug': 'cookie', 'template': ':Page:_cookie.html.twig'}}) }}
 
     <div id="top">
         <div class="container">

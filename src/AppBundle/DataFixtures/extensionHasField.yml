@@ -71,26 +71,3 @@ fixtures:
         labelOfField: "Treść"
         required: 1
         position: 4
-    cms_extension_has_field_10:
-        extension: cms_extension_4
-        typeOfField: 1
-        name: "Nazwa"
-        labelOfField: "Nazwa"
-        required: 1
-        isMainField: 1
-        position: 1
-    cms_extension_has_field_11:
-        extension: cms_extension_4
-        typeOfField: 9
-        name: "Adres"
-        labelOfField: "Adres docelowy"
-        class: "sintetic-select"
-        required: 1
-        position: 2
-    cms_extension_has_field_12:
-        extension: cms_extension_4
-        typeOfField: 2
-        name: "Treść"
-        labelOfField: "Treść"
-        required: 1
-        position: 3

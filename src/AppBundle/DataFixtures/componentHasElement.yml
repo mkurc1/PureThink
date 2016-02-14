@@ -128,7 +128,3 @@ fixtures:
         component: cms_component_5
         enabled: 1
         position: 2
-    cms_component_has_element_33:
-        component: cms_component_6
-        enabled: 1
-        position: 0

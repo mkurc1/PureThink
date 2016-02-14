@@ -166,12 +166,3 @@ fixtures:
         text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tincidunt, ligula in consequat commodo, sapien justo ornare magna."
         componentHasElement: cms_component_has_element_32
         extensionHasField: cms_extension_has_field_9
-
-    cms_component_has_text_86:
-        text: "Uwaga ta strona używa COOKIES."
-        componentHasElement: cms_component_has_element_33
-        extensionHasField: cms_extension_has_field_10
-    cms_component_has_text_88:
-        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tincidunt, ligula in consequat commodo, sapien justo ornare magna. Duis tincidunt, ligula in consequat commodo, sapien justo ornare magna."
-        componentHasElement: cms_component_has_element_33
-        extensionHasField: cms_extension_has_field_12
