@@ -17,13 +17,13 @@ class ComponentHasElementRepository extends EntityRepository
 
         /** @var ComponentHasElement $component */
         foreach ($components as $component) {
-            $created = $component->getComponent()->getCreated();
-            $updated = $component->getComponent()->getUpdated();
+            $created = $component->getComponent()->getCreatedAt();
+            $updated = $component->getComponent()->getUpdatedAt();
             $elementId = $component->getId();
 
             $entities['title'] = $component->getComponent()->getName();
-            $entities[$elementId]['created'] = $created;
-            $entities[$elementId]['updated'] = $updated;
+            $entities[$elementId]['created_at'] = $created;
+            $entities[$elementId]['updated_at'] = $updated;
 
             /** @var ComponentHasValue $value */
             foreach ($component->getComponentHasValues() as $value) {
