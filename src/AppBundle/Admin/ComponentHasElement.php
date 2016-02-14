@@ -53,18 +53,16 @@ class ComponentHasElement extends Admin
 
     protected function configureFormFields(FormMapper $formMapper)
     {
-        ComponentHasValue::$adminCollection = 0;
-
         $formMapper
             ->with('General', ['class' => 'col-md-6'])
-                ->add('componentHasValues', 'sonata_type_collection', [
-                    'label'        => false,
-                    'btn_add'      => false,
-                    'type_options' => [ 'delete' => false ]
-                    ], [
-                    'sortable' => 'position'
-                ])
-                ->add('enabled')
+            ->add('componentHasValues', 'sonata_type_collection', [
+                'label'        => false,
+                'btn_add'      => false,
+                'type_options' => ['delete' => false]
+            ], [
+                'sortable' => 'position'
+            ])
+            ->add('enabled')
             ->end();
     }
 

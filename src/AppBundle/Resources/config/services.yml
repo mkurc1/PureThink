@@ -1,4 +1,17 @@
 services:
+    sonata.admin.helper:
+        class: AppBundle\Admin\AdminHelper
+        arguments: [@sonata.admin.pool]
+
+    sonata.admin.controller.admin:
+        class: AppBundle\Controller\HelperController
+        arguments: [@twig, @sonata.admin.pool, @sonata.admin.helper, @validator]
+
+    sonata.admin.form.type.admin:
+        class: AppBundle\Form\Type\AdminType
+        tags:
+            - { name: form.type, alias: sonata_type_admin }
+
     gedmo.listener.sortable:
         class: Gedmo\Sortable\SortableListener
         tags:

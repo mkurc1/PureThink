@@ -5,43 +5,14 @@ use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Form\FormMapper;
 use Symfony\Component\Validator\Constraints\NotNull;
 use AppBundle\Entity\ComponentHasValue as ComponentHasValueEntity;
-use Doctrine\Common\Collections\ArrayCollection;
 
 class ComponentHasValue extends Admin
 {
     protected $translationDomain = 'AppBundle';
 
-    public static $adminCollection = 0;
-
-    protected $parentAssociationMapping = 'componentHasElement';
-
-
-    private function getCurrentObjectFromCollection(ComponentHasValue $componentHasValue)
-    {
-        $parentFieldDescription = $componentHasValue->getParentFieldDescription();
-
-        $getter = 'get' . $parentFieldDescription->getFieldName();
-        $parent = $parentFieldDescription->getAdmin()->getSubject();
-
-        /** @var ArrayCollection $collection */
-        $collection = $parent->$getter();
-        $collectionCount = $collection->count() - 1;
-
-        $number = self::$adminCollection++;
-
-        if ($number == $collectionCount) {
-            self::$adminCollection = 0;
-        }
-
-        return $collection[$number];
-    }
-
     protected function configureFormFields(FormMapper $formMapper)
     {
-        $object = $this->getCurrentObjectFromCollection($this);
-
-        $this->setSubject($object);
-
+        $object = $this->getSubject();
         /** @var ComponentHasValueEntity $object */
         $field = $object->getExtensionHasField();
 
