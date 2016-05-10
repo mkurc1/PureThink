@@ -1,11 +1,11 @@
 services:
     sonata.admin.helper:
         class: AppBundle\Admin\AdminHelper
-        arguments: [@sonata.admin.pool]
+        arguments: ['@sonata.admin.pool']
 
     sonata.admin.controller.admin:
         class: AppBundle\Controller\HelperController
-        arguments: [@twig, @sonata.admin.pool, @sonata.admin.helper, @validator]
+        arguments: ['@twig', '@sonata.admin.pool', '@sonata.admin.helper', '@validator']
 
     sonata.admin.form.type.admin:
         class: AppBundle\Form\Type\AdminType
@@ -17,7 +17,7 @@ services:
         tags:
             - { name: doctrine.event_subscriber, connection: default }
         calls:
-            - [ setAnnotationReader, [ @annotation_reader ] ]
+            - [ setAnnotationReader, [ '@annotation_reader' ] ]
 
     app.article_type:
         class: AppBundle\Form\Type\ArticleType
@@ -31,4 +31,4 @@ services:
 
     app.language_service:
         class: AppBundle\Service\Language
-        arguments: [@doctrine.orm.entity_manager]
+        arguments: ['@doctrine.orm.entity_manager']

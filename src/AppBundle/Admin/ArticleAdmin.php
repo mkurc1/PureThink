@@ -1,6 +1,7 @@
 <?php
 namespace AppBundle\Admin;
 
+use AppBundle\Service\Language;
 use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
@@ -14,12 +15,14 @@ class ArticleAdmin extends Admin
 
     private $securityContext;
 
+    /** @var Language */
+    private $language;
+
     protected $formOptions = [
         'cascade_validation' => true
     ];
 
     protected $datagridValues = [
-        '_sort_by'  => 'name',
         'createdAt' => ['type' => DateType::TYPE_GREATER_THAN],
         'updatedAt' => ['type' => DateType::TYPE_GREATER_THAN]
     ];
@@ -27,18 +30,31 @@ class ArticleAdmin extends Admin
 
     protected function configureFormFields(FormMapper $formMapper)
     {
+
         $formMapper
             ->with('admin.general', ['class' => 'col-md-8'])
-            ->add('name', null, [
-                'label' => 'admin.article.name'
-            ])
-            ->add('content', 'ckeditor', [
-                'config_name' => 'default',
-                'label'       => 'admin.article.content'
-            ])
-            ->add('excerpt', 'ckeditor', [
-                'config_name' => 'excerpt',
-                'label'       => 'admin.article.excerpt'
+            ->add('translations', 'a2lix_translations', [
+                'label'          => false,
+                'locales'        => $this->language->getAvailableLocales(),
+                'fields'         => [
+                    'name'    => [
+                        'label' => 'admin.article.name',
+                    ],
+                    'slug'    => [
+                        'label' => 'admin.article.slug'
+                    ],
+                    'content' => [
+                        'field_type'  => 'ckeditor',
+                        'config_name' => 'default',
+                        'label'       => 'admin.article.content'
+                    ],
+                    'excerpt' => [
+                        'field_type'  => 'ckeditor',
+                        'config_name' => 'excerpt',
+                        'label'       => 'admin.article.excerpt'
+                    ]
+                ],
+                'exclude_fields' => ['createdAt', 'updatedAt', 'deletedAt']
             ])
             ->end()
             ->with('admin.options', ['class' => 'col-md-4'])
@@ -47,15 +63,8 @@ class ArticleAdmin extends Admin
                 'btn_add'    => false,
                 'btn_delete' => false
             ])
-            ->add('language', null, [
-                'label' => 'admin.article.language'
-            ])
             ->add('published', null, [
                 'label' => 'admin.article.published'
-            ])
-            ->add('slug', null, [
-                'label'    => 'admin.article.slug',
-                'required' => false
             ])
             ->end()
             ->with('admin.seo', ['class' => 'col-md-4'])
@@ -73,10 +82,10 @@ class ArticleAdmin extends Admin
             ->add('id', null, [
                 'label' => 'admin.id'
             ])
-            ->add('name', null, [
+            ->add('translations.name', null, [
                 'label' => 'admin.article.name'
             ])
-            ->add('slug', null, [
+            ->add('translations.slug', null, [
                 'label' => 'admin.article.slug'
             ])
             ->add('user', null, [
@@ -134,9 +143,6 @@ class ArticleAdmin extends Admin
             ->add('name', null, [
                 'label' => 'admin.article.name'
             ])
-            ->add('language', null, [
-                'label' => 'admin.article.language'
-            ])
             ->add('content', null, [
                 'label' => 'admin.article.content',
                 'safe'  => true
@@ -164,5 +170,10 @@ class ArticleAdmin extends Admin
     protected function getSecurityContext()
     {
         return $this->securityContext;
+    }
+
+    public function setLanguageService(Language $language)
+    {
+        $this->language = $language;
     }
 }

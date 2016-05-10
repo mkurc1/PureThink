@@ -12,6 +12,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Event\LifecycleEventArgs;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
+use A2lix\I18nDoctrineBundle\Doctrine\ORM\Util\Translatable;
 
 /**
  * @ORM\Table(name="cms_article")
@@ -21,6 +22,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  */
 class Article implements MetadataInterface, ArticleViewInterface, SoftDeleteable
 {
+    use Translatable;
     use SoftDeleteableEntity;
     use TimestampableEntity;
 
@@ -34,53 +36,11 @@ class Article implements MetadataInterface, ArticleViewInterface, SoftDeleteable
     private $id;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank()
-     * @Assert\Length(max="255")
-     */
-    private $name;
-
-    /**
-     * @var string
-     *
-     * @Gedmo\Slug(fields={"name"})
-     * @ORM\Column(length=255, unique=true)
-     */
-    private $slug;
-
-    /**
      * @var boolean
      *
      * @ORM\Column(type="boolean")
      */
     private $published = false;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(type="text")
-     * @Assert\NotBlank()
-     */
-    private $content;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(type="text", nullable=true)
-     * @Assert\NotBlank()
-     */
-    private $excerpt;
-
-    /**
-     * @var Language
-     *
-     * @ORM\ManyToOne(targetEntity="Language")
-     * @ORM\JoinColumn(onDelete="CASCADE", nullable=false)
-     * @Assert\NotNull()
-     */
-    private $language;
 
     /**
      * @var UserInterface
@@ -111,6 +71,18 @@ class Article implements MetadataInterface, ArticleViewInterface, SoftDeleteable
      */
     private $componentHasArticle;
 
+    protected $translations;
+
+
+    public function getName()
+    {
+        return $this->getCurrentTranslation()->getName();
+    }
+
+    public function getSlug()
+    {
+        return $this->getCurrentTranslation()->getSlug();
+    }
 
     public function getViews()
     {
@@ -149,129 +121,12 @@ class Article implements MetadataInterface, ArticleViewInterface, SoftDeleteable
         return $this->id;
     }
 
-    /**
-     * Set name
-     *
-     * @param string $name
-     * @return Article
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * Get name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * Set content
-     *
-     * @param string $content
-     * @return Article
-     */
-    public function setContent($content)
-    {
-        $this->content = $content;
-
-        return $this;
-    }
-
-    /**
-     * Get content
-     *
-     * @return string
-     */
-    public function getContent()
-    {
-        return $this->content;
-    }
-
-    /**
-     * Set excerpt
-     *
-     * @param string $excerpt
-     * @return Article
-     */
-    public function setExcerpt($excerpt)
-    {
-        $this->excerpt = $excerpt;
-
-        return $this;
-    }
-
-    /**
-     * Get excerpt
-     *
-     * @return string
-     */
-    public function getExcerpt()
-    {
-        return $this->excerpt;
-    }
-
-    /**
-     * Set slug
-     *
-     * @param string $slug
-     * @return Article
-     */
-    public function setSlug($slug)
-    {
-        $this->slug = $slug;
-
-        return $this;
-    }
-
-    /**
-     * Get slug
-     *
-     * @return string
-     */
-    public function getSlug()
-    {
-        return $this->slug;
-    }
-
-    /**
-     * Set language
-     *
-     * @param Language $language
-     * @return Article
-     */
-    public function setLanguage(Language $language)
-    {
-        $this->language = $language;
-
-        return $this;
-    }
-
-    /**
-     * Get language
-     *
-     * @return Language
-     */
-    public function getLanguage()
-    {
-        return $this->language;
-    }
-
-    /**
-     * Get name
-     *
-     * @return string
-     */
     public function __toString()
     {
-        return (string)$this->getName();
+        if ($this->translations && $this->translations->count()) {
+            return (string)$this->getName();
+        }
+        return '';
     }
 
     /**
@@ -304,6 +159,7 @@ class Article implements MetadataInterface, ArticleViewInterface, SoftDeleteable
      */
     public function __construct(UserInterface $user = null)
     {
+        $this->translations = new ArrayCollection();
         $this->componentHasArticle = new ArrayCollection();
         $this->setMetadata(new Metadata());
         $this->setView(new ArticleView());

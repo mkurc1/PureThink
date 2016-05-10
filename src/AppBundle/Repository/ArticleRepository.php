@@ -9,24 +9,29 @@ class ArticleRepository extends EntityRepository
     public function searchResults($locale, $search)
     {
         $qb = $this->createQueryBuilder('a')
-            ->join('a.language', 'al')
+            ->addSelect('t')
+            ->join('a.translations', 't')
             ->where('a.published = true')
-            ->andWhere('UPPER(al.alias) = UPPER(:locale)')
-            ->andWhere('UPPER(a.name) LIKE UPPER(:search)')
+            ->andWhere('t.locale = :locale')
+            ->andWhere('UPPER(t.name) LIKE UPPER(:search)')
             ->setParameter('locale', $locale)
             ->setParameter('search', '%' . $search . '%');
 
         return $qb->getQuery()->getResult();
     }
 
-    public function articleBySlug($params)
+    public function articleBySlug($locale, $slug)
     {
         $qb = $this->createQueryBuilder('a')
-            ->addSelect('am')
+            ->addSelect('am, t')
             ->join('a.metadata', 'am')
+            ->join('a.translations', 't')
             ->where('a.published = true')
-            ->andWhere('a.slug = :slug')
-            ->setParameters($params);
+            ->andWhere('t.slug = :slug')
+            ->andWhere('t.locale = :locale')
+            ->setParameter('slug', $slug)
+            ->setParameter('locale', $locale)
+            ->setMaxResults(1);
 
         return $qb->getQuery()->getOneOrNullResult();
     }

@@ -58,6 +58,9 @@ doctrine:
             softdeleteable:
                 class: Gedmo\SoftDeleteable\Filter\SoftDeleteableFilter
                 enabled: true
+            oneLocale:
+                class: A2lix\I18nDoctrineBundle\Doctrine\ORM\Filter\OneLocaleFilter
+                enabled: true
 
 # Swiftmailer Configuration
 swiftmailer:
@@ -75,6 +78,7 @@ stof_doctrine_extensions:
             sluggable: true
             sortable: true
             softdeleteable: true
+            translatable: true
 
 pix_sortable_behavior:
     position_field: ~
@@ -232,6 +236,12 @@ ivory_ck_editor:
             styles      : ['Styles', 'Format']
             colors      : ['TextColor', 'BGColor']
 
+a2lix_i18n_doctrine:
+    manager_registry: doctrine
+
+a2lix_translation_form:
+    locales: [pl, en]
+
 khepin_yaml_fixtures:
     resources:
         - AppBundle/user
@@ -239,6 +249,7 @@ khepin_yaml_fixtures:
         - AppBundle/metadata
         - AppBundle/language
         - AppBundle/article
+        - AppBundle/articleTranslation
         - AppBundle/extension
         - AppBundle/extensionHasField
         - AppBundle/component

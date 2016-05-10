@@ -23,7 +23,8 @@ services:
         class: AppBundle\Admin\ArticleAdmin
         arguments: [null, AppBundle\Entity\Article, SonataAdminBundle:CRUD]
         calls:
-            - [ setSecurityContext, [ @security.context ] ]
+            - [ setSecurityContext, ['@security.context'] ]
+            - [ setLanguageService, ['@app.language_service'] ]
 
     app.admin.menu_type:
         tags:
@@ -31,7 +32,7 @@ services:
         class: AppBundle\Admin\MenuTypeAdmin
         arguments: [null, AppBundle\Entity\MenuType, SonataAdminBundle:CRUD]
         calls:
-            - [ addChild, [@app.admin.menu] ]
+            - [ addChild, ['@app.admin.menu'] ]
 
     app.admin.menu:
         tags:
@@ -57,7 +58,7 @@ services:
         class: AppBundle\Admin\ComponentAdmin
         arguments: [null, AppBundle\Entity\Component, SonataAdminBundle:CRUD]
         calls:
-            - [ addChild, [@app.admin.component_has_element] ]
+            - [ addChild, ['@app.admin.component_has_element'] ]
 
     app.admin.component_has_element:
         tags:
@@ -65,9 +66,9 @@ services:
         class: AppBundle\Admin\ComponentHasElementAdmin
         arguments: [null, AppBundle\Entity\ComponentHasElement, 'AppBundle:Admin\ComponentHasElementAdmin']
         calls:
-            - [ addChild, [@app.admin.component_has_value] ]
-            - [ setContainer, [ @service_container ] ]
-            - [ setPositionService, [@pix_sortable_behavior.position]]
+            - [ addChild, ['@app.admin.component_has_value'] ]
+            - [ setContainer, ['@service_container'] ]
+            - [ setPositionService, ['@pix_sortable_behavior.position']]
 
     app.admin.component_has_value:
         tags:

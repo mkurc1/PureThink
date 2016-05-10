@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use A2lix\I18nDoctrineBundle\Annotation\I18nDoctrine;
 use AppBundle\Entity\Article;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,6 +17,7 @@ class PageController extends Controller
     /**
      * @Route("/", name="page")
      * @Method("GET")
+     * @I18nDoctrine
      */
     public function mainAction(Request $request)
     {
@@ -32,6 +34,7 @@ class PageController extends Controller
     /**
      * @Route("/{locale}", name="localized_page")
      * @Method("GET")
+     * @I18nDoctrine
      */
     public function indexAction(Request $request, $locale)
     {
@@ -50,6 +53,7 @@ class PageController extends Controller
     /**
      * @Route("/{locale}/search")
      * @Method("GET")
+     * @I18nDoctrine
      */
     public function searchListAction(Request $request, $locale)
     {
@@ -75,8 +79,12 @@ class PageController extends Controller
 
     /**
      * @Route("/{locale}/{slug}", name="article")
-     * @ParamConverter("article", class="AppBundle:Article", options={"mapping": {"slug": "slug"}, "repository_method" = "articleBySlug"})
+     * @ParamConverter("article", class="AppBundle:Article", options={
+     *     "repository_method" = "articleBySlug",
+     *     "map_method_signature" = true
+     * })
      * @Method("GET")
+     * @I18nDoctrine
      */
     public function articleAction(Request $request, $locale, Article $article)
     {
