@@ -6,14 +6,13 @@ use Doctrine\ORM\EntityRepository;
 
 class SiteRepository extends EntityRepository
 {
-    public function getSiteByLocale($alias)
+    public function getSiteByLocale($locale)
     {
-        $qb = $this->createQueryBuilder('w')
-            ->addSelect('wm')
-            ->join('w.language', 'wl')
-            ->join('w.metadata', 'wm')
-            ->where('UPPER(wl.alias) = UPPER(:alias)')
-            ->setParameter('alias', $alias);
+        $qb = $this->createQueryBuilder('s')
+            ->addSelect('t')
+            ->join('s.translations', 't')
+            ->andWhere('t.locale = :locale')
+            ->setParameter('locale', $locale);
 
         return $qb->getQuery()->getOneOrNullResult();
     }

@@ -1,31 +1,51 @@
 <?php
 namespace AppBundle\Admin;
 
+use AppBundle\Service\Language;
 use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
+use Sonata\AdminBundle\Route\RouteCollection;
 
 class SiteAdmin extends Admin
 {
+    /** @var Language */
+    private $language;
+
     protected $formOptions = [
         'cascade_validation' => true,
         'validation_groups'  => ['site', 'default']
     ];
 
+    protected function configureRoutes(RouteCollection $collection)
+    {
+        $collection
+            ->remove('create')
+            ->remove('delete');
+    }
+
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
             ->with('admin.general', ['class' => 'col-md-8'])
-            ->add('metadata', 'sonata_type_admin', [
-                'label'   => false,
-                'delete'  => false,
-                'btn_add' => false
-            ])
-            ->end()
-            ->with('admin.options', ['class' => 'col-md-4'])
-            ->add('language', null, [
-                'label' => 'admin.site.language'
+            ->add('translations', 'a2lix_translations', [
+                'label'          => false,
+                'locales'        => $this->language->getAvailableLocales(),
+                'fields'         => [
+                    'title'       => [
+                        'label' => 'admin.metadata.title',
+                    ],
+                    'description' => [
+                        'field_type' => 'textarea',
+                        'label'      => 'admin.metadata.description'
+                    ],
+                    'keyword'     => [
+                        'field_type' => 'textarea',
+                        'label'      => 'admin.metadata.keyword'
+                    ]
+                ],
+                'exclude_fields' => ['createdAt', 'updatedAt', 'deletedAt']
             ])
             ->end();
     }
@@ -36,11 +56,8 @@ class SiteAdmin extends Admin
             ->add('id', null, [
                 'label' => 'admin.id'
             ])
-            ->add('metadata.title', null, [
+            ->add('translations.title', null, [
                 'label' => 'admin.site.title'
-            ])
-            ->add('language', null, [
-                'label' => 'admin.site.language'
             ]);
     }
 
@@ -50,12 +67,13 @@ class SiteAdmin extends Admin
             ->addIdentifier('id', null, [
                 'label' => 'admin.id'
             ])
-            ->addIdentifier('metadata.title', null, [
+            ->addIdentifier('title', null, [
                 'label' => 'admin.site.title'
-            ])
-            ->add('language', null, [
-                'label' => 'admin.site.language'
             ]);
     }
 
+    public function setLanguageService(Language $language)
+    {
+        $this->language = $language;
+    }
 }

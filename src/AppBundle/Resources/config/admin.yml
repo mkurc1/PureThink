@@ -15,7 +15,9 @@ services:
         tags:
             - { name: sonata.admin, manager_type: orm, group: CMS, label: "admin.sidebar.site" }
         class: AppBundle\Admin\SiteAdmin
-        arguments: [null, AppBundle\Entity\Site, SonataAdminBundle:CRUD]
+        arguments: [null, AppBundle\Entity\Site, 'AppBundle:Admin\SiteAdmin']
+        calls:
+            - [ setLanguageService, ['@app.language_service'] ]
 
     app.admin.article:
         tags:
