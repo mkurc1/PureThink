@@ -12,7 +12,16 @@ class SiteRepository extends EntityRepository
             ->addSelect('t')
             ->join('s.translations', 't')
             ->andWhere('t.locale = :locale')
+            ->setMaxResults(1)
             ->setParameter('locale', $locale);
+
+        return $qb->getQuery()->getOneOrNullResult();
+    }
+
+    public function getSite()
+    {
+        $qb = $this->createQueryBuilder('s')
+            ->setMaxResults(1);
 
         return $qb->getQuery()->getOneOrNullResult();
     }

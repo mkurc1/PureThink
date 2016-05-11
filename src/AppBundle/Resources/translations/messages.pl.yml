@@ -5,7 +5,7 @@ Component Has Element List: Lista elementów przypisanych do komponentu
 Language List: Lista języków
 Menu List: Lista elementów przypisanych do menu
 Menu Type List: Lista menu
-Site List: Lista stron internetowych
+Site List: Ogólne ustawienia
 
 admin:
     created_at: Data utworzenia
@@ -20,7 +20,7 @@ admin:
 
     sidebar:
         language: Języki
-        site: Strony internetowe
+        site: Ogólne ustawienia
         artice: Artykuły
         menu: Menu
         extension: Rozszerzenie
@@ -97,3 +97,4 @@ admin:
     site:
         title: Tytuł
         language: Język
+        tracking_code: Kod śledzący

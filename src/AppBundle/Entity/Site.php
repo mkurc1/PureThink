@@ -23,11 +23,20 @@ class Site implements SoftDeleteable
     use SoftDeleteableEntity;
 
     /**
+     * @var integer
+     *
      * @ORM\Column(type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     protected $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="text", name="tracking_code", nullable=true)
+     */
+    protected $trackingCode;
 
     protected $translations;
 
@@ -68,5 +77,21 @@ class Site implements SoftDeleteable
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTrackingCode()
+    {
+        return $this->trackingCode;
+    }
+
+    /**
+     * @param string $trackingCode
+     */
+    public function setTrackingCode($trackingCode)
+    {
+        $this->trackingCode = $trackingCode;
     }
 }

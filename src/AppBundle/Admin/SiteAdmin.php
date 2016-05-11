@@ -3,8 +3,6 @@ namespace AppBundle\Admin;
 
 use AppBundle\Service\Language;
 use Sonata\AdminBundle\Admin\Admin;
-use Sonata\AdminBundle\Datagrid\ListMapper;
-use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Route\RouteCollection;
 
@@ -21,7 +19,10 @@ class SiteAdmin extends Admin
     protected function configureRoutes(RouteCollection $collection)
     {
         $collection
+            ->remove('show')
             ->remove('create')
+            ->remove('batch')
+            ->remove('export')
             ->remove('delete');
     }
 
@@ -47,29 +48,16 @@ class SiteAdmin extends Admin
                 ],
                 'exclude_fields' => ['createdAt', 'updatedAt', 'deletedAt']
             ])
+            ->end()
+            ->with('admin.options', ['class' => 'col-md-4'])
+            ->add('trackingCode', 'textarea', [
+                'label'    => 'admin.site.tracking_code',
+                'required' => false,
+                'attr'     => [
+                    'rows' => 6
+                ]
+            ])
             ->end();
-    }
-
-    protected function configureDatagridFilters(DatagridMapper $datagridMapper)
-    {
-        $datagridMapper
-            ->add('id', null, [
-                'label' => 'admin.id'
-            ])
-            ->add('translations.title', null, [
-                'label' => 'admin.site.title'
-            ]);
-    }
-
-    protected function configureListFields(ListMapper $listMapper)
-    {
-        $listMapper
-            ->addIdentifier('id', null, [
-                'label' => 'admin.id'
-            ])
-            ->addIdentifier('title', null, [
-                'label' => 'admin.site.title'
-            ]);
     }
 
     public function setLanguageService(Language $language)
