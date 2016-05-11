@@ -5,7 +5,7 @@ imports:
 
 framework:
     #esi:             ~
-    translator:      { fallback: %locale% }
+    translator:      { fallback: "%locale%" }
     secret:          "%secret%"
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
@@ -16,7 +16,7 @@ framework:
     templating:
         engines: ['twig']
         #assets_version: SomeVersionScheme
-    default_locale:  %locale%
+    default_locale:  "%locale%"
     trusted_hosts:   ~
     trusted_proxies: ~
     session:
@@ -96,7 +96,7 @@ fos_user:
 sonata_admin:
     title: PureThink
     templates:
-        layout: :Admin:layout.html.twig
+        layout: ":Admin:layout.html.twig"
     security:
         handler: sonata.admin.security.handler.role
     dashboard:
@@ -160,7 +160,7 @@ sonata_media:
             path: /uploads/media
     filesystem:
         local:
-            directory:  %kernel.root_dir%/../web/uploads/media
+            directory:  "%kernel.root_dir%/../web/uploads/media"
             create:     false
 
 sonata_user:
@@ -246,7 +246,6 @@ khepin_yaml_fixtures:
     resources:
         - AppBundle/user
         - AppBundle/media
-        - AppBundle/metadata
         - AppBundle/language
         - AppBundle/article
         - AppBundle/articleTranslation

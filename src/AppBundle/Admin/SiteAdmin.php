@@ -37,13 +37,13 @@ class SiteAdmin extends Admin
                     'title'       => [
                         'label' => 'admin.metadata.title',
                     ],
-                    'description' => [
-                        'field_type' => 'textarea',
-                        'label'      => 'admin.metadata.description'
-                    ],
                     'keyword'     => [
                         'field_type' => 'textarea',
                         'label'      => 'admin.metadata.keyword'
+                    ],
+                    'description' => [
+                        'field_type' => 'textarea',
+                        'label'      => 'admin.metadata.description'
                     ]
                 ],
                 'exclude_fields' => ['createdAt', 'updatedAt', 'deletedAt']
@@ -58,6 +58,11 @@ class SiteAdmin extends Admin
                 ]
             ])
             ->end();
+    }
+
+    public function toString($object)
+    {
+        return $this->trans('admin.sidebar.site');
     }
 
     public function setLanguageService(Language $language)

@@ -4,5 +4,9 @@ namespace AppBundle\Entity;
 
 interface MetadataInterface
 {
-    public function getSEOData();
+    public function getTitle();
+
+    public function getDescription();
+
+    public function getKeyword();
 }

@@ -16,7 +16,6 @@ class MenuRepository extends EntityRepository
             ->join('art.translations', 'artt', 'WITH', 'artt.locale = :locale')
             ->where('a.published = true')
             ->andWhere('UPPER(l.alias) = UPPER(:locale)')
-//            ->andWhere('artt.locale = :locale')
             ->andWhere('art.published = true')
             ->andWhere('t.slug = :typeSlug')
             ->andWhere('a.menu IS NULL')

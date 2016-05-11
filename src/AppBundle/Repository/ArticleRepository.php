@@ -23,8 +23,7 @@ class ArticleRepository extends EntityRepository
     public function articleBySlug($locale, $slug)
     {
         $qb = $this->createQueryBuilder('a')
-            ->addSelect('am, t')
-            ->join('a.metadata', 'am')
+            ->addSelect('t')
             ->join('a.translations', 't')
             ->where('a.published = true')
             ->andWhere('t.slug = :slug')

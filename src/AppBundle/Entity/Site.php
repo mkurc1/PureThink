@@ -16,7 +16,7 @@ use A2lix\I18nDoctrineBundle\Doctrine\ORM\Util\Translatable;
  * @ORM\Entity(repositoryClass="AppBundle\Repository\SiteRepository")
  * @Gedmo\SoftDeleteable(fieldName="deletedAt")
  */
-class Site implements SoftDeleteable
+class Site implements SoftDeleteable, MetadataInterface
 {
     use Translatable;
     use TimestampableEntity;

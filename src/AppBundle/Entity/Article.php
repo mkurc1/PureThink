@@ -51,14 +51,6 @@ class Article implements MetadataInterface, ArticleViewInterface, SoftDeleteable
     private $user;
 
     /**
-     * @var Metadata
-     *
-     * @ORM\OneToOne(targetEntity="Metadata", cascade={"persist"})
-     * @ORM\JoinColumn(onDelete="CASCADE", nullable=false)
-     */
-    private $metadata;
-
-    /**
      * @var ArticleViewInterface
      *
      * @ORM\OneToOne(targetEntity="ArticleView", cascade={"persist"})
@@ -91,22 +83,17 @@ class Article implements MetadataInterface, ArticleViewInterface, SoftDeleteable
 
     public function getDescription()
     {
-        return $this->getMetadata()->getDescription();
+        return $this->getCurrentTranslation()->getDescription();
     }
 
     public function getKeyword()
     {
-        return $this->getMetadata()->getKeyword();
+        return $this->getCurrentTranslation()->getKeyword();
     }
 
     public function getViews()
     {
         return $this->getView();
-    }
-
-    public function getSEOData()
-    {
-        return $this->getMetadata();
     }
 
     /**
@@ -176,7 +163,6 @@ class Article implements MetadataInterface, ArticleViewInterface, SoftDeleteable
     {
         $this->translations = new ArrayCollection();
         $this->componentHasArticle = new ArrayCollection();
-        $this->setMetadata(new Metadata());
         $this->setView(new ArticleView());
 
         if (null != $user) {
@@ -215,29 +201,6 @@ class Article implements MetadataInterface, ArticleViewInterface, SoftDeleteable
     public function getComponentHasArticle()
     {
         return $this->componentHasArticle;
-    }
-
-    /**
-     * Set metadata
-     *
-     * @param Metadata $metadata
-     * @return Article
-     */
-    public function setMetadata(Metadata $metadata)
-    {
-        $this->metadata = $metadata;
-
-        return $this;
-    }
-
-    /**
-     * Get metadata
-     *
-     * @return Metadata
-     */
-    public function getMetadata()
-    {
-        return $this->metadata;
     }
 
     /**

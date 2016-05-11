@@ -53,8 +53,8 @@ admin:
 
     metadata:
         title: Tytuł
-        description: Opis
-        keyword: Słowa kluczowe
+        description: Opis meta
+        keyword: Słowa kluczowe meta
 
     extension:
         name: Nazwa

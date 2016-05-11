@@ -55,6 +55,18 @@ class ArticleTranslation implements SoftDeleteable, OneLocaleInterface
      */
     protected $excerpt;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\Length(max="255")
+     */
+    private $description;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\Length(max="255")
+     */
+    private $keyword;
+
 
     public function __toString()
     {
@@ -123,5 +135,37 @@ class ArticleTranslation implements SoftDeleteable, OneLocaleInterface
     public function setExcerpt($excerpt)
     {
         $this->excerpt = $excerpt;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param mixed $description
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getKeyword()
+    {
+        return $this->keyword;
+    }
+
+    /**
+     * @param mixed $keyword
+     */
+    public function setKeyword($keyword)
+    {
+        $this->keyword = $keyword;
     }
 }

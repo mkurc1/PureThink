@@ -37,21 +37,29 @@ class ArticleAdmin extends Admin
                 'label'          => false,
                 'locales'        => $this->language->getAvailableLocales(),
                 'fields'         => [
-                    'name'    => [
+                    'name'        => [
                         'label' => 'admin.article.name',
                     ],
-                    'slug'    => [
+                    'slug'        => [
                         'label' => 'admin.article.slug'
                     ],
-                    'content' => [
+                    'content'     => [
                         'field_type'  => 'ckeditor',
                         'config_name' => 'default',
                         'label'       => 'admin.article.content'
                     ],
-                    'excerpt' => [
+                    'excerpt'     => [
                         'field_type'  => 'ckeditor',
                         'config_name' => 'excerpt',
                         'label'       => 'admin.article.excerpt'
+                    ],
+                    'keyword'     => [
+                        'field_type' => 'textarea',
+                        'label'      => 'admin.metadata.keyword'
+                    ],
+                    'description' => [
+                        'field_type' => 'textarea',
+                        'label'      => 'admin.metadata.description'
                     ]
                 ],
                 'exclude_fields' => ['createdAt', 'updatedAt', 'deletedAt']
@@ -65,13 +73,6 @@ class ArticleAdmin extends Admin
             ])
             ->add('published', null, [
                 'label' => 'admin.article.published'
-            ])
-            ->end()
-            ->with('admin.seo', ['class' => 'col-md-4'])
-            ->add('metadata', 'sonata_type_admin', [
-                'label'   => false,
-                'delete'  => false,
-                'btn_add' => false
             ])
             ->end();
     }
