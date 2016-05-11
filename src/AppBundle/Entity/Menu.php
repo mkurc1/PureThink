@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use A2lix\I18nDoctrineBundle\Doctrine\ORM\Util\Translatable;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\SoftDeleteable\SoftDeleteable;
 use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
@@ -21,6 +22,7 @@ class Menu implements SoftDeleteable
     const ARTICLE_LINK = 1;
     const STRING_LINK = 2;
 
+    use Translatable;
     use SoftDeleteableEntity;
     use TimestampableEntity;
 
@@ -34,63 +36,49 @@ class Menu implements SoftDeleteable
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $id;
-
-    /**
-     * @ORM\Column(type="string", length=128)
-     * @Assert\NotNull()
-     * @Assert\Length(max="128")
-     */
-    private $name;
+    protected $id;
 
     /**
      * @Gedmo\SortablePosition
      * @ORM\Column(type="integer", nullable=true)
      */
-    private $position;
+    protected $position;
 
     /**
      * @ORM\Column(type="boolean", nullable=true)
      */
-    private $published = false;
+    protected $published = false;
 
     /**
      * @ORM\Column(type="boolean", nullable=true)
      */
-    private $isNewPage = false;
+    protected $isNewPage = false;
 
     /**
      * @var int
      * @ORM\Column(type="integer")
      */
-    private $typeOfLink = self::ARTICLE_LINK;
+    protected $typeOfLink = self::ARTICLE_LINK;
 
     /**
      * @var string
      * @Assert\Url()
      * @ORM\Column(type="string", nullable=true)
      */
-    private $url;
+    protected $url;
 
     /**
      * @Gedmo\SortableGroup
      * @ORM\ManyToOne(targetEntity="Menu", inversedBy="menus")
      * @ORM\JoinColumn(onDelete="CASCADE", nullable=true)
      */
-    private $menu;
+    protected $menu;
 
     /**
      * @ORM\OneToMany(targetEntity="Menu", mappedBy="menu")
      * @ORM\OrderBy({"position" = "ASC"})
      */
-    private $menus;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="Language")
-     * @ORM\JoinColumn(onDelete="CASCADE", nullable=false)
-     * @Assert\NotNull()
-     */
-    private $language;
+    protected $menus;
 
     /**
      * @Gedmo\SortableGroup
@@ -98,14 +86,16 @@ class Menu implements SoftDeleteable
      * @ORM\JoinColumn(onDelete="CASCADE", nullable=false)
      * @Assert\NotNull()
      */
-    private $type;
+    protected $type;
 
     /**
      * @ORM\ManyToOne(targetEntity="Article")
      * @ORM\JoinColumn(onDelete="CASCADE", nullable=false)
      * @Assert\NotNull()
      */
-    private $article;
+    protected $article;
+
+    protected $translations;
 
 
     public function getActiveChildren()
@@ -133,26 +123,13 @@ class Menu implements SoftDeleteable
     }
 
     /**
-     * Set name
-     *
-     * @param string $name
-     * @return Menu
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
      * Get name
      *
      * @return string
      */
     public function getName()
     {
-        return $this->name;
+        return $this->getCurrentTranslation()->getName();
     }
 
     /**
@@ -160,6 +137,7 @@ class Menu implements SoftDeleteable
      */
     public function __construct()
     {
+        $this->translations = new ArrayCollection();
         $this->menus = new ArrayCollection();
     }
 
@@ -220,36 +198,14 @@ class Menu implements SoftDeleteable
     }
 
     /**
-     * Get name
-     *
      * @return string
      */
     public function __toString()
     {
-        return (string)$this->getName();
-    }
-
-    /**
-     * Set language
-     *
-     * @param Language $language
-     * @return Menu
-     */
-    public function setLanguage(Language $language)
-    {
-        $this->language = $language;
-
-        return $this;
-    }
-
-    /**
-     * Get language
-     *
-     * @return Language
-     */
-    public function getLanguage()
-    {
-        return $this->language;
+        if ($this->translations && $this->translations->count()) {
+            return (string)$this->getName();
+        }
+        return '';
     }
 
     /**

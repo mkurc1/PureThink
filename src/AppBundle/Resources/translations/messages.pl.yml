@@ -34,7 +34,6 @@ admin:
         published: Opublikowany
         content: Treść
         excerpt: Fragment
-        language: Język
 
     component:
         name: Nazwa
@@ -82,7 +81,6 @@ admin:
         type_of_link: Typ linku
         article: Artykuł
         url: Adres URL
-        language: Język
         published: Opublikowane
         is_new_page: Otwórz w nowej zakłądce
 
@@ -96,5 +94,4 @@ admin:
 
     site:
         title: Tytuł
-        language: Język
         tracking_code: Kod śledzący

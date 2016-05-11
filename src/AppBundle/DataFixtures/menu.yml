@@ -1,81 +1,59 @@
 model: AppBundle\Entity\Menu
 fixtures:
     cms_menu_1:
-        name: "Lorem ipsum"
         type: cms_menu_type_1
-        language: cms_language_2
         published: 1
         article: cms_article_1
         position: 0
     cms_menu_2:
-        name: "Lorem ipsum"
         type: cms_menu_type_1
-        language: cms_language_2
         published: 1
         article: cms_article_2
         position: 1
     cms_menu_3:
-        name: "Lorem ipsum"
         type: cms_menu_type_1
-        language: cms_language_2
         published: 1
         article: cms_article_3
         position: 2
     cms_menu_4:
-        name: "Lorem ipsum"
         type: cms_menu_type_1
-        language: cms_language_2
         published: 1
         article: cms_article_4
         position: 3
     cms_menu_5:
-        name: "Lorem ipsum"
         type: cms_menu_type_1
-        language: cms_language_2
         published: 1
         article: cms_article_5
         position: 4
     cms_menu_6:
-        name: "Lorem ipsum"
         type: cms_menu_type_2
-        language: cms_language_2
         published: 1
         article: cms_article_9
         position: 0
     cms_menu_7:
-        name: "Lorem ipsum"
         type: cms_menu_type_2
-        language: cms_language_2
         published: 1
         article: cms_article_4
         position: 1
     cms_menu_8:
-        name: "Lorem ipsum"
         type: cms_menu_type_2
-        language: cms_language_2
         published: 1
         article: cms_article_6
         position: 2
     cms_menu_9:
-        name: "Lorem ipsum dolom"
         type: cms_menu_type_1
-        language: cms_language_2
         published: 1
         article: cms_article_9
         position: 0
         menu: cms_menu_2
     cms_menu_10:
-        name: "Lorem ipsum dolom"
         type: cms_menu_type_1
-        language: cms_language_2
         published: 1
         article: cms_article_4
         position: 1
         menu: cms_menu_2
     cms_menu_11:
-        name: "Lorem ipsum dolom"
         type: cms_menu_type_1
-        language: cms_language_2
         published: 1
         article: cms_article_8
         position: 2

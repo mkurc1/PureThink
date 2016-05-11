@@ -1,6 +1,7 @@
 <?php
 namespace AppBundle\Admin;
 
+use AppBundle\Service\Language;
 use Sonata\AdminBundle\Admin\Admin;
 use AppBundle\Entity\Menu;
 use Sonata\AdminBundle\Datagrid\ListMapper;
@@ -10,6 +11,9 @@ use Sonata\AdminBundle\Form\Type\Filter\DateType;
 
 class MenuAdmin extends Admin
 {
+    /** @var Language */
+    private $language;
+
     protected $parentAssociationMapping = 'type';
 
     protected $datagridValues = [
@@ -22,8 +26,15 @@ class MenuAdmin extends Admin
     {
         $formMapper
             ->with('admin.general', ['class' => 'col-md-8'])
-            ->add('name', null, [
-                'label' => 'admin.menu.name'
+            ->add('translations', 'a2lix_translations', [
+                'label'          => false,
+                'locales'        => $this->language->getAvailableLocales(),
+                'fields'         => [
+                    'name'       => [
+                        'label' => 'admin.menu.name',
+                    ]
+                ],
+                'exclude_fields' => ['createdAt', 'updatedAt', 'deletedAt']
             ])
             ->add('typeOfLink', 'choice', [
                 'label'    => 'admin.menu.type_of_link',
@@ -47,9 +58,6 @@ class MenuAdmin extends Admin
             ])
             ->end()
             ->with('admin.options', ['class' => 'col-md-4'])
-            ->add('language', null, [
-                'label' => 'admin.menu.language'
-            ])
             ->add('published', null, [
                 'label' => 'admin.menu.published'
             ])
@@ -65,14 +73,11 @@ class MenuAdmin extends Admin
             ->add('id', null, [
                 'label' => 'admin.id'
             ])
-            ->add('name', null, [
+            ->add('translations.name', null, [
                 'label' => 'admin.menu.name'
             ])
             ->add('article', null, [
                 'label' => 'admin.menu.article'
-            ])
-            ->add('language', null, [
-                'label' => 'admin.menu.language'
             ])
             ->add('published', null, [
                 'label' => 'admin.menu.published'
@@ -119,9 +124,6 @@ class MenuAdmin extends Admin
             ->add('url', null, [
                 'label' => 'admin.menu.url'
             ])
-            ->add('language', null, [
-                'label' => 'admin.menu.language'
-            ])
             ->add('published', null, [
                 'label'    => 'admin.menu.published',
                 'editable' => true
@@ -134,4 +136,8 @@ class MenuAdmin extends Admin
             ]);
     }
 
+    public function setLanguageService(Language $language)
+    {
+        $this->language = $language;
+    }
 }

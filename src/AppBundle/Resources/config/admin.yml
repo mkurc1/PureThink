@@ -35,6 +35,8 @@ services:
             - { name: sonata.admin, manager_type: orm, show_in_dashboard: false }
         class: AppBundle\Admin\MenuAdmin
         arguments: [null, AppBundle\Entity\Menu, SonataAdminBundle:CRUD]
+        calls:
+            - [ setLanguageService, ['@app.language_service'] ]
 
     app.admin.extension:
         tags:
