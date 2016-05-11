@@ -10,9 +10,9 @@
                     {% for child in entity.activeChildren %}
                         <li>
                             <a {{ child.isNewPage ? 'target="_blank"' : '' }} href="
-                    {% if child.typeOfLink == constant('AppBundle\\Entity\\Menu::ARTICLE_LINK') %}
+                    {% if child.typeOf == constant('AppBundle\\Entity\\Menu::TYPE_OF_ARTICLE') %}
                         {{ path('article', { 'locale': app.request.locale, 'slug': child.article.slug }) }}
-                    {% elseif child.typeOfLink == constant('AppBundle\\Entity\\Menu::STRING_LINK') %}
+                    {% elseif child.typeOf == constant('AppBundle\\Entity\\Menu::TYPE_OF_URL') %}
                         {{ child.url }}
                     {% endif %}
                         ">{{ child }}</a>
@@ -23,9 +23,9 @@
         {% else %}
             <li>
                 <a {{ entity.isNewPage ? 'target="_blank"' : '' }} href="
-                    {% if entity.typeOfLink == constant('AppBundle\\Entity\\Menu::ARTICLE_LINK') %}
+                    {% if entity.typeOf == constant('AppBundle\\Entity\\Menu::TYPE_OF_ARTICLE') %}
                         {{ path('article', { 'locale': app.request.locale, 'slug': entity.article.slug }) }}
-                    {% elseif entity.typeOfLink == constant('AppBundle\\Entity\\Menu::STRING_LINK') %}
+                    {% elseif entity.typeOf == constant('AppBundle\\Entity\\Menu::TYPE_OF_URL') %}
                         {{ entity.url }}
                     {% endif %}
                         ">{{ entity }}</a>

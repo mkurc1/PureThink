@@ -1,4 +1,4 @@
-model: AppBundle\Entity\Menu
+model: AppBundle\Entity\MenuArticle
 fixtures:
     cms_menu_1:
         type: cms_menu_type_1

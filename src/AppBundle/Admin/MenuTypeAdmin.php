@@ -31,7 +31,7 @@ class MenuTypeAdmin extends Admin
 
         $menu->addChild(
             $this->trans('admin.menu_type.side_menu.elements'),
-            ['uri' => $admin->generateUrl('app.admin.menu.list', compact('id'))]
+            ['uri' => $admin->getRouteGenerator()->generate('admin_app_menutype_menu_list', compact('id'))]
         );
     }
 

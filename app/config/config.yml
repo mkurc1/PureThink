@@ -257,6 +257,6 @@ khepin_yaml_fixtures:
         - AppBundle/componentHasArticle
         - AppBundle/componentHasFile
         - AppBundle/menuType
-        - AppBundle/menu
+        - AppBundle/menuArticle
         - AppBundle/menuTranslation
         - AppBundle

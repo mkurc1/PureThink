@@ -6,6 +6,8 @@ Language List: Lista języków
 Menu List: Lista elementów przypisanych do menu
 Menu Type List: Lista menu
 Site List: Ogólne ustawienia
+Article: Artykuł
+Url: Url
 
 admin:
     created_at: Data utworzenia

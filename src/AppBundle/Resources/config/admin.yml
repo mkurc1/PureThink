@@ -1,3 +1,8 @@
+parameters:
+    app.menu.classess:
+        Article: AppBundle\Entity\MenuArticle
+        Url: AppBundle\Entity\MenuUrl
+
 services:
     app.admin.language:
         tags:
@@ -37,6 +42,7 @@ services:
         arguments: [null, AppBundle\Entity\Menu, SonataAdminBundle:CRUD]
         calls:
             - [ setLanguageService, ['@app.language_service'] ]
+            - [ setSubClasses, ['%app.menu.classess%'] ]
 
     app.admin.extension:
         tags:

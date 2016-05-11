@@ -13,23 +13,22 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 
 /**
- * @ORM\Table(name="cms_menu")
+ * @ORM\Table(name="cms_menu",
+ *   indexes={
+ *     @ORM\Index(columns={"dtype"})
+ *   })
+ * @ORM\InheritanceType("SINGLE_TABLE")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\MenuRepository")
  * @Gedmo\SoftDeleteable(fieldName="deletedAt")
  */
-class Menu implements SoftDeleteable
+abstract class Menu implements SoftDeleteable
 {
-    const ARTICLE_LINK = 1;
-    const STRING_LINK = 2;
+    CONST TYPE_OF_ARTICLE = 'Article';
+    CONST TYPE_OF_URL = 'Url';
 
     use Translatable;
     use SoftDeleteableEntity;
     use TimestampableEntity;
-
-    public static $linkTypes = [
-        self::ARTICLE_LINK => 'Article',
-        self::STRING_LINK  => 'Url'
-    ];
 
     /**
      * @ORM\Column(type="integer")
@@ -55,19 +54,6 @@ class Menu implements SoftDeleteable
     protected $isNewPage = false;
 
     /**
-     * @var int
-     * @ORM\Column(type="integer")
-     */
-    protected $typeOfLink = self::ARTICLE_LINK;
-
-    /**
-     * @var string
-     * @Assert\Url()
-     * @ORM\Column(type="string", nullable=true)
-     */
-    protected $url;
-
-    /**
      * @Gedmo\SortableGroup
      * @ORM\ManyToOne(targetEntity="Menu", inversedBy="menus")
      * @ORM\JoinColumn(onDelete="CASCADE", nullable=true)
@@ -88,15 +74,9 @@ class Menu implements SoftDeleteable
      */
     protected $type;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="Article")
-     * @ORM\JoinColumn(onDelete="CASCADE", nullable=false)
-     * @Assert\NotNull()
-     */
-    protected $article;
-
     protected $translations;
 
+    abstract public function getTypeOf();
 
     public function getActiveChildren()
     {
@@ -232,29 +212,6 @@ class Menu implements SoftDeleteable
     }
 
     /**
-     * Set article
-     *
-     * @param Article $article
-     * @return Menu
-     */
-    public function setArticle(Article $article)
-    {
-        $this->article = $article;
-
-        return $this;
-    }
-
-    /**
-     * Get article
-     *
-     * @return Article
-     */
-    public function getArticle()
-    {
-        return $this->article;
-    }
-
-    /**
      * Set type
      *
      * @param MenuType $type
@@ -321,37 +278,5 @@ class Menu implements SoftDeleteable
     public function getPublished()
     {
         return $this->published;
-    }
-
-    /**
-     * @return int
-     */
-    public function getTypeOfLink()
-    {
-        return $this->typeOfLink;
-    }
-
-    /**
-     * @param int $typeOfLink
-     */
-    public function setTypeOfLink($typeOfLink)
-    {
-        $this->typeOfLink = $typeOfLink;
-    }
-
-    /**
-     * @return string
-     */
-    public function getUrl()
-    {
-        return $this->url;
-    }
-
-    /**
-     * @param string $url
-     */
-    public function setUrl($url)
-    {
-        $this->url = $url;
     }
 }

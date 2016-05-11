@@ -1,9 +1,10 @@
 <?php
 namespace AppBundle\Admin;
 
+use AppBundle\Entity\MenuArticle;
+use AppBundle\Entity\MenuUrl;
 use AppBundle\Service\Language;
 use Sonata\AdminBundle\Admin\Admin;
-use AppBundle\Entity\Menu;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
@@ -24,32 +25,36 @@ class MenuAdmin extends Admin
 
     protected function configureFormFields(FormMapper $formMapper)
     {
+        $menu = $this->getSubject();
+
         $formMapper
             ->with('admin.general', ['class' => 'col-md-8'])
             ->add('translations', 'a2lix_translations', [
                 'label'          => false,
                 'locales'        => $this->language->getAvailableLocales(),
                 'fields'         => [
-                    'name'       => [
+                    'name' => [
                         'label' => 'admin.menu.name',
                     ]
                 ],
                 'exclude_fields' => ['createdAt', 'updatedAt', 'deletedAt']
-            ])
-            ->add('typeOfLink', 'choice', [
-                'label'    => 'admin.menu.type_of_link',
-                'multiple' => false,
-                'expanded' => true,
-                'choices'  => Menu::$linkTypes
-            ])
-            ->add('article', 'sonata_type_model_list', [
+            ]);
+
+        if ($menu instanceof MenuArticle) {
+            $formMapper->add('article', 'sonata_type_model_list', [
                 'label'   => 'admin.menu.article',
                 'btn_add' => false
-            ])
-            ->add('url', 'url', [
+            ]);
+        }
+
+        if ($menu instanceof MenuUrl) {
+            $formMapper->add('url', 'url', [
                 'label'    => 'admin.menu.url',
                 'required' => false
-            ])
+            ]);
+        }
+
+        $formMapper
             ->add('menu', 'sonata_type_model_list', [
                 'label'    => 'admin.menu.menu',
                 'help'     => 'admin.menu.menu_help',
@@ -75,9 +80,6 @@ class MenuAdmin extends Admin
             ])
             ->add('translations.name', null, [
                 'label' => 'admin.menu.name'
-            ])
-            ->add('article', null, [
-                'label' => 'admin.menu.article'
             ])
             ->add('published', null, [
                 'label' => 'admin.menu.published'
@@ -114,15 +116,8 @@ class MenuAdmin extends Admin
                 'label'    => 'admin.menu.position',
                 'editable' => true
             ])
-            ->add('typeOfLink', 'choice', [
-                'label'   => 'admin.menu.type_of_link',
-                'choices' => Menu::$linkTypes
-            ])
-            ->add('article', null, [
-                'label' => 'admin.menu.article'
-            ])
-            ->add('url', null, [
-                'label' => 'admin.menu.url'
+            ->add('typeOf', null, [
+                'label' => 'admin.menu.type_of_link'
             ])
             ->add('published', null, [
                 'label'    => 'admin.menu.published',
