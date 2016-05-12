@@ -71,12 +71,6 @@ class ExtensionHasField implements SoftDeleteable
     private $labelOfField;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     * @Assert\Length(max="255")
-     */
-    private $class;
-
-    /**
      * @ORM\Column(type="boolean", nullable=true)
      */
     private $required = false;
@@ -157,29 +151,6 @@ class ExtensionHasField implements SoftDeleteable
     public function __toString()
     {
         return $this->getName();
-    }
-
-    /**
-     * Set class
-     *
-     * @param string $class
-     * @return ExtensionHasField
-     */
-    public function setClass($class)
-    {
-        $this->class = $class;
-
-        return $this;
-    }
-
-    /**
-     * Get class
-     *
-     * @return string
-     */
-    public function getClass()
-    {
-        return $this->class;
     }
 
     /**

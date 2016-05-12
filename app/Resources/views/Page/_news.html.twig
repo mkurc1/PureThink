@@ -6,12 +6,16 @@
             <div class="media">
                 <div class="media-left">
                     <a href="{{ path('article', { 'locale': app.request.locale, 'slug': new['adres'].slug }) }}">
-                        {% media new['fotografia'], 'reference' with {'class': 'media-object'}  %}
+                        {% media new['fotografia'], 'reference' with {'class': 'media-object'} %}
                     </a>
                 </div>
                 <div class="media-body">
-                    <h4 class="media-heading">{{ new['nazwa'] }} <small class="date">{{ new['created_at']|format_datetime('dd MMM Y HH:mm') }}</small></h4>
-
+                    <h4 class="media-heading">
+                        <a href="{{ path('article', { 'locale': app.request.locale, 'slug': new['adres'].slug }) }}">
+                            {{ new['nazwa'] }}
+                        </a>
+                        <small class="date">{{ new['created_at']|format_datetime('dd MMM Y HH:mm') }}</small>
+                    </h4>
                     <p>{{ new['tresc'] }}</p>
                 </div>
             </div>

@@ -17,7 +17,6 @@ class ComponentHasValueAdmin extends Admin
         $formMapper->add('content', $field->getTypeOfFieldString(), [
             'required'    => $field->getRequired(),
             'label'       => $field->getLabelOfField(),
-            'attr'        => ['class' => $field->getClass()],
             'constraints' => $field->getRequired() ? [new NotNull()] : null
         ]);
     }

@@ -13,7 +13,6 @@ fixtures:
         typeOfField: 9
         name: "Adres"
         labelOfField: "Adres docelowy"
-        class: "sintetic-select"
         required: 1
         position: 2
     cms_extension_has_field_3:
@@ -21,7 +20,6 @@ fixtures:
         typeOfField: 10
         name: "Fotografia"
         labelOfField: "Wybierz fotografię"
-        class: "sintetic-select"
         required: 1
         position: 3
     cms_extension_has_field_4:
@@ -37,7 +35,6 @@ fixtures:
         typeOfField: 9
         name: "Adres"
         labelOfField: "Adres docelowy"
-        class: "sintetic-select"
         required: 1
         position: 2
     cms_extension_has_field_6:
@@ -53,7 +50,6 @@ fixtures:
         typeOfField: 9
         name: "Adres"
         labelOfField: "Adres docelowy"
-        class: "sintetic-select"
         required: 1
         position: 2
     cms_extension_has_field_8:
@@ -61,7 +57,6 @@ fixtures:
         typeOfField: 10
         name: "Fotografia"
         labelOfField: "Wybierz fotografię"
-        class: "sintetic-select"
         required: 1
         position: 3
     cms_extension_has_field_9:

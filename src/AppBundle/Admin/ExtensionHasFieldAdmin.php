@@ -20,10 +20,6 @@ class ExtensionHasFieldAdmin extends Admin
             ->add('labelOfField', null, [
                 'label' => 'admin.extension_has_field.label_of_field'
             ])
-            ->add('class', null, [
-                'label'    => 'admin.extension_has_field.class',
-                'required' => false
-            ])
             ->add('required', null, [
                 'label'    => 'admin.extension_has_field.required',
                 'required' => false
