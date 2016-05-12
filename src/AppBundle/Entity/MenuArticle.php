@@ -14,7 +14,7 @@ class MenuArticle extends Menu
     /**
      * @var Article
      *
-     * @ORM\ManyToOne(targetEntity="Article", fetch="EAGER")
+     * @ORM\ManyToOne(targetEntity="Article")
      * @Assert\NotNull()
      */
     protected $article;

@@ -8,22 +8,23 @@ class MenuRepository extends EntityRepository
 {
     public function getActiveMenu($typeSlug, $locale)
     {
-        $articleIds = $this->getEntityManager()->getRepository('AppBundle:MenuArticle')
-            ->getActiveMenuIds($typeSlug, $locale);
+        $articles = $this->getEntityManager()->getRepository('AppBundle:MenuArticle')
+            ->getActiveMenus($typeSlug, $locale);
 
-        $urlIds = $this->getEntityManager()->getRepository('AppBundle:MenuUrl')
-            ->getActiveMenuIds($typeSlug, $locale);
+        $urls = $this->getEntityManager()->getRepository('AppBundle:MenuUrl')
+            ->getActiveMenus($typeSlug, $locale);
 
-        $ids = array_merge($articleIds, $urlIds);
+        $menus = array_merge($articles, $urls);
 
         $qb = $this->createQueryBuilder('a')
             ->addSelect('at')
             ->join('a.translations', 'at', 'WITH', 'at.locale = :locale')
             ->where('a.published = true')
-            ->andWhere('a.id IN (:ids)')
+            ->andWhere('a IN (:menus)')
             ->andWhere('a.menu IS NULL')
             ->orderBy('a.position')
-            ->setParameter('ids', $ids)
+            ->groupBy('a.id')
+            ->setParameter('menus', $menus)
             ->setParameter('locale', $locale);
 
         return $qb->getQuery()->getResult();

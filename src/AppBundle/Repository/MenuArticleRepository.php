@@ -4,10 +4,10 @@ namespace AppBundle\Repository;
 
 class MenuArticleRepository extends MenuRepository
 {
-    public function getActiveMenuIds($typeSlug, $locale)
+    public function getActiveMenus($typeSlug, $locale)
     {
         $qb = $this->createQueryBuilder('a')
-            ->select('a.id')
+            ->addSelect('art, at, artt')
             ->join('a.type', 't')
             ->join('a.article', 'art')
             ->join('a.translations', 'at', 'WITH', 'at.locale = :locale')
@@ -15,10 +15,9 @@ class MenuArticleRepository extends MenuRepository
             ->where('a.published = true')
             ->andWhere('art.published = true')
             ->andWhere('t.slug = :typeSlug')
-            ->groupBy('a.id')
             ->setParameter('typeSlug', $typeSlug)
             ->setParameter('locale', $locale);
 
-        return $qb->getQuery()->getArrayResult();
+        return $qb->getQuery()->getResult();
     }
 }
