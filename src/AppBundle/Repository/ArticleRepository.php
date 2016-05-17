@@ -20,16 +20,14 @@ class ArticleRepository extends EntityRepository
         return $qb->getQuery()->getResult();
     }
 
-    public function articleBySlug($locale, $slug)
+    public function articleBySlug($slug)
     {
         $qb = $this->createQueryBuilder('a')
             ->addSelect('t')
             ->join('a.translations', 't')
             ->where('a.published = true')
             ->andWhere('t.slug = :slug')
-            ->andWhere('t.locale = :locale')
             ->setParameter('slug', $slug)
-            ->setParameter('locale', $locale)
             ->setMaxResults(1);
 
         return $qb->getQuery()->getOneOrNullResult();

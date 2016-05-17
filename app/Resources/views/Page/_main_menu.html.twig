@@ -11,7 +11,7 @@
                         <li>
                             <a {{ child.isNewPage ? 'target="_blank"' : '' }} href="
                     {% if child.typeOf == constant('AppBundle\\Entity\\Menu::TYPE_OF_ARTICLE') %}
-                        {{ path('article', { 'locale': app.request.locale, 'slug': child.article.slug }) }}
+                        {{ path('article', { 'slug': child.article.slug }) }}
                     {% elseif child.typeOf == constant('AppBundle\\Entity\\Menu::TYPE_OF_URL') %}
                         {{ child.url }}
                     {% endif %}
@@ -24,7 +24,7 @@
             <li>
                 <a {{ entity.isNewPage ? 'target="_blank"' : '' }} href="
                     {% if entity.typeOf == constant('AppBundle\\Entity\\Menu::TYPE_OF_ARTICLE') %}
-                        {{ path('article', { 'locale': app.request.locale, 'slug': entity.article.slug }) }}
+                        {{ path('article', { 'slug': entity.article.slug }) }}
                     {% elseif entity.typeOf == constant('AppBundle\\Entity\\Menu::TYPE_OF_URL') %}
                         {{ entity.url }}
                     {% endif %}

@@ -10,58 +10,30 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use AppBundle\Entity\Site;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class PageController extends Controller
 {
     /**
-     * @Route("/", name="page")
+     * @Route("", name="page")
      * @Method("GET")
      * @I18nDoctrine
      */
-    public function mainAction(Request $request)
+    public function indexAction(Request $request)
     {
-        $locale = $request->getLocale();
-
-        if (null == $locale) {
-            $availableLocales = $this->get('app.language_service')->getAvailableLocales();
-            $request->setLocale($request->getPreferredLanguage($availableLocales));
-        }
-
-        return $this->redirectToRoute('localized_page', compact('locale'));
-    }
-
-    /**
-     * @Route("/{locale}", name="localized_page")
-     * @Method("GET")
-     * @I18nDoctrine
-     */
-    public function indexAction(Request $request, $locale)
-    {
-        if ($this->get('app.language_service')->hasAvailableLocales($locale)) {
-            $request->setLocale($locale);
-        } else {
-            return $this->getRedirectToMainPage();
-        }
-
         /** @var Site $meta */
-        $meta = $this->getMetadataByLocale($locale);
+        $meta = $this->getMetadataByLocale($request->getLocale());
 
         return $this->render(':Page:index.html.twig', compact('meta'));
     }
 
     /**
-     * @Route("/{locale}/search")
+     * @Route("/search")
      * @Method("GET")
      * @I18nDoctrine
      */
-    public function searchListAction(Request $request, $locale)
+    public function searchListAction(Request $request)
     {
-        if ($this->get('app.language_service')->hasAvailableLocales($locale)) {
-            $request->setLocale($locale);
-        } else {
-            return $this->getRedirectToMainPage();
-        }
+        $locale = $request->getLocale();
 
         /** @var Site $meta */
         $meta = $this->getMetadataByLocale($locale);
@@ -78,7 +50,16 @@ class PageController extends Controller
     }
 
     /**
-     * @Route("/{locale}/{slug}", name="article")
+     * @Route("/change-locale/{_locale}", name="change_locale")
+     * @Method("GET")
+     */
+    public function changeLocaleAction()
+    {
+        return $this->redirectToRoute('page');
+    }
+
+    /**
+     * @Route("/{slug}", name="article")
      * @ParamConverter("article", class="AppBundle:Article", options={
      *     "repository_method" = "articleBySlug",
      *     "map_method_signature" = true
@@ -86,25 +67,11 @@ class PageController extends Controller
      * @Method("GET")
      * @I18nDoctrine
      */
-    public function articleAction(Request $request, $locale, Article $article)
+    public function articleAction(Article $article)
     {
-        if ($this->get('app.language_service')->hasAvailableLocales($locale)) {
-            $request->setLocale($locale);
-        } else {
-            return $this->getRedirectToMainPage();
-        }
-
         $this->getDoctrine()->getRepository('AppBundle:ArticleView')->incrementViews($article->getViews());
 
         return $this->render(':Page:article.html.twig', compact('article'));
-    }
-
-    /**
-     * @return RedirectResponse
-     */
-    private function getRedirectToMainPage()
-    {
-        return $this->redirect($this->generateUrl('page'));
     }
 
     /**
