@@ -25,16 +25,6 @@ services:
         calls:
             - [ setAnnotationReader, [ '@annotation_reader' ] ]
 
-    app.article_type:
-        class: AppBundle\Form\Type\ArticleType
-        tags:
-            - { name: form.type, alias: Article }
-
-    app.file_type:
-        class: AppBundle\Form\Type\FileType
-        tags:
-            - { name: form.type, alias: File }
-
     app.language_service:
         class: AppBundle\Service\Language
         arguments: ['@doctrine.orm.entity_manager']

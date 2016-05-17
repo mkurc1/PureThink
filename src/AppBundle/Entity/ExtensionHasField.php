@@ -39,8 +39,8 @@ class ExtensionHasField implements SoftDeleteable
         self::TYPE_BOOLEAN  => "boolean",
         self::TYPE_DATE     => "date",
         self::TYPE_DATETIME => "datetime",
-        self::TYPE_ARTICLE  => "Article",
-        self::TYPE_FILE     => "File"
+        self::TYPE_ARTICLE  => "article",
+        self::TYPE_FILE     => "file"
     ];
 
     /**
