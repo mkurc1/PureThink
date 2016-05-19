@@ -6,7 +6,11 @@
             <div class="media">
                 <div class="media-left">
                     <a href="{{ path('article', { 'slug': news.adres.slug }) }}">
-                        {% media news.fotografia, 'news' with {'class': 'media-object'} %}
+                        {% if is_media_exist(news.fotografia, 'news') %}
+                            <img src="{% path news.fotografia, 'news' %}" class="media-object" alt="" />
+                        {% else %}
+                            <img src="http://dummyimage.com/103x113/bcbcbc/000000" class="media-object" alt="" />
+                        {% endif %}
                     </a>
                 </div>
                 <div class="media-body">

@@ -5,3 +5,10 @@ services:
         public: false
         tags:
             - { name: twig.extension }
+
+    app.twig.media_extension:
+        class: AppBundle\Twig\MediaExtension
+        arguments: ['@kernel', '@sonata.media.twig.extension']
+        public: false
+        tags:
+            - { name: twig.extension }
