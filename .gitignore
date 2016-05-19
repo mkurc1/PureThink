@@ -8,6 +8,6 @@
 /vendor/
 /bin/
 /app/config/parameters.yml
-/web/uploads/
-!web/uploads/.gitkeep
+/web/uploads/media/
+!web/uploads/media/.gitkeep
 *~
