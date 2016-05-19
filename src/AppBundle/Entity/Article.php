@@ -68,12 +68,20 @@ class Article implements MetadataInterface, ArticleViewInterface, SoftDeleteable
 
     public function getName()
     {
-        return $this->getCurrentTranslation()->getName();
+        if ($this->getCurrentTranslation()) {
+            return $this->getCurrentTranslation()->getName();
+        }
+
+        return null;
     }
 
     public function getSlug()
     {
-        return $this->getCurrentTranslation()->getSlug();
+        if ($this->getCurrentTranslation()) {
+            return $this->getCurrentTranslation()->getSlug();
+        }
+
+        return null;
     }
 
     public function getTitle()

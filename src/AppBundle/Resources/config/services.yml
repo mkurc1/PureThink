@@ -1,10 +1,4 @@
 services:
-    app.language.listener:
-        class: AppBundle\EventListener\LanguageListener
-        tags:
-            - { name: kernel.event_listener, event: kernel.request, method: setLocale }
-        arguments: ['@app.language_service']
-
     sonata.admin.helper:
         class: AppBundle\Admin\AdminHelper
         arguments: ['@sonata.admin.pool']

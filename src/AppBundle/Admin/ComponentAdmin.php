@@ -1,18 +1,20 @@
 <?php
 namespace AppBundle\Admin;
 
+use AppBundle\Service\Language;
 use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Knp\Menu\ItemInterface as MenuItemInterface;
 use Sonata\AdminBundle\Admin\AdminInterface;
-use AppBundle\Entity\ComponentHasElement;
-use AppBundle\Entity\Component;
 use Sonata\AdminBundle\Form\Type\Filter\DateType;
 
 class ComponentAdmin extends Admin
 {
+    /** @var Language */
+    private $language;
+    
     protected $datagridValues = [
         '_sort_by'  => 'name',
         'createdAt' => ['type' => DateType::TYPE_GREATER_THAN],
@@ -43,11 +45,15 @@ class ComponentAdmin extends Admin
     {
         $formMapper
             ->with('admin.general', ['class' => 'col-md-8'])
-            ->add('name', null, [
-                'label' => 'admin.component.name'
-            ])
-            ->add('language', null, [
-                'label' => 'admin.component.language'
+            ->add('translations', 'a2lix_translations', [
+                'label'          => false,
+                'locales'        => $this->language->getAvailableLocales(),
+                'fields'         => [
+                    'name'        => [
+                        'label' => 'admin.component.name',
+                    ]
+                ],
+                'exclude_fields' => ['createdAt', 'updatedAt', 'deletedAt']
             ])
             ->add('extension', null, [
                 'label' => 'admin.component.extension'
@@ -70,7 +76,7 @@ class ComponentAdmin extends Admin
             ->add('id', null, [
                 'label' => 'admin.id'
             ])
-            ->add('name', null, [
+            ->add('translations.name', null, [
                 'label' => 'admin.component.name'
             ])
             ->add('slug', null, [
@@ -78,9 +84,6 @@ class ComponentAdmin extends Admin
             ])
             ->add('extension', null, [
                 'label' => 'admin.component.extension'
-            ])
-            ->add('language', null, [
-                'label' => 'admin.component.language'
             ])
             ->add('enabled', null, [
                 'label' => 'admin.component.enabled'
@@ -116,9 +119,6 @@ class ComponentAdmin extends Admin
             ->add('extension', null, [
                 'label' => 'admin.component.extension'
             ])
-            ->add('language', null, [
-                'label' => 'admin.component.language'
-            ])
             ->add('enabled', null, [
                 'label'    => 'admin.component.enabled',
                 'editable' => true
@@ -131,22 +131,8 @@ class ComponentAdmin extends Admin
             ]);
     }
 
-    public function prePersist($object)
+    public function setLanguageService(Language $language)
     {
-        $this->preUpdate($object);
-    }
-
-    public function preUpdate($object)
-    {
-        $this->setExtensionForCollections($object);
-    }
-
-    /** @var Component $object */
-    private function setExtensionForCollections($object)
-    {
-        /** @var ComponentHasElement $element */
-        foreach ($object->getElements() as $element) {
-            $element->setComponent($object);
-        }
+        $this->language = $language;
     }
 }

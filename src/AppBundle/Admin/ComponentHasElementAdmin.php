@@ -59,7 +59,11 @@ class ComponentHasElementAdmin extends Admin
             ->add('componentHasValues', 'sonata_type_collection', [
                 'label'        => false,
                 'btn_add'      => false,
-                'type_options' => ['delete' => false]
+                'type_options' => [
+                    'delete'  => false,
+                    'btn_add' => false,
+                    'label'   => false
+                ]
             ], [
                 'sortable' => 'position'
             ])
@@ -67,14 +71,6 @@ class ComponentHasElementAdmin extends Admin
                 'label' => 'admin.component_has_element.enabled'
             ])
             ->end();
-    }
-
-    public function getFormTheme()
-    {
-        return array_merge(
-            parent::getFormTheme(),
-            [':Form:admin.componentHasValues.html.twig']
-        );
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
@@ -130,7 +126,7 @@ class ComponentHasElementAdmin extends Admin
                 'editable' => true
             ])
             ->add('_action', 'actions', [
-                'label' => 'admin.actions',
+                'label'   => 'admin.actions',
                 'actions' => [
                     'move' => ['template' => ':Admin:_sort.html.twig'],
                 ]

@@ -1,0 +1,12 @@
+services:
+    app.event.language:
+        class: AppBundle\EventListener\LanguageListener
+        tags:
+            - { name: kernel.event_listener, event: kernel.request, method: setLocale }
+        arguments: ['@app.language_service']
+
+    app.event.component:
+        class: AppBundle\EventListener\ComponentListener
+        public: false
+        tags:
+            - { name: doctrine.event_listener, event: prePersist }

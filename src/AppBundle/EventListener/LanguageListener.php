@@ -14,10 +14,10 @@ class LanguageListener
      */
     private $session;
 
-    /**
-     * @var Language
+    /** @var Language
      */
     private $language;
+
 
     public function __construct(Language $language)
     {
@@ -35,9 +35,7 @@ class LanguageListener
             return;
         }
 
-
         $request = $event->getRequest();
-
 
         if ($locale = $request->attributes->get('_locale')) {
             if ($this->language->hasAvailableLocales($locale)) {
@@ -45,7 +43,15 @@ class LanguageListener
             }
         } else {
             $defaultLocale = $request->getPreferredLanguage($this->language->getAvailableLocales());
-            $request->setLocale($request->getSession()->get('_locale', $defaultLocale));
+
+            if (!$this->isAdminUrl($request->getRequestUri())) {
+                $request->setLocale($request->getSession()->get('_locale', $defaultLocale));
+            }
         }
+    }
+
+    private function isAdminUrl($uri)
+    {
+        return preg_match('/admin\/app/', $uri);
     }
 }

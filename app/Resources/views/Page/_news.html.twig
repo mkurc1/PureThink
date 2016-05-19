@@ -1,22 +1,22 @@
-{% if entities != null %}
+{% if entities is not empty %}
     <div class="col-xs-12 col-sm-6 col-md-4">
-        <h3>{{ entities['title'] }}</h3>
+        <h3>{{ entities.title }}</h3>
 
-        {% for key, new in entities if key != 'title' %}
+        {% for news in entities.entities %}
             <div class="media">
                 <div class="media-left">
-                    <a href="{{ path('article', { 'slug': new['adres'].slug }) }}">
-                        {% media new['fotografia'], 'reference' with {'class': 'media-object'} %}
+                    <a href="{{ path('article', { 'slug': news.adres.slug }) }}">
+                        {% media news.fotografia, 'news' with {'class': 'media-object'} %}
                     </a>
                 </div>
                 <div class="media-body">
                     <h4 class="media-heading">
-                        <a href="{{ path('article', { 'slug': new['adres'].slug }) }}">
-                            {{ new['nazwa'] }}
+                        <a href="{{ path('article', { 'slug': news.adres.slug }) }}">
+                            {{ news.nazwa }}
                         </a>
-                        <small class="date">{{ new['created_at']|format_datetime('dd MMM Y HH:mm') }}</small>
+                        <small class="date">{{ news.created_at | format_datetime('dd MMM Y HH:mm') }}</small>
                     </h4>
-                    <p>{{ new['tresc'] }}</p>
+                    <p>{{ news.tresc }}</p>
                 </div>
             </div>
         {% endfor %}

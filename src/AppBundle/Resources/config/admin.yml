@@ -63,6 +63,7 @@ services:
         arguments: [null, AppBundle\Entity\Component, SonataAdminBundle:CRUD]
         calls:
             - [ addChild, ['@app.admin.component_has_element'] ]
+            - [ setLanguageService, ['@app.language_service'] ]
 
     app.admin.component_has_element:
         tags:

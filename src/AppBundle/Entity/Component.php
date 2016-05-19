@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use A2lix\I18nDoctrineBundle\Doctrine\ORM\Util\Translatable;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -18,6 +19,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Component implements SoftDeleteable
 {
+    use Translatable;
     use TimestampableEntity;
     use SoftDeleteableEntity;
 
@@ -26,45 +28,32 @@ class Component implements SoftDeleteable
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $id;
+    protected $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     * @Assert\NotNull()
-     * @Assert\Length(max="255")
-     */
-    private $name;
-
-    /**
-     * @Gedmo\Slug(fields={"name"})
+     * @Gedmo\Slug(fields={"id"})
      * @ORM\Column(length=255, unique=true)
      */
-    private $slug;
+    protected $slug;
 
     /**
      * @ORM\Column(type="boolean", nullable=true)
      */
-    private $enabled = false;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="Language")
-     * @ORM\JoinColumn(onDelete="CASCADE", nullable=false)
-     * @Assert\NotNull()
-     */
-    private $language;
+    protected $enabled = false;
 
     /**
      * @ORM\ManyToOne(targetEntity="Extension")
      * @ORM\JoinColumn(onDelete="CASCADE", nullable=false)
      * @Assert\NotNull()
      */
-    private $extension;
+    protected $extension;
 
     /**
      * @ORM\OneToMany(targetEntity="ComponentHasElement", mappedBy="component", cascade={"persist"}, orphanRemoval=true)
      */
-    private $elements;
+    protected $elements;
 
+    protected $translations;
 
     /**
      * Get id
@@ -77,36 +66,25 @@ class Component implements SoftDeleteable
     }
 
     /**
-     * Set name
-     *
-     * @param string $name
-     * @return Component
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
      * Get name
      *
      * @return string
      */
     public function getName()
     {
-        return $this->name;
+        if ($this->getCurrentTranslation()) {
+            return $this->getCurrentTranslation()->getName();
+        }
+
+        return null;
     }
 
-    /**
-     * Get name
-     *
-     * @return string
-     */
     public function __toString()
     {
-        return (string)$this->getName();
+        if ($this->translations && $this->translations->count()) {
+            return (string)$this->getName();
+        }
+        return '';
     }
 
     /**
@@ -130,29 +108,6 @@ class Component implements SoftDeleteable
     public function getSlug()
     {
         return $this->slug;
-    }
-
-    /**
-     * Set language
-     *
-     * @param Language $language
-     * @return Component
-     */
-    public function setLanguage(Language $language)
-    {
-        $this->language = $language;
-
-        return $this;
-    }
-
-    /**
-     * Get language
-     *
-     * @return Language
-     */
-    public function getLanguage()
-    {
-        return $this->language;
     }
 
     /**
@@ -183,6 +138,7 @@ class Component implements SoftDeleteable
      */
     public function __construct()
     {
+        $this->translations = new ArrayCollection();
         $this->elements = new ArrayCollection();
     }
 
@@ -195,7 +151,6 @@ class Component implements SoftDeleteable
     public function addElement(ComponentHasElement $elements)
     {
         $elements->setComponent($this);
-
         $this->elements[] = $elements;
 
         return $this;

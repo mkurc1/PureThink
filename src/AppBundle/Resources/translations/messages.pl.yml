@@ -11,7 +11,7 @@ Url: Url
 
 admin:
     created_at: Data utworzenia
-    updated_at: Data utworzenia
+    updated_at: Data modyfikacji
     actions: Akcje
     position_updated: Pozycja została uaktualniona
 

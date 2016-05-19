@@ -29,7 +29,6 @@ class ComponentHasValueAdmin extends Admin
                 $formMapper->add('file', 'sonata_type_model_list', [
                     'required'    => $field->getRequired(),
                     'btn_delete'  => !$field->getRequired(),
-                    'btn_add'     => false,
                     'label'       => $field->getLabelOfField(),
                     'constraints' => $field->getRequired() ? [new NotNull()] : null
                 ]);

@@ -11,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
 class ComponentHasArticle extends ComponentHasValue
 {
     /**
-     * @ORM\ManyToOne(targetEntity="Article", inversedBy="componentHasArticle", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="Article", inversedBy="componentHasArticle", cascade={"persist"}, fetch="EAGER")
      * @ORM\JoinColumn(onDelete="CASCADE", nullable=true)
      */
     private $article;

@@ -1,0 +1,22 @@
+model: AppBundle\Entity\ComponentTranslation
+fixtures:
+    cms_component_translation_1:
+        name: "Baner"
+        translatable: cms_component_1
+        locale: pl
+    cms_component_translation_2:
+        name: "Linki"
+        translatable: cms_component_2
+        locale: pl
+    cms_component_translation_3:
+        name: "Lorem Ipsum Dolom - news 1"
+        translatable: cms_component_3
+        locale: pl
+    cms_component_translation_4:
+        name: "Lorem Ipsum Dolom - news 2"
+        translatable: cms_component_4
+        locale: pl
+    cms_component_translation_5:
+        name: "Lorem Ipsum Dolom - news 3"
+        translatable: cms_component_5
+        locale: pl

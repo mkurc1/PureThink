@@ -13,40 +13,59 @@ class ComponentHasElementRepository extends EntityRepository
         $entities = [];
 
         $componentsQb = $this->getActiveComponentBySlugAndLocaleQb($slug, $locale);
-        $components = $componentsQb->getQuery()->getResult();
+        $componentHasElements = $componentsQb->getQuery()->getResult();
 
-        /** @var ComponentHasElement $component */
-        foreach ($components as $component) {
-            $created = $component->getComponent()->getCreatedAt();
-            $updated = $component->getComponent()->getUpdatedAt();
-            $elementId = $component->getId();
+        /** @var ComponentHasElement $componentHasElement */
+        foreach ($componentHasElements as $componentHasElement) {
+            $component = $componentHasElement->getComponent();
 
-            $entities['title'] = $component->getComponent()->getName();
-            $entities[$elementId]['created_at'] = $created;
-            $entities[$elementId]['updated_at'] = $updated;
+            $validItem = true;
+            $item = [
+                'created_at' => $component->getCreatedAt(),
+                'updated_at' => $component->getUpdatedAt()
+            ];
+
+            $entities['title'] = $component->getName();
 
             /** @var ComponentHasValue $value */
-            foreach ($component->getComponentHasValues() as $value) {
-                $slug = $value->getExtensionHasField()->getSlug();
-                $entities[$elementId][$slug] = $value->getContent();
+            foreach ($componentHasElement->getComponentHasValues() as $value) {
+                $isRequired = $value->getExtensionHasField()->getRequired();
+                $content = $value->getContent();
+
+                if ($isRequired && null == $content) {
+                    $validItem = false;
+                } else {
+                    $slug = $value->getExtensionHasField()->getSlug();
+                    $item[$slug] = $content;
+                }
+            }
+
+            if ($validItem) {
+                $entities['entities'][] = (object)$item;
             }
         }
 
-        return $entities;
+        $entities = (object)$entities;
+        if (property_exists($entities, 'title') && property_exists($entities, 'entities')) {
+            return $entities;
+        }
+
+        return null;
     }
 
     private function getActiveComponentBySlugAndLocaleQb($slug, $locale)
     {
         return $this->createQueryBuilder('c')
-            ->addSelect('cc, cop, ehf')
+            ->addSelect('cc, cop, ehf, copt')
             ->join('c.componentHasValues', 'cc')
             ->join('cc.extensionHasField', 'ehf')
             ->join('c.component', 'cop')
-            ->join('cop.language', 'l')
+            ->join('cop.translations', 'copt')
             ->where('cop.enabled = true')
             ->andWhere('c.enabled = true')
-            ->andWhere('UPPER(l.alias) = UPPER(:locale)')
             ->andWhere('cop.slug = :slug')
+            ->andWhere('copt.locale = :locale')
+            ->groupBy('cc')
             ->orderBy('c.position', 'ASC')
             ->setParameter('slug', $slug)
             ->setParameter('locale', $locale);

@@ -151,10 +151,11 @@ sonata_media:
                 - sonata.media.provider.youtube
                 - sonata.media.provider.image
                 - sonata.media.provider.file
-
             formats:
-                small: { width: 100 , quality: 70}
-                big:   { width: 500 , quality: 70}
+                small: { width: 100, quality: 70 }
+                big:   { width: 500, quality: 70 }
+                banner:   { width: 1000, quality: 90 }
+                news: { width: 104, quality: 90 }
     cdn:
         server:
             path: /uploads/media
@@ -252,6 +253,7 @@ khepin_yaml_fixtures:
         - AppBundle/extension
         - AppBundle/extensionHasField
         - AppBundle/component
+        - AppBundle/componentTranslation
         - AppBundle/componentHasElement
         - AppBundle/componentHasText
         - AppBundle/componentHasArticle
