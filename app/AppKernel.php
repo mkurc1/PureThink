@@ -41,6 +41,8 @@ class AppKernel extends Kernel
             new A2lix\I18nDoctrineBundle\A2lixI18nDoctrineBundle(),
             new A2lix\TranslationFormBundle\A2lixTranslationFormBundle(),
 
+            new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
+
             new AppBundle\AppBundle()
         ];
 

@@ -36,7 +36,8 @@
         "sonata-project/formatter-bundle": "~2.3",
         "pixassociates/sortable-behavior-bundle": "0.2.*",
         "a2lix/translation-form-bundle": "^2.1",
-        "a2lix/i18n-doctrine-bundle": "^0.1.0"
+        "a2lix/i18n-doctrine-bundle": "^0.1.0",
+        "doctrine/doctrine-migrations-bundle": "^1.1"
     },
     "scripts": {
         "post-install-cmd": [
