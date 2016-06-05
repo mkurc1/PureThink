@@ -1,8 +1,0 @@
-model: AppBundle\Entity\Extension
-fixtures:
-    cms_extension_1:
-        name: "Linki"
-    cms_extension_2:
-        name: "Baner"
-    cms_extension_3:
-        name: "News"

@@ -1,8 +1,0 @@
-model: AppBundle\Entity\MenuType
-fixtures:
-    cms_menu_type_1:
-        name: 'Main'
-        description: 'Głowne menu na górze strony'
-    cms_menu_type_2:
-        name: 'Footer'
-        description: 'Menu pomocnicze na dole strony'
