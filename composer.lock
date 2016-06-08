@@ -2671,12 +2671,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/mkurc1/PurethinkCMSBundle.git",
-                "reference": "f7f594f362a23e6cc9b979bd48fed714efb4a78f"
+                "reference": "b5cbe396377c67e518df8f131101c83783ea0e01"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mkurc1/PurethinkCMSBundle/zipball/f7f594f362a23e6cc9b979bd48fed714efb4a78f",
-                "reference": "f7f594f362a23e6cc9b979bd48fed714efb4a78f",
+                "url": "https://api.github.com/repos/mkurc1/PurethinkCMSBundle/zipball/b5cbe396377c67e518df8f131101c83783ea0e01",
+                "reference": "b5cbe396377c67e518df8f131101c83783ea0e01",
                 "shasum": ""
             },
             "require": {
@@ -2734,7 +2734,7 @@
                 "source": "https://github.com/mkurc1/PurethinkCMSBundle/tree/master",
                 "issues": "https://github.com/mkurc1/PurethinkCMSBundle/issues"
             },
-            "time": "2016-06-05 10:20:24"
+            "time": "2016-06-07 06:22:29"
         },
         {
             "name": "monolog/monolog",
