@@ -2,7 +2,9 @@
 imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
-    - { resource: '@PurethinkCMSBundle/Resources/config/main.yml' }
+    - { resource: '@PurethinkCoreBundle/Resources/config/main.yml' }
+    - { resource: '@PurethinkFixturesBundle/Resources/config/main.yml' }
+    - { resource: '@PurethinkAdminBundle/Resources/config/main.yml' }
 
 framework:
     #esi:             ~

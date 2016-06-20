@@ -1,5 +1,11 @@
-sonata_user_security:
-    resource: "@SonataUserBundle/Resources/config/routing/sonata_security_1.xml"
+purethink_core:
+    resource: "@PurethinkCoreBundle/Resources/config/routing.yml"
+
+purethink_admin:
+    resource: "@PurethinkAdminBundle/Resources/config/routing.yml"
+
+purethink_cms:
+    resource: "@PurethinkCMSBundle/Resources/config/routing.yml"
 
 sonata_user_resetting:
     resource: "@SonataUserBundle/Resources/config/routing/sonata_resetting_1.xml"
@@ -16,31 +22,3 @@ sonata_user_profile:
 sonata_user_change_password:
     resource: "@SonataUserBundle/Resources/config/routing/sonata_change_password_1.xml"
     prefix: /profile
-
-admin:
-    resource: '@SonataAdminBundle/Resources/config/routing/sonata_admin.xml'
-    prefix: /admin
-
-_sonata_admin:
-    resource: .
-    type: sonata_admin
-    prefix: /admin
-
-sonata_user:
-    resource: '@SonataUserBundle/Resources/config/routing/admin_security.xml'
-    prefix: /admin
-
-fos_js_routing:
-    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
-
-purethink_cms:
-    resource: "@PurethinkCMSBundle/Controller/"
-    type:     annotation
-    prefix:   /
-
-
-_security_check:
-    pattern:  /login_check
-
-_security_logout:
-    pattern:  /logout
