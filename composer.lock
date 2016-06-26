@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "243c29affeff8b3689e5603e897a907b",
-    "content-hash": "dd51aafdccd5c06b4e5122363cd8a640",
+    "hash": "71b4effd85219b1d70945e553ef5f8b5",
+    "content-hash": "7a560462fa1857aa3999c05013278ffe",
     "packages": [
         {
             "name": "a2lix/i18n-doctrine-bundle",
@@ -2609,23 +2609,23 @@
         },
         {
             "name": "mkurc1/purethink-admin-bundle",
-            "version": "dev-master",
+            "version": "0.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mkurc1/PurethinkAdminBundle.git",
-                "reference": "9bac61fbaebfae818bfd2cd5d5231feef9fe2a11"
+                "reference": "a640d5b090fc8368ded488523d7d6ea3eb907485"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mkurc1/PurethinkAdminBundle/zipball/9bac61fbaebfae818bfd2cd5d5231feef9fe2a11",
-                "reference": "9bac61fbaebfae818bfd2cd5d5231feef9fe2a11",
+                "url": "https://api.github.com/repos/mkurc1/PurethinkAdminBundle/zipball/a640d5b090fc8368ded488523d7d6ea3eb907485",
+                "reference": "a640d5b090fc8368ded488523d7d6ea3eb907485",
                 "shasum": ""
             },
             "require": {
                 "knplabs/knp-menu-bundle": "1.1.*",
                 "knplabs/knp-paginator-bundle": "~2.4",
-                "mkurc1/purethink-cms-bundle": "dev-master",
-                "mkurc1/purethink-core-bundle": "dev-master",
+                "mkurc1/purethink-cms-bundle": "^0.0.1",
+                "mkurc1/purethink-core-bundle": "^0.0.1",
                 "php": ">=5.3.9",
                 "pixassociates/sortable-behavior-bundle": "0.2.*",
                 "sonata-project/admin-bundle": "^2.3",
@@ -2655,20 +2655,20 @@
                 "cms",
                 "purethink"
             ],
-            "time": "2016-06-19 14:08:11"
+            "time": "2016-06-26 11:27:10"
         },
         {
             "name": "mkurc1/purethink-cms-bundle",
-            "version": "dev-master",
+            "version": "0.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mkurc1/PurethinkCMSBundle.git",
-                "reference": "50c75cd35cb23e1183cdb20869f7b5e37fae93f9"
+                "reference": "07283cffcf9c20e65e65babe2c7df4c7cf2f0969"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mkurc1/PurethinkCMSBundle/zipball/50c75cd35cb23e1183cdb20869f7b5e37fae93f9",
-                "reference": "50c75cd35cb23e1183cdb20869f7b5e37fae93f9",
+                "url": "https://api.github.com/repos/mkurc1/PurethinkCMSBundle/zipball/07283cffcf9c20e65e65babe2c7df4c7cf2f0969",
+                "reference": "07283cffcf9c20e65e65babe2c7df4c7cf2f0969",
                 "shasum": ""
             },
             "require": {
@@ -2679,7 +2679,7 @@
                 "doctrine/orm": "^2.4.8",
                 "incenteev/composer-parameter-handler": "~2.0",
                 "jms/serializer-bundle": "0.13.*",
-                "mkurc1/purethink-core-bundle": "dev-master",
+                "mkurc1/purethink-core-bundle": "^0.0.1",
                 "php": ">=5.3.9",
                 "sensio/distribution-bundle": "~5.0",
                 "sensio/framework-extra-bundle": "^3.0.2",
@@ -2710,11 +2710,11 @@
                 "cms",
                 "purethink"
             ],
-            "time": "2016-06-19 14:15:28"
+            "time": "2016-06-26 11:22:46"
         },
         {
             "name": "mkurc1/purethink-core-bundle",
-            "version": "dev-master",
+            "version": "0.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mkurc1/PurethinkCoreBundle.git",
@@ -2763,21 +2763,21 @@
         },
         {
             "name": "mkurc1/purethink-fixtures-bundle",
-            "version": "dev-master",
+            "version": "0.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mkurc1/PurethinkFixturesBundle.git",
-                "reference": "faf1d87b9d726d0bcd16fbc23ef2c46c11b66767"
+                "reference": "ce315df9f38e53c0f92f73a13bf83d6ff641f079"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mkurc1/PurethinkFixturesBundle/zipball/faf1d87b9d726d0bcd16fbc23ef2c46c11b66767",
-                "reference": "faf1d87b9d726d0bcd16fbc23ef2c46c11b66767",
+                "url": "https://api.github.com/repos/mkurc1/PurethinkFixturesBundle/zipball/ce315df9f38e53c0f92f73a13bf83d6ff641f079",
+                "reference": "ce315df9f38e53c0f92f73a13bf83d6ff641f079",
                 "shasum": ""
             },
             "require": {
                 "khepin/yaml-fixtures-bundle": "~0.8.1",
-                "mkurc1/purethink-cms-bundle": "dev-master",
+                "mkurc1/purethink-cms-bundle": "^0.0.1",
                 "php": ">=5.3.9"
             },
             "type": "symfony-bundle",
@@ -2803,7 +2803,7 @@
                 "fixtures",
                 "purethink"
             ],
-            "time": "2016-06-20 21:02:38"
+            "time": "2016-06-26 11:38:54"
         },
         {
             "name": "monolog/monolog",
@@ -3324,16 +3324,16 @@
         },
         {
             "name": "sensio/distribution-bundle",
-            "version": "v5.0.6",
+            "version": "v5.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/SensioDistributionBundle.git",
-                "reference": "ffe306d09c1f2bad721237f63b2169d1b78253d0"
+                "reference": "a9c4723cbdbc6cf7fbfdfde3c639cb1943f0293a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/SensioDistributionBundle/zipball/ffe306d09c1f2bad721237f63b2169d1b78253d0",
-                "reference": "ffe306d09c1f2bad721237f63b2169d1b78253d0",
+                "url": "https://api.github.com/repos/sensiolabs/SensioDistributionBundle/zipball/a9c4723cbdbc6cf7fbfdfde3c639cb1943f0293a",
+                "reference": "a9c4723cbdbc6cf7fbfdfde3c639cb1943f0293a",
                 "shasum": ""
             },
             "require": {
@@ -3372,7 +3372,7 @@
                 "configuration",
                 "distribution"
             ],
-            "time": "2016-04-25 20:50:31"
+            "time": "2016-06-23 16:11:33"
         },
         {
             "name": "sensio/framework-extra-bundle",
@@ -5785,12 +5785,7 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "mkurc1/purethink-core-bundle": 20,
-        "mkurc1/purethink-cms-bundle": 20,
-        "mkurc1/purethink-admin-bundle": 20,
-        "mkurc1/purethink-fixtures-bundle": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
