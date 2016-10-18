@@ -2533,12 +2533,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/mkurc1/PurethinkAdminBundle.git",
-                "reference": "8960feb8982fe6f44adf3c626f1b2e5b7ac3aa6c"
+                "reference": "f8a4a702e15294c86e3f0734ecaa12d574763362"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mkurc1/PurethinkAdminBundle/zipball/8960feb8982fe6f44adf3c626f1b2e5b7ac3aa6c",
-                "reference": "8960feb8982fe6f44adf3c626f1b2e5b7ac3aa6c",
+                "url": "https://api.github.com/repos/mkurc1/PurethinkAdminBundle/zipball/f8a4a702e15294c86e3f0734ecaa12d574763362",
+                "reference": "f8a4a702e15294c86e3f0734ecaa12d574763362",
                 "shasum": ""
             },
             "require": {
@@ -2575,7 +2575,7 @@
                 "cms",
                 "purethink"
             ],
-            "time": "2016-10-15 13:03:04"
+            "time": "2016-10-18 18:21:50"
         },
         {
             "name": "mkurc1/purethink-cms-bundle",
@@ -2583,12 +2583,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/mkurc1/PurethinkCMSBundle.git",
-                "reference": "09cc16e811cbebcd6cffa6897c3f7165c44f9faf"
+                "reference": "9c080547e184f74b1f8d74877df12c1e0d6a5b0f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mkurc1/PurethinkCMSBundle/zipball/09cc16e811cbebcd6cffa6897c3f7165c44f9faf",
-                "reference": "09cc16e811cbebcd6cffa6897c3f7165c44f9faf",
+                "url": "https://api.github.com/repos/mkurc1/PurethinkCMSBundle/zipball/9c080547e184f74b1f8d74877df12c1e0d6a5b0f",
+                "reference": "9c080547e184f74b1f8d74877df12c1e0d6a5b0f",
                 "shasum": ""
             },
             "require": {
@@ -2630,7 +2630,7 @@
                 "cms",
                 "purethink"
             ],
-            "time": "2016-10-18 18:08:05"
+            "time": "2016-10-18 18:27:56"
         },
         {
             "name": "mkurc1/purethink-core-bundle",
