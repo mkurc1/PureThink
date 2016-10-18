@@ -1,4 +1,4 @@
-{% extends ":layout.html.twig" %}
+{% extends "PurethinkCMSBundle::layout.html.twig" %}
 
 {% block body %}
     <style>
@@ -20,8 +20,8 @@
                         Sorry, an error has occured, Requested page not found!
                     </div>
                     <div class="error-actions">
-                        <a href="{{ path('page') }}" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-home"></span>
-                            Take Me Home </a><a href="{{ path('page') }}" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-envelope"></span> Contact Support </a>
+                        <a href="{{ path('purethink_cms_homepage') }}" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-home"></span>
+                            Take Me Home </a><a href="{{ path('purethink_cms_homepage') }}" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-envelope"></span> Contact Support </a>
                     </div>
                 </div>
             </div>

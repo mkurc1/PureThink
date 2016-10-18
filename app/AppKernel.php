@@ -21,7 +21,6 @@ class AppKernel extends Kernel
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
             new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
-
             new Knp\Bundle\MarkdownBundle\KnpMarkdownBundle(),
             new Sonata\FormatterBundle\SonataFormatterBundle(),
             new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
@@ -31,22 +30,19 @@ class AppKernel extends Kernel
             new Sonata\AdminBundle\SonataAdminBundle(),
             new Sonata\UserBundle\SonataUserBundle('FOSUserBundle'),
             new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle(),
+            new Sonata\ClassificationBundle\SonataClassificationBundle(),
             new Sonata\MediaBundle\SonataMediaBundle(),
-
             new Pix\SortableBehaviorBundle\PixSortableBehaviorBundle(),
             new Khepin\YamlFixturesBundle\KhepinYamlFixturesBundle(),
-            new FOS\RestBundle\FOSRestBundle(),
             new JMS\SerializerBundle\JMSSerializerBundle(),
-
             new A2lix\I18nDoctrineBundle\A2lixI18nDoctrineBundle(),
             new A2lix\TranslationFormBundle\A2lixTranslationFormBundle(),
-
             new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
-
             new Purethink\CoreBundle\PurethinkCoreBundle(),
             new Purethink\CMSBundle\PurethinkCMSBundle(),
             new Purethink\FixturesBundle\PurethinkFixturesBundle(),
             new Purethink\AdminBundle\PurethinkAdminBundle(),
+            new DoctrinePrefixBundle\DoctrinePrefixBundle()
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'])) {
