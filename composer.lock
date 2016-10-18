@@ -2583,12 +2583,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/mkurc1/PurethinkCMSBundle.git",
-                "reference": "9c080547e184f74b1f8d74877df12c1e0d6a5b0f"
+                "reference": "3657e91838812ba0de95ff9c63ab691f086ca7d0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mkurc1/PurethinkCMSBundle/zipball/9c080547e184f74b1f8d74877df12c1e0d6a5b0f",
-                "reference": "9c080547e184f74b1f8d74877df12c1e0d6a5b0f",
+                "url": "https://api.github.com/repos/mkurc1/PurethinkCMSBundle/zipball/3657e91838812ba0de95ff9c63ab691f086ca7d0",
+                "reference": "3657e91838812ba0de95ff9c63ab691f086ca7d0",
                 "shasum": ""
             },
             "require": {
@@ -2599,6 +2599,7 @@
                 "doctrine/orm": "^2.4.8",
                 "incenteev/composer-parameter-handler": "~2.0",
                 "jms/serializer-bundle": "0.13.*",
+                "knplabs/knp-paginator-bundle": "^2.5",
                 "mkurc1/purethink-core-bundle": "dev-master",
                 "php": ">=5.3.9",
                 "sensio/distribution-bundle": "~5.0",
@@ -2630,7 +2631,7 @@
                 "cms",
                 "purethink"
             ],
-            "time": "2016-10-18 18:27:56"
+            "time": "2016-10-18 19:09:23"
         },
         {
             "name": "mkurc1/purethink-core-bundle",

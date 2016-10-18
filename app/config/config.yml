@@ -5,6 +5,7 @@ imports:
     - { resource: '@PurethinkCoreBundle/Resources/config/main.yml' }
     - { resource: '@PurethinkFixturesBundle/Resources/config/main.yml' }
     - { resource: '@PurethinkAdminBundle/Resources/config/main.yml' }
+    - { resource: '@PurethinkCMSBundle/Resources/config/main.yml' }
 
 framework:
     #esi:             ~

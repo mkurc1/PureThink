@@ -44,7 +44,6 @@ ul#language > li.selected > a {
     border-bottom: 1px solid #579bf0;
 }
 
-
 #main_menu .container-fluid,
 #main_menu .navbar-collapse {
     padding-left: 0;
@@ -145,7 +144,6 @@ ul#language > li.selected > a {
 }
 
 #links a {
-    color: #1e60b4;
     font-size: 12px;
 }
 
@@ -162,24 +160,6 @@ ul#language > li.selected > a {
 
 #article > .container h5.datetime {
     color: #999999;
-}
-
-#search > .container ul {
-    list-style-position: inside;
-}
-
-#search > .container ul li {
-    line-height: 1.6em;
-    font-size: 12px;
-}
-
-#search > .container ul li a {
-    font-size: 12px;
-    color: #136CD9;
-}
-
-#search > .container ul li a:hover {
-    color: #333333;
 }
 
 #footer {
