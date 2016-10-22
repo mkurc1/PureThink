@@ -2533,12 +2533,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/mkurc1/PurethinkAdminBundle.git",
-                "reference": "f8a4a702e15294c86e3f0734ecaa12d574763362"
+                "reference": "0cc4a16b7de3a214aea7d693ff5bacefdace963a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mkurc1/PurethinkAdminBundle/zipball/f8a4a702e15294c86e3f0734ecaa12d574763362",
-                "reference": "f8a4a702e15294c86e3f0734ecaa12d574763362",
+                "url": "https://api.github.com/repos/mkurc1/PurethinkAdminBundle/zipball/0cc4a16b7de3a214aea7d693ff5bacefdace963a",
+                "reference": "0cc4a16b7de3a214aea7d693ff5bacefdace963a",
                 "shasum": ""
             },
             "require": {
@@ -2575,7 +2575,7 @@
                 "cms",
                 "purethink"
             ],
-            "time": "2016-10-18 18:21:50"
+            "time": "2016-10-18 22:13:26"
         },
         {
             "name": "mkurc1/purethink-cms-bundle",
@@ -2692,12 +2692,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/mkurc1/PurethinkFixturesBundle.git",
-                "reference": "cffcc60c68fd7459a0fe9066cfc0a7092a4ae28a"
+                "reference": "242922853352f5c71b40ce1b2dba5dec78ce9250"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mkurc1/PurethinkFixturesBundle/zipball/cffcc60c68fd7459a0fe9066cfc0a7092a4ae28a",
-                "reference": "cffcc60c68fd7459a0fe9066cfc0a7092a4ae28a",
+                "url": "https://api.github.com/repos/mkurc1/PurethinkFixturesBundle/zipball/242922853352f5c71b40ce1b2dba5dec78ce9250",
+                "reference": "242922853352f5c71b40ce1b2dba5dec78ce9250",
                 "shasum": ""
             },
             "require": {
@@ -2728,7 +2728,7 @@
                 "fixtures",
                 "purethink"
             ],
-            "time": "2016-10-06 19:50:18"
+            "time": "2016-10-18 22:13:54"
         },
         {
             "name": "monolog/monolog",
