@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "24a1fe10b87d6d25978d9e06c2e54e4a",
-    "content-hash": "3dea159dabf880ae6640c6f5dd97d08c",
+    "hash": "e90e05d7c088aa7f0f64b46ae38f59e3",
+    "content-hash": "cb479b7bde67a1578efe982ee0ec6aab",
     "packages": [
         {
             "name": "a2lix/i18n-doctrine-bundle",
@@ -2645,12 +2645,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/mkurc1/PurethinkCMSBundle.git",
-                "reference": "c2cd66b64f4952ae76a86566ebb82a2d84b24484"
+                "reference": "bf8640cdb091995bbc7a55a0c391945750901012"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mkurc1/PurethinkCMSBundle/zipball/c2cd66b64f4952ae76a86566ebb82a2d84b24484",
-                "reference": "c2cd66b64f4952ae76a86566ebb82a2d84b24484",
+                "url": "https://api.github.com/repos/mkurc1/PurethinkCMSBundle/zipball/bf8640cdb091995bbc7a55a0c391945750901012",
+                "reference": "bf8640cdb091995bbc7a55a0c391945750901012",
                 "shasum": ""
             },
             "require": {
@@ -2660,15 +2660,14 @@
                 "doctrine/doctrine-fixtures-bundle": "~2.2",
                 "doctrine/doctrine-migrations-bundle": "^1.1",
                 "doctrine/orm": "^2.4.8",
-                "incenteev/composer-parameter-handler": "~2.0",
+                "incenteev/composer-parameter-handler": "^2.0",
                 "jms/serializer-bundle": "0.13.*",
                 "knplabs/knp-paginator-bundle": "^2.5",
                 "mkurc1/purethink-core-bundle": "dev-master",
-                "php": ">=5.3.9",
+                "php": "^7.0",
                 "sensio/distribution-bundle": "~5.0",
                 "sensio/framework-extra-bundle": "^3.0.2",
                 "stof/doctrine-extensions-bundle": "^1.2",
-                "symfony/monolog-bundle": "~2.4",
                 "symfony/swiftmailer-bundle": "~2.3",
                 "symfony/symfony": "2.8.*"
             },
@@ -2694,7 +2693,7 @@
                 "cms",
                 "purethink"
             ],
-            "time": "2016-10-24 19:09:12"
+            "time": "2016-10-28 13:56:04"
         },
         {
             "name": "mkurc1/purethink-core-bundle",
@@ -2702,12 +2701,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/mkurc1/PurethinkCoreBundle.git",
-                "reference": "2b32d578f60a097532036ffd93d90a25d2d48894"
+                "reference": "d34b19eb3e99d0da0b9776659feb67ce982c1e89"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mkurc1/PurethinkCoreBundle/zipball/2b32d578f60a097532036ffd93d90a25d2d48894",
-                "reference": "2b32d578f60a097532036ffd93d90a25d2d48894",
+                "url": "https://api.github.com/repos/mkurc1/PurethinkCoreBundle/zipball/d34b19eb3e99d0da0b9776659feb67ce982c1e89",
+                "reference": "d34b19eb3e99d0da0b9776659feb67ce982c1e89",
                 "shasum": ""
             },
             "require": {
@@ -2715,13 +2714,13 @@
                 "a2lix/translation-form-bundle": "^2.1",
                 "doctrine/doctrine-migrations-bundle": "^1.1",
                 "mkurc1/doctrine-prefix-bundle": "^1.0.0",
-                "php": ">=5.3.9",
+                "php": "^7.0",
                 "sonata-project/block-bundle": "^3.0.0",
                 "sonata-project/classification-bundle": "^3.1.0",
                 "sonata-project/formatter-bundle": "^3.0.0",
                 "sonata-project/intl-bundle": "^2.2",
                 "sonata-project/media-bundle": "^3.3",
-                "sonata-project/user-bundle": "^3.0.0",
+                "sonata-project/user-bundle": "^3.1.0",
                 "stof/doctrine-extensions-bundle": "^1.2"
             },
             "type": "symfony-bundle",
@@ -2747,7 +2746,7 @@
                 "cms",
                 "purethink"
             ],
-            "time": "2016-10-24 19:07:22"
+            "time": "2016-10-28 13:48:20"
         },
         {
             "name": "mkurc1/purethink-fixtures-bundle",
@@ -5780,7 +5779,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=5.3.9"
+        "php": "^7.0"
     },
     "platform-dev": []
 }
