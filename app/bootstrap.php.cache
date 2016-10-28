@@ -1055,6 +1055,10 @@ public function isMethodSafe()
 {
 return in_array($this->getMethod(), array('GET','HEAD','OPTIONS','TRACE'));
 }
+public function isMethodCacheable()
+{
+return in_array($this->getMethod(), array('GET','HEAD'));
+}
 public function getContent($asResource = false)
 {
 $currentContentIsResource = is_resource($this->content);
